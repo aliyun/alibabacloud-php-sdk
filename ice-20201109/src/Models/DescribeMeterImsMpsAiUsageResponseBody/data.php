@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsMpsAiUsageResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The usage duration, in minutes.
-     *
-     * @example 644
-     *
      * @var int
      */
     public $duration;
-
     /**
-     * @description The beginning time of usage. The value is a 10-digit timestamp.
-     *
-     * @example 1656950400
-     *
      * @var int
      */
     public $time;
-
     /**
-     * @description The AI type. Valid values:
-     *
      * @var string
      */
     public $type;
@@ -40,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -58,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

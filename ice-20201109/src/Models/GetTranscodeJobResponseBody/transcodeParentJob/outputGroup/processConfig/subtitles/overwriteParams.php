@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\outputGroup\processConfig\subtitles;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\outputGroup\processConfig\subtitles\overwriteParams\file;
-use AlibabaCloud\Tea\Model;
 
 class overwriteParams extends Model
 {
     /**
-     * @description The file encoding format.
-     *
-     * @example UTF-8
-     *
      * @var string
      */
     public $charEnc;
-
     /**
-     * @description The subtitle file.
-     *
      * @var file
      */
     public $file;
-
     /**
-     * @description The format of the subtitle file.
-     *
-     * @example vtt
-     *
      * @var string
      */
     public $format;
@@ -41,17 +29,23 @@ class overwriteParams extends Model
 
     public function validate()
     {
+        if (null !== $this->file) {
+            $this->file->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->charEnc) {
             $res['CharEnc'] = $this->charEnc;
         }
+
         if (null !== $this->file) {
-            $res['File'] = null !== $this->file ? $this->file->toMap() : null;
+            $res['File'] = null !== $this->file ? $this->file->toArray($noStream) : $this->file;
         }
+
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
@@ -59,20 +53,22 @@ class overwriteParams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return overwriteParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CharEnc'])) {
             $model->charEnc = $map['CharEnc'];
         }
+
         if (isset($map['File'])) {
             $model->file = file::fromMap($map['File']);
         }
+
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }

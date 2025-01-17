@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelFavoritePublicMediaRequest extends Model
 {
     /**
-     * @example icepublic-****7213c6050cbc66750b469701****,icepublic-****0b4697017213c6050cbc6675****
-     *
      * @var string
      */
     public $mediaIds;
@@ -20,9 +18,10 @@ class CancelFavoritePublicMediaRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaIds) {
@@ -32,11 +31,11 @@ class CancelFavoritePublicMediaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelFavoritePublicMediaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

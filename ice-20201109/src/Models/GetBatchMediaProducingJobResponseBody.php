@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetBatchMediaProducingJobResponseBody\editingBatchJob;
-use AlibabaCloud\Tea\Model;
 
 class GetBatchMediaProducingJobResponseBody extends Model
 {
     /**
-     * @description The information about the quick video production job.
-     *
      * @var editingBatchJob
      */
     public $editingBatchJob;
-
     /**
-     * @description The request ID.
-     *
-     * @example ****36-3C1E-4417-BDB2-1E034F****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetBatchMediaProducingJobResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->editingBatchJob) {
+            $this->editingBatchJob->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->editingBatchJob) {
-            $res['EditingBatchJob'] = null !== $this->editingBatchJob ? $this->editingBatchJob->toMap() : null;
+            $res['EditingBatchJob'] = null !== $this->editingBatchJob ? $this->editingBatchJob->toArray($noStream) : $this->editingBatchJob;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetBatchMediaProducingJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetBatchMediaProducingJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EditingBatchJob'])) {
             $model->editingBatchJob = editingBatchJob::fromMap($map['EditingBatchJob']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

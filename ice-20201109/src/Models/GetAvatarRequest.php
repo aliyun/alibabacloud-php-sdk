@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAvatarRequest extends Model
 {
     /**
-     * @description *   The ID of the digital human.
-     *
-     * This parameter is required.
-     * @example Avatar-XXXX
-     *
      * @var string
      */
     public $avatarId;
@@ -23,9 +18,10 @@ class GetAvatarRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avatarId) {
@@ -35,11 +31,11 @@ class GetAvatarRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAvatarRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveSnapshotFilesResponseBody\fileList;
-use AlibabaCloud\Tea\Model;
 
 class ListLiveSnapshotFilesResponseBody extends Model
 {
     /**
-     * @description The list of files.
-     *
      * @var fileList[]
      */
     public $fileList;
-
     /**
-     * @description The start time of the next page. If no value is returned, the pagination ends.
-     *
-     * @example 2022-02-02T22:22:22Z
-     *
      * @var string
      */
     public $nextStartTime;
-
     /**
-     * @description The request ID.
-     *
-     * @example ******11-DB8D-4A9A-875B-275798******
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class ListLiveSnapshotFilesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->fileList)) {
+            Model::validateArray($this->fileList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileList) {
-            $res['FileList'] = [];
-            if (null !== $this->fileList && \is_array($this->fileList)) {
-                $n = 0;
-                foreach ($this->fileList as $item) {
-                    $res['FileList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fileList)) {
+                $res['FileList'] = [];
+                $n1              = 0;
+                foreach ($this->fileList as $item1) {
+                    $res['FileList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextStartTime) {
             $res['NextStartTime'] = $this->nextStartTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class ListLiveSnapshotFilesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLiveSnapshotFilesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileList'])) {
             if (!empty($map['FileList'])) {
                 $model->fileList = [];
-                $n               = 0;
-                foreach ($map['FileList'] as $item) {
-                    $model->fileList[$n++] = null !== $item ? fileList::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['FileList'] as $item1) {
+                    $model->fileList[$n1++] = fileList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextStartTime'])) {
             $model->nextStartTime = $map['NextStartTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobResponseBody\mediaProducingJob;
-use AlibabaCloud\Tea\Model;
 
 class GetMediaProducingJobResponseBody extends Model
 {
     /**
-     * @description The information about the online editing project.
-     *
      * @var mediaProducingJob
      */
     public $mediaProducingJob;
-
     /**
-     * @description The request ID.
-     *
-     * @example ****83B7-7F87-4792-BFE9-63CD2137****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetMediaProducingJobResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->mediaProducingJob) {
+            $this->mediaProducingJob->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaProducingJob) {
-            $res['MediaProducingJob'] = null !== $this->mediaProducingJob ? $this->mediaProducingJob->toMap() : null;
+            $res['MediaProducingJob'] = null !== $this->mediaProducingJob ? $this->mediaProducingJob->toArray($noStream) : $this->mediaProducingJob;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetMediaProducingJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMediaProducingJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaProducingJob'])) {
             $model->mediaProducingJob = mediaProducingJob::fromMap($map['MediaProducingJob']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

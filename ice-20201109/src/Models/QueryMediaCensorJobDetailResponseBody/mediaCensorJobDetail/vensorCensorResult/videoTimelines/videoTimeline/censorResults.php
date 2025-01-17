@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail\vensorCensorResult\videoTimelines\videoTimeline;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail\vensorCensorResult\videoTimelines\videoTimeline\censorResults\censorResult;
-use AlibabaCloud\Tea\Model;
 
 class censorResults extends Model
 {
@@ -19,17 +19,21 @@ class censorResults extends Model
 
     public function validate()
     {
+        if (\is_array($this->censorResult)) {
+            Model::validateArray($this->censorResult);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->censorResult) {
-            $res['CensorResult'] = [];
-            if (null !== $this->censorResult && \is_array($this->censorResult)) {
-                $n = 0;
-                foreach ($this->censorResult as $item) {
-                    $res['CensorResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->censorResult)) {
+                $res['CensorResult'] = [];
+                $n1                  = 0;
+                foreach ($this->censorResult as $item1) {
+                    $res['CensorResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class censorResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return censorResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CensorResult'])) {
             if (!empty($map['CensorResult'])) {
                 $model->censorResult = [];
-                $n                   = 0;
-                foreach ($map['CensorResult'] as $item) {
-                    $model->censorResult[$n++] = null !== $item ? censorResult::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['CensorResult'] as $item1) {
+                    $model->censorResult[$n1++] = censorResult::fromMap($item1);
                 }
             }
         }

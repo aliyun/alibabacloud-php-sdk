@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSmartHandleJobRequest extends Model
 {
     /**
-     * @description The job ID.
-     *
-     * @example ****20b48fb04483915d4f2cd8ac****
-     *
      * @var string
      */
     public $jobId;
@@ -22,9 +18,10 @@ class GetSmartHandleJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -34,11 +31,11 @@ class GetSmartHandleJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSmartHandleJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

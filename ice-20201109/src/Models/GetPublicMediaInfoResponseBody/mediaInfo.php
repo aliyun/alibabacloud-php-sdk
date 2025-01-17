@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\dynamicMetaData;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\fileInfoList;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\mediaBasicInfo;
-use AlibabaCloud\Tea\Model;
 
 class mediaInfo extends Model
 {
@@ -15,24 +15,15 @@ class mediaInfo extends Model
      * @var dynamicMetaData
      */
     public $dynamicMetaData;
-
     /**
-     * @description FileInfos
-     *
      * @var fileInfoList[]
      */
     public $fileInfoList;
-
     /**
-     * @description BasicInfo
-     *
      * @var mediaBasicInfo
      */
     public $mediaBasicInfo;
-
     /**
-     * @example icepublic-****14e501538aeef0a3140176f6****
-     *
      * @var string
      */
     public $mediaId;
@@ -45,26 +36,39 @@ class mediaInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->dynamicMetaData) {
+            $this->dynamicMetaData->validate();
+        }
+        if (\is_array($this->fileInfoList)) {
+            Model::validateArray($this->fileInfoList);
+        }
+        if (null !== $this->mediaBasicInfo) {
+            $this->mediaBasicInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dynamicMetaData) {
-            $res['DynamicMetaData'] = null !== $this->dynamicMetaData ? $this->dynamicMetaData->toMap() : null;
+            $res['DynamicMetaData'] = null !== $this->dynamicMetaData ? $this->dynamicMetaData->toArray($noStream) : $this->dynamicMetaData;
         }
+
         if (null !== $this->fileInfoList) {
-            $res['FileInfoList'] = [];
-            if (null !== $this->fileInfoList && \is_array($this->fileInfoList)) {
-                $n = 0;
-                foreach ($this->fileInfoList as $item) {
-                    $res['FileInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fileInfoList)) {
+                $res['FileInfoList'] = [];
+                $n1                  = 0;
+                foreach ($this->fileInfoList as $item1) {
+                    $res['FileInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->mediaBasicInfo) {
-            $res['MediaBasicInfo'] = null !== $this->mediaBasicInfo ? $this->mediaBasicInfo->toMap() : null;
+            $res['MediaBasicInfo'] = null !== $this->mediaBasicInfo ? $this->mediaBasicInfo->toArray($noStream) : $this->mediaBasicInfo;
         }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -72,29 +76,32 @@ class mediaInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediaInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DynamicMetaData'])) {
             $model->dynamicMetaData = dynamicMetaData::fromMap($map['DynamicMetaData']);
         }
+
         if (isset($map['FileInfoList'])) {
             if (!empty($map['FileInfoList'])) {
                 $model->fileInfoList = [];
-                $n                   = 0;
-                foreach ($map['FileInfoList'] as $item) {
-                    $model->fileInfoList[$n++] = null !== $item ? fileInfoList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['FileInfoList'] as $item1) {
+                    $model->fileInfoList[$n1++] = fileInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MediaBasicInfo'])) {
             $model->mediaBasicInfo = mediaBasicInfo::fromMap($map['MediaBasicInfo']);
         }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }

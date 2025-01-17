@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPlayInfoRequest extends Model
 {
     /**
-     * @description The input URL that you specified for the media asset when you registered the media asset. For more information, see [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html).
-     *
-     * >  You must specify at least one of the MediaId and InputURL parameters.
      * @var string
      */
     public $inputURL;
-
     /**
-     * @description The ID of the media asset.
-     *
-     * >  You must specify at least one of the MediaId and InputURL parameters.
-     * @example 86434e152b7d4f20be480574439fe***
-     *
      * @var string
      */
     public $mediaId;
@@ -32,14 +23,16 @@ class GetPlayInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputURL) {
             $res['InputURL'] = $this->inputURL;
         }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -47,17 +40,18 @@ class GetPlayInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPlayInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputURL'])) {
             $model->inputURL = $map['InputURL'];
         }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }

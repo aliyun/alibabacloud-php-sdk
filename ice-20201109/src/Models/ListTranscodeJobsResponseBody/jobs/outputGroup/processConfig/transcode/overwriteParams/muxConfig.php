@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsResponseBody\jobs\outputGroup\processConfig\transcode\overwriteParams;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsResponseBody\jobs\outputGroup\processConfig\transcode\overwriteParams\muxConfig\segment;
-use AlibabaCloud\Tea\Model;
 
 class muxConfig extends Model
 {
     /**
-     * @description The segment settings.
-     *
      * @var segment
      */
     public $segment;
@@ -21,23 +19,27 @@ class muxConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->segment) {
+            $this->segment->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->segment) {
-            $res['Segment'] = null !== $this->segment ? $this->segment->toMap() : null;
+            $res['Segment'] = null !== $this->segment ? $this->segment->toArray($noStream) : $this->segment;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return muxConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

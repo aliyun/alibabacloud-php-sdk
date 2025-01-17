@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveSnapshotJobsResponseBody\jobList;
-use AlibabaCloud\Tea\Model;
 
 class ListLiveSnapshotJobsResponseBody extends Model
 {
     /**
-     * @description The list of jobs.
-     *
      * @var jobList[]
      */
     public $jobList;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The request ID.
-     *
-     * @example ******11-DB8D-4A9A-875B-275798******
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The sorting order of the jobs by creation time.
-     *
-     * @example desc
-     *
      * @var string
      */
     public $sortBy;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -71,32 +44,41 @@ class ListLiveSnapshotJobsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->jobList)) {
+            Model::validateArray($this->jobList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobList) {
-            $res['JobList'] = [];
-            if (null !== $this->jobList && \is_array($this->jobList)) {
-                $n = 0;
-                foreach ($this->jobList as $item) {
-                    $res['JobList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobList)) {
+                $res['JobList'] = [];
+                $n1             = 0;
+                foreach ($this->jobList as $item1) {
+                    $res['JobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -104,35 +86,40 @@ class ListLiveSnapshotJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLiveSnapshotJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobList'])) {
             if (!empty($map['JobList'])) {
                 $model->jobList = [];
-                $n              = 0;
-                foreach ($map['JobList'] as $item) {
-                    $model->jobList[$n++] = null !== $item ? jobList::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['JobList'] as $item1) {
+                    $model->jobList[$n1++] = jobList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

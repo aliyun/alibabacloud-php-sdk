@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarResponseBody\data\avatar;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the digital human.
-     *
      * @var avatar
      */
     public $avatar;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->avatar) {
+            $this->avatar->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avatar) {
-            $res['Avatar'] = null !== $this->avatar ? $this->avatar->toMap() : null;
+            $res['Avatar'] = null !== $this->avatar ? $this->avatar->toArray($noStream) : $this->avatar;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

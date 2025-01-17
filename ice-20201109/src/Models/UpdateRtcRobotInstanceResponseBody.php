@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateRtcRobotInstanceResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example 7707F0A2-C6FD-5959-87EB-7C4D02384FD4
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateRtcRobotInstanceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateRtcRobotInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateRtcRobotInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

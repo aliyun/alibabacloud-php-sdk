@@ -4,58 +4,27 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListDNADBResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBList extends Model
 {
     /**
-     * @description The ID of the media fingerprint library.
-     *
-     * @example 88c6ca184c0e47098a5b665e2a12****
-     *
      * @var string
      */
     public $DBId;
-
     /**
-     * @description The description of the media fingerprint library.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The model of the media fingerprint library. Valid values:
-     *
-     *   **Video**
-     *   **Audio**
-     *   **Image**
-     *   **Text** (supported only in the China (Shanghai) region)
-     *
-     * @example Video
-     *
      * @var string
      */
     public $model;
-
     /**
-     * @description The name of the media fingerprint library.
-     *
-     * @example example-name
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The state of the media fingerprint library. Default value: **offline**. ****Valid values:
-     *
-     *   **offline**: The media fingerprint library is offline.
-     *   **active**: The media fingerprint library is online.
-     *   **deleted**: The media fingerprint library is deleted.
-     *
-     * @example active
-     *
      * @var string
      */
     public $status;
@@ -69,23 +38,28 @@ class DBList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBId) {
             $res['DBId'] = $this->DBId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -93,26 +67,30 @@ class DBList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBId'])) {
             $model->DBId = $map['DBId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

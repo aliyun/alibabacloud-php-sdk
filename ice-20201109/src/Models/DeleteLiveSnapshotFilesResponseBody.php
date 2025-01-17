@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveSnapshotFilesResponseBody\deleteFileResultList;
-use AlibabaCloud\Tea\Model;
 
 class DeleteLiveSnapshotFilesResponseBody extends Model
 {
     /**
-     * @description The list of deleted files.
-     *
      * @var deleteFileResultList[]
      */
     public $deleteFileResultList;
-
     /**
-     * @description The request ID.
-     *
-     * @example ****2876-6263-4B75-8F2C-CD0F7FCF****
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DeleteLiveSnapshotFilesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->deleteFileResultList)) {
+            Model::validateArray($this->deleteFileResultList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteFileResultList) {
-            $res['DeleteFileResultList'] = [];
-            if (null !== $this->deleteFileResultList && \is_array($this->deleteFileResultList)) {
-                $n = 0;
-                foreach ($this->deleteFileResultList as $item) {
-                    $res['DeleteFileResultList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deleteFileResultList)) {
+                $res['DeleteFileResultList'] = [];
+                $n1                          = 0;
+                foreach ($this->deleteFileResultList as $item1) {
+                    $res['DeleteFileResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DeleteLiveSnapshotFilesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLiveSnapshotFilesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteFileResultList'])) {
             if (!empty($map['DeleteFileResultList'])) {
                 $model->deleteFileResultList = [];
-                $n                           = 0;
-                foreach ($map['DeleteFileResultList'] as $item) {
-                    $model->deleteFileResultList[$n++] = null !== $item ? deleteFileResultList::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['DeleteFileResultList'] as $item1) {
+                    $model->deleteFileResultList[$n1++] = deleteFileResultList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

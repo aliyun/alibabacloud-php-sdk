@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsResponseBody\packageJobList;
-use AlibabaCloud\Tea\Model;
 
 class ListPackageJobsResponseBody extends Model
 {
     /**
-     * @description The list of packaging jobs.
-     *
      * @var packageJobList
      */
     public $packageJobList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 31E30781-9495-5E2D-A84D-759B0A01E262
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListPackageJobsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->packageJobList) {
+            $this->packageJobList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->packageJobList) {
-            $res['PackageJobList'] = null !== $this->packageJobList ? $this->packageJobList->toMap() : null;
+            $res['PackageJobList'] = null !== $this->packageJobList ? $this->packageJobList->toArray($noStream) : $this->packageJobList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListPackageJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPackageJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PackageJobList'])) {
             $model->packageJobList = packageJobList::fromMap($map['PackageJobList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

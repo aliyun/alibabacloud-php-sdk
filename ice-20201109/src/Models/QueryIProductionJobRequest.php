@@ -4,23 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryIProductionJobRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The ID of the intelligent production job.
-     *
-     * This parameter is required.
-     * @example ****20b48fb04483915d4f2cd8ac****
-     *
      * @var string
      */
     public $jobId;
@@ -31,14 +23,16 @@ class QueryIProductionJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -46,17 +40,18 @@ class QueryIProductionJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryIProductionJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

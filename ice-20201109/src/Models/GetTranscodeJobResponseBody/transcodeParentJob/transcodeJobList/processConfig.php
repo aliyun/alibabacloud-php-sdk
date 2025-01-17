@@ -4,63 +4,41 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\combineConfigs;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\encryption;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\imageWatermarks;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\subtitles;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\textWatermarks;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode;
-use AlibabaCloud\Tea\Model;
 
 class processConfig extends Model
 {
     /**
-     * @description The multi-input stream merge configuration.
-     *
      * @var combineConfigs[]
      */
     public $combineConfigs;
-
     /**
-     * @description The encryption settings.
-     *
      * @var encryption
      */
     public $encryption;
-
     /**
-     * @description The watermark configuration of an image.
-     *
      * @var imageWatermarks[]
      */
     public $imageWatermarks;
-
     /**
-     * @description Indicates whether the tags of the input stream are inherited in the output stream. This parameter does not take effect when the input is not a media asset. Default value: false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isInheritTags;
-
     /**
-     * @description The subtitle configuration.
-     *
      * @var subtitles[]
      */
     public $subtitles;
-
     /**
-     * @description The configurations of the text watermark.
-     *
      * @var textWatermarks[]
      */
     public $textWatermarks;
-
     /**
-     * @description The transcoding configuration.
-     *
      * @var transcode
      */
     public $transcode;
@@ -76,110 +54,141 @@ class processConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->combineConfigs)) {
+            Model::validateArray($this->combineConfigs);
+        }
+        if (null !== $this->encryption) {
+            $this->encryption->validate();
+        }
+        if (\is_array($this->imageWatermarks)) {
+            Model::validateArray($this->imageWatermarks);
+        }
+        if (\is_array($this->subtitles)) {
+            Model::validateArray($this->subtitles);
+        }
+        if (\is_array($this->textWatermarks)) {
+            Model::validateArray($this->textWatermarks);
+        }
+        if (null !== $this->transcode) {
+            $this->transcode->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->combineConfigs) {
-            $res['CombineConfigs'] = [];
-            if (null !== $this->combineConfigs && \is_array($this->combineConfigs)) {
-                $n = 0;
-                foreach ($this->combineConfigs as $item) {
-                    $res['CombineConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->combineConfigs)) {
+                $res['CombineConfigs'] = [];
+                $n1                    = 0;
+                foreach ($this->combineConfigs as $item1) {
+                    $res['CombineConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->encryption) {
-            $res['Encryption'] = null !== $this->encryption ? $this->encryption->toMap() : null;
+            $res['Encryption'] = null !== $this->encryption ? $this->encryption->toArray($noStream) : $this->encryption;
         }
+
         if (null !== $this->imageWatermarks) {
-            $res['ImageWatermarks'] = [];
-            if (null !== $this->imageWatermarks && \is_array($this->imageWatermarks)) {
-                $n = 0;
-                foreach ($this->imageWatermarks as $item) {
-                    $res['ImageWatermarks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageWatermarks)) {
+                $res['ImageWatermarks'] = [];
+                $n1                     = 0;
+                foreach ($this->imageWatermarks as $item1) {
+                    $res['ImageWatermarks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->isInheritTags) {
             $res['IsInheritTags'] = $this->isInheritTags;
         }
+
         if (null !== $this->subtitles) {
-            $res['Subtitles'] = [];
-            if (null !== $this->subtitles && \is_array($this->subtitles)) {
-                $n = 0;
-                foreach ($this->subtitles as $item) {
-                    $res['Subtitles'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subtitles)) {
+                $res['Subtitles'] = [];
+                $n1               = 0;
+                foreach ($this->subtitles as $item1) {
+                    $res['Subtitles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->textWatermarks) {
-            $res['TextWatermarks'] = [];
-            if (null !== $this->textWatermarks && \is_array($this->textWatermarks)) {
-                $n = 0;
-                foreach ($this->textWatermarks as $item) {
-                    $res['TextWatermarks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->textWatermarks)) {
+                $res['TextWatermarks'] = [];
+                $n1                    = 0;
+                foreach ($this->textWatermarks as $item1) {
+                    $res['TextWatermarks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->transcode) {
-            $res['Transcode'] = null !== $this->transcode ? $this->transcode->toMap() : null;
+            $res['Transcode'] = null !== $this->transcode ? $this->transcode->toArray($noStream) : $this->transcode;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return processConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CombineConfigs'])) {
             if (!empty($map['CombineConfigs'])) {
                 $model->combineConfigs = [];
-                $n                     = 0;
-                foreach ($map['CombineConfigs'] as $item) {
-                    $model->combineConfigs[$n++] = null !== $item ? combineConfigs::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['CombineConfigs'] as $item1) {
+                    $model->combineConfigs[$n1++] = combineConfigs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Encryption'])) {
             $model->encryption = encryption::fromMap($map['Encryption']);
         }
+
         if (isset($map['ImageWatermarks'])) {
             if (!empty($map['ImageWatermarks'])) {
                 $model->imageWatermarks = [];
-                $n                      = 0;
-                foreach ($map['ImageWatermarks'] as $item) {
-                    $model->imageWatermarks[$n++] = null !== $item ? imageWatermarks::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['ImageWatermarks'] as $item1) {
+                    $model->imageWatermarks[$n1++] = imageWatermarks::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['IsInheritTags'])) {
             $model->isInheritTags = $map['IsInheritTags'];
         }
+
         if (isset($map['Subtitles'])) {
             if (!empty($map['Subtitles'])) {
                 $model->subtitles = [];
-                $n                = 0;
-                foreach ($map['Subtitles'] as $item) {
-                    $model->subtitles[$n++] = null !== $item ? subtitles::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Subtitles'] as $item1) {
+                    $model->subtitles[$n1++] = subtitles::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TextWatermarks'])) {
             if (!empty($map['TextWatermarks'])) {
                 $model->textWatermarks = [];
-                $n                     = 0;
-                foreach ($map['TextWatermarks'] as $item) {
-                    $model->textWatermarks[$n++] = null !== $item ? textWatermarks::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['TextWatermarks'] as $item1) {
+                    $model->textWatermarks[$n1++] = textWatermarks::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Transcode'])) {
             $model->transcode = transcode::fromMap($map['Transcode']);
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightExtractJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class input extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example oss://bucket/object
-     *
      * @var string
      */
     public $media;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example OSS
-     *
      * @var string
      */
     public $type;
@@ -32,14 +23,16 @@ class input extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->media) {
             $res['Media'] = $this->media;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -47,17 +40,18 @@ class input extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return input
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Media'])) {
             $model->media = $map['Media'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

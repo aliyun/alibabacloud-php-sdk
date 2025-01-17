@@ -4,24 +4,17 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup\output;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup\processConfig;
-use AlibabaCloud\Tea\Model;
 
 class outputGroup extends Model
 {
     /**
-     * @description The output file configuration.
-     *
-     * This parameter is required.
      * @var output
      */
     public $output;
-
     /**
-     * @description The job processing configuration.
-     *
-     * This parameter is required.
      * @var processConfig
      */
     public $processConfig;
@@ -32,32 +25,41 @@ class outputGroup extends Model
 
     public function validate()
     {
+        if (null !== $this->output) {
+            $this->output->validate();
+        }
+        if (null !== $this->processConfig) {
+            $this->processConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->output) {
-            $res['Output'] = null !== $this->output ? $this->output->toMap() : null;
+            $res['Output'] = null !== $this->output ? $this->output->toArray($noStream) : $this->output;
         }
+
         if (null !== $this->processConfig) {
-            $res['ProcessConfig'] = null !== $this->processConfig ? $this->processConfig->toMap() : null;
+            $res['ProcessConfig'] = null !== $this->processConfig ? $this->processConfig->toArray($noStream) : $this->processConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outputGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Output'])) {
             $model->output = output::fromMap($map['Output']);
         }
+
         if (isset($map['ProcessConfig'])) {
             $model->processConfig = processConfig::fromMap($map['ProcessConfig']);
         }

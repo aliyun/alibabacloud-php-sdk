@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMediaMarksResponseBody extends Model
 {
     /**
-     * @description The ID of the media asset.
-     *
-     * @example ******b48fb04483915d4f2cd8******
-     *
      * @var string
      */
     public $mediaId;
-
     /**
-     * @description The marks of the media asset, in the JSONArray format.
-     *
      * @var string
      */
     public $mediaMarks;
-
     /**
-     * @description The request ID.
-     *
-     * @example ******11-DB8D-4A9A-875B-275798******
-     *
      * @var string
      */
     public $requestId;
@@ -40,17 +28,20 @@ class ListMediaMarksResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
+
         if (null !== $this->mediaMarks) {
             $res['MediaMarks'] = $this->mediaMarks;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,20 +49,22 @@ class ListMediaMarksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMediaMarksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
+
         if (isset($map['MediaMarks'])) {
             $model->mediaMarks = $map['MediaMarks'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

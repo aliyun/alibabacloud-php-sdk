@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartVoiceGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartVoiceGroupsResponseBody\voiceGroups\voiceList;
-use AlibabaCloud\Tea\Model;
 
 class voiceGroups extends Model
 {
     /**
-     * @description The name of the speaker group.
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The speakers.
-     *
      * @var voiceList[]
      */
     public $voiceList;
@@ -29,20 +24,25 @@ class voiceGroups extends Model
 
     public function validate()
     {
+        if (\is_array($this->voiceList)) {
+            Model::validateArray($this->voiceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->voiceList) {
-            $res['VoiceList'] = [];
-            if (null !== $this->voiceList && \is_array($this->voiceList)) {
-                $n = 0;
-                foreach ($this->voiceList as $item) {
-                    $res['VoiceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->voiceList)) {
+                $res['VoiceList'] = [];
+                $n1               = 0;
+                foreach ($this->voiceList as $item1) {
+                    $res['VoiceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +50,24 @@ class voiceGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return voiceGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['VoiceList'])) {
             if (!empty($map['VoiceList'])) {
                 $model->voiceList = [];
-                $n                = 0;
-                foreach ($map['VoiceList'] as $item) {
-                    $model->voiceList[$n++] = null !== $item ? voiceList::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['VoiceList'] as $item1) {
+                    $model->voiceList[$n1++] = voiceList::fromMap($item1);
                 }
             }
         }

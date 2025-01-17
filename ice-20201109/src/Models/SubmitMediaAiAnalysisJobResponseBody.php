@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitMediaAiAnalysisJobResponseBody extends Model
 {
     /**
-     * @description The ID of the media asset.
-     *
-     * @example ******b48fb04483915d4f2cd8******
-     *
      * @var string
      */
     public $mediaId;
-
     /**
-     * @description The request ID.
-     *
-     * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class SubmitMediaAiAnalysisJobResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class SubmitMediaAiAnalysisJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitMediaAiAnalysisJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

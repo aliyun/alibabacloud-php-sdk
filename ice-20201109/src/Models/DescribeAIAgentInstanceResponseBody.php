@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceResponseBody\instance;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAIAgentInstanceResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class DescribeAIAgentInstanceResponseBody extends Model
      * @var instance
      */
     public $instance;
-
     /**
-     * @example 7B117AF5-2A16-412C-B127-FA6175ED1AD0
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class DescribeAIAgentInstanceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->instance) {
+            $this->instance->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instance) {
-            $res['Instance'] = null !== $this->instance ? $this->instance->toMap() : null;
+            $res['Instance'] = null !== $this->instance ? $this->instance->toArray($noStream) : $this->instance;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class DescribeAIAgentInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAIAgentInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instance'])) {
             $model->instance = instance::fromMap($map['Instance']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

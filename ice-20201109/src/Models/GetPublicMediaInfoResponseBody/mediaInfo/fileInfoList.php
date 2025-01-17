@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\fileInfoList\audioStreamInfoList;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\fileInfoList\fileBasicInfo;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\fileInfoList\subtitleStreamInfoList;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\fileInfoList\videoStreamInfoList;
-use AlibabaCloud\Tea\Model;
 
 class fileInfoList extends Model
 {
@@ -16,17 +16,14 @@ class fileInfoList extends Model
      * @var audioStreamInfoList[]
      */
     public $audioStreamInfoList;
-
     /**
      * @var fileBasicInfo
      */
     public $fileBasicInfo;
-
     /**
      * @var subtitleStreamInfoList[]
      */
     public $subtitleStreamInfoList;
-
     /**
      * @var videoStreamInfoList[]
      */
@@ -40,38 +37,54 @@ class fileInfoList extends Model
 
     public function validate()
     {
+        if (\is_array($this->audioStreamInfoList)) {
+            Model::validateArray($this->audioStreamInfoList);
+        }
+        if (null !== $this->fileBasicInfo) {
+            $this->fileBasicInfo->validate();
+        }
+        if (\is_array($this->subtitleStreamInfoList)) {
+            Model::validateArray($this->subtitleStreamInfoList);
+        }
+        if (\is_array($this->videoStreamInfoList)) {
+            Model::validateArray($this->videoStreamInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioStreamInfoList) {
-            $res['AudioStreamInfoList'] = [];
-            if (null !== $this->audioStreamInfoList && \is_array($this->audioStreamInfoList)) {
-                $n = 0;
-                foreach ($this->audioStreamInfoList as $item) {
-                    $res['AudioStreamInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->audioStreamInfoList)) {
+                $res['AudioStreamInfoList'] = [];
+                $n1                         = 0;
+                foreach ($this->audioStreamInfoList as $item1) {
+                    $res['AudioStreamInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->fileBasicInfo) {
-            $res['FileBasicInfo'] = null !== $this->fileBasicInfo ? $this->fileBasicInfo->toMap() : null;
+            $res['FileBasicInfo'] = null !== $this->fileBasicInfo ? $this->fileBasicInfo->toArray($noStream) : $this->fileBasicInfo;
         }
+
         if (null !== $this->subtitleStreamInfoList) {
-            $res['SubtitleStreamInfoList'] = [];
-            if (null !== $this->subtitleStreamInfoList && \is_array($this->subtitleStreamInfoList)) {
-                $n = 0;
-                foreach ($this->subtitleStreamInfoList as $item) {
-                    $res['SubtitleStreamInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subtitleStreamInfoList)) {
+                $res['SubtitleStreamInfoList'] = [];
+                $n1                            = 0;
+                foreach ($this->subtitleStreamInfoList as $item1) {
+                    $res['SubtitleStreamInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->videoStreamInfoList) {
-            $res['VideoStreamInfoList'] = [];
-            if (null !== $this->videoStreamInfoList && \is_array($this->videoStreamInfoList)) {
-                $n = 0;
-                foreach ($this->videoStreamInfoList as $item) {
-                    $res['VideoStreamInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoStreamInfoList)) {
+                $res['VideoStreamInfoList'] = [];
+                $n1                         = 0;
+                foreach ($this->videoStreamInfoList as $item1) {
+                    $res['VideoStreamInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -79,41 +92,44 @@ class fileInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioStreamInfoList'])) {
             if (!empty($map['AudioStreamInfoList'])) {
                 $model->audioStreamInfoList = [];
-                $n                          = 0;
-                foreach ($map['AudioStreamInfoList'] as $item) {
-                    $model->audioStreamInfoList[$n++] = null !== $item ? audioStreamInfoList::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['AudioStreamInfoList'] as $item1) {
+                    $model->audioStreamInfoList[$n1++] = audioStreamInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['FileBasicInfo'])) {
             $model->fileBasicInfo = fileBasicInfo::fromMap($map['FileBasicInfo']);
         }
+
         if (isset($map['SubtitleStreamInfoList'])) {
             if (!empty($map['SubtitleStreamInfoList'])) {
                 $model->subtitleStreamInfoList = [];
-                $n                             = 0;
-                foreach ($map['SubtitleStreamInfoList'] as $item) {
-                    $model->subtitleStreamInfoList[$n++] = null !== $item ? subtitleStreamInfoList::fromMap($item) : $item;
+                $n1                            = 0;
+                foreach ($map['SubtitleStreamInfoList'] as $item1) {
+                    $model->subtitleStreamInfoList[$n1++] = subtitleStreamInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['VideoStreamInfoList'])) {
             if (!empty($map['VideoStreamInfoList'])) {
                 $model->videoStreamInfoList = [];
-                $n                          = 0;
-                foreach ($map['VideoStreamInfoList'] as $item) {
-                    $model->videoStreamInfoList[$n++] = null !== $item ? videoStreamInfoList::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['VideoStreamInfoList'] as $item1) {
+                    $model->videoStreamInfoList[$n1++] = videoStreamInfoList::fromMap($item1);
                 }
             }
         }

@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TakeoverAIAgentCallRequest extends Model
 {
     /**
-     * @example uid2
-     *
      * @var string
      */
     public $humanAgentUserId;
-
     /**
-     * @example 39f8e0bc005e4f309379701645f4****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $requireToken;
@@ -36,17 +28,20 @@ class TakeoverAIAgentCallRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->humanAgentUserId) {
             $res['HumanAgentUserId'] = $this->humanAgentUserId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requireToken) {
             $res['RequireToken'] = $this->requireToken;
         }
@@ -54,20 +49,22 @@ class TakeoverAIAgentCallRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TakeoverAIAgentCallRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HumanAgentUserId'])) {
             $model->humanAgentUserId = $map['HumanAgentUserId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequireToken'])) {
             $model->requireToken = $map['RequireToken'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentRuntimeConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class voiceChat extends Model
 {
@@ -12,12 +12,10 @@ class voiceChat extends Model
      * @var string
      */
     public $agentUserId;
-
     /**
      * @var string
      */
     public $authToken;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class voiceChat extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentUserId) {
             $res['AgentUserId'] = $this->agentUserId;
         }
+
         if (null !== $this->authToken) {
             $res['AuthToken'] = $this->authToken;
         }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
@@ -48,20 +49,22 @@ class voiceChat extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return voiceChat
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentUserId'])) {
             $model->agentUserId = $map['AgentUserId'];
         }
+
         if (isset($map['AuthToken'])) {
             $model->authToken = $map['AuthToken'];
         }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }

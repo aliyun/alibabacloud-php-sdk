@@ -4,49 +4,29 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsResponseBody\liveMaterials;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsResponseBody\mediaInfos;
-use AlibabaCloud\Tea\Model;
 
 class AddEditingProjectMaterialsResponseBody extends Model
 {
     /**
-     * @description The materials associated with the live stream.
-     *
      * @var liveMaterials[]
      */
     public $liveMaterials;
-
     /**
-     * @description The media assets that meet the specified conditions.
-     *
      * @var mediaInfos[]
      */
     public $mediaInfos;
-
     /**
-     * @description The ID of the online editing project.
-     *
-     * @example *****67ae06542b9b93e0d1c387*****
-     *
      * @var string
      */
     public $projectId;
-
     /**
-     * @description The materials associated with the editing project. A live stream editing project will be associated with a regular editing project after the live streaming ends.
-     *
-     * @example *****9b145c5cafc2e057304fcd*****
-     *
      * @var string[]
      */
     public $projectMaterials;
-
     /**
-     * @description The request ID.
-     *
-     * @example *****ACB-44F2-5F2D-88D7-1283E70*****
-     *
      * @var string
      */
     public $requestId;
@@ -60,35 +40,55 @@ class AddEditingProjectMaterialsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->liveMaterials)) {
+            Model::validateArray($this->liveMaterials);
+        }
+        if (\is_array($this->mediaInfos)) {
+            Model::validateArray($this->mediaInfos);
+        }
+        if (\is_array($this->projectMaterials)) {
+            Model::validateArray($this->projectMaterials);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveMaterials) {
-            $res['LiveMaterials'] = [];
-            if (null !== $this->liveMaterials && \is_array($this->liveMaterials)) {
-                $n = 0;
-                foreach ($this->liveMaterials as $item) {
-                    $res['LiveMaterials'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->liveMaterials)) {
+                $res['LiveMaterials'] = [];
+                $n1                   = 0;
+                foreach ($this->liveMaterials as $item1) {
+                    $res['LiveMaterials'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->mediaInfos) {
-            $res['MediaInfos'] = [];
-            if (null !== $this->mediaInfos && \is_array($this->mediaInfos)) {
-                $n = 0;
-                foreach ($this->mediaInfos as $item) {
-                    $res['MediaInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mediaInfos)) {
+                $res['MediaInfos'] = [];
+                $n1                = 0;
+                foreach ($this->mediaInfos as $item1) {
+                    $res['MediaInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectMaterials) {
-            $res['ProjectMaterials'] = $this->projectMaterials;
+            if (\is_array($this->projectMaterials)) {
+                $res['ProjectMaterials'] = [];
+                $n1                      = 0;
+                foreach ($this->projectMaterials as $item1) {
+                    $res['ProjectMaterials'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -96,40 +96,48 @@ class AddEditingProjectMaterialsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddEditingProjectMaterialsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveMaterials'])) {
             if (!empty($map['LiveMaterials'])) {
                 $model->liveMaterials = [];
-                $n                    = 0;
-                foreach ($map['LiveMaterials'] as $item) {
-                    $model->liveMaterials[$n++] = null !== $item ? liveMaterials::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['LiveMaterials'] as $item1) {
+                    $model->liveMaterials[$n1++] = liveMaterials::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
                 $model->mediaInfos = [];
-                $n                 = 0;
-                foreach ($map['MediaInfos'] as $item) {
-                    $model->mediaInfos[$n++] = null !== $item ? mediaInfos::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['MediaInfos'] as $item1) {
+                    $model->mediaInfos[$n1++] = mediaInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectMaterials'])) {
             if (!empty($map['ProjectMaterials'])) {
-                $model->projectMaterials = $map['ProjectMaterials'];
+                $model->projectMaterials = [];
+                $n1                      = 0;
+                foreach ($map['ProjectMaterials'] as $item1) {
+                    $model->projectMaterials[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

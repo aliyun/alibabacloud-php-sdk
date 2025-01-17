@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetStorageListResponseBody\storageInfoList;
-use AlibabaCloud\Tea\Model;
 
 class GetStorageListResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example ******73-8B78-5D86-A50C-49B96C******
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var storageInfoList[]
      */
@@ -29,20 +24,25 @@ class GetStorageListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->storageInfoList)) {
+            Model::validateArray($this->storageInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->storageInfoList) {
-            $res['StorageInfoList'] = [];
-            if (null !== $this->storageInfoList && \is_array($this->storageInfoList)) {
-                $n = 0;
-                foreach ($this->storageInfoList as $item) {
-                    $res['StorageInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->storageInfoList)) {
+                $res['StorageInfoList'] = [];
+                $n1                     = 0;
+                foreach ($this->storageInfoList as $item1) {
+                    $res['StorageInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +50,24 @@ class GetStorageListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStorageListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StorageInfoList'])) {
             if (!empty($map['StorageInfoList'])) {
                 $model->storageInfoList = [];
-                $n                      = 0;
-                foreach ($map['StorageInfoList'] as $item) {
-                    $model->storageInfoList[$n++] = null !== $item ? storageInfoList::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['StorageInfoList'] as $item1) {
+                    $model->storageInfoList[$n1++] = storageInfoList::fromMap($item1);
                 }
             }
         }

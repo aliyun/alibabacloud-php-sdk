@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetContentAnalyzeConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contentAnalyzeConfig extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $auto;
-
     /**
-     * @example TEXT,FACE
-     *
      * @var string
      */
     public $saveType;
-
     /**
-     * @example S00000101-100070
-     *
      * @var string
      */
     public $templateId;
@@ -36,17 +28,20 @@ class contentAnalyzeConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auto) {
             $res['Auto'] = $this->auto;
         }
+
         if (null !== $this->saveType) {
             $res['SaveType'] = $this->saveType;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -54,20 +49,22 @@ class contentAnalyzeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contentAnalyzeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Auto'])) {
             $model->auto = $map['Auto'];
         }
+
         if (isset($map['SaveType'])) {
             $model->saveType = $map['SaveType'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

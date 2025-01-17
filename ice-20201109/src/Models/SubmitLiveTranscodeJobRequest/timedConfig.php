@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitLiveTranscodeJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class timedConfig extends Model
 {
     /**
-     * @description The stop time of the transcoding job. Note: The time span between the stop time and the current time cannot exceed seven days.
-     *
-     * @example 2022-07-20T08:20:32Z
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @description The start time of the transcoding job. Note: The time span between the start time and the current time cannot exceed seven days.
-     *
-     * @example 2022-02-21T00:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -32,14 +23,16 @@ class timedConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -47,17 +40,18 @@ class timedConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timedConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobResponseBody\job;
-use AlibabaCloud\Tea\Model;
 
 class GetLiveTranscodeJobResponseBody extends Model
 {
     /**
-     * @description The information about the transcoding job.
-     *
      * @var job
      */
     public $job;
-
     /**
-     * @description The request ID.
-     *
-     * @example ******3B-0E1A-586A-AC29-742247******
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetLiveTranscodeJobResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->job) {
+            $this->job->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->job) {
-            $res['Job'] = null !== $this->job ? $this->job->toMap() : null;
+            $res['Job'] = null !== $this->job ? $this->job->toArray($noStream) : $this->job;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetLiveTranscodeJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLiveTranscodeJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Job'])) {
             $model->job = job::fromMap($map['Job']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

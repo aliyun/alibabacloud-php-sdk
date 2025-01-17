@@ -4,32 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DropSearchIndexRequest extends Model
 {
     /**
-     * @description The category of the index. Valid values:
-     *
-     *   mm: large visual model.
-     *   face: face recognition.
-     *   aiLabel: smart tagging.
-     *
-     * This parameter is required.
-     * @example mm
-     *
      * @var string
      */
     public $indexType;
-
     /**
-     * @description The name of the search library.
-     *
-     *   If you leave this parameter empty, the search index is created in the default search library of Intelligent Media Service (IMS). Default value: ims-default-search-lib.
-     *   To query information about an existing search library, call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) API operation.
-     *
-     * @example test1
-     *
      * @var string
      */
     public $searchLibName;
@@ -40,14 +23,16 @@ class DropSearchIndexRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexType) {
             $res['IndexType'] = $this->indexType;
         }
+
         if (null !== $this->searchLibName) {
             $res['SearchLibName'] = $this->searchLibName;
         }
@@ -55,17 +40,18 @@ class DropSearchIndexRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DropSearchIndexRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IndexType'])) {
             $model->indexType = $map['IndexType'];
         }
+
         if (isset($map['SearchLibName'])) {
             $model->searchLibName = $map['SearchLibName'];
         }

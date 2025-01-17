@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPublicMediaInfoRequest extends Model
 {
     /**
-     * @example icepublic-****14e501538aeef0a3140176f6****
-     *
      * @var string
      */
     public $mediaId;
@@ -20,9 +18,10 @@ class GetPublicMediaInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaId) {
@@ -32,11 +31,11 @@ class GetPublicMediaInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPublicMediaInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -1,3 +1,17 @@
+2025-01-17 Version: 3.7.0
+- Support API GetMediaConvertJob.
+- Support API GetProjectExportJob.
+- Support API SendAIAgentDataChannelMessage.
+- Support API SubmitMediaConvertJob.
+- Support API SubmitProjectExportJob.
+- Support API SubmitScreenMediaHighlightsJob.
+- Support API TakeoverAIAgentCall.
+- Update API GetSmartHandleJob: update response param.
+- Update API ListSearchLib: update response param.
+- Update API QuerySearchLib: update response param.
+- Update API SubmitMediaAiAnalysisJob: add param UserData.
+
+
 2025-01-16 Version: 3.7.0
 - Support API GetProjectExportJob.
 - Support API SendAIAgentDataChannelMessage.

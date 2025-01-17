@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateLiveRecordTemplateShrinkRequest extends Model
 {
     /**
-     * @description The template name.
-     *
-     * This parameter is required.
-     * @example test template
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The list of recording formats.
-     *
-     * This parameter is required.
      * @var string
      */
     public $recordFormatShrink;
-
     /**
-     * @description The template ID.
-     *
-     * This parameter is required.
-     * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
-     *
      * @var string
      */
     public $templateId;
@@ -43,17 +28,20 @@ class UpdateLiveRecordTemplateShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->recordFormatShrink) {
             $res['RecordFormat'] = $this->recordFormatShrink;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -61,20 +49,22 @@ class UpdateLiveRecordTemplateShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLiveRecordTemplateShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RecordFormat'])) {
             $model->recordFormatShrink = $map['RecordFormat'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddFavoritePublicMediaResponseBody extends Model
 {
@@ -12,10 +12,7 @@ class AddFavoritePublicMediaResponseBody extends Model
      * @var string[]
      */
     public $ignoredList;
-
     /**
-     * @example ******11-DB8D-4A9A-875B-275798******
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +23,25 @@ class AddFavoritePublicMediaResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->ignoredList)) {
+            Model::validateArray($this->ignoredList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ignoredList) {
-            $res['IgnoredList'] = $this->ignoredList;
+            if (\is_array($this->ignoredList)) {
+                $res['IgnoredList'] = [];
+                $n1                 = 0;
+                foreach ($this->ignoredList as $item1) {
+                    $res['IgnoredList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,19 +49,24 @@ class AddFavoritePublicMediaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddFavoritePublicMediaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IgnoredList'])) {
             if (!empty($map['IgnoredList'])) {
-                $model->ignoredList = $map['IgnoredList'];
+                $model->ignoredList = [];
+                $n1                 = 0;
+                foreach ($map['IgnoredList'] as $item1) {
+                    $model->ignoredList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

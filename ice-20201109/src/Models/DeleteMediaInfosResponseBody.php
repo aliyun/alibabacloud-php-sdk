@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMediaInfosResponseBody extends Model
 {
     /**
-     * @description The IDs or URLs of media assets that cannot be deleted. Generally, media assets cannot be deleted if you do not have the required permissions.
-     *
      * @var string[]
      */
     public $forbiddenList;
-
     /**
-     * @description The IDs or URLs of ignored media assets. An error occurred while obtaining such media assets.
-     *
      * @var string[]
      */
     public $ignoredList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0622C702-41BE-467E-AF2E-883D4517962E
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +28,38 @@ class DeleteMediaInfosResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->forbiddenList)) {
+            Model::validateArray($this->forbiddenList);
+        }
+        if (\is_array($this->ignoredList)) {
+            Model::validateArray($this->ignoredList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forbiddenList) {
-            $res['ForbiddenList'] = $this->forbiddenList;
+            if (\is_array($this->forbiddenList)) {
+                $res['ForbiddenList'] = [];
+                $n1                   = 0;
+                foreach ($this->forbiddenList as $item1) {
+                    $res['ForbiddenList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ignoredList) {
-            $res['IgnoredList'] = $this->ignoredList;
+            if (\is_array($this->ignoredList)) {
+                $res['IgnoredList'] = [];
+                $n1                 = 0;
+                foreach ($this->ignoredList as $item1) {
+                    $res['IgnoredList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,24 +67,34 @@ class DeleteMediaInfosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMediaInfosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForbiddenList'])) {
             if (!empty($map['ForbiddenList'])) {
-                $model->forbiddenList = $map['ForbiddenList'];
+                $model->forbiddenList = [];
+                $n1                   = 0;
+                foreach ($map['ForbiddenList'] as $item1) {
+                    $model->forbiddenList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['IgnoredList'])) {
             if (!empty($map['IgnoredList'])) {
-                $model->ignoredList = $map['IgnoredList'];
+                $model->ignoredList = [];
+                $n1                 = 0;
+                foreach ($map['IgnoredList'] as $item1) {
+                    $model->ignoredList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsResponseBody\mediaInfos;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsResponseBody\mediaInfos\fileInfoList\fileBasicInfo;
-use AlibabaCloud\Tea\Model;
 
 class fileInfoList extends Model
 {
     /**
-     * @description The basic information of the file, such as the duration and size.
-     *
      * @var fileBasicInfo
      */
     public $fileBasicInfo;
@@ -21,23 +19,27 @@ class fileInfoList extends Model
 
     public function validate()
     {
+        if (null !== $this->fileBasicInfo) {
+            $this->fileBasicInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileBasicInfo) {
-            $res['FileBasicInfo'] = null !== $this->fileBasicInfo ? $this->fileBasicInfo->toMap() : null;
+            $res['FileBasicInfo'] = null !== $this->fileBasicInfo ? $this->fileBasicInfo->toArray($noStream) : $this->fileBasicInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

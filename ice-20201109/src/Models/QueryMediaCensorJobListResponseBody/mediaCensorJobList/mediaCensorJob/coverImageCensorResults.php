@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListResponseBody\mediaCensorJobList\mediaCensorJob;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListResponseBody\mediaCensorJobList\mediaCensorJob\coverImageCensorResults\coverImageCensorResult;
-use AlibabaCloud\Tea\Model;
 
 class coverImageCensorResults extends Model
 {
@@ -19,17 +19,21 @@ class coverImageCensorResults extends Model
 
     public function validate()
     {
+        if (\is_array($this->coverImageCensorResult)) {
+            Model::validateArray($this->coverImageCensorResult);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coverImageCensorResult) {
-            $res['CoverImageCensorResult'] = [];
-            if (null !== $this->coverImageCensorResult && \is_array($this->coverImageCensorResult)) {
-                $n = 0;
-                foreach ($this->coverImageCensorResult as $item) {
-                    $res['CoverImageCensorResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->coverImageCensorResult)) {
+                $res['CoverImageCensorResult'] = [];
+                $n1                            = 0;
+                foreach ($this->coverImageCensorResult as $item1) {
+                    $res['CoverImageCensorResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class coverImageCensorResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return coverImageCensorResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoverImageCensorResult'])) {
             if (!empty($map['CoverImageCensorResult'])) {
                 $model->coverImageCensorResult = [];
-                $n                             = 0;
-                foreach ($map['CoverImageCensorResult'] as $item) {
-                    $model->coverImageCensorResult[$n++] = null !== $item ? coverImageCensorResult::fromMap($item) : $item;
+                $n1                            = 0;
+                foreach ($map['CoverImageCensorResult'] as $item1) {
+                    $model->coverImageCensorResult[$n1++] = coverImageCensorResult::fromMap($item1);
                 }
             }
         }

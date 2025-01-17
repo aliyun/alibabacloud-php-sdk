@@ -4,76 +4,39 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateEditingProjectRequest extends Model
 {
     /**
-     * @description The business status of the project. This parameter can be ignored for general editing projects. Valid values:
-     *
-     *   Reserving
-     *   ReservationCanceled
-     *
-     * @example Reserving
-     *
      * @var string
      */
     public $businessStatus;
-
     /**
-     * @description The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified.
-     *
      * @var string
      */
     public $clipsParam;
-
     /**
-     * @description The thumbnail URL of the online editing project.
-     *
-     * @example https://****.com/6AB4D0E1E1C7446888****.png
-     *
      * @var string
      */
     public $coverURL;
-
     /**
-     * @description The description of the online editing project.
-     *
-     * @example testtimeline001desciption
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the online editing project.
-     *
-     * This parameter is required.
-     * @example ****4ee4b97e27b525142a6b2****
-     *
      * @var string
      */
     public $projectId;
-
     /**
-     * @description The template ID. This parameter is used to quickly build a timeline with ease. Note: Only one of ProjectId, Timeline, and TemplateId can be specified. If TemplateId is specified, ClipsParam must also be specified.
-     *
-     * @example ****96e8864746a0b6f3****
-     *
      * @var string
      */
     public $templateId;
-
     /**
      * @var string
      */
     public $timeline;
-
     /**
-     * @description The title of the online editing project.
-     *
-     * @example testtimeline
-     *
      * @var string
      */
     public $title;
@@ -90,32 +53,40 @@ class UpdateEditingProjectRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
         }
+
         if (null !== $this->clipsParam) {
             $res['ClipsParam'] = $this->clipsParam;
         }
+
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->timeline) {
             $res['Timeline'] = $this->timeline;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -123,35 +94,42 @@ class UpdateEditingProjectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateEditingProjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
         }
+
         if (isset($map['ClipsParam'])) {
             $model->clipsParam = $map['ClipsParam'];
         }
+
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['Timeline'])) {
             $model->timeline = $map['Timeline'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

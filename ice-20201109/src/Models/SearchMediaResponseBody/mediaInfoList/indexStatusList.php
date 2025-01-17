@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class indexStatusList extends Model
 {
     /**
-     * @example Success
-     *
      * @var string
      */
     public $indexStatus;
-
     /**
-     * @example mm
-     *
      * @var string
      */
     public $indexType;
@@ -28,14 +23,16 @@ class indexStatusList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexStatus) {
             $res['IndexStatus'] = $this->indexStatus;
         }
+
         if (null !== $this->indexType) {
             $res['IndexType'] = $this->indexType;
         }
@@ -43,17 +40,18 @@ class indexStatusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return indexStatusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IndexStatus'])) {
             $model->indexStatus = $map['IndexStatus'];
         }
+
         if (isset($map['IndexType'])) {
             $model->indexType = $map['IndexType'];
         }

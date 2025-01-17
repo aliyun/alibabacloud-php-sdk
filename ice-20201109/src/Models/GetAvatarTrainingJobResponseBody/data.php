@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarTrainingJobResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarTrainingJobResponseBody\data\avatarTrainingJob;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the digital human training job.
-     *
      * @var avatarTrainingJob
      */
     public $avatarTrainingJob;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->avatarTrainingJob) {
+            $this->avatarTrainingJob->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avatarTrainingJob) {
-            $res['AvatarTrainingJob'] = null !== $this->avatarTrainingJob ? $this->avatarTrainingJob->toMap() : null;
+            $res['AvatarTrainingJob'] = null !== $this->avatarTrainingJob ? $this->avatarTrainingJob->toArray($noStream) : $this->avatarTrainingJob;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

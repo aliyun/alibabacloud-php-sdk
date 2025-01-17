@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail\coverImageCensorResults;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail\coverImageCensorResults\coverImageCensorResult\results;
-use AlibabaCloud\Tea\Model;
 
 class coverImageCensorResult extends Model
 {
     /**
-     * @description The OSS bucket in which the thumbnail is stored.
-     *
-     * @example bucket-out-test-****
-     *
      * @var string
      */
     public $bucket;
-
     /**
-     * @description The OSS region in which the thumbnail resides.
-     *
-     * @example oss-cn-shanghai
-     *
      * @var string
      */
     public $location;
-
     /**
-     * @description The Object Storage Service (OSS) object that is used as the thumbnail.
-     *
-     * @example test/ai/censor/v2/vme-****.jpg
-     *
      * @var string
      */
     public $object;
-
     /**
-     * @description The moderation results.
-     *
      * @var results
      */
     public $results;
@@ -51,44 +34,54 @@ class coverImageCensorResult extends Model
 
     public function validate()
     {
+        if (null !== $this->results) {
+            $this->results->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->object) {
             $res['Object'] = $this->object;
         }
+
         if (null !== $this->results) {
-            $res['Results'] = null !== $this->results ? $this->results->toMap() : null;
+            $res['Results'] = null !== $this->results ? $this->results->toArray($noStream) : $this->results;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return coverImageCensorResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['Object'])) {
             $model->object = $map['Object'];
         }
+
         if (isset($map['Results'])) {
             $model->results = results::fromMap($map['Results']);
         }

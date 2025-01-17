@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitTraceExtractJobShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $inputShrink;
-
     /**
-     * @example {"m3u8Type":"v1"}
-     *
      * @var string
      */
     public $params;
-
     /**
-     * @example 123
-     *
      * @var string
      */
     public $userData;
@@ -36,17 +28,20 @@ class SubmitTraceExtractJobShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputShrink) {
             $res['Input'] = $this->inputShrink;
         }
+
         if (null !== $this->params) {
             $res['Params'] = $this->params;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -54,20 +49,22 @@ class SubmitTraceExtractJobShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitTraceExtractJobShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Input'])) {
             $model->inputShrink = $map['Input'];
         }
+
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

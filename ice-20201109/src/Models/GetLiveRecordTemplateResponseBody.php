@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveRecordTemplateResponseBody\recordTemplate;
-use AlibabaCloud\Tea\Model;
 
 class GetLiveRecordTemplateResponseBody extends Model
 {
     /**
-     * @description The recording template.
-     *
      * @var recordTemplate
      */
     public $recordTemplate;
-
     /**
-     * @description The request ID.
-     *
-     * @example C892855F-95DF-50D6-A28C-279ABDB76810
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetLiveRecordTemplateResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->recordTemplate) {
+            $this->recordTemplate->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordTemplate) {
-            $res['RecordTemplate'] = null !== $this->recordTemplate ? $this->recordTemplate->toMap() : null;
+            $res['RecordTemplate'] = null !== $this->recordTemplate ? $this->recordTemplate->toArray($noStream) : $this->recordTemplate;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetLiveRecordTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLiveRecordTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordTemplate'])) {
             $model->recordTemplate = recordTemplate::fromMap($map['RecordTemplate']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

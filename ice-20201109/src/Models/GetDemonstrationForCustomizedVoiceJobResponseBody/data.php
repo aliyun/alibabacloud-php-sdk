@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetDemonstrationForCustomizedVoiceJobResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetDemonstrationForCustomizedVoiceJobResponseBody\data\demonstrationList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description A list of 20 text entries to be read and the corresponding sample audio.
-     *
      * @var demonstrationList[]
      */
     public $demonstrationList;
@@ -21,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->demonstrationList)) {
+            Model::validateArray($this->demonstrationList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->demonstrationList) {
-            $res['DemonstrationList'] = [];
-            if (null !== $this->demonstrationList && \is_array($this->demonstrationList)) {
-                $n = 0;
-                foreach ($this->demonstrationList as $item) {
-                    $res['DemonstrationList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->demonstrationList)) {
+                $res['DemonstrationList'] = [];
+                $n1                       = 0;
+                foreach ($this->demonstrationList as $item1) {
+                    $res['DemonstrationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DemonstrationList'])) {
             if (!empty($map['DemonstrationList'])) {
                 $model->demonstrationList = [];
-                $n                        = 0;
-                foreach ($map['DemonstrationList'] as $item) {
-                    $model->demonstrationList[$n++] = null !== $item ? demonstrationList::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['DemonstrationList'] as $item1) {
+                    $model->demonstrationList[$n1++] = demonstrationList::fromMap($item1);
                 }
             }
         }

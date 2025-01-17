@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobResponseBody\smartJobInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class inputConfig extends Model
 {
     /**
-     * @description The OSS URL or the ID of the material in the media asset library.
-     *
-     * @example oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ******11-DB8D-4A9A-875B-275798******
-     *
      * @var string
      */
     public $inputFile;
@@ -22,9 +18,10 @@ class inputConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputFile) {
@@ -34,11 +31,11 @@ class inputConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return inputConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

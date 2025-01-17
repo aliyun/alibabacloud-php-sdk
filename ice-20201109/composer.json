@@ -1,21 +1,16 @@
 {
   "name": "alibabacloud/ice-20201109",
-  "description": "Alibaba Cloud ICE (20201109) SDK Library for PHP",
   "type": "library",
-  "license": "Apache-2.0",
+  "description": "Alibaba Cloud ICE (20201109) SDK Library for PHP",
+  "github": "https://github.com/aliyun/alibabacloud-php-sdk",
+  "main": "src/Client.php",
   "authors": [
     {
       "name": "Alibaba Cloud SDK",
       "email": "sdk-team@alibabacloud.com"
     }
   ],
-  "require": {
-    "php": ">5.5",
-    "alibabacloud/tea-utils": "^0.2.21",
-    "alibabacloud/darabonba-openapi": "^0.2.13",
-    "alibabacloud/openapi-util": "^0.1.10|^0.2.1",
-    "alibabacloud/endpoint-util": "^0.1.0"
-  },
+  "license": "Apache-2.0",
   "autoload": {
     "psr-4": {
       "AlibabaCloud\\SDK\\ICE\\V20201109\\": "src"
@@ -28,6 +23,11 @@
     "sort-packages": true,
     "preferred-install": "dist",
     "optimize-autoloader": true
+  },
+  "require": {
+    "php": ">5.5",
+    "alibabacloud/darabonba": "^1.0.0",
+    "alibabacloud/openapi-core": "^1.0.0"
   },
   "prefer-stable": true
 }

@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartSysAvatarModelsResponseBody\smartSysAvatarModelList;
-use AlibabaCloud\Tea\Model;
 
 class ListSmartSysAvatarModelsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The queried digital humans.
-     *
      * @var smartSysAvatarModelList[]
      */
     public $smartSysAvatarModelList;
-
     /**
-     * @description The total number of system digital human images returned.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $totalCount;
@@ -41,23 +29,29 @@ class ListSmartSysAvatarModelsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->smartSysAvatarModelList)) {
+            Model::validateArray($this->smartSysAvatarModelList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->smartSysAvatarModelList) {
-            $res['SmartSysAvatarModelList'] = [];
-            if (null !== $this->smartSysAvatarModelList && \is_array($this->smartSysAvatarModelList)) {
-                $n = 0;
-                foreach ($this->smartSysAvatarModelList as $item) {
-                    $res['SmartSysAvatarModelList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->smartSysAvatarModelList)) {
+                $res['SmartSysAvatarModelList'] = [];
+                $n1                             = 0;
+                foreach ($this->smartSysAvatarModelList as $item1) {
+                    $res['SmartSysAvatarModelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +59,28 @@ class ListSmartSysAvatarModelsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSmartSysAvatarModelsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SmartSysAvatarModelList'])) {
             if (!empty($map['SmartSysAvatarModelList'])) {
                 $model->smartSysAvatarModelList = [];
-                $n                              = 0;
-                foreach ($map['SmartSysAvatarModelList'] as $item) {
-                    $model->smartSysAvatarModelList[$n++] = null !== $item ? smartSysAvatarModelList::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['SmartSysAvatarModelList'] as $item1) {
+                    $model->smartSysAvatarModelList[$n1++] = smartSysAvatarModelList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

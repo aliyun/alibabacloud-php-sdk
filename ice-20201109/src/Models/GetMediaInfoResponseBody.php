@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetMediaInfoResponseBody extends Model
 {
     /**
-     * @description The information about the media asset.
-     *
      * @var mediaInfo
      */
     public $mediaInfo;
-
     /**
-     * @description The request ID.
-     *
-     * @example 2FDE2411-DB8D-4A9A-875B-275798F14A5E
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetMediaInfoResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->mediaInfo) {
+            $this->mediaInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaInfo) {
-            $res['MediaInfo'] = null !== $this->mediaInfo ? $this->mediaInfo->toMap() : null;
+            $res['MediaInfo'] = null !== $this->mediaInfo ? $this->mediaInfo->toArray($noStream) : $this->mediaInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetMediaInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMediaInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaInfo'])) {
             $model->mediaInfo = mediaInfo::fromMap($map['MediaInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

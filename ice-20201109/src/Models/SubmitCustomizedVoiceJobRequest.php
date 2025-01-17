@@ -4,33 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitCustomizedVoiceJobRequest extends Model
 {
     /**
-     * @description The URL of the sample audio file.
-     *
-     *   If this parameter is specified, a sample audio file is generated at the specified Object Storage Service (OSS) URL after the training is complete.
-     *
-     *   If this parameter is not specified, no sample audio file is generated.
-     *
-     **
-     *
-     **Note**: The URL must be a valid public OSS URL within your Alibaba Cloud account.
-     *
-     * @example https://your-bucket.oss-cn-shanghai.aliyuncs.com/demo.MP3
-     *
      * @var string
      */
     public $demoAudioMediaURL;
-
     /**
-     * @description The voice ID.
-     *
-     * This parameter is required.
-     * @example xiaozhuan
-     *
      * @var string
      */
     public $voiceId;
@@ -41,14 +23,16 @@ class SubmitCustomizedVoiceJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->demoAudioMediaURL) {
             $res['DemoAudioMediaURL'] = $this->demoAudioMediaURL;
         }
+
         if (null !== $this->voiceId) {
             $res['VoiceId'] = $this->voiceId;
         }
@@ -56,17 +40,18 @@ class SubmitCustomizedVoiceJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitCustomizedVoiceJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DemoAudioMediaURL'])) {
             $model->demoAudioMediaURL = $map['DemoAudioMediaURL'];
         }
+
         if (isset($map['VoiceId'])) {
             $model->voiceId = $map['VoiceId'];
         }

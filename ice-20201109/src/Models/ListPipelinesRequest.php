@@ -4,21 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPipelinesRequest extends Model
 {
     /**
-     * @description The type of the MPS queue.
-     *
-     * Valid values:
-     *
-     *   Boost: MPS queue with transcoding speed boosted.
-     *   Standard: standard MPS queue.
-     *   NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
-     *
-     * @example Standard
-     *
      * @var string
      */
     public $speed;
@@ -28,9 +18,10 @@ class ListPipelinesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->speed) {
@@ -40,11 +31,11 @@ class ListPipelinesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPipelinesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

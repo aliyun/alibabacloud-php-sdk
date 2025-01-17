@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\aiData;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ocrInfo extends Model
 {
     /**
-     * @description The ID of the clip.
-     *
-     * @example 5FE19530C7A422197535FE74F5DB2B9F
-     *
      * @var string
      */
     public $clipId;
-
     /**
-     * @description The text content.
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description The start time of the clip.
-     *
-     * @example 1.4
-     *
      * @var float
      */
     public $from;
-
     /**
-     * @description The timestamp of the clip.
-     *
-     * @example 1.4
-     *
      * @var float
      */
     public $timestamp;
-
     /**
-     * @description The end time of the clip.
-     *
-     * @example 2.5
-     *
      * @var float
      */
     public $to;
@@ -60,23 +38,28 @@ class ocrInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clipId) {
             $res['ClipId'] = $this->clipId;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
@@ -84,26 +67,30 @@ class ocrInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ocrInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClipId'])) {
             $model->clipId = $map['ClipId'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }

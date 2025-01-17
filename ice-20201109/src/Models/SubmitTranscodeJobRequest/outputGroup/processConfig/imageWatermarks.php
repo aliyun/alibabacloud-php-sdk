@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup\processConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup\processConfig\imageWatermarks\overwriteParams;
-use AlibabaCloud\Tea\Model;
 
 class imageWatermarks extends Model
 {
     /**
-     * @description The parameters that are used to overwrite the corresponding parameters of the template.
-     *
      * @var overwriteParams
      */
     public $overwriteParams;
-
     /**
-     * @description The template ID.
-     *
-     * This parameter is required.
-     * @example 9547c6ad97cb4f2aaa29683ebd18d410
-     *
      * @var string
      */
     public $templateId;
@@ -32,14 +24,19 @@ class imageWatermarks extends Model
 
     public function validate()
     {
+        if (null !== $this->overwriteParams) {
+            $this->overwriteParams->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->overwriteParams) {
-            $res['OverwriteParams'] = null !== $this->overwriteParams ? $this->overwriteParams->toMap() : null;
+            $res['OverwriteParams'] = null !== $this->overwriteParams ? $this->overwriteParams->toArray($noStream) : $this->overwriteParams;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -47,17 +44,18 @@ class imageWatermarks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageWatermarks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OverwriteParams'])) {
             $model->overwriteParams = overwriteParams::fromMap($map['OverwriteParams']);
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

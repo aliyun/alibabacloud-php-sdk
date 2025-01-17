@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByHybridResponseBody\mediaList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clipInfo extends Model
 {
     /**
-     * @example 2
-     *
      * @var float
      */
     public $from;
-
     /**
-     * @example 0.99
-     *
      * @var float
      */
     public $score;
-
     /**
-     * @example 4
-     *
      * @var float
      */
     public $to;
@@ -36,17 +28,20 @@ class clipInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
@@ -54,20 +49,22 @@ class clipInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clipInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }

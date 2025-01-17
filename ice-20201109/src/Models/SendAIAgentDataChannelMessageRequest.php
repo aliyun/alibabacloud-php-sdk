@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendAIAgentDataChannelMessageRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 39f8e0bc005e4f309379701645f4****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example {"key":"value"}
-     *
      * @var string
      */
     public $message;
@@ -32,14 +23,16 @@ class SendAIAgentDataChannelMessageRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -47,17 +40,18 @@ class SendAIAgentDataChannelMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendAIAgentDataChannelMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

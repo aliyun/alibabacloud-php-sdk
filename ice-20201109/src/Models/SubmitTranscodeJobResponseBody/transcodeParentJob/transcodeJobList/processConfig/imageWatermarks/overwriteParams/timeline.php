@@ -4,31 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\imageWatermarks\overwriteParams;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class timeline extends Model
 {
     /**
-     * @description The time range in which the watermark is displayed.
-     *
-     *   Valid values: integers and ToEND.
-     *   Default value: ToEND.
-     *
-     * @example ToEND
-     *
      * @var string
      */
     public $duration;
-
     /**
-     * @description The beginning of the time range in which the watermark is displayed.
-     *
-     *   Unit: seconds.
-     *   Value values: integers.
-     *   Default value: 0.
-     *
-     * @example 00:00:05
-     *
      * @var string
      */
     public $start;
@@ -39,14 +23,16 @@ class timeline extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
@@ -54,17 +40,18 @@ class timeline extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timeline
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }

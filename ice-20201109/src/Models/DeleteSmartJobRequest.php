@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSmartJobRequest extends Model
 {
     /**
-     * @description The IDs of the jobs to delete. Separate multiple IDs with commas (,).
-     *
-     * @example ******b48fb04483915d4f2cd8******,******042d5e4db6866f6289d1******
-     *
      * @var string
      */
     public $jobId;
@@ -22,9 +18,10 @@ class DeleteSmartJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -34,11 +31,11 @@ class DeleteSmartJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSmartJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

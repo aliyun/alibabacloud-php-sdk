@@ -4,59 +4,35 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobRequest\input;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobRequest\output;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobRequest\scheduleConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSnapshotJobRequest\templateConfig;
-use AlibabaCloud\Tea\Model;
 
 class SubmitSnapshotJobRequest extends Model
 {
     /**
-     * @description The snapshot input.
-     *
-     * This parameter is required.
      * @var input
      */
     public $input;
-
     /**
-     * @description The name of the job.
-     *
-     * @example SampleJob
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The snapshot output.
-     *
-     * This parameter is required.
      * @var output
      */
     public $output;
-
     /**
-     * @description The scheduling settings.
-     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
-
     /**
-     * @description The snapshot template configuration.
-     *
-     * This parameter is required.
      * @var templateConfig
      */
     public $templateConfig;
-
     /**
-     * @description The user-defined data.
-     *
-     * @example {"test parameter": "test value"}
-     *
      * @var string
      */
     public $userData;
@@ -71,26 +47,44 @@ class SubmitSnapshotJobRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->input) {
+            $this->input->validate();
+        }
+        if (null !== $this->output) {
+            $this->output->validate();
+        }
+        if (null !== $this->scheduleConfig) {
+            $this->scheduleConfig->validate();
+        }
+        if (null !== $this->templateConfig) {
+            $this->templateConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+            $res['Input'] = null !== $this->input ? $this->input->toArray($noStream) : $this->input;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->output) {
-            $res['Output'] = null !== $this->output ? $this->output->toMap() : null;
+            $res['Output'] = null !== $this->output ? $this->output->toArray($noStream) : $this->output;
         }
+
         if (null !== $this->scheduleConfig) {
-            $res['ScheduleConfig'] = null !== $this->scheduleConfig ? $this->scheduleConfig->toMap() : null;
+            $res['ScheduleConfig'] = null !== $this->scheduleConfig ? $this->scheduleConfig->toArray($noStream) : $this->scheduleConfig;
         }
+
         if (null !== $this->templateConfig) {
-            $res['TemplateConfig'] = null !== $this->templateConfig ? $this->templateConfig->toMap() : null;
+            $res['TemplateConfig'] = null !== $this->templateConfig ? $this->templateConfig->toArray($noStream) : $this->templateConfig;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -98,29 +92,34 @@ class SubmitSnapshotJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitSnapshotJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Input'])) {
             $model->input = input::fromMap($map['Input']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Output'])) {
             $model->output = output::fromMap($map['Output']);
         }
+
         if (isset($map['ScheduleConfig'])) {
             $model->scheduleConfig = scheduleConfig::fromMap($map['ScheduleConfig']);
         }
+
         if (isset($map['TemplateConfig'])) {
             $model->templateConfig = templateConfig::fromMap($map['TemplateConfig']);
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

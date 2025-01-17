@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponseBody\subCategories\category;
-use AlibabaCloud\Tea\Model;
 
 class subCategories extends Model
 {
@@ -19,17 +19,21 @@ class subCategories extends Model
 
     public function validate()
     {
+        if (\is_array($this->category)) {
+            Model::validateArray($this->category);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
-            $res['Category'] = [];
-            if (null !== $this->category && \is_array($this->category)) {
-                $n = 0;
-                foreach ($this->category as $item) {
-                    $res['Category'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->category)) {
+                $res['Category'] = [];
+                $n1              = 0;
+                foreach ($this->category as $item1) {
+                    $res['Category'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class subCategories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subCategories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             if (!empty($map['Category'])) {
                 $model->category = [];
-                $n               = 0;
-                foreach ($map['Category'] as $item) {
-                    $model->category[$n++] = null !== $item ? category::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Category'] as $item1) {
+                    $model->category[$n1++] = category::fromMap($item1);
                 }
             }
         }

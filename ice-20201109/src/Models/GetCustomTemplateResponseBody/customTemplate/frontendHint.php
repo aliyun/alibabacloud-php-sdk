@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomTemplateResponseBody\customTemplate;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomTemplateResponseBody\customTemplate\frontendHint\transcodeTemplateHint;
-use AlibabaCloud\Tea\Model;
 
 class frontendHint extends Model
 {
@@ -19,23 +19,27 @@ class frontendHint extends Model
 
     public function validate()
     {
+        if (null !== $this->transcodeTemplateHint) {
+            $this->transcodeTemplateHint->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->transcodeTemplateHint) {
-            $res['TranscodeTemplateHint'] = null !== $this->transcodeTemplateHint ? $this->transcodeTemplateHint->toMap() : null;
+            $res['TranscodeTemplateHint'] = null !== $this->transcodeTemplateHint ? $this->transcodeTemplateHint->toArray($noStream) : $this->transcodeTemplateHint;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return frontendHint
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,69 +4,35 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveTranscodeTemplatesResponseBody\templateContentList\templateConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class videoParams extends Model
 {
     /**
-     * @description The video bitrate.
-     *
-     * @example 2500
-     *
      * @var string
      */
     public $bitrate;
-
     /**
-     * @description The encoding format.
-     *
-     * @example 264
-     *
      * @var string
      */
     public $codec;
-
     /**
-     * @description The video frame rate.
-     *
-     * @example 30
-     *
      * @var string
      */
     public $fps;
-
     /**
-     * @description The group of pictures (GOP) of the output video. Unit: frame.
-     *
-     * @example 1000
-     *
      * @var string
      */
     public $gop;
-
     /**
-     * @description The vertical resolution of the video.
-     *
-     * @example 1280
-     *
      * @var string
      */
     public $height;
-
     /**
-     * @description The encoding profile.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $profile;
-
     /**
-     * @description The horizontal resolution of the video.
-     *
-     * @example 720
-     *
      * @var string
      */
     public $width;
@@ -82,29 +48,36 @@ class videoParams extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
+
         if (null !== $this->codec) {
             $res['Codec'] = $this->codec;
         }
+
         if (null !== $this->fps) {
             $res['Fps'] = $this->fps;
         }
+
         if (null !== $this->gop) {
             $res['Gop'] = $this->gop;
         }
+
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->profile) {
             $res['Profile'] = $this->profile;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
@@ -112,32 +85,38 @@ class videoParams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
+
         if (isset($map['Codec'])) {
             $model->codec = $map['Codec'];
         }
+
         if (isset($map['Fps'])) {
             $model->fps = $map['Fps'];
         }
+
         if (isset($map['Gop'])) {
             $model->gop = $map['Gop'];
         }
+
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['Profile'])) {
             $model->profile = $map['Profile'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponseBody\mediaTagList;
-use AlibabaCloud\Tea\Model;
 
 class ListAllPublicMediaTagsResponseBody extends Model
 {
     /**
-     * @description The tags of media assets in the public media library.
-     *
      * @var mediaTagList[]
      */
     public $mediaTagList;
-
     /**
-     * @description The request ID.
-     *
-     * @example B45F83B7-7F87-4792-BFE9-63CD2137CAF0
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListAllPublicMediaTagsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->mediaTagList)) {
+            Model::validateArray($this->mediaTagList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaTagList) {
-            $res['MediaTagList'] = [];
-            if (null !== $this->mediaTagList && \is_array($this->mediaTagList)) {
-                $n = 0;
-                foreach ($this->mediaTagList as $item) {
-                    $res['MediaTagList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mediaTagList)) {
+                $res['MediaTagList'] = [];
+                $n1                  = 0;
+                foreach ($this->mediaTagList as $item1) {
+                    $res['MediaTagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListAllPublicMediaTagsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAllPublicMediaTagsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaTagList'])) {
             if (!empty($map['MediaTagList'])) {
                 $model->mediaTagList = [];
-                $n                   = 0;
-                foreach ($map['MediaTagList'] as $item) {
-                    $model->mediaTagList[$n++] = null !== $item ? mediaTagList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['MediaTagList'] as $item1) {
+                    $model->mediaTagList[$n1++] = mediaTagList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

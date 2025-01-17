@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddMediaMarksRequest extends Model
 {
     /**
-     * @description The ID of the media asset.
-     *
-     * This parameter is required.
-     * @example 53afdf003a2171ed9c6a16b5feac6402
-     *
      * @var string
      */
     public $mediaId;
-
     /**
-     * @description The mark information. The value must be a JSONArray.
-     *
-     * This parameter is required.
      * @var string
      */
     public $mediaMarks;
@@ -32,14 +23,16 @@ class AddMediaMarksRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
+
         if (null !== $this->mediaMarks) {
             $res['MediaMarks'] = $this->mediaMarks;
         }
@@ -47,17 +40,18 @@ class AddMediaMarksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddMediaMarksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
+
         if (isset($map['MediaMarks'])) {
             $model->mediaMarks = $map['MediaMarks'];
         }

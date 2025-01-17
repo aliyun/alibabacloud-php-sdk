@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteLiveSnapshotFilesRequest extends Model
 {
     /**
-     * @description The list of timestamps when the jobs were created. The values are UNIX timestamps representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A maximum of 200 jobs can be deleted at a time.
-     *
-     * This parameter is required.
      * @var int[]
      */
     public $createTimestampList;
-
     /**
-     * @description Specifies whether to delete the original files at the same time. Default value: false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $deleteOriginalFile;
-
     /**
-     * @description The ID of the snapshot job.
-     *
-     * This parameter is required.
-     * @example ****a046-263c-3560-978a-fb287782****
-     *
      * @var string
      */
     public $jobId;
@@ -42,17 +28,29 @@ class DeleteLiveSnapshotFilesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->createTimestampList)) {
+            Model::validateArray($this->createTimestampList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTimestampList) {
-            $res['CreateTimestampList'] = $this->createTimestampList;
+            if (\is_array($this->createTimestampList)) {
+                $res['CreateTimestampList'] = [];
+                $n1                         = 0;
+                foreach ($this->createTimestampList as $item1) {
+                    $res['CreateTimestampList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->deleteOriginalFile) {
             $res['DeleteOriginalFile'] = $this->deleteOriginalFile;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -60,22 +58,28 @@ class DeleteLiveSnapshotFilesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLiveSnapshotFilesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTimestampList'])) {
             if (!empty($map['CreateTimestampList'])) {
-                $model->createTimestampList = $map['CreateTimestampList'];
+                $model->createTimestampList = [];
+                $n1                         = 0;
+                foreach ($map['CreateTimestampList'] as $item1) {
+                    $model->createTimestampList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['DeleteOriginalFile'])) {
             $model->deleteOriginalFile = $map['DeleteOriginalFile'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

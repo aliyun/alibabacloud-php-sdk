@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomTemplatesResponseBody\customTemplateList;
-use AlibabaCloud\Tea\Model;
 
 class ListCustomTemplatesResponseBody extends Model
 {
     /**
-     * @description The queried templates.
-     *
      * @var customTemplateList[]
      */
     public $customTemplateList;
-
     /**
-     * @description The request ID.
-     *
-     * @example ******11-DB8D-4A9A-875B-275798******
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of templates.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $total;
@@ -41,23 +29,29 @@ class ListCustomTemplatesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->customTemplateList)) {
+            Model::validateArray($this->customTemplateList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customTemplateList) {
-            $res['CustomTemplateList'] = [];
-            if (null !== $this->customTemplateList && \is_array($this->customTemplateList)) {
-                $n = 0;
-                foreach ($this->customTemplateList as $item) {
-                    $res['CustomTemplateList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customTemplateList)) {
+                $res['CustomTemplateList'] = [];
+                $n1                        = 0;
+                foreach ($this->customTemplateList as $item1) {
+                    $res['CustomTemplateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -65,26 +59,28 @@ class ListCustomTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCustomTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomTemplateList'])) {
             if (!empty($map['CustomTemplateList'])) {
                 $model->customTemplateList = [];
-                $n                         = 0;
-                foreach ($map['CustomTemplateList'] as $item) {
-                    $model->customTemplateList[$n++] = null !== $item ? customTemplateList::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['CustomTemplateList'] as $item1) {
+                    $model->customTemplateList[$n1++] = customTemplateList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

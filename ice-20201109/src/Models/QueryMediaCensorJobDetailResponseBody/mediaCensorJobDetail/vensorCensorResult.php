@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail\vensorCensorResult\censorResults;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail\vensorCensorResult\videoTimelines;
-use AlibabaCloud\Tea\Model;
 
 class vensorCensorResult extends Model
 {
     /**
-     * @description A collection of moderation results. The information includes the summary about various scenarios such as pornographic content moderation and terrorist content moderation.
-     *
      * @var censorResults
      */
     public $censorResults;
-
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example ea04afcca7cd4e80b9ece8fbb251****
-     *
      * @var string
      */
     public $nextPageToken;
-
     /**
-     * @description The moderation results that are sorted in ascending order by time.
-     *
      * @var videoTimelines
      */
     public $videoTimelines;
@@ -40,38 +30,49 @@ class vensorCensorResult extends Model
 
     public function validate()
     {
+        if (null !== $this->censorResults) {
+            $this->censorResults->validate();
+        }
+        if (null !== $this->videoTimelines) {
+            $this->videoTimelines->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->censorResults) {
-            $res['CensorResults'] = null !== $this->censorResults ? $this->censorResults->toMap() : null;
+            $res['CensorResults'] = null !== $this->censorResults ? $this->censorResults->toArray($noStream) : $this->censorResults;
         }
+
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->videoTimelines) {
-            $res['VideoTimelines'] = null !== $this->videoTimelines ? $this->videoTimelines->toMap() : null;
+            $res['VideoTimelines'] = null !== $this->videoTimelines ? $this->videoTimelines->toArray($noStream) : $this->videoTimelines;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vensorCensorResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CensorResults'])) {
             $model->censorResults = censorResults::fromMap($map['CensorResults']);
         }
+
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['VideoTimelines'])) {
             $model->videoTimelines = videoTimelines::fromMap($map['VideoTimelines']);
         }

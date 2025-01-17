@@ -4,45 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\aiRoughData;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\aiRoughData\standardSmartTagJob\results;
-use AlibabaCloud\Tea\Model;
 
 class standardSmartTagJob extends Model
 {
     /**
-     * @description The ID of the AI task.
-     *
-     * @example ****483915d4f2cd8ac20b48fb04****
-     *
      * @var string
      */
     public $aiJobId;
-
     /**
-     * @description The URL of the tagging result.
-     *
-     * @example http://xx.oss-cn-shanghai.aliyuncs.com/result2.txt
-     *
      * @var string
      */
     public $resultUrl;
-
     /**
-     * @description The recognized tags.
-     *
      * @var results[]
      */
     public $results;
-
     /**
-     * @description The analysis status. Valid values:
-     *
-     *   Analyzing
-     *   AnalyzeSuccess
-     *   AnalyzeFailed
-     *
-     * @example Analyzing
-     *
      * @var string
      */
     public $status;
@@ -55,26 +34,33 @@ class standardSmartTagJob extends Model
 
     public function validate()
     {
+        if (\is_array($this->results)) {
+            Model::validateArray($this->results);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aiJobId) {
             $res['AiJobId'] = $this->aiJobId;
         }
+
         if (null !== $this->resultUrl) {
             $res['ResultUrl'] = $this->resultUrl;
         }
+
         if (null !== $this->results) {
-            $res['Results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->results)) {
+                $res['Results'] = [];
+                $n1             = 0;
+                foreach ($this->results as $item1) {
+                    $res['Results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -82,29 +68,32 @@ class standardSmartTagJob extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return standardSmartTagJob
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AiJobId'])) {
             $model->aiJobId = $map['AiJobId'];
         }
+
         if (isset($map['ResultUrl'])) {
             $model->resultUrl = $map['ResultUrl'];
         }
+
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
-                foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Results'] as $item1) {
+                    $model->results[$n1++] = results::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

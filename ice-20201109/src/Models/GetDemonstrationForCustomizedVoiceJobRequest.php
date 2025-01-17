@@ -4,22 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDemonstrationForCustomizedVoiceJobRequest extends Model
 {
     /**
-     * @description The demonstration scenario.
-     *
-     * Valid values:
-     *
-     *   **story**
-     *   **interaction**
-     *   **navigation**
-     *
-     * This parameter is required.
-     * @example story
-     *
      * @var string
      */
     public $scenario;
@@ -29,9 +18,10 @@ class GetDemonstrationForCustomizedVoiceJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scenario) {
@@ -41,11 +31,11 @@ class GetDemonstrationForCustomizedVoiceJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDemonstrationForCustomizedVoiceJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

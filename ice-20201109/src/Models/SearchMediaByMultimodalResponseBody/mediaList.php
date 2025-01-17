@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByMultimodalResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByMultimodalResponseBody\mediaList\clipInfo;
-use AlibabaCloud\Tea\Model;
 
 class mediaList extends Model
 {
     /**
-     * @description The information about the clip.
-     *
      * @var clipInfo[]
      */
     public $clipInfo;
-
     /**
-     * @description The ID of the media asset.
-     *
-     * @example a18936e0e28771edb59ae6f6f47a****
-     *
      * @var string
      */
     public $mediaId;
@@ -31,20 +24,25 @@ class mediaList extends Model
 
     public function validate()
     {
+        if (\is_array($this->clipInfo)) {
+            Model::validateArray($this->clipInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clipInfo) {
-            $res['ClipInfo'] = [];
-            if (null !== $this->clipInfo && \is_array($this->clipInfo)) {
-                $n = 0;
-                foreach ($this->clipInfo as $item) {
-                    $res['ClipInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clipInfo)) {
+                $res['ClipInfo'] = [];
+                $n1              = 0;
+                foreach ($this->clipInfo as $item1) {
+                    $res['ClipInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -52,23 +50,24 @@ class mediaList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediaList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClipInfo'])) {
             if (!empty($map['ClipInfo'])) {
                 $model->clipInfo = [];
-                $n               = 0;
-                foreach ($map['ClipInfo'] as $item) {
-                    $model->clipInfo[$n++] = null !== $item ? clipInfo::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['ClipInfo'] as $item1) {
+                    $model->clipInfo[$n1++] = clipInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }

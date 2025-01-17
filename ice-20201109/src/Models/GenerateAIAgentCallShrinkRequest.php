@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateAIAgentCallShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 39f8e0bc005e4f309379701645f4****
-     *
      * @var string
      */
     public $AIAgentId;
-
     /**
-     * @example 3600
-     *
      * @var int
      */
     public $expire;
-
     /**
      * @var string
      */
     public $templateConfigShrink;
-
     /**
      * @var string
      */
     public $userData;
-
     /**
-     * @example 877ae632caae49b1afc81c2e8194ffb4
-     *
      * @var string
      */
     public $userId;
@@ -50,23 +38,28 @@ class GenerateAIAgentCallShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AIAgentId) {
             $res['AIAgentId'] = $this->AIAgentId;
         }
+
         if (null !== $this->expire) {
             $res['Expire'] = $this->expire;
         }
+
         if (null !== $this->templateConfigShrink) {
             $res['TemplateConfig'] = $this->templateConfigShrink;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -74,26 +67,30 @@ class GenerateAIAgentCallShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateAIAgentCallShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AIAgentId'])) {
             $model->AIAgentId = $map['AIAgentId'];
         }
+
         if (isset($map['Expire'])) {
             $model->expire = $map['Expire'];
         }
+
         if (isset($map['TemplateConfig'])) {
             $model->templateConfigShrink = $map['TemplateConfig'];
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

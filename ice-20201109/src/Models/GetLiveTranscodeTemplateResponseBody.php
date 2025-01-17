@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateResponseBody\templateContent;
-use AlibabaCloud\Tea\Model;
 
 class GetLiveTranscodeTemplateResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example ******3B-0E1A-586A-AC29-742247******
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The content of the template.
-     *
      * @var templateContent
      */
     public $templateContent;
@@ -31,32 +24,38 @@ class GetLiveTranscodeTemplateResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->templateContent) {
+            $this->templateContent->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->templateContent) {
-            $res['TemplateContent'] = null !== $this->templateContent ? $this->templateContent->toMap() : null;
+            $res['TemplateContent'] = null !== $this->templateContent ? $this->templateContent->toArray($noStream) : $this->templateContent;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLiveTranscodeTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TemplateContent'])) {
             $model->templateContent = templateContent::fromMap($map['TemplateContent']);
         }

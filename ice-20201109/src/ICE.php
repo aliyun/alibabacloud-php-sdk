@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddCategoryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddCategoryResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsRequest;
@@ -168,6 +167,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConvertJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConvertJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoRequest;
@@ -406,6 +407,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaAiAnalysisJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaCensorJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaCensorJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaCensorJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaConvertJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaConvertJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaInfoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaInfoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaInfoJobShrinkRequest;
@@ -490,11 +493,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UploadMediaByURLRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UploadMediaByURLResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UploadStreamByURLRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UploadStreamByURLResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class ICE extends OpenApiClient
 {
@@ -578,41 +580,50 @@ class ICE extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Creates a category.
-     *  *
-     * @description You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
-     *  *
-     * @param AddCategoryRequest $request AddCategoryRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a category.
      *
-     * @return AddCategoryResponse AddCategoryResponse
+     * @remarks
+     * You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
+     *
+     * @param request - AddCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddCategoryResponse
+     *
+     * @param AddCategoryRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddCategoryResponse
      */
     public function addCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateName)) {
-            $query['CateName'] = $request->cateName;
+        if (null !== $request->cateName) {
+            @$query['CateName'] = $request->cateName;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddCategory',
@@ -630,13 +641,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a category.
-     *  *
-     * @description You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
-     *  *
-     * @param AddCategoryRequest $request AddCategoryRequest
+     * Creates a category.
      *
-     * @return AddCategoryResponse AddCategoryResponse
+     * @remarks
+     * You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
+     *
+     * @param request - AddCategoryRequest
+     * @returns AddCategoryResponse
+     *
+     * @param AddCategoryRequest $request
+     *
+     * @return AddCategoryResponse
      */
     public function addCategory($request)
     {
@@ -646,25 +661,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Adds one or more materials to an online editing project.
-     *  *
-     * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Adds one or more materials to an online editing project.
      *
-     * @return AddEditingProjectMaterialsResponse AddEditingProjectMaterialsResponse
+     * @param request - AddEditingProjectMaterialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddEditingProjectMaterialsResponse
+     *
+     * @param AddEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AddEditingProjectMaterialsResponse
      */
     public function addEditingProjectMaterialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->materialMaps)) {
-            $query['MaterialMaps'] = $request->materialMaps;
+        if (null !== $request->materialMaps) {
+            @$query['MaterialMaps'] = $request->materialMaps;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddEditingProjectMaterials',
@@ -682,11 +703,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Adds one or more materials to an online editing project.
-     *  *
-     * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
+     * Adds one or more materials to an online editing project.
      *
-     * @return AddEditingProjectMaterialsResponse AddEditingProjectMaterialsResponse
+     * @param request - AddEditingProjectMaterialsRequest
+     * @returns AddEditingProjectMaterialsResponse
+     *
+     * @param AddEditingProjectMaterialsRequest $request
+     *
+     * @return AddEditingProjectMaterialsResponse
      */
     public function addEditingProjectMaterials($request)
     {
@@ -696,22 +720,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 收藏公共媒资
-     *  *
-     * @param AddFavoritePublicMediaRequest $request AddFavoritePublicMediaRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 收藏公共媒资.
      *
-     * @return AddFavoritePublicMediaResponse AddFavoritePublicMediaResponse
+     * @param request - AddFavoritePublicMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddFavoritePublicMediaResponse
+     *
+     * @param AddFavoritePublicMediaRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddFavoritePublicMediaResponse
      */
     public function addFavoritePublicMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddFavoritePublicMedia',
@@ -729,11 +758,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 收藏公共媒资
-     *  *
-     * @param AddFavoritePublicMediaRequest $request AddFavoritePublicMediaRequest
+     * 收藏公共媒资.
      *
-     * @return AddFavoritePublicMediaResponse AddFavoritePublicMediaResponse
+     * @param request - AddFavoritePublicMediaRequest
+     * @returns AddFavoritePublicMediaResponse
+     *
+     * @param AddFavoritePublicMediaRequest $request
+     *
+     * @return AddFavoritePublicMediaResponse
      */
     public function addFavoritePublicMedia($request)
     {
@@ -743,25 +775,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Adds marks for a media asset.
-     *  *
-     * @param AddMediaMarksRequest $request AddMediaMarksRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Adds marks for a media asset.
      *
-     * @return AddMediaMarksResponse AddMediaMarksResponse
+     * @param request - AddMediaMarksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddMediaMarksResponse
+     *
+     * @param AddMediaMarksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddMediaMarksResponse
      */
     public function addMediaMarksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaMarks)) {
-            $query['MediaMarks'] = $request->mediaMarks;
+
+        if (null !== $request->mediaMarks) {
+            @$query['MediaMarks'] = $request->mediaMarks;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddMediaMarks',
@@ -779,11 +817,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Adds marks for a media asset.
-     *  *
-     * @param AddMediaMarksRequest $request AddMediaMarksRequest
+     * Adds marks for a media asset.
      *
-     * @return AddMediaMarksResponse AddMediaMarksResponse
+     * @param request - AddMediaMarksRequest
+     * @returns AddMediaMarksResponse
+     *
+     * @param AddMediaMarksRequest $request
+     *
+     * @return AddMediaMarksResponse
      */
     public function addMediaMarks($request)
     {
@@ -793,49 +834,62 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a template.
-     *  *
-     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * Creates a template.
+     *
+     * @remarks
+     *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
      * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
-     *  *
-     * @param AddTemplateRequest $request AddTemplateRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTemplateResponse AddTemplateResponse
+     * @param request - AddTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddTemplateResponse
+     *
+     * @param AddTemplateRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddTemplateResponse
      */
     public function addTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->coverUrl)) {
-            $query['CoverUrl'] = $request->coverUrl;
+        if (null !== $request->coverUrl) {
+            @$query['CoverUrl'] = $request->coverUrl;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->previewMedia)) {
-            $query['PreviewMedia'] = $request->previewMedia;
+
+        if (null !== $request->previewMedia) {
+            @$query['PreviewMedia'] = $request->previewMedia;
         }
-        if (!Utils::isUnset($request->relatedMediaids)) {
-            $query['RelatedMediaids'] = $request->relatedMediaids;
+
+        if (null !== $request->relatedMediaids) {
+            @$query['RelatedMediaids'] = $request->relatedMediaids;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddTemplate',
@@ -853,15 +907,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a template.
-     *  *
-     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * Creates a template.
+     *
+     * @remarks
+     *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
      * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
-     *  *
-     * @param AddTemplateRequest $request AddTemplateRequest
      *
-     * @return AddTemplateResponse AddTemplateResponse
+     * @param request - AddTemplateRequest
+     * @returns AddTemplateResponse
+     *
+     * @param AddTemplateRequest $request
+     *
+     * @return AddTemplateResponse
      */
     public function addTemplate($request)
     {
@@ -871,31 +929,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies search index information including index status and configurations.
-     *  *
-     * @param AlterSearchIndexRequest $request AlterSearchIndexRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies search index information including index status and configurations.
      *
-     * @return AlterSearchIndexResponse AlterSearchIndexResponse
+     * @param request - AlterSearchIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AlterSearchIndexResponse
+     *
+     * @param AlterSearchIndexRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AlterSearchIndexResponse
      */
     public function alterSearchIndexWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->indexConfig)) {
-            $query['IndexConfig'] = $request->indexConfig;
+        if (null !== $request->indexConfig) {
+            @$query['IndexConfig'] = $request->indexConfig;
         }
-        if (!Utils::isUnset($request->indexStatus)) {
-            $query['IndexStatus'] = $request->indexStatus;
+
+        if (null !== $request->indexStatus) {
+            @$query['IndexStatus'] = $request->indexStatus;
         }
-        if (!Utils::isUnset($request->indexType)) {
-            $query['IndexType'] = $request->indexType;
+
+        if (null !== $request->indexType) {
+            @$query['IndexType'] = $request->indexType;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AlterSearchIndex',
@@ -913,11 +979,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies search index information including index status and configurations.
-     *  *
-     * @param AlterSearchIndexRequest $request AlterSearchIndexRequest
+     * Modifies search index information including index status and configurations.
      *
-     * @return AlterSearchIndexResponse AlterSearchIndexResponse
+     * @param request - AlterSearchIndexRequest
+     * @returns AlterSearchIndexResponse
+     *
+     * @param AlterSearchIndexRequest $request
+     *
+     * @return AlterSearchIndexResponse
      */
     public function alterSearchIndex($request)
     {
@@ -927,25 +996,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about multiple media assets at a time based on media asset IDs.
-     *  *
-     * @param BatchGetMediaInfosRequest $request BatchGetMediaInfosRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about multiple media assets at a time based on media asset IDs.
      *
-     * @return BatchGetMediaInfosResponse BatchGetMediaInfosResponse
+     * @param request - BatchGetMediaInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchGetMediaInfosResponse
+     *
+     * @param BatchGetMediaInfosRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BatchGetMediaInfosResponse
      */
     public function batchGetMediaInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->additionType)) {
-            $query['AdditionType'] = $request->additionType;
+        if (null !== $request->additionType) {
+            @$query['AdditionType'] = $request->additionType;
         }
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchGetMediaInfos',
@@ -963,11 +1038,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about multiple media assets at a time based on media asset IDs.
-     *  *
-     * @param BatchGetMediaInfosRequest $request BatchGetMediaInfosRequest
+     * Queries the information about multiple media assets at a time based on media asset IDs.
      *
-     * @return BatchGetMediaInfosResponse BatchGetMediaInfosResponse
+     * @param request - BatchGetMediaInfosRequest
+     * @returns BatchGetMediaInfosResponse
+     *
+     * @param BatchGetMediaInfosRequest $request
+     *
+     * @return BatchGetMediaInfosResponse
      */
     public function batchGetMediaInfos($request)
     {
@@ -977,37 +1055,47 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a media fingerprint analysis job.
-     *  *
-     * @description *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
-     * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
-     *  *
-     * @param CancelDNAJobRequest $request CancelDNAJobRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Cancels a media fingerprint analysis job.
      *
-     * @return CancelDNAJobResponse CancelDNAJobResponse
+     * @remarks
+     *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
+     * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
+     *
+     * @param request - CancelDNAJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelDNAJobResponse
+     *
+     * @param CancelDNAJobRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CancelDNAJobResponse
      */
     public function cancelDNAJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelDNAJob',
@@ -1025,14 +1113,18 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a media fingerprint analysis job.
-     *  *
-     * @description *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
-     * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
-     *  *
-     * @param CancelDNAJobRequest $request CancelDNAJobRequest
+     * Cancels a media fingerprint analysis job.
      *
-     * @return CancelDNAJobResponse CancelDNAJobResponse
+     * @remarks
+     *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
+     * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
+     *
+     * @param request - CancelDNAJobRequest
+     * @returns CancelDNAJobResponse
+     *
+     * @param CancelDNAJobRequest $request
+     *
+     * @return CancelDNAJobResponse
      */
     public function cancelDNAJob($request)
     {
@@ -1042,22 +1134,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 取消收藏公共媒资
-     *  *
-     * @param CancelFavoritePublicMediaRequest $request CancelFavoritePublicMediaRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 取消收藏公共媒资.
      *
-     * @return CancelFavoritePublicMediaResponse CancelFavoritePublicMediaResponse
+     * @param request - CancelFavoritePublicMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelFavoritePublicMediaResponse
+     *
+     * @param CancelFavoritePublicMediaRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CancelFavoritePublicMediaResponse
      */
     public function cancelFavoritePublicMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelFavoritePublicMedia',
@@ -1075,11 +1172,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 取消收藏公共媒资
-     *  *
-     * @param CancelFavoritePublicMediaRequest $request CancelFavoritePublicMediaRequest
+     * 取消收藏公共媒资.
      *
-     * @return CancelFavoritePublicMediaResponse CancelFavoritePublicMediaResponse
+     * @param request - CancelFavoritePublicMediaRequest
+     * @returns CancelFavoritePublicMediaResponse
+     *
+     * @param CancelFavoritePublicMediaRequest $request
+     *
+     * @return CancelFavoritePublicMediaResponse
      */
     public function cancelFavoritePublicMedia($request)
     {
@@ -1089,22 +1189,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits manual review results for media assets.
-     *  *
-     * @param CreateAuditRequest $request CreateAuditRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Submits manual review results for media assets.
      *
-     * @return CreateAuditResponse CreateAuditResponse
+     * @param request - CreateAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAuditResponse
+     *
+     * @param CreateAuditRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAuditResponse
      */
     public function createAuditWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditContent)) {
-            $query['AuditContent'] = $request->auditContent;
+        if (null !== $request->auditContent) {
+            @$query['AuditContent'] = $request->auditContent;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAudit',
@@ -1122,11 +1227,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits manual review results for media assets.
-     *  *
-     * @param CreateAuditRequest $request CreateAuditRequest
+     * Submits manual review results for media assets.
      *
-     * @return CreateAuditResponse CreateAuditResponse
+     * @param request - CreateAuditRequest
+     * @returns CreateAuditResponse
+     *
+     * @param CreateAuditRequest $request
+     *
+     * @return CreateAuditResponse
      */
     public function createAudit($request)
     {
@@ -1136,40 +1244,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
-     *  *
-     * @param CreateAvatarTrainingJobRequest $request CreateAvatarTrainingJobRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
      *
-     * @return CreateAvatarTrainingJobResponse CreateAvatarTrainingJobResponse
+     * @param request - CreateAvatarTrainingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAvatarTrainingJobResponse
+     *
+     * @param CreateAvatarTrainingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAvatarTrainingJobResponse
      */
     public function createAvatarTrainingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->avatarDescription)) {
-            $query['AvatarDescription'] = $request->avatarDescription;
+        if (null !== $request->avatarDescription) {
+            @$query['AvatarDescription'] = $request->avatarDescription;
         }
-        if (!Utils::isUnset($request->avatarName)) {
-            $query['AvatarName'] = $request->avatarName;
+
+        if (null !== $request->avatarName) {
+            @$query['AvatarName'] = $request->avatarName;
         }
-        if (!Utils::isUnset($request->avatarType)) {
-            $query['AvatarType'] = $request->avatarType;
+
+        if (null !== $request->avatarType) {
+            @$query['AvatarType'] = $request->avatarType;
         }
-        if (!Utils::isUnset($request->portrait)) {
-            $query['Portrait'] = $request->portrait;
+
+        if (null !== $request->portrait) {
+            @$query['Portrait'] = $request->portrait;
         }
-        if (!Utils::isUnset($request->thumbnail)) {
-            $query['Thumbnail'] = $request->thumbnail;
+
+        if (null !== $request->thumbnail) {
+            @$query['Thumbnail'] = $request->thumbnail;
         }
-        if (!Utils::isUnset($request->transparent)) {
-            $query['Transparent'] = $request->transparent;
+
+        if (null !== $request->transparent) {
+            @$query['Transparent'] = $request->transparent;
         }
-        if (!Utils::isUnset($request->video)) {
-            $query['Video'] = $request->video;
+
+        if (null !== $request->video) {
+            @$query['Video'] = $request->video;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAvatarTrainingJob',
@@ -1187,11 +1306,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
-     *  *
-     * @param CreateAvatarTrainingJobRequest $request CreateAvatarTrainingJobRequest
+     * Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
      *
-     * @return CreateAvatarTrainingJobResponse CreateAvatarTrainingJobResponse
+     * @param request - CreateAvatarTrainingJobRequest
+     * @returns CreateAvatarTrainingJobResponse
+     *
+     * @param CreateAvatarTrainingJobRequest $request
+     *
+     * @return CreateAvatarTrainingJobResponse
      */
     public function createAvatarTrainingJob($request)
     {
@@ -1201,31 +1323,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom template.
-     *  *
-     * @param CreateCustomTemplateRequest $request CreateCustomTemplateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a custom template.
      *
-     * @return CreateCustomTemplateResponse CreateCustomTemplateResponse
+     * @param request - CreateCustomTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCustomTemplateResponse
+     *
+     * @param CreateCustomTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateCustomTemplateResponse
      */
     public function createCustomTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->subtype)) {
-            $query['Subtype'] = $request->subtype;
+
+        if (null !== $request->subtype) {
+            @$query['Subtype'] = $request->subtype;
         }
-        if (!Utils::isUnset($request->templateConfig)) {
-            $query['TemplateConfig'] = $request->templateConfig;
+
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCustomTemplate',
@@ -1243,11 +1373,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom template.
-     *  *
-     * @param CreateCustomTemplateRequest $request CreateCustomTemplateRequest
+     * Creates a custom template.
      *
-     * @return CreateCustomTemplateResponse CreateCustomTemplateResponse
+     * @param request - CreateCustomTemplateRequest
+     * @returns CreateCustomTemplateResponse
+     *
+     * @param CreateCustomTemplateRequest $request
+     *
+     * @return CreateCustomTemplateResponse
      */
     public function createCustomTemplate($request)
     {
@@ -1257,34 +1390,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
-     *  *
-     * @param CreateCustomizedVoiceJobRequest $request CreateCustomizedVoiceJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
      *
-     * @return CreateCustomizedVoiceJobResponse CreateCustomizedVoiceJobResponse
+     * @param request - CreateCustomizedVoiceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCustomizedVoiceJobResponse
+     *
+     * @param CreateCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateCustomizedVoiceJobResponse
      */
     public function createCustomizedVoiceJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->gender)) {
-            $query['Gender'] = $request->gender;
+        if (null !== $request->gender) {
+            @$query['Gender'] = $request->gender;
         }
-        if (!Utils::isUnset($request->scenario)) {
-            $query['Scenario'] = $request->scenario;
+
+        if (null !== $request->scenario) {
+            @$query['Scenario'] = $request->scenario;
         }
-        if (!Utils::isUnset($request->voiceDesc)) {
-            $query['VoiceDesc'] = $request->voiceDesc;
+
+        if (null !== $request->voiceDesc) {
+            @$query['VoiceDesc'] = $request->voiceDesc;
         }
-        if (!Utils::isUnset($request->voiceId)) {
-            $query['VoiceId'] = $request->voiceId;
+
+        if (null !== $request->voiceId) {
+            @$query['VoiceId'] = $request->voiceId;
         }
-        if (!Utils::isUnset($request->voiceName)) {
-            $query['VoiceName'] = $request->voiceName;
+
+        if (null !== $request->voiceName) {
+            @$query['VoiceName'] = $request->voiceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCustomizedVoiceJob',
@@ -1302,11 +1444,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
-     *  *
-     * @param CreateCustomizedVoiceJobRequest $request CreateCustomizedVoiceJobRequest
+     * Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
      *
-     * @return CreateCustomizedVoiceJobResponse CreateCustomizedVoiceJobResponse
+     * @param request - CreateCustomizedVoiceJobRequest
+     * @returns CreateCustomizedVoiceJobResponse
+     *
+     * @param CreateCustomizedVoiceJobRequest $request
+     *
+     * @return CreateCustomizedVoiceJobResponse
      */
     public function createCustomizedVoiceJob($request)
     {
@@ -1316,42 +1461,54 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates media fingerprint libraries.
-     *  *
-     * @description *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
-     *  *
-     * @param CreateDNADBRequest $request CreateDNADBRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates media fingerprint libraries.
      *
-     * @return CreateDNADBResponse CreateDNADBResponse
+     * @remarks
+     *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
+     *
+     * @param request - CreateDNADBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDNADBResponse
+     *
+     * @param CreateDNADBRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateDNADBResponse
      */
     public function createDNADBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->model)) {
-            $query['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDNADB',
@@ -1369,13 +1526,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates media fingerprint libraries.
-     *  *
-     * @description *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
-     *  *
-     * @param CreateDNADBRequest $request CreateDNADBRequest
+     * Creates media fingerprint libraries.
      *
-     * @return CreateDNADBResponse CreateDNADBResponse
+     * @remarks
+     *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
+     *
+     * @param request - CreateDNADBRequest
+     * @returns CreateDNADBResponse
+     *
+     * @param CreateDNADBRequest $request
+     *
+     * @return CreateDNADBResponse
      */
     public function createDNADB($request)
     {
@@ -1385,51 +1546,65 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
-     *  *
-     * @param CreateEditingProjectRequest $request CreateEditingProjectRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
      *
-     * @return CreateEditingProjectResponse CreateEditingProjectResponse
+     * @param request - CreateEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateEditingProjectResponse
+     *
+     * @param CreateEditingProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateEditingProjectResponse
      */
     public function createEditingProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessConfig)) {
-            $query['BusinessConfig'] = $request->businessConfig;
+        if (null !== $request->businessConfig) {
+            @$query['BusinessConfig'] = $request->businessConfig;
         }
-        if (!Utils::isUnset($request->clipsParam)) {
-            $query['ClipsParam'] = $request->clipsParam;
+
+        if (null !== $request->clipsParam) {
+            @$query['ClipsParam'] = $request->clipsParam;
         }
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
+
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->materialMaps)) {
-            $query['MaterialMaps'] = $request->materialMaps;
+
+        if (null !== $request->materialMaps) {
+            @$query['MaterialMaps'] = $request->materialMaps;
         }
-        if (!Utils::isUnset($request->projectType)) {
-            $query['ProjectType'] = $request->projectType;
+
+        if (null !== $request->projectType) {
+            @$query['ProjectType'] = $request->projectType;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->timeline)) {
-            $body['Timeline'] = $request->timeline;
+        if (null !== $request->timeline) {
+            @$body['Timeline'] = $request->timeline;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEditingProject',
@@ -1447,11 +1622,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
-     *  *
-     * @param CreateEditingProjectRequest $request CreateEditingProjectRequest
+     * Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
      *
-     * @return CreateEditingProjectResponse CreateEditingProjectResponse
+     * @param request - CreateEditingProjectRequest
+     * @returns CreateEditingProjectResponse
+     *
+     * @param CreateEditingProjectRequest $request
+     *
+     * @return CreateEditingProjectResponse
      */
     public function createEditingProject($request)
     {
@@ -1461,32 +1639,40 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a live stream recording template to submit live stream recording jobs.
-     *  *
-     * @description You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
-     *  *
-     * @param CreateLiveRecordTemplateRequest $tmpReq  CreateLiveRecordTemplateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates a live stream recording template to submit live stream recording jobs.
      *
-     * @return CreateLiveRecordTemplateResponse CreateLiveRecordTemplateResponse
+     * @remarks
+     * You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
+     *
+     * @param tmpReq - CreateLiveRecordTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLiveRecordTemplateResponse
+     *
+     * @param CreateLiveRecordTemplateRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateLiveRecordTemplateResponse
      */
     public function createLiveRecordTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateLiveRecordTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->recordFormat)) {
-            $request->recordFormatShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recordFormat, 'RecordFormat', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->recordFormat) {
+            $request->recordFormatShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recordFormat, 'RecordFormat', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->recordFormatShrink)) {
-            $body['RecordFormat'] = $request->recordFormatShrink;
+
+        if (null !== $request->recordFormatShrink) {
+            @$body['RecordFormat'] = $request->recordFormatShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateLiveRecordTemplate',
@@ -1504,13 +1690,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a live stream recording template to submit live stream recording jobs.
-     *  *
-     * @description You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
-     *  *
-     * @param CreateLiveRecordTemplateRequest $request CreateLiveRecordTemplateRequest
+     * Creates a live stream recording template to submit live stream recording jobs.
      *
-     * @return CreateLiveRecordTemplateResponse CreateLiveRecordTemplateResponse
+     * @remarks
+     * You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
+     *
+     * @param request - CreateLiveRecordTemplateRequest
+     * @returns CreateLiveRecordTemplateResponse
+     *
+     * @param CreateLiveRecordTemplateRequest $request
+     *
+     * @return CreateLiveRecordTemplateResponse
      */
     public function createLiveRecordTemplate($request)
     {
@@ -1520,31 +1710,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Create a live stream snapshot template to facilitate the creation of snapshot jobs.
-     *  *
-     * @param CreateLiveSnapshotTemplateRequest $request CreateLiveSnapshotTemplateRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Create a live stream snapshot template to facilitate the creation of snapshot jobs.
      *
-     * @return CreateLiveSnapshotTemplateResponse CreateLiveSnapshotTemplateResponse
+     * @param request - CreateLiveSnapshotTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLiveSnapshotTemplateResponse
+     *
+     * @param CreateLiveSnapshotTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateLiveSnapshotTemplateResponse
      */
     public function createLiveSnapshotTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->overwriteFormat)) {
-            $body['OverwriteFormat'] = $request->overwriteFormat;
+        if (null !== $request->overwriteFormat) {
+            @$body['OverwriteFormat'] = $request->overwriteFormat;
         }
-        if (!Utils::isUnset($request->sequenceFormat)) {
-            $body['SequenceFormat'] = $request->sequenceFormat;
+
+        if (null !== $request->sequenceFormat) {
+            @$body['SequenceFormat'] = $request->sequenceFormat;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->timeInterval)) {
-            $body['TimeInterval'] = $request->timeInterval;
+
+        if (null !== $request->timeInterval) {
+            @$body['TimeInterval'] = $request->timeInterval;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateLiveSnapshotTemplate',
@@ -1562,11 +1760,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Create a live stream snapshot template to facilitate the creation of snapshot jobs.
-     *  *
-     * @param CreateLiveSnapshotTemplateRequest $request CreateLiveSnapshotTemplateRequest
+     * Create a live stream snapshot template to facilitate the creation of snapshot jobs.
      *
-     * @return CreateLiveSnapshotTemplateResponse CreateLiveSnapshotTemplateResponse
+     * @param request - CreateLiveSnapshotTemplateRequest
+     * @returns CreateLiveSnapshotTemplateResponse
+     *
+     * @param CreateLiveSnapshotTemplateRequest $request
+     *
+     * @return CreateLiveSnapshotTemplateResponse
      */
     public function createLiveSnapshotTemplate($request)
     {
@@ -1576,33 +1777,41 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a live stream transcoding template to submit live stream transcoding jobs.
-     *  *
-     * @param CreateLiveTranscodeTemplateRequest $tmpReq  CreateLiveTranscodeTemplateRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Creates a live stream transcoding template to submit live stream transcoding jobs.
      *
-     * @return CreateLiveTranscodeTemplateResponse CreateLiveTranscodeTemplateResponse
+     * @param tmpReq - CreateLiveTranscodeTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLiveTranscodeTemplateResponse
+     *
+     * @param CreateLiveTranscodeTemplateRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateLiveTranscodeTemplateResponse
      */
     public function createLiveTranscodeTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateLiveTranscodeTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->templateConfig)) {
-            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->templateConfig) {
+            $request->templateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->templateConfigShrink)) {
-            $query['TemplateConfig'] = $request->templateConfigShrink;
+
+        if (null !== $request->templateConfigShrink) {
+            @$query['TemplateConfig'] = $request->templateConfigShrink;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLiveTranscodeTemplate',
@@ -1620,11 +1829,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a live stream transcoding template to submit live stream transcoding jobs.
-     *  *
-     * @param CreateLiveTranscodeTemplateRequest $request CreateLiveTranscodeTemplateRequest
+     * Creates a live stream transcoding template to submit live stream transcoding jobs.
      *
-     * @return CreateLiveTranscodeTemplateResponse CreateLiveTranscodeTemplateResponse
+     * @param request - CreateLiveTranscodeTemplateRequest
+     * @returns CreateLiveTranscodeTemplateResponse
+     *
+     * @param CreateLiveTranscodeTemplateRequest $request
+     *
+     * @return CreateLiveTranscodeTemplateResponse
      */
     public function createLiveTranscodeTemplate($request)
     {
@@ -1634,28 +1846,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates an ApsaraVideo Media Processing (MPS) queue.
-     *  *
-     * @param CreatePipelineRequest $request CreatePipelineRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates an ApsaraVideo Media Processing (MPS) queue.
      *
-     * @return CreatePipelineResponse CreatePipelineResponse
+     * @param request - CreatePipelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePipelineResponse
+     *
+     * @param CreatePipelineRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePipelineResponse
      */
     public function createPipelineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePipeline',
@@ -1673,11 +1892,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates an ApsaraVideo Media Processing (MPS) queue.
-     *  *
-     * @param CreatePipelineRequest $request CreatePipelineRequest
+     * Creates an ApsaraVideo Media Processing (MPS) queue.
      *
-     * @return CreatePipelineResponse CreatePipelineResponse
+     * @param request - CreatePipelineRequest
+     * @returns CreatePipelineResponse
+     *
+     * @param CreatePipelineRequest $request
+     *
+     * @return CreatePipelineResponse
      */
     public function createPipeline($request)
     {
@@ -1687,33 +1909,42 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建搜索索引
-     *  *
-     * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
-     *  *
-     * @param CreateSearchIndexRequest $request CreateSearchIndexRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 创建搜索索引.
      *
-     * @return CreateSearchIndexResponse CreateSearchIndexResponse
+     * @remarks
+     * The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
+     *
+     * @param request - CreateSearchIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSearchIndexResponse
+     *
+     * @param CreateSearchIndexRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSearchIndexResponse
      */
     public function createSearchIndexWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->indexConfig)) {
-            $query['IndexConfig'] = $request->indexConfig;
+        if (null !== $request->indexConfig) {
+            @$query['IndexConfig'] = $request->indexConfig;
         }
-        if (!Utils::isUnset($request->indexStatus)) {
-            $query['IndexStatus'] = $request->indexStatus;
+
+        if (null !== $request->indexStatus) {
+            @$query['IndexStatus'] = $request->indexStatus;
         }
-        if (!Utils::isUnset($request->indexType)) {
-            $query['IndexType'] = $request->indexType;
+
+        if (null !== $request->indexType) {
+            @$query['IndexType'] = $request->indexType;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSearchIndex',
@@ -1731,13 +1962,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建搜索索引
-     *  *
-     * @description The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
-     *  *
-     * @param CreateSearchIndexRequest $request CreateSearchIndexRequest
+     * 创建搜索索引.
      *
-     * @return CreateSearchIndexResponse CreateSearchIndexResponse
+     * @remarks
+     * The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
+     *
+     * @param request - CreateSearchIndexRequest
+     * @returns CreateSearchIndexResponse
+     *
+     * @param CreateSearchIndexRequest $request
+     *
+     * @return CreateSearchIndexResponse
      */
     public function createSearchIndex($request)
     {
@@ -1747,22 +1982,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a search library to store media assets.
-     *  *
-     * @param CreateSearchLibRequest $request CreateSearchLibRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates a search library to store media assets.
      *
-     * @return CreateSearchLibResponse CreateSearchLibResponse
+     * @param request - CreateSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSearchLibResponse
+     *
+     * @param CreateSearchLibRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateSearchLibResponse
      */
     public function createSearchLibWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSearchLib',
@@ -1780,11 +2020,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Creates a search library to store media assets.
-     *  *
-     * @param CreateSearchLibRequest $request CreateSearchLibRequest
+     * Creates a search library to store media assets.
      *
-     * @return CreateSearchLibResponse CreateSearchLibResponse
+     * @param request - CreateSearchLibRequest
+     * @returns CreateSearchLibResponse
+     *
+     * @param CreateSearchLibRequest $request
+     *
+     * @return CreateSearchLibResponse
      */
     public function createSearchLib($request)
     {
@@ -1794,48 +2037,60 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the upload URL and credential of a media asset and creates information about the media asset.
-     *  *
-     * @description *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
+     * Obtains the upload URL and credential of a media asset and creates information about the media asset.
+     *
+     * @remarks
+     *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
      * *   Obtaining an upload URL and credential is essential for Intelligent Media Services (IMS) and is required in each upload operation.
      * *   If the video upload credential expires, you can call the RefreshUploadMedia operation to obtain a new upload credential. The default validity period of a video upload credential is 3,000 seconds.
      * *   After you upload a media asset, you can configure a callback to receive upload event notifications or call the GetMediaInfo operation to determine whether the media asset is uploaded based on the returned status.
      * *   The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
      * *   You can call this operation to upload media assets only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media asset to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
      * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-     *  *
-     * @param CreateUploadMediaRequest $request CreateUploadMediaRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadMediaResponse CreateUploadMediaResponse
+     * @param request - CreateUploadMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateUploadMediaResponse
+     *
+     * @param CreateUploadMediaRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateUploadMediaResponse
      */
     public function createUploadMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->fileInfo)) {
-            $query['FileInfo'] = $request->fileInfo;
+
+        if (null !== $request->fileInfo) {
+            @$query['FileInfo'] = $request->fileInfo;
         }
-        if (!Utils::isUnset($request->mediaMetaData)) {
-            $query['MediaMetaData'] = $request->mediaMetaData;
+
+        if (null !== $request->mediaMetaData) {
+            @$query['MediaMetaData'] = $request->mediaMetaData;
         }
-        if (!Utils::isUnset($request->postProcessConfig)) {
-            $query['PostProcessConfig'] = $request->postProcessConfig;
+
+        if (null !== $request->postProcessConfig) {
+            @$query['PostProcessConfig'] = $request->postProcessConfig;
         }
-        if (!Utils::isUnset($request->uploadTargetConfig)) {
-            $query['UploadTargetConfig'] = $request->uploadTargetConfig;
+
+        if (null !== $request->uploadTargetConfig) {
+            @$query['UploadTargetConfig'] = $request->uploadTargetConfig;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateUploadMedia',
@@ -1853,19 +2108,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the upload URL and credential of a media asset and creates information about the media asset.
-     *  *
-     * @description *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
+     * Obtains the upload URL and credential of a media asset and creates information about the media asset.
+     *
+     * @remarks
+     *   You can call this operation to obtain the upload URLs and credentials of audio and video files. You can also call this operation to obtain the upload URLs and credentials of images and auxiliary media assets.
      * *   Obtaining an upload URL and credential is essential for Intelligent Media Services (IMS) and is required in each upload operation.
      * *   If the video upload credential expires, you can call the RefreshUploadMedia operation to obtain a new upload credential. The default validity period of a video upload credential is 3,000 seconds.
      * *   After you upload a media asset, you can configure a callback to receive upload event notifications or call the GetMediaInfo operation to determine whether the media asset is uploaded based on the returned status.
      * *   The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
      * *   You can call this operation to upload media assets only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media asset to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
      * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-     *  *
-     * @param CreateUploadMediaRequest $request CreateUploadMediaRequest
      *
-     * @return CreateUploadMediaResponse CreateUploadMediaResponse
+     * @param request - CreateUploadMediaRequest
+     * @returns CreateUploadMediaResponse
+     *
+     * @param CreateUploadMediaRequest $request
+     *
+     * @return CreateUploadMediaResponse
      */
     public function createUploadMedia($request)
     {
@@ -1875,38 +2134,48 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the upload URL and credential of a media stream.
-     *  *
-     * @description *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
+     * Obtains the upload URL and credential of a media stream.
+     *
+     * @remarks
+     *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
      * *   You can call this operation to upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
      * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-     *  *
-     * @param CreateUploadStreamRequest $request CreateUploadStreamRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadStreamResponse CreateUploadStreamResponse
+     * @param request - CreateUploadStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateUploadStreamResponse
+     *
+     * @param CreateUploadStreamRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateUploadStreamResponse
      */
     public function createUploadStreamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->definition)) {
-            $query['Definition'] = $request->definition;
+        if (null !== $request->definition) {
+            @$query['Definition'] = $request->definition;
         }
-        if (!Utils::isUnset($request->fileExtension)) {
-            $query['FileExtension'] = $request->fileExtension;
+
+        if (null !== $request->fileExtension) {
+            @$query['FileExtension'] = $request->fileExtension;
         }
-        if (!Utils::isUnset($request->HDRType)) {
-            $query['HDRType'] = $request->HDRType;
+
+        if (null !== $request->HDRType) {
+            @$query['HDRType'] = $request->HDRType;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateUploadStream',
@@ -1924,15 +2193,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the upload URL and credential of a media stream.
-     *  *
-     * @description *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
+     * Obtains the upload URL and credential of a media stream.
+     *
+     * @remarks
+     *   You can call this operation to upload only a local media stream. After the media stream is uploaded, it is associated with the specified media asset ID.
      * *   You can call this operation to upload media streams only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream to your own OSS bucket, you can upload the file to your OSS bucket by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
      * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-     *  *
-     * @param CreateUploadStreamRequest $request CreateUploadStreamRequest
      *
-     * @return CreateUploadStreamResponse CreateUploadStreamResponse
+     * @param request - CreateUploadStreamRequest
+     * @returns CreateUploadStreamResponse
+     *
+     * @param CreateUploadStreamRequest $request
+     *
+     * @return CreateUploadStreamResponse
      */
     public function createUploadStream($request)
     {
@@ -1942,22 +2215,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
-     *  *
-     * @param DecryptKMSDataKeyRequest $request DecryptKMSDataKeyRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
      *
-     * @return DecryptKMSDataKeyResponse DecryptKMSDataKeyResponse
+     * @param request - DecryptKMSDataKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DecryptKMSDataKeyResponse
+     *
+     * @param DecryptKMSDataKeyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DecryptKMSDataKeyResponse
      */
     public function decryptKMSDataKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ciphertextBlob)) {
-            $query['CiphertextBlob'] = $request->ciphertextBlob;
+        if (null !== $request->ciphertextBlob) {
+            @$query['CiphertextBlob'] = $request->ciphertextBlob;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DecryptKMSDataKey',
@@ -1975,11 +2253,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
-     *  *
-     * @param DecryptKMSDataKeyRequest $request DecryptKMSDataKeyRequest
+     * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
      *
-     * @return DecryptKMSDataKeyResponse DecryptKMSDataKeyResponse
+     * @param request - DecryptKMSDataKeyRequest
+     * @returns DecryptKMSDataKeyResponse
+     *
+     * @param DecryptKMSDataKeyRequest $request
+     *
+     * @return DecryptKMSDataKeyResponse
      */
     public function decryptKMSDataKey($request)
     {
@@ -1989,22 +2270,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a digital human training job that is in the Init or Fail state.
-     *  *
-     * @param DeleteAvatarTrainingJobRequest $request DeleteAvatarTrainingJobRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes a digital human training job that is in the Init or Fail state.
      *
-     * @return DeleteAvatarTrainingJobResponse DeleteAvatarTrainingJobResponse
+     * @param request - DeleteAvatarTrainingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAvatarTrainingJobResponse
+     *
+     * @param DeleteAvatarTrainingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAvatarTrainingJobResponse
      */
     public function deleteAvatarTrainingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAvatarTrainingJob',
@@ -2022,11 +2308,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a digital human training job that is in the Init or Fail state.
-     *  *
-     * @param DeleteAvatarTrainingJobRequest $request DeleteAvatarTrainingJobRequest
+     * Deletes a digital human training job that is in the Init or Fail state.
      *
-     * @return DeleteAvatarTrainingJobResponse DeleteAvatarTrainingJobResponse
+     * @param request - DeleteAvatarTrainingJobRequest
+     * @returns DeleteAvatarTrainingJobResponse
+     *
+     * @param DeleteAvatarTrainingJobRequest $request
+     *
+     * @return DeleteAvatarTrainingJobResponse
      */
     public function deleteAvatarTrainingJob($request)
     {
@@ -2036,24 +2325,30 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a media asset category.
-     *  *
-     * @description This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
-     *  *
-     * @param DeleteCategoryRequest $request DeleteCategoryRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a media asset category.
      *
-     * @return DeleteCategoryResponse DeleteCategoryResponse
+     * @remarks
+     * This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
+     *
+     * @param request - DeleteCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCategoryResponse
+     *
+     * @param DeleteCategoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteCategoryResponse
      */
     public function deleteCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCategory',
@@ -2071,13 +2366,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a media asset category.
-     *  *
-     * @description This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
-     *  *
-     * @param DeleteCategoryRequest $request DeleteCategoryRequest
+     * Deletes a media asset category.
      *
-     * @return DeleteCategoryResponse DeleteCategoryResponse
+     * @remarks
+     * This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
+     *
+     * @param request - DeleteCategoryRequest
+     * @returns DeleteCategoryResponse
+     *
+     * @param DeleteCategoryRequest $request
+     *
+     * @return DeleteCategoryResponse
      */
     public function deleteCategory($request)
     {
@@ -2087,22 +2386,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom template.
-     *  *
-     * @param DeleteCustomTemplateRequest $request DeleteCustomTemplateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom template.
      *
-     * @return DeleteCustomTemplateResponse DeleteCustomTemplateResponse
+     * @param request - DeleteCustomTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomTemplateResponse
+     *
+     * @param DeleteCustomTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteCustomTemplateResponse
      */
     public function deleteCustomTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCustomTemplate',
@@ -2120,11 +2424,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom template.
-     *  *
-     * @param DeleteCustomTemplateRequest $request DeleteCustomTemplateRequest
+     * Deletes a custom template.
      *
-     * @return DeleteCustomTemplateResponse DeleteCustomTemplateResponse
+     * @param request - DeleteCustomTemplateRequest
+     * @returns DeleteCustomTemplateResponse
+     *
+     * @param DeleteCustomTemplateRequest $request
+     *
+     * @return DeleteCustomTemplateResponse
      */
     public function deleteCustomTemplate($request)
     {
@@ -2134,22 +2441,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a human voice cloning job that is not in the Training or Success state.
-     *  *
-     * @param DeleteCustomizedVoiceJobRequest $request DeleteCustomizedVoiceJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes a human voice cloning job that is not in the Training or Success state.
      *
-     * @return DeleteCustomizedVoiceJobResponse DeleteCustomizedVoiceJobResponse
+     * @param request - DeleteCustomizedVoiceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomizedVoiceJobResponse
+     *
+     * @param DeleteCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteCustomizedVoiceJobResponse
      */
     public function deleteCustomizedVoiceJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCustomizedVoiceJob',
@@ -2167,11 +2479,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a human voice cloning job that is not in the Training or Success state.
-     *  *
-     * @param DeleteCustomizedVoiceJobRequest $request DeleteCustomizedVoiceJobRequest
+     * Deletes a human voice cloning job that is not in the Training or Success state.
      *
-     * @return DeleteCustomizedVoiceJobResponse DeleteCustomizedVoiceJobResponse
+     * @param request - DeleteCustomizedVoiceJobRequest
+     * @returns DeleteCustomizedVoiceJobResponse
+     *
+     * @param DeleteCustomizedVoiceJobRequest $request
+     *
+     * @return DeleteCustomizedVoiceJobResponse
      */
     public function deleteCustomizedVoiceJob($request)
     {
@@ -2181,34 +2496,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a media fingerprint library.
-     *  *
-     * @param DeleteDNADBRequest $request DeleteDNADBRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a media fingerprint library.
      *
-     * @return DeleteDNADBResponse DeleteDNADBResponse
+     * @param request - DeleteDNADBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDNADBResponse
+     *
+     * @param DeleteDNADBRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteDNADBResponse
      */
     public function deleteDNADBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBId)) {
-            $query['DBId'] = $request->DBId;
+        if (null !== $request->DBId) {
+            @$query['DBId'] = $request->DBId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDNADB',
@@ -2226,11 +2550,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a media fingerprint library.
-     *  *
-     * @param DeleteDNADBRequest $request DeleteDNADBRequest
+     * Deletes a media fingerprint library.
      *
-     * @return DeleteDNADBResponse DeleteDNADBResponse
+     * @param request - DeleteDNADBRequest
+     * @returns DeleteDNADBResponse
+     *
+     * @param DeleteDNADBRequest $request
+     *
+     * @return DeleteDNADBResponse
      */
     public function deleteDNADB($request)
     {
@@ -2240,37 +2567,47 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes files from a media fingerprint library.
-     *  *
-     * @param DeleteDNAFilesRequest $request DeleteDNAFilesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes files from a media fingerprint library.
      *
-     * @return DeleteDNAFilesResponse DeleteDNAFilesResponse
+     * @param request - DeleteDNAFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDNAFilesResponse
+     *
+     * @param DeleteDNAFilesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDNAFilesResponse
      */
     public function deleteDNAFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBId)) {
-            $query['DBId'] = $request->DBId;
+        if (null !== $request->DBId) {
+            @$query['DBId'] = $request->DBId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->primaryKeys)) {
-            $query['PrimaryKeys'] = $request->primaryKeys;
+
+        if (null !== $request->primaryKeys) {
+            @$query['PrimaryKeys'] = $request->primaryKeys;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDNAFiles',
@@ -2288,11 +2625,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes files from a media fingerprint library.
-     *  *
-     * @param DeleteDNAFilesRequest $request DeleteDNAFilesRequest
+     * Deletes files from a media fingerprint library.
      *
-     * @return DeleteDNAFilesResponse DeleteDNAFilesResponse
+     * @param request - DeleteDNAFilesRequest
+     * @returns DeleteDNAFilesResponse
+     *
+     * @param DeleteDNAFilesRequest $request
+     *
+     * @return DeleteDNAFilesResponse
      */
     public function deleteDNAFiles($request)
     {
@@ -2302,28 +2642,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more materials from an online editing project.
-     *  *
-     * @param DeleteEditingProjectMaterialsRequest $request DeleteEditingProjectMaterialsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more materials from an online editing project.
      *
-     * @return DeleteEditingProjectMaterialsResponse DeleteEditingProjectMaterialsResponse
+     * @param request - DeleteEditingProjectMaterialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEditingProjectMaterialsResponse
+     *
+     * @param DeleteEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteEditingProjectMaterialsResponse
      */
     public function deleteEditingProjectMaterialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->materialIds)) {
-            $query['MaterialIds'] = $request->materialIds;
+        if (null !== $request->materialIds) {
+            @$query['MaterialIds'] = $request->materialIds;
         }
-        if (!Utils::isUnset($request->materialType)) {
-            $query['MaterialType'] = $request->materialType;
+
+        if (null !== $request->materialType) {
+            @$query['MaterialType'] = $request->materialType;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEditingProjectMaterials',
@@ -2341,11 +2688,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more materials from an online editing project.
-     *  *
-     * @param DeleteEditingProjectMaterialsRequest $request DeleteEditingProjectMaterialsRequest
+     * Deletes one or more materials from an online editing project.
      *
-     * @return DeleteEditingProjectMaterialsResponse DeleteEditingProjectMaterialsResponse
+     * @param request - DeleteEditingProjectMaterialsRequest
+     * @returns DeleteEditingProjectMaterialsResponse
+     *
+     * @param DeleteEditingProjectMaterialsRequest $request
+     *
+     * @return DeleteEditingProjectMaterialsResponse
      */
     public function deleteEditingProjectMaterials($request)
     {
@@ -2355,22 +2705,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more online editing project.
-     *  *
-     * @param DeleteEditingProjectsRequest $request DeleteEditingProjectsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more online editing project.
      *
-     * @return DeleteEditingProjectsResponse DeleteEditingProjectsResponse
+     * @param request - DeleteEditingProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEditingProjectsResponse
+     *
+     * @param DeleteEditingProjectsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteEditingProjectsResponse
      */
     public function deleteEditingProjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectIds)) {
-            $query['ProjectIds'] = $request->projectIds;
+        if (null !== $request->projectIds) {
+            @$query['ProjectIds'] = $request->projectIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEditingProjects',
@@ -2388,11 +2743,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more online editing project.
-     *  *
-     * @param DeleteEditingProjectsRequest $request DeleteEditingProjectsRequest
+     * Deletes one or more online editing project.
      *
-     * @return DeleteEditingProjectsResponse DeleteEditingProjectsResponse
+     * @param request - DeleteEditingProjectsRequest
+     * @returns DeleteEditingProjectsResponse
+     *
+     * @param DeleteEditingProjectsRequest $request
+     *
+     * @return DeleteEditingProjectsResponse
      */
     public function deleteEditingProjects($request)
     {
@@ -2402,25 +2760,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes live stream recording files. You can choose to delete only the recording files or delete both the recording files and the original Object Storage Service (OSS) files.
-     *  *
-     * @param DeleteLiveRecordFilesRequest $request DeleteLiveRecordFilesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes live stream recording files. You can choose to delete only the recording files or delete both the recording files and the original Object Storage Service (OSS) files.
      *
-     * @return DeleteLiveRecordFilesResponse DeleteLiveRecordFilesResponse
+     * @param request - DeleteLiveRecordFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLiveRecordFilesResponse
+     *
+     * @param DeleteLiveRecordFilesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteLiveRecordFilesResponse
      */
     public function deleteLiveRecordFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->recordIds)) {
-            $query['RecordIds'] = $request->recordIds;
+        if (null !== $request->recordIds) {
+            @$query['RecordIds'] = $request->recordIds;
         }
-        if (!Utils::isUnset($request->removeFile)) {
-            $query['RemoveFile'] = $request->removeFile;
+
+        if (null !== $request->removeFile) {
+            @$query['RemoveFile'] = $request->removeFile;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLiveRecordFiles',
@@ -2438,11 +2802,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes live stream recording files. You can choose to delete only the recording files or delete both the recording files and the original Object Storage Service (OSS) files.
-     *  *
-     * @param DeleteLiveRecordFilesRequest $request DeleteLiveRecordFilesRequest
+     * Deletes live stream recording files. You can choose to delete only the recording files or delete both the recording files and the original Object Storage Service (OSS) files.
      *
-     * @return DeleteLiveRecordFilesResponse DeleteLiveRecordFilesResponse
+     * @param request - DeleteLiveRecordFilesRequest
+     * @returns DeleteLiveRecordFilesResponse
+     *
+     * @param DeleteLiveRecordFilesRequest $request
+     *
+     * @return DeleteLiveRecordFilesResponse
      */
     public function deleteLiveRecordFiles($request)
     {
@@ -2452,22 +2819,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a live stream recording template without affecting existing jobs.
-     *  *
-     * @param DeleteLiveRecordTemplateRequest $request DeleteLiveRecordTemplateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes a live stream recording template without affecting existing jobs.
      *
-     * @return DeleteLiveRecordTemplateResponse DeleteLiveRecordTemplateResponse
+     * @param request - DeleteLiveRecordTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLiveRecordTemplateResponse
+     *
+     * @param DeleteLiveRecordTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteLiveRecordTemplateResponse
      */
     public function deleteLiveRecordTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLiveRecordTemplate',
@@ -2485,11 +2857,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a live stream recording template without affecting existing jobs.
-     *  *
-     * @param DeleteLiveRecordTemplateRequest $request DeleteLiveRecordTemplateRequest
+     * Deletes a live stream recording template without affecting existing jobs.
      *
-     * @return DeleteLiveRecordTemplateResponse DeleteLiveRecordTemplateResponse
+     * @param request - DeleteLiveRecordTemplateRequest
+     * @returns DeleteLiveRecordTemplateResponse
+     *
+     * @param DeleteLiveRecordTemplateRequest $request
+     *
+     * @return DeleteLiveRecordTemplateResponse
      */
     public function deleteLiveRecordTemplate($request)
     {
@@ -2499,33 +2874,41 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
-     *  *
-     * @param DeleteLiveSnapshotFilesRequest $tmpReq  DeleteLiveSnapshotFilesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
      *
-     * @return DeleteLiveSnapshotFilesResponse DeleteLiveSnapshotFilesResponse
+     * @param tmpReq - DeleteLiveSnapshotFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLiveSnapshotFilesResponse
+     *
+     * @param DeleteLiveSnapshotFilesRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteLiveSnapshotFilesResponse
      */
     public function deleteLiveSnapshotFilesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteLiveSnapshotFilesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createTimestampList)) {
-            $request->createTimestampListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createTimestampList, 'CreateTimestampList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createTimestampList) {
+            $request->createTimestampListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createTimestampList, 'CreateTimestampList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->createTimestampListShrink)) {
-            $query['CreateTimestampList'] = $request->createTimestampListShrink;
+        if (null !== $request->createTimestampListShrink) {
+            @$query['CreateTimestampList'] = $request->createTimestampListShrink;
         }
-        if (!Utils::isUnset($request->deleteOriginalFile)) {
-            $query['DeleteOriginalFile'] = $request->deleteOriginalFile;
+
+        if (null !== $request->deleteOriginalFile) {
+            @$query['DeleteOriginalFile'] = $request->deleteOriginalFile;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLiveSnapshotFiles',
@@ -2543,11 +2926,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
-     *  *
-     * @param DeleteLiveSnapshotFilesRequest $request DeleteLiveSnapshotFilesRequest
+     * Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
      *
-     * @return DeleteLiveSnapshotFilesResponse DeleteLiveSnapshotFilesResponse
+     * @param request - DeleteLiveSnapshotFilesRequest
+     * @returns DeleteLiveSnapshotFilesResponse
+     *
+     * @param DeleteLiveSnapshotFilesRequest $request
+     *
+     * @return DeleteLiveSnapshotFilesResponse
      */
     public function deleteLiveSnapshotFiles($request)
     {
@@ -2557,22 +2943,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a live stream snapshot template.
-     *  *
-     * @param DeleteLiveSnapshotTemplateRequest $request DeleteLiveSnapshotTemplateRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes a live stream snapshot template.
      *
-     * @return DeleteLiveSnapshotTemplateResponse DeleteLiveSnapshotTemplateResponse
+     * @param request - DeleteLiveSnapshotTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLiveSnapshotTemplateResponse
+     *
+     * @param DeleteLiveSnapshotTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteLiveSnapshotTemplateResponse
      */
     public function deleteLiveSnapshotTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteLiveSnapshotTemplate',
@@ -2590,11 +2981,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a live stream snapshot template.
-     *  *
-     * @param DeleteLiveSnapshotTemplateRequest $request DeleteLiveSnapshotTemplateRequest
+     * Deletes a live stream snapshot template.
      *
-     * @return DeleteLiveSnapshotTemplateResponse DeleteLiveSnapshotTemplateResponse
+     * @param request - DeleteLiveSnapshotTemplateRequest
+     * @returns DeleteLiveSnapshotTemplateResponse
+     *
+     * @param DeleteLiveSnapshotTemplateRequest $request
+     *
+     * @return DeleteLiveSnapshotTemplateResponse
      */
     public function deleteLiveSnapshotTemplate($request)
     {
@@ -2604,22 +2998,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定转码任务
-     *  *
-     * @param DeleteLiveTranscodeJobRequest $request DeleteLiveTranscodeJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 删除指定转码任务
      *
-     * @return DeleteLiveTranscodeJobResponse DeleteLiveTranscodeJobResponse
+     * @param request - DeleteLiveTranscodeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLiveTranscodeJobResponse
+     *
+     * @param DeleteLiveTranscodeJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteLiveTranscodeJobResponse
      */
     public function deleteLiveTranscodeJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLiveTranscodeJob',
@@ -2637,11 +3036,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定转码任务
-     *  *
-     * @param DeleteLiveTranscodeJobRequest $request DeleteLiveTranscodeJobRequest
+     * 删除指定转码任务
      *
-     * @return DeleteLiveTranscodeJobResponse DeleteLiveTranscodeJobResponse
+     * @param request - DeleteLiveTranscodeJobRequest
+     * @returns DeleteLiveTranscodeJobResponse
+     *
+     * @param DeleteLiveTranscodeJobRequest $request
+     *
+     * @return DeleteLiveTranscodeJobResponse
      */
     public function deleteLiveTranscodeJob($request)
     {
@@ -2651,22 +3053,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a live stream transcoding template.
-     *  *
-     * @param DeleteLiveTranscodeTemplateRequest $request DeleteLiveTranscodeTemplateRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Deletes a live stream transcoding template.
      *
-     * @return DeleteLiveTranscodeTemplateResponse DeleteLiveTranscodeTemplateResponse
+     * @param request - DeleteLiveTranscodeTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLiveTranscodeTemplateResponse
+     *
+     * @param DeleteLiveTranscodeTemplateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteLiveTranscodeTemplateResponse
      */
     public function deleteLiveTranscodeTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLiveTranscodeTemplate',
@@ -2684,11 +3091,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a live stream transcoding template.
-     *  *
-     * @param DeleteLiveTranscodeTemplateRequest $request DeleteLiveTranscodeTemplateRequest
+     * Deletes a live stream transcoding template.
      *
-     * @return DeleteLiveTranscodeTemplateResponse DeleteLiveTranscodeTemplateResponse
+     * @param request - DeleteLiveTranscodeTemplateRequest
+     * @returns DeleteLiveTranscodeTemplateResponse
+     *
+     * @param DeleteLiveTranscodeTemplateRequest $request
+     *
+     * @return DeleteLiveTranscodeTemplateResponse
      */
     public function deleteLiveTranscodeTemplate($request)
     {
@@ -2698,28 +3108,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a specific media asset from a search library.
-     *  *
-     * @param DeleteMediaFromSearchLibRequest $request DeleteMediaFromSearchLibRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes a specific media asset from a search library.
      *
-     * @return DeleteMediaFromSearchLibResponse DeleteMediaFromSearchLibResponse
+     * @param request - DeleteMediaFromSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMediaFromSearchLibResponse
+     *
+     * @param DeleteMediaFromSearchLibRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteMediaFromSearchLibResponse
      */
     public function deleteMediaFromSearchLibWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->msgBody)) {
-            $query['MsgBody'] = $request->msgBody;
+
+        if (null !== $request->msgBody) {
+            @$query['MsgBody'] = $request->msgBody;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteMediaFromSearchLib',
@@ -2737,11 +3154,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a specific media asset from a search library.
-     *  *
-     * @param DeleteMediaFromSearchLibRequest $request DeleteMediaFromSearchLibRequest
+     * Deletes a specific media asset from a search library.
      *
-     * @return DeleteMediaFromSearchLibResponse DeleteMediaFromSearchLibResponse
+     * @param request - DeleteMediaFromSearchLibRequest
+     * @returns DeleteMediaFromSearchLibResponse
+     *
+     * @param DeleteMediaFromSearchLibRequest $request
+     *
+     * @return DeleteMediaFromSearchLibResponse
      */
     public function deleteMediaFromSearchLib($request)
     {
@@ -2751,28 +3171,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes multiple media assets at a time. You can delete at most 20 media assets at a time. If MediaIds is specified, it is preferentially used. If MediaIds is empty, InputURLs must be specified.
-     *  *
-     * @param DeleteMediaInfosRequest $request DeleteMediaInfosRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes multiple media assets at a time. You can delete at most 20 media assets at a time. If MediaIds is specified, it is preferentially used. If MediaIds is empty, InputURLs must be specified.
      *
-     * @return DeleteMediaInfosResponse DeleteMediaInfosResponse
+     * @param request - DeleteMediaInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMediaInfosResponse
+     *
+     * @param DeleteMediaInfosRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteMediaInfosResponse
      */
     public function deleteMediaInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deletePhysicalFiles)) {
-            $query['DeletePhysicalFiles'] = $request->deletePhysicalFiles;
+        if (null !== $request->deletePhysicalFiles) {
+            @$query['DeletePhysicalFiles'] = $request->deletePhysicalFiles;
         }
-        if (!Utils::isUnset($request->inputURLs)) {
-            $query['InputURLs'] = $request->inputURLs;
+
+        if (null !== $request->inputURLs) {
+            @$query['InputURLs'] = $request->inputURLs;
         }
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteMediaInfos',
@@ -2790,11 +3217,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes multiple media assets at a time. You can delete at most 20 media assets at a time. If MediaIds is specified, it is preferentially used. If MediaIds is empty, InputURLs must be specified.
-     *  *
-     * @param DeleteMediaInfosRequest $request DeleteMediaInfosRequest
+     * Deletes multiple media assets at a time. You can delete at most 20 media assets at a time. If MediaIds is specified, it is preferentially used. If MediaIds is empty, InputURLs must be specified.
      *
-     * @return DeleteMediaInfosResponse DeleteMediaInfosResponse
+     * @param request - DeleteMediaInfosRequest
+     * @returns DeleteMediaInfosResponse
+     *
+     * @param DeleteMediaInfosRequest $request
+     *
+     * @return DeleteMediaInfosResponse
      */
     public function deleteMediaInfos($request)
     {
@@ -2804,25 +3234,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the marks of a media asset.
-     *  *
-     * @param DeleteMediaMarksRequest $request DeleteMediaMarksRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes the marks of a media asset.
      *
-     * @return DeleteMediaMarksResponse DeleteMediaMarksResponse
+     * @param request - DeleteMediaMarksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMediaMarksResponse
+     *
+     * @param DeleteMediaMarksRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteMediaMarksResponse
      */
     public function deleteMediaMarksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaMarkIds)) {
-            $query['MediaMarkIds'] = $request->mediaMarkIds;
+
+        if (null !== $request->mediaMarkIds) {
+            @$query['MediaMarkIds'] = $request->mediaMarkIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteMediaMarks',
@@ -2840,11 +3276,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the marks of a media asset.
-     *  *
-     * @param DeleteMediaMarksRequest $request DeleteMediaMarksRequest
+     * Deletes the marks of a media asset.
      *
-     * @return DeleteMediaMarksResponse DeleteMediaMarksResponse
+     * @param request - DeleteMediaMarksRequest
+     * @returns DeleteMediaMarksResponse
+     *
+     * @param DeleteMediaMarksRequest $request
+     *
+     * @return DeleteMediaMarksResponse
      */
     public function deleteMediaMarks($request)
     {
@@ -2854,22 +3293,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
-     *  *
-     * @param DeletePipelineRequest $request DeletePipelineRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes an ApsaraVideo Media Processing (MPS) queue.
      *
-     * @return DeletePipelineResponse DeletePipelineResponse
+     * @param request - DeletePipelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePipelineResponse
+     *
+     * @param DeletePipelineRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeletePipelineResponse
      */
     public function deletePipelineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pipelineId)) {
-            $query['PipelineId'] = $request->pipelineId;
+        if (null !== $request->pipelineId) {
+            @$query['PipelineId'] = $request->pipelineId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePipeline',
@@ -2887,11 +3331,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
-     *  *
-     * @param DeletePipelineRequest $request DeletePipelineRequest
+     * Deletes an ApsaraVideo Media Processing (MPS) queue.
      *
-     * @return DeletePipelineResponse DeletePipelineResponse
+     * @param request - DeletePipelineRequest
+     * @returns DeletePipelineResponse
+     *
+     * @param DeletePipelineRequest $request
+     *
+     * @return DeletePipelineResponse
      */
     public function deletePipeline($request)
     {
@@ -2901,30 +3348,38 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes media streams such as video streams and audio streams.
-     *  *
-     * @description You can call this operation to delete multiple media streams at a time.
-     *  *
-     * @param DeletePlayInfoRequest $request DeletePlayInfoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes media streams such as video streams and audio streams.
      *
-     * @return DeletePlayInfoResponse DeletePlayInfoResponse
+     * @remarks
+     * You can call this operation to delete multiple media streams at a time.
+     *
+     * @param request - DeletePlayInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePlayInfoResponse
+     *
+     * @param DeletePlayInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeletePlayInfoResponse
      */
     public function deletePlayInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deletePhysicalFiles)) {
-            $query['DeletePhysicalFiles'] = $request->deletePhysicalFiles;
+        if (null !== $request->deletePhysicalFiles) {
+            @$query['DeletePhysicalFiles'] = $request->deletePhysicalFiles;
         }
-        if (!Utils::isUnset($request->fileURLs)) {
-            $query['FileURLs'] = $request->fileURLs;
+
+        if (null !== $request->fileURLs) {
+            @$query['FileURLs'] = $request->fileURLs;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePlayInfo',
@@ -2942,13 +3397,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes media streams such as video streams and audio streams.
-     *  *
-     * @description You can call this operation to delete multiple media streams at a time.
-     *  *
-     * @param DeletePlayInfoRequest $request DeletePlayInfoRequest
+     * Deletes media streams such as video streams and audio streams.
      *
-     * @return DeletePlayInfoResponse DeletePlayInfoResponse
+     * @remarks
+     * You can call this operation to delete multiple media streams at a time.
+     *
+     * @param request - DeletePlayInfoRequest
+     * @returns DeletePlayInfoResponse
+     *
+     * @param DeletePlayInfoRequest $request
+     *
+     * @return DeletePlayInfoResponse
      */
     public function deletePlayInfo($request)
     {
@@ -2958,22 +3417,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes intelligent jobs based on job IDs.
-     *  *
-     * @param DeleteSmartJobRequest $request DeleteSmartJobRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes intelligent jobs based on job IDs.
      *
-     * @return DeleteSmartJobResponse DeleteSmartJobResponse
+     * @param request - DeleteSmartJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSmartJobResponse
+     *
+     * @param DeleteSmartJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSmartJobResponse
      */
     public function deleteSmartJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSmartJob',
@@ -2991,11 +3455,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes intelligent jobs based on job IDs.
-     *  *
-     * @param DeleteSmartJobRequest $request DeleteSmartJobRequest
+     * Deletes intelligent jobs based on job IDs.
      *
-     * @return DeleteSmartJobResponse DeleteSmartJobResponse
+     * @param request - DeleteSmartJobRequest
+     * @returns DeleteSmartJobResponse
+     *
+     * @param DeleteSmartJobRequest $request
+     *
+     * @return DeleteSmartJobResponse
      */
     public function deleteSmartJob($request)
     {
@@ -3005,23 +3472,28 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes templates.
-     *  *
-     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * Deletes templates.
+     *
+     * @remarks
+     * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
      * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
      * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-     *  *
-     * @param DeleteTemplateRequest $request DeleteTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateResponse DeleteTemplateResponse
+     * @param request - DeleteTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTemplateResponse
+     *
+     * @param DeleteTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTemplate',
@@ -3039,15 +3511,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes templates.
-     *  *
-     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * Deletes templates.
+     *
+     * @remarks
+     * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
      * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
      * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-     *  *
-     * @param DeleteTemplateRequest $request DeleteTemplateRequest
      *
-     * @return DeleteTemplateResponse DeleteTemplateResponse
+     * @param request - DeleteTemplateRequest
+     * @returns DeleteTemplateResponse
+     *
+     * @param DeleteTemplateRequest $request
+     *
+     * @return DeleteTemplateResponse
      */
     public function deleteTemplate($request)
     {
@@ -3057,22 +3533,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例
-     *  *
-     * @param DescribeAIAgentInstanceRequest $request DescribeAIAgentInstanceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询实例.
      *
-     * @return DescribeAIAgentInstanceResponse DescribeAIAgentInstanceResponse
+     * @param request - DescribeAIAgentInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAIAgentInstanceResponse
+     *
+     * @param DescribeAIAgentInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAIAgentInstanceResponse
      */
     public function describeAIAgentInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAIAgentInstance',
@@ -3090,11 +3571,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例
-     *  *
-     * @param DescribeAIAgentInstanceRequest $request DescribeAIAgentInstanceRequest
+     * 查询实例.
      *
-     * @return DescribeAIAgentInstanceResponse DescribeAIAgentInstanceResponse
+     * @param request - DescribeAIAgentInstanceRequest
+     * @returns DescribeAIAgentInstanceResponse
+     *
+     * @param DescribeAIAgentInstanceRequest $request
+     *
+     * @return DescribeAIAgentInstanceResponse
      */
     public function describeAIAgentInstance($request)
     {
@@ -3104,31 +3588,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) editing. The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsEditUsageRequest $request DescribeMeterImsEditUsageRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) editing. The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsEditUsageResponse DescribeMeterImsEditUsageResponse
+     * @param request - DescribeMeterImsEditUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMeterImsEditUsageResponse
+     *
+     * @param DescribeMeterImsEditUsageRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeMeterImsEditUsageResponse
      */
     public function describeMeterImsEditUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
+        if (null !== $request->endTs) {
+            @$query['EndTs'] = $request->endTs;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
+
+        if (null !== $request->startTs) {
+            @$query['StartTs'] = $request->startTs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMeterImsEditUsage',
@@ -3146,11 +3638,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) editing. The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsEditUsageRequest $request DescribeMeterImsEditUsageRequest
+     * Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) editing. The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsEditUsageResponse DescribeMeterImsEditUsageResponse
+     * @param request - DescribeMeterImsEditUsageRequest
+     * @returns DescribeMeterImsEditUsageResponse
+     *
+     * @param DescribeMeterImsEditUsageRequest $request
+     *
+     * @return DescribeMeterImsEditUsageResponse
      */
     public function describeMeterImsEditUsage($request)
     {
@@ -3160,31 +3655,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on ultra high definition (UHD) transcoding of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsMediaConvertUHDUsageRequest $request DescribeMeterImsMediaConvertUHDUsageRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Queries the usage statistics of Intelligent Media Services (IMS) on ultra high definition (UHD) transcoding of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsMediaConvertUHDUsageResponse DescribeMeterImsMediaConvertUHDUsageResponse
+     * @param request - DescribeMeterImsMediaConvertUHDUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMeterImsMediaConvertUHDUsageResponse
+     *
+     * @param DescribeMeterImsMediaConvertUHDUsageRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeMeterImsMediaConvertUHDUsageResponse
      */
     public function describeMeterImsMediaConvertUHDUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
+        if (null !== $request->endTs) {
+            @$query['EndTs'] = $request->endTs;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
+
+        if (null !== $request->startTs) {
+            @$query['StartTs'] = $request->startTs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMeterImsMediaConvertUHDUsage',
@@ -3202,11 +3705,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on ultra high definition (UHD) transcoding of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsMediaConvertUHDUsageRequest $request DescribeMeterImsMediaConvertUHDUsageRequest
+     * Queries the usage statistics of Intelligent Media Services (IMS) on ultra high definition (UHD) transcoding of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsMediaConvertUHDUsageResponse DescribeMeterImsMediaConvertUHDUsageResponse
+     * @param request - DescribeMeterImsMediaConvertUHDUsageRequest
+     * @returns DescribeMeterImsMediaConvertUHDUsageResponse
+     *
+     * @param DescribeMeterImsMediaConvertUHDUsageRequest $request
+     *
+     * @return DescribeMeterImsMediaConvertUHDUsageResponse
      */
     public function describeMeterImsMediaConvertUHDUsage($request)
     {
@@ -3216,31 +3722,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) transcoding. The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsMediaConvertUsageRequest $request DescribeMeterImsMediaConvertUsageRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) transcoding. The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsMediaConvertUsageResponse DescribeMeterImsMediaConvertUsageResponse
+     * @param request - DescribeMeterImsMediaConvertUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMeterImsMediaConvertUsageResponse
+     *
+     * @param DescribeMeterImsMediaConvertUsageRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeMeterImsMediaConvertUsageResponse
      */
     public function describeMeterImsMediaConvertUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
+        if (null !== $request->endTs) {
+            @$query['EndTs'] = $request->endTs;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
+
+        if (null !== $request->startTs) {
+            @$query['StartTs'] = $request->startTs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMeterImsMediaConvertUsage',
@@ -3258,11 +3772,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) transcoding. The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsMediaConvertUsageRequest $request DescribeMeterImsMediaConvertUsageRequest
+     * Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) transcoding. The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsMediaConvertUsageResponse DescribeMeterImsMediaConvertUsageResponse
+     * @param request - DescribeMeterImsMediaConvertUsageRequest
+     * @returns DescribeMeterImsMediaConvertUsageResponse
+     *
+     * @param DescribeMeterImsMediaConvertUsageRequest $request
+     *
+     * @return DescribeMeterImsMediaConvertUsageResponse
      */
     public function describeMeterImsMediaConvertUsage($request)
     {
@@ -3272,31 +3789,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on AI processing of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsMpsAiUsageRequest $request DescribeMeterImsMpsAiUsageRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the usage statistics of Intelligent Media Services (IMS) on AI processing of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsMpsAiUsageResponse DescribeMeterImsMpsAiUsageResponse
+     * @param request - DescribeMeterImsMpsAiUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMeterImsMpsAiUsageResponse
+     *
+     * @param DescribeMeterImsMpsAiUsageRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeMeterImsMpsAiUsageResponse
      */
     public function describeMeterImsMpsAiUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
+        if (null !== $request->endTs) {
+            @$query['EndTs'] = $request->endTs;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
+
+        if (null !== $request->startTs) {
+            @$query['StartTs'] = $request->startTs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMeterImsMpsAiUsage',
@@ -3314,11 +3839,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS) on AI processing of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsMpsAiUsageRequest $request DescribeMeterImsMpsAiUsageRequest
+     * Queries the usage statistics of Intelligent Media Services (IMS) on AI processing of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsMpsAiUsageResponse DescribeMeterImsMpsAiUsageResponse
+     * @param request - DescribeMeterImsMpsAiUsageRequest
+     * @returns DescribeMeterImsMpsAiUsageResponse
+     *
+     * @param DescribeMeterImsMpsAiUsageRequest $request
+     *
+     * @return DescribeMeterImsMpsAiUsageResponse
      */
     public function describeMeterImsMpsAiUsage($request)
     {
@@ -3328,28 +3856,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS). The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsSummaryRequest $request DescribeMeterImsSummaryRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the usage statistics of Intelligent Media Services (IMS). The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsSummaryResponse DescribeMeterImsSummaryResponse
+     * @param request - DescribeMeterImsSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMeterImsSummaryResponse
+     *
+     * @param DescribeMeterImsSummaryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeMeterImsSummaryResponse
      */
     public function describeMeterImsSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
+        if (null !== $request->endTs) {
+            @$query['EndTs'] = $request->endTs;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
+
+        if (null !== $request->startTs) {
+            @$query['StartTs'] = $request->startTs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMeterImsSummary',
@@ -3367,11 +3902,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage statistics of Intelligent Media Services (IMS). The maximum query range is 31 days. You can query data within the last 90 days.
-     *  *
-     * @param DescribeMeterImsSummaryRequest $request DescribeMeterImsSummaryRequest
+     * Queries the usage statistics of Intelligent Media Services (IMS). The maximum query range is 31 days. You can query data within the last 90 days.
      *
-     * @return DescribeMeterImsSummaryResponse DescribeMeterImsSummaryResponse
+     * @param request - DescribeMeterImsSummaryRequest
+     * @returns DescribeMeterImsSummaryResponse
+     *
+     * @param DescribeMeterImsSummaryRequest $request
+     *
+     * @return DescribeMeterImsSummaryResponse
      */
     public function describeMeterImsSummary($request)
     {
@@ -3381,22 +3919,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 描述回调配置
-     *  *
-     * @param DescribeNotifyConfigRequest $request DescribeNotifyConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 描述回调配置.
      *
-     * @return DescribeNotifyConfigResponse DescribeNotifyConfigResponse
+     * @param request - DescribeNotifyConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeNotifyConfigResponse
+     *
+     * @param DescribeNotifyConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeNotifyConfigResponse
      */
     public function describeNotifyConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AIAgentId)) {
-            $query['AIAgentId'] = $request->AIAgentId;
+        if (null !== $request->AIAgentId) {
+            @$query['AIAgentId'] = $request->AIAgentId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeNotifyConfig',
@@ -3414,11 +3957,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 描述回调配置
-     *  *
-     * @param DescribeNotifyConfigRequest $request DescribeNotifyConfigRequest
+     * 描述回调配置.
      *
-     * @return DescribeNotifyConfigResponse DescribeNotifyConfigResponse
+     * @param request - DescribeNotifyConfigRequest
+     * @returns DescribeNotifyConfigResponse
+     *
+     * @param DescribeNotifyConfigRequest $request
+     *
+     * @return DescribeNotifyConfigResponse
      */
     public function describeNotifyConfig($request)
     {
@@ -3428,44 +3974,57 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayListRequest $request DescribePlayListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribePlayListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePlayListResponse
      *
-     * @return DescribePlayListResponse DescribePlayListResponse
+     * @param DescribePlayListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribePlayListResponse
      */
     public function describePlayListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTs)) {
-            $query['BeginTs'] = $request->beginTs;
+        if (null !== $request->beginTs) {
+            @$query['BeginTs'] = $request->beginTs;
         }
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
+
+        if (null !== $request->endTs) {
+            @$query['EndTs'] = $request->endTs;
         }
-        if (!Utils::isUnset($request->orderName)) {
-            $query['OrderName'] = $request->orderName;
+
+        if (null !== $request->orderName) {
+            @$query['OrderName'] = $request->orderName;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->playType)) {
-            $query['PlayType'] = $request->playType;
+
+        if (null !== $request->playType) {
+            @$query['PlayType'] = $request->playType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->traceId)) {
-            $query['TraceId'] = $request->traceId;
+
+        if (null !== $request->traceId) {
+            @$query['TraceId'] = $request->traceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePlayList',
@@ -3483,9 +4042,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayListRequest $request DescribePlayListRequest
+     * @param request - DescribePlayListRequest
+     * @returns DescribePlayListResponse
      *
-     * @return DescribePlayListResponse DescribePlayListResponse
+     * @param DescribePlayListRequest $request
+     *
+     * @return DescribePlayListResponse
      */
     public function describePlayList($request)
     {
@@ -3495,22 +4057,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例
-     *  *
-     * @param DescribeRtcRobotInstanceRequest $request DescribeRtcRobotInstanceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询实例.
      *
-     * @return DescribeRtcRobotInstanceResponse DescribeRtcRobotInstanceResponse
+     * @param request - DescribeRtcRobotInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRtcRobotInstanceResponse
+     *
+     * @param DescribeRtcRobotInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeRtcRobotInstanceResponse
      */
     public function describeRtcRobotInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRtcRobotInstance',
@@ -3528,11 +4095,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例
-     *  *
-     * @param DescribeRtcRobotInstanceRequest $request DescribeRtcRobotInstanceRequest
+     * 查询实例.
      *
-     * @return DescribeRtcRobotInstanceResponse DescribeRtcRobotInstanceResponse
+     * @param request - DescribeRtcRobotInstanceRequest
+     * @returns DescribeRtcRobotInstanceResponse
+     *
+     * @param DescribeRtcRobotInstanceRequest $request
+     *
+     * @return DescribeRtcRobotInstanceResponse
      */
     public function describeRtcRobotInstance($request)
     {
@@ -3542,28 +4112,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the reading of users has issues, such as noticeable pronunciation errors or background noise. After the audio is checked on the cloud, the qualified audio is temporarily stored on the cloud for subsequent training. Do not skip this step.
-     *  *
-     * @param DetectAudioForCustomizedVoiceJobRequest $request DetectAudioForCustomizedVoiceJobRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Checks whether the reading of users has issues, such as noticeable pronunciation errors or background noise. After the audio is checked on the cloud, the qualified audio is temporarily stored on the cloud for subsequent training. Do not skip this step.
      *
-     * @return DetectAudioForCustomizedVoiceJobResponse DetectAudioForCustomizedVoiceJobResponse
+     * @param request - DetectAudioForCustomizedVoiceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetectAudioForCustomizedVoiceJobResponse
+     *
+     * @param DetectAudioForCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DetectAudioForCustomizedVoiceJobResponse
      */
     public function detectAudioForCustomizedVoiceJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->audioRecordId)) {
-            $query['AudioRecordId'] = $request->audioRecordId;
+        if (null !== $request->audioRecordId) {
+            @$query['AudioRecordId'] = $request->audioRecordId;
         }
-        if (!Utils::isUnset($request->recordUrl)) {
-            $query['RecordUrl'] = $request->recordUrl;
+
+        if (null !== $request->recordUrl) {
+            @$query['RecordUrl'] = $request->recordUrl;
         }
-        if (!Utils::isUnset($request->voiceId)) {
-            $query['VoiceId'] = $request->voiceId;
+
+        if (null !== $request->voiceId) {
+            @$query['VoiceId'] = $request->voiceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetectAudioForCustomizedVoiceJob',
@@ -3581,11 +4158,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the reading of users has issues, such as noticeable pronunciation errors or background noise. After the audio is checked on the cloud, the qualified audio is temporarily stored on the cloud for subsequent training. Do not skip this step.
-     *  *
-     * @param DetectAudioForCustomizedVoiceJobRequest $request DetectAudioForCustomizedVoiceJobRequest
+     * Checks whether the reading of users has issues, such as noticeable pronunciation errors or background noise. After the audio is checked on the cloud, the qualified audio is temporarily stored on the cloud for subsequent training. Do not skip this step.
      *
-     * @return DetectAudioForCustomizedVoiceJobResponse DetectAudioForCustomizedVoiceJobResponse
+     * @param request - DetectAudioForCustomizedVoiceJobRequest
+     * @returns DetectAudioForCustomizedVoiceJobResponse
+     *
+     * @param DetectAudioForCustomizedVoiceJobRequest $request
+     *
+     * @return DetectAudioForCustomizedVoiceJobResponse
      */
     public function detectAudioForCustomizedVoiceJob($request)
     {
@@ -3595,25 +4175,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a search index. After you delete a search index, the existing index data is cleared and index-based analysis, storage, and query are not supported for subsequent media assets.
-     *  *
-     * @param DropSearchIndexRequest $request DropSearchIndexRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes a search index. After you delete a search index, the existing index data is cleared and index-based analysis, storage, and query are not supported for subsequent media assets.
      *
-     * @return DropSearchIndexResponse DropSearchIndexResponse
+     * @param request - DropSearchIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DropSearchIndexResponse
+     *
+     * @param DropSearchIndexRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DropSearchIndexResponse
      */
     public function dropSearchIndexWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->indexType)) {
-            $query['IndexType'] = $request->indexType;
+        if (null !== $request->indexType) {
+            @$query['IndexType'] = $request->indexType;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DropSearchIndex',
@@ -3631,11 +4217,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a search index. After you delete a search index, the existing index data is cleared and index-based analysis, storage, and query are not supported for subsequent media assets.
-     *  *
-     * @param DropSearchIndexRequest $request DropSearchIndexRequest
+     * Deletes a search index. After you delete a search index, the existing index data is cleared and index-based analysis, storage, and query are not supported for subsequent media assets.
      *
-     * @return DropSearchIndexResponse DropSearchIndexResponse
+     * @param request - DropSearchIndexRequest
+     * @returns DropSearchIndexResponse
+     *
+     * @param DropSearchIndexRequest $request
+     *
+     * @return DropSearchIndexResponse
      */
     public function dropSearchIndex($request)
     {
@@ -3645,22 +4234,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a search library and all media assets in the library.
-     *  *
-     * @param DropSearchLibRequest $request DropSearchLibRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a search library and all media assets in the library.
      *
-     * @return DropSearchLibResponse DropSearchLibResponse
+     * @param request - DropSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DropSearchLibResponse
+     *
+     * @param DropSearchLibRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DropSearchLibResponse
      */
     public function dropSearchLibWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DropSearchLib',
@@ -3678,11 +4272,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a search library and all media assets in the library.
-     *  *
-     * @param DropSearchLibRequest $request DropSearchLibRequest
+     * Deletes a search library and all media assets in the library.
      *
-     * @return DropSearchLibResponse DropSearchLibResponse
+     * @param request - DropSearchLibRequest
+     * @returns DropSearchLibResponse
+     *
+     * @param DropSearchLibRequest $request
+     *
+     * @return DropSearchLibResponse
      */
     public function dropSearchLib($request)
     {
@@ -3692,39 +4289,49 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
-     *  *
-     * @param GenerateAIAgentCallRequest $tmpReq  GenerateAIAgentCallRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
      *
-     * @return GenerateAIAgentCallResponse GenerateAIAgentCallResponse
+     * @param tmpReq - GenerateAIAgentCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateAIAgentCallResponse
+     *
+     * @param GenerateAIAgentCallRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GenerateAIAgentCallResponse
      */
     public function generateAIAgentCallWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GenerateAIAgentCallShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->templateConfig)) {
-            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->templateConfig) {
+            $request->templateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->AIAgentId)) {
-            $query['AIAgentId'] = $request->AIAgentId;
+        if (null !== $request->AIAgentId) {
+            @$query['AIAgentId'] = $request->AIAgentId;
         }
-        if (!Utils::isUnset($request->expire)) {
-            $query['Expire'] = $request->expire;
+
+        if (null !== $request->expire) {
+            @$query['Expire'] = $request->expire;
         }
-        if (!Utils::isUnset($request->templateConfigShrink)) {
-            $query['TemplateConfig'] = $request->templateConfigShrink;
+
+        if (null !== $request->templateConfigShrink) {
+            @$query['TemplateConfig'] = $request->templateConfigShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GenerateAIAgentCall',
@@ -3742,11 +4349,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
-     *  *
-     * @param GenerateAIAgentCallRequest $request GenerateAIAgentCallRequest
+     * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
      *
-     * @return GenerateAIAgentCallResponse GenerateAIAgentCallResponse
+     * @param request - GenerateAIAgentCallRequest
+     * @returns GenerateAIAgentCallResponse
+     *
+     * @param GenerateAIAgentCallRequest $request
+     *
+     * @return GenerateAIAgentCallResponse
      */
     public function generateAIAgentCall($request)
     {
@@ -3756,11 +4366,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
      *
-     * @return GenerateKMSDataKeyResponse GenerateKMSDataKeyResponse
+     * @param request - GenerateKMSDataKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateKMSDataKeyResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GenerateKMSDataKeyResponse
      */
     public function generateKMSDataKeyWithOptions($runtime)
     {
@@ -3781,9 +4395,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
-     *  *
-     * @return GenerateKMSDataKeyResponse GenerateKMSDataKeyResponse
+     * Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
+     *
+     * @returns GenerateKMSDataKeyResponse
+     *
+     * @return GenerateKMSDataKeyResponse
      */
     public function generateKMSDataKey()
     {
@@ -3793,22 +4409,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a trained digital human.
-     *  *
-     * @param GetAvatarRequest $request GetAvatarRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a trained digital human.
      *
-     * @return GetAvatarResponse GetAvatarResponse
+     * @param request - GetAvatarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAvatarResponse
+     *
+     * @param GetAvatarRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetAvatarResponse
      */
     public function getAvatarWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->avatarId)) {
-            $query['AvatarId'] = $request->avatarId;
+        if (null !== $request->avatarId) {
+            @$query['AvatarId'] = $request->avatarId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAvatar',
@@ -3826,11 +4447,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a trained digital human.
-     *  *
-     * @param GetAvatarRequest $request GetAvatarRequest
+     * Queries the information about a trained digital human.
      *
-     * @return GetAvatarResponse GetAvatarResponse
+     * @param request - GetAvatarRequest
+     * @returns GetAvatarResponse
+     *
+     * @param GetAvatarRequest $request
+     *
+     * @return GetAvatarResponse
      */
     public function getAvatar($request)
     {
@@ -3840,22 +4464,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a digital human training job.
-     *  *
-     * @param GetAvatarTrainingJobRequest $request GetAvatarTrainingJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a digital human training job.
      *
-     * @return GetAvatarTrainingJobResponse GetAvatarTrainingJobResponse
+     * @param request - GetAvatarTrainingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAvatarTrainingJobResponse
+     *
+     * @param GetAvatarTrainingJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAvatarTrainingJobResponse
      */
     public function getAvatarTrainingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAvatarTrainingJob',
@@ -3873,11 +4502,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a digital human training job.
-     *  *
-     * @param GetAvatarTrainingJobRequest $request GetAvatarTrainingJobRequest
+     * Queries the information about a digital human training job.
      *
-     * @return GetAvatarTrainingJobResponse GetAvatarTrainingJobResponse
+     * @param request - GetAvatarTrainingJobRequest
+     * @returns GetAvatarTrainingJobResponse
+     *
+     * @param GetAvatarTrainingJobRequest $request
+     *
+     * @return GetAvatarTrainingJobResponse
      */
     public function getAvatarTrainingJob($request)
     {
@@ -3887,22 +4519,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
-     *  *
-     * @param GetBatchMediaProducingJobRequest $request GetBatchMediaProducingJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
      *
-     * @return GetBatchMediaProducingJobResponse GetBatchMediaProducingJobResponse
+     * @param request - GetBatchMediaProducingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetBatchMediaProducingJobResponse
+     *
+     * @param GetBatchMediaProducingJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetBatchMediaProducingJobResponse
      */
     public function getBatchMediaProducingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetBatchMediaProducingJob',
@@ -3920,11 +4557,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
-     *  *
-     * @param GetBatchMediaProducingJobRequest $request GetBatchMediaProducingJobRequest
+     * Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
      *
-     * @return GetBatchMediaProducingJobResponse GetBatchMediaProducingJobResponse
+     * @param request - GetBatchMediaProducingJobRequest
+     * @returns GetBatchMediaProducingJobResponse
+     *
+     * @param GetBatchMediaProducingJobRequest $request
+     *
+     * @return GetBatchMediaProducingJobResponse
      */
     public function getBatchMediaProducingJob($request)
     {
@@ -3934,36 +4574,46 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a category and its subcategories.
-     *  *
-     * @description You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
-     *  *
-     * @param GetCategoriesRequest $request GetCategoriesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a category and its subcategories.
      *
-     * @return GetCategoriesResponse GetCategoriesResponse
+     * @remarks
+     * You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
+     *
+     * @param request - GetCategoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCategoriesResponse
+     *
+     * @param GetCategoriesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetCategoriesResponse
      */
     public function getCategoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCategories',
@@ -3981,13 +4631,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a category and its subcategories.
-     *  *
-     * @description You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
-     *  *
-     * @param GetCategoriesRequest $request GetCategoriesRequest
+     * Queries the information about a category and its subcategories.
      *
-     * @return GetCategoriesResponse GetCategoriesResponse
+     * @remarks
+     * You can call this operation to query the information about a category and its subcategories based on the category ID and category type.
+     *
+     * @param request - GetCategoriesRequest
+     * @returns GetCategoriesResponse
+     *
+     * @param GetCategoriesRequest $request
+     *
+     * @return GetCategoriesResponse
      */
     public function getCategories($request)
     {
@@ -3997,11 +4651,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取内容分析搜索配置
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取内容分析搜索配置.
      *
-     * @return GetContentAnalyzeConfigResponse GetContentAnalyzeConfigResponse
+     * @param request - GetContentAnalyzeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetContentAnalyzeConfigResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetContentAnalyzeConfigResponse
      */
     public function getContentAnalyzeConfigWithOptions($runtime)
     {
@@ -4022,9 +4680,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取内容分析搜索配置
-     *  *
-     * @return GetContentAnalyzeConfigResponse GetContentAnalyzeConfigResponse
+     * 获取内容分析搜索配置.
+     *
+     * @returns GetContentAnalyzeConfigResponse
+     *
+     * @return GetContentAnalyzeConfigResponse
      */
     public function getContentAnalyzeConfig()
     {
@@ -4034,9 +4694,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a custom template.
-     *  *
-     * @description You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
+     * Queries the information about a custom template.
+     *
+     * @remarks
+     * You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
      * Template types:
      * 1.  1: transcoding template.
      * 2.  2: snapshot template.
@@ -4064,27 +4725,34 @@ class ICE extends OpenApiClient
      * Subtypes of AI-assisted intelligent erasure templates:
      * 1.  1 (VideoDelogo): logo erasure template.
      * 2.  2 (VideoDetext): subtitle erasure template.
-     *  *
-     * @param GetCustomTemplateRequest $request GetCustomTemplateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCustomTemplateResponse GetCustomTemplateResponse
+     * @param request - GetCustomTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCustomTemplateResponse
+     *
+     * @param GetCustomTemplateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetCustomTemplateResponse
      */
     public function getCustomTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subtype)) {
-            $query['Subtype'] = $request->subtype;
+        if (null !== $request->subtype) {
+            @$query['Subtype'] = $request->subtype;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCustomTemplate',
@@ -4102,9 +4770,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a custom template.
-     *  *
-     * @description You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
+     * Queries the information about a custom template.
+     *
+     * @remarks
+     * You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
      * Template types:
      * 1.  1: transcoding template.
      * 2.  2: snapshot template.
@@ -4132,10 +4801,13 @@ class ICE extends OpenApiClient
      * Subtypes of AI-assisted intelligent erasure templates:
      * 1.  1 (VideoDelogo): logo erasure template.
      * 2.  2 (VideoDetext): subtitle erasure template.
-     *  *
-     * @param GetCustomTemplateRequest $request GetCustomTemplateRequest
      *
-     * @return GetCustomTemplateResponse GetCustomTemplateResponse
+     * @param request - GetCustomTemplateRequest
+     * @returns GetCustomTemplateResponse
+     *
+     * @param GetCustomTemplateRequest $request
+     *
+     * @return GetCustomTemplateResponse
      */
     public function getCustomTemplate($request)
     {
@@ -4145,22 +4817,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a personalized human voice.
-     *  *
-     * @param GetCustomizedVoiceRequest $request GetCustomizedVoiceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a personalized human voice.
      *
-     * @return GetCustomizedVoiceResponse GetCustomizedVoiceResponse
+     * @param request - GetCustomizedVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCustomizedVoiceResponse
+     *
+     * @param GetCustomizedVoiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetCustomizedVoiceResponse
      */
     public function getCustomizedVoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->voiceId)) {
-            $query['VoiceId'] = $request->voiceId;
+        if (null !== $request->voiceId) {
+            @$query['VoiceId'] = $request->voiceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCustomizedVoice',
@@ -4178,11 +4855,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a personalized human voice.
-     *  *
-     * @param GetCustomizedVoiceRequest $request GetCustomizedVoiceRequest
+     * Queries the information about a personalized human voice.
      *
-     * @return GetCustomizedVoiceResponse GetCustomizedVoiceResponse
+     * @param request - GetCustomizedVoiceRequest
+     * @returns GetCustomizedVoiceResponse
+     *
+     * @param GetCustomizedVoiceRequest $request
+     *
+     * @return GetCustomizedVoiceResponse
      */
     public function getCustomizedVoice($request)
     {
@@ -4192,22 +4872,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a human voice cloning job.
-     *  *
-     * @param GetCustomizedVoiceJobRequest $request GetCustomizedVoiceJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a human voice cloning job.
      *
-     * @return GetCustomizedVoiceJobResponse GetCustomizedVoiceJobResponse
+     * @param request - GetCustomizedVoiceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCustomizedVoiceJobResponse
+     *
+     * @param GetCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetCustomizedVoiceJobResponse
      */
     public function getCustomizedVoiceJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCustomizedVoiceJob',
@@ -4225,11 +4910,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a human voice cloning job.
-     *  *
-     * @param GetCustomizedVoiceJobRequest $request GetCustomizedVoiceJobRequest
+     * Queries the information about a human voice cloning job.
      *
-     * @return GetCustomizedVoiceJobResponse GetCustomizedVoiceJobResponse
+     * @param request - GetCustomizedVoiceJobRequest
+     * @returns GetCustomizedVoiceJobResponse
+     *
+     * @param GetCustomizedVoiceJobRequest $request
+     *
+     * @return GetCustomizedVoiceJobResponse
      */
     public function getCustomizedVoiceJob($request)
     {
@@ -4239,11 +4927,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户默认存储地址
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取用户默认存储地址
      *
-     * @return GetDefaultStorageLocationResponse GetDefaultStorageLocationResponse
+     * @param request - GetDefaultStorageLocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDefaultStorageLocationResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDefaultStorageLocationResponse
      */
     public function getDefaultStorageLocationWithOptions($runtime)
     {
@@ -4264,9 +4956,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户默认存储地址
-     *  *
-     * @return GetDefaultStorageLocationResponse GetDefaultStorageLocationResponse
+     * 获取用户默认存储地址
+     *
+     * @returns GetDefaultStorageLocationResponse
+     *
+     * @return GetDefaultStorageLocationResponse
      */
     public function getDefaultStorageLocation()
     {
@@ -4276,22 +4970,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the text to be read and sample audio for training a personalized human voice.
-     *  *
-     * @param GetDemonstrationForCustomizedVoiceJobRequest $request GetDemonstrationForCustomizedVoiceJobRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the text to be read and sample audio for training a personalized human voice.
      *
-     * @return GetDemonstrationForCustomizedVoiceJobResponse GetDemonstrationForCustomizedVoiceJobResponse
+     * @param request - GetDemonstrationForCustomizedVoiceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDemonstrationForCustomizedVoiceJobResponse
+     *
+     * @param GetDemonstrationForCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GetDemonstrationForCustomizedVoiceJobResponse
      */
     public function getDemonstrationForCustomizedVoiceJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->scenario)) {
-            $query['Scenario'] = $request->scenario;
+        if (null !== $request->scenario) {
+            @$query['Scenario'] = $request->scenario;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDemonstrationForCustomizedVoiceJob',
@@ -4309,11 +5008,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the text to be read and sample audio for training a personalized human voice.
-     *  *
-     * @param GetDemonstrationForCustomizedVoiceJobRequest $request GetDemonstrationForCustomizedVoiceJobRequest
+     * Queries the text to be read and sample audio for training a personalized human voice.
      *
-     * @return GetDemonstrationForCustomizedVoiceJobResponse GetDemonstrationForCustomizedVoiceJobResponse
+     * @param request - GetDemonstrationForCustomizedVoiceJobRequest
+     * @returns GetDemonstrationForCustomizedVoiceJobResponse
+     *
+     * @param GetDemonstrationForCustomizedVoiceJobRequest $request
+     *
+     * @return GetDemonstrationForCustomizedVoiceJobResponse
      */
     public function getDemonstrationForCustomizedVoiceJob($request)
     {
@@ -4323,22 +5025,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an image animation job.
-     *  *
-     * @param GetDynamicImageJobRequest $request GetDynamicImageJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an image animation job.
      *
-     * @return GetDynamicImageJobResponse GetDynamicImageJobResponse
+     * @param request - GetDynamicImageJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDynamicImageJobResponse
+     *
+     * @param GetDynamicImageJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDynamicImageJobResponse
      */
     public function getDynamicImageJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDynamicImageJob',
@@ -4356,11 +5063,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an image animation job.
-     *  *
-     * @param GetDynamicImageJobRequest $request GetDynamicImageJobRequest
+     * Queries the information about an image animation job.
      *
-     * @return GetDynamicImageJobResponse GetDynamicImageJobResponse
+     * @param request - GetDynamicImageJobRequest
+     * @returns GetDynamicImageJobResponse
+     *
+     * @param GetDynamicImageJobRequest $request
+     *
+     * @return GetDynamicImageJobResponse
      */
     public function getDynamicImageJob($request)
     {
@@ -4370,25 +5080,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an online editing project.
-     *  *
-     * @param GetEditingProjectRequest $request GetEditingProjectRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an online editing project.
      *
-     * @return GetEditingProjectResponse GetEditingProjectResponse
+     * @param request - GetEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEditingProjectResponse
+     *
+     * @param GetEditingProjectRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetEditingProjectResponse
      */
     public function getEditingProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->requestSource)) {
-            $query['RequestSource'] = $request->requestSource;
+
+        if (null !== $request->requestSource) {
+            @$query['RequestSource'] = $request->requestSource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEditingProject',
@@ -4406,11 +5122,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an online editing project.
-     *  *
-     * @param GetEditingProjectRequest $request GetEditingProjectRequest
+     * Queries the information about an online editing project.
      *
-     * @return GetEditingProjectResponse GetEditingProjectResponse
+     * @param request - GetEditingProjectRequest
+     * @returns GetEditingProjectResponse
+     *
+     * @param GetEditingProjectRequest $request
+     *
+     * @return GetEditingProjectResponse
      */
     public function getEditingProject($request)
     {
@@ -4420,22 +5139,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries all materials associated with an online editing project.
-     *  *
-     * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries all materials associated with an online editing project.
      *
-     * @return GetEditingProjectMaterialsResponse GetEditingProjectMaterialsResponse
+     * @param request - GetEditingProjectMaterialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEditingProjectMaterialsResponse
+     *
+     * @param GetEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetEditingProjectMaterialsResponse
      */
     public function getEditingProjectMaterialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEditingProjectMaterials',
@@ -4453,11 +5177,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries all materials associated with an online editing project.
-     *  *
-     * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
+     * Queries all materials associated with an online editing project.
      *
-     * @return GetEditingProjectMaterialsResponse GetEditingProjectMaterialsResponse
+     * @param request - GetEditingProjectMaterialsRequest
+     * @returns GetEditingProjectMaterialsResponse
+     *
+     * @param GetEditingProjectMaterialsRequest $request
+     *
+     * @return GetEditingProjectMaterialsResponse
      */
     public function getEditingProjectMaterials($request)
     {
@@ -4467,11 +5194,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries event callback configurations.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries event callback configurations.
      *
-     * @return GetEventCallbackResponse GetEventCallbackResponse
+     * @param request - GetEventCallbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEventCallbackResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetEventCallbackResponse
      */
     public function getEventCallbackWithOptions($runtime)
     {
@@ -4492,9 +5223,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries event callback configurations.
-     *  *
-     * @return GetEventCallbackResponse GetEventCallbackResponse
+     * Queries event callback configurations.
+     *
+     * @returns GetEventCallbackResponse
+     *
+     * @return GetEventCallbackResponse
      */
     public function getEventCallback()
     {
@@ -4504,31 +5237,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the index file of a live stream. The index file is used to preview an editing project in the console.
-     *  *
-     * @param GetLiveEditingIndexFileRequest $request GetLiveEditingIndexFileRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the index file of a live stream. The index file is used to preview an editing project in the console.
      *
-     * @return GetLiveEditingIndexFileResponse GetLiveEditingIndexFileResponse
+     * @param request - GetLiveEditingIndexFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLiveEditingIndexFileResponse
+     *
+     * @param GetLiveEditingIndexFileRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetLiveEditingIndexFileResponse
      */
     public function getLiveEditingIndexFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->streamName)) {
-            $query['StreamName'] = $request->streamName;
+
+        if (null !== $request->streamName) {
+            @$query['StreamName'] = $request->streamName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLiveEditingIndexFile',
@@ -4546,11 +5287,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the index file of a live stream. The index file is used to preview an editing project in the console.
-     *  *
-     * @param GetLiveEditingIndexFileRequest $request GetLiveEditingIndexFileRequest
+     * Queries the index file of a live stream. The index file is used to preview an editing project in the console.
      *
-     * @return GetLiveEditingIndexFileResponse GetLiveEditingIndexFileResponse
+     * @param request - GetLiveEditingIndexFileRequest
+     * @returns GetLiveEditingIndexFileResponse
+     *
+     * @param GetLiveEditingIndexFileRequest $request
+     *
+     * @return GetLiveEditingIndexFileResponse
      */
     public function getLiveEditingIndexFile($request)
     {
@@ -4560,22 +5304,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
-     *  *
-     * @param GetLiveEditingJobRequest $request GetLiveEditingJobRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
      *
-     * @return GetLiveEditingJobResponse GetLiveEditingJobResponse
+     * @param request - GetLiveEditingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLiveEditingJobResponse
+     *
+     * @param GetLiveEditingJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetLiveEditingJobResponse
      */
     public function getLiveEditingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLiveEditingJob',
@@ -4593,11 +5342,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
-     *  *
-     * @param GetLiveEditingJobRequest $request GetLiveEditingJobRequest
+     * Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
      *
-     * @return GetLiveEditingJobResponse GetLiveEditingJobResponse
+     * @param request - GetLiveEditingJobRequest
+     * @returns GetLiveEditingJobResponse
+     *
+     * @param GetLiveEditingJobRequest $request
+     *
+     * @return GetLiveEditingJobResponse
      */
     public function getLiveEditingJob($request)
     {
@@ -4607,19 +5359,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live stream recording job.
-     *  *
-     * @param GetLiveRecordJobRequest $request GetLiveRecordJobRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a live stream recording job.
      *
-     * @return GetLiveRecordJobResponse GetLiveRecordJobResponse
+     * @param request - GetLiveRecordJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLiveRecordJobResponse
+     *
+     * @param GetLiveRecordJobRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetLiveRecordJobResponse
      */
     public function getLiveRecordJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLiveRecordJob',
@@ -4637,11 +5393,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live stream recording job.
-     *  *
-     * @param GetLiveRecordJobRequest $request GetLiveRecordJobRequest
+     * Queries the information about a live stream recording job.
      *
-     * @return GetLiveRecordJobResponse GetLiveRecordJobResponse
+     * @param request - GetLiveRecordJobRequest
+     * @returns GetLiveRecordJobResponse
+     *
+     * @param GetLiveRecordJobRequest $request
+     *
+     * @return GetLiveRecordJobResponse
      */
     public function getLiveRecordJob($request)
     {
@@ -4651,19 +5410,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live stream recording template or a snapshot of the template.
-     *  *
-     * @param GetLiveRecordTemplateRequest $request GetLiveRecordTemplateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a live stream recording template or a snapshot of the template.
      *
-     * @return GetLiveRecordTemplateResponse GetLiveRecordTemplateResponse
+     * @param request - GetLiveRecordTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLiveRecordTemplateResponse
+     *
+     * @param GetLiveRecordTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetLiveRecordTemplateResponse
      */
     public function getLiveRecordTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLiveRecordTemplate',
@@ -4681,11 +5444,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live stream recording template or a snapshot of the template.
-     *  *
-     * @param GetLiveRecordTemplateRequest $request GetLiveRecordTemplateRequest
+     * Queries the information about a live stream recording template or a snapshot of the template.
      *
-     * @return GetLiveRecordTemplateResponse GetLiveRecordTemplateResponse
+     * @param request - GetLiveRecordTemplateRequest
+     * @returns GetLiveRecordTemplateResponse
+     *
+     * @param GetLiveRecordTemplateRequest $request
+     *
+     * @return GetLiveRecordTemplateResponse
      */
     public function getLiveRecordTemplate($request)
     {
@@ -4695,19 +5461,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information a live stream snapshot job.
-     *  *
-     * @param GetLiveSnapshotJobRequest $request GetLiveSnapshotJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information a live stream snapshot job.
      *
-     * @return GetLiveSnapshotJobResponse GetLiveSnapshotJobResponse
+     * @param request - GetLiveSnapshotJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLiveSnapshotJobResponse
+     *
+     * @param GetLiveSnapshotJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetLiveSnapshotJobResponse
      */
     public function getLiveSnapshotJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLiveSnapshotJob',
@@ -4725,11 +5495,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information a live stream snapshot job.
-     *  *
-     * @param GetLiveSnapshotJobRequest $request GetLiveSnapshotJobRequest
+     * Queries the information a live stream snapshot job.
      *
-     * @return GetLiveSnapshotJobResponse GetLiveSnapshotJobResponse
+     * @param request - GetLiveSnapshotJobRequest
+     * @returns GetLiveSnapshotJobResponse
+     *
+     * @param GetLiveSnapshotJobRequest $request
+     *
+     * @return GetLiveSnapshotJobResponse
      */
     public function getLiveSnapshotJob($request)
     {
@@ -4739,19 +5512,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live stream snapshot template.
-     *  *
-     * @param GetLiveSnapshotTemplateRequest $request GetLiveSnapshotTemplateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a live stream snapshot template.
      *
-     * @return GetLiveSnapshotTemplateResponse GetLiveSnapshotTemplateResponse
+     * @param request - GetLiveSnapshotTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLiveSnapshotTemplateResponse
+     *
+     * @param GetLiveSnapshotTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetLiveSnapshotTemplateResponse
      */
     public function getLiveSnapshotTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLiveSnapshotTemplate',
@@ -4769,11 +5546,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live stream snapshot template.
-     *  *
-     * @param GetLiveSnapshotTemplateRequest $request GetLiveSnapshotTemplateRequest
+     * Queries the information about a live stream snapshot template.
      *
-     * @return GetLiveSnapshotTemplateResponse GetLiveSnapshotTemplateResponse
+     * @param request - GetLiveSnapshotTemplateRequest
+     * @returns GetLiveSnapshotTemplateResponse
+     *
+     * @param GetLiveSnapshotTemplateRequest $request
+     *
+     * @return GetLiveSnapshotTemplateResponse
      */
     public function getLiveSnapshotTemplate($request)
     {
@@ -4783,22 +5563,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live stream transcoding job.
-     *  *
-     * @param GetLiveTranscodeJobRequest $request GetLiveTranscodeJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a live stream transcoding job.
      *
-     * @return GetLiveTranscodeJobResponse GetLiveTranscodeJobResponse
+     * @param request - GetLiveTranscodeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLiveTranscodeJobResponse
+     *
+     * @param GetLiveTranscodeJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetLiveTranscodeJobResponse
      */
     public function getLiveTranscodeJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLiveTranscodeJob',
@@ -4816,11 +5601,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a live stream transcoding job.
-     *  *
-     * @param GetLiveTranscodeJobRequest $request GetLiveTranscodeJobRequest
+     * Queries the information about a live stream transcoding job.
      *
-     * @return GetLiveTranscodeJobResponse GetLiveTranscodeJobResponse
+     * @param request - GetLiveTranscodeJobRequest
+     * @returns GetLiveTranscodeJobResponse
+     *
+     * @param GetLiveTranscodeJobRequest $request
+     *
+     * @return GetLiveTranscodeJobResponse
      */
     public function getLiveTranscodeJob($request)
     {
@@ -4830,22 +5618,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information a live stream transcoding template.
-     *  *
-     * @param GetLiveTranscodeTemplateRequest $request GetLiveTranscodeTemplateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information a live stream transcoding template.
      *
-     * @return GetLiveTranscodeTemplateResponse GetLiveTranscodeTemplateResponse
+     * @param request - GetLiveTranscodeTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLiveTranscodeTemplateResponse
+     *
+     * @param GetLiveTranscodeTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetLiveTranscodeTemplateResponse
      */
     public function getLiveTranscodeTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLiveTranscodeTemplate',
@@ -4863,11 +5656,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information a live stream transcoding template.
-     *  *
-     * @param GetLiveTranscodeTemplateRequest $request GetLiveTranscodeTemplateRequest
+     * Queries the information a live stream transcoding template.
      *
-     * @return GetLiveTranscodeTemplateResponse GetLiveTranscodeTemplateResponse
+     * @param request - GetLiveTranscodeTemplateRequest
+     * @returns GetLiveTranscodeTemplateResponse
+     *
+     * @param GetLiveTranscodeTemplateRequest $request
+     *
+     * @return GetLiveTranscodeTemplateResponse
      */
     public function getLiveTranscodeTemplate($request)
     {
@@ -4877,33 +5673,97 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
-     *  *
-     * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
-     *  *
-     * @param GetMediaInfoRequest $request GetMediaInfoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取 MediaConvert 任务详情.
      *
-     * @return GetMediaInfoResponse GetMediaInfoResponse
+     * @param request - GetMediaConvertJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMediaConvertJobResponse
+     *
+     * @param GetMediaConvertJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMediaConvertJobResponse
+     */
+    public function getMediaConvertJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaConvertJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMediaConvertJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取 MediaConvert 任务详情.
+     *
+     * @param request - GetMediaConvertJobRequest
+     * @returns GetMediaConvertJobResponse
+     *
+     * @param GetMediaConvertJobRequest $request
+     *
+     * @return GetMediaConvertJobResponse
+     */
+    public function getMediaConvertJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaConvertJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
+     *
+     * @remarks
+     * If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
+     *
+     * @param request - GetMediaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMediaInfoResponse
+     *
+     * @param GetMediaInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetMediaInfoResponse
      */
     public function getMediaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inputURL)) {
-            $query['InputURL'] = $request->inputURL;
+        if (null !== $request->inputURL) {
+            @$query['InputURL'] = $request->inputURL;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->outputType)) {
-            $query['OutputType'] = $request->outputType;
+
+        if (null !== $request->outputType) {
+            @$query['OutputType'] = $request->outputType;
         }
-        if (!Utils::isUnset($request->returnDetailedInfo)) {
-            $query['ReturnDetailedInfo'] = $request->returnDetailedInfo;
+
+        if (null !== $request->returnDetailedInfo) {
+            @$query['ReturnDetailedInfo'] = $request->returnDetailedInfo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMediaInfo',
@@ -4921,13 +5781,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
-     *  *
-     * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
-     *  *
-     * @param GetMediaInfoRequest $request GetMediaInfoRequest
+     * Queries information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
      *
-     * @return GetMediaInfoResponse GetMediaInfoResponse
+     * @remarks
+     * If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified.
+     *
+     * @param request - GetMediaInfoRequest
+     * @returns GetMediaInfoResponse
+     *
+     * @param GetMediaInfoRequest $request
+     *
+     * @return GetMediaInfoResponse
      */
     public function getMediaInfo($request)
     {
@@ -4937,22 +5801,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a media information analysis job.
-     *  *
-     * @param GetMediaInfoJobRequest $request GetMediaInfoJobRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a media information analysis job.
      *
-     * @return GetMediaInfoJobResponse GetMediaInfoJobResponse
+     * @param request - GetMediaInfoJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMediaInfoJobResponse
+     *
+     * @param GetMediaInfoJobRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetMediaInfoJobResponse
      */
     public function getMediaInfoJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMediaInfoJob',
@@ -4970,11 +5839,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a media information analysis job.
-     *  *
-     * @param GetMediaInfoJobRequest $request GetMediaInfoJobRequest
+     * Queries the information about a media information analysis job.
      *
-     * @return GetMediaInfoJobResponse GetMediaInfoJobResponse
+     * @param request - GetMediaInfoJobRequest
+     * @returns GetMediaInfoJobResponse
+     *
+     * @param GetMediaInfoJobRequest $request
+     *
+     * @return GetMediaInfoJobResponse
      */
     public function getMediaInfoJob($request)
     {
@@ -4984,25 +5856,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about marks based on mark IDs.
-     *  *
-     * @param GetMediaMarksRequest $request GetMediaMarksRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about marks based on mark IDs.
      *
-     * @return GetMediaMarksResponse GetMediaMarksResponse
+     * @param request - GetMediaMarksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMediaMarksResponse
+     *
+     * @param GetMediaMarksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMediaMarksResponse
      */
     public function getMediaMarksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaMarkIds)) {
-            $query['MediaMarkIds'] = $request->mediaMarkIds;
+
+        if (null !== $request->mediaMarkIds) {
+            @$query['MediaMarkIds'] = $request->mediaMarkIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMediaMarks',
@@ -5020,11 +5898,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about marks based on mark IDs.
-     *  *
-     * @param GetMediaMarksRequest $request GetMediaMarksRequest
+     * Queries the information about marks based on mark IDs.
      *
-     * @return GetMediaMarksResponse GetMediaMarksResponse
+     * @param request - GetMediaMarksRequest
+     * @returns GetMediaMarksResponse
+     *
+     * @param GetMediaMarksRequest $request
+     *
+     * @return GetMediaMarksResponse
      */
     public function getMediaMarks($request)
     {
@@ -5034,19 +5915,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
-     *  *
-     * @param GetMediaProducingJobRequest $request GetMediaProducingJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
      *
-     * @return GetMediaProducingJobResponse GetMediaProducingJobResponse
+     * @param request - GetMediaProducingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMediaProducingJobResponse
+     *
+     * @param GetMediaProducingJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetMediaProducingJobResponse
      */
     public function getMediaProducingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMediaProducingJob',
@@ -5064,11 +5949,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
-     *  *
-     * @param GetMediaProducingJobRequest $request GetMediaProducingJobRequest
+     * Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
      *
-     * @return GetMediaProducingJobResponse GetMediaProducingJobResponse
+     * @param request - GetMediaProducingJobRequest
+     * @returns GetMediaProducingJobResponse
+     *
+     * @param GetMediaProducingJobRequest $request
+     *
+     * @return GetMediaProducingJobResponse
      */
     public function getMediaProducingJob($request)
     {
@@ -5078,22 +5966,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a packaging job.
-     *  *
-     * @param GetPackageJobRequest $request GetPackageJobRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a packaging job.
      *
-     * @return GetPackageJobResponse GetPackageJobResponse
+     * @param request - GetPackageJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPackageJobResponse
+     *
+     * @param GetPackageJobRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPackageJobResponse
      */
     public function getPackageJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPackageJob',
@@ -5111,11 +6004,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a packaging job.
-     *  *
-     * @param GetPackageJobRequest $request GetPackageJobRequest
+     * Queries the information about a packaging job.
      *
-     * @return GetPackageJobResponse GetPackageJobResponse
+     * @param request - GetPackageJobRequest
+     * @returns GetPackageJobResponse
+     *
+     * @param GetPackageJobRequest $request
+     *
+     * @return GetPackageJobResponse
      */
     public function getPackageJob($request)
     {
@@ -5125,22 +6021,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an ApsaraVideo Media Processing (MPS) queue.
-     *  *
-     * @param GetPipelineRequest $request GetPipelineRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an ApsaraVideo Media Processing (MPS) queue.
      *
-     * @return GetPipelineResponse GetPipelineResponse
+     * @param request - GetPipelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPipelineResponse
+     *
+     * @param GetPipelineRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetPipelineResponse
      */
     public function getPipelineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pipelineId)) {
-            $query['PipelineId'] = $request->pipelineId;
+        if (null !== $request->pipelineId) {
+            @$query['PipelineId'] = $request->pipelineId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPipeline',
@@ -5158,11 +6059,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an ApsaraVideo Media Processing (MPS) queue.
-     *  *
-     * @param GetPipelineRequest $request GetPipelineRequest
+     * Queries the information about an ApsaraVideo Media Processing (MPS) queue.
      *
-     * @return GetPipelineResponse GetPipelineResponse
+     * @param request - GetPipelineRequest
+     * @returns GetPipelineResponse
+     *
+     * @param GetPipelineRequest $request
+     *
+     * @return GetPipelineResponse
      */
     public function getPipeline($request)
     {
@@ -5172,27 +6076,34 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the playback URL of a video or audio file based on its ID.
-     *  *
-     * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
-     *  *
-     * @param GetPlayInfoRequest $request GetPlayInfoRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the playback URL of a video or audio file based on its ID.
      *
-     * @return GetPlayInfoResponse GetPlayInfoResponse
+     * @remarks
+     * You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
+     *
+     * @param request - GetPlayInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPlayInfoResponse
+     *
+     * @param GetPlayInfoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetPlayInfoResponse
      */
     public function getPlayInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inputURL)) {
-            $query['InputURL'] = $request->inputURL;
+        if (null !== $request->inputURL) {
+            @$query['InputURL'] = $request->inputURL;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPlayInfo',
@@ -5210,13 +6121,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the playback URL of a video or audio file based on its ID.
-     *  *
-     * @description You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
-     *  *
-     * @param GetPlayInfoRequest $request GetPlayInfoRequest
+     * Queries the playback URL of a video or audio file based on its ID.
      *
-     * @return GetPlayInfoResponse GetPlayInfoResponse
+     * @remarks
+     * You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
+     *
+     * @param request - GetPlayInfoRequest
+     * @returns GetPlayInfoResponse
+     *
+     * @param GetPlayInfoRequest $request
+     *
+     * @return GetPlayInfoResponse
      */
     public function getPlayInfo($request)
     {
@@ -5226,22 +6141,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询工程导出任务
-     *  *
-     * @param GetProjectExportJobRequest $request GetProjectExportJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询工程导出任务
      *
-     * @return GetProjectExportJobResponse GetProjectExportJobResponse
+     * @param request - GetProjectExportJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProjectExportJobResponse
+     *
+     * @param GetProjectExportJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetProjectExportJobResponse
      */
     public function getProjectExportJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProjectExportJob',
@@ -5259,11 +6179,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询工程导出任务
-     *  *
-     * @param GetProjectExportJobRequest $request GetProjectExportJobRequest
+     * 查询工程导出任务
      *
-     * @return GetProjectExportJobResponse GetProjectExportJobResponse
+     * @param request - GetProjectExportJobRequest
+     * @returns GetProjectExportJobResponse
+     *
+     * @param GetProjectExportJobRequest $request
+     *
+     * @return GetProjectExportJobResponse
      */
     public function getProjectExportJob($request)
     {
@@ -5273,22 +6196,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取公共媒资内容信息
-     *  *
-     * @param GetPublicMediaInfoRequest $request GetPublicMediaInfoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取公共媒资内容信息.
      *
-     * @return GetPublicMediaInfoResponse GetPublicMediaInfoResponse
+     * @param request - GetPublicMediaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPublicMediaInfoResponse
+     *
+     * @param GetPublicMediaInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetPublicMediaInfoResponse
      */
     public function getPublicMediaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPublicMediaInfo',
@@ -5306,11 +6234,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取公共媒资内容信息
-     *  *
-     * @param GetPublicMediaInfoRequest $request GetPublicMediaInfoRequest
+     * 获取公共媒资内容信息.
      *
-     * @return GetPublicMediaInfoResponse GetPublicMediaInfoResponse
+     * @param request - GetPublicMediaInfoRequest
+     * @returns GetPublicMediaInfoResponse
+     *
+     * @param GetPublicMediaInfoRequest $request
+     *
+     * @return GetPublicMediaInfoResponse
      */
     public function getPublicMediaInfo($request)
     {
@@ -5320,22 +6251,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
-     *  *
-     * @param GetSmartHandleJobRequest $request GetSmartHandleJobRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
      *
-     * @return GetSmartHandleJobResponse GetSmartHandleJobResponse
+     * @param request - GetSmartHandleJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSmartHandleJobResponse
+     *
+     * @param GetSmartHandleJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSmartHandleJobResponse
      */
     public function getSmartHandleJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSmartHandleJob',
@@ -5353,11 +6289,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
-     *  *
-     * @param GetSmartHandleJobRequest $request GetSmartHandleJobRequest
+     * Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
      *
-     * @return GetSmartHandleJobResponse GetSmartHandleJobResponse
+     * @param request - GetSmartHandleJobRequest
+     * @returns GetSmartHandleJobResponse
+     *
+     * @param GetSmartHandleJobRequest $request
+     *
+     * @return GetSmartHandleJobResponse
      */
     public function getSmartHandleJob($request)
     {
@@ -5367,22 +6306,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a snapshot job.
-     *  *
-     * @param GetSnapshotJobRequest $request GetSnapshotJobRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a snapshot job.
      *
-     * @return GetSnapshotJobResponse GetSnapshotJobResponse
+     * @param request - GetSnapshotJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSnapshotJobResponse
+     *
+     * @param GetSnapshotJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetSnapshotJobResponse
      */
     public function getSnapshotJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSnapshotJob',
@@ -5400,11 +6344,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a snapshot job.
-     *  *
-     * @param GetSnapshotJobRequest $request GetSnapshotJobRequest
+     * Queries the information about a snapshot job.
      *
-     * @return GetSnapshotJobResponse GetSnapshotJobResponse
+     * @param request - GetSnapshotJobRequest
+     * @returns GetSnapshotJobResponse
+     *
+     * @param GetSnapshotJobRequest $request
+     *
+     * @return GetSnapshotJobResponse
      */
     public function getSnapshotJob($request)
     {
@@ -5414,34 +6361,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the accessible URLs of the output images of a snapshot job.
-     *  *
-     * @param GetSnapshotUrlsRequest $request GetSnapshotUrlsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the accessible URLs of the output images of a snapshot job.
      *
-     * @return GetSnapshotUrlsResponse GetSnapshotUrlsResponse
+     * @param request - GetSnapshotUrlsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSnapshotUrlsResponse
+     *
+     * @param GetSnapshotUrlsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetSnapshotUrlsResponse
      */
     public function getSnapshotUrlsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSnapshotUrls',
@@ -5459,11 +6415,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the accessible URLs of the output images of a snapshot job.
-     *  *
-     * @param GetSnapshotUrlsRequest $request GetSnapshotUrlsRequest
+     * Queries the accessible URLs of the output images of a snapshot job.
      *
-     * @return GetSnapshotUrlsResponse GetSnapshotUrlsResponse
+     * @param request - GetSnapshotUrlsRequest
+     * @returns GetSnapshotUrlsResponse
+     *
+     * @param GetSnapshotUrlsRequest $request
+     *
+     * @return GetSnapshotUrlsResponse
      */
     public function getSnapshotUrls($request)
     {
@@ -5473,28 +6432,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取存储地址列表
-     *  *
-     * @param GetStorageListRequest $request GetStorageListRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取存储地址列表.
      *
-     * @return GetStorageListResponse GetStorageListResponse
+     * @param request - GetStorageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStorageListResponse
+     *
+     * @param GetStorageListRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetStorageListResponse
      */
     public function getStorageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStorageList',
@@ -5512,11 +6478,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取存储地址列表
-     *  *
-     * @param GetStorageListRequest $request GetStorageListRequest
+     * 获取存储地址列表.
      *
-     * @return GetStorageListResponse GetStorageListResponse
+     * @param request - GetStorageListRequest
+     * @returns GetStorageListResponse
+     *
+     * @param GetStorageListRequest $request
+     *
+     * @return GetStorageListResponse
      */
     public function getStorageList($request)
     {
@@ -5526,22 +6495,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a system template.
-     *  *
-     * @param GetSystemTemplateRequest $request GetSystemTemplateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a system template.
      *
-     * @return GetSystemTemplateResponse GetSystemTemplateResponse
+     * @param request - GetSystemTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSystemTemplateResponse
+     *
+     * @param GetSystemTemplateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSystemTemplateResponse
      */
     public function getSystemTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSystemTemplate',
@@ -5559,11 +6533,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a system template.
-     *  *
-     * @param GetSystemTemplateRequest $request GetSystemTemplateRequest
+     * Queries the information about a system template.
      *
-     * @return GetSystemTemplateResponse GetSystemTemplateResponse
+     * @param request - GetSystemTemplateRequest
+     * @returns GetSystemTemplateResponse
+     *
+     * @param GetSystemTemplateRequest $request
+     *
+     * @return GetSystemTemplateResponse
      */
     public function getSystemTemplate($request)
     {
@@ -5573,29 +6550,36 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
-     *  *
-     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
+     *
+     * @remarks
+     * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
      * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
      * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-     *  *
-     * @param GetTemplateRequest $request GetTemplateRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateResponse GetTemplateResponse
+     * @param request - GetTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTemplateResponse
+     *
+     * @param GetTemplateRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetTemplateResponse
      */
     public function getTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->relatedMediaidFlag)) {
-            $query['RelatedMediaidFlag'] = $request->relatedMediaidFlag;
+        if (null !== $request->relatedMediaidFlag) {
+            @$query['RelatedMediaidFlag'] = $request->relatedMediaidFlag;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTemplate',
@@ -5613,15 +6597,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
-     *  *
-     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
+     *
+     * @remarks
+     * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
      * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
      * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-     *  *
-     * @param GetTemplateRequest $request GetTemplateRequest
      *
-     * @return GetTemplateResponse GetTemplateResponse
+     * @param request - GetTemplateRequest
+     * @returns GetTemplateResponse
+     *
+     * @param GetTemplateRequest $request
+     *
+     * @return GetTemplateResponse
      */
     public function getTemplate($request)
     {
@@ -5631,25 +6619,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the URLs of materials associated with an advanced template for use by the advanced template editor. The URLs expire in 30 minutes. FileList is an array of materials that you want to query. If you do not specify this parameter, the URLs of all materials are returned. A maximum of 400 URLs can be returned.
-     *  *
-     * @param GetTemplateMaterialsRequest $request GetTemplateMaterialsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the URLs of materials associated with an advanced template for use by the advanced template editor. The URLs expire in 30 minutes. FileList is an array of materials that you want to query. If you do not specify this parameter, the URLs of all materials are returned. A maximum of 400 URLs can be returned.
      *
-     * @return GetTemplateMaterialsResponse GetTemplateMaterialsResponse
+     * @param request - GetTemplateMaterialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTemplateMaterialsResponse
+     *
+     * @param GetTemplateMaterialsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetTemplateMaterialsResponse
      */
     public function getTemplateMaterialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileList)) {
-            $query['FileList'] = $request->fileList;
+        if (null !== $request->fileList) {
+            @$query['FileList'] = $request->fileList;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateMaterials',
@@ -5667,11 +6661,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the URLs of materials associated with an advanced template for use by the advanced template editor. The URLs expire in 30 minutes. FileList is an array of materials that you want to query. If you do not specify this parameter, the URLs of all materials are returned. A maximum of 400 URLs can be returned.
-     *  *
-     * @param GetTemplateMaterialsRequest $request GetTemplateMaterialsRequest
+     * Queries the URLs of materials associated with an advanced template for use by the advanced template editor. The URLs expire in 30 minutes. FileList is an array of materials that you want to query. If you do not specify this parameter, the URLs of all materials are returned. A maximum of 400 URLs can be returned.
      *
-     * @return GetTemplateMaterialsResponse GetTemplateMaterialsResponse
+     * @param request - GetTemplateMaterialsRequest
+     * @returns GetTemplateMaterialsResponse
+     *
+     * @param GetTemplateMaterialsRequest $request
+     *
+     * @return GetTemplateMaterialsResponse
      */
     public function getTemplateMaterials($request)
     {
@@ -5681,19 +6678,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
-     *  *
-     * @param GetTemplateParamsRequest $request GetTemplateParamsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
      *
-     * @return GetTemplateParamsResponse GetTemplateParamsResponse
+     * @param request - GetTemplateParamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTemplateParamsResponse
+     *
+     * @param GetTemplateParamsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetTemplateParamsResponse
      */
     public function getTemplateParamsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateParams',
@@ -5711,11 +6712,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
-     *  *
-     * @param GetTemplateParamsRequest $request GetTemplateParamsRequest
+     * Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
      *
-     * @return GetTemplateParamsResponse GetTemplateParamsResponse
+     * @param request - GetTemplateParamsRequest
+     * @returns GetTemplateParamsResponse
+     *
+     * @param GetTemplateParamsRequest $request
+     *
+     * @return GetTemplateParamsResponse
      */
     public function getTemplateParams($request)
     {
@@ -5725,22 +6729,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a transcoding job.
-     *  *
-     * @param GetTranscodeJobRequest $request GetTranscodeJobRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a transcoding job.
      *
-     * @return GetTranscodeJobResponse GetTranscodeJobResponse
+     * @param request - GetTranscodeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTranscodeJobResponse
+     *
+     * @param GetTranscodeJobRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetTranscodeJobResponse
      */
     public function getTranscodeJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->parentJobId)) {
-            $query['ParentJobId'] = $request->parentJobId;
+        if (null !== $request->parentJobId) {
+            @$query['ParentJobId'] = $request->parentJobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTranscodeJob',
@@ -5758,11 +6767,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a transcoding job.
-     *  *
-     * @param GetTranscodeJobRequest $request GetTranscodeJobRequest
+     * Queries the information about a transcoding job.
      *
-     * @return GetTranscodeJobResponse GetTranscodeJobResponse
+     * @param request - GetTranscodeJobRequest
+     * @returns GetTranscodeJobResponse
+     *
+     * @param GetTranscodeJobRequest $request
+     *
+     * @return GetTranscodeJobResponse
      */
     public function getTranscodeJob($request)
     {
@@ -5772,28 +6784,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about URL-based upload jobs.
-     *  *
-     * @description You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
-     * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
-     *  *
-     * @param GetUrlUploadInfosRequest $request GetUrlUploadInfosRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about URL-based upload jobs.
      *
-     * @return GetUrlUploadInfosResponse GetUrlUploadInfosResponse
+     * @remarks
+     * You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
+     * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
+     *
+     * @param request - GetUrlUploadInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUrlUploadInfosResponse
+     *
+     * @param GetUrlUploadInfosRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetUrlUploadInfosResponse
      */
     public function getUrlUploadInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->uploadURLs)) {
-            $query['UploadURLs'] = $request->uploadURLs;
+
+        if (null !== $request->uploadURLs) {
+            @$query['UploadURLs'] = $request->uploadURLs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUrlUploadInfos',
@@ -5811,14 +6830,18 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about URL-based upload jobs.
-     *  *
-     * @description You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
-     * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
-     *  *
-     * @param GetUrlUploadInfosRequest $request GetUrlUploadInfosRequest
+     * Queries the information about URL-based upload jobs.
      *
-     * @return GetUrlUploadInfosResponse GetUrlUploadInfosResponse
+     * @remarks
+     * You can call this operation to query the information, including the upload status, user data, creation time, and completion time, about URL-based upload jobs based on the returned job IDs or the URLs used during the upload.
+     * If an upload job fails, you can view the error code and error message. If an upload job is successful, you can obtain the video ID.
+     *
+     * @param request - GetUrlUploadInfosRequest
+     * @returns GetUrlUploadInfosResponse
+     *
+     * @param GetUrlUploadInfosRequest $request
+     *
+     * @return GetUrlUploadInfosResponse
      */
     public function getUrlUploadInfos($request)
     {
@@ -5828,42 +6851,54 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about video and audio files.
-     *  *
-     * @description You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
-     *  *
-     * @param GetVideoListRequest $request GetVideoListRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries information about video and audio files.
      *
-     * @return GetVideoListResponse GetVideoListResponse
+     * @remarks
+     * You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
+     *
+     * @param request - GetVideoListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVideoListResponse
+     *
+     * @param GetVideoListRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetVideoListResponse
      */
     public function getVideoListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetVideoList',
@@ -5881,13 +6916,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about video and audio files.
-     *  *
-     * @description You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
-     *  *
-     * @param GetVideoListRequest $request GetVideoListRequest
+     * Queries information about video and audio files.
      *
-     * @return GetVideoListResponse GetVideoListResponse
+     * @remarks
+     * You can call this operation to query information about up to the first 5,000 audio and video files based on the filter condition, such as the status or category ID of the file. We recommend that you set the StartTime and EndTime parameters to narrow down the time range and perform multiple queries to obtain data.
+     *
+     * @param request - GetVideoListRequest
+     * @returns GetVideoListResponse
+     *
+     * @param GetVideoListRequest $request
+     *
+     * @return GetVideoListResponse
      */
     public function getVideoList($request)
     {
@@ -5897,22 +6936,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
-     *  *
-     * @param GetWorkflowTaskRequest $request GetWorkflowTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
      *
-     * @return GetWorkflowTaskResponse GetWorkflowTaskResponse
+     * @param request - GetWorkflowTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkflowTaskResponse
+     *
+     * @param GetWorkflowTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetWorkflowTaskResponse
      */
     public function getWorkflowTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetWorkflowTask',
@@ -5930,11 +6974,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
-     *  *
-     * @param GetWorkflowTaskRequest $request GetWorkflowTaskRequest
+     * Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
      *
-     * @return GetWorkflowTaskResponse GetWorkflowTaskResponse
+     * @param request - GetWorkflowTaskRequest
+     * @returns GetWorkflowTaskResponse
+     *
+     * @param GetWorkflowTaskRequest $request
+     *
+     * @return GetWorkflowTaskResponse
      */
     public function getWorkflowTask($request)
     {
@@ -5944,34 +6991,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Adds a media asset in a search library. Before you call this operation, you must create a search library.
-     *  *
-     * @param InsertMediaToSearchLibRequest $request InsertMediaToSearchLibRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Adds a media asset in a search library. Before you call this operation, you must create a search library.
      *
-     * @return InsertMediaToSearchLibResponse InsertMediaToSearchLibResponse
+     * @param request - InsertMediaToSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InsertMediaToSearchLibResponse
+     *
+     * @param InsertMediaToSearchLibRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return InsertMediaToSearchLibResponse
      */
     public function insertMediaToSearchLibWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->input)) {
-            $query['Input'] = $request->input;
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->msgBody)) {
-            $query['MsgBody'] = $request->msgBody;
+
+        if (null !== $request->msgBody) {
+            @$query['MsgBody'] = $request->msgBody;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InsertMediaToSearchLib',
@@ -5989,11 +7045,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Adds a media asset in a search library. Before you call this operation, you must create a search library.
-     *  *
-     * @param InsertMediaToSearchLibRequest $request InsertMediaToSearchLibRequest
+     * Adds a media asset in a search library. Before you call this operation, you must create a search library.
      *
-     * @return InsertMediaToSearchLibResponse InsertMediaToSearchLibResponse
+     * @param request - InsertMediaToSearchLibRequest
+     * @returns InsertMediaToSearchLibResponse
+     *
+     * @param InsertMediaToSearchLibRequest $request
+     *
+     * @return InsertMediaToSearchLibResponse
      */
     public function insertMediaToSearchLib($request)
     {
@@ -6003,34 +7062,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出实例
-     *  *
-     * @param ListAIAgentInstanceRequest $request ListAIAgentInstanceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 列出实例.
      *
-     * @return ListAIAgentInstanceResponse ListAIAgentInstanceResponse
+     * @param request - ListAIAgentInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAIAgentInstanceResponse
+     *
+     * @param ListAIAgentInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAIAgentInstanceResponse
      */
     public function listAIAgentInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AIAgentId)) {
-            $query['AIAgentId'] = $request->AIAgentId;
+        if (null !== $request->AIAgentId) {
+            @$query['AIAgentId'] = $request->AIAgentId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAIAgentInstance',
@@ -6048,11 +7116,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 列出实例
-     *  *
-     * @param ListAIAgentInstanceRequest $request ListAIAgentInstanceRequest
+     * 列出实例.
      *
-     * @return ListAIAgentInstanceResponse ListAIAgentInstanceResponse
+     * @param request - ListAIAgentInstanceRequest
+     * @returns ListAIAgentInstanceResponse
+     *
+     * @param ListAIAgentInstanceRequest $request
+     *
+     * @return ListAIAgentInstanceResponse
      */
     public function listAIAgentInstance($request)
     {
@@ -6062,25 +7133,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tags of media assets in the public media library.
-     *  *
-     * @param ListAllPublicMediaTagsRequest $request ListAllPublicMediaTagsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries a list of tags of media assets in the public media library.
      *
-     * @return ListAllPublicMediaTagsResponse ListAllPublicMediaTagsResponse
+     * @param request - ListAllPublicMediaTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAllPublicMediaTagsResponse
+     *
+     * @param ListAllPublicMediaTagsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAllPublicMediaTagsResponse
      */
     public function listAllPublicMediaTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAllPublicMediaTags',
@@ -6098,11 +7175,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tags of media assets in the public media library.
-     *  *
-     * @param ListAllPublicMediaTagsRequest $request ListAllPublicMediaTagsRequest
+     * Queries a list of tags of media assets in the public media library.
      *
-     * @return ListAllPublicMediaTagsResponse ListAllPublicMediaTagsResponse
+     * @param request - ListAllPublicMediaTagsRequest
+     * @returns ListAllPublicMediaTagsResponse
+     *
+     * @param ListAllPublicMediaTagsRequest $request
+     *
+     * @return ListAllPublicMediaTagsResponse
      */
     public function listAllPublicMediaTags($request)
     {
@@ -6112,28 +7192,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of digital human training jobs.
-     *  *
-     * @param ListAvatarTrainingJobsRequest $request ListAvatarTrainingJobsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries a list of digital human training jobs.
      *
-     * @return ListAvatarTrainingJobsResponse ListAvatarTrainingJobsResponse
+     * @param request - ListAvatarTrainingJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAvatarTrainingJobsResponse
+     *
+     * @param ListAvatarTrainingJobsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAvatarTrainingJobsResponse
      */
     public function listAvatarTrainingJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAvatarTrainingJobs',
@@ -6151,11 +7238,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of digital human training jobs.
-     *  *
-     * @param ListAvatarTrainingJobsRequest $request ListAvatarTrainingJobsRequest
+     * Queries a list of digital human training jobs.
      *
-     * @return ListAvatarTrainingJobsResponse ListAvatarTrainingJobsResponse
+     * @param request - ListAvatarTrainingJobsRequest
+     * @returns ListAvatarTrainingJobsResponse
+     *
+     * @param ListAvatarTrainingJobsRequest $request
+     *
+     * @return ListAvatarTrainingJobsResponse
      */
     public function listAvatarTrainingJobs($request)
     {
@@ -6165,28 +7255,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of trained digital humans.
-     *  *
-     * @param ListAvatarsRequest $request ListAvatarsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries a list of trained digital humans.
      *
-     * @return ListAvatarsResponse ListAvatarsResponse
+     * @param request - ListAvatarsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAvatarsResponse
+     *
+     * @param ListAvatarsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListAvatarsResponse
      */
     public function listAvatarsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->avatarType)) {
-            $query['AvatarType'] = $request->avatarType;
+        if (null !== $request->avatarType) {
+            @$query['AvatarType'] = $request->avatarType;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAvatars',
@@ -6204,11 +7301,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of trained digital humans.
-     *  *
-     * @param ListAvatarsRequest $request ListAvatarsRequest
+     * Queries a list of trained digital humans.
      *
-     * @return ListAvatarsResponse ListAvatarsResponse
+     * @param request - ListAvatarsRequest
+     * @returns ListAvatarsResponse
+     *
+     * @param ListAvatarsRequest $request
+     *
+     * @return ListAvatarsResponse
      */
     public function listAvatars($request)
     {
@@ -6218,43 +7318,55 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of quick video production jobs based on conditions such as the job type and state.
-     *  *
-     * @param ListBatchMediaProducingJobsRequest $request ListBatchMediaProducingJobsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries a list of quick video production jobs based on conditions such as the job type and state.
      *
-     * @return ListBatchMediaProducingJobsResponse ListBatchMediaProducingJobsResponse
+     * @param request - ListBatchMediaProducingJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListBatchMediaProducingJobsResponse
+     *
+     * @param ListBatchMediaProducingJobsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListBatchMediaProducingJobsResponse
      */
     public function listBatchMediaProducingJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->jobType)) {
-            $query['JobType'] = $request->jobType;
+
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListBatchMediaProducingJobs',
@@ -6272,11 +7384,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of quick video production jobs based on conditions such as the job type and state.
-     *  *
-     * @param ListBatchMediaProducingJobsRequest $request ListBatchMediaProducingJobsRequest
+     * Queries a list of quick video production jobs based on conditions such as the job type and state.
      *
-     * @return ListBatchMediaProducingJobsResponse ListBatchMediaProducingJobsResponse
+     * @param request - ListBatchMediaProducingJobsRequest
+     * @returns ListBatchMediaProducingJobsResponse
+     *
+     * @param ListBatchMediaProducingJobsRequest $request
+     *
+     * @return ListBatchMediaProducingJobsResponse
      */
     public function listBatchMediaProducingJobs($request)
     {
@@ -6286,40 +7401,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of custom templates.
-     *  *
-     * @param ListCustomTemplatesRequest $request ListCustomTemplatesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of custom templates.
      *
-     * @return ListCustomTemplatesResponse ListCustomTemplatesResponse
+     * @param request - ListCustomTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCustomTemplatesResponse
+     *
+     * @param ListCustomTemplatesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCustomTemplatesResponse
      */
     public function listCustomTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->subtype)) {
-            $query['Subtype'] = $request->subtype;
+
+        if (null !== $request->subtype) {
+            @$query['Subtype'] = $request->subtype;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCustomTemplates',
@@ -6337,11 +7463,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of custom templates.
-     *  *
-     * @param ListCustomTemplatesRequest $request ListCustomTemplatesRequest
+     * Queries a list of custom templates.
      *
-     * @return ListCustomTemplatesResponse ListCustomTemplatesResponse
+     * @param request - ListCustomTemplatesRequest
+     * @returns ListCustomTemplatesResponse
+     *
+     * @param ListCustomTemplatesRequest $request
+     *
+     * @return ListCustomTemplatesResponse
      */
     public function listCustomTemplates($request)
     {
@@ -6351,28 +7480,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of human voice cloning jobs.
-     *  *
-     * @param ListCustomizedVoiceJobsRequest $request ListCustomizedVoiceJobsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries a list of human voice cloning jobs.
      *
-     * @return ListCustomizedVoiceJobsResponse ListCustomizedVoiceJobsResponse
+     * @param request - ListCustomizedVoiceJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCustomizedVoiceJobsResponse
+     *
+     * @param ListCustomizedVoiceJobsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListCustomizedVoiceJobsResponse
      */
     public function listCustomizedVoiceJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCustomizedVoiceJobs',
@@ -6390,11 +7526,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of human voice cloning jobs.
-     *  *
-     * @param ListCustomizedVoiceJobsRequest $request ListCustomizedVoiceJobsRequest
+     * Queries a list of human voice cloning jobs.
      *
-     * @return ListCustomizedVoiceJobsResponse ListCustomizedVoiceJobsResponse
+     * @param request - ListCustomizedVoiceJobsRequest
+     * @returns ListCustomizedVoiceJobsResponse
+     *
+     * @param ListCustomizedVoiceJobsRequest $request
+     *
+     * @return ListCustomizedVoiceJobsResponse
      */
     public function listCustomizedVoiceJobs($request)
     {
@@ -6404,28 +7543,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of personalized human voices.
-     *  *
-     * @param ListCustomizedVoicesRequest $request ListCustomizedVoicesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a list of personalized human voices.
      *
-     * @return ListCustomizedVoicesResponse ListCustomizedVoicesResponse
+     * @param request - ListCustomizedVoicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCustomizedVoicesResponse
+     *
+     * @param ListCustomizedVoicesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCustomizedVoicesResponse
      */
     public function listCustomizedVoicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCustomizedVoices',
@@ -6443,11 +7589,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of personalized human voices.
-     *  *
-     * @param ListCustomizedVoicesRequest $request ListCustomizedVoicesRequest
+     * Queries a list of personalized human voices.
      *
-     * @return ListCustomizedVoicesResponse ListCustomizedVoicesResponse
+     * @param request - ListCustomizedVoicesRequest
+     * @returns ListCustomizedVoicesResponse
+     *
+     * @param ListCustomizedVoicesRequest $request
+     *
+     * @return ListCustomizedVoicesResponse
      */
     public function listCustomizedVoices($request)
     {
@@ -6457,34 +7606,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media fingerprint libraries.
-     *  *
-     * @param ListDNADBRequest $request ListDNADBRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of media fingerprint libraries.
      *
-     * @return ListDNADBResponse ListDNADBResponse
+     * @param request - ListDNADBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDNADBResponse
+     *
+     * @param ListDNADBRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListDNADBResponse
      */
     public function listDNADBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBIds)) {
-            $query['DBIds'] = $request->DBIds;
+        if (null !== $request->DBIds) {
+            @$query['DBIds'] = $request->DBIds;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDNADB',
@@ -6502,11 +7660,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media fingerprint libraries.
-     *  *
-     * @param ListDNADBRequest $request ListDNADBRequest
+     * Queries a list of media fingerprint libraries.
      *
-     * @return ListDNADBResponse ListDNADBResponse
+     * @param request - ListDNADBRequest
+     * @returns ListDNADBResponse
+     *
+     * @param ListDNADBRequest $request
+     *
+     * @return ListDNADBResponse
      */
     public function listDNADB($request)
     {
@@ -6516,42 +7677,54 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of files in a media fingerprint library.
-     *  *
-     * @description You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
-     *  *
-     * @param ListDNAFilesRequest $request ListDNAFilesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of files in a media fingerprint library.
      *
-     * @return ListDNAFilesResponse ListDNAFilesResponse
+     * @remarks
+     * You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
+     *
+     * @param request - ListDNAFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDNAFilesResponse
+     *
+     * @param ListDNAFilesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDNAFilesResponse
      */
     public function listDNAFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBId)) {
-            $query['DBId'] = $request->DBId;
+        if (null !== $request->DBId) {
+            @$query['DBId'] = $request->DBId;
         }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDNAFiles',
@@ -6569,13 +7742,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of files in a media fingerprint library.
-     *  *
-     * @description You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
-     *  *
-     * @param ListDNAFilesRequest $request ListDNAFilesRequest
+     * Queries a list of files in a media fingerprint library.
      *
-     * @return ListDNAFilesResponse ListDNAFilesResponse
+     * @remarks
+     * You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
+     *
+     * @param request - ListDNAFilesRequest
+     * @returns ListDNAFilesResponse
+     *
+     * @param ListDNAFilesRequest $request
+     *
+     * @return ListDNAFilesResponse
      */
     public function listDNAFiles($request)
     {
@@ -6585,40 +7762,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of image animation jobs.
-     *  *
-     * @param ListDynamicImageJobsRequest $request ListDynamicImageJobsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a list of image animation jobs.
      *
-     * @return ListDynamicImageJobsResponse ListDynamicImageJobsResponse
+     * @param request - ListDynamicImageJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDynamicImageJobsResponse
+     *
+     * @param ListDynamicImageJobsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDynamicImageJobsResponse
      */
     public function listDynamicImageJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endOfCreateTime)) {
-            $query['EndOfCreateTime'] = $request->endOfCreateTime;
+        if (null !== $request->endOfCreateTime) {
+            @$query['EndOfCreateTime'] = $request->endOfCreateTime;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startOfCreateTime)) {
-            $query['StartOfCreateTime'] = $request->startOfCreateTime;
+
+        if (null !== $request->startOfCreateTime) {
+            @$query['StartOfCreateTime'] = $request->startOfCreateTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDynamicImageJobs',
@@ -6636,11 +7824,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of image animation jobs.
-     *  *
-     * @param ListDynamicImageJobsRequest $request ListDynamicImageJobsRequest
+     * Queries a list of image animation jobs.
      *
-     * @return ListDynamicImageJobsResponse ListDynamicImageJobsResponse
+     * @param request - ListDynamicImageJobsRequest
+     * @returns ListDynamicImageJobsResponse
+     *
+     * @param ListDynamicImageJobsRequest $request
+     *
+     * @return ListDynamicImageJobsResponse
      */
     public function listDynamicImageJobs($request)
     {
@@ -6650,49 +7841,63 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of projects that meet the specified conditions. You can filter projects by project creation time.
-     *  *
-     * @param ListEditingProjectsRequest $request ListEditingProjectsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of projects that meet the specified conditions. You can filter projects by project creation time.
      *
-     * @return ListEditingProjectsResponse ListEditingProjectsResponse
+     * @param request - ListEditingProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEditingProjectsResponse
+     *
+     * @param ListEditingProjectsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListEditingProjectsResponse
      */
     public function listEditingProjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createSource)) {
-            $query['CreateSource'] = $request->createSource;
+        if (null !== $request->createSource) {
+            @$query['CreateSource'] = $request->createSource;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->projectType)) {
-            $query['ProjectType'] = $request->projectType;
+
+        if (null !== $request->projectType) {
+            @$query['ProjectType'] = $request->projectType;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEditingProjects',
@@ -6710,11 +7915,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of projects that meet the specified conditions. You can filter projects by project creation time.
-     *  *
-     * @param ListEditingProjectsRequest $request ListEditingProjectsRequest
+     * Queries a list of projects that meet the specified conditions. You can filter projects by project creation time.
      *
-     * @return ListEditingProjectsResponse ListEditingProjectsResponse
+     * @param request - ListEditingProjectsRequest
+     * @returns ListEditingProjectsResponse
+     *
+     * @param ListEditingProjectsRequest $request
+     *
+     * @return ListEditingProjectsResponse
      */
     public function listEditingProjects($request)
     {
@@ -6724,19 +7932,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries all recording index files in the specified period of time.
-     *  *
-     * @param ListLiveRecordFilesRequest $request ListLiveRecordFilesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries all recording index files in the specified period of time.
      *
-     * @return ListLiveRecordFilesResponse ListLiveRecordFilesResponse
+     * @param request - ListLiveRecordFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLiveRecordFilesResponse
+     *
+     * @param ListLiveRecordFilesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListLiveRecordFilesResponse
      */
     public function listLiveRecordFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLiveRecordFiles',
@@ -6754,11 +7966,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries all recording index files in the specified period of time.
-     *  *
-     * @param ListLiveRecordFilesRequest $request ListLiveRecordFilesRequest
+     * Queries all recording index files in the specified period of time.
      *
-     * @return ListLiveRecordFilesResponse ListLiveRecordFilesResponse
+     * @param request - ListLiveRecordFilesRequest
+     * @returns ListLiveRecordFilesResponse
+     *
+     * @param ListLiveRecordFilesRequest $request
+     *
+     * @return ListLiveRecordFilesResponse
      */
     public function listLiveRecordFiles($request)
     {
@@ -6768,19 +7983,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream recording jobs by page.
-     *  *
-     * @param ListLiveRecordJobsRequest $request ListLiveRecordJobsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries a list of live stream recording jobs by page.
      *
-     * @return ListLiveRecordJobsResponse ListLiveRecordJobsResponse
+     * @param request - ListLiveRecordJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLiveRecordJobsResponse
+     *
+     * @param ListLiveRecordJobsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListLiveRecordJobsResponse
      */
     public function listLiveRecordJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLiveRecordJobs',
@@ -6798,11 +8017,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream recording jobs by page.
-     *  *
-     * @param ListLiveRecordJobsRequest $request ListLiveRecordJobsRequest
+     * Queries a list of live stream recording jobs by page.
      *
-     * @return ListLiveRecordJobsResponse ListLiveRecordJobsResponse
+     * @param request - ListLiveRecordJobsRequest
+     * @returns ListLiveRecordJobsResponse
+     *
+     * @param ListLiveRecordJobsRequest $request
+     *
+     * @return ListLiveRecordJobsResponse
      */
     public function listLiveRecordJobs($request)
     {
@@ -6812,19 +8034,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream recording templates.
-     *  *
-     * @param ListLiveRecordTemplatesRequest $request ListLiveRecordTemplatesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries a list of live stream recording templates.
      *
-     * @return ListLiveRecordTemplatesResponse ListLiveRecordTemplatesResponse
+     * @param request - ListLiveRecordTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLiveRecordTemplatesResponse
+     *
+     * @param ListLiveRecordTemplatesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListLiveRecordTemplatesResponse
      */
     public function listLiveRecordTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLiveRecordTemplates',
@@ -6842,11 +8068,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream recording templates.
-     *  *
-     * @param ListLiveRecordTemplatesRequest $request ListLiveRecordTemplatesRequest
+     * Queries a list of live stream recording templates.
      *
-     * @return ListLiveRecordTemplatesResponse ListLiveRecordTemplatesResponse
+     * @param request - ListLiveRecordTemplatesRequest
+     * @returns ListLiveRecordTemplatesResponse
+     *
+     * @param ListLiveRecordTemplatesRequest $request
+     *
+     * @return ListLiveRecordTemplatesResponse
      */
     public function listLiveRecordTemplates($request)
     {
@@ -6856,19 +8085,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream snapshot files by page.
-     *  *
-     * @param ListLiveSnapshotFilesRequest $request ListLiveSnapshotFilesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries a list of live stream snapshot files by page.
      *
-     * @return ListLiveSnapshotFilesResponse ListLiveSnapshotFilesResponse
+     * @param request - ListLiveSnapshotFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLiveSnapshotFilesResponse
+     *
+     * @param ListLiveSnapshotFilesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListLiveSnapshotFilesResponse
      */
     public function listLiveSnapshotFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLiveSnapshotFiles',
@@ -6886,11 +8119,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream snapshot files by page.
-     *  *
-     * @param ListLiveSnapshotFilesRequest $request ListLiveSnapshotFilesRequest
+     * Queries a list of live stream snapshot files by page.
      *
-     * @return ListLiveSnapshotFilesResponse ListLiveSnapshotFilesResponse
+     * @param request - ListLiveSnapshotFilesRequest
+     * @returns ListLiveSnapshotFilesResponse
+     *
+     * @param ListLiveSnapshotFilesRequest $request
+     *
+     * @return ListLiveSnapshotFilesResponse
      */
     public function listLiveSnapshotFiles($request)
     {
@@ -6900,19 +8136,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream snapshot jobs by page.
-     *  *
-     * @param ListLiveSnapshotJobsRequest $request ListLiveSnapshotJobsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a list of live stream snapshot jobs by page.
      *
-     * @return ListLiveSnapshotJobsResponse ListLiveSnapshotJobsResponse
+     * @param request - ListLiveSnapshotJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLiveSnapshotJobsResponse
+     *
+     * @param ListLiveSnapshotJobsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListLiveSnapshotJobsResponse
      */
     public function listLiveSnapshotJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLiveSnapshotJobs',
@@ -6930,11 +8170,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream snapshot jobs by page.
-     *  *
-     * @param ListLiveSnapshotJobsRequest $request ListLiveSnapshotJobsRequest
+     * Queries a list of live stream snapshot jobs by page.
      *
-     * @return ListLiveSnapshotJobsResponse ListLiveSnapshotJobsResponse
+     * @param request - ListLiveSnapshotJobsRequest
+     * @returns ListLiveSnapshotJobsResponse
+     *
+     * @param ListLiveSnapshotJobsRequest $request
+     *
+     * @return ListLiveSnapshotJobsResponse
      */
     public function listLiveSnapshotJobs($request)
     {
@@ -6944,19 +8187,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream snapshot templates by page.
-     *  *
-     * @param ListLiveSnapshotTemplatesRequest $request ListLiveSnapshotTemplatesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of live stream snapshot templates by page.
      *
-     * @return ListLiveSnapshotTemplatesResponse ListLiveSnapshotTemplatesResponse
+     * @param request - ListLiveSnapshotTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLiveSnapshotTemplatesResponse
+     *
+     * @param ListLiveSnapshotTemplatesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListLiveSnapshotTemplatesResponse
      */
     public function listLiveSnapshotTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLiveSnapshotTemplates',
@@ -6974,11 +8221,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream snapshot templates by page.
-     *  *
-     * @param ListLiveSnapshotTemplatesRequest $request ListLiveSnapshotTemplatesRequest
+     * Queries a list of live stream snapshot templates by page.
      *
-     * @return ListLiveSnapshotTemplatesResponse ListLiveSnapshotTemplatesResponse
+     * @param request - ListLiveSnapshotTemplatesRequest
+     * @returns ListLiveSnapshotTemplatesResponse
+     *
+     * @param ListLiveSnapshotTemplatesRequest $request
+     *
+     * @return ListLiveSnapshotTemplatesResponse
      */
     public function listLiveSnapshotTemplates($request)
     {
@@ -6988,40 +8238,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream transcoding jobs.
-     *  *
-     * @param ListLiveTranscodeJobsRequest $request ListLiveTranscodeJobsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries a list of live stream transcoding jobs.
      *
-     * @return ListLiveTranscodeJobsResponse ListLiveTranscodeJobsResponse
+     * @param request - ListLiveTranscodeJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLiveTranscodeJobsResponse
+     *
+     * @param ListLiveTranscodeJobsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListLiveTranscodeJobsResponse
      */
     public function listLiveTranscodeJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startMode)) {
-            $query['StartMode'] = $request->startMode;
+
+        if (null !== $request->startMode) {
+            @$query['StartMode'] = $request->startMode;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLiveTranscodeJobs',
@@ -7039,11 +8300,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream transcoding jobs.
-     *  *
-     * @param ListLiveTranscodeJobsRequest $request ListLiveTranscodeJobsRequest
+     * Queries a list of live stream transcoding jobs.
      *
-     * @return ListLiveTranscodeJobsResponse ListLiveTranscodeJobsResponse
+     * @param request - ListLiveTranscodeJobsRequest
+     * @returns ListLiveTranscodeJobsResponse
+     *
+     * @param ListLiveTranscodeJobsRequest $request
+     *
+     * @return ListLiveTranscodeJobsResponse
      */
     public function listLiveTranscodeJobs($request)
     {
@@ -7053,40 +8317,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream transcoding templates.
-     *  *
-     * @param ListLiveTranscodeTemplatesRequest $request ListLiveTranscodeTemplatesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries a list of live stream transcoding templates.
      *
-     * @return ListLiveTranscodeTemplatesResponse ListLiveTranscodeTemplatesResponse
+     * @param request - ListLiveTranscodeTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLiveTranscodeTemplatesResponse
+     *
+     * @param ListLiveTranscodeTemplatesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListLiveTranscodeTemplatesResponse
      */
     public function listLiveTranscodeTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->videoCodec)) {
-            $query['VideoCodec'] = $request->videoCodec;
+
+        if (null !== $request->videoCodec) {
+            @$query['VideoCodec'] = $request->videoCodec;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLiveTranscodeTemplates',
@@ -7104,11 +8379,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of live stream transcoding templates.
-     *  *
-     * @param ListLiveTranscodeTemplatesRequest $request ListLiveTranscodeTemplatesRequest
+     * Queries a list of live stream transcoding templates.
      *
-     * @return ListLiveTranscodeTemplatesResponse ListLiveTranscodeTemplatesResponse
+     * @param request - ListLiveTranscodeTemplatesRequest
+     * @returns ListLiveTranscodeTemplatesResponse
+     *
+     * @param ListLiveTranscodeTemplatesRequest $request
+     *
+     * @return ListLiveTranscodeTemplatesResponse
      */
     public function listLiveTranscodeTemplates($request)
     {
@@ -7118,54 +8396,70 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information of all media assets that meet the specified conditions.
-     *  *
-     * @description If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
-     *  *
-     * @param ListMediaBasicInfosRequest $request ListMediaBasicInfosRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the basic information of all media assets that meet the specified conditions.
      *
-     * @return ListMediaBasicInfosResponse ListMediaBasicInfosResponse
+     * @remarks
+     * If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
+     *
+     * @param request - ListMediaBasicInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMediaBasicInfosResponse
+     *
+     * @param ListMediaBasicInfosRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMediaBasicInfosResponse
      */
     public function listMediaBasicInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->includeFileBasicInfo)) {
-            $query['IncludeFileBasicInfo'] = $request->includeFileBasicInfo;
+
+        if (null !== $request->includeFileBasicInfo) {
+            @$query['IncludeFileBasicInfo'] = $request->includeFileBasicInfo;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMediaBasicInfos',
@@ -7183,13 +8477,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information of all media assets that meet the specified conditions.
-     *  *
-     * @description If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
-     *  *
-     * @param ListMediaBasicInfosRequest $request ListMediaBasicInfosRequest
+     * Queries the basic information of all media assets that meet the specified conditions.
      *
-     * @return ListMediaBasicInfosResponse ListMediaBasicInfosResponse
+     * @remarks
+     * If includeFileBasicInfo is set to true, the basic information, such as the duration and file size, of the source file is also returned. At most the first 100 entries that meet the specified conditions are returned. All media assets must exactly match all non-empty fields. The fields that support exact match include MediaType, Source, BusinessType, Category, and Status. If all information cannot be returned at a time, you can use NextToken to initiate a request to retrieve a new page of results.
+     *
+     * @param request - ListMediaBasicInfosRequest
+     * @returns ListMediaBasicInfosResponse
+     *
+     * @param ListMediaBasicInfosRequest $request
+     *
+     * @return ListMediaBasicInfosResponse
      */
     public function listMediaBasicInfos($request)
     {
@@ -7199,40 +8497,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media information analysis jobs.
-     *  *
-     * @param ListMediaInfoJobsRequest $request ListMediaInfoJobsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of media information analysis jobs.
      *
-     * @return ListMediaInfoJobsResponse ListMediaInfoJobsResponse
+     * @param request - ListMediaInfoJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMediaInfoJobsResponse
+     *
+     * @param ListMediaInfoJobsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListMediaInfoJobsResponse
      */
     public function listMediaInfoJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endOfCreateTime)) {
-            $query['EndOfCreateTime'] = $request->endOfCreateTime;
+        if (null !== $request->endOfCreateTime) {
+            @$query['EndOfCreateTime'] = $request->endOfCreateTime;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startOfCreateTime)) {
-            $query['StartOfCreateTime'] = $request->startOfCreateTime;
+
+        if (null !== $request->startOfCreateTime) {
+            @$query['StartOfCreateTime'] = $request->startOfCreateTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMediaInfoJobs',
@@ -7250,11 +8559,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media information analysis jobs.
-     *  *
-     * @param ListMediaInfoJobsRequest $request ListMediaInfoJobsRequest
+     * Queries a list of media information analysis jobs.
      *
-     * @return ListMediaInfoJobsResponse ListMediaInfoJobsResponse
+     * @param request - ListMediaInfoJobsRequest
+     * @returns ListMediaInfoJobsResponse
+     *
+     * @param ListMediaInfoJobsRequest $request
+     *
+     * @return ListMediaInfoJobsResponse
      */
     public function listMediaInfoJobs($request)
     {
@@ -7264,25 +8576,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of marks of a media asset.
-     *  *
-     * @param ListMediaMarksRequest $request ListMediaMarksRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries a list of marks of a media asset.
      *
-     * @return ListMediaMarksResponse ListMediaMarksResponse
+     * @param request - ListMediaMarksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMediaMarksResponse
+     *
+     * @param ListMediaMarksRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListMediaMarksResponse
      */
     public function listMediaMarksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaMarkIds)) {
-            $query['MediaMarkIds'] = $request->mediaMarkIds;
+
+        if (null !== $request->mediaMarkIds) {
+            @$query['MediaMarkIds'] = $request->mediaMarkIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMediaMarks',
@@ -7300,11 +8618,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of marks of a media asset.
-     *  *
-     * @param ListMediaMarksRequest $request ListMediaMarksRequest
+     * Queries a list of marks of a media asset.
      *
-     * @return ListMediaMarksResponse ListMediaMarksResponse
+     * @param request - ListMediaMarksRequest
+     * @returns ListMediaMarksResponse
+     *
+     * @param ListMediaMarksRequest $request
+     *
+     * @return ListMediaMarksResponse
      */
     public function listMediaMarks($request)
     {
@@ -7314,49 +8635,63 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media editing and production jobs that meet the specified conditions. You can query the jobs based on the job state and type.
-     *  *
-     * @param ListMediaProducingJobsRequest $request ListMediaProducingJobsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries a list of media editing and production jobs that meet the specified conditions. You can query the jobs based on the job state and type.
      *
-     * @return ListMediaProducingJobsResponse ListMediaProducingJobsResponse
+     * @param request - ListMediaProducingJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMediaProducingJobsResponse
+     *
+     * @param ListMediaProducingJobsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListMediaProducingJobsResponse
      */
     public function listMediaProducingJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->jobType)) {
-            $query['JobType'] = $request->jobType;
+
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->masterJobId)) {
-            $query['MasterJobId'] = $request->masterJobId;
+
+        if (null !== $request->masterJobId) {
+            @$query['MasterJobId'] = $request->masterJobId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMediaProducingJobs',
@@ -7374,11 +8709,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media editing and production jobs that meet the specified conditions. You can query the jobs based on the job state and type.
-     *  *
-     * @param ListMediaProducingJobsRequest $request ListMediaProducingJobsRequest
+     * Queries a list of media editing and production jobs that meet the specified conditions. You can query the jobs based on the job state and type.
      *
-     * @return ListMediaProducingJobsResponse ListMediaProducingJobsResponse
+     * @param request - ListMediaProducingJobsRequest
+     * @returns ListMediaProducingJobsResponse
+     *
+     * @param ListMediaProducingJobsRequest $request
+     *
+     * @return ListMediaProducingJobsResponse
      */
     public function listMediaProducingJobs($request)
     {
@@ -7388,40 +8726,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of packaging jobs.
-     *  *
-     * @param ListPackageJobsRequest $request ListPackageJobsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of packaging jobs.
      *
-     * @return ListPackageJobsResponse ListPackageJobsResponse
+     * @param request - ListPackageJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPackageJobsResponse
+     *
+     * @param ListPackageJobsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListPackageJobsResponse
      */
     public function listPackageJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endOfCreateTime)) {
-            $query['EndOfCreateTime'] = $request->endOfCreateTime;
+        if (null !== $request->endOfCreateTime) {
+            @$query['EndOfCreateTime'] = $request->endOfCreateTime;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startOfCreateTime)) {
-            $query['StartOfCreateTime'] = $request->startOfCreateTime;
+
+        if (null !== $request->startOfCreateTime) {
+            @$query['StartOfCreateTime'] = $request->startOfCreateTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPackageJobs',
@@ -7439,11 +8788,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of packaging jobs.
-     *  *
-     * @param ListPackageJobsRequest $request ListPackageJobsRequest
+     * Queries a list of packaging jobs.
      *
-     * @return ListPackageJobsResponse ListPackageJobsResponse
+     * @param request - ListPackageJobsRequest
+     * @returns ListPackageJobsResponse
+     *
+     * @param ListPackageJobsRequest $request
+     *
+     * @return ListPackageJobsResponse
      */
     public function listPackageJobs($request)
     {
@@ -7453,22 +8805,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of ApsaraVideo Media Processing (MPS) queues.
-     *  *
-     * @param ListPipelinesRequest $request ListPipelinesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of ApsaraVideo Media Processing (MPS) queues.
      *
-     * @return ListPipelinesResponse ListPipelinesResponse
+     * @param request - ListPipelinesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPipelinesResponse
+     *
+     * @param ListPipelinesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListPipelinesResponse
      */
     public function listPipelinesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPipelines',
@@ -7486,11 +8843,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of ApsaraVideo Media Processing (MPS) queues.
-     *  *
-     * @param ListPipelinesRequest $request ListPipelinesRequest
+     * Queries a list of ApsaraVideo Media Processing (MPS) queues.
      *
-     * @return ListPipelinesResponse ListPipelinesResponse
+     * @param request - ListPipelinesRequest
+     * @returns ListPipelinesResponse
+     *
+     * @param ListPipelinesRequest $request
+     *
+     * @return ListPipelinesResponse
      */
     public function listPipelines($request)
     {
@@ -7500,40 +8860,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media assets in the public media library that meet the specified conditions. A maximum of 100 media assets can be returned.
-     *  *
-     * @param ListPublicMediaBasicInfosRequest $request ListPublicMediaBasicInfosRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of media assets in the public media library that meet the specified conditions. A maximum of 100 media assets can be returned.
      *
-     * @return ListPublicMediaBasicInfosResponse ListPublicMediaBasicInfosResponse
+     * @param request - ListPublicMediaBasicInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPublicMediaBasicInfosResponse
+     *
+     * @param ListPublicMediaBasicInfosRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListPublicMediaBasicInfosResponse
      */
     public function listPublicMediaBasicInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->includeFileBasicInfo)) {
-            $query['IncludeFileBasicInfo'] = $request->includeFileBasicInfo;
+
+        if (null !== $request->includeFileBasicInfo) {
+            @$query['IncludeFileBasicInfo'] = $request->includeFileBasicInfo;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->mediaTagId)) {
-            $query['MediaTagId'] = $request->mediaTagId;
+
+        if (null !== $request->mediaTagId) {
+            @$query['MediaTagId'] = $request->mediaTagId;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPublicMediaBasicInfos',
@@ -7551,11 +8922,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media assets in the public media library that meet the specified conditions. A maximum of 100 media assets can be returned.
-     *  *
-     * @param ListPublicMediaBasicInfosRequest $request ListPublicMediaBasicInfosRequest
+     * Queries a list of media assets in the public media library that meet the specified conditions. A maximum of 100 media assets can be returned.
      *
-     * @return ListPublicMediaBasicInfosResponse ListPublicMediaBasicInfosResponse
+     * @param request - ListPublicMediaBasicInfosRequest
+     * @returns ListPublicMediaBasicInfosResponse
+     *
+     * @param ListPublicMediaBasicInfosRequest $request
+     *
+     * @return ListPublicMediaBasicInfosResponse
      */
     public function listPublicMediaBasicInfos($request)
     {
@@ -7565,25 +8939,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about search libraries.
-     *  *
-     * @param ListSearchLibRequest $request ListSearchLibRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about search libraries.
      *
-     * @return ListSearchLibResponse ListSearchLibResponse
+     * @param request - ListSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSearchLibResponse
+     *
+     * @param ListSearchLibRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSearchLibResponse
      */
     public function listSearchLibWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSearchLib',
@@ -7601,11 +8981,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about search libraries.
-     *  *
-     * @param ListSearchLibRequest $request ListSearchLibRequest
+     * Queries the information about search libraries.
      *
-     * @return ListSearchLibResponse ListSearchLibResponse
+     * @param request - ListSearchLibRequest
+     * @returns ListSearchLibResponse
+     *
+     * @param ListSearchLibRequest $request
+     *
+     * @return ListSearchLibResponse
      */
     public function listSearchLib($request)
     {
@@ -7615,19 +8998,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of intelligent jobs based on specified parameters.
-     *  *
-     * @param ListSmartJobsRequest $request ListSmartJobsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of intelligent jobs based on specified parameters.
      *
-     * @return ListSmartJobsResponse ListSmartJobsResponse
+     * @param request - ListSmartJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSmartJobsResponse
+     *
+     * @param ListSmartJobsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSmartJobsResponse
      */
     public function listSmartJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSmartJobs',
@@ -7645,11 +9032,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of intelligent jobs based on specified parameters.
-     *  *
-     * @param ListSmartJobsRequest $request ListSmartJobsRequest
+     * Queries a list of intelligent jobs based on specified parameters.
      *
-     * @return ListSmartJobsResponse ListSmartJobsResponse
+     * @param request - ListSmartJobsRequest
+     * @returns ListSmartJobsResponse
+     *
+     * @param ListSmartJobsRequest $request
+     *
+     * @return ListSmartJobsResponse
      */
     public function listSmartJobs($request)
     {
@@ -7659,28 +9049,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of system digital humans. This operation supports paged queries.
-     *  *
-     * @param ListSmartSysAvatarModelsRequest $request ListSmartSysAvatarModelsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries a list of system digital humans. This operation supports paged queries.
      *
-     * @return ListSmartSysAvatarModelsResponse ListSmartSysAvatarModelsResponse
+     * @param request - ListSmartSysAvatarModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSmartSysAvatarModelsResponse
+     *
+     * @param ListSmartSysAvatarModelsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListSmartSysAvatarModelsResponse
      */
     public function listSmartSysAvatarModelsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sdkVersion)) {
-            $query['SdkVersion'] = $request->sdkVersion;
+
+        if (null !== $request->sdkVersion) {
+            @$query['SdkVersion'] = $request->sdkVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSmartSysAvatarModels',
@@ -7698,11 +9095,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of system digital humans. This operation supports paged queries.
-     *  *
-     * @param ListSmartSysAvatarModelsRequest $request ListSmartSysAvatarModelsRequest
+     * Queries a list of system digital humans. This operation supports paged queries.
      *
-     * @return ListSmartSysAvatarModelsResponse ListSmartSysAvatarModelsResponse
+     * @param request - ListSmartSysAvatarModelsRequest
+     * @returns ListSmartSysAvatarModelsResponse
+     *
+     * @param ListSmartSysAvatarModelsRequest $request
+     *
+     * @return ListSmartSysAvatarModelsResponse
      */
     public function listSmartSysAvatarModels($request)
     {
@@ -7712,11 +9112,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
      *
-     * @return ListSmartVoiceGroupsResponse ListSmartVoiceGroupsResponse
+     * @param request - ListSmartVoiceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSmartVoiceGroupsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListSmartVoiceGroupsResponse
      */
     public function listSmartVoiceGroupsWithOptions($runtime)
     {
@@ -7737,9 +9141,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
-     *  *
-     * @return ListSmartVoiceGroupsResponse ListSmartVoiceGroupsResponse
+     * Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
+     *
+     * @returns ListSmartVoiceGroupsResponse
+     *
+     * @return ListSmartVoiceGroupsResponse
      */
     public function listSmartVoiceGroups()
     {
@@ -7749,40 +9155,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of snapshot jobs.
-     *  *
-     * @param ListSnapshotJobsRequest $request ListSnapshotJobsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries a list of snapshot jobs.
      *
-     * @return ListSnapshotJobsResponse ListSnapshotJobsResponse
+     * @param request - ListSnapshotJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSnapshotJobsResponse
+     *
+     * @param ListSnapshotJobsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSnapshotJobsResponse
      */
     public function listSnapshotJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endOfCreateTime)) {
-            $query['EndOfCreateTime'] = $request->endOfCreateTime;
+        if (null !== $request->endOfCreateTime) {
+            @$query['EndOfCreateTime'] = $request->endOfCreateTime;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startOfCreateTime)) {
-            $query['StartOfCreateTime'] = $request->startOfCreateTime;
+
+        if (null !== $request->startOfCreateTime) {
+            @$query['StartOfCreateTime'] = $request->startOfCreateTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSnapshotJobs',
@@ -7800,11 +9217,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of snapshot jobs.
-     *  *
-     * @param ListSnapshotJobsRequest $request ListSnapshotJobsRequest
+     * Queries a list of snapshot jobs.
      *
-     * @return ListSnapshotJobsResponse ListSnapshotJobsResponse
+     * @param request - ListSnapshotJobsRequest
+     * @returns ListSnapshotJobsResponse
+     *
+     * @param ListSnapshotJobsRequest $request
+     *
+     * @return ListSnapshotJobsResponse
      */
     public function listSnapshotJobs($request)
     {
@@ -7814,9 +9234,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of system templates.
-     *  *
-     * @description Template types:
+     * Queries a list of system templates.
+     *
+     * @remarks
+     * Template types:
      * 1.  1: transcoding template.
      * 2.  2: snapshot template.
      * 3.  3: animated image template.
@@ -7843,39 +9264,50 @@ class ICE extends OpenApiClient
      * Subtypes of AI-assisted intelligent erasure templates:
      * 1.  1 (VideoDelogo): logo erasure template.
      * 2.  2 (VideoDetext): subtitle erasure template.
-     *  *
-     * @param ListSystemTemplatesRequest $request ListSystemTemplatesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSystemTemplatesResponse ListSystemTemplatesResponse
+     * @param request - ListSystemTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSystemTemplatesResponse
+     *
+     * @param ListSystemTemplatesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSystemTemplatesResponse
      */
     public function listSystemTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->subtype)) {
-            $query['Subtype'] = $request->subtype;
+
+        if (null !== $request->subtype) {
+            @$query['Subtype'] = $request->subtype;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSystemTemplates',
@@ -7893,9 +9325,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of system templates.
-     *  *
-     * @description Template types:
+     * Queries a list of system templates.
+     *
+     * @remarks
+     * Template types:
      * 1.  1: transcoding template.
      * 2.  2: snapshot template.
      * 3.  3: animated image template.
@@ -7922,10 +9355,13 @@ class ICE extends OpenApiClient
      * Subtypes of AI-assisted intelligent erasure templates:
      * 1.  1 (VideoDelogo): logo erasure template.
      * 2.  2 (VideoDetext): subtitle erasure template.
-     *  *
-     * @param ListSystemTemplatesRequest $request ListSystemTemplatesRequest
      *
-     * @return ListSystemTemplatesResponse ListSystemTemplatesResponse
+     * @param request - ListSystemTemplatesRequest
+     * @returns ListSystemTemplatesResponse
+     *
+     * @param ListSystemTemplatesRequest $request
+     *
+     * @return ListSystemTemplatesResponse
      */
     public function listSystemTemplates($request)
     {
@@ -7935,44 +9371,56 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
-     *  *
-     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
+     *
+     * @remarks
+     * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
      * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
      * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-     *  *
-     * @param ListTemplatesRequest $request ListTemplatesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTemplatesResponse ListTemplatesResponse
+     * @param request - ListTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTemplatesResponse
      */
     public function listTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createSource)) {
-            $query['CreateSource'] = $request->createSource;
+        if (null !== $request->createSource) {
+            @$query['CreateSource'] = $request->createSource;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortType)) {
-            $query['SortType'] = $request->sortType;
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTemplates',
@@ -7990,15 +9438,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
-     *  *
-     * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+     * Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
+     *
+     * @remarks
+     * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
      * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
      * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-     *  *
-     * @param ListTemplatesRequest $request ListTemplatesRequest
      *
-     * @return ListTemplatesResponse ListTemplatesResponse
+     * @param request - ListTemplatesRequest
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     *
+     * @return ListTemplatesResponse
      */
     public function listTemplates($request)
     {
@@ -8008,40 +9460,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of transcoding jobs.
-     *  *
-     * @param ListTranscodeJobsRequest $request ListTranscodeJobsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of transcoding jobs.
      *
-     * @return ListTranscodeJobsResponse ListTranscodeJobsResponse
+     * @param request - ListTranscodeJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTranscodeJobsResponse
+     *
+     * @param ListTranscodeJobsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListTranscodeJobsResponse
      */
     public function listTranscodeJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endOfCreateTime)) {
-            $query['EndOfCreateTime'] = $request->endOfCreateTime;
+        if (null !== $request->endOfCreateTime) {
+            @$query['EndOfCreateTime'] = $request->endOfCreateTime;
         }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentJobId)) {
-            $query['ParentJobId'] = $request->parentJobId;
+
+        if (null !== $request->parentJobId) {
+            @$query['ParentJobId'] = $request->parentJobId;
         }
-        if (!Utils::isUnset($request->startOfCreateTime)) {
-            $query['StartOfCreateTime'] = $request->startOfCreateTime;
+
+        if (null !== $request->startOfCreateTime) {
+            @$query['StartOfCreateTime'] = $request->startOfCreateTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTranscodeJobs',
@@ -8059,11 +9522,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of transcoding jobs.
-     *  *
-     * @param ListTranscodeJobsRequest $request ListTranscodeJobsRequest
+     * Queries a list of transcoding jobs.
      *
-     * @return ListTranscodeJobsResponse ListTranscodeJobsResponse
+     * @param request - ListTranscodeJobsRequest
+     * @returns ListTranscodeJobsResponse
+     *
+     * @param ListTranscodeJobsRequest $request
+     *
+     * @return ListTranscodeJobsResponse
      */
     public function listTranscodeJobs($request)
     {
@@ -8073,22 +9539,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询版权水印提取任务
-     *  *
-     * @param QueryCopyrightExtractJobRequest $request QueryCopyrightExtractJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询版权水印提取任务
      *
-     * @return QueryCopyrightExtractJobResponse QueryCopyrightExtractJobResponse
+     * @param request - QueryCopyrightExtractJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryCopyrightExtractJobResponse
+     *
+     * @param QueryCopyrightExtractJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryCopyrightExtractJobResponse
      */
     public function queryCopyrightExtractJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryCopyrightExtractJob',
@@ -8106,11 +9577,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询版权水印提取任务
-     *  *
-     * @param QueryCopyrightExtractJobRequest $request QueryCopyrightExtractJobRequest
+     * 查询版权水印提取任务
      *
-     * @return QueryCopyrightExtractJobResponse QueryCopyrightExtractJobResponse
+     * @param request - QueryCopyrightExtractJobRequest
+     * @returns QueryCopyrightExtractJobResponse
+     *
+     * @param QueryCopyrightExtractJobRequest $request
+     *
+     * @return QueryCopyrightExtractJobResponse
      */
     public function queryCopyrightExtractJob($request)
     {
@@ -8120,37 +9594,47 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询视频版权水印任务列表
-     *  *
-     * @param QueryCopyrightJobListRequest $request QueryCopyrightJobListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询视频版权水印任务列表.
      *
-     * @return QueryCopyrightJobListResponse QueryCopyrightJobListResponse
+     * @param request - QueryCopyrightJobListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryCopyrightJobListResponse
+     *
+     * @param QueryCopyrightJobListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryCopyrightJobListResponse
      */
     public function queryCopyrightJobListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $query['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryCopyrightJobList',
@@ -8168,11 +9652,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询视频版权水印任务列表
-     *  *
-     * @param QueryCopyrightJobListRequest $request QueryCopyrightJobListRequest
+     * 查询视频版权水印任务列表.
      *
-     * @return QueryCopyrightJobListResponse QueryCopyrightJobListResponse
+     * @param request - QueryCopyrightJobListRequest
+     * @returns QueryCopyrightJobListResponse
+     *
+     * @param QueryCopyrightJobListRequest $request
+     *
+     * @return QueryCopyrightJobListResponse
      */
     public function queryCopyrightJobList($request)
     {
@@ -8182,34 +9669,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media fingerprint analysis jobs.
-     *  *
-     * @param QueryDNAJobListRequest $request QueryDNAJobListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of media fingerprint analysis jobs.
      *
-     * @return QueryDNAJobListResponse QueryDNAJobListResponse
+     * @param request - QueryDNAJobListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryDNAJobListResponse
+     *
+     * @param QueryDNAJobListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryDNAJobListResponse
      */
     public function queryDNAJobListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryDNAJobList',
@@ -8227,11 +9723,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of media fingerprint analysis jobs.
-     *  *
-     * @param QueryDNAJobListRequest $request QueryDNAJobListRequest
+     * Queries a list of media fingerprint analysis jobs.
      *
-     * @return QueryDNAJobListResponse QueryDNAJobListResponse
+     * @param request - QueryDNAJobListRequest
+     * @returns QueryDNAJobListResponse
+     *
+     * @param QueryDNAJobListRequest $request
+     *
+     * @return QueryDNAJobListResponse
      */
     public function queryDNAJobList($request)
     {
@@ -8241,25 +9740,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status and result of an intelligent production job.
-     *  *
-     * @param QueryIProductionJobRequest $request QueryIProductionJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the status and result of an intelligent production job.
      *
-     * @return QueryIProductionJobResponse QueryIProductionJobResponse
+     * @param request - QueryIProductionJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryIProductionJobResponse
+     *
+     * @param QueryIProductionJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryIProductionJobResponse
      */
     public function queryIProductionJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryIProductionJob',
@@ -8277,11 +9782,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status and result of an intelligent production job.
-     *  *
-     * @param QueryIProductionJobRequest $request QueryIProductionJobRequest
+     * Queries the status and result of an intelligent production job.
      *
-     * @return QueryIProductionJobResponse QueryIProductionJobResponse
+     * @param request - QueryIProductionJobRequest
+     * @returns QueryIProductionJobResponse
+     *
+     * @param QueryIProductionJobRequest $request
+     *
+     * @return QueryIProductionJobResponse
      */
     public function queryIProductionJob($request)
     {
@@ -8291,42 +9799,54 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a content moderation job.
-     *  *
-     * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
-     *  *
-     * @param QueryMediaCensorJobDetailRequest $request QueryMediaCensorJobDetailRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a content moderation job.
      *
-     * @return QueryMediaCensorJobDetailResponse QueryMediaCensorJobDetailResponse
+     * @remarks
+     * In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+     *
+     * @param request - QueryMediaCensorJobDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryMediaCensorJobDetailResponse
+     *
+     * @param QueryMediaCensorJobDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryMediaCensorJobDetailResponse
      */
     public function queryMediaCensorJobDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->maximumPageSize)) {
-            $query['MaximumPageSize'] = $request->maximumPageSize;
+
+        if (null !== $request->maximumPageSize) {
+            @$query['MaximumPageSize'] = $request->maximumPageSize;
         }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaCensorJobDetail',
@@ -8344,13 +9864,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a content moderation job.
-     *  *
-     * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
-     *  *
-     * @param QueryMediaCensorJobDetailRequest $request QueryMediaCensorJobDetailRequest
+     * Queries the information about a content moderation job.
      *
-     * @return QueryMediaCensorJobDetailResponse QueryMediaCensorJobDetailResponse
+     * @remarks
+     * In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+     *
+     * @param request - QueryMediaCensorJobDetailRequest
+     * @returns QueryMediaCensorJobDetailResponse
+     *
+     * @param QueryMediaCensorJobDetailRequest $request
+     *
+     * @return QueryMediaCensorJobDetailResponse
      */
     public function queryMediaCensorJobDetail($request)
     {
@@ -8360,54 +9884,70 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of content moderation jobs.
-     *  *
-     * @description You can call this operation to query only the content moderation jobs within the most recent three months.
-     *  *
-     * @param QueryMediaCensorJobListRequest $request QueryMediaCensorJobListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries a list of content moderation jobs.
      *
-     * @return QueryMediaCensorJobListResponse QueryMediaCensorJobListResponse
+     * @remarks
+     * You can call this operation to query only the content moderation jobs within the most recent three months.
+     *
+     * @param request - QueryMediaCensorJobListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryMediaCensorJobListResponse
+     *
+     * @param QueryMediaCensorJobListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryMediaCensorJobListResponse
      */
     public function queryMediaCensorJobListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endOfJobCreatedTimeRange)) {
-            $query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
+        if (null !== $request->endOfJobCreatedTimeRange) {
+            @$query['EndOfJobCreatedTimeRange'] = $request->endOfJobCreatedTimeRange;
         }
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->maximumPageSize)) {
-            $query['MaximumPageSize'] = $request->maximumPageSize;
+
+        if (null !== $request->maximumPageSize) {
+            @$query['MaximumPageSize'] = $request->maximumPageSize;
         }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pipelineId)) {
-            $query['PipelineId'] = $request->pipelineId;
+
+        if (null !== $request->pipelineId) {
+            @$query['PipelineId'] = $request->pipelineId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startOfJobCreatedTimeRange)) {
-            $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+
+        if (null !== $request->startOfJobCreatedTimeRange) {
+            @$query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaCensorJobList',
@@ -8425,13 +9965,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of content moderation jobs.
-     *  *
-     * @description You can call this operation to query only the content moderation jobs within the most recent three months.
-     *  *
-     * @param QueryMediaCensorJobListRequest $request QueryMediaCensorJobListRequest
+     * Queries a list of content moderation jobs.
      *
-     * @return QueryMediaCensorJobListResponse QueryMediaCensorJobListResponse
+     * @remarks
+     * You can call this operation to query only the content moderation jobs within the most recent three months.
+     *
+     * @param request - QueryMediaCensorJobListRequest
+     * @returns QueryMediaCensorJobListResponse
+     *
+     * @param QueryMediaCensorJobListRequest $request
+     *
+     * @return QueryMediaCensorJobListResponse
      */
     public function queryMediaCensorJobList($request)
     {
@@ -8441,25 +9985,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the indexing jobs enabled for a media asset.
-     *  *
-     * @param QueryMediaIndexJobRequest $request QueryMediaIndexJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the indexing jobs enabled for a media asset.
      *
-     * @return QueryMediaIndexJobResponse QueryMediaIndexJobResponse
+     * @param request - QueryMediaIndexJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryMediaIndexJobResponse
+     *
+     * @param QueryMediaIndexJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryMediaIndexJobResponse
      */
     public function queryMediaIndexJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryMediaIndexJob',
@@ -8477,11 +10027,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the indexing jobs enabled for a media asset.
-     *  *
-     * @param QueryMediaIndexJobRequest $request QueryMediaIndexJobRequest
+     * Queries the indexing jobs enabled for a media asset.
      *
-     * @return QueryMediaIndexJobResponse QueryMediaIndexJobResponse
+     * @param request - QueryMediaIndexJobRequest
+     * @returns QueryMediaIndexJobResponse
+     *
+     * @param QueryMediaIndexJobRequest $request
+     *
+     * @return QueryMediaIndexJobResponse
      */
     public function queryMediaIndexJob($request)
     {
@@ -8491,25 +10044,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a search index.
-     *  *
-     * @param QuerySearchIndexRequest $request QuerySearchIndexRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a search index.
      *
-     * @return QuerySearchIndexResponse QuerySearchIndexResponse
+     * @param request - QuerySearchIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySearchIndexResponse
+     *
+     * @param QuerySearchIndexRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySearchIndexResponse
      */
     public function querySearchIndexWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->indexType)) {
-            $query['IndexType'] = $request->indexType;
+        if (null !== $request->indexType) {
+            @$query['IndexType'] = $request->indexType;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySearchIndex',
@@ -8527,11 +10086,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a search index.
-     *  *
-     * @param QuerySearchIndexRequest $request QuerySearchIndexRequest
+     * Queries the details of a search index.
      *
-     * @return QuerySearchIndexResponse QuerySearchIndexResponse
+     * @param request - QuerySearchIndexRequest
+     * @returns QuerySearchIndexResponse
+     *
+     * @param QuerySearchIndexRequest $request
+     *
+     * @return QuerySearchIndexResponse
      */
     public function querySearchIndex($request)
     {
@@ -8541,22 +10103,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a search library.
-     *  *
-     * @param QuerySearchLibRequest $request QuerySearchLibRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a search library.
      *
-     * @return QuerySearchLibResponse QuerySearchLibResponse
+     * @param request - QuerySearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySearchLibResponse
+     *
+     * @param QuerySearchLibRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QuerySearchLibResponse
      */
     public function querySearchLibWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySearchLib',
@@ -8574,11 +10141,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a search library.
-     *  *
-     * @param QuerySearchLibRequest $request QuerySearchLibRequest
+     * Queries the information about a search library.
      *
-     * @return QuerySearchLibResponse QuerySearchLibResponse
+     * @param request - QuerySearchLibRequest
+     * @returns QuerySearchLibResponse
+     *
+     * @param QuerySearchLibRequest $request
+     *
+     * @return QuerySearchLibResponse
      */
     public function querySearchLib($request)
     {
@@ -8588,25 +10158,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a smart tagging job.
-     *  *
-     * @param QuerySmarttagJobRequest $request QuerySmarttagJobRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a smart tagging job.
      *
-     * @return QuerySmarttagJobResponse QuerySmarttagJobResponse
+     * @param request - QuerySmarttagJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySmarttagJobResponse
+     *
+     * @param QuerySmarttagJobRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySmarttagJobResponse
      */
     public function querySmarttagJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySmarttagJob',
@@ -8624,11 +10200,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a smart tagging job.
-     *  *
-     * @param QuerySmarttagJobRequest $request QuerySmarttagJobRequest
+     * Queries the information about a smart tagging job.
      *
-     * @return QuerySmarttagJobResponse QuerySmarttagJobResponse
+     * @param request - QuerySmarttagJobRequest
+     * @returns QuerySmarttagJobResponse
+     *
+     * @param QuerySmarttagJobRequest $request
+     *
+     * @return QuerySmarttagJobResponse
      */
     public function querySmarttagJob($request)
     {
@@ -8638,37 +10217,47 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询视频溯源水印ab流任务
-     *  *
-     * @param QueryTraceAbJobListRequest $request QueryTraceAbJobListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询视频溯源水印ab流任务
      *
-     * @return QueryTraceAbJobListResponse QueryTraceAbJobListResponse
+     * @param request - QueryTraceAbJobListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryTraceAbJobListResponse
+     *
+     * @param QueryTraceAbJobListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryTraceAbJobListResponse
      */
     public function queryTraceAbJobListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $query['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->traceMediaId)) {
-            $query['TraceMediaId'] = $request->traceMediaId;
+
+        if (null !== $request->traceMediaId) {
+            @$query['TraceMediaId'] = $request->traceMediaId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryTraceAbJobList',
@@ -8686,11 +10275,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询视频溯源水印ab流任务
-     *  *
-     * @param QueryTraceAbJobListRequest $request QueryTraceAbJobListRequest
+     * 查询视频溯源水印ab流任务
      *
-     * @return QueryTraceAbJobListResponse QueryTraceAbJobListResponse
+     * @param request - QueryTraceAbJobListRequest
+     * @returns QueryTraceAbJobListResponse
+     *
+     * @param QueryTraceAbJobListRequest $request
+     *
+     * @return QueryTraceAbJobListResponse
      */
     public function queryTraceAbJobList($request)
     {
@@ -8700,22 +10292,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询溯源水印提取任务
-     *  *
-     * @param QueryTraceExtractJobRequest $request QueryTraceExtractJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询溯源水印提取任务
      *
-     * @return QueryTraceExtractJobResponse QueryTraceExtractJobResponse
+     * @param request - QueryTraceExtractJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryTraceExtractJobResponse
+     *
+     * @param QueryTraceExtractJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryTraceExtractJobResponse
      */
     public function queryTraceExtractJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryTraceExtractJob',
@@ -8733,11 +10330,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询溯源水印提取任务
-     *  *
-     * @param QueryTraceExtractJobRequest $request QueryTraceExtractJobRequest
+     * 查询溯源水印提取任务
      *
-     * @return QueryTraceExtractJobResponse QueryTraceExtractJobResponse
+     * @param request - QueryTraceExtractJobRequest
+     * @returns QueryTraceExtractJobResponse
+     *
+     * @param QueryTraceExtractJobRequest $request
+     *
+     * @return QueryTraceExtractJobResponse
      */
     public function queryTraceExtractJob($request)
     {
@@ -8747,34 +10347,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询视频溯源水印m3u8任务
-     *  *
-     * @param QueryTraceM3u8JobListRequest $request QueryTraceM3u8JobListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询视频溯源水印m3u8任务
      *
-     * @return QueryTraceM3u8JobListResponse QueryTraceM3u8JobListResponse
+     * @param request - QueryTraceM3u8JobListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryTraceM3u8JobListResponse
+     *
+     * @param QueryTraceM3u8JobListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryTraceM3u8JobListResponse
      */
     public function queryTraceM3u8JobListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $query['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryTraceM3u8JobList',
@@ -8792,11 +10401,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询视频溯源水印m3u8任务
-     *  *
-     * @param QueryTraceM3u8JobListRequest $request QueryTraceM3u8JobListRequest
+     * 查询视频溯源水印m3u8任务
      *
-     * @return QueryTraceM3u8JobListResponse QueryTraceM3u8JobListResponse
+     * @param request - QueryTraceM3u8JobListRequest
+     * @returns QueryTraceM3u8JobListResponse
+     *
+     * @param QueryTraceM3u8JobListRequest $request
+     *
+     * @return QueryTraceM3u8JobListResponse
      */
     public function queryTraceM3u8JobList($request)
     {
@@ -8806,24 +10418,30 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Obtain a new upload credential for a media asset after its upload credential expires.
-     *  *
-     * @description You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
-     *  *
-     * @param RefreshUploadMediaRequest $request RefreshUploadMediaRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Obtain a new upload credential for a media asset after its upload credential expires.
      *
-     * @return RefreshUploadMediaResponse RefreshUploadMediaResponse
+     * @remarks
+     * You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
+     *
+     * @param request - RefreshUploadMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RefreshUploadMediaResponse
+     *
+     * @param RefreshUploadMediaRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RefreshUploadMediaResponse
      */
     public function refreshUploadMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RefreshUploadMedia',
@@ -8841,13 +10459,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Obtain a new upload credential for a media asset after its upload credential expires.
-     *  *
-     * @description You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
-     *  *
-     * @param RefreshUploadMediaRequest $request RefreshUploadMediaRequest
+     * Obtain a new upload credential for a media asset after its upload credential expires.
      *
-     * @return RefreshUploadMediaResponse RefreshUploadMediaResponse
+     * @remarks
+     * You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
+     *
+     * @param request - RefreshUploadMediaRequest
+     * @returns RefreshUploadMediaResponse
+     *
+     * @param RefreshUploadMediaRequest $request
+     *
+     * @return RefreshUploadMediaResponse
      */
     public function refreshUploadMedia($request)
     {
@@ -8857,66 +10479,86 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
-     *  *
-     * @description Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
-     *  *
-     * @param RegisterMediaInfoRequest $request RegisterMediaInfoRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
      *
-     * @return RegisterMediaInfoResponse RegisterMediaInfoResponse
+     * @remarks
+     * Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
+     *
+     * @param request - RegisterMediaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterMediaInfoResponse
+     *
+     * @param RegisterMediaInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RegisterMediaInfoResponse
      */
     public function registerMediaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
+
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->inputURL)) {
-            $query['InputURL'] = $request->inputURL;
+
+        if (null !== $request->inputURL) {
+            @$query['InputURL'] = $request->inputURL;
         }
-        if (!Utils::isUnset($request->mediaTags)) {
-            $query['MediaTags'] = $request->mediaTags;
+
+        if (null !== $request->mediaTags) {
+            @$query['MediaTags'] = $request->mediaTags;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->overwrite)) {
-            $query['Overwrite'] = $request->overwrite;
+
+        if (null !== $request->overwrite) {
+            @$query['Overwrite'] = $request->overwrite;
         }
-        if (!Utils::isUnset($request->referenceId)) {
-            $query['ReferenceId'] = $request->referenceId;
+
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
         }
-        if (!Utils::isUnset($request->registerConfig)) {
-            $query['RegisterConfig'] = $request->registerConfig;
+
+        if (null !== $request->registerConfig) {
+            @$query['RegisterConfig'] = $request->registerConfig;
         }
-        if (!Utils::isUnset($request->smartTagTemplateId)) {
-            $query['SmartTagTemplateId'] = $request->smartTagTemplateId;
+
+        if (null !== $request->smartTagTemplateId) {
+            @$query['SmartTagTemplateId'] = $request->smartTagTemplateId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->workflowId)) {
-            $query['WorkflowId'] = $request->workflowId;
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RegisterMediaInfo',
@@ -8934,13 +10576,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
-     *  *
-     * @description Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
-     *  *
-     * @param RegisterMediaInfoRequest $request RegisterMediaInfoRequest
+     * Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
      *
-     * @return RegisterMediaInfoResponse RegisterMediaInfoResponse
+     * @remarks
+     * Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the GetMediaInfo operation at this time, you may fail to obtain the information about the media asset.
+     *
+     * @param request - RegisterMediaInfoRequest
+     * @returns RegisterMediaInfoResponse
+     *
+     * @param RegisterMediaInfoRequest $request
+     *
+     * @return RegisterMediaInfoResponse
      */
     public function registerMediaInfo($request)
     {
@@ -8950,30 +10596,38 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Registers a media stream.
-     *  *
-     * @description You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
-     *  *
-     * @param RegisterMediaStreamRequest $request RegisterMediaStreamRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Registers a media stream.
      *
-     * @return RegisterMediaStreamResponse RegisterMediaStreamResponse
+     * @remarks
+     * You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
+     *
+     * @param request - RegisterMediaStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterMediaStreamResponse
+     *
+     * @param RegisterMediaStreamRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RegisterMediaStreamResponse
      */
     public function registerMediaStreamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inputURL)) {
-            $query['InputURL'] = $request->inputURL;
+        if (null !== $request->inputURL) {
+            @$query['InputURL'] = $request->inputURL;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RegisterMediaStream',
@@ -8991,13 +10645,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Registers a media stream.
-     *  *
-     * @description You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
-     *  *
-     * @param RegisterMediaStreamRequest $request RegisterMediaStreamRequest
+     * Registers a media stream.
      *
-     * @return RegisterMediaStreamResponse RegisterMediaStreamResponse
+     * @remarks
+     * You can call this operation to register a media stream file in an Object Storage Service (OSS) bucket with Intelligent Media Services (IMS) and associate the media stream with the specified media asset ID.
+     *
+     * @param request - RegisterMediaStreamRequest
+     * @returns RegisterMediaStreamResponse
+     *
+     * @param RegisterMediaStreamRequest $request
+     *
+     * @return RegisterMediaStreamResponse
      */
     public function registerMediaStream($request)
     {
@@ -9007,46 +10665,59 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries online editing projects by creation time and status.
-     *  *
-     * @param SearchEditingProjectRequest $request SearchEditingProjectRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries online editing projects by creation time and status.
      *
-     * @return SearchEditingProjectResponse SearchEditingProjectResponse
+     * @param request - SearchEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchEditingProjectResponse
+     *
+     * @param SearchEditingProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchEditingProjectResponse
      */
     public function searchEditingProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createSource)) {
-            $query['CreateSource'] = $request->createSource;
+        if (null !== $request->createSource) {
+            @$query['CreateSource'] = $request->createSource;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectType)) {
-            $query['ProjectType'] = $request->projectType;
+
+        if (null !== $request->projectType) {
+            @$query['ProjectType'] = $request->projectType;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchEditingProject',
@@ -9064,11 +10735,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries online editing projects by creation time and status.
-     *  *
-     * @param SearchEditingProjectRequest $request SearchEditingProjectRequest
+     * Queries online editing projects by creation time and status.
      *
-     * @return SearchEditingProjectResponse SearchEditingProjectResponse
+     * @param request - SearchEditingProjectRequest
+     * @returns SearchEditingProjectResponse
+     *
+     * @param SearchEditingProjectRequest $request
+     *
+     * @return SearchEditingProjectResponse
      */
     public function searchEditingProject($request)
     {
@@ -9078,28 +10752,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
-     *  *
-     * @param SearchIndexJobRerunRequest $request SearchIndexJobRerunRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
      *
-     * @return SearchIndexJobRerunResponse SearchIndexJobRerunResponse
+     * @param request - SearchIndexJobRerunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchIndexJobRerunResponse
+     *
+     * @param SearchIndexJobRerunRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchIndexJobRerunResponse
      */
     public function searchIndexJobRerunWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
-        if (!Utils::isUnset($request->task)) {
-            $query['Task'] = $request->task;
+
+        if (null !== $request->task) {
+            @$query['Task'] = $request->task;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchIndexJobRerun',
@@ -9117,11 +10798,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
-     *  *
-     * @param SearchIndexJobRerunRequest $request SearchIndexJobRerunRequest
+     * Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
      *
-     * @return SearchIndexJobRerunResponse SearchIndexJobRerunResponse
+     * @param request - SearchIndexJobRerunRequest
+     * @returns SearchIndexJobRerunResponse
+     *
+     * @param SearchIndexJobRerunRequest $request
+     *
+     * @return SearchIndexJobRerunResponse
      */
     public function searchIndexJobRerun($request)
     {
@@ -9131,42 +10815,54 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about media assets based on the request parameters.
-     *  *
-     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
-     *  *
-     * @param SearchMediaRequest $request SearchMediaRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries information about media assets based on the request parameters.
      *
-     * @return SearchMediaResponse SearchMediaResponse
+     * @remarks
+     * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+     *
+     * @param request - SearchMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchMediaResponse
+     *
+     * @param SearchMediaRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SearchMediaResponse
      */
     public function searchMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->match)) {
-            $query['Match'] = $request->match;
+
+        if (null !== $request->match) {
+            @$query['Match'] = $request->match;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scrollToken)) {
-            $query['ScrollToken'] = $request->scrollToken;
+
+        if (null !== $request->scrollToken) {
+            @$query['ScrollToken'] = $request->scrollToken;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchMedia',
@@ -9184,13 +10880,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about media assets based on the request parameters.
-     *  *
-     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
-     *  *
-     * @param SearchMediaRequest $request SearchMediaRequest
+     * Queries information about media assets based on the request parameters.
      *
-     * @return SearchMediaResponse SearchMediaResponse
+     * @remarks
+     * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+     *
+     * @param request - SearchMediaRequest
+     * @returns SearchMediaResponse
+     *
+     * @param SearchMediaRequest $request
+     *
+     * @return SearchMediaResponse
      */
     public function searchMedia($request)
     {
@@ -9200,51 +10900,66 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries media assets based on character names, subtitles, or AI categories.
-     *  *
-     * @description You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
-     *  *
-     * @param SearchMediaByAILabelRequest $request SearchMediaByAILabelRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries media assets based on character names, subtitles, or AI categories.
      *
-     * @return SearchMediaByAILabelResponse SearchMediaByAILabelResponse
+     * @remarks
+     * You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
+     *
+     * @param request - SearchMediaByAILabelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchMediaByAILabelResponse
+     *
+     * @param SearchMediaByAILabelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchMediaByAILabelResponse
      */
     public function searchMediaByAILabelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->matchingMode)) {
-            $query['MatchingMode'] = $request->matchingMode;
+        if (null !== $request->matchingMode) {
+            @$query['MatchingMode'] = $request->matchingMode;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->multimodalSearchType)) {
-            $query['MultimodalSearchType'] = $request->multimodalSearchType;
+
+        if (null !== $request->multimodalSearchType) {
+            @$query['MultimodalSearchType'] = $request->multimodalSearchType;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->specificSearch)) {
-            $query['SpecificSearch'] = $request->specificSearch;
+
+        if (null !== $request->specificSearch) {
+            @$query['SpecificSearch'] = $request->specificSearch;
         }
-        if (!Utils::isUnset($request->text)) {
-            $query['Text'] = $request->text;
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchMediaByAILabel',
@@ -9262,13 +10977,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries media assets based on character names, subtitles, or AI categories.
-     *  *
-     * @description You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
-     *  *
-     * @param SearchMediaByAILabelRequest $request SearchMediaByAILabelRequest
+     * Queries media assets based on character names, subtitles, or AI categories.
      *
-     * @return SearchMediaByAILabelResponse SearchMediaByAILabelResponse
+     * @remarks
+     * You can call this operation to query media assets or media asset clips based on character names, subtitles, or AI categories.
+     *
+     * @param request - SearchMediaByAILabelRequest
+     * @returns SearchMediaByAILabelResponse
+     *
+     * @param SearchMediaByAILabelRequest $request
+     *
+     * @return SearchMediaByAILabelResponse
      */
     public function searchMediaByAILabel($request)
     {
@@ -9278,42 +10997,54 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about media assets that are related to a specific face.
-     *  *
-     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
-     *  *
-     * @param SearchMediaByFaceRequest $request SearchMediaByFaceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about media assets that are related to a specific face.
      *
-     * @return SearchMediaByFaceResponse SearchMediaByFaceResponse
+     * @remarks
+     * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+     *
+     * @param request - SearchMediaByFaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchMediaByFaceResponse
+     *
+     * @param SearchMediaByFaceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SearchMediaByFaceResponse
      */
     public function searchMediaByFaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->faceSearchToken)) {
-            $query['FaceSearchToken'] = $request->faceSearchToken;
+
+        if (null !== $request->faceSearchToken) {
+            @$query['FaceSearchToken'] = $request->faceSearchToken;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->personImageUrl)) {
-            $query['PersonImageUrl'] = $request->personImageUrl;
+
+        if (null !== $request->personImageUrl) {
+            @$query['PersonImageUrl'] = $request->personImageUrl;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchMediaByFace',
@@ -9331,13 +11062,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about media assets that are related to a specific face.
-     *  *
-     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
-     *  *
-     * @param SearchMediaByFaceRequest $request SearchMediaByFaceRequest
+     * Queries the information about media assets that are related to a specific face.
      *
-     * @return SearchMediaByFaceResponse SearchMediaByFaceResponse
+     * @remarks
+     * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+     *
+     * @param request - SearchMediaByFaceRequest
+     * @returns SearchMediaByFaceResponse
+     *
+     * @param SearchMediaByFaceRequest $request
+     *
+     * @return SearchMediaByFaceResponse
      */
     public function searchMediaByFace($request)
     {
@@ -9347,37 +11082,47 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
-     *  *
-     * @param SearchMediaByHybridRequest $request SearchMediaByHybridRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
      *
-     * @return SearchMediaByHybridResponse SearchMediaByHybridResponse
+     * @param request - SearchMediaByHybridRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchMediaByHybridResponse
+     *
+     * @param SearchMediaByHybridRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchMediaByHybridResponse
      */
     public function searchMediaByHybridWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
-        if (!Utils::isUnset($request->text)) {
-            $query['Text'] = $request->text;
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchMediaByHybrid',
@@ -9395,11 +11140,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
-     *  *
-     * @param SearchMediaByHybridRequest $request SearchMediaByHybridRequest
+     * Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
      *
-     * @return SearchMediaByHybridResponse SearchMediaByHybridResponse
+     * @param request - SearchMediaByHybridRequest
+     * @returns SearchMediaByHybridResponse
+     *
+     * @param SearchMediaByHybridRequest $request
+     *
+     * @return SearchMediaByHybridResponse
      */
     public function searchMediaByHybrid($request)
     {
@@ -9409,36 +11157,46 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries media assets by using the large visual model. You can use natural language for the query.
-     *  *
-     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
-     *  *
-     * @param SearchMediaByMultimodalRequest $request SearchMediaByMultimodalRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries media assets by using the large visual model. You can use natural language for the query.
      *
-     * @return SearchMediaByMultimodalResponse SearchMediaByMultimodalResponse
+     * @remarks
+     * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+     *
+     * @param request - SearchMediaByMultimodalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchMediaByMultimodalResponse
+     *
+     * @param SearchMediaByMultimodalRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SearchMediaByMultimodalResponse
      */
     public function searchMediaByMultimodalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
-        if (!Utils::isUnset($request->text)) {
-            $query['Text'] = $request->text;
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchMediaByMultimodal',
@@ -9456,13 +11214,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries media assets by using the large visual model. You can use natural language for the query.
-     *  *
-     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
-     *  *
-     * @param SearchMediaByMultimodalRequest $request SearchMediaByMultimodalRequest
+     * Queries media assets by using the large visual model. You can use natural language for the query.
      *
-     * @return SearchMediaByMultimodalResponse SearchMediaByMultimodalResponse
+     * @remarks
+     * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+     *
+     * @param request - SearchMediaByMultimodalRequest
+     * @returns SearchMediaByMultimodalResponse
+     *
+     * @param SearchMediaByMultimodalRequest $request
+     *
+     * @return SearchMediaByMultimodalResponse
      */
     public function searchMediaByMultimodal($request)
     {
@@ -9472,39 +11234,50 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
-     *  *
-     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
-     *  *
-     * @param SearchMediaClipByFaceRequest $request SearchMediaClipByFaceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
      *
-     * @return SearchMediaClipByFaceResponse SearchMediaClipByFaceResponse
+     * @remarks
+     * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+     *
+     * @param request - SearchMediaClipByFaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchMediaClipByFaceResponse
+     *
+     * @param SearchMediaClipByFaceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SearchMediaClipByFaceResponse
      */
     public function searchMediaClipByFaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->faceSearchToken)) {
-            $query['FaceSearchToken'] = $request->faceSearchToken;
+
+        if (null !== $request->faceSearchToken) {
+            @$query['FaceSearchToken'] = $request->faceSearchToken;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchMediaClipByFace',
@@ -9522,13 +11295,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
-     *  *
-     * @description If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
-     *  *
-     * @param SearchMediaClipByFaceRequest $request SearchMediaClipByFaceRequest
+     * Queries the information about media asset clips that are related to a specific face based on the response to the SearchMediaByFace operation.
      *
-     * @return SearchMediaClipByFaceResponse SearchMediaClipByFaceResponse
+     * @remarks
+     * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+     *
+     * @param request - SearchMediaClipByFaceRequest
+     * @returns SearchMediaClipByFaceResponse
+     *
+     * @param SearchMediaClipByFaceRequest $request
+     *
+     * @return SearchMediaClipByFaceResponse
      */
     public function searchMediaClipByFace($request)
     {
@@ -9538,43 +11315,55 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 搜索公共媒资信息
-     *  *
-     * @param SearchPublicMediaInfoRequest $request SearchPublicMediaInfoRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 搜索公共媒资信息.
      *
-     * @return SearchPublicMediaInfoResponse SearchPublicMediaInfoResponse
+     * @param request - SearchPublicMediaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchPublicMediaInfoResponse
+     *
+     * @param SearchPublicMediaInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SearchPublicMediaInfoResponse
      */
     public function searchPublicMediaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authorized)) {
-            $query['Authorized'] = $request->authorized;
+        if (null !== $request->authorized) {
+            @$query['Authorized'] = $request->authorized;
         }
-        if (!Utils::isUnset($request->dynamicMetaDataMatchFields)) {
-            $query['DynamicMetaDataMatchFields'] = $request->dynamicMetaDataMatchFields;
+
+        if (null !== $request->dynamicMetaDataMatchFields) {
+            @$query['DynamicMetaDataMatchFields'] = $request->dynamicMetaDataMatchFields;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->favorite)) {
-            $query['Favorite'] = $request->favorite;
+
+        if (null !== $request->favorite) {
+            @$query['Favorite'] = $request->favorite;
         }
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchPublicMediaInfo',
@@ -9592,11 +11381,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 搜索公共媒资信息
-     *  *
-     * @param SearchPublicMediaInfoRequest $request SearchPublicMediaInfoRequest
+     * 搜索公共媒资信息.
      *
-     * @return SearchPublicMediaInfoResponse SearchPublicMediaInfoResponse
+     * @param request - SearchPublicMediaInfoRequest
+     * @returns SearchPublicMediaInfoResponse
+     *
+     * @param SearchPublicMediaInfoRequest $request
+     *
+     * @return SearchPublicMediaInfoResponse
      */
     public function searchPublicMediaInfo($request)
     {
@@ -9606,25 +11398,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 向智能体通话发送datachannel消息
-     *  *
-     * @param SendAIAgentDataChannelMessageRequest $request SendAIAgentDataChannelMessageRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 向智能体通话发送datachannel消息.
      *
-     * @return SendAIAgentDataChannelMessageResponse SendAIAgentDataChannelMessageResponse
+     * @param request - SendAIAgentDataChannelMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendAIAgentDataChannelMessageResponse
+     *
+     * @param SendAIAgentDataChannelMessageRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SendAIAgentDataChannelMessageResponse
      */
     public function sendAIAgentDataChannelMessageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SendAIAgentDataChannelMessage',
@@ -9642,11 +11440,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 向智能体通话发送datachannel消息
-     *  *
-     * @param SendAIAgentDataChannelMessageRequest $request SendAIAgentDataChannelMessageRequest
+     * 向智能体通话发送datachannel消息.
      *
-     * @return SendAIAgentDataChannelMessageResponse SendAIAgentDataChannelMessageResponse
+     * @param request - SendAIAgentDataChannelMessageRequest
+     * @returns SendAIAgentDataChannelMessageResponse
+     *
+     * @param SendAIAgentDataChannelMessageRequest $request
+     *
+     * @return SendAIAgentDataChannelMessageResponse
      */
     public function sendAIAgentDataChannelMessage($request)
     {
@@ -9656,28 +11457,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 用来立即让某个智能体实例播报指定的文本。
-     *  *
-     * @param SendAIAgentSpeechRequest $request SendAIAgentSpeechRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 用来立即让某个智能体实例播报指定的文本。
      *
-     * @return SendAIAgentSpeechResponse SendAIAgentSpeechResponse
+     * @param request - SendAIAgentSpeechRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendAIAgentSpeechResponse
+     *
+     * @param SendAIAgentSpeechRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SendAIAgentSpeechResponse
      */
     public function sendAIAgentSpeechWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->enableInterrupt)) {
-            $query['EnableInterrupt'] = $request->enableInterrupt;
+        if (null !== $request->enableInterrupt) {
+            @$query['EnableInterrupt'] = $request->enableInterrupt;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->text)) {
-            $query['Text'] = $request->text;
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SendAIAgentSpeech',
@@ -9695,11 +11503,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 用来立即让某个智能体实例播报指定的文本。
-     *  *
-     * @param SendAIAgentSpeechRequest $request SendAIAgentSpeechRequest
+     * 用来立即让某个智能体实例播报指定的文本。
      *
-     * @return SendAIAgentSpeechResponse SendAIAgentSpeechResponse
+     * @param request - SendAIAgentSpeechRequest
+     * @returns SendAIAgentSpeechResponse
+     *
+     * @param SendAIAgentSpeechRequest $request
+     *
+     * @return SendAIAgentSpeechResponse
      */
     public function sendAIAgentSpeech($request)
     {
@@ -9709,25 +11520,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Sends a command to process a live stream snapshot job.
-     *  *
-     * @param SendLiveSnapshotJobCommandRequest $request SendLiveSnapshotJobCommandRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Sends a command to process a live stream snapshot job.
      *
-     * @return SendLiveSnapshotJobCommandResponse SendLiveSnapshotJobCommandResponse
+     * @param request - SendLiveSnapshotJobCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendLiveSnapshotJobCommandResponse
+     *
+     * @param SendLiveSnapshotJobCommandRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SendLiveSnapshotJobCommandResponse
      */
     public function sendLiveSnapshotJobCommandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->command)) {
-            $body['Command'] = $request->command;
+        if (null !== $request->command) {
+            @$body['Command'] = $request->command;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendLiveSnapshotJobCommand',
@@ -9745,11 +11562,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Sends a command to process a live stream snapshot job.
-     *  *
-     * @param SendLiveSnapshotJobCommandRequest $request SendLiveSnapshotJobCommandRequest
+     * Sends a command to process a live stream snapshot job.
      *
-     * @return SendLiveSnapshotJobCommandResponse SendLiveSnapshotJobCommandResponse
+     * @param request - SendLiveSnapshotJobCommandRequest
+     * @returns SendLiveSnapshotJobCommandResponse
+     *
+     * @param SendLiveSnapshotJobCommandRequest $request
+     *
+     * @return SendLiveSnapshotJobCommandResponse
      */
     public function sendLiveSnapshotJobCommand($request)
     {
@@ -9759,25 +11579,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Sends a command to process a live stream transcoding job.
-     *  *
-     * @param SendLiveTranscodeJobCommandRequest $request SendLiveTranscodeJobCommandRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Sends a command to process a live stream transcoding job.
      *
-     * @return SendLiveTranscodeJobCommandResponse SendLiveTranscodeJobCommandResponse
+     * @param request - SendLiveTranscodeJobCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendLiveTranscodeJobCommandResponse
+     *
+     * @param SendLiveTranscodeJobCommandRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SendLiveTranscodeJobCommandResponse
      */
     public function sendLiveTranscodeJobCommandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->command)) {
-            $query['Command'] = $request->command;
+        if (null !== $request->command) {
+            @$query['Command'] = $request->command;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SendLiveTranscodeJobCommand',
@@ -9795,11 +11621,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Sends a command to process a live stream transcoding job.
-     *  *
-     * @param SendLiveTranscodeJobCommandRequest $request SendLiveTranscodeJobCommandRequest
+     * Sends a command to process a live stream transcoding job.
      *
-     * @return SendLiveTranscodeJobCommandResponse SendLiveTranscodeJobCommandResponse
+     * @param request - SendLiveTranscodeJobCommandRequest
+     * @returns SendLiveTranscodeJobCommandResponse
+     *
+     * @param SendLiveTranscodeJobCommandRequest $request
+     *
+     * @return SendLiveTranscodeJobCommandResponse
      */
     public function sendLiveTranscodeJobCommand($request)
     {
@@ -9809,28 +11638,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 设置内容分析搜索配置
-     *  *
-     * @param SetContentAnalyzeConfigRequest $request SetContentAnalyzeConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 设置内容分析搜索配置.
      *
-     * @return SetContentAnalyzeConfigResponse SetContentAnalyzeConfigResponse
+     * @param request - SetContentAnalyzeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetContentAnalyzeConfigResponse
+     *
+     * @param SetContentAnalyzeConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetContentAnalyzeConfigResponse
      */
     public function setContentAnalyzeConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auto)) {
-            $query['Auto'] = $request->auto;
+        if (null !== $request->auto) {
+            @$query['Auto'] = $request->auto;
         }
-        if (!Utils::isUnset($request->saveType)) {
-            $query['SaveType'] = $request->saveType;
+
+        if (null !== $request->saveType) {
+            @$query['SaveType'] = $request->saveType;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetContentAnalyzeConfig',
@@ -9848,11 +11684,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 设置内容分析搜索配置
-     *  *
-     * @param SetContentAnalyzeConfigRequest $request SetContentAnalyzeConfigRequest
+     * 设置内容分析搜索配置.
      *
-     * @return SetContentAnalyzeConfigResponse SetContentAnalyzeConfigResponse
+     * @param request - SetContentAnalyzeConfigRequest
+     * @returns SetContentAnalyzeConfigResponse
+     *
+     * @param SetContentAnalyzeConfigRequest $request
+     *
+     * @return SetContentAnalyzeConfigResponse
      */
     public function setContentAnalyzeConfig($request)
     {
@@ -9862,22 +11701,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Sets a custom template as the default template.
-     *  *
-     * @param SetDefaultCustomTemplateRequest $request SetDefaultCustomTemplateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Sets a custom template as the default template.
      *
-     * @return SetDefaultCustomTemplateResponse SetDefaultCustomTemplateResponse
+     * @param request - SetDefaultCustomTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetDefaultCustomTemplateResponse
+     *
+     * @param SetDefaultCustomTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SetDefaultCustomTemplateResponse
      */
     public function setDefaultCustomTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDefaultCustomTemplate',
@@ -9895,11 +11739,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Sets a custom template as the default template.
-     *  *
-     * @param SetDefaultCustomTemplateRequest $request SetDefaultCustomTemplateRequest
+     * Sets a custom template as the default template.
      *
-     * @return SetDefaultCustomTemplateResponse SetDefaultCustomTemplateResponse
+     * @param request - SetDefaultCustomTemplateRequest
+     * @returns SetDefaultCustomTemplateResponse
+     *
+     * @param SetDefaultCustomTemplateRequest $request
+     *
+     * @return SetDefaultCustomTemplateResponse
      */
     public function setDefaultCustomTemplate($request)
     {
@@ -9909,28 +11756,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 设置默认存储路径
-     *  *
-     * @param SetDefaultStorageLocationRequest $request SetDefaultStorageLocationRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 设置默认存储路径.
      *
-     * @return SetDefaultStorageLocationResponse SetDefaultStorageLocationResponse
+     * @param request - SetDefaultStorageLocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetDefaultStorageLocationResponse
+     *
+     * @param SetDefaultStorageLocationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetDefaultStorageLocationResponse
      */
     public function setDefaultStorageLocationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bucket)) {
-            $query['Bucket'] = $request->bucket;
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDefaultStorageLocation',
@@ -9948,11 +11802,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 设置默认存储路径
-     *  *
-     * @param SetDefaultStorageLocationRequest $request SetDefaultStorageLocationRequest
+     * 设置默认存储路径.
      *
-     * @return SetDefaultStorageLocationResponse SetDefaultStorageLocationResponse
+     * @param request - SetDefaultStorageLocationRequest
+     * @returns SetDefaultStorageLocationResponse
+     *
+     * @param SetDefaultStorageLocationRequest $request
+     *
+     * @return SetDefaultStorageLocationResponse
      */
     public function setDefaultStorageLocation($request)
     {
@@ -9962,37 +11819,47 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Configures a callback method for one or more events.
-     *  *
-     * @param SetEventCallbackRequest $request SetEventCallbackRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Configures a callback method for one or more events.
      *
-     * @return SetEventCallbackResponse SetEventCallbackResponse
+     * @param request - SetEventCallbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetEventCallbackResponse
+     *
+     * @param SetEventCallbackRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SetEventCallbackResponse
      */
     public function setEventCallbackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authKey)) {
-            $query['AuthKey'] = $request->authKey;
+        if (null !== $request->authKey) {
+            @$query['AuthKey'] = $request->authKey;
         }
-        if (!Utils::isUnset($request->authSwitch)) {
-            $query['AuthSwitch'] = $request->authSwitch;
+
+        if (null !== $request->authSwitch) {
+            @$query['AuthSwitch'] = $request->authSwitch;
         }
-        if (!Utils::isUnset($request->callbackQueueName)) {
-            $query['CallbackQueueName'] = $request->callbackQueueName;
+
+        if (null !== $request->callbackQueueName) {
+            @$query['CallbackQueueName'] = $request->callbackQueueName;
         }
-        if (!Utils::isUnset($request->callbackType)) {
-            $query['CallbackType'] = $request->callbackType;
+
+        if (null !== $request->callbackType) {
+            @$query['CallbackType'] = $request->callbackType;
         }
-        if (!Utils::isUnset($request->callbackURL)) {
-            $query['CallbackURL'] = $request->callbackURL;
+
+        if (null !== $request->callbackURL) {
+            @$query['CallbackURL'] = $request->callbackURL;
         }
-        if (!Utils::isUnset($request->eventTypeList)) {
-            $query['EventTypeList'] = $request->eventTypeList;
+
+        if (null !== $request->eventTypeList) {
+            @$query['EventTypeList'] = $request->eventTypeList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetEventCallback',
@@ -10010,11 +11877,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Configures a callback method for one or more events.
-     *  *
-     * @param SetEventCallbackRequest $request SetEventCallbackRequest
+     * Configures a callback method for one or more events.
      *
-     * @return SetEventCallbackResponse SetEventCallbackResponse
+     * @param request - SetEventCallbackRequest
+     * @returns SetEventCallbackResponse
+     *
+     * @param SetEventCallbackRequest $request
+     *
+     * @return SetEventCallbackResponse
      */
     public function setEventCallback($request)
     {
@@ -10024,34 +11894,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新回调配置
-     *  *
-     * @param SetNotifyConfigRequest $request SetNotifyConfigRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 更新回调配置.
      *
-     * @return SetNotifyConfigResponse SetNotifyConfigResponse
+     * @param request - SetNotifyConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetNotifyConfigResponse
+     *
+     * @param SetNotifyConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetNotifyConfigResponse
      */
     public function setNotifyConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AIAgentId)) {
-            $query['AIAgentId'] = $request->AIAgentId;
+        if (null !== $request->AIAgentId) {
+            @$query['AIAgentId'] = $request->AIAgentId;
         }
-        if (!Utils::isUnset($request->callbackUrl)) {
-            $query['CallbackUrl'] = $request->callbackUrl;
+
+        if (null !== $request->callbackUrl) {
+            @$query['CallbackUrl'] = $request->callbackUrl;
         }
-        if (!Utils::isUnset($request->enableNotify)) {
-            $query['EnableNotify'] = $request->enableNotify;
+
+        if (null !== $request->enableNotify) {
+            @$query['EnableNotify'] = $request->enableNotify;
         }
-        if (!Utils::isUnset($request->eventTypes)) {
-            $query['EventTypes'] = $request->eventTypes;
+
+        if (null !== $request->eventTypes) {
+            @$query['EventTypes'] = $request->eventTypes;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetNotifyConfig',
@@ -10069,11 +11948,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新回调配置
-     *  *
-     * @param SetNotifyConfigRequest $request SetNotifyConfigRequest
+     * 更新回调配置.
      *
-     * @return SetNotifyConfigResponse SetNotifyConfigResponse
+     * @param request - SetNotifyConfigRequest
+     * @returns SetNotifyConfigResponse
+     *
+     * @param SetNotifyConfigRequest $request
+     *
+     * @return SetNotifyConfigResponse
      */
     public function setNotifyConfig($request)
     {
@@ -10083,39 +11965,49 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 启动一个智能体实例，并加入通话。
-     *  *
-     * @param StartAIAgentInstanceRequest $tmpReq  StartAIAgentInstanceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 启动一个智能体实例，并加入通话。
      *
-     * @return StartAIAgentInstanceResponse StartAIAgentInstanceResponse
+     * @param tmpReq - StartAIAgentInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartAIAgentInstanceResponse
+     *
+     * @param StartAIAgentInstanceRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartAIAgentInstanceResponse
      */
     public function startAIAgentInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new StartAIAgentInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->runtimeConfig)) {
-            $request->runtimeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimeConfig, 'RuntimeConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->runtimeConfig) {
+            $request->runtimeConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runtimeConfig, 'RuntimeConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->templateConfig)) {
-            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+
+        if (null !== $tmpReq->templateConfig) {
+            $request->templateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->AIAgentId)) {
-            $query['AIAgentId'] = $request->AIAgentId;
+        if (null !== $request->AIAgentId) {
+            @$query['AIAgentId'] = $request->AIAgentId;
         }
-        if (!Utils::isUnset($request->runtimeConfigShrink)) {
-            $query['RuntimeConfig'] = $request->runtimeConfigShrink;
+
+        if (null !== $request->runtimeConfigShrink) {
+            @$query['RuntimeConfig'] = $request->runtimeConfigShrink;
         }
-        if (!Utils::isUnset($request->templateConfigShrink)) {
-            $query['TemplateConfig'] = $request->templateConfigShrink;
+
+        if (null !== $request->templateConfigShrink) {
+            @$query['TemplateConfig'] = $request->templateConfigShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartAIAgentInstance',
@@ -10133,11 +12025,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 启动一个智能体实例，并加入通话。
-     *  *
-     * @param StartAIAgentInstanceRequest $request StartAIAgentInstanceRequest
+     * 启动一个智能体实例，并加入通话。
      *
-     * @return StartAIAgentInstanceResponse StartAIAgentInstanceResponse
+     * @param request - StartAIAgentInstanceRequest
+     * @returns StartAIAgentInstanceResponse
+     *
+     * @param StartAIAgentInstanceRequest $request
+     *
+     * @return StartAIAgentInstanceResponse
      */
     public function startAIAgentInstance($request)
     {
@@ -10147,42 +12042,53 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 开启一个机器人实例
-     *  *
-     * @param StartRtcRobotInstanceRequest $tmpReq  StartRtcRobotInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 开启一个机器人实例.
      *
-     * @return StartRtcRobotInstanceResponse StartRtcRobotInstanceResponse
+     * @param tmpReq - StartRtcRobotInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartRtcRobotInstanceResponse
+     *
+     * @param StartRtcRobotInstanceRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StartRtcRobotInstanceResponse
      */
     public function startRtcRobotInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new StartRtcRobotInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->config)) {
-            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->config) {
+            $request->configShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->authToken)) {
-            $query['AuthToken'] = $request->authToken;
+        if (null !== $request->authToken) {
+            @$query['AuthToken'] = $request->authToken;
         }
-        if (!Utils::isUnset($request->channelId)) {
-            $query['ChannelId'] = $request->channelId;
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
         }
-        if (!Utils::isUnset($request->configShrink)) {
-            $query['Config'] = $request->configShrink;
+
+        if (null !== $request->configShrink) {
+            @$query['Config'] = $request->configShrink;
         }
-        if (!Utils::isUnset($request->robotId)) {
-            $query['RobotId'] = $request->robotId;
+
+        if (null !== $request->robotId) {
+            @$query['RobotId'] = $request->robotId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartRtcRobotInstance',
@@ -10200,11 +12106,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 开启一个机器人实例
-     *  *
-     * @param StartRtcRobotInstanceRequest $request StartRtcRobotInstanceRequest
+     * 开启一个机器人实例.
      *
-     * @return StartRtcRobotInstanceResponse StartRtcRobotInstanceResponse
+     * @param request - StartRtcRobotInstanceRequest
+     * @returns StartRtcRobotInstanceResponse
+     *
+     * @param StartRtcRobotInstanceRequest $request
+     *
+     * @return StartRtcRobotInstanceResponse
      */
     public function startRtcRobotInstance($request)
     {
@@ -10214,31 +12123,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
-     *  *
-     * @description *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
-     * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
-     *  *
-     * @param StartWorkflowRequest $request StartWorkflowRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
      *
-     * @return StartWorkflowResponse StartWorkflowResponse
+     * @remarks
+     *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
+     * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
+     *
+     * @param request - StartWorkflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartWorkflowResponse
+     *
+     * @param StartWorkflowRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartWorkflowResponse
      */
     public function startWorkflowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskInput)) {
-            $query['TaskInput'] = $request->taskInput;
+        if (null !== $request->taskInput) {
+            @$query['TaskInput'] = $request->taskInput;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->workflowId)) {
-            $query['WorkflowId'] = $request->workflowId;
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartWorkflow',
@@ -10256,14 +12173,18 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
-     *  *
-     * @description *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
-     * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
-     *  *
-     * @param StartWorkflowRequest $request StartWorkflowRequest
+     * Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
      *
-     * @return StartWorkflowResponse StartWorkflowResponse
+     * @remarks
+     *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
+     * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
+     *
+     * @param request - StartWorkflowRequest
+     * @returns StartWorkflowResponse
+     *
+     * @param StartWorkflowRequest $request
+     *
+     * @return StartWorkflowResponse
      */
     public function startWorkflow($request)
     {
@@ -10273,22 +12194,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 停止一个智能体实例。
-     *  *
-     * @param StopAIAgentInstanceRequest $request StopAIAgentInstanceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 停止一个智能体实例。
      *
-     * @return StopAIAgentInstanceResponse StopAIAgentInstanceResponse
+     * @param request - StopAIAgentInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopAIAgentInstanceResponse
+     *
+     * @param StopAIAgentInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StopAIAgentInstanceResponse
      */
     public function stopAIAgentInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopAIAgentInstance',
@@ -10306,11 +12232,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 停止一个智能体实例。
-     *  *
-     * @param StopAIAgentInstanceRequest $request StopAIAgentInstanceRequest
+     * 停止一个智能体实例。
      *
-     * @return StopAIAgentInstanceResponse StopAIAgentInstanceResponse
+     * @param request - StopAIAgentInstanceRequest
+     * @returns StopAIAgentInstanceResponse
+     *
+     * @param StopAIAgentInstanceRequest $request
+     *
+     * @return StopAIAgentInstanceResponse
      */
     public function stopAIAgentInstance($request)
     {
@@ -10320,22 +12249,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 停止一个机器人实例
-     *  *
-     * @param StopRtcRobotInstanceRequest $request StopRtcRobotInstanceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 停止一个机器人实例.
      *
-     * @return StopRtcRobotInstanceResponse StopRtcRobotInstanceResponse
+     * @param request - StopRtcRobotInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopRtcRobotInstanceResponse
+     *
+     * @param StopRtcRobotInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StopRtcRobotInstanceResponse
      */
     public function stopRtcRobotInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopRtcRobotInstance',
@@ -10353,11 +12287,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 停止一个机器人实例
-     *  *
-     * @param StopRtcRobotInstanceRequest $request StopRtcRobotInstanceRequest
+     * 停止一个机器人实例.
      *
-     * @return StopRtcRobotInstanceResponse StopRtcRobotInstanceResponse
+     * @param request - StopRtcRobotInstanceRequest
+     * @returns StopRtcRobotInstanceResponse
+     *
+     * @param StopRtcRobotInstanceRequest $request
+     *
+     * @return StopRtcRobotInstanceResponse
      */
     public function stopRtcRobotInstance($request)
     {
@@ -10367,37 +12304,47 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
-     *  *
-     * @param SubmitASRJobRequest $request SubmitASRJobRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
      *
-     * @return SubmitASRJobResponse SubmitASRJobResponse
+     * @param request - SubmitASRJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitASRJobResponse
+     *
+     * @param SubmitASRJobRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SubmitASRJobResponse
      */
     public function submitASRJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->inputFile)) {
-            $query['InputFile'] = $request->inputFile;
+
+        if (null !== $request->inputFile) {
+            @$query['InputFile'] = $request->inputFile;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitASRJob',
@@ -10415,11 +12362,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
-     *  *
-     * @param SubmitASRJobRequest $request SubmitASRJobRequest
+     * Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
      *
-     * @return SubmitASRJobResponse SubmitASRJobResponse
+     * @param request - SubmitASRJobRequest
+     * @returns SubmitASRJobResponse
+     *
+     * @param SubmitASRJobRequest $request
+     *
+     * @return SubmitASRJobResponse
      */
     public function submitASRJob($request)
     {
@@ -10429,40 +12379,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits an audio production job that converts text into an audio file.
-     *  *
-     * @param SubmitAudioProduceJobRequest $request SubmitAudioProduceJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Submits an audio production job that converts text into an audio file.
      *
-     * @return SubmitAudioProduceJobResponse SubmitAudioProduceJobResponse
+     * @param request - SubmitAudioProduceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitAudioProduceJobResponse
+     *
+     * @param SubmitAudioProduceJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitAudioProduceJobResponse
      */
     public function submitAudioProduceJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->editingConfig)) {
-            $query['EditingConfig'] = $request->editingConfig;
+
+        if (null !== $request->editingConfig) {
+            @$query['EditingConfig'] = $request->editingConfig;
         }
-        if (!Utils::isUnset($request->inputConfig)) {
-            $query['InputConfig'] = $request->inputConfig;
+
+        if (null !== $request->inputConfig) {
+            @$query['InputConfig'] = $request->inputConfig;
         }
-        if (!Utils::isUnset($request->outputConfig)) {
-            $query['OutputConfig'] = $request->outputConfig;
+
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
         }
-        if (!Utils::isUnset($request->overwrite)) {
-            $query['Overwrite'] = $request->overwrite;
+
+        if (null !== $request->overwrite) {
+            @$query['Overwrite'] = $request->overwrite;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitAudioProduceJob',
@@ -10480,11 +12441,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits an audio production job that converts text into an audio file.
-     *  *
-     * @param SubmitAudioProduceJobRequest $request SubmitAudioProduceJobRequest
+     * Submits an audio production job that converts text into an audio file.
      *
-     * @return SubmitAudioProduceJobResponse SubmitAudioProduceJobResponse
+     * @param request - SubmitAudioProduceJobRequest
+     * @returns SubmitAudioProduceJobResponse
+     *
+     * @param SubmitAudioProduceJobRequest $request
+     *
+     * @return SubmitAudioProduceJobResponse
      */
     public function submitAudioProduceJob($request)
     {
@@ -10494,22 +12458,27 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
-     *  *
-     * @param SubmitAvatarTrainingJobRequest $request SubmitAvatarTrainingJobRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
      *
-     * @return SubmitAvatarTrainingJobResponse SubmitAvatarTrainingJobResponse
+     * @param request - SubmitAvatarTrainingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitAvatarTrainingJobResponse
+     *
+     * @param SubmitAvatarTrainingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitAvatarTrainingJobResponse
      */
     public function submitAvatarTrainingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitAvatarTrainingJob',
@@ -10527,11 +12496,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
-     *  *
-     * @param SubmitAvatarTrainingJobRequest $request SubmitAvatarTrainingJobRequest
+     * Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
      *
-     * @return SubmitAvatarTrainingJobResponse SubmitAvatarTrainingJobResponse
+     * @param request - SubmitAvatarTrainingJobRequest
+     * @returns SubmitAvatarTrainingJobResponse
+     *
+     * @param SubmitAvatarTrainingJobRequest $request
+     *
+     * @return SubmitAvatarTrainingJobResponse
      */
     public function submitAvatarTrainingJob($request)
     {
@@ -10541,37 +12513,47 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
-     *  *
-     * @param SubmitAvatarVideoJobRequest $request SubmitAvatarVideoJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
      *
-     * @return SubmitAvatarVideoJobResponse SubmitAvatarVideoJobResponse
+     * @param request - SubmitAvatarVideoJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitAvatarVideoJobResponse
+     *
+     * @param SubmitAvatarVideoJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitAvatarVideoJobResponse
      */
     public function submitAvatarVideoJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->editingConfig)) {
-            $query['EditingConfig'] = $request->editingConfig;
+
+        if (null !== $request->editingConfig) {
+            @$query['EditingConfig'] = $request->editingConfig;
         }
-        if (!Utils::isUnset($request->inputConfig)) {
-            $query['InputConfig'] = $request->inputConfig;
+
+        if (null !== $request->inputConfig) {
+            @$query['InputConfig'] = $request->inputConfig;
         }
-        if (!Utils::isUnset($request->outputConfig)) {
-            $query['OutputConfig'] = $request->outputConfig;
+
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitAvatarVideoJob',
@@ -10589,11 +12571,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
-     *  *
-     * @param SubmitAvatarVideoJobRequest $request SubmitAvatarVideoJobRequest
+     * Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
      *
-     * @return SubmitAvatarVideoJobResponse SubmitAvatarVideoJobResponse
+     * @param request - SubmitAvatarVideoJobRequest
+     * @returns SubmitAvatarVideoJobResponse
+     *
+     * @param SubmitAvatarVideoJobRequest $request
+     *
+     * @return SubmitAvatarVideoJobResponse
      */
     public function submitAvatarVideoJob($request)
     {
@@ -10603,36 +12588,45 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
-     *  *
-     * @param SubmitBatchMediaProducingJobRequest $request SubmitBatchMediaProducingJobRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
      *
-     * @return SubmitBatchMediaProducingJobResponse SubmitBatchMediaProducingJobResponse
+     * @param request - SubmitBatchMediaProducingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitBatchMediaProducingJobResponse
+     *
+     * @param SubmitBatchMediaProducingJobRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitBatchMediaProducingJobResponse
      */
     public function submitBatchMediaProducingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->outputConfig)) {
-            $query['OutputConfig'] = $request->outputConfig;
+
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->editingConfig)) {
-            $body['EditingConfig'] = $request->editingConfig;
+        if (null !== $request->editingConfig) {
+            @$body['EditingConfig'] = $request->editingConfig;
         }
-        if (!Utils::isUnset($request->inputConfig)) {
-            $body['InputConfig'] = $request->inputConfig;
+
+        if (null !== $request->inputConfig) {
+            @$body['InputConfig'] = $request->inputConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SubmitBatchMediaProducingJob',
@@ -10650,11 +12644,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
-     *  *
-     * @param SubmitBatchMediaProducingJobRequest $request SubmitBatchMediaProducingJobRequest
+     * Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
      *
-     * @return SubmitBatchMediaProducingJobResponse SubmitBatchMediaProducingJobResponse
+     * @param request - SubmitBatchMediaProducingJobRequest
+     * @returns SubmitBatchMediaProducingJobResponse
+     *
+     * @param SubmitBatchMediaProducingJobRequest $request
+     *
+     * @return SubmitBatchMediaProducingJobResponse
      */
     public function submitBatchMediaProducingJob($request)
     {
@@ -10664,33 +12661,41 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交版权水印提取作业
-     *  *
-     * @param SubmitCopyrightExtractJobRequest $tmpReq  SubmitCopyrightExtractJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 提交版权水印提取作业.
      *
-     * @return SubmitCopyrightExtractJobResponse SubmitCopyrightExtractJobResponse
+     * @param tmpReq - SubmitCopyrightExtractJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitCopyrightExtractJobResponse
+     *
+     * @param SubmitCopyrightExtractJobRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SubmitCopyrightExtractJobResponse
      */
     public function submitCopyrightExtractJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitCopyrightExtractJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitCopyrightExtractJob',
@@ -10708,11 +12713,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交版权水印提取作业
-     *  *
-     * @param SubmitCopyrightExtractJobRequest $request SubmitCopyrightExtractJobRequest
+     * 提交版权水印提取作业.
      *
-     * @return SubmitCopyrightExtractJobResponse SubmitCopyrightExtractJobResponse
+     * @param request - SubmitCopyrightExtractJobRequest
+     * @returns SubmitCopyrightExtractJobResponse
+     *
+     * @param SubmitCopyrightExtractJobRequest $request
+     *
+     * @return SubmitCopyrightExtractJobResponse
      */
     public function submitCopyrightExtractJob($request)
     {
@@ -10722,54 +12730,69 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交版权水印任务
-     *  *
-     * @param SubmitCopyrightJobRequest $tmpReq  SubmitCopyrightJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 提交版权水印任务
      *
-     * @return SubmitCopyrightJobResponse SubmitCopyrightJobResponse
+     * @param tmpReq - SubmitCopyrightJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitCopyrightJobResponse
+     *
+     * @param SubmitCopyrightJobRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitCopyrightJobResponse
      */
     public function submitCopyrightJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitCopyrightJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->output)) {
-            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+
+        if (null !== $tmpReq->output) {
+            $request->outputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
-        if (!Utils::isUnset($request->outputShrink)) {
-            $query['Output'] = $request->outputShrink;
+
+        if (null !== $request->outputShrink) {
+            @$query['Output'] = $request->outputShrink;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->totalTime)) {
-            $query['TotalTime'] = $request->totalTime;
+
+        if (null !== $request->totalTime) {
+            @$query['TotalTime'] = $request->totalTime;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitCopyrightJob',
@@ -10787,11 +12810,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交版权水印任务
-     *  *
-     * @param SubmitCopyrightJobRequest $request SubmitCopyrightJobRequest
+     * 提交版权水印任务
      *
-     * @return SubmitCopyrightJobResponse SubmitCopyrightJobResponse
+     * @param request - SubmitCopyrightJobRequest
+     * @returns SubmitCopyrightJobResponse
+     *
+     * @param SubmitCopyrightJobRequest $request
+     *
+     * @return SubmitCopyrightJobResponse
      */
     public function submitCopyrightJob($request)
     {
@@ -10801,25 +12827,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
-     *  *
-     * @param SubmitCustomizedVoiceJobRequest $request SubmitCustomizedVoiceJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *
-     * @return SubmitCustomizedVoiceJobResponse SubmitCustomizedVoiceJobResponse
+     * @param request - SubmitCustomizedVoiceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitCustomizedVoiceJobResponse
+     *
+     * @param SubmitCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitCustomizedVoiceJobResponse
      */
     public function submitCustomizedVoiceJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->demoAudioMediaURL)) {
-            $query['DemoAudioMediaURL'] = $request->demoAudioMediaURL;
+        if (null !== $request->demoAudioMediaURL) {
+            @$query['DemoAudioMediaURL'] = $request->demoAudioMediaURL;
         }
-        if (!Utils::isUnset($request->voiceId)) {
-            $query['VoiceId'] = $request->voiceId;
+
+        if (null !== $request->voiceId) {
+            @$query['VoiceId'] = $request->voiceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitCustomizedVoiceJob',
@@ -10837,11 +12869,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
-     *  *
-     * @param SubmitCustomizedVoiceJobRequest $request SubmitCustomizedVoiceJobRequest
+     * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *
-     * @return SubmitCustomizedVoiceJobResponse SubmitCustomizedVoiceJobResponse
+     * @param request - SubmitCustomizedVoiceJobRequest
+     * @returns SubmitCustomizedVoiceJobResponse
+     *
+     * @param SubmitCustomizedVoiceJobRequest $request
+     *
+     * @return SubmitCustomizedVoiceJobResponse
      */
     public function submitCustomizedVoiceJob($request)
     {
@@ -10851,61 +12886,78 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a media fingerprint analysis job.
-     *  *
-     * @description *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
+     * Submits a media fingerprint analysis job.
+     *
+     * @remarks
+     *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
      * *   You can call this operation only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
      * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
-     *  *
-     * @param SubmitDNAJobRequest $tmpReq  SubmitDNAJobRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDNAJobResponse SubmitDNAJobResponse
+     * @param tmpReq - SubmitDNAJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitDNAJobResponse
+     *
+     * @param SubmitDNAJobRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SubmitDNAJobResponse
      */
     public function submitDNAJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitDNAJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->DBId)) {
-            $query['DBId'] = $request->DBId;
+
+        if (null !== $request->DBId) {
+            @$query['DBId'] = $request->DBId;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pipelineId)) {
-            $query['PipelineId'] = $request->pipelineId;
+
+        if (null !== $request->pipelineId) {
+            @$query['PipelineId'] = $request->pipelineId;
         }
-        if (!Utils::isUnset($request->primaryKey)) {
-            $query['PrimaryKey'] = $request->primaryKey;
+
+        if (null !== $request->primaryKey) {
+            @$query['PrimaryKey'] = $request->primaryKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitDNAJob',
@@ -10923,15 +12975,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a media fingerprint analysis job.
-     *  *
-     * @description *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
+     * Submits a media fingerprint analysis job.
+     *
+     * @remarks
+     *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
      * *   You can call this operation only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
      * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
-     *  *
-     * @param SubmitDNAJobRequest $request SubmitDNAJobRequest
      *
-     * @return SubmitDNAJobResponse SubmitDNAJobResponse
+     * @param request - SubmitDNAJobRequest
+     * @returns SubmitDNAJobResponse
+     *
+     * @param SubmitDNAJobRequest $request
+     *
+     * @return SubmitDNAJobResponse
      */
     public function submitDNAJob($request)
     {
@@ -10941,58 +12997,75 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交动态图表任务
-     *  *
-     * @param SubmitDynamicChartJobRequest $request SubmitDynamicChartJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 提交动态图表任务
      *
-     * @return SubmitDynamicChartJobResponse SubmitDynamicChartJobResponse
+     * @param request - SubmitDynamicChartJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitDynamicChartJobResponse
+     *
+     * @param SubmitDynamicChartJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitDynamicChartJobResponse
      */
     public function submitDynamicChartJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->axisParams)) {
-            $query['AxisParams'] = $request->axisParams;
+        if (null !== $request->axisParams) {
+            @$query['AxisParams'] = $request->axisParams;
         }
-        if (!Utils::isUnset($request->background)) {
-            $query['Background'] = $request->background;
+
+        if (null !== $request->background) {
+            @$query['Background'] = $request->background;
         }
-        if (!Utils::isUnset($request->chartConfig)) {
-            $query['ChartConfig'] = $request->chartConfig;
+
+        if (null !== $request->chartConfig) {
+            @$query['ChartConfig'] = $request->chartConfig;
         }
-        if (!Utils::isUnset($request->chartTitle)) {
-            $query['ChartTitle'] = $request->chartTitle;
+
+        if (null !== $request->chartTitle) {
+            @$query['ChartTitle'] = $request->chartTitle;
         }
-        if (!Utils::isUnset($request->chartType)) {
-            $query['ChartType'] = $request->chartType;
+
+        if (null !== $request->chartType) {
+            @$query['ChartType'] = $request->chartType;
         }
-        if (!Utils::isUnset($request->dataSource)) {
-            $query['DataSource'] = $request->dataSource;
+
+        if (null !== $request->dataSource) {
+            @$query['DataSource'] = $request->dataSource;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->input)) {
-            $query['Input'] = $request->input;
+
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
         }
-        if (!Utils::isUnset($request->outputConfig)) {
-            $query['OutputConfig'] = $request->outputConfig;
+
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
         }
-        if (!Utils::isUnset($request->subtitle)) {
-            $query['Subtitle'] = $request->subtitle;
+
+        if (null !== $request->subtitle) {
+            @$query['Subtitle'] = $request->subtitle;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->unit)) {
-            $query['Unit'] = $request->unit;
+
+        if (null !== $request->unit) {
+            @$query['Unit'] = $request->unit;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitDynamicChartJob',
@@ -11010,11 +13083,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交动态图表任务
-     *  *
-     * @param SubmitDynamicChartJobRequest $request SubmitDynamicChartJobRequest
+     * 提交动态图表任务
      *
-     * @return SubmitDynamicChartJobResponse SubmitDynamicChartJobResponse
+     * @param request - SubmitDynamicChartJobRequest
+     * @returns SubmitDynamicChartJobResponse
+     *
+     * @param SubmitDynamicChartJobRequest $request
+     *
+     * @return SubmitDynamicChartJobResponse
      */
     public function submitDynamicChartJob($request)
     {
@@ -11024,51 +13100,65 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits an image animation job.
-     *  *
-     * @param SubmitDynamicImageJobRequest $tmpReq  SubmitDynamicImageJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Submits an image animation job.
      *
-     * @return SubmitDynamicImageJobResponse SubmitDynamicImageJobResponse
+     * @param tmpReq - SubmitDynamicImageJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitDynamicImageJobResponse
+     *
+     * @param SubmitDynamicImageJobRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitDynamicImageJobResponse
      */
     public function submitDynamicImageJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitDynamicImageJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->output)) {
-            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+
+        if (null !== $tmpReq->output) {
+            $request->outputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
-            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
+
+        if (null !== $tmpReq->scheduleConfig) {
+            $request->scheduleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->templateConfig)) {
-            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+
+        if (null !== $tmpReq->templateConfig) {
+            $request->templateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->outputShrink)) {
-            $query['Output'] = $request->outputShrink;
+
+        if (null !== $request->outputShrink) {
+            @$query['Output'] = $request->outputShrink;
         }
-        if (!Utils::isUnset($request->scheduleConfigShrink)) {
-            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+
+        if (null !== $request->scheduleConfigShrink) {
+            @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
-        if (!Utils::isUnset($request->templateConfigShrink)) {
-            $query['TemplateConfig'] = $request->templateConfigShrink;
+
+        if (null !== $request->templateConfigShrink) {
+            @$query['TemplateConfig'] = $request->templateConfigShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitDynamicImageJob',
@@ -11086,11 +13176,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits an image animation job.
-     *  *
-     * @param SubmitDynamicImageJobRequest $request SubmitDynamicImageJobRequest
+     * Submits an image animation job.
      *
-     * @return SubmitDynamicImageJobResponse SubmitDynamicImageJobResponse
+     * @param request - SubmitDynamicImageJobRequest
+     * @returns SubmitDynamicImageJobResponse
+     *
+     * @param SubmitDynamicImageJobRequest $request
+     *
+     * @return SubmitDynamicImageJobResponse
      */
     public function submitDynamicImageJob($request)
     {
@@ -11100,57 +13193,73 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits an intelligent production job.
-     *  *
-     * @param SubmitIProductionJobRequest $tmpReq  SubmitIProductionJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Submits an intelligent production job.
      *
-     * @return SubmitIProductionJobResponse SubmitIProductionJobResponse
+     * @param tmpReq - SubmitIProductionJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitIProductionJobResponse
+     *
+     * @param SubmitIProductionJobRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitIProductionJobResponse
      */
     public function submitIProductionJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitIProductionJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->output)) {
-            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+
+        if (null !== $tmpReq->output) {
+            $request->outputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
-            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
+
+        if (null !== $tmpReq->scheduleConfig) {
+            $request->scheduleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->functionName)) {
-            $query['FunctionName'] = $request->functionName;
+        if (null !== $request->functionName) {
+            @$query['FunctionName'] = $request->functionName;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->jobParams)) {
-            $query['JobParams'] = $request->jobParams;
+
+        if (null !== $request->jobParams) {
+            @$query['JobParams'] = $request->jobParams;
         }
-        if (!Utils::isUnset($request->modelId)) {
-            $query['ModelId'] = $request->modelId;
+
+        if (null !== $request->modelId) {
+            @$query['ModelId'] = $request->modelId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->outputShrink)) {
-            $query['Output'] = $request->outputShrink;
+
+        if (null !== $request->outputShrink) {
+            @$query['Output'] = $request->outputShrink;
         }
-        if (!Utils::isUnset($request->scheduleConfigShrink)) {
-            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+
+        if (null !== $request->scheduleConfigShrink) {
+            @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitIProductionJob',
@@ -11168,11 +13277,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits an intelligent production job.
-     *  *
-     * @param SubmitIProductionJobRequest $request SubmitIProductionJobRequest
+     * Submits an intelligent production job.
      *
-     * @return SubmitIProductionJobResponse SubmitIProductionJobResponse
+     * @param request - SubmitIProductionJobRequest
+     * @returns SubmitIProductionJobResponse
+     *
+     * @param SubmitIProductionJobRequest $request
+     *
+     * @return SubmitIProductionJobResponse
      */
     public function submitIProductionJob($request)
     {
@@ -11182,42 +13294,54 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
-     *  *
-     * @description Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
-     *  *
-     * @param SubmitLiveEditingJobRequest $request SubmitLiveEditingJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
      *
-     * @return SubmitLiveEditingJobResponse SubmitLiveEditingJobResponse
+     * @remarks
+     * Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
+     *
+     * @param request - SubmitLiveEditingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitLiveEditingJobResponse
+     *
+     * @param SubmitLiveEditingJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitLiveEditingJobResponse
      */
     public function submitLiveEditingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clips)) {
-            $query['Clips'] = $request->clips;
+        if (null !== $request->clips) {
+            @$query['Clips'] = $request->clips;
         }
-        if (!Utils::isUnset($request->liveStreamConfig)) {
-            $query['LiveStreamConfig'] = $request->liveStreamConfig;
+
+        if (null !== $request->liveStreamConfig) {
+            @$query['LiveStreamConfig'] = $request->liveStreamConfig;
         }
-        if (!Utils::isUnset($request->mediaProduceConfig)) {
-            $query['MediaProduceConfig'] = $request->mediaProduceConfig;
+
+        if (null !== $request->mediaProduceConfig) {
+            @$query['MediaProduceConfig'] = $request->mediaProduceConfig;
         }
-        if (!Utils::isUnset($request->outputMediaConfig)) {
-            $query['OutputMediaConfig'] = $request->outputMediaConfig;
+
+        if (null !== $request->outputMediaConfig) {
+            @$query['OutputMediaConfig'] = $request->outputMediaConfig;
         }
-        if (!Utils::isUnset($request->outputMediaTarget)) {
-            $query['OutputMediaTarget'] = $request->outputMediaTarget;
+
+        if (null !== $request->outputMediaTarget) {
+            @$query['OutputMediaTarget'] = $request->outputMediaTarget;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitLiveEditingJob',
@@ -11235,13 +13359,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
-     *  *
-     * @description Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
-     *  *
-     * @param SubmitLiveEditingJobRequest $request SubmitLiveEditingJobRequest
+     * Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
      *
-     * @return SubmitLiveEditingJobResponse SubmitLiveEditingJobResponse
+     * @remarks
+     * Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
+     *
+     * @param request - SubmitLiveEditingJobRequest
+     * @returns SubmitLiveEditingJobResponse
+     *
+     * @param SubmitLiveEditingJobRequest $request
+     *
+     * @return SubmitLiveEditingJobResponse
      */
     public function submitLiveEditingJob($request)
     {
@@ -11251,46 +13379,58 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a live stream recording job.
-     *  *
-     * @description You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
+     * Submits a live stream recording job.
+     *
+     * @remarks
+     * You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
      * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
      * If the preset recording template does not meet your requirements, you can create a custom recording template.
-     *  *
-     * @param SubmitLiveRecordJobRequest $tmpReq  SubmitLiveRecordJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitLiveRecordJobResponse SubmitLiveRecordJobResponse
+     * @param tmpReq - SubmitLiveRecordJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitLiveRecordJobResponse
+     *
+     * @param SubmitLiveRecordJobRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitLiveRecordJobResponse
      */
     public function submitLiveRecordJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitLiveRecordJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->recordOutput)) {
-            $request->recordOutputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recordOutput, 'RecordOutput', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->recordOutput) {
+            $request->recordOutputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recordOutput, 'RecordOutput', 'json');
         }
-        if (!Utils::isUnset($tmpReq->streamInput)) {
-            $request->streamInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamInput, 'StreamInput', 'json');
+
+        if (null !== $tmpReq->streamInput) {
+            $request->streamInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->streamInput, 'StreamInput', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->notifyUrl)) {
-            $body['NotifyUrl'] = $request->notifyUrl;
+
+        if (null !== $request->notifyUrl) {
+            @$body['NotifyUrl'] = $request->notifyUrl;
         }
-        if (!Utils::isUnset($request->recordOutputShrink)) {
-            $body['RecordOutput'] = $request->recordOutputShrink;
+
+        if (null !== $request->recordOutputShrink) {
+            @$body['RecordOutput'] = $request->recordOutputShrink;
         }
-        if (!Utils::isUnset($request->streamInputShrink)) {
-            $body['StreamInput'] = $request->streamInputShrink;
+
+        if (null !== $request->streamInputShrink) {
+            @$body['StreamInput'] = $request->streamInputShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SubmitLiveRecordJob',
@@ -11308,15 +13448,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a live stream recording job.
-     *  *
-     * @description You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
+     * Submits a live stream recording job.
+     *
+     * @remarks
+     * You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
      * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
      * If the preset recording template does not meet your requirements, you can create a custom recording template.
-     *  *
-     * @param SubmitLiveRecordJobRequest $request SubmitLiveRecordJobRequest
      *
-     * @return SubmitLiveRecordJobResponse SubmitLiveRecordJobResponse
+     * @param request - SubmitLiveRecordJobRequest
+     * @returns SubmitLiveRecordJobResponse
+     *
+     * @param SubmitLiveRecordJobRequest $request
+     *
+     * @return SubmitLiveRecordJobResponse
      */
     public function submitLiveRecordJob($request)
     {
@@ -11326,42 +13470,53 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
-     *  *
-     * @param SubmitLiveSnapshotJobRequest $tmpReq  SubmitLiveSnapshotJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
      *
-     * @return SubmitLiveSnapshotJobResponse SubmitLiveSnapshotJobResponse
+     * @param tmpReq - SubmitLiveSnapshotJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitLiveSnapshotJobResponse
+     *
+     * @param SubmitLiveSnapshotJobRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitLiveSnapshotJobResponse
      */
     public function submitLiveSnapshotJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitLiveSnapshotJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->snapshotOutput)) {
-            $request->snapshotOutputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->snapshotOutput, 'SnapshotOutput', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->snapshotOutput) {
+            $request->snapshotOutputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->snapshotOutput, 'SnapshotOutput', 'json');
         }
-        if (!Utils::isUnset($tmpReq->streamInput)) {
-            $request->streamInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamInput, 'StreamInput', 'json');
+
+        if (null !== $tmpReq->streamInput) {
+            $request->streamInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->streamInput, 'StreamInput', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->callbackUrl)) {
-            $body['CallbackUrl'] = $request->callbackUrl;
+        if (null !== $request->callbackUrl) {
+            @$body['CallbackUrl'] = $request->callbackUrl;
         }
-        if (!Utils::isUnset($request->jobName)) {
-            $body['JobName'] = $request->jobName;
+
+        if (null !== $request->jobName) {
+            @$body['JobName'] = $request->jobName;
         }
-        if (!Utils::isUnset($request->snapshotOutputShrink)) {
-            $body['SnapshotOutput'] = $request->snapshotOutputShrink;
+
+        if (null !== $request->snapshotOutputShrink) {
+            @$body['SnapshotOutput'] = $request->snapshotOutputShrink;
         }
-        if (!Utils::isUnset($request->streamInputShrink)) {
-            $body['StreamInput'] = $request->streamInputShrink;
+
+        if (null !== $request->streamInputShrink) {
+            @$body['StreamInput'] = $request->streamInputShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SubmitLiveSnapshotJob',
@@ -11379,11 +13534,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
-     *  *
-     * @param SubmitLiveSnapshotJobRequest $request SubmitLiveSnapshotJobRequest
+     * Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
      *
-     * @return SubmitLiveSnapshotJobResponse SubmitLiveSnapshotJobResponse
+     * @param request - SubmitLiveSnapshotJobRequest
+     * @returns SubmitLiveSnapshotJobResponse
+     *
+     * @param SubmitLiveSnapshotJobRequest $request
+     *
+     * @return SubmitLiveSnapshotJobResponse
      */
     public function submitLiveSnapshotJob($request)
     {
@@ -11393,51 +13551,65 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a live stream transcoding job.
-     *  *
-     * @description *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
-     * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
-     *  *
-     * @param SubmitLiveTranscodeJobRequest $tmpReq  SubmitLiveTranscodeJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Submits a live stream transcoding job.
      *
-     * @return SubmitLiveTranscodeJobResponse SubmitLiveTranscodeJobResponse
+     * @remarks
+     *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
+     * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
+     *
+     * @param tmpReq - SubmitLiveTranscodeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitLiveTranscodeJobResponse
+     *
+     * @param SubmitLiveTranscodeJobRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitLiveTranscodeJobResponse
      */
     public function submitLiveTranscodeJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitLiveTranscodeJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->streamInput)) {
-            $request->streamInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamInput, 'StreamInput', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->streamInput) {
+            $request->streamInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->streamInput, 'StreamInput', 'json');
         }
-        if (!Utils::isUnset($tmpReq->timedConfig)) {
-            $request->timedConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->timedConfig, 'TimedConfig', 'json');
+
+        if (null !== $tmpReq->timedConfig) {
+            $request->timedConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timedConfig, 'TimedConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->transcodeOutput)) {
-            $request->transcodeOutputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transcodeOutput, 'TranscodeOutput', 'json');
+
+        if (null !== $tmpReq->transcodeOutput) {
+            $request->transcodeOutputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transcodeOutput, 'TranscodeOutput', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->startMode)) {
-            $query['StartMode'] = $request->startMode;
+
+        if (null !== $request->startMode) {
+            @$query['StartMode'] = $request->startMode;
         }
-        if (!Utils::isUnset($request->streamInputShrink)) {
-            $query['StreamInput'] = $request->streamInputShrink;
+
+        if (null !== $request->streamInputShrink) {
+            @$query['StreamInput'] = $request->streamInputShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->timedConfigShrink)) {
-            $query['TimedConfig'] = $request->timedConfigShrink;
+
+        if (null !== $request->timedConfigShrink) {
+            @$query['TimedConfig'] = $request->timedConfigShrink;
         }
-        if (!Utils::isUnset($request->transcodeOutputShrink)) {
-            $query['TranscodeOutput'] = $request->transcodeOutputShrink;
+
+        if (null !== $request->transcodeOutputShrink) {
+            @$query['TranscodeOutput'] = $request->transcodeOutputShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitLiveTranscodeJob',
@@ -11455,14 +13627,18 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a live stream transcoding job.
-     *  *
-     * @description *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
-     * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
-     *  *
-     * @param SubmitLiveTranscodeJobRequest $request SubmitLiveTranscodeJobRequest
+     * Submits a live stream transcoding job.
      *
-     * @return SubmitLiveTranscodeJobResponse SubmitLiveTranscodeJobResponse
+     * @remarks
+     *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
+     * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
+     *
+     * @param request - SubmitLiveTranscodeJobRequest
+     * @returns SubmitLiveTranscodeJobResponse
+     *
+     * @param SubmitLiveTranscodeJobRequest $request
+     *
+     * @return SubmitLiveTranscodeJobResponse
      */
     public function submitLiveTranscodeJob($request)
     {
@@ -11472,28 +13648,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
-     *  *
-     * @param SubmitMediaAiAnalysisJobRequest $request SubmitMediaAiAnalysisJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
      *
-     * @return SubmitMediaAiAnalysisJobResponse SubmitMediaAiAnalysisJobResponse
+     * @param request - SubmitMediaAiAnalysisJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitMediaAiAnalysisJobResponse
+     *
+     * @param SubmitMediaAiAnalysisJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitMediaAiAnalysisJobResponse
      */
     public function submitMediaAiAnalysisJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->analysisParams)) {
-            $query['AnalysisParams'] = $request->analysisParams;
+        if (null !== $request->analysisParams) {
+            @$query['AnalysisParams'] = $request->analysisParams;
         }
-        if (!Utils::isUnset($request->input)) {
-            $query['Input'] = $request->input;
+
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaAiAnalysisJob',
@@ -11511,11 +13694,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
-     *  *
-     * @param SubmitMediaAiAnalysisJobRequest $request SubmitMediaAiAnalysisJobRequest
+     * Submits a structural analysis job for a media asset. For example, you can submit a job to analyze the speaker, translate the video, and obtain the paragraph summary.
      *
-     * @return SubmitMediaAiAnalysisJobResponse SubmitMediaAiAnalysisJobResponse
+     * @param request - SubmitMediaAiAnalysisJobRequest
+     * @returns SubmitMediaAiAnalysisJobResponse
+     *
+     * @param SubmitMediaAiAnalysisJobRequest $request
+     *
+     * @return SubmitMediaAiAnalysisJobResponse
      */
     public function submitMediaAiAnalysisJob($request)
     {
@@ -11525,59 +13711,76 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a content moderation job.
-     *  *
-     * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
-     *  *
-     * @param SubmitMediaCensorJobRequest $tmpReq  SubmitMediaCensorJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Submits a content moderation job.
      *
-     * @return SubmitMediaCensorJobResponse SubmitMediaCensorJobResponse
+     * @remarks
+     * The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
+     *
+     * @param tmpReq - SubmitMediaCensorJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitMediaCensorJobResponse
+     *
+     * @param SubmitMediaCensorJobRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitMediaCensorJobResponse
      */
     public function submitMediaCensorJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitMediaCensorJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
-            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
+
+        if (null !== $tmpReq->scheduleConfig) {
+            $request->scheduleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->barrages)) {
-            $query['Barrages'] = $request->barrages;
+        if (null !== $request->barrages) {
+            @$query['Barrages'] = $request->barrages;
         }
-        if (!Utils::isUnset($request->coverImages)) {
-            $query['CoverImages'] = $request->coverImages;
+
+        if (null !== $request->coverImages) {
+            @$query['CoverImages'] = $request->coverImages;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->notifyUrl)) {
-            $query['NotifyUrl'] = $request->notifyUrl;
+
+        if (null !== $request->notifyUrl) {
+            @$query['NotifyUrl'] = $request->notifyUrl;
         }
-        if (!Utils::isUnset($request->output)) {
-            $query['Output'] = $request->output;
+
+        if (null !== $request->output) {
+            @$query['Output'] = $request->output;
         }
-        if (!Utils::isUnset($request->scheduleConfigShrink)) {
-            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+
+        if (null !== $request->scheduleConfigShrink) {
+            @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaCensorJob',
@@ -11595,13 +13798,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a content moderation job.
-     *  *
-     * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
-     *  *
-     * @param SubmitMediaCensorJobRequest $request SubmitMediaCensorJobRequest
+     * Submits a content moderation job.
      *
-     * @return SubmitMediaCensorJobResponse SubmitMediaCensorJobResponse
+     * @remarks
+     * The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
+     *
+     * @param request - SubmitMediaCensorJobRequest
+     * @returns SubmitMediaCensorJobResponse
+     *
+     * @param SubmitMediaCensorJobRequest $request
+     *
+     * @return SubmitMediaCensorJobResponse
      */
     public function submitMediaCensorJob($request)
     {
@@ -11611,41 +13818,119 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a media information analysis job in asynchronous mode.
-     *  *
-     * @description You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
-     *  *
-     * @param SubmitMediaInfoJobRequest $tmpReq  SubmitMediaInfoJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 提交媒体处理任务
      *
-     * @return SubmitMediaInfoJobResponse SubmitMediaInfoJobResponse
+     * @param request - SubmitMediaConvertJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitMediaConvertJobResponse
+     *
+     * @param SubmitMediaConvertJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitMediaConvertJobResponse
+     */
+    public function submitMediaConvertJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
+        if (null !== $request->pipelineId) {
+            @$query['PipelineId'] = $request->pipelineId;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMediaConvertJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitMediaConvertJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交媒体处理任务
+     *
+     * @param request - SubmitMediaConvertJobRequest
+     * @returns SubmitMediaConvertJobResponse
+     *
+     * @param SubmitMediaConvertJobRequest $request
+     *
+     * @return SubmitMediaConvertJobResponse
+     */
+    public function submitMediaConvertJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitMediaConvertJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a media information analysis job in asynchronous mode.
+     *
+     * @remarks
+     * You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
+     *
+     * @param tmpReq - SubmitMediaInfoJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitMediaInfoJobResponse
+     *
+     * @param SubmitMediaInfoJobRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitMediaInfoJobResponse
      */
     public function submitMediaInfoJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitMediaInfoJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
-            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
+
+        if (null !== $tmpReq->scheduleConfig) {
+            $request->scheduleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->scheduleConfigShrink)) {
-            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+
+        if (null !== $request->scheduleConfigShrink) {
+            @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaInfoJob',
@@ -11663,13 +13948,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a media information analysis job in asynchronous mode.
-     *  *
-     * @description You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
-     *  *
-     * @param SubmitMediaInfoJobRequest $request SubmitMediaInfoJobRequest
+     * Submits a media information analysis job in asynchronous mode.
      *
-     * @return SubmitMediaInfoJobResponse SubmitMediaInfoJobResponse
+     * @remarks
+     * You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
+     *
+     * @param request - SubmitMediaInfoJobRequest
+     * @returns SubmitMediaInfoJobResponse
+     *
+     * @param SubmitMediaInfoJobRequest $request
+     *
+     * @return SubmitMediaInfoJobResponse
      */
     public function submitMediaInfoJob($request)
     {
@@ -11679,9 +13968,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
-     *  *
-     * @description *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
+     * Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
+     *
+     * @remarks
+     *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
      * *   The materials referenced in the timeline of an online editing project can be media assets in the media asset library or Object Storage Service (OSS) objects. External URLs or Alibaba Cloud Content Delivery Network (CDN) URLs are not supported. To use an OSS object as a material, you must set MediaUrl to an OSS URL, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
      * *   After the production is complete, the output file is automatically registered as a media asset. The media asset first needs to be analyzed. After the media asset is analyzed, you can query the duration and resolution information based on the media asset ID.
      * ## [](#)Limits
@@ -11695,56 +13985,72 @@ class ICE extends OpenApiClient
      *     *   Both the width and height must be at least 128 pixels.
      *     *   Both the width and height cannot exceed 4,096 pixels.
      *     *   The shorter side of the video cannot exceed 2,160 pixels.
-     *  *
-     * @param SubmitMediaProducingJobRequest $request SubmitMediaProducingJobRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitMediaProducingJobResponse SubmitMediaProducingJobResponse
+     * @param request - SubmitMediaProducingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitMediaProducingJobResponse
+     *
+     * @param SubmitMediaProducingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitMediaProducingJobResponse
      */
     public function submitMediaProducingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->clipsParam)) {
-            $query['ClipsParam'] = $request->clipsParam;
+
+        if (null !== $request->clipsParam) {
+            @$query['ClipsParam'] = $request->clipsParam;
         }
-        if (!Utils::isUnset($request->editingProduceConfig)) {
-            $query['EditingProduceConfig'] = $request->editingProduceConfig;
+
+        if (null !== $request->editingProduceConfig) {
+            @$query['EditingProduceConfig'] = $request->editingProduceConfig;
         }
-        if (!Utils::isUnset($request->mediaMetadata)) {
-            $query['MediaMetadata'] = $request->mediaMetadata;
+
+        if (null !== $request->mediaMetadata) {
+            @$query['MediaMetadata'] = $request->mediaMetadata;
         }
-        if (!Utils::isUnset($request->outputMediaConfig)) {
-            $query['OutputMediaConfig'] = $request->outputMediaConfig;
+
+        if (null !== $request->outputMediaConfig) {
+            @$query['OutputMediaConfig'] = $request->outputMediaConfig;
         }
-        if (!Utils::isUnset($request->outputMediaTarget)) {
-            $query['OutputMediaTarget'] = $request->outputMediaTarget;
+
+        if (null !== $request->outputMediaTarget) {
+            @$query['OutputMediaTarget'] = $request->outputMediaTarget;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->projectMetadata)) {
-            $query['ProjectMetadata'] = $request->projectMetadata;
+
+        if (null !== $request->projectMetadata) {
+            @$query['ProjectMetadata'] = $request->projectMetadata;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->timeline)) {
-            $body['Timeline'] = $request->timeline;
+        if (null !== $request->timeline) {
+            @$body['Timeline'] = $request->timeline;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SubmitMediaProducingJob',
@@ -11762,9 +14068,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
-     *  *
-     * @description *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
+     * Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
+     *
+     * @remarks
+     *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
      * *   The materials referenced in the timeline of an online editing project can be media assets in the media asset library or Object Storage Service (OSS) objects. External URLs or Alibaba Cloud Content Delivery Network (CDN) URLs are not supported. To use an OSS object as a material, you must set MediaUrl to an OSS URL, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
      * *   After the production is complete, the output file is automatically registered as a media asset. The media asset first needs to be analyzed. After the media asset is analyzed, you can query the duration and resolution information based on the media asset ID.
      * ## [](#)Limits
@@ -11778,10 +14085,13 @@ class ICE extends OpenApiClient
      *     *   Both the width and height must be at least 128 pixels.
      *     *   Both the width and height cannot exceed 4,096 pixels.
      *     *   The shorter side of the video cannot exceed 2,160 pixels.
-     *  *
-     * @param SubmitMediaProducingJobRequest $request SubmitMediaProducingJobRequest
      *
-     * @return SubmitMediaProducingJobResponse SubmitMediaProducingJobResponse
+     * @param request - SubmitMediaProducingJobRequest
+     * @returns SubmitMediaProducingJobResponse
+     *
+     * @param SubmitMediaProducingJobRequest $request
+     *
+     * @return SubmitMediaProducingJobResponse
      */
     public function submitMediaProducingJob($request)
     {
@@ -11791,45 +14101,57 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a packaging job.
-     *  *
-     * @param SubmitPackageJobRequest $tmpReq  SubmitPackageJobRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Submits a packaging job.
      *
-     * @return SubmitPackageJobResponse SubmitPackageJobResponse
+     * @param tmpReq - SubmitPackageJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitPackageJobResponse
+     *
+     * @param SubmitPackageJobRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubmitPackageJobResponse
      */
     public function submitPackageJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitPackageJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->inputs)) {
-            $request->inputsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputs, 'Inputs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inputs) {
+            $request->inputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputs, 'Inputs', 'json');
         }
-        if (!Utils::isUnset($tmpReq->output)) {
-            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+
+        if (null !== $tmpReq->output) {
+            $request->outputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
-            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
+
+        if (null !== $tmpReq->scheduleConfig) {
+            $request->scheduleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->inputsShrink)) {
-            $query['Inputs'] = $request->inputsShrink;
+        if (null !== $request->inputsShrink) {
+            @$query['Inputs'] = $request->inputsShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->outputShrink)) {
-            $query['Output'] = $request->outputShrink;
+
+        if (null !== $request->outputShrink) {
+            @$query['Output'] = $request->outputShrink;
         }
-        if (!Utils::isUnset($request->scheduleConfigShrink)) {
-            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+
+        if (null !== $request->scheduleConfigShrink) {
+            @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitPackageJob',
@@ -11847,11 +14169,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a packaging job.
-     *  *
-     * @param SubmitPackageJobRequest $request SubmitPackageJobRequest
+     * Submits a packaging job.
      *
-     * @return SubmitPackageJobResponse SubmitPackageJobResponse
+     * @param request - SubmitPackageJobRequest
+     * @returns SubmitPackageJobResponse
+     *
+     * @param SubmitPackageJobRequest $request
+     *
+     * @return SubmitPackageJobResponse
      */
     public function submitPackageJob($request)
     {
@@ -11861,36 +14186,45 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交工程导出任务
-     *  *
-     * @param SubmitProjectExportJobRequest $request SubmitProjectExportJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 提交工程导出任务
      *
-     * @return SubmitProjectExportJobResponse SubmitProjectExportJobResponse
+     * @param request - SubmitProjectExportJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitProjectExportJobResponse
+     *
+     * @param SubmitProjectExportJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitProjectExportJobResponse
      */
     public function submitProjectExportJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->exportType)) {
-            $query['ExportType'] = $request->exportType;
+        if (null !== $request->exportType) {
+            @$query['ExportType'] = $request->exportType;
         }
-        if (!Utils::isUnset($request->outputMediaConfig)) {
-            $query['OutputMediaConfig'] = $request->outputMediaConfig;
+
+        if (null !== $request->outputMediaConfig) {
+            @$query['OutputMediaConfig'] = $request->outputMediaConfig;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->timeline)) {
-            $body['Timeline'] = $request->timeline;
+        if (null !== $request->timeline) {
+            @$body['Timeline'] = $request->timeline;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SubmitProjectExportJob',
@@ -11908,11 +14242,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交工程导出任务
-     *  *
-     * @param SubmitProjectExportJobRequest $request SubmitProjectExportJobRequest
+     * 提交工程导出任务
      *
-     * @return SubmitProjectExportJobResponse SubmitProjectExportJobResponse
+     * @param request - SubmitProjectExportJobRequest
+     * @returns SubmitProjectExportJobResponse
+     *
+     * @param SubmitProjectExportJobRequest $request
+     *
+     * @return SubmitProjectExportJobResponse
      */
     public function submitProjectExportJob($request)
     {
@@ -11922,33 +14259,41 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交高燃混剪任务
-     *  *
-     * @param SubmitScreenMediaHighlightsJobRequest $request SubmitScreenMediaHighlightsJobRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 提交高燃混剪任务
      *
-     * @return SubmitScreenMediaHighlightsJobResponse SubmitScreenMediaHighlightsJobResponse
+     * @param request - SubmitScreenMediaHighlightsJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitScreenMediaHighlightsJobResponse
+     *
+     * @param SubmitScreenMediaHighlightsJobRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SubmitScreenMediaHighlightsJobResponse
      */
     public function submitScreenMediaHighlightsJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outputConfig)) {
-            $query['OutputConfig'] = $request->outputConfig;
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->editingConfig)) {
-            $body['EditingConfig'] = $request->editingConfig;
+        if (null !== $request->editingConfig) {
+            @$body['EditingConfig'] = $request->editingConfig;
         }
-        if (!Utils::isUnset($request->inputConfig)) {
-            $body['InputConfig'] = $request->inputConfig;
+
+        if (null !== $request->inputConfig) {
+            @$body['InputConfig'] = $request->inputConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SubmitScreenMediaHighlightsJob',
@@ -11966,11 +14311,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交高燃混剪任务
-     *  *
-     * @param SubmitScreenMediaHighlightsJobRequest $request SubmitScreenMediaHighlightsJobRequest
+     * 提交高燃混剪任务
      *
-     * @return SubmitScreenMediaHighlightsJobResponse SubmitScreenMediaHighlightsJobResponse
+     * @param request - SubmitScreenMediaHighlightsJobRequest
+     * @returns SubmitScreenMediaHighlightsJobResponse
+     *
+     * @param SubmitScreenMediaHighlightsJobRequest $request
+     *
+     * @return SubmitScreenMediaHighlightsJobResponse
      */
     public function submitScreenMediaHighlightsJob($request)
     {
@@ -11980,59 +14328,76 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a smart tagging job.
-     *  *
-     * @description Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
-     *  *
-     * @param SubmitSmarttagJobRequest $tmpReq  SubmitSmarttagJobRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Submits a smart tagging job.
      *
-     * @return SubmitSmarttagJobResponse SubmitSmarttagJobResponse
+     * @remarks
+     * Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
+     *
+     * @param tmpReq - SubmitSmarttagJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitSmarttagJobResponse
+     *
+     * @param SubmitSmarttagJobRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubmitSmarttagJobResponse
      */
     public function submitSmarttagJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitSmarttagJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
-            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
+
+        if (null !== $tmpReq->scheduleConfig) {
+            $request->scheduleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentAddr)) {
-            $query['ContentAddr'] = $request->contentAddr;
+
+        if (null !== $request->contentAddr) {
+            @$query['ContentAddr'] = $request->contentAddr;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $query['ContentType'] = $request->contentType;
+
+        if (null !== $request->contentType) {
+            @$query['ContentType'] = $request->contentType;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->notifyUrl)) {
-            $query['NotifyUrl'] = $request->notifyUrl;
+
+        if (null !== $request->notifyUrl) {
+            @$query['NotifyUrl'] = $request->notifyUrl;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->scheduleConfigShrink)) {
-            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+
+        if (null !== $request->scheduleConfigShrink) {
+            @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitSmarttagJob',
@@ -12050,13 +14415,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a smart tagging job.
-     *  *
-     * @description Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
-     *  *
-     * @param SubmitSmarttagJobRequest $request SubmitSmarttagJobRequest
+     * Submits a smart tagging job.
      *
-     * @return SubmitSmarttagJobResponse SubmitSmarttagJobResponse
+     * @remarks
+     * Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
+     *
+     * @param request - SubmitSmarttagJobRequest
+     * @returns SubmitSmarttagJobResponse
+     *
+     * @param SubmitSmarttagJobRequest $request
+     *
+     * @return SubmitSmarttagJobResponse
      */
     public function submitSmarttagJob($request)
     {
@@ -12066,51 +14435,65 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a snapshot job.
-     *  *
-     * @param SubmitSnapshotJobRequest $tmpReq  SubmitSnapshotJobRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Submits a snapshot job.
      *
-     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
+     * @param tmpReq - SubmitSnapshotJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitSnapshotJobResponse
+     *
+     * @param SubmitSnapshotJobRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubmitSnapshotJobResponse
      */
     public function submitSnapshotJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitSnapshotJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->output)) {
-            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+
+        if (null !== $tmpReq->output) {
+            $request->outputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
-            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
+
+        if (null !== $tmpReq->scheduleConfig) {
+            $request->scheduleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->templateConfig)) {
-            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+
+        if (null !== $tmpReq->templateConfig) {
+            $request->templateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->outputShrink)) {
-            $query['Output'] = $request->outputShrink;
+
+        if (null !== $request->outputShrink) {
+            @$query['Output'] = $request->outputShrink;
         }
-        if (!Utils::isUnset($request->scheduleConfigShrink)) {
-            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+
+        if (null !== $request->scheduleConfigShrink) {
+            @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
-        if (!Utils::isUnset($request->templateConfigShrink)) {
-            $query['TemplateConfig'] = $request->templateConfigShrink;
+
+        if (null !== $request->templateConfigShrink) {
+            @$query['TemplateConfig'] = $request->templateConfigShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitSnapshotJob',
@@ -12128,11 +14511,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a snapshot job.
-     *  *
-     * @param SubmitSnapshotJobRequest $request SubmitSnapshotJobRequest
+     * Submits a snapshot job.
      *
-     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
+     * @param request - SubmitSnapshotJobRequest
+     * @returns SubmitSnapshotJobResponse
+     *
+     * @param SubmitSnapshotJobRequest $request
+     *
+     * @return SubmitSnapshotJobResponse
      */
     public function submitSnapshotJob($request)
     {
@@ -12142,33 +14528,41 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
-     *  *
-     * @param SubmitSportsHighlightsJobRequest $request SubmitSportsHighlightsJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
      *
-     * @return SubmitSportsHighlightsJobResponse SubmitSportsHighlightsJobResponse
+     * @param request - SubmitSportsHighlightsJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitSportsHighlightsJobResponse
+     *
+     * @param SubmitSportsHighlightsJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SubmitSportsHighlightsJobResponse
      */
     public function submitSportsHighlightsJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->outputConfig)) {
-            $query['OutputConfig'] = $request->outputConfig;
+
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->inputConfig)) {
-            $body['InputConfig'] = $request->inputConfig;
+        if (null !== $request->inputConfig) {
+            @$body['InputConfig'] = $request->inputConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SubmitSportsHighlightsJob',
@@ -12186,11 +14580,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
-     *  *
-     * @param SubmitSportsHighlightsJobRequest $request SubmitSportsHighlightsJobRequest
+     * Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
      *
-     * @return SubmitSportsHighlightsJobResponse SubmitSportsHighlightsJobResponse
+     * @param request - SubmitSportsHighlightsJobRequest
+     * @returns SubmitSportsHighlightsJobResponse
+     *
+     * @param SubmitSportsHighlightsJobRequest $request
+     *
+     * @return SubmitSportsHighlightsJobResponse
      */
     public function submitSportsHighlightsJob($request)
     {
@@ -12200,34 +14597,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
-     *  *
-     * @param SubmitStandardCustomizedVoiceJobRequest $request SubmitStandardCustomizedVoiceJobRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *
-     * @return SubmitStandardCustomizedVoiceJobResponse SubmitStandardCustomizedVoiceJobResponse
+     * @param request - SubmitStandardCustomizedVoiceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitStandardCustomizedVoiceJobResponse
+     *
+     * @param SubmitStandardCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SubmitStandardCustomizedVoiceJobResponse
      */
     public function submitStandardCustomizedVoiceJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->audios)) {
-            $query['Audios'] = $request->audios;
+        if (null !== $request->audios) {
+            @$query['Audios'] = $request->audios;
         }
-        if (!Utils::isUnset($request->authentication)) {
-            $query['Authentication'] = $request->authentication;
+
+        if (null !== $request->authentication) {
+            @$query['Authentication'] = $request->authentication;
         }
-        if (!Utils::isUnset($request->demoAudioMediaURL)) {
-            $query['DemoAudioMediaURL'] = $request->demoAudioMediaURL;
+
+        if (null !== $request->demoAudioMediaURL) {
+            @$query['DemoAudioMediaURL'] = $request->demoAudioMediaURL;
         }
-        if (!Utils::isUnset($request->gender)) {
-            $query['Gender'] = $request->gender;
+
+        if (null !== $request->gender) {
+            @$query['Gender'] = $request->gender;
         }
-        if (!Utils::isUnset($request->voiceName)) {
-            $query['VoiceName'] = $request->voiceName;
+
+        if (null !== $request->voiceName) {
+            @$query['VoiceName'] = $request->voiceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitStandardCustomizedVoiceJob',
@@ -12245,11 +14651,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
-     *  *
-     * @param SubmitStandardCustomizedVoiceJobRequest $request SubmitStandardCustomizedVoiceJobRequest
+     * Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *
-     * @return SubmitStandardCustomizedVoiceJobResponse SubmitStandardCustomizedVoiceJobResponse
+     * @param request - SubmitStandardCustomizedVoiceJobRequest
+     * @returns SubmitStandardCustomizedVoiceJobResponse
+     *
+     * @param SubmitStandardCustomizedVoiceJobRequest $request
+     *
+     * @return SubmitStandardCustomizedVoiceJobResponse
      */
     public function submitStandardCustomizedVoiceJob($request)
     {
@@ -12259,41 +14668,52 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a media file in synchronous mode for media information analysis.
-     *  *
-     * @description You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
-     *  *
-     * @param SubmitSyncMediaInfoJobRequest $tmpReq  SubmitSyncMediaInfoJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Submits a media file in synchronous mode for media information analysis.
      *
-     * @return SubmitSyncMediaInfoJobResponse SubmitSyncMediaInfoJobResponse
+     * @remarks
+     * You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
+     *
+     * @param tmpReq - SubmitSyncMediaInfoJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitSyncMediaInfoJobResponse
+     *
+     * @param SubmitSyncMediaInfoJobRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitSyncMediaInfoJobResponse
      */
     public function submitSyncMediaInfoJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitSyncMediaInfoJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
-            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
+
+        if (null !== $tmpReq->scheduleConfig) {
+            $request->scheduleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->scheduleConfigShrink)) {
-            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+
+        if (null !== $request->scheduleConfigShrink) {
+            @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitSyncMediaInfoJob',
@@ -12311,13 +14731,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a media file in synchronous mode for media information analysis.
-     *  *
-     * @description You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
-     *  *
-     * @param SubmitSyncMediaInfoJobRequest $request SubmitSyncMediaInfoJobRequest
+     * Submits a media file in synchronous mode for media information analysis.
      *
-     * @return SubmitSyncMediaInfoJobResponse SubmitSyncMediaInfoJobResponse
+     * @remarks
+     * You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
+     *
+     * @param request - SubmitSyncMediaInfoJobRequest
+     * @returns SubmitSyncMediaInfoJobResponse
+     *
+     * @param SubmitSyncMediaInfoJobRequest $request
+     *
+     * @return SubmitSyncMediaInfoJobResponse
      */
     public function submitSyncMediaInfoJob($request)
     {
@@ -12327,34 +14751,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
-     *  *
-     * @param SubmitTextGenerateJobRequest $request SubmitTextGenerateJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
      *
-     * @return SubmitTextGenerateJobResponse SubmitTextGenerateJobResponse
+     * @param request - SubmitTextGenerateJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitTextGenerateJobResponse
+     *
+     * @param SubmitTextGenerateJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitTextGenerateJobResponse
      */
     public function submitTextGenerateJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->generateConfig)) {
-            $query['GenerateConfig'] = $request->generateConfig;
+
+        if (null !== $request->generateConfig) {
+            @$query['GenerateConfig'] = $request->generateConfig;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitTextGenerateJob',
@@ -12372,11 +14805,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
-     *  *
-     * @param SubmitTextGenerateJobRequest $request SubmitTextGenerateJobRequest
+     * Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
      *
-     * @return SubmitTextGenerateJobResponse SubmitTextGenerateJobResponse
+     * @param request - SubmitTextGenerateJobRequest
+     * @returns SubmitTextGenerateJobResponse
+     *
+     * @param SubmitTextGenerateJobRequest $request
+     *
+     * @return SubmitTextGenerateJobResponse
      */
     public function submitTextGenerateJob($request)
     {
@@ -12386,48 +14822,61 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交视频溯源水印ab流任务
-     *  *
-     * @param SubmitTraceAbJobRequest $tmpReq  SubmitTraceAbJobRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 提交视频溯源水印ab流任务
      *
-     * @return SubmitTraceAbJobResponse SubmitTraceAbJobResponse
+     * @param tmpReq - SubmitTraceAbJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitTraceAbJobResponse
+     *
+     * @param SubmitTraceAbJobRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubmitTraceAbJobResponse
      */
     public function submitTraceAbJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitTraceAbJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->output)) {
-            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+
+        if (null !== $tmpReq->output) {
+            $request->outputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->cipherBase64ed)) {
-            $query['CipherBase64ed'] = $request->cipherBase64ed;
+        if (null !== $request->cipherBase64ed) {
+            @$query['CipherBase64ed'] = $request->cipherBase64ed;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->outputShrink)) {
-            $query['Output'] = $request->outputShrink;
+
+        if (null !== $request->outputShrink) {
+            @$query['Output'] = $request->outputShrink;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->totalTime)) {
-            $query['TotalTime'] = $request->totalTime;
+
+        if (null !== $request->totalTime) {
+            @$query['TotalTime'] = $request->totalTime;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitTraceAbJob',
@@ -12445,11 +14894,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交视频溯源水印ab流任务
-     *  *
-     * @param SubmitTraceAbJobRequest $request SubmitTraceAbJobRequest
+     * 提交视频溯源水印ab流任务
      *
-     * @return SubmitTraceAbJobResponse SubmitTraceAbJobResponse
+     * @param request - SubmitTraceAbJobRequest
+     * @returns SubmitTraceAbJobResponse
+     *
+     * @param SubmitTraceAbJobRequest $request
+     *
+     * @return SubmitTraceAbJobResponse
      */
     public function submitTraceAbJob($request)
     {
@@ -12459,33 +14911,41 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交溯源水印提取任务
-     *  *
-     * @param SubmitTraceExtractJobRequest $tmpReq  SubmitTraceExtractJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 提交溯源水印提取任务
      *
-     * @return SubmitTraceExtractJobResponse SubmitTraceExtractJobResponse
+     * @param tmpReq - SubmitTraceExtractJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitTraceExtractJobResponse
+     *
+     * @param SubmitTraceExtractJobRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitTraceExtractJobResponse
      */
     public function submitTraceExtractJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitTraceExtractJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->inputShrink)) {
-            $query['Input'] = $request->inputShrink;
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitTraceExtractJob',
@@ -12503,11 +14963,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交溯源水印提取任务
-     *  *
-     * @param SubmitTraceExtractJobRequest $request SubmitTraceExtractJobRequest
+     * 提交溯源水印提取任务
      *
-     * @return SubmitTraceExtractJobResponse SubmitTraceExtractJobResponse
+     * @param request - SubmitTraceExtractJobRequest
+     * @returns SubmitTraceExtractJobResponse
+     *
+     * @param SubmitTraceExtractJobRequest $request
+     *
+     * @return SubmitTraceExtractJobResponse
      */
     public function submitTraceExtractJob($request)
     {
@@ -12517,39 +14980,49 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交视频溯源水印m3u8文件任务
-     *  *
-     * @param SubmitTraceM3u8JobRequest $tmpReq  SubmitTraceM3u8JobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 提交视频溯源水印m3u8文件任务
      *
-     * @return SubmitTraceM3u8JobResponse SubmitTraceM3u8JobResponse
+     * @param tmpReq - SubmitTraceM3u8JobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitTraceM3u8JobResponse
+     *
+     * @param SubmitTraceM3u8JobRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitTraceM3u8JobResponse
      */
     public function submitTraceM3u8JobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitTraceM3u8JobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->output)) {
-            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->output) {
+            $request->outputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->keyUri)) {
-            $query['KeyUri'] = $request->keyUri;
+        if (null !== $request->keyUri) {
+            @$query['KeyUri'] = $request->keyUri;
         }
-        if (!Utils::isUnset($request->outputShrink)) {
-            $query['Output'] = $request->outputShrink;
+
+        if (null !== $request->outputShrink) {
+            @$query['Output'] = $request->outputShrink;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->trace)) {
-            $query['Trace'] = $request->trace;
+
+        if (null !== $request->trace) {
+            @$query['Trace'] = $request->trace;
         }
-        if (!Utils::isUnset($request->traceMediaId)) {
-            $query['TraceMediaId'] = $request->traceMediaId;
+
+        if (null !== $request->traceMediaId) {
+            @$query['TraceMediaId'] = $request->traceMediaId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitTraceM3u8Job',
@@ -12567,11 +15040,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交视频溯源水印m3u8文件任务
-     *  *
-     * @param SubmitTraceM3u8JobRequest $request SubmitTraceM3u8JobRequest
+     * 提交视频溯源水印m3u8文件任务
      *
-     * @return SubmitTraceM3u8JobResponse SubmitTraceM3u8JobResponse
+     * @param request - SubmitTraceM3u8JobRequest
+     * @returns SubmitTraceM3u8JobResponse
+     *
+     * @param SubmitTraceM3u8JobRequest $request
+     *
+     * @return SubmitTraceM3u8JobResponse
      */
     public function submitTraceM3u8Job($request)
     {
@@ -12581,48 +15057,61 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a transcoding job.
-     *  *
-     * @param SubmitTranscodeJobRequest $tmpReq  SubmitTranscodeJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Submits a transcoding job.
      *
-     * @return SubmitTranscodeJobResponse SubmitTranscodeJobResponse
+     * @param tmpReq - SubmitTranscodeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitTranscodeJobResponse
+     *
+     * @param SubmitTranscodeJobRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitTranscodeJobResponse
      */
     public function submitTranscodeJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitTranscodeJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->inputGroup)) {
-            $request->inputGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputGroup, 'InputGroup', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inputGroup) {
+            $request->inputGroupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputGroup, 'InputGroup', 'json');
         }
-        if (!Utils::isUnset($tmpReq->outputGroup)) {
-            $request->outputGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outputGroup, 'OutputGroup', 'json');
+
+        if (null !== $tmpReq->outputGroup) {
+            $request->outputGroupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outputGroup, 'OutputGroup', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
-            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
+
+        if (null !== $tmpReq->scheduleConfig) {
+            $request->scheduleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfig, 'ScheduleConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->inputGroupShrink)) {
-            $query['InputGroup'] = $request->inputGroupShrink;
+
+        if (null !== $request->inputGroupShrink) {
+            @$query['InputGroup'] = $request->inputGroupShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->outputGroupShrink)) {
-            $query['OutputGroup'] = $request->outputGroupShrink;
+
+        if (null !== $request->outputGroupShrink) {
+            @$query['OutputGroup'] = $request->outputGroupShrink;
         }
-        if (!Utils::isUnset($request->scheduleConfigShrink)) {
-            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+
+        if (null !== $request->scheduleConfigShrink) {
+            @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitTranscodeJob',
@@ -12640,11 +15129,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a transcoding job.
-     *  *
-     * @param SubmitTranscodeJobRequest $request SubmitTranscodeJobRequest
+     * Submits a transcoding job.
      *
-     * @return SubmitTranscodeJobResponse SubmitTranscodeJobResponse
+     * @param request - SubmitTranscodeJobRequest
+     * @returns SubmitTranscodeJobResponse
+     *
+     * @param SubmitTranscodeJobRequest $request
+     *
+     * @return SubmitTranscodeJobResponse
      */
     public function submitTranscodeJob($request)
     {
@@ -12654,42 +15146,54 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
-     *  *
-     * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
-     *  *
-     * @param SubmitVideoTranslationJobRequest $request SubmitVideoTranslationJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
      *
-     * @return SubmitVideoTranslationJobResponse SubmitVideoTranslationJobResponse
+     * @remarks
+     * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
+     *
+     * @param request - SubmitVideoTranslationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitVideoTranslationJobResponse
+     *
+     * @param SubmitVideoTranslationJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SubmitVideoTranslationJobResponse
      */
     public function submitVideoTranslationJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->editingConfig)) {
-            $query['EditingConfig'] = $request->editingConfig;
+
+        if (null !== $request->editingConfig) {
+            @$query['EditingConfig'] = $request->editingConfig;
         }
-        if (!Utils::isUnset($request->inputConfig)) {
-            $query['InputConfig'] = $request->inputConfig;
+
+        if (null !== $request->inputConfig) {
+            @$query['InputConfig'] = $request->inputConfig;
         }
-        if (!Utils::isUnset($request->outputConfig)) {
-            $query['OutputConfig'] = $request->outputConfig;
+
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitVideoTranslationJob',
@@ -12707,13 +15211,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
-     *  *
-     * @description After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
-     *  *
-     * @param SubmitVideoTranslationJobRequest $request SubmitVideoTranslationJobRequest
+     * Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
      *
-     * @return SubmitVideoTranslationJobResponse SubmitVideoTranslationJobResponse
+     * @remarks
+     * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
+     *
+     * @param request - SubmitVideoTranslationJobRequest
+     * @returns SubmitVideoTranslationJobResponse
+     *
+     * @param SubmitVideoTranslationJobRequest $request
+     *
+     * @return SubmitVideoTranslationJobResponse
      */
     public function submitVideoTranslationJob($request)
     {
@@ -12723,28 +15231,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 切换真人客服接管模式
-     *  *
-     * @param TakeoverAIAgentCallRequest $request TakeoverAIAgentCallRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 切换真人客服接管模式.
      *
-     * @return TakeoverAIAgentCallResponse TakeoverAIAgentCallResponse
+     * @param request - TakeoverAIAgentCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TakeoverAIAgentCallResponse
+     *
+     * @param TakeoverAIAgentCallRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TakeoverAIAgentCallResponse
      */
     public function takeoverAIAgentCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->humanAgentUserId)) {
-            $query['HumanAgentUserId'] = $request->humanAgentUserId;
+        if (null !== $request->humanAgentUserId) {
+            @$query['HumanAgentUserId'] = $request->humanAgentUserId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->requireToken)) {
-            $query['RequireToken'] = $request->requireToken;
+
+        if (null !== $request->requireToken) {
+            @$query['RequireToken'] = $request->requireToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TakeoverAIAgentCall',
@@ -12762,11 +15277,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 切换真人客服接管模式
-     *  *
-     * @param TakeoverAIAgentCallRequest $request TakeoverAIAgentCallRequest
+     * 切换真人客服接管模式.
      *
-     * @return TakeoverAIAgentCallResponse TakeoverAIAgentCallResponse
+     * @param request - TakeoverAIAgentCallRequest
+     * @returns TakeoverAIAgentCallResponse
+     *
+     * @param TakeoverAIAgentCallRequest $request
+     *
+     * @return TakeoverAIAgentCallResponse
      */
     public function takeoverAIAgentCall($request)
     {
@@ -12776,33 +15294,41 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例的配置
-     *  *
-     * @param UpdateAIAgentInstanceRequest $tmpReq  UpdateAIAgentInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 修改实例的配置.
      *
-     * @return UpdateAIAgentInstanceResponse UpdateAIAgentInstanceResponse
+     * @param tmpReq - UpdateAIAgentInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAIAgentInstanceResponse
+     *
+     * @param UpdateAIAgentInstanceRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateAIAgentInstanceResponse
      */
     public function updateAIAgentInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAIAgentInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->templateConfig)) {
-            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->templateConfig) {
+            $request->templateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->templateConfigShrink)) {
-            $query['TemplateConfig'] = $request->templateConfigShrink;
+
+        if (null !== $request->templateConfigShrink) {
+            @$query['TemplateConfig'] = $request->templateConfigShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAIAgentInstance',
@@ -12820,11 +15346,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例的配置
-     *  *
-     * @param UpdateAIAgentInstanceRequest $request UpdateAIAgentInstanceRequest
+     * 修改实例的配置.
      *
-     * @return UpdateAIAgentInstanceResponse UpdateAIAgentInstanceResponse
+     * @param request - UpdateAIAgentInstanceRequest
+     * @returns UpdateAIAgentInstanceResponse
+     *
+     * @param UpdateAIAgentInstanceRequest $request
+     *
+     * @return UpdateAIAgentInstanceResponse
      */
     public function updateAIAgentInstance($request)
     {
@@ -12834,40 +15363,51 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a digital human training job. You can modify the basic information or update parameters such as Video and Transparent for retraining if the training failed.
-     *  *
-     * @param UpdateAvatarTrainingJobRequest $request UpdateAvatarTrainingJobRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies a digital human training job. You can modify the basic information or update parameters such as Video and Transparent for retraining if the training failed.
      *
-     * @return UpdateAvatarTrainingJobResponse UpdateAvatarTrainingJobResponse
+     * @param request - UpdateAvatarTrainingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAvatarTrainingJobResponse
+     *
+     * @param UpdateAvatarTrainingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAvatarTrainingJobResponse
      */
     public function updateAvatarTrainingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->avatarDescription)) {
-            $query['AvatarDescription'] = $request->avatarDescription;
+        if (null !== $request->avatarDescription) {
+            @$query['AvatarDescription'] = $request->avatarDescription;
         }
-        if (!Utils::isUnset($request->avatarName)) {
-            $query['AvatarName'] = $request->avatarName;
+
+        if (null !== $request->avatarName) {
+            @$query['AvatarName'] = $request->avatarName;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->portrait)) {
-            $query['Portrait'] = $request->portrait;
+
+        if (null !== $request->portrait) {
+            @$query['Portrait'] = $request->portrait;
         }
-        if (!Utils::isUnset($request->thumbnail)) {
-            $query['Thumbnail'] = $request->thumbnail;
+
+        if (null !== $request->thumbnail) {
+            @$query['Thumbnail'] = $request->thumbnail;
         }
-        if (!Utils::isUnset($request->transparent)) {
-            $query['Transparent'] = $request->transparent;
+
+        if (null !== $request->transparent) {
+            @$query['Transparent'] = $request->transparent;
         }
-        if (!Utils::isUnset($request->video)) {
-            $query['Video'] = $request->video;
+
+        if (null !== $request->video) {
+            @$query['Video'] = $request->video;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAvatarTrainingJob',
@@ -12885,11 +15425,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a digital human training job. You can modify the basic information or update parameters such as Video and Transparent for retraining if the training failed.
-     *  *
-     * @param UpdateAvatarTrainingJobRequest $request UpdateAvatarTrainingJobRequest
+     * Modifies a digital human training job. You can modify the basic information or update parameters such as Video and Transparent for retraining if the training failed.
      *
-     * @return UpdateAvatarTrainingJobResponse UpdateAvatarTrainingJobResponse
+     * @param request - UpdateAvatarTrainingJobRequest
+     * @returns UpdateAvatarTrainingJobResponse
+     *
+     * @param UpdateAvatarTrainingJobRequest $request
+     *
+     * @return UpdateAvatarTrainingJobResponse
      */
     public function updateAvatarTrainingJob($request)
     {
@@ -12899,27 +15442,34 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates a category.
-     *  *
-     * @description After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
-     *  *
-     * @param UpdateCategoryRequest $request UpdateCategoryRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates a category.
      *
-     * @return UpdateCategoryResponse UpdateCategoryResponse
+     * @remarks
+     * After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
+     *
+     * @param request - UpdateCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCategoryResponse
+     *
+     * @param UpdateCategoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCategoryResponse
      */
     public function updateCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->cateName)) {
-            $query['CateName'] = $request->cateName;
+
+        if (null !== $request->cateName) {
+            @$query['CateName'] = $request->cateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateCategory',
@@ -12937,13 +15487,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates a category.
-     *  *
-     * @description After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
-     *  *
-     * @param UpdateCategoryRequest $request UpdateCategoryRequest
+     * Updates a category.
      *
-     * @return UpdateCategoryResponse UpdateCategoryResponse
+     * @remarks
+     * After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
+     *
+     * @param request - UpdateCategoryRequest
+     * @returns UpdateCategoryResponse
+     *
+     * @param UpdateCategoryRequest $request
+     *
+     * @return UpdateCategoryResponse
      */
     public function updateCategory($request)
     {
@@ -12953,28 +15507,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates a custom template.
-     *  *
-     * @param UpdateCustomTemplateRequest $request UpdateCustomTemplateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Updates a custom template.
      *
-     * @return UpdateCustomTemplateResponse UpdateCustomTemplateResponse
+     * @param request - UpdateCustomTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCustomTemplateResponse
+     *
+     * @param UpdateCustomTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateCustomTemplateResponse
      */
     public function updateCustomTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->templateConfig)) {
-            $query['TemplateConfig'] = $request->templateConfig;
+
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateCustomTemplate',
@@ -12992,11 +15553,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates a custom template.
-     *  *
-     * @param UpdateCustomTemplateRequest $request UpdateCustomTemplateRequest
+     * Updates a custom template.
      *
-     * @return UpdateCustomTemplateResponse UpdateCustomTemplateResponse
+     * @param request - UpdateCustomTemplateRequest
+     * @returns UpdateCustomTemplateResponse
+     *
+     * @param UpdateCustomTemplateRequest $request
+     *
+     * @return UpdateCustomTemplateResponse
      */
     public function updateCustomTemplate($request)
     {
@@ -13006,25 +15570,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates a personalized human voice. Only the media asset ID of the sample audio file can be modified.
-     *  *
-     * @param UpdateCustomizedVoiceRequest $request UpdateCustomizedVoiceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Updates a personalized human voice. Only the media asset ID of the sample audio file can be modified.
      *
-     * @return UpdateCustomizedVoiceResponse UpdateCustomizedVoiceResponse
+     * @param request - UpdateCustomizedVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCustomizedVoiceResponse
+     *
+     * @param UpdateCustomizedVoiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateCustomizedVoiceResponse
      */
     public function updateCustomizedVoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->demoAudioMediaId)) {
-            $query['DemoAudioMediaId'] = $request->demoAudioMediaId;
+        if (null !== $request->demoAudioMediaId) {
+            @$query['DemoAudioMediaId'] = $request->demoAudioMediaId;
         }
-        if (!Utils::isUnset($request->voiceId)) {
-            $query['VoiceId'] = $request->voiceId;
+
+        if (null !== $request->voiceId) {
+            @$query['VoiceId'] = $request->voiceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateCustomizedVoice',
@@ -13042,11 +15612,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates a personalized human voice. Only the media asset ID of the sample audio file can be modified.
-     *  *
-     * @param UpdateCustomizedVoiceRequest $request UpdateCustomizedVoiceRequest
+     * Updates a personalized human voice. Only the media asset ID of the sample audio file can be modified.
      *
-     * @return UpdateCustomizedVoiceResponse UpdateCustomizedVoiceResponse
+     * @param request - UpdateCustomizedVoiceRequest
+     * @returns UpdateCustomizedVoiceResponse
+     *
+     * @param UpdateCustomizedVoiceRequest $request
+     *
+     * @return UpdateCustomizedVoiceResponse
      */
     public function updateCustomizedVoice($request)
     {
@@ -13056,45 +15629,57 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
-     *  *
-     * @param UpdateEditingProjectRequest $request UpdateEditingProjectRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
      *
-     * @return UpdateEditingProjectResponse UpdateEditingProjectResponse
+     * @param request - UpdateEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateEditingProjectResponse
+     *
+     * @param UpdateEditingProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateEditingProjectResponse
      */
     public function updateEditingProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessStatus)) {
-            $query['BusinessStatus'] = $request->businessStatus;
+        if (null !== $request->businessStatus) {
+            @$query['BusinessStatus'] = $request->businessStatus;
         }
-        if (!Utils::isUnset($request->clipsParam)) {
-            $query['ClipsParam'] = $request->clipsParam;
+
+        if (null !== $request->clipsParam) {
+            @$query['ClipsParam'] = $request->clipsParam;
         }
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
+
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->timeline)) {
-            $body['Timeline'] = $request->timeline;
+        if (null !== $request->timeline) {
+            @$body['Timeline'] = $request->timeline;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateEditingProject',
@@ -13112,11 +15697,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
-     *  *
-     * @param UpdateEditingProjectRequest $request UpdateEditingProjectRequest
+     * Modifies an online editing project. You can call this operation to modify the configurations such as the title, timeline, and thumbnail of an online editing project.
      *
-     * @return UpdateEditingProjectResponse UpdateEditingProjectResponse
+     * @param request - UpdateEditingProjectRequest
+     * @returns UpdateEditingProjectResponse
+     *
+     * @param UpdateEditingProjectRequest $request
+     *
+     * @return UpdateEditingProjectResponse
      */
     public function updateEditingProject($request)
     {
@@ -13126,35 +15714,44 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a live stream recording template.
-     *  *
-     * @description Only user-created templates can be updated. The preset template cannot be updated.
-     *  *
-     * @param UpdateLiveRecordTemplateRequest $tmpReq  UpdateLiveRecordTemplateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a live stream recording template.
      *
-     * @return UpdateLiveRecordTemplateResponse UpdateLiveRecordTemplateResponse
+     * @remarks
+     * Only user-created templates can be updated. The preset template cannot be updated.
+     *
+     * @param tmpReq - UpdateLiveRecordTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLiveRecordTemplateResponse
+     *
+     * @param UpdateLiveRecordTemplateRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateLiveRecordTemplateResponse
      */
     public function updateLiveRecordTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateLiveRecordTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->recordFormat)) {
-            $request->recordFormatShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recordFormat, 'RecordFormat', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->recordFormat) {
+            $request->recordFormatShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recordFormat, 'RecordFormat', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->recordFormatShrink)) {
-            $body['RecordFormat'] = $request->recordFormatShrink;
+
+        if (null !== $request->recordFormatShrink) {
+            @$body['RecordFormat'] = $request->recordFormatShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLiveRecordTemplate',
@@ -13172,13 +15769,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a live stream recording template.
-     *  *
-     * @description Only user-created templates can be updated. The preset template cannot be updated.
-     *  *
-     * @param UpdateLiveRecordTemplateRequest $request UpdateLiveRecordTemplateRequest
+     * Updates the information about a live stream recording template.
      *
-     * @return UpdateLiveRecordTemplateResponse UpdateLiveRecordTemplateResponse
+     * @remarks
+     * Only user-created templates can be updated. The preset template cannot be updated.
+     *
+     * @param request - UpdateLiveRecordTemplateRequest
+     * @returns UpdateLiveRecordTemplateResponse
+     *
+     * @param UpdateLiveRecordTemplateRequest $request
+     *
+     * @return UpdateLiveRecordTemplateResponse
      */
     public function updateLiveRecordTemplate($request)
     {
@@ -13188,34 +15789,43 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a live stream snapshot template.
-     *  *
-     * @param UpdateLiveSnapshotTemplateRequest $request UpdateLiveSnapshotTemplateRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a live stream snapshot template.
      *
-     * @return UpdateLiveSnapshotTemplateResponse UpdateLiveSnapshotTemplateResponse
+     * @param request - UpdateLiveSnapshotTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLiveSnapshotTemplateResponse
+     *
+     * @param UpdateLiveSnapshotTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateLiveSnapshotTemplateResponse
      */
     public function updateLiveSnapshotTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->overwriteFormat)) {
-            $body['OverwriteFormat'] = $request->overwriteFormat;
+        if (null !== $request->overwriteFormat) {
+            @$body['OverwriteFormat'] = $request->overwriteFormat;
         }
-        if (!Utils::isUnset($request->sequenceFormat)) {
-            $body['SequenceFormat'] = $request->sequenceFormat;
+
+        if (null !== $request->sequenceFormat) {
+            @$body['SequenceFormat'] = $request->sequenceFormat;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->timeInterval)) {
-            $body['TimeInterval'] = $request->timeInterval;
+
+        if (null !== $request->timeInterval) {
+            @$body['TimeInterval'] = $request->timeInterval;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLiveSnapshotTemplate',
@@ -13233,11 +15843,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a live stream snapshot template.
-     *  *
-     * @param UpdateLiveSnapshotTemplateRequest $request UpdateLiveSnapshotTemplateRequest
+     * Updates the information about a live stream snapshot template.
      *
-     * @return UpdateLiveSnapshotTemplateResponse UpdateLiveSnapshotTemplateResponse
+     * @param request - UpdateLiveSnapshotTemplateRequest
+     * @returns UpdateLiveSnapshotTemplateResponse
+     *
+     * @param UpdateLiveSnapshotTemplateRequest $request
+     *
+     * @return UpdateLiveSnapshotTemplateResponse
      */
     public function updateLiveSnapshotTemplate($request)
     {
@@ -13247,48 +15860,61 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a live stream transcoding job.
-     *  *
-     * @description *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
-     * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
-     *  *
-     * @param UpdateLiveTranscodeJobRequest $tmpReq  UpdateLiveTranscodeJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a live stream transcoding job.
      *
-     * @return UpdateLiveTranscodeJobResponse UpdateLiveTranscodeJobResponse
+     * @remarks
+     *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
+     * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
+     *
+     * @param tmpReq - UpdateLiveTranscodeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLiveTranscodeJobResponse
+     *
+     * @param UpdateLiveTranscodeJobRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateLiveTranscodeJobResponse
      */
     public function updateLiveTranscodeJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateLiveTranscodeJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->streamInput)) {
-            $request->streamInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamInput, 'StreamInput', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->streamInput) {
+            $request->streamInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->streamInput, 'StreamInput', 'json');
         }
-        if (!Utils::isUnset($tmpReq->timedConfig)) {
-            $request->timedConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->timedConfig, 'TimedConfig', 'json');
+
+        if (null !== $tmpReq->timedConfig) {
+            $request->timedConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timedConfig, 'TimedConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->transcodeOutput)) {
-            $request->transcodeOutputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transcodeOutput, 'TranscodeOutput', 'json');
+
+        if (null !== $tmpReq->transcodeOutput) {
+            $request->transcodeOutputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transcodeOutput, 'TranscodeOutput', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->streamInputShrink)) {
-            $query['StreamInput'] = $request->streamInputShrink;
+
+        if (null !== $request->streamInputShrink) {
+            @$query['StreamInput'] = $request->streamInputShrink;
         }
-        if (!Utils::isUnset($request->timedConfigShrink)) {
-            $query['TimedConfig'] = $request->timedConfigShrink;
+
+        if (null !== $request->timedConfigShrink) {
+            @$query['TimedConfig'] = $request->timedConfigShrink;
         }
-        if (!Utils::isUnset($request->transcodeOutputShrink)) {
-            $query['TranscodeOutput'] = $request->transcodeOutputShrink;
+
+        if (null !== $request->transcodeOutputShrink) {
+            @$query['TranscodeOutput'] = $request->transcodeOutputShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateLiveTranscodeJob',
@@ -13306,14 +15932,18 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a live stream transcoding job.
-     *  *
-     * @description *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
-     * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
-     *  *
-     * @param UpdateLiveTranscodeJobRequest $request UpdateLiveTranscodeJobRequest
+     * Updates the information about a live stream transcoding job.
      *
-     * @return UpdateLiveTranscodeJobResponse UpdateLiveTranscodeJobResponse
+     * @remarks
+     *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
+     * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
+     *
+     * @param request - UpdateLiveTranscodeJobRequest
+     * @returns UpdateLiveTranscodeJobResponse
+     *
+     * @param UpdateLiveTranscodeJobRequest $request
+     *
+     * @return UpdateLiveTranscodeJobResponse
      */
     public function updateLiveTranscodeJob($request)
     {
@@ -13323,33 +15953,41 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a live stream transcoding template.
-     *  *
-     * @param UpdateLiveTranscodeTemplateRequest $tmpReq  UpdateLiveTranscodeTemplateRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a live stream transcoding template.
      *
-     * @return UpdateLiveTranscodeTemplateResponse UpdateLiveTranscodeTemplateResponse
+     * @param tmpReq - UpdateLiveTranscodeTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLiveTranscodeTemplateResponse
+     *
+     * @param UpdateLiveTranscodeTemplateRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateLiveTranscodeTemplateResponse
      */
     public function updateLiveTranscodeTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateLiveTranscodeTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->templateConfig)) {
-            $request->templateConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->templateConfig) {
+            $request->templateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->templateConfig, 'TemplateConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->templateConfigShrink)) {
-            $query['TemplateConfig'] = $request->templateConfigShrink;
+
+        if (null !== $request->templateConfigShrink) {
+            @$query['TemplateConfig'] = $request->templateConfigShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateLiveTranscodeTemplate',
@@ -13367,11 +16005,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a live stream transcoding template.
-     *  *
-     * @param UpdateLiveTranscodeTemplateRequest $request UpdateLiveTranscodeTemplateRequest
+     * Updates the information about a live stream transcoding template.
      *
-     * @return UpdateLiveTranscodeTemplateResponse UpdateLiveTranscodeTemplateResponse
+     * @param request - UpdateLiveTranscodeTemplateRequest
+     * @returns UpdateLiveTranscodeTemplateResponse
+     *
+     * @param UpdateLiveTranscodeTemplateRequest $request
+     *
+     * @return UpdateLiveTranscodeTemplateResponse
      */
     public function updateLiveTranscodeTemplate($request)
     {
@@ -13381,57 +16022,74 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
-     *  *
-     * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified. The request ID and media asset ID are returned. You cannot modify the input URL of a media asset by specifying the ID of the media asset.
-     *  *
-     * @param UpdateMediaInfoRequest $request UpdateMediaInfoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Updates information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
      *
-     * @return UpdateMediaInfoResponse UpdateMediaInfoResponse
+     * @remarks
+     * If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified. The request ID and media asset ID are returned. You cannot modify the input URL of a media asset by specifying the ID of the media asset.
+     *
+     * @param request - UpdateMediaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMediaInfoResponse
+     *
+     * @param UpdateMediaInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateMediaInfoResponse
      */
     public function updateMediaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appendTags)) {
-            $query['AppendTags'] = $request->appendTags;
+        if (null !== $request->appendTags) {
+            @$query['AppendTags'] = $request->appendTags;
         }
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
+
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->inputURL)) {
-            $query['InputURL'] = $request->inputURL;
+
+        if (null !== $request->inputURL) {
+            @$query['InputURL'] = $request->inputURL;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaTags)) {
-            $query['MediaTags'] = $request->mediaTags;
+
+        if (null !== $request->mediaTags) {
+            @$query['MediaTags'] = $request->mediaTags;
         }
-        if (!Utils::isUnset($request->referenceId)) {
-            $query['ReferenceId'] = $request->referenceId;
+
+        if (null !== $request->referenceId) {
+            @$query['ReferenceId'] = $request->referenceId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateMediaInfo',
@@ -13449,13 +16107,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
-     *  *
-     * @description If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified. The request ID and media asset ID are returned. You cannot modify the input URL of a media asset by specifying the ID of the media asset.
-     *  *
-     * @param UpdateMediaInfoRequest $request UpdateMediaInfoRequest
+     * Updates information about a media asset based on the ID of the media asset in Intelligent Media Services (IMS) or the input URL of the media asset.
      *
-     * @return UpdateMediaInfoResponse UpdateMediaInfoResponse
+     * @remarks
+     * If the MediaId parameter is specified, the MediaId parameter is preferentially used for the query. If the MediaId parameter is left empty, the InputURL parameter must be specified. The request ID and media asset ID are returned. You cannot modify the input URL of a media asset by specifying the ID of the media asset.
+     *
+     * @param request - UpdateMediaInfoRequest
+     * @returns UpdateMediaInfoResponse
+     *
+     * @param UpdateMediaInfoRequest $request
+     *
+     * @return UpdateMediaInfoResponse
      */
     public function updateMediaInfo($request)
     {
@@ -13465,25 +16127,31 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the marks of a media asset.
-     *  *
-     * @param UpdateMediaMarksRequest $request UpdateMediaMarksRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies the marks of a media asset.
      *
-     * @return UpdateMediaMarksResponse UpdateMediaMarksResponse
+     * @param request - UpdateMediaMarksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMediaMarksResponse
+     *
+     * @param UpdateMediaMarksRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateMediaMarksResponse
      */
     public function updateMediaMarksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaMarks)) {
-            $query['MediaMarks'] = $request->mediaMarks;
+
+        if (null !== $request->mediaMarks) {
+            @$query['MediaMarks'] = $request->mediaMarks;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateMediaMarks',
@@ -13501,11 +16169,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the marks of a media asset.
-     *  *
-     * @param UpdateMediaMarksRequest $request UpdateMediaMarksRequest
+     * Modifies the marks of a media asset.
      *
-     * @return UpdateMediaMarksResponse UpdateMediaMarksResponse
+     * @param request - UpdateMediaMarksRequest
+     * @returns UpdateMediaMarksResponse
+     *
+     * @param UpdateMediaMarksRequest $request
+     *
+     * @return UpdateMediaMarksResponse
      */
     public function updateMediaMarks($request)
     {
@@ -13515,28 +16186,35 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the media asset information in a search library.
-     *  *
-     * @param UpdateMediaToSearchLibRequest $request UpdateMediaToSearchLibRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Updates the media asset information in a search library.
      *
-     * @return UpdateMediaToSearchLibResponse UpdateMediaToSearchLibResponse
+     * @param request - UpdateMediaToSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMediaToSearchLibResponse
+     *
+     * @param UpdateMediaToSearchLibRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateMediaToSearchLibResponse
      */
     public function updateMediaToSearchLibWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->msgBody)) {
-            $query['MsgBody'] = $request->msgBody;
+
+        if (null !== $request->msgBody) {
+            @$query['MsgBody'] = $request->msgBody;
         }
-        if (!Utils::isUnset($request->searchLibName)) {
-            $query['SearchLibName'] = $request->searchLibName;
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateMediaToSearchLib',
@@ -13554,11 +16232,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the media asset information in a search library.
-     *  *
-     * @param UpdateMediaToSearchLibRequest $request UpdateMediaToSearchLibRequest
+     * Updates the media asset information in a search library.
      *
-     * @return UpdateMediaToSearchLibResponse UpdateMediaToSearchLibResponse
+     * @param request - UpdateMediaToSearchLibRequest
+     * @returns UpdateMediaToSearchLibResponse
+     *
+     * @param UpdateMediaToSearchLibRequest $request
+     *
+     * @return UpdateMediaToSearchLibResponse
      */
     public function updateMediaToSearchLib($request)
     {
@@ -13568,31 +16249,39 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about an ApsaraVideo Media Processing (MPS) queue.
-     *  *
-     * @param UpdatePipelineRequest $request UpdatePipelineRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates the information about an ApsaraVideo Media Processing (MPS) queue.
      *
-     * @return UpdatePipelineResponse UpdatePipelineResponse
+     * @param request - UpdatePipelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePipelineResponse
+     *
+     * @param UpdatePipelineRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdatePipelineResponse
      */
     public function updatePipelineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pipelineId)) {
-            $query['PipelineId'] = $request->pipelineId;
+
+        if (null !== $request->pipelineId) {
+            @$query['PipelineId'] = $request->pipelineId;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePipeline',
@@ -13610,11 +16299,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about an ApsaraVideo Media Processing (MPS) queue.
-     *  *
-     * @param UpdatePipelineRequest $request UpdatePipelineRequest
+     * Updates the information about an ApsaraVideo Media Processing (MPS) queue.
      *
-     * @return UpdatePipelineResponse UpdatePipelineResponse
+     * @param request - UpdatePipelineRequest
+     * @returns UpdatePipelineResponse
+     *
+     * @param UpdatePipelineRequest $request
+     *
+     * @return UpdatePipelineResponse
      */
     public function updatePipeline($request)
     {
@@ -13624,30 +16316,37 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例的配置
-     *  *
-     * @param UpdateRtcRobotInstanceRequest $tmpReq  UpdateRtcRobotInstanceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 修改实例的配置.
      *
-     * @return UpdateRtcRobotInstanceResponse UpdateRtcRobotInstanceResponse
+     * @param tmpReq - UpdateRtcRobotInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRtcRobotInstanceResponse
+     *
+     * @param UpdateRtcRobotInstanceRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateRtcRobotInstanceResponse
      */
     public function updateRtcRobotInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateRtcRobotInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->config)) {
-            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->config) {
+            $request->configShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->configShrink)) {
-            $query['Config'] = $request->configShrink;
+        if (null !== $request->configShrink) {
+            @$query['Config'] = $request->configShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateRtcRobotInstance',
@@ -13665,11 +16364,14 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例的配置
-     *  *
-     * @param UpdateRtcRobotInstanceRequest $request UpdateRtcRobotInstanceRequest
+     * 修改实例的配置.
      *
-     * @return UpdateRtcRobotInstanceResponse UpdateRtcRobotInstanceResponse
+     * @param request - UpdateRtcRobotInstanceRequest
+     * @returns UpdateRtcRobotInstanceResponse
+     *
+     * @param UpdateRtcRobotInstanceRequest $request
+     *
+     * @return UpdateRtcRobotInstanceResponse
      */
     public function updateRtcRobotInstance($request)
     {
@@ -13679,48 +16381,61 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an online editing template. You can modify the template title and template configurations.
-     *  *
-     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-     *  *
-     * @param UpdateTemplateRequest $request UpdateTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Modifies an online editing template. You can modify the template title and template configurations.
      *
-     * @return UpdateTemplateResponse UpdateTemplateResponse
+     * @remarks
+     *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+     *
+     * @param request - UpdateTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTemplateResponse
+     *
+     * @param UpdateTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->coverUrl)) {
-            $query['CoverUrl'] = $request->coverUrl;
+        if (null !== $request->coverUrl) {
+            @$query['CoverUrl'] = $request->coverUrl;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->previewMedia)) {
-            $query['PreviewMedia'] = $request->previewMedia;
+
+        if (null !== $request->previewMedia) {
+            @$query['PreviewMedia'] = $request->previewMedia;
         }
-        if (!Utils::isUnset($request->relatedMediaids)) {
-            $query['RelatedMediaids'] = $request->relatedMediaids;
+
+        if (null !== $request->relatedMediaids) {
+            @$query['RelatedMediaids'] = $request->relatedMediaids;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplate',
@@ -13738,14 +16453,18 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an online editing template. You can modify the template title and template configurations.
-     *  *
-     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-     *  *
-     * @param UpdateTemplateRequest $request UpdateTemplateRequest
+     * Modifies an online editing template. You can modify the template title and template configurations.
      *
-     * @return UpdateTemplateResponse UpdateTemplateResponse
+     * @remarks
+     *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+     *
+     * @param request - UpdateTemplateRequest
+     * @returns UpdateTemplateResponse
+     *
+     * @param UpdateTemplateRequest $request
+     *
+     * @return UpdateTemplateResponse
      */
     public function updateTemplate($request)
     {
@@ -13755,47 +16474,59 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
-     *  *
-     * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
+     * Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+     *
+     * @remarks
+     *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
      * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
      * *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded by using URLs that are accessible over the Internet.
      * *   You can call this operation to upload media files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
      * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
      * *   You can call this operation to upload only audio and video files.
-     *  *
-     * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadMediaByURLResponse UploadMediaByURLResponse
+     * @param request - UploadMediaByURLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UploadMediaByURLResponse
+     *
+     * @param UploadMediaByURLRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UploadMediaByURLResponse
      */
     public function uploadMediaByURLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->entityId)) {
-            $query['EntityId'] = $request->entityId;
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
         }
-        if (!Utils::isUnset($request->mediaMetaData)) {
-            $query['MediaMetaData'] = $request->mediaMetaData;
+
+        if (null !== $request->mediaMetaData) {
+            @$query['MediaMetaData'] = $request->mediaMetaData;
         }
-        if (!Utils::isUnset($request->postProcessConfig)) {
-            $query['PostProcessConfig'] = $request->postProcessConfig;
+
+        if (null !== $request->postProcessConfig) {
+            @$query['PostProcessConfig'] = $request->postProcessConfig;
         }
-        if (!Utils::isUnset($request->uploadTargetConfig)) {
-            $query['UploadTargetConfig'] = $request->uploadTargetConfig;
+
+        if (null !== $request->uploadTargetConfig) {
+            @$query['UploadTargetConfig'] = $request->uploadTargetConfig;
         }
-        if (!Utils::isUnset($request->uploadURLs)) {
-            $query['UploadURLs'] = $request->uploadURLs;
+
+        if (null !== $request->uploadURLs) {
+            @$query['UploadURLs'] = $request->uploadURLs;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UploadMediaByURL',
@@ -13813,18 +16544,22 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
-     *  *
-     * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
+     * Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+     *
+     * @remarks
+     *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
      * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
      * *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded by using URLs that are accessible over the Internet.
      * *   You can call this operation to upload media files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the file in the OSS bucket with the media asset library.
      * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
      * *   You can call this operation to upload only audio and video files.
-     *  *
-     * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
      *
-     * @return UploadMediaByURLResponse UploadMediaByURLResponse
+     * @param request - UploadMediaByURLRequest
+     * @returns UploadMediaByURLResponse
+     *
+     * @param UploadMediaByURLRequest $request
+     *
+     * @return UploadMediaByURLResponse
      */
     public function uploadMediaByURL($request)
     {
@@ -13834,41 +16569,52 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Uploads a media stream file based on the URL of the source file.
-     *  *
-     * @description *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
+     * Uploads a media stream file based on the URL of the source file.
+     *
+     * @remarks
+     *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
      * *   You can call this operation to upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
      * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-     *  *
-     * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadStreamByURLResponse UploadStreamByURLResponse
+     * @param request - UploadStreamByURLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UploadStreamByURLResponse
+     *
+     * @param UploadStreamByURLRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UploadStreamByURLResponse
      */
     public function uploadStreamByURLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->definition)) {
-            $query['Definition'] = $request->definition;
+        if (null !== $request->definition) {
+            @$query['Definition'] = $request->definition;
         }
-        if (!Utils::isUnset($request->fileExtension)) {
-            $query['FileExtension'] = $request->fileExtension;
+
+        if (null !== $request->fileExtension) {
+            @$query['FileExtension'] = $request->fileExtension;
         }
-        if (!Utils::isUnset($request->HDRType)) {
-            $query['HDRType'] = $request->HDRType;
+
+        if (null !== $request->HDRType) {
+            @$query['HDRType'] = $request->HDRType;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->streamURL)) {
-            $query['StreamURL'] = $request->streamURL;
+
+        if (null !== $request->streamURL) {
+            @$query['StreamURL'] = $request->streamURL;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UploadStreamByURL',
@@ -13886,15 +16632,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary Uploads a media stream file based on the URL of the source file.
-     *  *
-     * @description *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
+     * Uploads a media stream file based on the URL of the source file.
+     *
+     * @remarks
+     *   You can call this operation to pull a media stream file based on a URL and upload the file. After the media stream file is uploaded, the media stream is associated with the specified media asset ID.
      * *   You can call this operation to upload media stream files only to ApsaraVideo VOD, but not to your own Object Storage Service (OSS) buckets. To upload a media stream file to an OSS bucket, pull the file to a local directory, use [OSS SDK](https://help.aliyun.com/document_detail/32006.html) to upload the file to an OSS bucket, and then call the [RegisterMediaStream](https://help.aliyun.com/document_detail/440765.html) operation to associate the media stream with the specified media asset ID.
      * *   This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-     *  *
-     * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
      *
-     * @return UploadStreamByURLResponse UploadStreamByURLResponse
+     * @param request - UploadStreamByURLRequest
+     * @returns UploadStreamByURLResponse
+     *
+     * @param UploadStreamByURLRequest $request
+     *
+     * @return UploadStreamByURLResponse
      */
     public function uploadStreamByURL($request)
     {

@@ -4,33 +4,20 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail\vensorCensorResult\videoTimelines;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail\vensorCensorResult\videoTimelines\videoTimeline\censorResults;
-use AlibabaCloud\Tea\Model;
 
 class videoTimeline extends Model
 {
     /**
-     * @description The moderation results that include information such as labels and scores.
-     *
      * @var censorResults
      */
     public $censorResults;
-
     /**
-     * @description The OSS object that is generated as the output snapshot.
-     *
-     * >  In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
-     * @example output{Count}.jpg
-     *
      * @var string
      */
     public $object;
-
     /**
-     * @description The position in the video. Format: `hh:mm:ss[.SSS]`.
-     *
-     * @example 00:02:59.999
-     *
      * @var string
      */
     public $timestamp;
@@ -42,17 +29,23 @@ class videoTimeline extends Model
 
     public function validate()
     {
+        if (null !== $this->censorResults) {
+            $this->censorResults->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->censorResults) {
-            $res['CensorResults'] = null !== $this->censorResults ? $this->censorResults->toMap() : null;
+            $res['CensorResults'] = null !== $this->censorResults ? $this->censorResults->toArray($noStream) : $this->censorResults;
         }
+
         if (null !== $this->object) {
             $res['Object'] = $this->object;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -60,20 +53,22 @@ class videoTimeline extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoTimeline
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CensorResults'])) {
             $model->censorResults = censorResults::fromMap($map['CensorResults']);
         }
+
         if (isset($map['Object'])) {
             $model->object = $map['Object'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

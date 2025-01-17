@@ -4,54 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailResponseBody\mediaCensorJobDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class barrageCensorResult extends Model
 {
     /**
-     * @description The label of the moderation result. Valid values:
-     *
-     *   **normal**: normal content.
-     *   **spam**: spam.
-     *   **ad**: ads.
-     *   **abuse**: abuse content.
-     *   **flood**: excessive junk content.
-     *   **contraband**: prohibited content.
-     *   **meaningless**: meaningless content.
-     *
-     * @example normal
-     *
      * @var string
      */
     public $label;
-
     /**
-     * @description The score.
-     *
-     * @example 99.91
-     *
      * @var string
      */
     public $rate;
-
     /**
-     * @description The moderation scenario. The value is **antispam**.
-     *
-     * @example antispam
-     *
      * @var string
      */
     public $scene;
-
     /**
-     * @description The recommended subsequent operation. Valid values:
-     *
-     *   **pass**: The content passes the moderation.
-     *   **review**: The content needs to be manually reviewed.
-     *   **block**: The content needs to be blocked.
-     *
-     * @example pass
-     *
      * @var string
      */
     public $suggestion;
@@ -64,20 +33,24 @@ class barrageCensorResult extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
         }
+
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
+
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
@@ -85,23 +58,26 @@ class barrageCensorResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return barrageCensorResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
         }
+
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
+
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }

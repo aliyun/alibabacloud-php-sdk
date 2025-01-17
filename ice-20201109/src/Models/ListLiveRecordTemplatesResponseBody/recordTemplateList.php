@@ -4,61 +4,32 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordTemplatesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordTemplatesResponseBody\recordTemplateList\recordFormatList;
-use AlibabaCloud\Tea\Model;
 
 class recordTemplateList extends Model
 {
     /**
-     * @description The time when the job was created.
-     *
-     * Use the UTC time format: yyyy-MM-ddTHH:mmZ
-     * @example 2022-07-20T02:48:58Z
-     *
      * @var string
      */
     public $createTime;
-
     /**
-     * @description The time when the template was last modified.
-     *
-     * Use the UTC time format: yyyy-MM-ddTHH:mmZ
-     * @example 2022-07-20T03:26:36Z
-     *
      * @var string
      */
     public $lastModified;
-
     /**
-     * @description The template name.
-     *
-     * @example test template
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The list of recording formats.
-     *
      * @var recordFormatList[]
      */
     public $recordFormatList;
-
     /**
-     * @description The template ID.
-     *
-     * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
-     *
      * @var string
      */
     public $templateId;
-
     /**
-     * @description The type of the template.
-     *
-     * @example custom
-     *
      * @var string
      */
     public $type;
@@ -73,32 +44,41 @@ class recordTemplateList extends Model
 
     public function validate()
     {
+        if (\is_array($this->recordFormatList)) {
+            Model::validateArray($this->recordFormatList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->lastModified) {
             $res['LastModified'] = $this->lastModified;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->recordFormatList) {
-            $res['RecordFormatList'] = [];
-            if (null !== $this->recordFormatList && \is_array($this->recordFormatList)) {
-                $n = 0;
-                foreach ($this->recordFormatList as $item) {
-                    $res['RecordFormatList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordFormatList)) {
+                $res['RecordFormatList'] = [];
+                $n1                      = 0;
+                foreach ($this->recordFormatList as $item1) {
+                    $res['RecordFormatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -106,35 +86,40 @@ class recordTemplateList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordTemplateList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['LastModified'])) {
             $model->lastModified = $map['LastModified'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RecordFormatList'])) {
             if (!empty($map['RecordFormatList'])) {
                 $model->recordFormatList = [];
-                $n                       = 0;
-                foreach ($map['RecordFormatList'] as $item) {
-                    $model->recordFormatList[$n++] = null !== $item ? recordFormatList::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['RecordFormatList'] as $item1) {
+                    $model->recordFormatList[$n1++] = recordFormatList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
