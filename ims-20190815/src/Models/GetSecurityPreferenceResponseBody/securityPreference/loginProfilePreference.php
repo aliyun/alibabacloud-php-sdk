@@ -21,6 +21,11 @@ class loginProfilePreference extends Model
     public $allowUserToChangePassword;
 
     /**
+     * @var bool
+     */
+    public $allowUserToLoginWithPasskey;
+
+    /**
      * @description Indicates whether RAM users can remember the multi-factor authentication (MFA) devices for seven days. Valid values:
      *
      *   true
@@ -75,12 +80,13 @@ class loginProfilePreference extends Model
      */
     public $operationForRiskLogin;
     protected $_name = [
-        'allowUserToChangePassword' => 'AllowUserToChangePassword',
-        'enableSaveMFATicket'       => 'EnableSaveMFATicket',
-        'loginNetworkMasks'         => 'LoginNetworkMasks',
-        'loginSessionDuration'      => 'LoginSessionDuration',
-        'MFAOperationForLogin'      => 'MFAOperationForLogin',
-        'operationForRiskLogin'     => 'OperationForRiskLogin',
+        'allowUserToChangePassword'   => 'AllowUserToChangePassword',
+        'allowUserToLoginWithPasskey' => 'AllowUserToLoginWithPasskey',
+        'enableSaveMFATicket'         => 'EnableSaveMFATicket',
+        'loginNetworkMasks'           => 'LoginNetworkMasks',
+        'loginSessionDuration'        => 'LoginSessionDuration',
+        'MFAOperationForLogin'        => 'MFAOperationForLogin',
+        'operationForRiskLogin'       => 'OperationForRiskLogin',
     ];
 
     public function validate()
@@ -92,6 +98,9 @@ class loginProfilePreference extends Model
         $res = [];
         if (null !== $this->allowUserToChangePassword) {
             $res['AllowUserToChangePassword'] = $this->allowUserToChangePassword;
+        }
+        if (null !== $this->allowUserToLoginWithPasskey) {
+            $res['AllowUserToLoginWithPasskey'] = $this->allowUserToLoginWithPasskey;
         }
         if (null !== $this->enableSaveMFATicket) {
             $res['EnableSaveMFATicket'] = $this->enableSaveMFATicket;
@@ -122,6 +131,9 @@ class loginProfilePreference extends Model
         $model = new self();
         if (isset($map['AllowUserToChangePassword'])) {
             $model->allowUserToChangePassword = $map['AllowUserToChangePassword'];
+        }
+        if (isset($map['AllowUserToLoginWithPasskey'])) {
+            $model->allowUserToLoginWithPasskey = $map['AllowUserToLoginWithPasskey'];
         }
         if (isset($map['EnableSaveMFATicket'])) {
             $model->enableSaveMFATicket = $map['EnableSaveMFATicket'];

@@ -21,6 +21,11 @@ class SetSecurityPreferenceRequest extends Model
     public $allowUserToChangePassword;
 
     /**
+     * @var bool
+     */
+    public $allowUserToLoginWithPasskey;
+
+    /**
      * @description Specifies whether RAM users can manage their AccessKey pairs. Valid values:
      *
      *   true
@@ -124,6 +129,7 @@ class SetSecurityPreferenceRequest extends Model
     public $verificationTypes;
     protected $_name = [
         'allowUserToChangePassword'         => 'AllowUserToChangePassword',
+        'allowUserToLoginWithPasskey'       => 'AllowUserToLoginWithPasskey',
         'allowUserToManageAccessKeys'       => 'AllowUserToManageAccessKeys',
         'allowUserToManageMFADevices'       => 'AllowUserToManageMFADevices',
         'allowUserToManagePersonalDingTalk' => 'AllowUserToManagePersonalDingTalk',
@@ -144,6 +150,9 @@ class SetSecurityPreferenceRequest extends Model
         $res = [];
         if (null !== $this->allowUserToChangePassword) {
             $res['AllowUserToChangePassword'] = $this->allowUserToChangePassword;
+        }
+        if (null !== $this->allowUserToLoginWithPasskey) {
+            $res['AllowUserToLoginWithPasskey'] = $this->allowUserToLoginWithPasskey;
         }
         if (null !== $this->allowUserToManageAccessKeys) {
             $res['AllowUserToManageAccessKeys'] = $this->allowUserToManageAccessKeys;
@@ -186,6 +195,9 @@ class SetSecurityPreferenceRequest extends Model
         $model = new self();
         if (isset($map['AllowUserToChangePassword'])) {
             $model->allowUserToChangePassword = $map['AllowUserToChangePassword'];
+        }
+        if (isset($map['AllowUserToLoginWithPasskey'])) {
+            $model->allowUserToLoginWithPasskey = $map['AllowUserToLoginWithPasskey'];
         }
         if (isset($map['AllowUserToManageAccessKeys'])) {
             $model->allowUserToManageAccessKeys = $map['AllowUserToManageAccessKeys'];

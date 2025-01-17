@@ -3307,6 +3307,9 @@ class Ims extends OpenApiClient
         if (!Utils::isUnset($request->allowUserToChangePassword)) {
             $query['AllowUserToChangePassword'] = $request->allowUserToChangePassword;
         }
+        if (!Utils::isUnset($request->allowUserToLoginWithPasskey)) {
+            $query['AllowUserToLoginWithPasskey'] = $request->allowUserToLoginWithPasskey;
+        }
         if (!Utils::isUnset($request->allowUserToManageAccessKeys)) {
             $query['AllowUserToManageAccessKeys'] = $request->allowUserToManageAccessKeys;
         }
@@ -3370,6 +3373,8 @@ class Ims extends OpenApiClient
     }
 
     /**
+     * @summary 设置用户SSO身份提供商信息
+     *  *
      * @param SetUserSsoSettingsRequest $request SetUserSsoSettingsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3410,6 +3415,8 @@ class Ims extends OpenApiClient
     }
 
     /**
+     * @summary 设置用户SSO身份提供商信息
+     *  *
      * @param SetUserSsoSettingsRequest $request SetUserSsoSettingsRequest
      *
      * @return SetUserSsoSettingsResponse SetUserSsoSettingsResponse
