@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDConversionSignResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 示例值示例值示例值
-     *
      * @var string
      */
     public $carrier;
-
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $outId;
-
     /**
-     * @example 示例值
-     *
      * @var string
      */
     public $sign;
@@ -36,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->carrier) {
             $res['Carrier'] = $this->carrier;
         }
+
         if (null !== $this->outId) {
             $res['OutId'] = $this->outId;
         }
+
         if (null !== $this->sign) {
             $res['Sign'] = $this->sign;
         }
@@ -54,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Carrier'])) {
             $model->carrier = $map['Carrier'];
         }
+
         if (isset($map['OutId'])) {
             $model->outId = $map['OutId'];
         }
+
         if (isset($map['Sign'])) {
             $model->sign = $map['Sign'];
         }

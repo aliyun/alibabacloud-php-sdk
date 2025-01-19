@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisAIResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The returned code.
-     *
-     *   YES: The specified phone number is valid.
-     *   NO: The specified phone number is invalid.
-     *   UNKNOWN: The specified phone number is unknown
-     *
-     * @example YES
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The specified phone number.
-     *
-     * @example 187****5620
-     *
      * @var string
      */
     public $number;
@@ -36,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
@@ -51,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }

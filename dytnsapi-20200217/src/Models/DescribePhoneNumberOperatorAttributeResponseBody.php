@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOperatorAttributeResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class DescribePhoneNumberOperatorAttributeResponseBody extends Model
 {
@@ -13,43 +13,19 @@ class DescribePhoneNumberOperatorAttributeResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
-
     /**
-     * @description The response code. Valid values:
-     *
-     *   **OK**: The request is successful.
-     *   **InvalidParameter**: The specified phone number is invalid or the parameter format is invalid.
-     *   **PhoneNumberNotfound**: No attribute information can be found for the specified phone number.
-     *   **isp.UNKNOWN**: An unknown exception occurred.
-     *   **RequestFrequencyLimit**: Repeated queries for the same phone number at a high frequency within a short period of time are prohibited due to restrictions that are set by carriers. If this error code is returned, please try again later.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The response parameters.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The returned message.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The request ID.
-     *
-     * @example 68A40250-50CD-034C-B728-0BD135850177
-     *
      * @var string
      */
     public $requestId;
@@ -63,23 +39,31 @@ class DescribePhoneNumberOperatorAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -87,26 +71,30 @@ class DescribePhoneNumberOperatorAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePhoneNumberOperatorAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

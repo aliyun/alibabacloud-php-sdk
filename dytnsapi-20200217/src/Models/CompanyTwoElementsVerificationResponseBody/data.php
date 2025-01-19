@@ -4,47 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyTwoElementsVerificationResponseBody\data\detailInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the enterprise.
-     *
      * @var detailInfo
      */
     public $detailInfo;
-
     /**
-     * @description The fields to be verified.
-     *
      * @var string[]
      */
     public $inconsistentData;
-
     /**
-     * @description The code of the verification result. Valid values:
-     *
-     *   0: The two elements belong to the same enterprise.
-     *   1: The two elements belong to the same enterprise, but the business status of the enterprise is abnormal.
-     *   3: The two elements do not belong to the same enterprise.
-     *   4: No information about the enterprise is found.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $reasonCode;
-
     /**
-     * @description The verification result. Valid values:
-     *
-     *   true: The two elements belong to the same enterprise and the business status of the enterprise is Active.
-     *   false: The two elements do not belong to the same enterprise.
-     *
-     * @example true
-     *
      * @var string
      */
     public $verifyResult;
@@ -57,20 +34,36 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->detailInfo) {
+            $this->detailInfo->validate();
+        }
+        if (\is_array($this->inconsistentData)) {
+            Model::validateArray($this->inconsistentData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detailInfo) {
-            $res['DetailInfo'] = null !== $this->detailInfo ? $this->detailInfo->toMap() : null;
+            $res['DetailInfo'] = null !== $this->detailInfo ? $this->detailInfo->toArray($noStream) : $this->detailInfo;
         }
+
         if (null !== $this->inconsistentData) {
-            $res['InconsistentData'] = $this->inconsistentData;
+            if (\is_array($this->inconsistentData)) {
+                $res['InconsistentData'] = [];
+                $n1                      = 0;
+                foreach ($this->inconsistentData as $item1) {
+                    $res['InconsistentData'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
         }
+
         if (null !== $this->verifyResult) {
             $res['VerifyResult'] = $this->verifyResult;
         }
@@ -78,25 +71,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetailInfo'])) {
             $model->detailInfo = detailInfo::fromMap($map['DetailInfo']);
         }
+
         if (isset($map['InconsistentData'])) {
             if (!empty($map['InconsistentData'])) {
-                $model->inconsistentData = $map['InconsistentData'];
+                $model->inconsistentData = [];
+                $n1                      = 0;
+                foreach ($map['InconsistentData'] as $item1) {
+                    $model->inconsistentData[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
         }
+
         if (isset($map['VerifyResult'])) {
             $model->verifyResult = $map['VerifyResult'];
         }

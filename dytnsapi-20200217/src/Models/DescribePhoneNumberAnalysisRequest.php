@@ -4,59 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePhoneNumberAnalysisRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example QASDW@#**
-     *
      * @var string
      */
     public $authCode;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1310000****
-     *
      * @var string
      */
     public $inputNumber;
-
     /**
-     * @example MD5
-     *
      * @var string
      */
     public $mask;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $numberType;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $rate;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -74,32 +53,40 @@ class DescribePhoneNumberAnalysisRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
         }
+
         if (null !== $this->inputNumber) {
             $res['InputNumber'] = $this->inputNumber;
         }
+
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
         }
+
         if (null !== $this->numberType) {
             $res['NumberType'] = $this->numberType;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -107,35 +94,42 @@ class DescribePhoneNumberAnalysisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePhoneNumberAnalysisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
         }
+
         if (isset($map['InputNumber'])) {
             $model->inputNumber = $map['InputNumber'];
         }
+
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
         }
+
         if (isset($map['NumberType'])) {
             $model->numberType = $map['NumberType'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

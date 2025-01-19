@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\CompanyThreeElementsVerificationResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class detailInfo extends Model
 {
     /**
-     * @description The business status of the enterprise.
-     *
-     * @example Active
-     *
      * @var string
      */
     public $enterpriseStatus;
-
     /**
-     * @description The business term of the enterprise.
-     *
-     * @example 2023-05-25/2053-05-24
-     *
      * @var string
      */
     public $openTime;
@@ -32,14 +23,16 @@ class detailInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enterpriseStatus) {
             $res['EnterpriseStatus'] = $this->enterpriseStatus;
         }
+
         if (null !== $this->openTime) {
             $res['OpenTime'] = $this->openTime;
         }
@@ -47,17 +40,18 @@ class detailInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detailInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnterpriseStatus'])) {
             $model->enterpriseStatus = $map['EnterpriseStatus'];
         }
+
         if (isset($map['OpenTime'])) {
             $model->openTime = $map['OpenTime'];
         }

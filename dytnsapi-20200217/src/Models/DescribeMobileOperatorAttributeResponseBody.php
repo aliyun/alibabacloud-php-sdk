@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeMobileOperatorAttributeResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class DescribeMobileOperatorAttributeResponseBody extends Model
 {
@@ -13,29 +13,19 @@ class DescribeMobileOperatorAttributeResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
-
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $code;
-
     /**
      * @var data
      */
     public $data;
-
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $requestId;
@@ -49,23 +39,31 @@ class DescribeMobileOperatorAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -73,26 +71,30 @@ class DescribeMobileOperatorAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMobileOperatorAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

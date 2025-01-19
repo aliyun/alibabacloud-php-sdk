@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryTagInfoBySelectionResponseBody\data\paramList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class valueDict extends Model
 {
     /**
-     * @description The English name.
-     *
-     * @example Aliyun
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The Chinese name.
-     *
-     * @example 阿里云
-     *
      * @var string
      */
     public $desc;
@@ -32,14 +23,16 @@ class valueDict extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
@@ -47,17 +40,18 @@ class valueDict extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return valueDict
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }

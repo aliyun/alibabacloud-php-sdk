@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberEncryptResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The encrypted phone number.
-     *
-     * @example 1400513****
-     *
      * @var string
      */
     public $encryptedNumber;
-
     /**
-     * @description The time when the phone number expires.
-     *
-     * @example 2022-05-27 16:05:23
-     *
      * @var string
      */
     public $expireTime;
-
     /**
-     * @description The original phone number.
-     *
-     * @example 1390000****
-     *
      * @var string
      */
     public $originalNumber;
@@ -42,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encryptedNumber) {
             $res['EncryptedNumber'] = $this->encryptedNumber;
         }
+
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+
         if (null !== $this->originalNumber) {
             $res['OriginalNumber'] = $this->originalNumber;
         }
@@ -60,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncryptedNumber'])) {
             $model->encryptedNumber = $map['EncryptedNumber'];
         }
+
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+
         if (isset($map['OriginalNumber'])) {
             $model->originalNumber = $map['OriginalNumber'];
         }

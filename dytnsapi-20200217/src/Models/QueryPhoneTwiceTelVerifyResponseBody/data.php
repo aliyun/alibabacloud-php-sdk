@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneTwiceTelVerifyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $carrierCode;
-
     /**
-     * @example 73
-     *
      * @var int
      */
     public $verifyResult;
@@ -28,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->carrierCode) {
             $res['CarrierCode'] = $this->carrierCode;
         }
+
         if (null !== $this->verifyResult) {
             $res['VerifyResult'] = $this->verifyResult;
         }
@@ -43,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CarrierCode'])) {
             $model->carrierCode = $map['CarrierCode'];
         }
+
         if (isset($map['VerifyResult'])) {
             $model->verifyResult = $map['VerifyResult'];
         }

@@ -4,68 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberOperatorAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The basic carrier. Valid values:
-     *
-     *   **China Mobile**
-     *   **China Unicom**
-     *   **China Telecom**
-     *   **China Broadnet**
-     *
-     * @example China Mobile
-     *
      * @var string
      */
     public $basicCarrier;
-
     /**
-     * @description The actual carrier, including the virtual network operator (VNO). If the phone number involves mobile number portability, the value of this parameter is the carrier after mobile number portability.
-     *
-     * @example China Mobile
-     *
      * @var string
      */
     public $carrier;
-
     /**
-     * @description The city where the phone number is registered.
-     *
-     * @example hangzhou
-     *
      * @var string
      */
     public $city;
-
     /**
-     * @description Indicates whether the phone number involves mobile number portability. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isNumberPortability;
-
     /**
-     * @description The number segment to which the phone number belongs.
-     *
-     * @example 139
-     *
      * @var int
      */
     public $numberSegment;
-
     /**
-     * @description The province where the phone number is registered.
-     *
-     * @example zhejiang
-     *
      * @var string
      */
     public $province;
@@ -80,26 +43,32 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->basicCarrier) {
             $res['BasicCarrier'] = $this->basicCarrier;
         }
+
         if (null !== $this->carrier) {
             $res['Carrier'] = $this->carrier;
         }
+
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
+
         if (null !== $this->isNumberPortability) {
             $res['IsNumberPortability'] = $this->isNumberPortability;
         }
+
         if (null !== $this->numberSegment) {
             $res['NumberSegment'] = $this->numberSegment;
         }
+
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
@@ -107,29 +76,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BasicCarrier'])) {
             $model->basicCarrier = $map['BasicCarrier'];
         }
+
         if (isset($map['Carrier'])) {
             $model->carrier = $map['Carrier'];
         }
+
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
+
         if (isset($map['IsNumberPortability'])) {
             $model->isNumberPortability = $map['IsNumberPortability'];
         }
+
         if (isset($map['NumberSegment'])) {
             $model->numberSegment = $map['NumberSegment'];
         }
+
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }

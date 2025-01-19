@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The specified phone number.
-     *
-     * @example 189****1234
-     *
      * @var string
      */
     public $number;
-
     /**
-     * @description The returned status for the queried phone number. Valid values:
-     *
-     *   **EMPTY**: The queried phone number is a nonexistent number.
-     *   **NORMAL**: The queried phone number is valid.
-     *   **SUSPECT_EMPTY**: The queried phone number is suspected to be a nonexistent number.
-     *   **UNKNOWN**: The queried phone number is unknown.
-     *
-     * @example EMPTY
-     *
      * @var string
      */
     public $status;
@@ -37,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

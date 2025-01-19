@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberConvertServiceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,17 +12,14 @@ class data extends Model
      * @var bool
      */
     public $converResult;
-
     /**
      * @var string
      */
     public $number;
-
     /**
      * @var string
      */
     public $numberMd5;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->converResult) {
             $res['ConverResult'] = $this->converResult;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->numberMd5) {
             $res['NumberMd5'] = $this->numberMd5;
         }
+
         if (null !== $this->numberSha256) {
             $res['NumberSha256'] = $this->numberSha256;
         }
@@ -57,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConverResult'])) {
             $model->converResult = $map['ConverResult'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['NumberMd5'])) {
             $model->numberMd5 = $map['NumberMd5'];
         }
+
         if (isset($map['NumberSha256'])) {
             $model->numberSha256 = $map['NumberSha256'];
         }
