@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssUploadTokenResponseBody\ossUploadToken;
-use AlibabaCloud\Tea\Model;
 
 class DescribeOssUploadTokenResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class DescribeOssUploadTokenResponseBody extends Model
      * @var ossUploadToken
      */
     public $ossUploadToken;
-
     /**
-     * @example 2FA2C773-47DB-4156-B1EE-5B047321A939
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class DescribeOssUploadTokenResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->ossUploadToken) {
+            $this->ossUploadToken->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ossUploadToken) {
-            $res['OssUploadToken'] = null !== $this->ossUploadToken ? $this->ossUploadToken->toMap() : null;
+            $res['OssUploadToken'] = null !== $this->ossUploadToken ? $this->ossUploadToken->toArray($noStream) : $this->ossUploadToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class DescribeOssUploadTokenResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeOssUploadTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OssUploadToken'])) {
             $model->ossUploadToken = ossUploadToken::fromMap($map['OssUploadToken']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MobileDetectRequest extends Model
 {
@@ -12,7 +12,6 @@ class MobileDetectRequest extends Model
      * @var string
      */
     public $mobiles;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class MobileDetectRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mobiles) {
             $res['Mobiles'] = $this->mobiles;
         }
+
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
@@ -39,17 +40,18 @@ class MobileDetectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MobileDetectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mobiles'])) {
             $model->mobiles = $map['Mobiles'];
         }
+
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }

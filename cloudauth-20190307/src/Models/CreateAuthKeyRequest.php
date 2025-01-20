@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAuthKeyRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $authYears;
-
     /**
-     * @example FACE_TEST
-     *
      * @var string
      */
     public $bizType;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $test;
-
     /**
-     * @example 3iJ1AY$oHcu7mC69
-     *
      * @var string
      */
     public $userDeviceId;
@@ -44,20 +33,24 @@ class CreateAuthKeyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authYears) {
             $res['AuthYears'] = $this->authYears;
         }
+
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->test) {
             $res['Test'] = $this->test;
         }
+
         if (null !== $this->userDeviceId) {
             $res['UserDeviceId'] = $this->userDeviceId;
         }
@@ -65,23 +58,26 @@ class CreateAuthKeyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAuthKeyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthYears'])) {
             $model->authYears = $map['AuthYears'];
         }
+
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['Test'])) {
             $model->test = $map['Test'];
         }
+
         if (isset($map['UserDeviceId'])) {
             $model->userDeviceId = $map['UserDeviceId'];
         }

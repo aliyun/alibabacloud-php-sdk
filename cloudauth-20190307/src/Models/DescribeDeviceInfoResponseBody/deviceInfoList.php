@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponseBody\deviceInfoList\deviceInfo;
-use AlibabaCloud\Tea\Model;
 
 class deviceInfoList extends Model
 {
@@ -19,17 +19,21 @@ class deviceInfoList extends Model
 
     public function validate()
     {
+        if (\is_array($this->deviceInfo)) {
+            Model::validateArray($this->deviceInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfo) {
-            $res['DeviceInfo'] = [];
-            if (null !== $this->deviceInfo && \is_array($this->deviceInfo)) {
-                $n = 0;
-                foreach ($this->deviceInfo as $item) {
-                    $res['DeviceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceInfo)) {
+                $res['DeviceInfo'] = [];
+                $n1                = 0;
+                foreach ($this->deviceInfo as $item1) {
+                    $res['DeviceInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class deviceInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             if (!empty($map['DeviceInfo'])) {
                 $model->deviceInfo = [];
-                $n                 = 0;
-                foreach ($map['DeviceInfo'] as $item) {
-                    $model->deviceInfo[$n++] = null !== $item ? deviceInfo::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['DeviceInfo'] as $item1) {
+                    $model->deviceInfo[$n1++] = deviceInfo::fromMap($item1);
                 }
             }
         }

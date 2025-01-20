@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectFaceAttributesRequest extends Model
 {
     /**
-     * @example RPBasicTest
-     *
      * @var string
      */
     public $bizType;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg
-     *
      * @var string
      */
     public $materialValue;
@@ -30,14 +23,16 @@ class DetectFaceAttributesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->materialValue) {
             $res['MaterialValue'] = $this->materialValue;
         }
@@ -45,17 +40,18 @@ class DetectFaceAttributesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectFaceAttributesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['MaterialValue'])) {
             $model->materialValue = $map['MaterialValue'];
         }

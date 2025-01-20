@@ -4,92 +4,63 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyRequest\merchantDetail;
-use AlibabaCloud\Tea\Model;
 
 class CredentialVerifyRequest extends Model
 {
     /**
-     * @example 4601*****
-     *
      * @var string
      */
     public $certNum;
-
     /**
-     * @example 0104
-     *
      * @var string
      */
     public $credName;
-
     /**
-     * @example 01
-     *
      * @var string
      */
     public $credType;
-
     /**
-     * @example 429001********8211
-     *
      * @var string
      */
     public $identifyNum;
-
     /**
-     * @example base64
-     *
      * @var string
      */
     public $imageContext;
-
     /**
-     * @example http://marry.momocdn.com/avatar/3B/B6/3BB6527E-7467-926E-1048-B43614F20CC420230803_L.jpg
-     *
      * @var string
      */
     public $imageUrl;
-
     /**
-     * @example 0
-     *
      * @var string
      */
     public $isCheck;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $isOCR;
-
     /**
      * @var merchantDetail[]
      */
     public $merchantDetail;
-
     /**
      * @var string
      */
     public $merchantId;
-
     /**
      * @var string
      */
     public $productCode;
-
     /**
      * @var string
      */
     public $prompt;
-
     /**
      * @var string
      */
     public $promptModel;
-
     /**
      * @var string
      */
@@ -113,56 +84,73 @@ class CredentialVerifyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->merchantDetail)) {
+            Model::validateArray($this->merchantDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certNum) {
             $res['CertNum'] = $this->certNum;
         }
+
         if (null !== $this->credName) {
             $res['CredName'] = $this->credName;
         }
+
         if (null !== $this->credType) {
             $res['CredType'] = $this->credType;
         }
+
         if (null !== $this->identifyNum) {
             $res['IdentifyNum'] = $this->identifyNum;
         }
+
         if (null !== $this->imageContext) {
             $res['ImageContext'] = $this->imageContext;
         }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
+
         if (null !== $this->isCheck) {
             $res['IsCheck'] = $this->isCheck;
         }
+
         if (null !== $this->isOCR) {
             $res['IsOCR'] = $this->isOCR;
         }
+
         if (null !== $this->merchantDetail) {
-            $res['MerchantDetail'] = [];
-            if (null !== $this->merchantDetail && \is_array($this->merchantDetail)) {
-                $n = 0;
-                foreach ($this->merchantDetail as $item) {
-                    $res['MerchantDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->merchantDetail)) {
+                $res['MerchantDetail'] = [];
+                $n1                    = 0;
+                foreach ($this->merchantDetail as $item1) {
+                    $res['MerchantDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->merchantId) {
             $res['MerchantId'] = $this->merchantId;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
+
         if (null !== $this->promptModel) {
             $res['PromptModel'] = $this->promptModel;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -170,59 +158,72 @@ class CredentialVerifyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CredentialVerifyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertNum'])) {
             $model->certNum = $map['CertNum'];
         }
+
         if (isset($map['CredName'])) {
             $model->credName = $map['CredName'];
         }
+
         if (isset($map['CredType'])) {
             $model->credType = $map['CredType'];
         }
+
         if (isset($map['IdentifyNum'])) {
             $model->identifyNum = $map['IdentifyNum'];
         }
+
         if (isset($map['ImageContext'])) {
             $model->imageContext = $map['ImageContext'];
         }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
+
         if (isset($map['IsCheck'])) {
             $model->isCheck = $map['IsCheck'];
         }
+
         if (isset($map['IsOCR'])) {
             $model->isOCR = $map['IsOCR'];
         }
+
         if (isset($map['MerchantDetail'])) {
             if (!empty($map['MerchantDetail'])) {
                 $model->merchantDetail = [];
-                $n                     = 0;
-                foreach ($map['MerchantDetail'] as $item) {
-                    $model->merchantDetail[$n++] = null !== $item ? merchantDetail::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['MerchantDetail'] as $item1) {
+                    $model->merchantDetail[$n1++] = merchantDetail::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MerchantId'])) {
             $model->merchantId = $map['MerchantId'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
+
         if (isset($map['PromptModel'])) {
             $model->promptModel = $map['PromptModel'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

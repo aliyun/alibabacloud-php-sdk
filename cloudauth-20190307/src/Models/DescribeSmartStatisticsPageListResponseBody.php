@@ -4,47 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeSmartStatisticsPageListResponseBody\items;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSmartStatisticsPageListResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
      * @var items[]
      */
     public $items;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 96943***4E39F805
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 29
-     *
      * @var int
      */
     public $totalCount;
-
     /**
-     * @example 3
-     *
      * @var int
      */
     public $totalPage;
@@ -59,32 +44,41 @@ class DescribeSmartStatisticsPageListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = [];
-            if (null !== $this->items && \is_array($this->items)) {
-                $n = 0;
-                foreach ($this->items as $item) {
-                    $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->items)) {
+                $res['Items'] = [];
+                $n1           = 0;
+                foreach ($this->items as $item1) {
+                    $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
         }
@@ -92,35 +86,40 @@ class DescribeSmartStatisticsPageListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSmartStatisticsPageListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
-                foreach ($map['Items'] as $item) {
-                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Items'] as $item1) {
+                    $model->items[$n1++] = items::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
         }

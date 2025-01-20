@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
     /**
-     * @example 91707dc296d469ad38e4c5efa6a0f24b
-     *
      * @var string
      */
     public $certifyId;
-
     /**
      * @var string
      */
@@ -26,14 +23,16 @@ class resultObject extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
         }
+
         if (null !== $this->certifyUrl) {
             $res['CertifyUrl'] = $this->certifyUrl;
         }
@@ -41,17 +40,18 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
         }
+
         if (isset($map['CertifyUrl'])) {
             $model->certifyUrl = $map['CertifyUrl'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVerifySDKRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1KQMcnLd4m37LN2D0F0WCD
-     *
      * @var string
      */
     public $taskId;
@@ -22,9 +18,10 @@ class DescribeVerifySDKRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -34,11 +31,11 @@ class DescribeVerifySDKRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVerifySDKRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

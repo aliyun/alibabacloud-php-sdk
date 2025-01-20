@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFaceVerifyResultRequest extends Model
 {
     /**
-     * @example shae18209d29ce4e8ba252caae98ab15
-     *
      * @var string
      */
     public $certifyId;
-
     /**
-     * @example Y
-     *
      * @var string
      */
     public $deleteAfterQuery;
@@ -28,14 +23,16 @@ class DeleteFaceVerifyResultRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
         }
+
         if (null !== $this->deleteAfterQuery) {
             $res['DeleteAfterQuery'] = $this->deleteAfterQuery;
         }
@@ -43,17 +40,18 @@ class DeleteFaceVerifyResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFaceVerifyResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
         }
+
         if (isset($map['DeleteAfterQuery'])) {
             $model->deleteAfterQuery = $map['DeleteAfterQuery'];
         }

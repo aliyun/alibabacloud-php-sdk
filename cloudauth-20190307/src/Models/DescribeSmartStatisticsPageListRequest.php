@@ -4,58 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSmartStatisticsPageListRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $currentPage;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 2022-11-16 23:59:59 +0800
-     *
      * @var string
      */
     public $endDate;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 36**01
-     *
      * @var string
      */
     public $sceneId;
-
     /**
-     * @example cloudauthst
-     *
      * @var string
      */
     public $serviceCode;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 2023-11-01 00:00:00 +0800
-     *
      * @var string
      */
     public $startDate;
@@ -70,26 +43,32 @@ class DescribeSmartStatisticsPageListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -97,29 +76,34 @@ class DescribeSmartStatisticsPageListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSmartStatisticsPageListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

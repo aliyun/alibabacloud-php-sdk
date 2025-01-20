@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyResponseBody\resultObject;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vlResult extends Model
 {
@@ -12,7 +12,6 @@ class vlResult extends Model
      * @var bool
      */
     public $success;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class vlResult extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->vlContent) {
             $res['VlContent'] = $this->vlContent;
         }
@@ -39,17 +40,18 @@ class vlResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vlResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['VlContent'])) {
             $model->vlContent = $map['VlContent'];
         }

@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
     /**
-     * @example sha58aeae7ea2f5ed069530f58df4e6d
-     *
      * @var string
      */
     public $certifyId;
-
     /**
-     * @example N
-     *
      * @var string
      */
     public $deleteResult;
-
     /**
-     * @example NOT_DELETE_REPEATEDLY
-     *
      * @var string
      */
     public $failReason;
@@ -36,17 +28,20 @@ class resultObject extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
         }
+
         if (null !== $this->deleteResult) {
             $res['DeleteResult'] = $this->deleteResult;
         }
+
         if (null !== $this->failReason) {
             $res['FailReason'] = $this->failReason;
         }
@@ -54,20 +49,22 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
         }
+
         if (isset($map['DeleteResult'])) {
             $model->deleteResult = $map['DeleteResult'];
         }
+
         if (isset($map['FailReason'])) {
             $model->failReason = $map['FailReason'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesResponseBody\data\faceInfos;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,17 +13,11 @@ class data extends Model
      * @var faceInfos
      */
     public $faceInfos;
-
     /**
-     * @example 1920
-     *
      * @var int
      */
     public $imgHeight;
-
     /**
-     * @example 1080
-     *
      * @var int
      */
     public $imgWidth;
@@ -35,17 +29,23 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->faceInfos) {
+            $this->faceInfos->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faceInfos) {
-            $res['FaceInfos'] = null !== $this->faceInfos ? $this->faceInfos->toMap() : null;
+            $res['FaceInfos'] = null !== $this->faceInfos ? $this->faceInfos->toArray($noStream) : $this->faceInfos;
         }
+
         if (null !== $this->imgHeight) {
             $res['ImgHeight'] = $this->imgHeight;
         }
+
         if (null !== $this->imgWidth) {
             $res['ImgWidth'] = $this->imgWidth;
         }
@@ -53,20 +53,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FaceInfos'])) {
             $model->faceInfos = faceInfos::fromMap($map['FaceInfos']);
         }
+
         if (isset($map['ImgHeight'])) {
             $model->imgHeight = $map['ImgHeight'];
         }
+
         if (isset($map['ImgWidth'])) {
             $model->imgWidth = $map['ImgWidth'];
         }

@@ -4,44 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VehicleMetaVerifyRequest extends Model
 {
     /**
-     * @example 4****************1
-     *
      * @var string
      */
     public $identifyNum;
-
     /**
-     * @example normal
-     *
      * @var string
      */
     public $paramType;
-
     /**
      * @var string
      */
     public $userName;
-
     /**
      * @var string
      */
     public $vehicleNum;
-
     /**
-     * @example 02
-     *
      * @var string
      */
     public $vehicleType;
-
     /**
-     * @example VEHICLE_2_META
-     *
      * @var string
      */
     public $verifyMetaType;
@@ -56,26 +43,32 @@ class VehicleMetaVerifyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifyNum) {
             $res['IdentifyNum'] = $this->identifyNum;
         }
+
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->vehicleNum) {
             $res['VehicleNum'] = $this->vehicleNum;
         }
+
         if (null !== $this->vehicleType) {
             $res['VehicleType'] = $this->vehicleType;
         }
+
         if (null !== $this->verifyMetaType) {
             $res['VerifyMetaType'] = $this->verifyMetaType;
         }
@@ -83,29 +76,34 @@ class VehicleMetaVerifyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VehicleMetaVerifyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdentifyNum'])) {
             $model->identifyNum = $map['IdentifyNum'];
         }
+
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['VehicleNum'])) {
             $model->vehicleNum = $map['VehicleNum'];
         }
+
         if (isset($map['VehicleType'])) {
             $model->vehicleType = $map['VehicleType'];
         }
+
         if (isset($map['VerifyMetaType'])) {
             $model->verifyMetaType = $map['VerifyMetaType'];
         }

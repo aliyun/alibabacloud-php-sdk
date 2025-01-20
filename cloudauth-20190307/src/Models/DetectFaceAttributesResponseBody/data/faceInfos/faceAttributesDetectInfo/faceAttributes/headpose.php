@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesResponseBody\data\faceInfos\faceAttributesDetectInfo\faceAttributes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class headpose extends Model
 {
     /**
-     * @example -1.5683923959732056
-     *
      * @var float
      */
     public $pitchAngle;
-
     /**
-     * @example 7.163370132446289
-     *
      * @var float
      */
     public $rollAngle;
-
     /**
-     * @example -6.925303936004639
-     *
      * @var float
      */
     public $yawAngle;
@@ -36,17 +28,20 @@ class headpose extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pitchAngle) {
             $res['PitchAngle'] = $this->pitchAngle;
         }
+
         if (null !== $this->rollAngle) {
             $res['RollAngle'] = $this->rollAngle;
         }
+
         if (null !== $this->yawAngle) {
             $res['YawAngle'] = $this->yawAngle;
         }
@@ -54,20 +49,22 @@ class headpose extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return headpose
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PitchAngle'])) {
             $model->pitchAngle = $map['PitchAngle'];
         }
+
         if (isset($map['RollAngle'])) {
             $model->rollAngle = $map['RollAngle'];
         }
+
         if (isset($map['YawAngle'])) {
             $model->yawAngle = $map['YawAngle'];
         }

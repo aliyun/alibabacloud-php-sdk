@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveWhiteListSettingShrinkRequest extends Model
 {
@@ -12,10 +12,7 @@ class RemoveWhiteListSettingShrinkRequest extends Model
      * @var string
      */
     public $idsShrink;
-
     /**
-     * @example antcloudauth
-     *
      * @var string
      */
     public $serviceCode;
@@ -26,14 +23,16 @@ class RemoveWhiteListSettingShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->idsShrink) {
             $res['Ids'] = $this->idsShrink;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
@@ -41,17 +40,18 @@ class RemoveWhiteListSettingShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveWhiteListSettingShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             $model->idsShrink = $map['Ids'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }

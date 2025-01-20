@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CompareFacesRequest extends Model
 {
     /**
-     * @example FacePic
-     *
      * @var string
      */
     public $sourceImageType;
-
     /**
-     * @example http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
-     *
      * @var string
      */
     public $sourceImageValue;
-
     /**
-     * @example FacePic
-     *
      * @var string
      */
     public $targetImageType;
-
     /**
-     * @example http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
-     *
      * @var string
      */
     public $targetImageValue;
@@ -44,20 +33,24 @@ class CompareFacesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceImageType) {
             $res['SourceImageType'] = $this->sourceImageType;
         }
+
         if (null !== $this->sourceImageValue) {
             $res['SourceImageValue'] = $this->sourceImageValue;
         }
+
         if (null !== $this->targetImageType) {
             $res['TargetImageType'] = $this->targetImageType;
         }
+
         if (null !== $this->targetImageValue) {
             $res['TargetImageValue'] = $this->targetImageValue;
         }
@@ -65,23 +58,26 @@ class CompareFacesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CompareFacesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceImageType'])) {
             $model->sourceImageType = $map['SourceImageType'];
         }
+
         if (isset($map['SourceImageValue'])) {
             $model->sourceImageValue = $map['SourceImageValue'];
         }
+
         if (isset($map['TargetImageType'])) {
             $model->targetImageType = $map['TargetImageType'];
         }
+
         if (isset($map['TargetImageValue'])) {
             $model->targetImageValue = $map['TargetImageValue'];
         }

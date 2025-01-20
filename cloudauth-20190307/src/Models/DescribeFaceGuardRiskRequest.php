@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeFaceGuardRiskRequest extends Model
 {
     /**
-     * @example aba9830f471a4335af4612c8adaa91b0
-     *
      * @var string
      */
     public $bizId;
-
     /**
-     * @example McozS1ZWRcRZStlERcZZo_QOytx5jcgZoZJEoRLOxxxxxxx
-     *
      * @var string
      */
     public $deviceToken;
-
     /**
-     * @example e0c34a77f5ac40a5aa5e6ed20c35xxxx
-     *
      * @var string
      */
     public $outerOrderNo;
-
     /**
-     * @example FACE_GUARD
-     *
      * @var string
      */
     public $productCode;
@@ -44,20 +33,24 @@ class DescribeFaceGuardRiskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+
         if (null !== $this->deviceToken) {
             $res['DeviceToken'] = $this->deviceToken;
         }
+
         if (null !== $this->outerOrderNo) {
             $res['OuterOrderNo'] = $this->outerOrderNo;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -65,23 +58,26 @@ class DescribeFaceGuardRiskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeFaceGuardRiskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+
         if (isset($map['DeviceToken'])) {
             $model->deviceToken = $map['DeviceToken'];
         }
+
         if (isset($map['OuterOrderNo'])) {
             $model->outerOrderNo = $map['OuterOrderNo'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }

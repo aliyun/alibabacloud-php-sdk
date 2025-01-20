@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Id2MetaPeriodVerifyRequest extends Model
 {
     /**
-     * @example 4****************1
-     *
      * @var string
      */
     public $identifyNum;
-
     /**
-     * @example normal
-     *
      * @var string
      */
     public $paramType;
-
     /**
      * @var string
      */
     public $userName;
-
     /**
-     * @example 20301001
-     *
      * @var string
      */
     public $validityEndDate;
-
     /**
-     * @example 20201001
-     *
      * @var string
      */
     public $validityStartDate;
@@ -50,23 +38,28 @@ class Id2MetaPeriodVerifyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifyNum) {
             $res['IdentifyNum'] = $this->identifyNum;
         }
+
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->validityEndDate) {
             $res['ValidityEndDate'] = $this->validityEndDate;
         }
+
         if (null !== $this->validityStartDate) {
             $res['ValidityStartDate'] = $this->validityStartDate;
         }
@@ -74,26 +67,30 @@ class Id2MetaPeriodVerifyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Id2MetaPeriodVerifyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdentifyNum'])) {
             $model->identifyNum = $map['IdentifyNum'];
         }
+
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['ValidityEndDate'])) {
             $model->validityEndDate = $map['ValidityEndDate'];
         }
+
         if (isset($map['ValidityStartDate'])) {
             $model->validityStartDate = $map['ValidityStartDate'];
         }

@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFacesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example {"0.0001":"90.07","0.001":"80.01","0.01":"70.02"}
-     *
      * @var string
      */
     public $confidenceThresholds;
-
     /**
-     * @example 98.7913
-     *
      * @var float
      */
     public $similarityScore;
@@ -28,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confidenceThresholds) {
             $res['ConfidenceThresholds'] = $this->confidenceThresholds;
         }
+
         if (null !== $this->similarityScore) {
             $res['SimilarityScore'] = $this->similarityScore;
         }
@@ -43,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfidenceThresholds'])) {
             $model->confidenceThresholds = $map['ConfidenceThresholds'];
         }
+
         if (isset($map['SimilarityScore'])) {
             $model->similarityScore = $map['SimilarityScore'];
         }

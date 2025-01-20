@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Id2MetaVerifyRequest extends Model
 {
@@ -12,12 +12,10 @@ class Id2MetaVerifyRequest extends Model
      * @var string
      */
     public $identifyNum;
-
     /**
      * @var string
      */
     public $paramType;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class Id2MetaVerifyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifyNum) {
             $res['IdentifyNum'] = $this->identifyNum;
         }
+
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -48,20 +49,22 @@ class Id2MetaVerifyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Id2MetaVerifyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdentifyNum'])) {
             $model->identifyNum = $map['IdentifyNum'];
         }
+
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

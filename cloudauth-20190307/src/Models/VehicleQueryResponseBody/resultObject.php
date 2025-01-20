@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleQueryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $bizCode;
-
     /**
      * @var string
      */
@@ -26,14 +23,16 @@ class resultObject extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->vehicleInfo) {
             $res['VehicleInfo'] = $this->vehicleInfo;
         }
@@ -41,17 +40,18 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['VehicleInfo'])) {
             $model->vehicleInfo = $map['VehicleInfo'];
         }

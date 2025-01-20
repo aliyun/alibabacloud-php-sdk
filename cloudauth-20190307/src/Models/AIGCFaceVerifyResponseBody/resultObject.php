@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\AIGCFaceVerifyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultObject extends Model
 {
@@ -12,17 +12,11 @@ class resultObject extends Model
      * @var string
      */
     public $certifyId;
-
     /**
-     * @example Y
-     *
      * @var string
      */
     public $result;
-
     /**
-     * @example 1.0000
-     *
      * @var string
      */
     public $score;
@@ -34,17 +28,20 @@ class resultObject extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
@@ -52,20 +49,22 @@ class resultObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }

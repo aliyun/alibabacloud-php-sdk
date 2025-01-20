@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesResponseBody\data\faceInfos\faceAttributesDetectInfo\faceAttributes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class smiling extends Model
 {
     /**
-     * @example 95
-     *
      * @var float
      */
     public $threshold;
-
     /**
-     * @example 97
-     *
      * @var float
      */
     public $value;
@@ -28,14 +23,16 @@ class smiling extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -43,17 +40,18 @@ class smiling extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return smiling
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

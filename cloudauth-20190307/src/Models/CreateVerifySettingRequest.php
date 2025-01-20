@@ -4,52 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVerifySettingRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $bizName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example UserRegister
-     *
      * @var string
      */
     public $bizType;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $guideStep;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $privacyStep;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $resultStep;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example RPBasic
-     *
      * @var string
      */
     public $solution;
@@ -64,26 +43,32 @@ class CreateVerifySettingRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizName) {
             $res['BizName'] = $this->bizName;
         }
+
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->guideStep) {
             $res['GuideStep'] = $this->guideStep;
         }
+
         if (null !== $this->privacyStep) {
             $res['PrivacyStep'] = $this->privacyStep;
         }
+
         if (null !== $this->resultStep) {
             $res['ResultStep'] = $this->resultStep;
         }
+
         if (null !== $this->solution) {
             $res['Solution'] = $this->solution;
         }
@@ -91,29 +76,34 @@ class CreateVerifySettingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVerifySettingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizName'])) {
             $model->bizName = $map['BizName'];
         }
+
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['GuideStep'])) {
             $model->guideStep = $map['GuideStep'];
         }
+
         if (isset($map['PrivacyStep'])) {
             $model->privacyStep = $map['PrivacyStep'];
         }
+
         if (isset($map['ResultStep'])) {
             $model->resultStep = $map['ResultStep'];
         }
+
         if (isset($map['Solution'])) {
             $model->solution = $map['Solution'];
         }
