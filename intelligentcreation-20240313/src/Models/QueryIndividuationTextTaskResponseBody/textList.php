@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryIndividuationTextTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class textList extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $status;
-
     /**
-     * @example 2761
-     *
      * @var string
      */
     public $textId;
-
     /**
-     * @example 11
-     *
      * @var string
      */
     public $userId;
@@ -36,17 +28,20 @@ class textList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->textId) {
             $res['textId'] = $this->textId;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -54,20 +49,22 @@ class textList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return textList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['textId'])) {
             $model->textId = $map['textId'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

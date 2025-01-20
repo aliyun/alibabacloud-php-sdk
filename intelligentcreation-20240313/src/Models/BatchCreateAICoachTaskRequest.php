@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateAICoachTaskRequest extends Model
+class BatchCreateAICoachTaskRequest extends Model
 {
     /**
      * @var string
@@ -17,17 +17,20 @@ class CreateAICoachTaskRequest extends Model
      */
     public $scriptRecordId;
     /**
-     * @var string
+     * @var string[]
      */
-    public $studentId;
+    public $studentIds;
     protected $_name = [
         'requestId'      => 'requestId',
         'scriptRecordId' => 'scriptRecordId',
-        'studentId'      => 'studentId',
+        'studentIds'     => 'studentIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->studentIds)) {
+            Model::validateArray($this->studentIds);
+        }
         parent::validate();
     }
 
@@ -42,8 +45,14 @@ class CreateAICoachTaskRequest extends Model
             $res['scriptRecordId'] = $this->scriptRecordId;
         }
 
-        if (null !== $this->studentId) {
-            $res['studentId'] = $this->studentId;
+        if (null !== $this->studentIds) {
+            if (\is_array($this->studentIds)) {
+                $res['studentIds'] = [];
+                $n1                = 0;
+                foreach ($this->studentIds as $item1) {
+                    $res['studentIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
@@ -65,8 +74,14 @@ class CreateAICoachTaskRequest extends Model
             $model->scriptRecordId = $map['scriptRecordId'];
         }
 
-        if (isset($map['studentId'])) {
-            $model->studentId = $map['studentId'];
+        if (isset($map['studentIds'])) {
+            if (!empty($map['studentIds'])) {
+                $model->studentIds = [];
+                $n1                = 0;
+                foreach ($map['studentIds'] as $item1) {
+                    $model->studentIds[$n1++] = $item1;
+                }
+            }
         }
 
         return $model;

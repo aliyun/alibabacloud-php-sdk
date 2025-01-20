@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class queryResourceInfoList extends Model
 {
     /**
-     * @example a169e9ec18404edc9972afd80866dc97
-     *
      * @var string
      */
     public $sessionId;
-
     /**
-     * @example FREE
-     *
      * @var string
      */
     public $status;
@@ -28,14 +23,16 @@ class queryResourceInfoList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -43,17 +40,18 @@ class queryResourceInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryResourceInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

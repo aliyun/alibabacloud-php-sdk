@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SaveAvatarProjectRequest\frames\layers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class material extends Model
 {
     /**
-     * @example image/png
-     *
      * @var string
      */
     public $format;
-
     /**
-     * @example 434508
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @example https://alidocs.dingtalk.com/i/nodes/vy20BglGWOxjGpq0C5G4DlN0VA7depqY
-     *
      * @var string
      */
     public $url;
@@ -36,17 +28,20 @@ class material extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->format) {
             $res['format'] = $this->format;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -54,20 +49,22 @@ class material extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return material
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['format'])) {
             $model->format = $map['format'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

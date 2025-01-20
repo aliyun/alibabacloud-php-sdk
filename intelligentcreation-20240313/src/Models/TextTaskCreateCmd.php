@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TextTaskCreateCmd extends Model
 {
@@ -12,94 +12,58 @@ class TextTaskCreateCmd extends Model
      * @var string
      */
     public $agentId;
-
     /**
-     * @example 极氪007新车上市
-     *
      * @var string
      */
     public $contentRequirement;
-
     /**
-     * @example 28274623764834
-     *
      * @var string
      */
     public $idempotentId;
-
     /**
      * @var string
      */
     public $industry;
-
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $introduction;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $number;
-
     /**
-     * @example 超强续航
-     *
      * @var string
      */
     public $point;
-
     /**
      * @var ReferenceTag
      */
     public $referenceTag;
-
     /**
-     * @example 1
-     *
      * @var int[]
      */
     public $relatedRagIds;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $streamApi;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $style;
-
     /**
      * @var string
      */
     public $target;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $textModeType;
-
     /**
-     * @example 旅游路线
-     *
      * @var string
      */
     public $theme;
-
     /**
      * @var string[]
      */
@@ -124,115 +88,173 @@ class TextTaskCreateCmd extends Model
 
     public function validate()
     {
+        if (null !== $this->referenceTag) {
+            $this->referenceTag->validate();
+        }
+        if (\is_array($this->relatedRagIds)) {
+            Model::validateArray($this->relatedRagIds);
+        }
+        if (\is_array($this->themes)) {
+            Model::validateArray($this->themes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['agentId'] = $this->agentId;
         }
+
         if (null !== $this->contentRequirement) {
             $res['contentRequirement'] = $this->contentRequirement;
         }
+
         if (null !== $this->idempotentId) {
             $res['idempotentId'] = $this->idempotentId;
         }
+
         if (null !== $this->industry) {
             $res['industry'] = $this->industry;
         }
+
         if (null !== $this->introduction) {
             $res['introduction'] = $this->introduction;
         }
+
         if (null !== $this->number) {
             $res['number'] = $this->number;
         }
+
         if (null !== $this->point) {
             $res['point'] = $this->point;
         }
+
         if (null !== $this->referenceTag) {
-            $res['referenceTag'] = null !== $this->referenceTag ? $this->referenceTag->toMap() : null;
+            $res['referenceTag'] = null !== $this->referenceTag ? $this->referenceTag->toArray($noStream) : $this->referenceTag;
         }
+
         if (null !== $this->relatedRagIds) {
-            $res['relatedRagIds'] = $this->relatedRagIds;
+            if (\is_array($this->relatedRagIds)) {
+                $res['relatedRagIds'] = [];
+                $n1                   = 0;
+                foreach ($this->relatedRagIds as $item1) {
+                    $res['relatedRagIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->streamApi) {
             $res['streamApi'] = $this->streamApi;
         }
+
         if (null !== $this->style) {
             $res['style'] = $this->style;
         }
+
         if (null !== $this->target) {
             $res['target'] = $this->target;
         }
+
         if (null !== $this->textModeType) {
             $res['textModeType'] = $this->textModeType;
         }
+
         if (null !== $this->theme) {
             $res['theme'] = $this->theme;
         }
+
         if (null !== $this->themes) {
-            $res['themes'] = $this->themes;
+            if (\is_array($this->themes)) {
+                $res['themes'] = [];
+                $n1            = 0;
+                foreach ($this->themes as $item1) {
+                    $res['themes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TextTaskCreateCmd
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['agentId'])) {
             $model->agentId = $map['agentId'];
         }
+
         if (isset($map['contentRequirement'])) {
             $model->contentRequirement = $map['contentRequirement'];
         }
+
         if (isset($map['idempotentId'])) {
             $model->idempotentId = $map['idempotentId'];
         }
+
         if (isset($map['industry'])) {
             $model->industry = $map['industry'];
         }
+
         if (isset($map['introduction'])) {
             $model->introduction = $map['introduction'];
         }
+
         if (isset($map['number'])) {
             $model->number = $map['number'];
         }
+
         if (isset($map['point'])) {
             $model->point = $map['point'];
         }
+
         if (isset($map['referenceTag'])) {
             $model->referenceTag = ReferenceTag::fromMap($map['referenceTag']);
         }
+
         if (isset($map['relatedRagIds'])) {
             if (!empty($map['relatedRagIds'])) {
-                $model->relatedRagIds = $map['relatedRagIds'];
+                $model->relatedRagIds = [];
+                $n1                   = 0;
+                foreach ($map['relatedRagIds'] as $item1) {
+                    $model->relatedRagIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['streamApi'])) {
             $model->streamApi = $map['streamApi'];
         }
+
         if (isset($map['style'])) {
             $model->style = $map['style'];
         }
+
         if (isset($map['target'])) {
             $model->target = $map['target'];
         }
+
         if (isset($map['textModeType'])) {
             $model->textModeType = $map['textModeType'];
         }
+
         if (isset($map['theme'])) {
             $model->theme = $map['theme'];
         }
+
         if (isset($map['themes'])) {
             if (!empty($map['themes'])) {
-                $model->themes = $map['themes'];
+                $model->themes = [];
+                $n1            = 0;
+                foreach ($map['themes'] as $item1) {
+                    $model->themes[$n1++] = $item1;
+                }
             }
         }
 

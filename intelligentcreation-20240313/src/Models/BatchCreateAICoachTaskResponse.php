@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CloseAICoachTaskSessionResponse extends Model
+class BatchCreateAICoachTaskResponse extends Model
 {
     /**
      * @var string[]
@@ -17,7 +17,7 @@ class CloseAICoachTaskSessionResponse extends Model
      */
     public $statusCode;
     /**
-     * @var CloseAICoachTaskSessionResponseBody
+     * @var BatchCreateAICoachTaskResponseBody
      */
     public $body;
     protected $_name = [
@@ -82,7 +82,7 @@ class CloseAICoachTaskSessionResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = CloseAICoachTaskSessionResponseBody::fromMap($map['body']);
+            $model->body = BatchCreateAICoachTaskResponseBody::fromMap($map['body']);
         }
 
         return $model;

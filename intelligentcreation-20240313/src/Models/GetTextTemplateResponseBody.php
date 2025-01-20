@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextTemplateResponseBody\availableIndustry;
-use AlibabaCloud\Tea\Model;
 
 class GetTextTemplateResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class GetTextTemplateResponseBody extends Model
      * @var availableIndustry
      */
     public $availableIndustry;
-
     /**
-     * @example 3239281273464326823
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class GetTextTemplateResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->availableIndustry) {
+            $this->availableIndustry->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableIndustry) {
-            $res['availableIndustry'] = null !== $this->availableIndustry ? $this->availableIndustry->toMap() : null;
+            $res['availableIndustry'] = null !== $this->availableIndustry ? $this->availableIndustry->toArray($noStream) : $this->availableIndustry;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class GetTextTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTextTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['availableIndustry'])) {
             $model->availableIndustry = availableIndustry::fromMap($map['availableIndustry']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultList extends Model
 {
@@ -12,38 +12,23 @@ class resultList extends Model
      * @var string
      */
     public $errorMsg;
-
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @example 11
-     *
      * @var string
      */
     public $taskId;
-
     /**
-     * @example http
-     *
      * @var string
      */
     public $videoDownloadUrl;
-
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $videoDuration;
-
     /**
-     * @example http
-     *
      * @var string
      */
     public $videoUrl;
@@ -58,26 +43,32 @@ class resultList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
+
         if (null !== $this->videoDownloadUrl) {
             $res['videoDownloadUrl'] = $this->videoDownloadUrl;
         }
+
         if (null !== $this->videoDuration) {
             $res['videoDuration'] = $this->videoDuration;
         }
+
         if (null !== $this->videoUrl) {
             $res['videoUrl'] = $this->videoUrl;
         }
@@ -85,29 +76,34 @@ class resultList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }
+
         if (isset($map['videoDownloadUrl'])) {
             $model->videoDownloadUrl = $map['videoDownloadUrl'];
         }
+
         if (isset($map['videoDuration'])) {
             $model->videoDuration = $map['videoDuration'];
         }
+
         if (isset($map['videoUrl'])) {
             $model->videoUrl = $map['videoUrl'];
         }

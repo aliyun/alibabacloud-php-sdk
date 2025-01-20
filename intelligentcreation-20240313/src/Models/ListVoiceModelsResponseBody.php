@@ -4,55 +4,35 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListVoiceModelsResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @example 040002
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @example Failed to proxy flink ui request, message: An error occurred: Invalid UUID string: jobsn
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
      * @var VoiceModelResponse[]
      */
     public $list;
-
     /**
-     * @description Id of the request
-     *
-     * @example 14878724-A835-578D-9DD5-4779ADCE9221
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example True
-     *
      * @var bool
      */
     public $success;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $total;
@@ -68,35 +48,45 @@ class ListVoiceModelsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->list)) {
+            Model::validateArray($this->list);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->list) {
-            $res['list'] = [];
-            if (null !== $this->list && \is_array($this->list)) {
-                $n = 0;
-                foreach ($this->list as $item) {
-                    $res['list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->list)) {
+                $res['list'] = [];
+                $n1          = 0;
+                foreach ($this->list as $item1) {
+                    $res['list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -104,38 +94,44 @@ class ListVoiceModelsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVoiceModelsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
+
         if (isset($map['list'])) {
             if (!empty($map['list'])) {
                 $model->list = [];
-                $n           = 0;
-                foreach ($map['list'] as $item) {
-                    $model->list[$n++] = null !== $item ? VoiceModelResponse::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['list'] as $item1) {
+                    $model->list[$n1++] = VoiceModelResponse::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

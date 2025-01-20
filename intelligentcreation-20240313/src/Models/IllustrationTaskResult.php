@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IllustrationTaskResult extends Model
 {
@@ -12,10 +12,7 @@ class IllustrationTaskResult extends Model
      * @var IllustrationTask
      */
     public $illustrationTask;
-
     /**
-     * @example 3239281273464326823
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +23,19 @@ class IllustrationTaskResult extends Model
 
     public function validate()
     {
+        if (null !== $this->illustrationTask) {
+            $this->illustrationTask->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->illustrationTask) {
-            $res['illustrationTask'] = null !== $this->illustrationTask ? $this->illustrationTask->toMap() : null;
+            $res['illustrationTask'] = null !== $this->illustrationTask ? $this->illustrationTask->toArray($noStream) : $this->illustrationTask;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -41,17 +43,18 @@ class IllustrationTaskResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IllustrationTaskResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['illustrationTask'])) {
             $model->illustrationTask = IllustrationTask::fromMap($map['illustrationTask']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

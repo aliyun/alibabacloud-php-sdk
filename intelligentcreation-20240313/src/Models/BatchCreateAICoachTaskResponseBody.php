@@ -6,23 +6,26 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SendTextMsgResponseBody extends Model
+class BatchCreateAICoachTaskResponseBody extends Model
 {
     /**
      * @var string
      */
     public $requestId;
     /**
-     * @var string
+     * @var string[]
      */
-    public $status;
+    public $taskIds;
     protected $_name = [
         'requestId' => 'requestId',
-        'status'    => 'status',
+        'taskIds'   => 'taskIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->taskIds)) {
+            Model::validateArray($this->taskIds);
+        }
         parent::validate();
     }
 
@@ -33,8 +36,14 @@ class SendTextMsgResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
+        if (null !== $this->taskIds) {
+            if (\is_array($this->taskIds)) {
+                $res['taskIds'] = [];
+                $n1             = 0;
+                foreach ($this->taskIds as $item1) {
+                    $res['taskIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
@@ -52,8 +61,14 @@ class SendTextMsgResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
+        if (isset($map['taskIds'])) {
+            if (!empty($map['taskIds'])) {
+                $model->taskIds = [];
+                $n1             = 0;
+                foreach ($map['taskIds'] as $item1) {
+                    $model->taskIds[$n1++] = $item1;
+                }
+            }
         }
 
         return $model;

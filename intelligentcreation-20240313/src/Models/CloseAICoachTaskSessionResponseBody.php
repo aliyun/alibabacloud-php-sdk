@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloseAICoachTaskSessionResponseBody extends Model
 {
     /**
-     * @example 0E06E0AA-D5B6-538C-8CE9-BAB79C68B690
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var string
      */
@@ -26,14 +23,16 @@ class CloseAICoachTaskSessionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -41,17 +40,18 @@ class CloseAICoachTaskSessionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseAICoachTaskSessionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

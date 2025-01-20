@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextTemplateResponseBody\availableIndustry\textModeTypes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class textStyles extends Model
 {
@@ -12,24 +12,15 @@ class textStyles extends Model
      * @var string
      */
     public $desc;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $disabled;
-
     /**
-     * @example RED_BOOK
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example 111
-     *
      * @var string
      */
     public $templateKey;
@@ -42,20 +33,24 @@ class textStyles extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
+
         if (null !== $this->disabled) {
             $res['disabled'] = $this->disabled;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->templateKey) {
             $res['templateKey'] = $this->templateKey;
         }
@@ -63,23 +58,26 @@ class textStyles extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return textStyles
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
+
         if (isset($map['disabled'])) {
             $model->disabled = $map['disabled'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['templateKey'])) {
             $model->templateKey = $map['templateKey'];
         }

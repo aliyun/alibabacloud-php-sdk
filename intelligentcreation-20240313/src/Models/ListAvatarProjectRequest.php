@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAvatarProjectRequest extends Model
 {
@@ -18,29 +18,43 @@ class ListAvatarProjectRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->projectIdList)) {
+            Model::validateArray($this->projectIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectIdList) {
-            $res['projectIdList'] = $this->projectIdList;
+            if (\is_array($this->projectIdList)) {
+                $res['projectIdList'] = [];
+                $n1                   = 0;
+                foreach ($this->projectIdList as $item1) {
+                    $res['projectIdList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAvatarProjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['projectIdList'])) {
             if (!empty($map['projectIdList'])) {
-                $model->projectIdList = $map['projectIdList'];
+                $model->projectIdList = [];
+                $n1                   = 0;
+                foreach ($map['projectIdList'] as $item1) {
+                    $model->projectIdList[$n1++] = $item1;
+                }
             }
         }
 
