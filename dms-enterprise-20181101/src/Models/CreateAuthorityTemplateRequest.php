@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAuthorityTemplateRequest extends Model
 {
     /**
-     * @description The description of the permission template.
-     *
-     * @example This template is used for business testing.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The name of the permission template.
-     *
-     * This parameter is required.
-     * @example Test template.
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -43,17 +28,20 @@ class CreateAuthorityTemplateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -61,20 +49,22 @@ class CreateAuthorityTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAuthorityTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

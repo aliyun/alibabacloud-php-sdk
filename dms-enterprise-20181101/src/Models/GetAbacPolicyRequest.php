@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAbacPolicyRequest extends Model
 {
     /**
-     * @example 12****
-     *
      * @var int
      */
     public $abacPolicyId;
-
     /**
-     * @example policy_test
-     *
      * @var string
      */
     public $abacPolicyName;
-
     /**
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -36,17 +28,20 @@ class GetAbacPolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->abacPolicyId) {
             $res['AbacPolicyId'] = $this->abacPolicyId;
         }
+
         if (null !== $this->abacPolicyName) {
             $res['AbacPolicyName'] = $this->abacPolicyName;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -54,20 +49,22 @@ class GetAbacPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAbacPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AbacPolicyId'])) {
             $model->abacPolicyId = $map['AbacPolicyId'];
         }
+
         if (isset($map['AbacPolicyName'])) {
             $model->abacPolicyName = $map['AbacPolicyName'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

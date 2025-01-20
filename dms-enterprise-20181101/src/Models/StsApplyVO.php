@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StsApplyVO extends Model
 {
@@ -12,7 +12,6 @@ class StsApplyVO extends Model
      * @var string
      */
     public $aliyunId;
-
     /**
      * @var int
      */
@@ -24,14 +23,16 @@ class StsApplyVO extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunId) {
             $res['AliyunId'] = $this->aliyunId;
         }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
@@ -39,17 +40,18 @@ class StsApplyVO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StsApplyVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunId'])) {
             $model->aliyunId = $map['AliyunId'];
         }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }

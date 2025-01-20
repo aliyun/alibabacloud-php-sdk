@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StsTokenVO extends Model
 {
@@ -12,17 +12,14 @@ class StsTokenVO extends Model
      * @var string
      */
     public $accessKeyId;
-
     /**
      * @var string
      */
     public $accessKeySecret;
-
     /**
      * @var string
      */
     public $expiration;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class StsTokenVO extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessKeyId) {
             $res['AccessKeyId'] = $this->accessKeyId;
         }
+
         if (null !== $this->accessKeySecret) {
             $res['AccessKeySecret'] = $this->accessKeySecret;
         }
+
         if (null !== $this->expiration) {
             $res['Expiration'] = $this->expiration;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -57,23 +58,26 @@ class StsTokenVO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StsTokenVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessKeyId'])) {
             $model->accessKeyId = $map['AccessKeyId'];
         }
+
         if (isset($map['AccessKeySecret'])) {
             $model->accessKeySecret = $map['AccessKeySecret'];
         }
+
         if (isset($map['Expiration'])) {
             $model->expiration = $map['Expiration'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

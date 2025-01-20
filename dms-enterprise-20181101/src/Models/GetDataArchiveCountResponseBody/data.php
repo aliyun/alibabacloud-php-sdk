@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of tickets that data archiving failed.
-     *
-     * @example 1**
-     *
      * @var int
      */
     public $failCount;
-
     /**
-     * @description The number of tickets that data archiving is in progress.
-     *
-     * @example 2**
-     *
      * @var int
      */
     public $processingCount;
-
     /**
-     * @description The number of tickets that data archiving is successful.
-     *
-     * @example 3**
-     *
      * @var int
      */
     public $successCount;
-
     /**
-     * @description The total number of data archiving tickets.
-     *
-     * @example 6**
-     *
      * @var int
      */
     public $totalCount;
@@ -52,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failCount) {
             $res['FailCount'] = $this->failCount;
         }
+
         if (null !== $this->processingCount) {
             $res['ProcessingCount'] = $this->processingCount;
         }
+
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -73,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailCount'])) {
             $model->failCount = $map['FailCount'];
         }
+
         if (isset($map['ProcessingCount'])) {
             $model->processingCount = $map['ProcessingCount'];
         }
+
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

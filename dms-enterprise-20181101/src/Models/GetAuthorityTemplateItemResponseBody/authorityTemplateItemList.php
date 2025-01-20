@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemResponseBody\authorityTemplateItemList\authorityTemplateItem;
-use AlibabaCloud\Tea\Model;
 
 class authorityTemplateItemList extends Model
 {
@@ -19,17 +19,21 @@ class authorityTemplateItemList extends Model
 
     public function validate()
     {
+        if (\is_array($this->authorityTemplateItem)) {
+            Model::validateArray($this->authorityTemplateItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorityTemplateItem) {
-            $res['AuthorityTemplateItem'] = [];
-            if (null !== $this->authorityTemplateItem && \is_array($this->authorityTemplateItem)) {
-                $n = 0;
-                foreach ($this->authorityTemplateItem as $item) {
-                    $res['AuthorityTemplateItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->authorityTemplateItem)) {
+                $res['AuthorityTemplateItem'] = [];
+                $n1                           = 0;
+                foreach ($this->authorityTemplateItem as $item1) {
+                    $res['AuthorityTemplateItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class authorityTemplateItemList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authorityTemplateItemList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorityTemplateItem'])) {
             if (!empty($map['AuthorityTemplateItem'])) {
                 $model->authorityTemplateItem = [];
-                $n                            = 0;
-                foreach ($map['AuthorityTemplateItem'] as $item) {
-                    $model->authorityTemplateItem[$n++] = null !== $item ? authorityTemplateItem::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['AuthorityTemplateItem'] as $item1) {
+                    $model->authorityTemplateItem[$n1++] = authorityTemplateItem::fromMap($item1);
                 }
             }
         }

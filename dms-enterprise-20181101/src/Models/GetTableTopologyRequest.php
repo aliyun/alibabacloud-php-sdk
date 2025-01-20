@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTableTopologyRequest extends Model
 {
     /**
-     * @description The GUID of the table in Data Management (DMS).
-     *
-     * This parameter is required.
-     * @example IDB_L_308302.yuyang_test.test_ch
-     *
      * @var string
      */
     public $tableGuid;
-
     /**
-     * @description The ID of the tenant.
-     *
-     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Tenant information](https://help.aliyun.com/document_detail/181330.html) topic.
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -34,14 +23,16 @@ class GetTableTopologyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -49,17 +40,18 @@ class GetTableTopologyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTableTopologyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

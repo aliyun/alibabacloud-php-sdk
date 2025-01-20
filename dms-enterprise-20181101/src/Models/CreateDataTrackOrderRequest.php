@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderRequest\param;
-use AlibabaCloud\Tea\Model;
 
 class CreateDataTrackOrderRequest extends Model
 {
     /**
-     * @description The purpose or objective of the data tracking ticket. This parameter is used to help reduce unnecessary communication.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $comment;
-
     /**
-     * @description The parameters of the ticket.
-     *
-     * This parameter is required.
      * @var param
      */
     public $param;
-
     /**
-     * @description The IDs of the operators that are related to the ticket.
-     *
      * @var string[]
      */
     public $relatedUserList;
-
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -51,20 +34,36 @@ class CreateDataTrackOrderRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->param) {
+            $this->param->validate();
+        }
+        if (\is_array($this->relatedUserList)) {
+            Model::validateArray($this->relatedUserList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->param) {
-            $res['Param'] = null !== $this->param ? $this->param->toMap() : null;
+            $res['Param'] = null !== $this->param ? $this->param->toArray($noStream) : $this->param;
         }
+
         if (null !== $this->relatedUserList) {
-            $res['RelatedUserList'] = $this->relatedUserList;
+            if (\is_array($this->relatedUserList)) {
+                $res['RelatedUserList'] = [];
+                $n1                     = 0;
+                foreach ($this->relatedUserList as $item1) {
+                    $res['RelatedUserList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -72,25 +71,32 @@ class CreateDataTrackOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataTrackOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['Param'])) {
             $model->param = param::fromMap($map['Param']);
         }
+
         if (isset($map['RelatedUserList'])) {
             if (!empty($map['RelatedUserList'])) {
-                $model->relatedUserList = $map['RelatedUserList'];
+                $model->relatedUserList = [];
+                $n1                     = 0;
+                foreach ($map['RelatedUserList'] as $item1) {
+                    $model->relatedUserList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCronClearTaskDetailListResponseBody\dataCronClearTaskDetailList;
-use AlibabaCloud\Tea\Model;
 
 class GetDataCronClearTaskDetailListResponseBody extends Model
 {
     /**
-     * @description The historical data cleansing tasks
-     *
      * @var dataCronClearTaskDetailList[]
      */
     public $dataCronClearTaskDetailList;
-
     /**
-     * @description The error code returned if the request failed.
-     *
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description The error message returned if the request failed.
-     *
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example C1D39814-9808-47F8-AFE0-AF167239AC9B
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
-
     /**
-     * @description The total number of SQL tasks.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -71,32 +44,41 @@ class GetDataCronClearTaskDetailListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataCronClearTaskDetailList)) {
+            Model::validateArray($this->dataCronClearTaskDetailList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataCronClearTaskDetailList) {
-            $res['DataCronClearTaskDetailList'] = [];
-            if (null !== $this->dataCronClearTaskDetailList && \is_array($this->dataCronClearTaskDetailList)) {
-                $n = 0;
-                foreach ($this->dataCronClearTaskDetailList as $item) {
-                    $res['DataCronClearTaskDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataCronClearTaskDetailList)) {
+                $res['DataCronClearTaskDetailList'] = [];
+                $n1                                 = 0;
+                foreach ($this->dataCronClearTaskDetailList as $item1) {
+                    $res['DataCronClearTaskDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -104,35 +86,40 @@ class GetDataCronClearTaskDetailListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataCronClearTaskDetailListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataCronClearTaskDetailList'])) {
             if (!empty($map['DataCronClearTaskDetailList'])) {
                 $model->dataCronClearTaskDetailList = [];
-                $n                                  = 0;
-                foreach ($map['DataCronClearTaskDetailList'] as $item) {
-                    $model->dataCronClearTaskDetailList[$n++] = null !== $item ? dataCronClearTaskDetailList::fromMap($item) : $item;
+                $n1                                 = 0;
+                foreach ($map['DataCronClearTaskDetailList'] as $item1) {
+                    $model->dataCronClearTaskDetailList[$n1++] = dataCronClearTaskDetailList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

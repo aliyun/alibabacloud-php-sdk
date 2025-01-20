@@ -4,56 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTaskFlowNotificationRequest extends Model
 {
     /**
-     * @description The unique ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
-     *
-     * This parameter is required.
-     * @example 15***
-     *
      * @var int
      */
     public $dagId;
-
     /**
-     * @description Specifies whether to enable notifications for failed task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
-     *
-     * This parameter is required.
-     * @example true
-     *
      * @var bool
      */
     public $dagNotificationFail;
-
     /**
-     * @description Specifies whether to enable SLA global notifications for task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
-     *
-     * This parameter is required.
-     * @example true
-     *
      * @var bool
      */
     public $dagNotificationSla;
-
     /**
-     * @description Specifies whether to enable notifications for successful task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
-     *
-     * This parameter is required.
-     * @example true
-     *
      * @var bool
      */
     public $dagNotificationSuccess;
-
     /**
-     * @description The ID of the tenant.
-     *
-     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -67,23 +38,28 @@ class UpdateTaskFlowNotificationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
+
         if (null !== $this->dagNotificationFail) {
             $res['DagNotificationFail'] = $this->dagNotificationFail;
         }
+
         if (null !== $this->dagNotificationSla) {
             $res['DagNotificationSla'] = $this->dagNotificationSla;
         }
+
         if (null !== $this->dagNotificationSuccess) {
             $res['DagNotificationSuccess'] = $this->dagNotificationSuccess;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -91,26 +67,30 @@ class UpdateTaskFlowNotificationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTaskFlowNotificationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
+
         if (isset($map['DagNotificationFail'])) {
             $model->dagNotificationFail = $map['DagNotificationFail'];
         }
+
         if (isset($map['DagNotificationSla'])) {
             $model->dagNotificationSla = $map['DagNotificationSla'];
         }
+
         if (isset($map['DagNotificationSuccess'])) {
             $model->dagNotificationSuccess = $map['DagNotificationSuccess'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

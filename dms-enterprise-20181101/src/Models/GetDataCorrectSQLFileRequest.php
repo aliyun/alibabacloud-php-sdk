@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataCorrectSQLFileRequest extends Model
 {
     /**
-     * @description The ID of the ticket.
-     *
-     * This parameter is required.
-     * @example 730000
-     *
      * @var int
      */
     public $orderId;
-
     /**
-     * @description The ID of the tenant.
-     *
-     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
-     * @example -1
-     *
      * @var int
      */
     public $tid;
@@ -34,14 +23,16 @@ class GetDataCorrectSQLFileRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -49,17 +40,18 @@ class GetDataCorrectSQLFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataCorrectSQLFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

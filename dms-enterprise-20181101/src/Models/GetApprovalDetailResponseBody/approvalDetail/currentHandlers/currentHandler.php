@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetApprovalDetailResponseBody\approvalDetail\currentHandlers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class currentHandler extends Model
 {
     /**
-     * @description The ID of the user.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The nickname of the user.
-     *
-     * @example nickName
-     *
      * @var string
      */
     public $nickName;
@@ -32,14 +23,16 @@ class currentHandler extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
@@ -47,17 +40,18 @@ class currentHandler extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return currentHandler
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }

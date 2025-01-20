@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListClassificationTemplatesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class templateList extends Model
 {
     /**
-     * @description The name of the classification template.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The remarks.
-     *
-     * @example test
-     *
      * @var string
      */
     public $remark;
-
     /**
-     * @description The ID of the classification template.
-     *
-     * @example 3**
-     *
      * @var int
      */
     public $templateId;
-
     /**
-     * @description The type of the classification template. Valid values:
-     *
-     *   **INNER**: built-in template
-     *   **USER_DEFINE**: custom template
-     *
-     * @example USER_DEFINE
-     *
      * @var string
      */
     public $templateType;
@@ -55,20 +33,24 @@ class templateList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
@@ -76,23 +58,26 @@ class templateList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return templateList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }

@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesResponseBody\instanceList\instance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class standardGroup extends Model
 {
     /**
-     * @description The type of the control mode. Valid values:
-     *
-     *   **COMMON**: Security Collaboration
-     *   **NONE_CONTROL**: Flexible Management
-     *   **STABLE**: Stable Change
-     *
-     * @example COMMON
-     *
      * @var string
      */
     public $groupMode;
-
     /**
-     * @description The name of the security rule corresponding to the control mode.
-     *
-     * @example test
-     *
      * @var string
      */
     public $groupName;
@@ -36,14 +23,16 @@ class standardGroup extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupMode) {
             $res['GroupMode'] = $this->groupMode;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -51,17 +40,18 @@ class standardGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return standardGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupMode'])) {
             $model->groupMode = $map['GroupMode'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

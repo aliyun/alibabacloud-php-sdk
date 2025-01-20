@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody\rawDAGList\dag;
-use AlibabaCloud\Tea\Model;
 
 class rawDAGList extends Model
 {
@@ -19,17 +19,21 @@ class rawDAGList extends Model
 
     public function validate()
     {
+        if (\is_array($this->dag)) {
+            Model::validateArray($this->dag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dag) {
-            $res['Dag'] = [];
-            if (null !== $this->dag && \is_array($this->dag)) {
-                $n = 0;
-                foreach ($this->dag as $item) {
-                    $res['Dag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dag)) {
+                $res['Dag'] = [];
+                $n1         = 0;
+                foreach ($this->dag as $item1) {
+                    $res['Dag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class rawDAGList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rawDAGList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dag'])) {
             if (!empty($map['Dag'])) {
                 $model->dag = [];
-                $n          = 0;
-                foreach ($map['Dag'] as $item) {
-                    $model->dag[$n++] = null !== $item ? dag::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Dag'] as $item1) {
+                    $model->dag[$n1++] = dag::fromMap($item1);
                 }
             }
         }

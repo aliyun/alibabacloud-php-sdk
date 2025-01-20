@@ -4,52 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class param extends Model
 {
     /**
-     * @description The ID of the database. You can call the [SearchDatabases](https://help.aliyun.com/document_detail/141876.html) operation to query the ID of the database.
-     *
-     * This parameter is required.
-     * @example 123***
-     *
      * @var string
      */
     public $dbId;
-
     /**
-     * @description The end time of the time range in which you want to track data operations. The time must be in the yyyy-MM-dd HH:mm:ss format.
-     *
-     * This parameter is required.
-     * @example 2023-04-23 10:00:00
-     *
      * @var string
      */
     public $jobEndTime;
-
     /**
-     * @description The start time of the time range in which you want to track data operations. The time must be in the yyyy-MM-dd HH:mm:ss format.
-     *
-     * This parameter is required.
-     * @example 2023-04-23 00:00:00
-     *
      * @var string
      */
     public $jobStartTime;
-
     /**
-     * @description The names of the tables for which you want to track data operations.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $tableNames;
-
     /**
-     * @description The types of data operations that you want to track.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $trackTypes;
@@ -63,55 +38,90 @@ class param extends Model
 
     public function validate()
     {
+        if (\is_array($this->tableNames)) {
+            Model::validateArray($this->tableNames);
+        }
+        if (\is_array($this->trackTypes)) {
+            Model::validateArray($this->trackTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
+
         if (null !== $this->jobEndTime) {
             $res['JobEndTime'] = $this->jobEndTime;
         }
+
         if (null !== $this->jobStartTime) {
             $res['JobStartTime'] = $this->jobStartTime;
         }
+
         if (null !== $this->tableNames) {
-            $res['TableNames'] = $this->tableNames;
+            if (\is_array($this->tableNames)) {
+                $res['TableNames'] = [];
+                $n1                = 0;
+                foreach ($this->tableNames as $item1) {
+                    $res['TableNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->trackTypes) {
-            $res['TrackTypes'] = $this->trackTypes;
+            if (\is_array($this->trackTypes)) {
+                $res['TrackTypes'] = [];
+                $n1                = 0;
+                foreach ($this->trackTypes as $item1) {
+                    $res['TrackTypes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return param
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
+
         if (isset($map['JobEndTime'])) {
             $model->jobEndTime = $map['JobEndTime'];
         }
+
         if (isset($map['JobStartTime'])) {
             $model->jobStartTime = $map['JobStartTime'];
         }
+
         if (isset($map['TableNames'])) {
             if (!empty($map['TableNames'])) {
-                $model->tableNames = $map['TableNames'];
+                $model->tableNames = [];
+                $n1                = 0;
+                foreach ($map['TableNames'] as $item1) {
+                    $model->tableNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TrackTypes'])) {
             if (!empty($map['TrackTypes'])) {
-                $model->trackTypes = $map['TrackTypes'];
+                $model->trackTypes = [];
+                $n1                = 0;
+                foreach ($map['TrackTypes'] as $item1) {
+                    $model->trackTypes[$n1++] = $item1;
+                }
             }
         }
 

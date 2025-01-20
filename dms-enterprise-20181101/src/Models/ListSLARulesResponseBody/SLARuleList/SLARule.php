@@ -4,54 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSLARulesResponseBody\SLARuleList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SLARule extends Model
 {
     /**
-     * @description The ID of the task flow.
-     *
-     * @example 11****
-     *
      * @var int
      */
     public $dagId;
-
     /**
-     * @description The ID of the SLA rule.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The timeout period. Unit: minutes.
-     *
-     * @example 1080
-     *
      * @var int
      */
     public $intervalMinutes;
-
     /**
-     * @description The ID of the task node.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $nodeId;
-
     /**
-     * @description The type of the rule. Valid values:
-     *
-     *   **0**: an SLA rule for a task flow
-     *   **1**: an SLA rule for a task node
-     *
-     * @example 0
-     *
      * @var int
      */
     public $ruleType;
@@ -65,23 +38,28 @@ class SLARule extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->intervalMinutes) {
             $res['IntervalMinutes'] = $this->intervalMinutes;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
@@ -89,26 +67,30 @@ class SLARule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SLARule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IntervalMinutes'])) {
             $model->intervalMinutes = $map['IntervalMinutes'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }

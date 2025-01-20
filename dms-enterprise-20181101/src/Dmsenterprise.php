@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddAuthorityTemplateItemsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddAuthorityTemplateItemsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddAuthorityTemplateItemsShrinkRequest;
@@ -583,12 +582,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskTimeVariablesReque
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskTimeVariablesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateUserResponse;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dmsenterprise extends OpenApiClient
 {
@@ -613,44 +610,53 @@ class Dmsenterprise extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加权限模板资源
-     *  *
-     * @param AddAuthorityTemplateItemsRequest $tmpReq  AddAuthorityTemplateItemsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 添加权限模板资源.
      *
-     * @return AddAuthorityTemplateItemsResponse AddAuthorityTemplateItemsResponse
+     * @param tmpReq - AddAuthorityTemplateItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddAuthorityTemplateItemsResponse
+     *
+     * @param AddAuthorityTemplateItemsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddAuthorityTemplateItemsResponse
      */
     public function addAuthorityTemplateItemsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddAuthorityTemplateItemsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->items)) {
-            $request->itemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->items, 'Items', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->items) {
+            $request->itemsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->items, 'Items', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->itemsShrink)) {
-            $query['Items'] = $request->itemsShrink;
+        if (null !== $request->itemsShrink) {
+            @$query['Items'] = $request->itemsShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddAuthorityTemplateItems',
@@ -663,16 +669,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddAuthorityTemplateItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddAuthorityTemplateItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddAuthorityTemplateItemsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加权限模板资源
-     *  *
-     * @param AddAuthorityTemplateItemsRequest $request AddAuthorityTemplateItemsRequest
+     * 添加权限模板资源.
      *
-     * @return AddAuthorityTemplateItemsResponse AddAuthorityTemplateItemsResponse
+     * @param request - AddAuthorityTemplateItemsRequest
+     * @returns AddAuthorityTemplateItemsResponse
+     *
+     * @param AddAuthorityTemplateItemsRequest $request
+     *
+     * @return AddAuthorityTemplateItemsResponse
      */
     public function addAuthorityTemplateItems($request)
     {
@@ -682,41 +694,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Adds a masking rule.
-     *  *
-     * @param AddDesensitizationRuleRequest $request AddDesensitizationRuleRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Adds a masking rule.
      *
-     * @return AddDesensitizationRuleResponse AddDesensitizationRuleResponse
+     * @param request - AddDesensitizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddDesensitizationRuleResponse
+     *
+     * @param AddDesensitizationRuleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddDesensitizationRuleResponse
      */
     public function addDesensitizationRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->functionType)) {
-            $query['FunctionType'] = $request->functionType;
+        if (null !== $request->functionType) {
+            @$query['FunctionType'] = $request->functionType;
         }
-        if (!Utils::isUnset($request->ruleDescription)) {
-            $query['RuleDescription'] = $request->ruleDescription;
+
+        if (null !== $request->ruleDescription) {
+            @$query['RuleDescription'] = $request->ruleDescription;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body     = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->functionParams)) {
-            $bodyFlat['FunctionParams'] = $request->functionParams;
+        if (null !== $request->functionParams) {
+            @$bodyFlat['FunctionParams'] = $request->functionParams;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddDesensitizationRule',
@@ -729,16 +752,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDesensitizationRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a masking rule.
-     *  *
-     * @param AddDesensitizationRuleRequest $request AddDesensitizationRuleRequest
+     * Adds a masking rule.
      *
-     * @return AddDesensitizationRuleResponse AddDesensitizationRuleResponse
+     * @param request - AddDesensitizationRuleRequest
+     * @returns AddDesensitizationRuleResponse
+     *
+     * @param AddDesensitizationRuleRequest $request
+     *
+     * @return AddDesensitizationRuleResponse
      */
     public function addDesensitizationRule($request)
     {
@@ -748,106 +777,139 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 添加实例
-     *  *
-     * @param AddInstanceRequest $request AddInstanceRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 添加实例.
      *
-     * @return AddInstanceResponse AddInstanceResponse
+     * @param request - AddInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddInstanceResponse
+     *
+     * @param AddInstanceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddInstanceResponse
      */
     public function addInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataLinkName)) {
-            $query['DataLinkName'] = $request->dataLinkName;
+        if (null !== $request->dataLinkName) {
+            @$query['DataLinkName'] = $request->dataLinkName;
         }
-        if (!Utils::isUnset($request->databasePassword)) {
-            $query['DatabasePassword'] = $request->databasePassword;
+
+        if (null !== $request->databasePassword) {
+            @$query['DatabasePassword'] = $request->databasePassword;
         }
-        if (!Utils::isUnset($request->databaseUser)) {
-            $query['DatabaseUser'] = $request->databaseUser;
+
+        if (null !== $request->databaseUser) {
+            @$query['DatabaseUser'] = $request->databaseUser;
         }
-        if (!Utils::isUnset($request->dbaId)) {
-            $query['DbaId'] = $request->dbaId;
+
+        if (null !== $request->dbaId) {
+            @$query['DbaId'] = $request->dbaId;
         }
-        if (!Utils::isUnset($request->ddlOnline)) {
-            $query['DdlOnline'] = $request->ddlOnline;
+
+        if (null !== $request->ddlOnline) {
+            @$query['DdlOnline'] = $request->ddlOnline;
         }
-        if (!Utils::isUnset($request->ecsInstanceId)) {
-            $query['EcsInstanceId'] = $request->ecsInstanceId;
+
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
         }
-        if (!Utils::isUnset($request->ecsRegion)) {
-            $query['EcsRegion'] = $request->ecsRegion;
+
+        if (null !== $request->ecsRegion) {
+            @$query['EcsRegion'] = $request->ecsRegion;
         }
-        if (!Utils::isUnset($request->enableSellCommon)) {
-            $query['EnableSellCommon'] = $request->enableSellCommon;
+
+        if (null !== $request->enableSellCommon) {
+            @$query['EnableSellCommon'] = $request->enableSellCommon;
         }
-        if (!Utils::isUnset($request->enableSellSitd)) {
-            $query['EnableSellSitd'] = $request->enableSellSitd;
+
+        if (null !== $request->enableSellSitd) {
+            @$query['EnableSellSitd'] = $request->enableSellSitd;
         }
-        if (!Utils::isUnset($request->enableSellStable)) {
-            $query['EnableSellStable'] = $request->enableSellStable;
+
+        if (null !== $request->enableSellStable) {
+            @$query['EnableSellStable'] = $request->enableSellStable;
         }
-        if (!Utils::isUnset($request->enableSellTrust)) {
-            $query['EnableSellTrust'] = $request->enableSellTrust;
+
+        if (null !== $request->enableSellTrust) {
+            @$query['EnableSellTrust'] = $request->enableSellTrust;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->exportTimeout)) {
-            $query['ExportTimeout'] = $request->exportTimeout;
+
+        if (null !== $request->exportTimeout) {
+            @$query['ExportTimeout'] = $request->exportTimeout;
         }
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->instanceAlias)) {
-            $query['InstanceAlias'] = $request->instanceAlias;
+
+        if (null !== $request->instanceAlias) {
+            @$query['InstanceAlias'] = $request->instanceAlias;
         }
-        if (!Utils::isUnset($request->instanceSource)) {
-            $query['InstanceSource'] = $request->instanceSource;
+
+        if (null !== $request->instanceSource) {
+            @$query['InstanceSource'] = $request->instanceSource;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->queryTimeout)) {
-            $query['QueryTimeout'] = $request->queryTimeout;
+
+        if (null !== $request->queryTimeout) {
+            @$query['QueryTimeout'] = $request->queryTimeout;
         }
-        if (!Utils::isUnset($request->safeRule)) {
-            $query['SafeRule'] = $request->safeRule;
+
+        if (null !== $request->safeRule) {
+            @$query['SafeRule'] = $request->safeRule;
         }
-        if (!Utils::isUnset($request->sid)) {
-            $query['Sid'] = $request->sid;
+
+        if (null !== $request->sid) {
+            @$query['Sid'] = $request->sid;
         }
-        if (!Utils::isUnset($request->skipTest)) {
-            $query['SkipTest'] = $request->skipTest;
+
+        if (null !== $request->skipTest) {
+            @$query['SkipTest'] = $request->skipTest;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->useDsql)) {
-            $query['UseDsql'] = $request->useDsql;
+
+        if (null !== $request->useDsql) {
+            @$query['UseDsql'] = $request->useDsql;
         }
-        if (!Utils::isUnset($request->useSsl)) {
-            $query['UseSsl'] = $request->useSsl;
+
+        if (null !== $request->useSsl) {
+            @$query['UseSsl'] = $request->useSsl;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddInstance',
@@ -860,16 +922,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加实例
-     *  *
-     * @param AddInstanceRequest $request AddInstanceRequest
+     * 添加实例.
      *
-     * @return AddInstanceResponse AddInstanceResponse
+     * @param request - AddInstanceRequest
+     * @returns AddInstanceResponse
+     *
+     * @param AddInstanceRequest $request
+     *
+     * @return AddInstanceResponse
      */
     public function addInstance($request)
     {
@@ -879,42 +947,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Adds a workspace administrator, a workspace member, or a task flow developer in Data Management (DMS).
-     *  *
-     * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+     * Adds a workspace administrator, a workspace member, or a task flow developer in Data Management (DMS).
+     *
+     * @remarks
+     * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
      * Usage notes:
      * *   Before you call this operation to add a user as a task flow developer, make sure that you have added the user as a workspace member.
      * *   You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
      * *   For more information about workspace roles and permissions, see [Manage permissions on a workspace](https://help.aliyun.com/document_detail/410893.html).
-     *  *
-     * @param AddLhMembersRequest $tmpReq  AddLhMembersRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddLhMembersResponse AddLhMembersResponse
+     * @param tmpReq - AddLhMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddLhMembersResponse
+     *
+     * @param AddLhMembersRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AddLhMembersResponse
      */
     public function addLhMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddLhMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->members)) {
-            $request->membersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->members) {
+            $request->membersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->membersShrink)) {
-            $query['Members'] = $request->membersShrink;
+        if (null !== $request->membersShrink) {
+            @$query['Members'] = $request->membersShrink;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddLhMembers',
@@ -927,22 +1005,29 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddLhMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a workspace administrator, a workspace member, or a task flow developer in Data Management (DMS).
-     *  *
-     * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+     * Adds a workspace administrator, a workspace member, or a task flow developer in Data Management (DMS).
+     *
+     * @remarks
+     * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
      * Usage notes:
      * *   Before you call this operation to add a user as a task flow developer, make sure that you have added the user as a workspace member.
      * *   You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
      * *   For more information about workspace roles and permissions, see [Manage permissions on a workspace](https://help.aliyun.com/document_detail/410893.html).
-     *  *
-     * @param AddLhMembersRequest $request AddLhMembersRequest
      *
-     * @return AddLhMembersResponse AddLhMembersResponse
+     * @param request - AddLhMembersRequest
+     * @returns AddLhMembersResponse
+     *
+     * @param AddLhMembersRequest $request
+     *
+     * @return AddLhMembersResponse
      */
     public function addLhMembers($request)
     {
@@ -952,31 +1037,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Adds a routing algorithm to a logical table.
-     *  *
-     * @param AddLogicTableRouteConfigRequest $request AddLogicTableRouteConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Adds a routing algorithm to a logical table.
      *
-     * @return AddLogicTableRouteConfigResponse AddLogicTableRouteConfigResponse
+     * @param request - AddLogicTableRouteConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddLogicTableRouteConfigResponse
+     *
+     * @param AddLogicTableRouteConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddLogicTableRouteConfigResponse
      */
     public function addLogicTableRouteConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->routeExpr)) {
-            $query['RouteExpr'] = $request->routeExpr;
+        if (null !== $request->routeExpr) {
+            @$query['RouteExpr'] = $request->routeExpr;
         }
-        if (!Utils::isUnset($request->routeKey)) {
-            $query['RouteKey'] = $request->routeKey;
+
+        if (null !== $request->routeKey) {
+            @$query['RouteKey'] = $request->routeKey;
         }
-        if (!Utils::isUnset($request->tableId)) {
-            $query['TableId'] = $request->tableId;
+
+        if (null !== $request->tableId) {
+            @$query['TableId'] = $request->tableId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddLogicTableRouteConfig',
@@ -989,16 +1082,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddLogicTableRouteConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a routing algorithm to a logical table.
-     *  *
-     * @param AddLogicTableRouteConfigRequest $request AddLogicTableRouteConfigRequest
+     * Adds a routing algorithm to a logical table.
      *
-     * @return AddLogicTableRouteConfigResponse AddLogicTableRouteConfigResponse
+     * @param request - AddLogicTableRouteConfigRequest
+     * @returns AddLogicTableRouteConfigResponse
+     *
+     * @param AddLogicTableRouteConfigRequest $request
+     *
+     * @return AddLogicTableRouteConfigResponse
      */
     public function addLogicTableRouteConfig($request)
     {
@@ -1008,37 +1107,46 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Adds directed edges for an existing task node.
-     *  *
-     * @description When you add directed edges for a task node, take note of the following limits:
+     * Adds directed edges for an existing task node.
+     *
+     * @remarks
+     * When you add directed edges for a task node, take note of the following limits:
      * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
      * 2. After a backward edge is added, the DAG does not contain loops.
-     *  *
-     * @param AddTaskFlowEdgesRequest $tmpReq  AddTaskFlowEdgesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTaskFlowEdgesResponse AddTaskFlowEdgesResponse
+     * @param tmpReq - AddTaskFlowEdgesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddTaskFlowEdgesResponse
+     *
+     * @param AddTaskFlowEdgesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddTaskFlowEdgesResponse
      */
     public function addTaskFlowEdgesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddTaskFlowEdgesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->edges)) {
-            $request->edgesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->edges, 'Edges', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->edges) {
+            $request->edgesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->edges, 'Edges', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->edgesShrink)) {
-            $query['Edges'] = $request->edgesShrink;
+
+        if (null !== $request->edgesShrink) {
+            @$query['Edges'] = $request->edgesShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddTaskFlowEdges',
@@ -1051,20 +1159,27 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddTaskFlowEdgesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds directed edges for an existing task node.
-     *  *
-     * @description When you add directed edges for a task node, take note of the following limits:
+     * Adds directed edges for an existing task node.
+     *
+     * @remarks
+     * When you add directed edges for a task node, take note of the following limits:
      * 1. The endpoints of the specified edge exist in the Directed Acyclic Graph (DAG) of the task flow specified by DagId.
      * 2. After a backward edge is added, the DAG does not contain loops.
-     *  *
-     * @param AddTaskFlowEdgesRequest $request AddTaskFlowEdgesRequest
      *
-     * @return AddTaskFlowEdgesResponse AddTaskFlowEdgesResponse
+     * @param request - AddTaskFlowEdgesRequest
+     * @returns AddTaskFlowEdgesResponse
+     *
+     * @param AddTaskFlowEdgesRequest $request
+     *
+     * @return AddTaskFlowEdgesResponse
      */
     public function addTaskFlowEdges($request)
     {
@@ -1074,32 +1189,40 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Analyzes the lineage (dependencies and influence) between tables and between fields in SQL statements.
-     *  *
-     * @description The following conditions must be met before you call this API operation.
+     * Analyzes the lineage (dependencies and influence) between tables and between fields in SQL statements.
+     *
+     * @remarks
+     * The following conditions must be met before you call this API operation.
      * *   The database instance is of one of the following types: ApsaraDB RDS for MySQL, PolarDB for MySQL, AnalyticDB for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for PostgreSQL, AnalyticDB for PostgreSQL, Oracle, and openGauss.
      * *   A database instance is managed in Security Collaboration mode. For more information about control modes, see [Control modes](https://help.aliyun.com/document_detail/151629.html).
-     *  *
-     * @param AnalyzeSQLLineageRequest $request AnalyzeSQLLineageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AnalyzeSQLLineageResponse AnalyzeSQLLineageResponse
+     * @param request - AnalyzeSQLLineageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AnalyzeSQLLineageResponse
+     *
+     * @param AnalyzeSQLLineageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AnalyzeSQLLineageResponse
      */
     public function analyzeSQLLineageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->sqlContent)) {
-            $query['SqlContent'] = $request->sqlContent;
+
+        if (null !== $request->sqlContent) {
+            @$query['SqlContent'] = $request->sqlContent;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AnalyzeSQLLineage',
@@ -1112,20 +1235,27 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AnalyzeSQLLineageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AnalyzeSQLLineageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AnalyzeSQLLineageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Analyzes the lineage (dependencies and influence) between tables and between fields in SQL statements.
-     *  *
-     * @description The following conditions must be met before you call this API operation.
+     * Analyzes the lineage (dependencies and influence) between tables and between fields in SQL statements.
+     *
+     * @remarks
+     * The following conditions must be met before you call this API operation.
      * *   The database instance is of one of the following types: ApsaraDB RDS for MySQL, PolarDB for MySQL, AnalyticDB for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for PostgreSQL, AnalyticDB for PostgreSQL, Oracle, and openGauss.
      * *   A database instance is managed in Security Collaboration mode. For more information about control modes, see [Control modes](https://help.aliyun.com/document_detail/151629.html).
-     *  *
-     * @param AnalyzeSQLLineageRequest $request AnalyzeSQLLineageRequest
      *
-     * @return AnalyzeSQLLineageResponse AnalyzeSQLLineageResponse
+     * @param request - AnalyzeSQLLineageRequest
+     * @returns AnalyzeSQLLineageResponse
+     *
+     * @param AnalyzeSQLLineageRequest $request
+     *
+     * @return AnalyzeSQLLineageResponse
      */
     public function analyzeSQLLineage($request)
     {
@@ -1135,49 +1265,63 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Reviews a ticket.
-     *  *
-     * @param ApproveOrderRequest $request ApproveOrderRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Reviews a ticket.
      *
-     * @return ApproveOrderResponse ApproveOrderResponse
+     * @param request - ApproveOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApproveOrderResponse
+     *
+     * @param ApproveOrderRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ApproveOrderResponse
      */
     public function approveOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->approvalNodeId)) {
-            $query['ApprovalNodeId'] = $request->approvalNodeId;
+        if (null !== $request->approvalNodeId) {
+            @$query['ApprovalNodeId'] = $request->approvalNodeId;
         }
-        if (!Utils::isUnset($request->approvalNodePos)) {
-            $query['ApprovalNodePos'] = $request->approvalNodePos;
+
+        if (null !== $request->approvalNodePos) {
+            @$query['ApprovalNodePos'] = $request->approvalNodePos;
         }
-        if (!Utils::isUnset($request->approvalType)) {
-            $query['ApprovalType'] = $request->approvalType;
+
+        if (null !== $request->approvalType) {
+            @$query['ApprovalType'] = $request->approvalType;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->newApprover)) {
-            $query['NewApprover'] = $request->newApprover;
+
+        if (null !== $request->newApprover) {
+            @$query['NewApprover'] = $request->newApprover;
         }
-        if (!Utils::isUnset($request->newApproverList)) {
-            $query['NewApproverList'] = $request->newApproverList;
+
+        if (null !== $request->newApproverList) {
+            @$query['NewApproverList'] = $request->newApproverList;
         }
-        if (!Utils::isUnset($request->oldApprover)) {
-            $query['OldApprover'] = $request->oldApprover;
+
+        if (null !== $request->oldApprover) {
+            @$query['OldApprover'] = $request->oldApprover;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->workflowInstanceId)) {
-            $query['WorkflowInstanceId'] = $request->workflowInstanceId;
+
+        if (null !== $request->workflowInstanceId) {
+            @$query['WorkflowInstanceId'] = $request->workflowInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ApproveOrder',
@@ -1190,16 +1334,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ApproveOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApproveOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApproveOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Reviews a ticket.
-     *  *
-     * @param ApproveOrderRequest $request ApproveOrderRequest
+     * Reviews a ticket.
      *
-     * @return ApproveOrderResponse ApproveOrderResponse
+     * @param request - ApproveOrderRequest
+     * @returns ApproveOrderResponse
+     *
+     * @param ApproveOrderRequest $request
+     *
+     * @return ApproveOrderResponse
      */
     public function approveOrder($request)
     {
@@ -1209,62 +1359,80 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Backfills data for task orchestration.
-     *  *
-     * @description During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
-     *  *
-     * @param BackFillRequest $tmpReq  BackFillRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Backfills data for task orchestration.
      *
-     * @return BackFillResponse BackFillResponse
+     * @remarks
+     * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
+     *
+     * @param tmpReq - BackFillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BackFillResponse
+     *
+     * @param BackFillRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return BackFillResponse
      */
     public function backFillWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BackFillShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filterNodeIds)) {
-            $request->filterNodeIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterNodeIds, 'FilterNodeIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterNodeIds) {
+            $request->filterNodeIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterNodeIds, 'FilterNodeIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->startNodeIds)) {
-            $request->startNodeIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->startNodeIds, 'StartNodeIds', 'json');
+
+        if (null !== $tmpReq->startNodeIds) {
+            $request->startNodeIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->startNodeIds, 'StartNodeIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
+        if (null !== $request->asc) {
+            @$query['Asc'] = $request->asc;
         }
-        if (!Utils::isUnset($request->backFillDate)) {
-            $query['BackFillDate'] = $request->backFillDate;
+
+        if (null !== $request->backFillDate) {
+            @$query['BackFillDate'] = $request->backFillDate;
         }
-        if (!Utils::isUnset($request->backFillDateBegin)) {
-            $query['BackFillDateBegin'] = $request->backFillDateBegin;
+
+        if (null !== $request->backFillDateBegin) {
+            @$query['BackFillDateBegin'] = $request->backFillDateBegin;
         }
-        if (!Utils::isUnset($request->backFillDateEnd)) {
-            $query['BackFillDateEnd'] = $request->backFillDateEnd;
+
+        if (null !== $request->backFillDateEnd) {
+            @$query['BackFillDateEnd'] = $request->backFillDateEnd;
         }
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->filterNodeIdsShrink)) {
-            $query['FilterNodeIds'] = $request->filterNodeIdsShrink;
+
+        if (null !== $request->filterNodeIdsShrink) {
+            @$query['FilterNodeIds'] = $request->filterNodeIdsShrink;
         }
-        if (!Utils::isUnset($request->historyDagId)) {
-            $query['HistoryDagId'] = $request->historyDagId;
+
+        if (null !== $request->historyDagId) {
+            @$query['HistoryDagId'] = $request->historyDagId;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->isTriggerSubTree)) {
-            $query['IsTriggerSubTree'] = $request->isTriggerSubTree;
+
+        if (null !== $request->isTriggerSubTree) {
+            @$query['IsTriggerSubTree'] = $request->isTriggerSubTree;
         }
-        if (!Utils::isUnset($request->startNodeIdsShrink)) {
-            $query['StartNodeIds'] = $request->startNodeIdsShrink;
+
+        if (null !== $request->startNodeIdsShrink) {
+            @$query['StartNodeIds'] = $request->startNodeIdsShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BackFill',
@@ -1277,18 +1445,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BackFillResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BackFillResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BackFillResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Backfills data for task orchestration.
-     *  *
-     * @description During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
-     *  *
-     * @param BackFillRequest $request BackFillRequest
+     * Backfills data for task orchestration.
      *
-     * @return BackFillResponse BackFillResponse
+     * @remarks
+     * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
+     *
+     * @param request - BackFillRequest
+     * @returns BackFillResponse
+     *
+     * @param BackFillRequest $request
+     *
+     * @return BackFillResponse
      */
     public function backFill($request)
     {
@@ -1298,50 +1473,63 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 批量新建湖仓表分区
-     *  *
-     * @param BatchCreateDataLakePartitionsRequest $tmpReq  BatchCreateDataLakePartitionsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 批量新建湖仓表分区.
      *
-     * @return BatchCreateDataLakePartitionsResponse BatchCreateDataLakePartitionsResponse
+     * @param tmpReq - BatchCreateDataLakePartitionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchCreateDataLakePartitionsResponse
+     *
+     * @param BatchCreateDataLakePartitionsRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return BatchCreateDataLakePartitionsResponse
      */
     public function batchCreateDataLakePartitionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchCreateDataLakePartitionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->partitionInputs)) {
-            $request->partitionInputsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionInputs, 'PartitionInputs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->partitionInputs) {
+            $request->partitionInputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partitionInputs, 'PartitionInputs', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->ifNotExists)) {
-            $query['IfNotExists'] = $request->ifNotExists;
+
+        if (null !== $request->ifNotExists) {
+            @$query['IfNotExists'] = $request->ifNotExists;
         }
-        if (!Utils::isUnset($request->needResult)) {
-            $query['NeedResult'] = $request->needResult;
+
+        if (null !== $request->needResult) {
+            @$query['NeedResult'] = $request->needResult;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->partitionInputsShrink)) {
-            $body['PartitionInputs'] = $request->partitionInputsShrink;
+        if (null !== $request->partitionInputsShrink) {
+            @$body['PartitionInputs'] = $request->partitionInputsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchCreateDataLakePartitions',
@@ -1354,16 +1542,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchCreateDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchCreateDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchCreateDataLakePartitionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量新建湖仓表分区
-     *  *
-     * @param BatchCreateDataLakePartitionsRequest $request BatchCreateDataLakePartitionsRequest
+     * 批量新建湖仓表分区.
      *
-     * @return BatchCreateDataLakePartitionsResponse BatchCreateDataLakePartitionsResponse
+     * @param request - BatchCreateDataLakePartitionsRequest
+     * @returns BatchCreateDataLakePartitionsResponse
+     *
+     * @param BatchCreateDataLakePartitionsRequest $request
+     *
+     * @return BatchCreateDataLakePartitionsResponse
      */
     public function batchCreateDataLakePartitions($request)
     {
@@ -1373,40 +1567,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除湖仓表分区
-     *  *
-     * @param BatchDeleteDataLakePartitionsRequest $request BatchDeleteDataLakePartitionsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 批量删除湖仓表分区.
      *
-     * @return BatchDeleteDataLakePartitionsResponse BatchDeleteDataLakePartitionsResponse
+     * @param request - BatchDeleteDataLakePartitionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchDeleteDataLakePartitionsResponse
+     *
+     * @param BatchDeleteDataLakePartitionsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return BatchDeleteDataLakePartitionsResponse
      */
     public function batchDeleteDataLakePartitionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->ifExists)) {
-            $query['IfExists'] = $request->ifExists;
+
+        if (null !== $request->ifExists) {
+            @$query['IfExists'] = $request->ifExists;
         }
-        if (!Utils::isUnset($request->partitionValuesList)) {
-            $query['PartitionValuesList'] = $request->partitionValuesList;
+
+        if (null !== $request->partitionValuesList) {
+            @$query['PartitionValuesList'] = $request->partitionValuesList;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchDeleteDataLakePartitions',
@@ -1419,16 +1624,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchDeleteDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchDeleteDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchDeleteDataLakePartitionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量删除湖仓表分区
-     *  *
-     * @param BatchDeleteDataLakePartitionsRequest $request BatchDeleteDataLakePartitionsRequest
+     * 批量删除湖仓表分区.
      *
-     * @return BatchDeleteDataLakePartitionsResponse BatchDeleteDataLakePartitionsResponse
+     * @param request - BatchDeleteDataLakePartitionsRequest
+     * @returns BatchDeleteDataLakePartitionsResponse
+     *
+     * @param BatchDeleteDataLakePartitionsRequest $request
+     *
+     * @return BatchDeleteDataLakePartitionsResponse
      */
     public function batchDeleteDataLakePartitions($request)
     {
@@ -1438,44 +1649,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 批量更新湖仓表分区
-     *  *
-     * @param BatchUpdateDataLakePartitionsRequest $tmpReq  BatchUpdateDataLakePartitionsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 批量更新湖仓表分区.
      *
-     * @return BatchUpdateDataLakePartitionsResponse BatchUpdateDataLakePartitionsResponse
+     * @param tmpReq - BatchUpdateDataLakePartitionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchUpdateDataLakePartitionsResponse
+     *
+     * @param BatchUpdateDataLakePartitionsRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return BatchUpdateDataLakePartitionsResponse
      */
     public function batchUpdateDataLakePartitionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchUpdateDataLakePartitionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->partitionInputs)) {
-            $request->partitionInputsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionInputs, 'PartitionInputs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->partitionInputs) {
+            $request->partitionInputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partitionInputs, 'PartitionInputs', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->partitionInputsShrink)) {
-            $body['PartitionInputs'] = $request->partitionInputsShrink;
+        if (null !== $request->partitionInputsShrink) {
+            @$body['PartitionInputs'] = $request->partitionInputsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchUpdateDataLakePartitions',
@@ -1488,16 +1710,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchUpdateDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchUpdateDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchUpdateDataLakePartitionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量更新湖仓表分区
-     *  *
-     * @param BatchUpdateDataLakePartitionsRequest $request BatchUpdateDataLakePartitionsRequest
+     * 批量更新湖仓表分区.
      *
-     * @return BatchUpdateDataLakePartitionsResponse BatchUpdateDataLakePartitionsResponse
+     * @param request - BatchUpdateDataLakePartitionsRequest
+     * @returns BatchUpdateDataLakePartitionsResponse
+     *
+     * @param BatchUpdateDataLakePartitionsRequest $request
+     *
+     * @return BatchUpdateDataLakePartitionsResponse
      */
     public function batchUpdateDataLakePartitions($request)
     {
@@ -1507,31 +1735,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Purchases a pay-as-you-go Data Management (DMS) resource.
-     *  *
-     * @param BuyPayAsYouGoOrderRequest $request BuyPayAsYouGoOrderRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Purchases a pay-as-you-go Data Management (DMS) resource.
      *
-     * @return BuyPayAsYouGoOrderResponse BuyPayAsYouGoOrderResponse
+     * @param request - BuyPayAsYouGoOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BuyPayAsYouGoOrderResponse
+     *
+     * @param BuyPayAsYouGoOrderRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BuyPayAsYouGoOrderResponse
      */
     public function buyPayAsYouGoOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commodityType)) {
-            $query['CommodityType'] = $request->commodityType;
+        if (null !== $request->commodityType) {
+            @$query['CommodityType'] = $request->commodityType;
         }
-        if (!Utils::isUnset($request->insNum)) {
-            $query['InsNum'] = $request->insNum;
+
+        if (null !== $request->insNum) {
+            @$query['InsNum'] = $request->insNum;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->versionType)) {
-            $query['VersionType'] = $request->versionType;
+
+        if (null !== $request->versionType) {
+            @$query['VersionType'] = $request->versionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BuyPayAsYouGoOrder',
@@ -1544,16 +1780,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BuyPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BuyPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BuyPayAsYouGoOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Purchases a pay-as-you-go Data Management (DMS) resource.
-     *  *
-     * @param BuyPayAsYouGoOrderRequest $request BuyPayAsYouGoOrderRequest
+     * Purchases a pay-as-you-go Data Management (DMS) resource.
      *
-     * @return BuyPayAsYouGoOrderResponse BuyPayAsYouGoOrderResponse
+     * @param request - BuyPayAsYouGoOrderRequest
+     * @returns BuyPayAsYouGoOrderResponse
+     *
+     * @param BuyPayAsYouGoOrderRequest $request
+     *
+     * @return BuyPayAsYouGoOrderResponse
      */
     public function buyPayAsYouGoOrder($request)
     {
@@ -1563,40 +1805,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Adjusts the sensitivity level of one or more fields.
-     *  *
-     * @param ChangeColumnSecLevelRequest $request ChangeColumnSecLevelRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Adjusts the sensitivity level of one or more fields.
      *
-     * @return ChangeColumnSecLevelResponse ChangeColumnSecLevelResponse
+     * @param request - ChangeColumnSecLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeColumnSecLevelResponse
+     *
+     * @param ChangeColumnSecLevelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ChangeColumnSecLevelResponse
      */
     public function changeColumnSecLevelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->columnName)) {
-            $query['ColumnName'] = $request->columnName;
+        if (null !== $request->columnName) {
+            @$query['ColumnName'] = $request->columnName;
         }
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->isLogic)) {
-            $query['IsLogic'] = $request->isLogic;
+
+        if (null !== $request->isLogic) {
+            @$query['IsLogic'] = $request->isLogic;
         }
-        if (!Utils::isUnset($request->newLevel)) {
-            $query['NewLevel'] = $request->newLevel;
+
+        if (null !== $request->newLevel) {
+            @$query['NewLevel'] = $request->newLevel;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeColumnSecLevel',
@@ -1609,16 +1862,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeColumnSecLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeColumnSecLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeColumnSecLevelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adjusts the sensitivity level of one or more fields.
-     *  *
-     * @param ChangeColumnSecLevelRequest $request ChangeColumnSecLevelRequest
+     * Adjusts the sensitivity level of one or more fields.
      *
-     * @return ChangeColumnSecLevelResponse ChangeColumnSecLevelResponse
+     * @param request - ChangeColumnSecLevelRequest
+     * @returns ChangeColumnSecLevelResponse
+     *
+     * @param ChangeColumnSecLevelRequest $request
+     *
+     * @return ChangeColumnSecLevelResponse
      */
     public function changeColumnSecLevel($request)
     {
@@ -1628,40 +1887,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 修改字段敏感序列
-     *  *
-     * @param ChangeColumnSecurityLevelRequest $request ChangeColumnSecurityLevelRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 修改字段敏感序列.
      *
-     * @return ChangeColumnSecurityLevelResponse ChangeColumnSecurityLevelResponse
+     * @param request - ChangeColumnSecurityLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeColumnSecurityLevelResponse
+     *
+     * @param ChangeColumnSecurityLevelRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ChangeColumnSecurityLevelResponse
      */
     public function changeColumnSecurityLevelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->columnName)) {
-            $query['ColumnName'] = $request->columnName;
+        if (null !== $request->columnName) {
+            @$query['ColumnName'] = $request->columnName;
         }
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->isLogic)) {
-            $query['IsLogic'] = $request->isLogic;
+
+        if (null !== $request->isLogic) {
+            @$query['IsLogic'] = $request->isLogic;
         }
-        if (!Utils::isUnset($request->newSensitivityLevel)) {
-            $query['NewSensitivityLevel'] = $request->newSensitivityLevel;
+
+        if (null !== $request->newSensitivityLevel) {
+            @$query['NewSensitivityLevel'] = $request->newSensitivityLevel;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeColumnSecurityLevel',
@@ -1674,16 +1944,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeColumnSecurityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeColumnSecurityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeColumnSecurityLevelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改字段敏感序列
-     *  *
-     * @param ChangeColumnSecurityLevelRequest $request ChangeColumnSecurityLevelRequest
+     * 修改字段敏感序列.
      *
-     * @return ChangeColumnSecurityLevelResponse ChangeColumnSecurityLevelResponse
+     * @param request - ChangeColumnSecurityLevelRequest
+     * @returns ChangeColumnSecurityLevelResponse
+     *
+     * @param ChangeColumnSecurityLevelRequest $request
+     *
+     * @return ChangeColumnSecurityLevelResponse
      */
     public function changeColumnSecurityLevel($request)
     {
@@ -1693,32 +1969,40 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 移交数仓开发任务流
-     *  *
-     * @description Usage notes:
+     * 移交数仓开发任务流
+     *
+     * @remarks
+     * Usage notes:
      * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
      * *   You can call the [ReDeployLhDagVersion](https://help.aliyun.com/document_detail/424712.html) operation to redeploy a published version of a task flow.
-     *  *
-     * @param ChangeLhDagOwnerRequest $request ChangeLhDagOwnerRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeLhDagOwnerResponse ChangeLhDagOwnerResponse
+     * @param request - ChangeLhDagOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeLhDagOwnerResponse
+     *
+     * @param ChangeLhDagOwnerRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ChangeLhDagOwnerResponse
      */
     public function changeLhDagOwnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->ownerUserId)) {
-            $query['OwnerUserId'] = $request->ownerUserId;
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeLhDagOwner',
@@ -1731,20 +2015,27 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeLhDagOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeLhDagOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeLhDagOwnerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 移交数仓开发任务流
-     *  *
-     * @description Usage notes:
+     * 移交数仓开发任务流
+     *
+     * @remarks
+     * Usage notes:
      * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
      * *   You can call the [ReDeployLhDagVersion](https://help.aliyun.com/document_detail/424712.html) operation to redeploy a published version of a task flow.
-     *  *
-     * @param ChangeLhDagOwnerRequest $request ChangeLhDagOwnerRequest
      *
-     * @return ChangeLhDagOwnerResponse ChangeLhDagOwnerResponse
+     * @param request - ChangeLhDagOwnerRequest
+     * @returns ChangeLhDagOwnerResponse
+     *
+     * @param ChangeLhDagOwnerRequest $request
+     *
+     * @return ChangeLhDagOwnerResponse
      */
     public function changeLhDagOwner($request)
     {
@@ -1754,28 +2045,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Closes a ticket.
-     *  *
-     * @param CloseOrderRequest $request CloseOrderRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Closes a ticket.
      *
-     * @return CloseOrderResponse CloseOrderResponse
+     * @param request - CloseOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CloseOrderResponse
+     *
+     * @param CloseOrderRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CloseOrderResponse
      */
     public function closeOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->closeReason)) {
-            $query['CloseReason'] = $request->closeReason;
+        if (null !== $request->closeReason) {
+            @$query['CloseReason'] = $request->closeReason;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CloseOrder',
@@ -1788,16 +2086,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CloseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CloseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloseOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Closes a ticket.
-     *  *
-     * @param CloseOrderRequest $request CloseOrderRequest
+     * Closes a ticket.
      *
-     * @return CloseOrderResponse CloseOrderResponse
+     * @param request - CloseOrderRequest
+     * @returns CloseOrderResponse
+     *
+     * @param CloseOrderRequest $request
+     *
+     * @return CloseOrderResponse
      */
     public function closeOrder($request)
     {
@@ -1807,34 +2111,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 创建权限策略授权
-     *  *
-     * @param CreateAbacAuthorizationRequest $request CreateAbacAuthorizationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 创建权限策略授权.
      *
-     * @return CreateAbacAuthorizationResponse CreateAbacAuthorizationResponse
+     * @param request - CreateAbacAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAbacAuthorizationResponse
+     *
+     * @param CreateAbacAuthorizationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAbacAuthorizationResponse
      */
     public function createAbacAuthorizationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identityType)) {
-            $query['IdentityType'] = $request->identityType;
+        if (null !== $request->identityType) {
+            @$query['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->roleId)) {
-            $query['RoleId'] = $request->roleId;
+
+        if (null !== $request->roleId) {
+            @$query['RoleId'] = $request->roleId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAbacAuthorization',
@@ -1847,16 +2160,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAbacAuthorizationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建权限策略授权
-     *  *
-     * @param CreateAbacAuthorizationRequest $request CreateAbacAuthorizationRequest
+     * 创建权限策略授权.
      *
-     * @return CreateAbacAuthorizationResponse CreateAbacAuthorizationResponse
+     * @param request - CreateAbacAuthorizationRequest
+     * @returns CreateAbacAuthorizationResponse
+     *
+     * @param CreateAbacAuthorizationRequest $request
+     *
+     * @return CreateAbacAuthorizationResponse
      */
     public function createAbacAuthorization($request)
     {
@@ -1866,31 +2185,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 创建权限策略
-     *  *
-     * @param CreateAbacPolicyRequest $request CreateAbacPolicyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建权限策略.
      *
-     * @return CreateAbacPolicyResponse CreateAbacPolicyResponse
+     * @param request - CreateAbacPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAbacPolicyResponse
+     *
+     * @param CreateAbacPolicyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAbacPolicyResponse
      */
     public function createAbacPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->abacPolicyContent)) {
-            $query['AbacPolicyContent'] = $request->abacPolicyContent;
+        if (null !== $request->abacPolicyContent) {
+            @$query['AbacPolicyContent'] = $request->abacPolicyContent;
         }
-        if (!Utils::isUnset($request->abacPolicyDesc)) {
-            $query['AbacPolicyDesc'] = $request->abacPolicyDesc;
+
+        if (null !== $request->abacPolicyDesc) {
+            @$query['AbacPolicyDesc'] = $request->abacPolicyDesc;
         }
-        if (!Utils::isUnset($request->abacPolicyName)) {
-            $query['AbacPolicyName'] = $request->abacPolicyName;
+
+        if (null !== $request->abacPolicyName) {
+            @$query['AbacPolicyName'] = $request->abacPolicyName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAbacPolicy',
@@ -1903,16 +2230,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAbacPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建权限策略
-     *  *
-     * @param CreateAbacPolicyRequest $request CreateAbacPolicyRequest
+     * 创建权限策略.
      *
-     * @return CreateAbacPolicyResponse CreateAbacPolicyResponse
+     * @param request - CreateAbacPolicyRequest
+     * @returns CreateAbacPolicyResponse
+     *
+     * @param CreateAbacPolicyRequest $request
+     *
+     * @return CreateAbacPolicyResponse
      */
     public function createAbacPolicy($request)
     {
@@ -1922,30 +2255,38 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a permission template
-     *  *
-     * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param CreateAuthorityTemplateRequest $request CreateAuthorityTemplateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates a permission template.
      *
-     * @return CreateAuthorityTemplateResponse CreateAuthorityTemplateResponse
+     * @remarks
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - CreateAuthorityTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAuthorityTemplateResponse
+     *
+     * @param CreateAuthorityTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAuthorityTemplateResponse
      */
     public function createAuthorityTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAuthorityTemplate',
@@ -1958,18 +2299,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a permission template
-     *  *
-     * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param CreateAuthorityTemplateRequest $request CreateAuthorityTemplateRequest
+     * Creates a permission template.
      *
-     * @return CreateAuthorityTemplateResponse CreateAuthorityTemplateResponse
+     * @remarks
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - CreateAuthorityTemplateRequest
+     * @returns CreateAuthorityTemplateResponse
+     *
+     * @param CreateAuthorityTemplateRequest $request
+     *
+     * @return CreateAuthorityTemplateResponse
      */
     public function createAuthorityTemplate($request)
     {
@@ -1979,47 +2327,60 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a data archiving ticket to archive data to destinations such as dedicated storage space or ApsaraDB RDS for MySQL instances.
-     *  *
-     * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
-     *  *
-     * @param CreateDataArchiveOrderRequest $tmpReq  CreateDataArchiveOrderRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a data archiving ticket to archive data to destinations such as dedicated storage space or ApsaraDB RDS for MySQL instances.
      *
-     * @return CreateDataArchiveOrderResponse CreateDataArchiveOrderResponse
+     * @remarks
+     * You can call this API operation only for database instances that are managed in Security Collaboration mode.
+     *
+     * @param tmpReq - CreateDataArchiveOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataArchiveOrderResponse
+     *
+     * @param CreateDataArchiveOrderRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDataArchiveOrderResponse
      */
     public function createDataArchiveOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataArchiveOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
+
+        if (null !== $request->paramShrink) {
+            @$query['Param'] = $request->paramShrink;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->pluginType)) {
-            $query['PluginType'] = $request->pluginType;
+
+        if (null !== $request->pluginType) {
+            @$query['PluginType'] = $request->pluginType;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataArchiveOrder',
@@ -2032,18 +2393,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataArchiveOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataArchiveOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataArchiveOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a data archiving ticket to archive data to destinations such as dedicated storage space or ApsaraDB RDS for MySQL instances.
-     *  *
-     * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
-     *  *
-     * @param CreateDataArchiveOrderRequest $request CreateDataArchiveOrderRequest
+     * Creates a data archiving ticket to archive data to destinations such as dedicated storage space or ApsaraDB RDS for MySQL instances.
      *
-     * @return CreateDataArchiveOrderResponse CreateDataArchiveOrderResponse
+     * @remarks
+     * You can call this API operation only for database instances that are managed in Security Collaboration mode.
+     *
+     * @param request - CreateDataArchiveOrderRequest
+     * @returns CreateDataArchiveOrderResponse
+     *
+     * @param CreateDataArchiveOrderRequest $request
+     *
+     * @return CreateDataArchiveOrderResponse
      */
     public function createDataArchiveOrder($request)
     {
@@ -2053,47 +2421,60 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a ticket for changing data in Data Management (DMS).
-     *  *
-     * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
-     *  *
-     * @param CreateDataCorrectOrderRequest $tmpReq  CreateDataCorrectOrderRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a ticket for changing data in Data Management (DMS).
      *
-     * @return CreateDataCorrectOrderResponse CreateDataCorrectOrderResponse
+     * @remarks
+     * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+     *
+     * @param tmpReq - CreateDataCorrectOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataCorrectOrderResponse
+     *
+     * @param CreateDataCorrectOrderRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDataCorrectOrderResponse
      */
     public function createDataCorrectOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataCorrectOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
+        if (null !== $request->attachmentKey) {
+            @$query['AttachmentKey'] = $request->attachmentKey;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
+
+        if (null !== $request->paramShrink) {
+            @$query['Param'] = $request->paramShrink;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataCorrectOrder',
@@ -2106,18 +2487,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataCorrectOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a ticket for changing data in Data Management (DMS).
-     *  *
-     * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
-     *  *
-     * @param CreateDataCorrectOrderRequest $request CreateDataCorrectOrderRequest
+     * Creates a ticket for changing data in Data Management (DMS).
      *
-     * @return CreateDataCorrectOrderResponse CreateDataCorrectOrderResponse
+     * @remarks
+     * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+     *
+     * @param request - CreateDataCorrectOrderRequest
+     * @returns CreateDataCorrectOrderResponse
+     *
+     * @param CreateDataCorrectOrderRequest $request
+     *
+     * @return CreateDataCorrectOrderResponse
      */
     public function createDataCorrectOrder($request)
     {
@@ -2127,45 +2515,57 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a ticket for clearing historical data.
-     *  *
-     * @description For more information about the historical data cleaning, see [Clear historical data](https://help.aliyun.com/document_detail/162507.html).
-     * This operation can be used only for MySQL databases.
-     *  *
-     * @param CreateDataCronClearOrderRequest $tmpReq  CreateDataCronClearOrderRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates a ticket for clearing historical data.
      *
-     * @return CreateDataCronClearOrderResponse CreateDataCronClearOrderResponse
+     * @remarks
+     * For more information about the historical data cleaning, see [Clear historical data](https://help.aliyun.com/document_detail/162507.html).
+     * This operation can be used only for MySQL databases.
+     *
+     * @param tmpReq - CreateDataCronClearOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataCronClearOrderResponse
+     *
+     * @param CreateDataCronClearOrderRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDataCronClearOrderResponse
      */
     public function createDataCronClearOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataCronClearOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
+        if (null !== $request->attachmentKey) {
+            @$query['AttachmentKey'] = $request->attachmentKey;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
+
+        if (null !== $request->paramShrink) {
+            @$query['Param'] = $request->paramShrink;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataCronClearOrder',
@@ -2178,19 +2578,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataCronClearOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataCronClearOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataCronClearOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a ticket for clearing historical data.
-     *  *
-     * @description For more information about the historical data cleaning, see [Clear historical data](https://help.aliyun.com/document_detail/162507.html).
-     * This operation can be used only for MySQL databases.
-     *  *
-     * @param CreateDataCronClearOrderRequest $request CreateDataCronClearOrderRequest
+     * Creates a ticket for clearing historical data.
      *
-     * @return CreateDataCronClearOrderResponse CreateDataCronClearOrderResponse
+     * @remarks
+     * For more information about the historical data cleaning, see [Clear historical data](https://help.aliyun.com/document_detail/162507.html).
+     * This operation can be used only for MySQL databases.
+     *
+     * @param request - CreateDataCronClearOrderRequest
+     * @returns CreateDataCronClearOrderResponse
+     *
+     * @param CreateDataCronClearOrderRequest $request
+     *
+     * @return CreateDataCronClearOrderResponse
      */
     public function createDataCronClearOrder($request)
     {
@@ -2200,48 +2607,61 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a ticket to export an SQL result set.
-     *  *
-     * @param CreateDataExportOrderRequest $tmpReq  CreateDataExportOrderRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a ticket to export an SQL result set.
      *
-     * @return CreateDataExportOrderResponse CreateDataExportOrderResponse
+     * @param tmpReq - CreateDataExportOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataExportOrderResponse
+     *
+     * @param CreateDataExportOrderRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDataExportOrderResponse
      */
     public function createDataExportOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataExportOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->pluginParam)) {
-            $request->pluginParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pluginParam, 'PluginParam', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pluginParam) {
+            $request->pluginParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pluginParam, 'PluginParam', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
+        if (null !== $request->attachmentKey) {
+            @$query['AttachmentKey'] = $request->attachmentKey;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->pluginParamShrink)) {
-            $query['PluginParam'] = $request->pluginParamShrink;
+
+        if (null !== $request->pluginParamShrink) {
+            @$query['PluginParam'] = $request->pluginParamShrink;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataExportOrder',
@@ -2254,16 +2674,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataExportOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a ticket to export an SQL result set.
-     *  *
-     * @param CreateDataExportOrderRequest $request CreateDataExportOrderRequest
+     * Creates a ticket to export an SQL result set.
      *
-     * @return CreateDataExportOrderResponse CreateDataExportOrderResponse
+     * @param request - CreateDataExportOrderRequest
+     * @returns CreateDataExportOrderResponse
+     *
+     * @param CreateDataExportOrderRequest $request
+     *
+     * @return CreateDataExportOrderResponse
      */
     public function createDataExportOrder($request)
     {
@@ -2273,44 +2699,56 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a ticket for importing data to Data Management (DMS).
-     *  *
-     * @description For more information about the Large Data Import feature, see [Import data](https://help.aliyun.com/document_detail/161439.html).
-     *  *
-     * @param CreateDataImportOrderRequest $tmpReq  CreateDataImportOrderRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a ticket for importing data to Data Management (DMS).
      *
-     * @return CreateDataImportOrderResponse CreateDataImportOrderResponse
+     * @remarks
+     * For more information about the Large Data Import feature, see [Import data](https://help.aliyun.com/document_detail/161439.html).
+     *
+     * @param tmpReq - CreateDataImportOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataImportOrderResponse
+     *
+     * @param CreateDataImportOrderRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDataImportOrderResponse
      */
     public function createDataImportOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataImportOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
+        if (null !== $request->attachmentKey) {
+            @$query['AttachmentKey'] = $request->attachmentKey;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
+
+        if (null !== $request->paramShrink) {
+            @$query['Param'] = $request->paramShrink;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataImportOrder',
@@ -2323,18 +2761,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataImportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataImportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataImportOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a ticket for importing data to Data Management (DMS).
-     *  *
-     * @description For more information about the Large Data Import feature, see [Import data](https://help.aliyun.com/document_detail/161439.html).
-     *  *
-     * @param CreateDataImportOrderRequest $request CreateDataImportOrderRequest
+     * Creates a ticket for importing data to Data Management (DMS).
      *
-     * @return CreateDataImportOrderResponse CreateDataImportOrderResponse
+     * @remarks
+     * For more information about the Large Data Import feature, see [Import data](https://help.aliyun.com/document_detail/161439.html).
+     *
+     * @param request - CreateDataImportOrderRequest
+     * @returns CreateDataImportOrderResponse
+     *
+     * @param CreateDataImportOrderRequest $request
+     *
+     * @return CreateDataImportOrderResponse
      */
     public function createDataImportOrder($request)
     {
@@ -2344,45 +2789,57 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 新建湖仓数据库
-     *  *
-     * @param CreateDataLakeDatabaseRequest $tmpReq  CreateDataLakeDatabaseRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 新建湖仓数据库.
      *
-     * @return CreateDataLakeDatabaseResponse CreateDataLakeDatabaseResponse
+     * @param tmpReq - CreateDataLakeDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataLakeDatabaseResponse
+     *
+     * @param CreateDataLakeDatabaseRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDataLakeDatabaseResponse
      */
     public function createDataLakeDatabaseWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataLakeDatabaseShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->parameters)) {
-            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->location)) {
-            $query['Location'] = $request->location;
+
+        if (null !== $request->location) {
+            @$query['Location'] = $request->location;
         }
-        if (!Utils::isUnset($request->parametersShrink)) {
-            $query['Parameters'] = $request->parametersShrink;
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataLakeDatabase',
@@ -2395,16 +2852,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataLakeDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建湖仓数据库
-     *  *
-     * @param CreateDataLakeDatabaseRequest $request CreateDataLakeDatabaseRequest
+     * 新建湖仓数据库.
      *
-     * @return CreateDataLakeDatabaseResponse CreateDataLakeDatabaseResponse
+     * @param request - CreateDataLakeDatabaseRequest
+     * @returns CreateDataLakeDatabaseResponse
+     *
+     * @param CreateDataLakeDatabaseRequest $request
+     *
+     * @return CreateDataLakeDatabaseResponse
      */
     public function createDataLakeDatabase($request)
     {
@@ -2414,50 +2877,63 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 新建湖仓表分区
-     *  *
-     * @param CreateDataLakePartitionRequest $tmpReq  CreateDataLakePartitionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 新建湖仓表分区.
      *
-     * @return CreateDataLakePartitionResponse CreateDataLakePartitionResponse
+     * @param tmpReq - CreateDataLakePartitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataLakePartitionResponse
+     *
+     * @param CreateDataLakePartitionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateDataLakePartitionResponse
      */
     public function createDataLakePartitionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataLakePartitionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->partitionInput)) {
-            $request->partitionInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionInput, 'PartitionInput', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->partitionInput) {
+            $request->partitionInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partitionInput, 'PartitionInput', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->ifNotExists)) {
-            $query['IfNotExists'] = $request->ifNotExists;
+
+        if (null !== $request->ifNotExists) {
+            @$query['IfNotExists'] = $request->ifNotExists;
         }
-        if (!Utils::isUnset($request->needResult)) {
-            $query['NeedResult'] = $request->needResult;
+
+        if (null !== $request->needResult) {
+            @$query['NeedResult'] = $request->needResult;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->partitionInputShrink)) {
-            $body['PartitionInput'] = $request->partitionInputShrink;
+        if (null !== $request->partitionInputShrink) {
+            @$body['PartitionInput'] = $request->partitionInputShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataLakePartition',
@@ -2470,16 +2946,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataLakePartitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建湖仓表分区
-     *  *
-     * @param CreateDataLakePartitionRequest $request CreateDataLakePartitionRequest
+     * 新建湖仓表分区.
      *
-     * @return CreateDataLakePartitionResponse CreateDataLakePartitionResponse
+     * @param request - CreateDataLakePartitionRequest
+     * @returns CreateDataLakePartitionResponse
+     *
+     * @param CreateDataLakePartitionRequest $request
+     *
+     * @return CreateDataLakePartitionResponse
      */
     public function createDataLakePartition($request)
     {
@@ -2489,41 +2971,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 新建湖仓表
-     *  *
-     * @param CreateDataLakeTableRequest $tmpReq  CreateDataLakeTableRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 新建湖仓表.
      *
-     * @return CreateDataLakeTableResponse CreateDataLakeTableResponse
+     * @param tmpReq - CreateDataLakeTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataLakeTableResponse
+     *
+     * @param CreateDataLakeTableRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDataLakeTableResponse
      */
     public function createDataLakeTableWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataLakeTableShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tableInput)) {
-            $request->tableInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableInput, 'TableInput', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableInput) {
+            $request->tableInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableInput, 'TableInput', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->tableInputShrink)) {
-            $body['TableInput'] = $request->tableInputShrink;
+        if (null !== $request->tableInputShrink) {
+            @$body['TableInput'] = $request->tableInputShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataLakeTable',
@@ -2536,16 +3028,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataLakeTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建湖仓表
-     *  *
-     * @param CreateDataLakeTableRequest $request CreateDataLakeTableRequest
+     * 新建湖仓表.
      *
-     * @return CreateDataLakeTableResponse CreateDataLakeTableResponse
+     * @param request - CreateDataLakeTableRequest
+     * @returns CreateDataLakeTableResponse
+     *
+     * @param CreateDataLakeTableRequest $request
+     *
+     * @return CreateDataLakeTableResponse
      */
     public function createDataLakeTable($request)
     {
@@ -2555,41 +3053,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a data tracking ticket.
-     *  *
-     * @description This operation is available only for instances that are managed in Security Collaboration mode.
-     *  *
-     * @param CreateDataTrackOrderRequest $tmpReq  CreateDataTrackOrderRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a data tracking ticket.
      *
-     * @return CreateDataTrackOrderResponse CreateDataTrackOrderResponse
+     * @remarks
+     * This operation is available only for instances that are managed in Security Collaboration mode.
+     *
+     * @param tmpReq - CreateDataTrackOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataTrackOrderResponse
+     *
+     * @param CreateDataTrackOrderRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDataTrackOrderResponse
      */
     public function createDataTrackOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataTrackOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
+
+        if (null !== $request->paramShrink) {
+            @$query['Param'] = $request->paramShrink;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataTrackOrder',
@@ -2602,18 +3111,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataTrackOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataTrackOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataTrackOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a data tracking ticket.
-     *  *
-     * @description This operation is available only for instances that are managed in Security Collaboration mode.
-     *  *
-     * @param CreateDataTrackOrderRequest $request CreateDataTrackOrderRequest
+     * Creates a data tracking ticket.
      *
-     * @return CreateDataTrackOrderResponse CreateDataTrackOrderResponse
+     * @remarks
+     * This operation is available only for instances that are managed in Security Collaboration mode.
+     *
+     * @param request - CreateDataTrackOrderRequest
+     * @returns CreateDataTrackOrderResponse
+     *
+     * @param CreateDataTrackOrderRequest $request
+     *
+     * @return CreateDataTrackOrderResponse
      */
     public function createDataTrackOrder($request)
     {
@@ -2623,45 +3139,57 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a database export ticket.
-     *  *
-     * @param CreateDatabaseExportOrderRequest $tmpReq  CreateDatabaseExportOrderRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Creates a database export ticket.
      *
-     * @return CreateDatabaseExportOrderResponse CreateDatabaseExportOrderResponse
+     * @param tmpReq - CreateDatabaseExportOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDatabaseExportOrderResponse
+     *
+     * @param CreateDatabaseExportOrderRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateDatabaseExportOrderResponse
      */
     public function createDatabaseExportOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDatabaseExportOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->pluginParam)) {
-            $request->pluginParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pluginParam, 'PluginParam', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pluginParam) {
+            $request->pluginParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pluginParam, 'PluginParam', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
+        if (null !== $request->attachmentKey) {
+            @$query['AttachmentKey'] = $request->attachmentKey;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->pluginParamShrink)) {
-            $query['PluginParam'] = $request->pluginParamShrink;
+
+        if (null !== $request->pluginParamShrink) {
+            @$query['PluginParam'] = $request->pluginParamShrink;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDatabaseExportOrder',
@@ -2674,16 +3202,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDatabaseExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDatabaseExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDatabaseExportOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a database export ticket.
-     *  *
-     * @param CreateDatabaseExportOrderRequest $request CreateDatabaseExportOrderRequest
+     * Creates a database export ticket.
      *
-     * @return CreateDatabaseExportOrderResponse CreateDatabaseExportOrderResponse
+     * @param request - CreateDatabaseExportOrderRequest
+     * @returns CreateDatabaseExportOrderResponse
+     *
+     * @param CreateDatabaseExportOrderRequest $request
+     *
+     * @return CreateDatabaseExportOrderResponse
      */
     public function createDatabaseExportOrder($request)
     {
@@ -2693,48 +3227,61 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 创建无锁变更工单
-     *  *
-     * @description For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
-     * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
-     *  *
-     * @param CreateFreeLockCorrectOrderRequest $tmpReq  CreateFreeLockCorrectOrderRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 创建无锁变更工单.
      *
-     * @return CreateFreeLockCorrectOrderResponse CreateFreeLockCorrectOrderResponse
+     * @remarks
+     * For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
+     * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
+     *
+     * @param tmpReq - CreateFreeLockCorrectOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFreeLockCorrectOrderResponse
+     *
+     * @param CreateFreeLockCorrectOrderRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateFreeLockCorrectOrderResponse
      */
     public function createFreeLockCorrectOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateFreeLockCorrectOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
+        if (null !== $request->attachmentKey) {
+            @$query['AttachmentKey'] = $request->attachmentKey;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
+
+        if (null !== $request->paramShrink) {
+            @$query['Param'] = $request->paramShrink;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFreeLockCorrectOrder',
@@ -2747,19 +3294,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFreeLockCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFreeLockCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFreeLockCorrectOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建无锁变更工单
-     *  *
-     * @description For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
-     * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
-     *  *
-     * @param CreateFreeLockCorrectOrderRequest $request CreateFreeLockCorrectOrderRequest
+     * 创建无锁变更工单.
      *
-     * @return CreateFreeLockCorrectOrderResponse CreateFreeLockCorrectOrderResponse
+     * @remarks
+     * For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
+     * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](https://help.aliyun.com/document_detail/96145.html) and [Change schemas without locking tables](https://help.aliyun.com/document_detail/98373.html).
+     *
+     * @param request - CreateFreeLockCorrectOrderRequest
+     * @returns CreateFreeLockCorrectOrderResponse
+     *
+     * @param CreateFreeLockCorrectOrderRequest $request
+     *
+     * @return CreateFreeLockCorrectOrderResponse
      */
     public function createFreeLockCorrectOrder($request)
     {
@@ -2769,46 +3323,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a workspace for data warehouse development in Data Management (DMS).
-     *  *
-     * @description *   The workspace name must be unique within a tenant. If a workspace with the same name already exists within the tenant, the call may fail.
-     * *   You can call the [GetLhSpaceByName](https://help.aliyun.com/document_detail/424379.html) operation to query whether a workspace with a specific name already exists as a DMS administrator or database administrator (DBA).
-     *  *
-     * @param CreateLakeHouseSpaceRequest $request CreateLakeHouseSpaceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a workspace for data warehouse development in Data Management (DMS).
      *
-     * @return CreateLakeHouseSpaceResponse CreateLakeHouseSpaceResponse
+     * @remarks
+     *   The workspace name must be unique within a tenant. If a workspace with the same name already exists within the tenant, the call may fail.
+     * *   You can call the [GetLhSpaceByName](https://help.aliyun.com/document_detail/424379.html) operation to query whether a workspace with a specific name already exists as a DMS administrator or database administrator (DBA).
+     *
+     * @param request - CreateLakeHouseSpaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLakeHouseSpaceResponse
+     *
+     * @param CreateLakeHouseSpaceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateLakeHouseSpaceResponse
      */
     public function createLakeHouseSpaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->devDbId)) {
-            $query['DevDbId'] = $request->devDbId;
+
+        if (null !== $request->devDbId) {
+            @$query['DevDbId'] = $request->devDbId;
         }
-        if (!Utils::isUnset($request->dwDbType)) {
-            $query['DwDbType'] = $request->dwDbType;
+
+        if (null !== $request->dwDbType) {
+            @$query['DwDbType'] = $request->dwDbType;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->prodDbId)) {
-            $query['ProdDbId'] = $request->prodDbId;
+
+        if (null !== $request->prodDbId) {
+            @$query['ProdDbId'] = $request->prodDbId;
         }
-        if (!Utils::isUnset($request->spaceConfig)) {
-            $query['SpaceConfig'] = $request->spaceConfig;
+
+        if (null !== $request->spaceConfig) {
+            @$query['SpaceConfig'] = $request->spaceConfig;
         }
-        if (!Utils::isUnset($request->spaceName)) {
-            $query['SpaceName'] = $request->spaceName;
+
+        if (null !== $request->spaceName) {
+            @$query['SpaceName'] = $request->spaceName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLakeHouseSpace',
@@ -2821,19 +3388,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLakeHouseSpaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a workspace for data warehouse development in Data Management (DMS).
-     *  *
-     * @description *   The workspace name must be unique within a tenant. If a workspace with the same name already exists within the tenant, the call may fail.
-     * *   You can call the [GetLhSpaceByName](https://help.aliyun.com/document_detail/424379.html) operation to query whether a workspace with a specific name already exists as a DMS administrator or database administrator (DBA).
-     *  *
-     * @param CreateLakeHouseSpaceRequest $request CreateLakeHouseSpaceRequest
+     * Creates a workspace for data warehouse development in Data Management (DMS).
      *
-     * @return CreateLakeHouseSpaceResponse CreateLakeHouseSpaceResponse
+     * @remarks
+     *   The workspace name must be unique within a tenant. If a workspace with the same name already exists within the tenant, the call may fail.
+     * *   You can call the [GetLhSpaceByName](https://help.aliyun.com/document_detail/424379.html) operation to query whether a workspace with a specific name already exists as a DMS administrator or database administrator (DBA).
+     *
+     * @param request - CreateLakeHouseSpaceRequest
+     * @returns CreateLakeHouseSpaceResponse
+     *
+     * @param CreateLakeHouseSpaceRequest $request
+     *
+     * @return CreateLakeHouseSpaceResponse
      */
     public function createLakeHouseSpace($request)
     {
@@ -2843,33 +3417,41 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a logical database in Database Management (DMS).
-     *  *
-     * @param CreateLogicDatabaseRequest $tmpReq  CreateLogicDatabaseRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a logical database in Database Management (DMS).
      *
-     * @return CreateLogicDatabaseResponse CreateLogicDatabaseResponse
+     * @param tmpReq - CreateLogicDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLogicDatabaseResponse
+     *
+     * @param CreateLogicDatabaseRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateLogicDatabaseResponse
      */
     public function createLogicDatabaseWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateLogicDatabaseShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->databaseIds)) {
-            $request->databaseIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->databaseIds, 'DatabaseIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->databaseIds) {
+            $request->databaseIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->databaseIds, 'DatabaseIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->alias)) {
-            $query['Alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$query['Alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->databaseIdsShrink)) {
-            $query['DatabaseIds'] = $request->databaseIdsShrink;
+
+        if (null !== $request->databaseIdsShrink) {
+            @$query['DatabaseIds'] = $request->databaseIdsShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLogicDatabase',
@@ -2882,16 +3464,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLogicDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a logical database in Database Management (DMS).
-     *  *
-     * @param CreateLogicDatabaseRequest $request CreateLogicDatabaseRequest
+     * Creates a logical database in Database Management (DMS).
      *
-     * @return CreateLogicDatabaseResponse CreateLogicDatabaseResponse
+     * @param request - CreateLogicDatabaseRequest
+     * @returns CreateLogicDatabaseResponse
+     *
+     * @param CreateLogicDatabaseRequest $request
+     *
+     * @return CreateLogicDatabaseResponse
      */
     public function createLogicDatabase($request)
     {
@@ -2901,50 +3489,62 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a ticket in Data Management (DMS).
-     *  *
-     * @description To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
+     * Creates a ticket in Data Management (DMS).
+     *
+     * @remarks
+     * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
      * *   [CreateDataCorrectOrder](https://help.aliyun.com/document_detail/208388.html): creates a regular data change ticket.
      * *   [CreateDataCronClearOrder](https://help.aliyun.com/document_detail/208385.html): creates a ticket to clear historical data.
      * *   [CreateDataImportOrder](https://help.aliyun.com/document_detail/208387.html): creates a data import ticket.
      * *   [CreateFreeLockCorrectOrder](https://help.aliyun.com/document_detail/208386.html): creates a lock-free change ticket.
-     *  *
-     * @param CreateOrderRequest $tmpReq  CreateOrderRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrderResponse CreateOrderResponse
+     * @param tmpReq - CreateOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateOrderResponse
      */
     public function createOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->pluginParam)) {
-            $request->pluginParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pluginParam, 'PluginParam', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pluginParam) {
+            $request->pluginParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pluginParam, 'PluginParam', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
+        if (null !== $request->attachmentKey) {
+            @$query['AttachmentKey'] = $request->attachmentKey;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->pluginType)) {
-            $query['PluginType'] = $request->pluginType;
+
+        if (null !== $request->pluginType) {
+            @$query['PluginType'] = $request->pluginType;
         }
-        if (!Utils::isUnset($request->relatedUserList)) {
-            $query['RelatedUserList'] = $request->relatedUserList;
+
+        if (null !== $request->relatedUserList) {
+            @$query['RelatedUserList'] = $request->relatedUserList;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pluginParamShrink)) {
-            $body['PluginParam'] = $request->pluginParamShrink;
+        if (null !== $request->pluginParamShrink) {
+            @$body['PluginParam'] = $request->pluginParamShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrder',
@@ -2957,22 +3557,29 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a ticket in Data Management (DMS).
-     *  *
-     * @description To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
+     * Creates a ticket in Data Management (DMS).
+     *
+     * @remarks
+     * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
      * *   [CreateDataCorrectOrder](https://help.aliyun.com/document_detail/208388.html): creates a regular data change ticket.
      * *   [CreateDataCronClearOrder](https://help.aliyun.com/document_detail/208385.html): creates a ticket to clear historical data.
      * *   [CreateDataImportOrder](https://help.aliyun.com/document_detail/208387.html): creates a data import ticket.
      * *   [CreateFreeLockCorrectOrder](https://help.aliyun.com/document_detail/208386.html): creates a lock-free change ticket.
-     *  *
-     * @param CreateOrderRequest $request CreateOrderRequest
      *
-     * @return CreateOrderResponse CreateOrderResponse
+     * @param request - CreateOrderRequest
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $request
+     *
+     * @return CreateOrderResponse
      */
     public function createOrder($request)
     {
@@ -2982,42 +3589,53 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 创建可编程对象变更工单
-     *  *
-     * @param CreateProcCorrectOrderRequest $tmpReq  CreateProcCorrectOrderRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 创建可编程对象变更工单.
      *
-     * @return CreateProcCorrectOrderResponse CreateProcCorrectOrderResponse
+     * @param tmpReq - CreateProcCorrectOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProcCorrectOrderResponse
+     *
+     * @param CreateProcCorrectOrderRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateProcCorrectOrderResponse
      */
     public function createProcCorrectOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateProcCorrectOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
+        if (null !== $request->attachmentKey) {
+            @$query['AttachmentKey'] = $request->attachmentKey;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
+
+        if (null !== $request->paramShrink) {
+            @$query['Param'] = $request->paramShrink;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateProcCorrectOrder',
@@ -3030,16 +3648,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProcCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProcCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProcCorrectOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建可编程对象变更工单
-     *  *
-     * @param CreateProcCorrectOrderRequest $request CreateProcCorrectOrderRequest
+     * 创建可编程对象变更工单.
      *
-     * @return CreateProcCorrectOrderResponse CreateProcCorrectOrderResponse
+     * @param request - CreateProcCorrectOrderRequest
+     * @returns CreateProcCorrectOrderResponse
+     *
+     * @param CreateProcCorrectOrderRequest $request
+     *
+     * @return CreateProcCorrectOrderResponse
      */
     public function createProcCorrectOrder($request)
     {
@@ -3049,35 +3673,44 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Enables the secure access proxy feature for a database instance.
-     *  *
-     * @description - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
+     * Enables the secure access proxy feature for a database instance.
+     *
+     * @remarks
+     * - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
      * - The database instance resides in the China (Hangzhou) or China (Beijing) region.
      * - You are a Data Management (DMS) administrator, a database administrator (DBA), or the owner of the database instance.
-     *  *
-     * @param CreateProxyRequest $request CreateProxyRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProxyResponse CreateProxyResponse
+     * @param request - CreateProxyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProxyResponse
+     *
+     * @param CreateProxyRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateProxyResponse
      */
     public function createProxyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateProxy',
@@ -3090,20 +3723,27 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProxyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the secure access proxy feature for a database instance.
-     *  *
-     * @description - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
+     * Enables the secure access proxy feature for a database instance.
+     *
+     * @remarks
+     * - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
      * - The database instance resides in the China (Hangzhou) or China (Beijing) region.
      * - You are a Data Management (DMS) administrator, a database administrator (DBA), or the owner of the database instance.
-     *  *
-     * @param CreateProxyRequest $request CreateProxyRequest
      *
-     * @return CreateProxyResponse CreateProxyResponse
+     * @param request - CreateProxyRequest
+     * @returns CreateProxyResponse
+     *
+     * @param CreateProxyRequest $request
+     *
+     * @return CreateProxyResponse
      */
     public function createProxy($request)
     {
@@ -3113,37 +3753,47 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
-     *  *
-     * @description - The data security protection feature is enabled for the instance.
-     * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
-     *  *
-     * @param CreateProxyAccessRequest $request CreateProxyAccessRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
      *
-     * @return CreateProxyAccessResponse CreateProxyAccessResponse
+     * @remarks
+     * - The data security protection feature is enabled for the instance.
+     * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
+     *
+     * @param request - CreateProxyAccessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProxyAccessResponse
+     *
+     * @param CreateProxyAccessRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateProxyAccessResponse
      */
     public function createProxyAccessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->indepAccount)) {
-            $query['IndepAccount'] = $request->indepAccount;
+        if (null !== $request->indepAccount) {
+            @$query['IndepAccount'] = $request->indepAccount;
         }
-        if (!Utils::isUnset($request->indepPassword)) {
-            $query['IndepPassword'] = $request->indepPassword;
+
+        if (null !== $request->indepPassword) {
+            @$query['IndepPassword'] = $request->indepPassword;
         }
-        if (!Utils::isUnset($request->proxyId)) {
-            $query['ProxyId'] = $request->proxyId;
+
+        if (null !== $request->proxyId) {
+            @$query['ProxyId'] = $request->proxyId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateProxyAccess',
@@ -3156,19 +3806,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProxyAccessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
-     *  *
-     * @description - The data security protection feature is enabled for the instance.
-     * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
-     *  *
-     * @param CreateProxyAccessRequest $request CreateProxyAccessRequest
+     * You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
      *
-     * @return CreateProxyAccessResponse CreateProxyAccessResponse
+     * @remarks
+     * - The data security protection feature is enabled for the instance.
+     * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
+     *
+     * @param request - CreateProxyAccessRequest
+     * @returns CreateProxyAccessResponse
+     *
+     * @param CreateProxyAccessRequest $request
+     *
+     * @return CreateProxyAccessResponse
      */
     public function createProxyAccess($request)
     {
@@ -3178,37 +3835,47 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Executes a schema design ticket.
-     *  *
-     * @param CreatePublishGroupTaskRequest $request CreatePublishGroupTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Executes a schema design ticket.
      *
-     * @return CreatePublishGroupTaskResponse CreatePublishGroupTaskResponse
+     * @param request - CreatePublishGroupTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePublishGroupTaskResponse
+     *
+     * @param CreatePublishGroupTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePublishGroupTaskResponse
      */
     public function createPublishGroupTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->planTime)) {
-            $query['PlanTime'] = $request->planTime;
+
+        if (null !== $request->planTime) {
+            @$query['PlanTime'] = $request->planTime;
         }
-        if (!Utils::isUnset($request->publishStrategy)) {
-            $query['PublishStrategy'] = $request->publishStrategy;
+
+        if (null !== $request->publishStrategy) {
+            @$query['PublishStrategy'] = $request->publishStrategy;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePublishGroupTask',
@@ -3221,16 +3888,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePublishGroupTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePublishGroupTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePublishGroupTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Executes a schema design ticket.
-     *  *
-     * @param CreatePublishGroupTaskRequest $request CreatePublishGroupTaskRequest
+     * Executes a schema design ticket.
      *
-     * @return CreatePublishGroupTaskResponse CreatePublishGroupTaskResponse
+     * @param request - CreatePublishGroupTaskRequest
+     * @returns CreatePublishGroupTaskResponse
+     *
+     * @param CreatePublishGroupTaskRequest $request
+     *
+     * @return CreatePublishGroupTaskResponse
      */
     public function createPublishGroupTask($request)
     {
@@ -3240,42 +3913,53 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a SQL review ticket.
-     *  *
-     * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
-     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
-     *  *
-     * @param CreateSQLReviewOrderRequest $tmpReq  CreateSQLReviewOrderRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a SQL review ticket.
      *
-     * @return CreateSQLReviewOrderResponse CreateSQLReviewOrderResponse
+     * @remarks
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+     *
+     * @param tmpReq - CreateSQLReviewOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSQLReviewOrderResponse
+     *
+     * @param CreateSQLReviewOrderRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSQLReviewOrderResponse
      */
     public function createSQLReviewOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateSQLReviewOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
+
+        if (null !== $request->paramShrink) {
+            @$query['Param'] = $request->paramShrink;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSQLReviewOrder',
@@ -3288,19 +3972,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSQLReviewOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSQLReviewOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSQLReviewOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a SQL review ticket.
-     *  *
-     * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
-     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
-     *  *
-     * @param CreateSQLReviewOrderRequest $request CreateSQLReviewOrderRequest
+     * Creates a SQL review ticket.
      *
-     * @return CreateSQLReviewOrderResponse CreateSQLReviewOrderResponse
+     * @remarks
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+     *
+     * @param request - CreateSQLReviewOrderRequest
+     * @returns CreateSQLReviewOrderResponse
+     *
+     * @param CreateSQLReviewOrderRequest $request
+     *
+     * @return CreateSQLReviewOrderResponse
      */
     public function createSQLReviewOrder($request)
     {
@@ -3310,28 +4001,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a business scenario to group task flows by business scenario.
-     *  *
-     * @param CreateScenarioRequest $request CreateScenarioRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a business scenario to group task flows by business scenario.
      *
-     * @return CreateScenarioResponse CreateScenarioResponse
+     * @param request - CreateScenarioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateScenarioResponse
+     *
+     * @param CreateScenarioRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateScenarioResponse
      */
     public function createScenarioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->scenarioName)) {
-            $query['ScenarioName'] = $request->scenarioName;
+
+        if (null !== $request->scenarioName) {
+            @$query['ScenarioName'] = $request->scenarioName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateScenario',
@@ -3344,16 +4042,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateScenarioResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a business scenario to group task flows by business scenario.
-     *  *
-     * @param CreateScenarioRequest $request CreateScenarioRequest
+     * Creates a business scenario to group task flows by business scenario.
      *
-     * @return CreateScenarioResponse CreateScenarioResponse
+     * @param request - CreateScenarioRequest
+     * @returns CreateScenarioResponse
+     *
+     * @param CreateScenarioRequest $request
+     *
+     * @return CreateScenarioResponse
      */
     public function createScenario($request)
     {
@@ -3363,31 +4067,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a security rule set.
-     *  *
-     * @param CreateStandardGroupRequest $request CreateStandardGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a security rule set.
      *
-     * @return CreateStandardGroupResponse CreateStandardGroupResponse
+     * @param request - CreateStandardGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateStandardGroupResponse
+     *
+     * @param CreateStandardGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateStandardGroupResponse
      */
     public function createStandardGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateStandardGroup',
@@ -3400,16 +4112,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateStandardGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a security rule set.
-     *  *
-     * @param CreateStandardGroupRequest $request CreateStandardGroupRequest
+     * Creates a security rule set.
      *
-     * @return CreateStandardGroupResponse CreateStandardGroupResponse
+     * @param request - CreateStandardGroupRequest
+     * @returns CreateStandardGroupResponse
+     *
+     * @param CreateStandardGroupRequest $request
+     *
+     * @return CreateStandardGroupResponse
      */
     public function createStandardGroup($request)
     {
@@ -3419,42 +4137,53 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a schema synchronization ticket.
-     *  *
-     * @param CreateStructSyncOrderRequest $tmpReq  CreateStructSyncOrderRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a schema synchronization ticket.
      *
-     * @return CreateStructSyncOrderResponse CreateStructSyncOrderResponse
+     * @param tmpReq - CreateStructSyncOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateStructSyncOrderResponse
+     *
+     * @param CreateStructSyncOrderRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateStructSyncOrderResponse
      */
     public function createStructSyncOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateStructSyncOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->param) {
+            $request->paramShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
-        if (!Utils::isUnset($tmpReq->relatedUserList)) {
-            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+
+        if (null !== $tmpReq->relatedUserList) {
+            $request->relatedUserListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attachmentKey)) {
-            $query['AttachmentKey'] = $request->attachmentKey;
+        if (null !== $request->attachmentKey) {
+            @$query['AttachmentKey'] = $request->attachmentKey;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->paramShrink)) {
-            $query['Param'] = $request->paramShrink;
+
+        if (null !== $request->paramShrink) {
+            @$query['Param'] = $request->paramShrink;
         }
-        if (!Utils::isUnset($request->relatedUserListShrink)) {
-            $query['RelatedUserList'] = $request->relatedUserListShrink;
+
+        if (null !== $request->relatedUserListShrink) {
+            @$query['RelatedUserList'] = $request->relatedUserListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateStructSyncOrder',
@@ -3467,16 +4196,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateStructSyncOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateStructSyncOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateStructSyncOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a schema synchronization ticket.
-     *  *
-     * @param CreateStructSyncOrderRequest $request CreateStructSyncOrderRequest
+     * Creates a schema synchronization ticket.
      *
-     * @return CreateStructSyncOrderResponse CreateStructSyncOrderResponse
+     * @param request - CreateStructSyncOrderRequest
+     * @returns CreateStructSyncOrderResponse
+     *
+     * @param CreateStructSyncOrderRequest $request
+     *
+     * @return CreateStructSyncOrderResponse
      */
     public function createStructSyncOrder($request)
     {
@@ -3486,43 +4221,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a task node for a task flow.
-     *  *
-     * @param CreateTaskRequest $request CreateTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a task node for a task flow.
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @param request - CreateTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTaskResponse
+     *
+     * @param CreateTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateTaskResponse
      */
     public function createTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->graphParam)) {
-            $query['GraphParam'] = $request->graphParam;
+
+        if (null !== $request->graphParam) {
+            @$query['GraphParam'] = $request->graphParam;
         }
-        if (!Utils::isUnset($request->nodeContent)) {
-            $query['NodeContent'] = $request->nodeContent;
+
+        if (null !== $request->nodeContent) {
+            @$query['NodeContent'] = $request->nodeContent;
         }
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->nodeOutput)) {
-            $query['NodeOutput'] = $request->nodeOutput;
+
+        if (null !== $request->nodeOutput) {
+            @$query['NodeOutput'] = $request->nodeOutput;
         }
-        if (!Utils::isUnset($request->nodeType)) {
-            $query['NodeType'] = $request->nodeType;
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->timeVariables)) {
-            $query['TimeVariables'] = $request->timeVariables;
+
+        if (null !== $request->timeVariables) {
+            @$query['TimeVariables'] = $request->timeVariables;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateTask',
@@ -3535,16 +4282,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a task node for a task flow.
-     *  *
-     * @param CreateTaskRequest $request CreateTaskRequest
+     * Creates a task node for a task flow.
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @param request - CreateTaskRequest
+     * @returns CreateTaskResponse
+     *
+     * @param CreateTaskRequest $request
+     *
+     * @return CreateTaskResponse
      */
     public function createTask($request)
     {
@@ -3554,31 +4307,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a task flow.
-     *  *
-     * @param CreateTaskFlowRequest $request CreateTaskFlowRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a task flow.
      *
-     * @return CreateTaskFlowResponse CreateTaskFlowResponse
+     * @param request - CreateTaskFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTaskFlowResponse
+     *
+     * @param CreateTaskFlowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTaskFlowResponse
      */
     public function createTaskFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagName)) {
-            $query['DagName'] = $request->dagName;
+        if (null !== $request->dagName) {
+            @$query['DagName'] = $request->dagName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateTaskFlow',
@@ -3591,16 +4352,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a task flow.
-     *  *
-     * @param CreateTaskFlowRequest $request CreateTaskFlowRequest
+     * Creates a task flow.
      *
-     * @return CreateTaskFlowResponse CreateTaskFlowResponse
+     * @param request - CreateTaskFlowRequest
+     * @returns CreateTaskFlowResponse
+     *
+     * @param CreateTaskFlowRequest $request
+     *
+     * @return CreateTaskFlowResponse
      */
     public function createTaskFlow($request)
     {
@@ -3610,31 +4377,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 创建上传附件任务
-     *  *
-     * @param CreateUploadFileJobRequest $request CreateUploadFileJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 创建上传附件任务
      *
-     * @return CreateUploadFileJobResponse CreateUploadFileJobResponse
+     * @param request - CreateUploadFileJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateUploadFileJobResponse
+     *
+     * @param CreateUploadFileJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateUploadFileJobResponse
      */
     public function createUploadFileJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileSource)) {
-            $query['FileSource'] = $request->fileSource;
+
+        if (null !== $request->fileSource) {
+            @$query['FileSource'] = $request->fileSource;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->uploadURL)) {
-            $query['UploadURL'] = $request->uploadURL;
+
+        if (null !== $request->uploadURL) {
+            @$query['UploadURL'] = $request->uploadURL;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateUploadFileJob',
@@ -3647,16 +4422,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateUploadFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUploadFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUploadFileJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建上传附件任务
-     *  *
-     * @param CreateUploadFileJobRequest $request CreateUploadFileJobRequest
+     * 创建上传附件任务
      *
-     * @return CreateUploadFileJobResponse CreateUploadFileJobResponse
+     * @param request - CreateUploadFileJobRequest
+     * @returns CreateUploadFileJobResponse
+     *
+     * @param CreateUploadFileJobRequest $request
+     *
+     * @return CreateUploadFileJobResponse
      */
     public function createUploadFileJob($request)
     {
@@ -3666,36 +4447,45 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Creates a task to upload an Object Storage Service (OSS) file and obtain the key of the task.
-     *  *
-     * @param CreateUploadOSSFileJobRequest $tmpReq  CreateUploadOSSFileJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a task to upload an Object Storage Service (OSS) file and obtain the key of the task.
      *
-     * @return CreateUploadOSSFileJobResponse CreateUploadOSSFileJobResponse
+     * @param tmpReq - CreateUploadOSSFileJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateUploadOSSFileJobResponse
+     *
+     * @param CreateUploadOSSFileJobRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateUploadOSSFileJobResponse
      */
     public function createUploadOSSFileJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateUploadOSSFileJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->uploadTarget)) {
-            $request->uploadTargetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->uploadTarget, 'UploadTarget', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->uploadTarget) {
+            $request->uploadTargetShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->uploadTarget, 'UploadTarget', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileSource)) {
-            $query['FileSource'] = $request->fileSource;
+
+        if (null !== $request->fileSource) {
+            @$query['FileSource'] = $request->fileSource;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->uploadTargetShrink)) {
-            $query['UploadTarget'] = $request->uploadTargetShrink;
+
+        if (null !== $request->uploadTargetShrink) {
+            @$query['UploadTarget'] = $request->uploadTargetShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateUploadOSSFileJob',
@@ -3708,16 +4498,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateUploadOSSFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUploadOSSFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUploadOSSFileJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a task to upload an Object Storage Service (OSS) file and obtain the key of the task.
-     *  *
-     * @param CreateUploadOSSFileJobRequest $request CreateUploadOSSFileJobRequest
+     * Creates a task to upload an Object Storage Service (OSS) file and obtain the key of the task.
      *
-     * @return CreateUploadOSSFileJobResponse CreateUploadOSSFileJobResponse
+     * @param request - CreateUploadOSSFileJobRequest
+     * @returns CreateUploadOSSFileJobResponse
+     *
+     * @param CreateUploadOSSFileJobRequest $request
+     *
+     * @return CreateUploadOSSFileJobResponse
      */
     public function createUploadOSSFileJob($request)
     {
@@ -3727,28 +4523,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 删除权限策略授权
-     *  *
-     * @param DeleteAbacAuthorizationRequest $request DeleteAbacAuthorizationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除权限策略授权.
      *
-     * @return DeleteAbacAuthorizationResponse DeleteAbacAuthorizationResponse
+     * @param request - DeleteAbacAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAbacAuthorizationResponse
+     *
+     * @param DeleteAbacAuthorizationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAbacAuthorizationResponse
      */
     public function deleteAbacAuthorizationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authorizationId)) {
-            $query['AuthorizationId'] = $request->authorizationId;
+        if (null !== $request->authorizationId) {
+            @$query['AuthorizationId'] = $request->authorizationId;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $query['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$query['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAbacAuthorization',
@@ -3761,16 +4564,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAbacAuthorizationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除权限策略授权
-     *  *
-     * @param DeleteAbacAuthorizationRequest $request DeleteAbacAuthorizationRequest
+     * 删除权限策略授权.
      *
-     * @return DeleteAbacAuthorizationResponse DeleteAbacAuthorizationResponse
+     * @param request - DeleteAbacAuthorizationRequest
+     * @returns DeleteAbacAuthorizationResponse
+     *
+     * @param DeleteAbacAuthorizationRequest $request
+     *
+     * @return DeleteAbacAuthorizationResponse
      */
     public function deleteAbacAuthorization($request)
     {
@@ -3780,25 +4589,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 删除权限策略
-     *  *
-     * @param DeleteAbacPolicyRequest $request DeleteAbacPolicyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除权限策略.
      *
-     * @return DeleteAbacPolicyResponse DeleteAbacPolicyResponse
+     * @param request - DeleteAbacPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAbacPolicyResponse
+     *
+     * @param DeleteAbacPolicyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteAbacPolicyResponse
      */
     public function deleteAbacPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->abacPolicyId)) {
-            $query['AbacPolicyId'] = $request->abacPolicyId;
+        if (null !== $request->abacPolicyId) {
+            @$query['AbacPolicyId'] = $request->abacPolicyId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAbacPolicy',
@@ -3811,16 +4626,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAbacPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除权限策略
-     *  *
-     * @param DeleteAbacPolicyRequest $request DeleteAbacPolicyRequest
+     * 删除权限策略.
      *
-     * @return DeleteAbacPolicyResponse DeleteAbacPolicyResponse
+     * @param request - DeleteAbacPolicyRequest
+     * @returns DeleteAbacPolicyResponse
+     *
+     * @param DeleteAbacPolicyRequest $request
+     *
+     * @return DeleteAbacPolicyResponse
      */
     public function deleteAbacPolicy($request)
     {
@@ -3830,25 +4651,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 删除权限模版
-     *  *
-     * @param DeleteAuthorityTemplateRequest $request DeleteAuthorityTemplateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除权限模版.
      *
-     * @return DeleteAuthorityTemplateResponse DeleteAuthorityTemplateResponse
+     * @param request - DeleteAuthorityTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAuthorityTemplateResponse
+     *
+     * @param DeleteAuthorityTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAuthorityTemplateResponse
      */
     public function deleteAuthorityTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAuthorityTemplate',
@@ -3861,16 +4688,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除权限模版
-     *  *
-     * @param DeleteAuthorityTemplateRequest $request DeleteAuthorityTemplateRequest
+     * 删除权限模版.
      *
-     * @return DeleteAuthorityTemplateResponse DeleteAuthorityTemplateResponse
+     * @param request - DeleteAuthorityTemplateRequest
+     * @returns DeleteAuthorityTemplateResponse
+     *
+     * @param DeleteAuthorityTemplateRequest $request
+     *
+     * @return DeleteAuthorityTemplateResponse
      */
     public function deleteAuthorityTemplate($request)
     {
@@ -3880,31 +4713,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 删除湖仓数据库
-     *  *
-     * @param DeleteDataLakeDatabaseRequest $request DeleteDataLakeDatabaseRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 删除湖仓数据库.
      *
-     * @return DeleteDataLakeDatabaseResponse DeleteDataLakeDatabaseResponse
+     * @param request - DeleteDataLakeDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataLakeDatabaseResponse
+     *
+     * @param DeleteDataLakeDatabaseRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDataLakeDatabaseResponse
      */
     public function deleteDataLakeDatabaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataLakeDatabase',
@@ -3917,16 +4758,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataLakeDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除湖仓数据库
-     *  *
-     * @param DeleteDataLakeDatabaseRequest $request DeleteDataLakeDatabaseRequest
+     * 删除湖仓数据库.
      *
-     * @return DeleteDataLakeDatabaseResponse DeleteDataLakeDatabaseResponse
+     * @param request - DeleteDataLakeDatabaseRequest
+     * @returns DeleteDataLakeDatabaseResponse
+     *
+     * @param DeleteDataLakeDatabaseRequest $request
+     *
+     * @return DeleteDataLakeDatabaseResponse
      */
     public function deleteDataLakeDatabase($request)
     {
@@ -3936,45 +4783,57 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 删除湖仓表分区
-     *  *
-     * @param DeleteDataLakePartitionRequest $tmpReq  DeleteDataLakePartitionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除湖仓表分区.
      *
-     * @return DeleteDataLakePartitionResponse DeleteDataLakePartitionResponse
+     * @param tmpReq - DeleteDataLakePartitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataLakePartitionResponse
+     *
+     * @param DeleteDataLakePartitionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteDataLakePartitionResponse
      */
     public function deleteDataLakePartitionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteDataLakePartitionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->partitionValues)) {
-            $request->partitionValuesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionValues, 'PartitionValues', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->partitionValues) {
+            $request->partitionValuesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partitionValues, 'PartitionValues', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->ifExists)) {
-            $query['IfExists'] = $request->ifExists;
+
+        if (null !== $request->ifExists) {
+            @$query['IfExists'] = $request->ifExists;
         }
-        if (!Utils::isUnset($request->partitionValuesShrink)) {
-            $query['PartitionValues'] = $request->partitionValuesShrink;
+
+        if (null !== $request->partitionValuesShrink) {
+            @$query['PartitionValues'] = $request->partitionValuesShrink;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataLakePartition',
@@ -3987,16 +4846,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataLakePartitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除湖仓表分区
-     *  *
-     * @param DeleteDataLakePartitionRequest $request DeleteDataLakePartitionRequest
+     * 删除湖仓表分区.
      *
-     * @return DeleteDataLakePartitionResponse DeleteDataLakePartitionResponse
+     * @param request - DeleteDataLakePartitionRequest
+     * @returns DeleteDataLakePartitionResponse
+     *
+     * @param DeleteDataLakePartitionRequest $request
+     *
+     * @return DeleteDataLakePartitionResponse
      */
     public function deleteDataLakePartition($request)
     {
@@ -4006,34 +4871,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 删除湖仓表
-     *  *
-     * @param DeleteDataLakeTableRequest $request DeleteDataLakeTableRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除湖仓表.
      *
-     * @return DeleteDataLakeTableResponse DeleteDataLakeTableResponse
+     * @param request - DeleteDataLakeTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataLakeTableResponse
+     *
+     * @param DeleteDataLakeTableRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDataLakeTableResponse
      */
     public function deleteDataLakeTableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataLakeTable',
@@ -4046,16 +4920,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataLakeTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除湖仓表
-     *  *
-     * @param DeleteDataLakeTableRequest $request DeleteDataLakeTableRequest
+     * 删除湖仓表.
      *
-     * @return DeleteDataLakeTableResponse DeleteDataLakeTableResponse
+     * @param request - DeleteDataLakeTableRequest
+     * @returns DeleteDataLakeTableResponse
+     *
+     * @param DeleteDataLakeTableRequest $request
+     *
+     * @return DeleteDataLakeTableResponse
      */
     public function deleteDataLakeTable($request)
     {
@@ -4065,33 +4945,42 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Removes a database instance from Data Management (DMS).
-     *  *
-     * @description Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes a database instance from Data Management (DMS).
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @remarks
+     * Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
+     *
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->sid)) {
-            $query['Sid'] = $request->sid;
+
+        if (null !== $request->sid) {
+            @$query['Sid'] = $request->sid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
@@ -4104,18 +4993,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a database instance from Data Management (DMS).
-     *  *
-     * @description Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * Removes a database instance from Data Management (DMS).
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @remarks
+     * Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
+     *
+     * @param request - DeleteInstanceRequest
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -4125,25 +5021,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a workspace.
-     *  *
-     * @param DeleteLakeHouseSpaceRequest $request DeleteLakeHouseSpaceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes a workspace.
      *
-     * @return DeleteLakeHouseSpaceResponse DeleteLakeHouseSpaceResponse
+     * @param request - DeleteLakeHouseSpaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLakeHouseSpaceResponse
+     *
+     * @param DeleteLakeHouseSpaceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteLakeHouseSpaceResponse
      */
     public function deleteLakeHouseSpaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->spaceId)) {
-            $query['SpaceId'] = $request->spaceId;
+        if (null !== $request->spaceId) {
+            @$query['SpaceId'] = $request->spaceId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLakeHouseSpace',
@@ -4156,16 +5058,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLakeHouseSpaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a workspace.
-     *  *
-     * @param DeleteLakeHouseSpaceRequest $request DeleteLakeHouseSpaceRequest
+     * Deletes a workspace.
      *
-     * @return DeleteLakeHouseSpaceResponse DeleteLakeHouseSpaceResponse
+     * @param request - DeleteLakeHouseSpaceRequest
+     * @returns DeleteLakeHouseSpaceResponse
+     *
+     * @param DeleteLakeHouseSpaceRequest $request
+     *
+     * @return DeleteLakeHouseSpaceResponse
      */
     public function deleteLakeHouseSpace($request)
     {
@@ -4175,39 +5083,49 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 删除数仓空间成员
-     *  *
-     * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
-     * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
-     *  *
-     * @param DeleteLhMembersRequest $tmpReq  DeleteLhMembersRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除数仓空间成员.
      *
-     * @return DeleteLhMembersResponse DeleteLhMembersResponse
+     * @remarks
+     * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+     * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
+     *
+     * @param tmpReq - DeleteLhMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLhMembersResponse
+     *
+     * @param DeleteLhMembersRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteLhMembersResponse
      */
     public function deleteLhMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteLhMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->memberIds)) {
-            $request->memberIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->memberIds, 'MemberIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->memberIds) {
+            $request->memberIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->memberIds, 'MemberIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->memberIdsShrink)) {
-            $query['MemberIds'] = $request->memberIdsShrink;
+        if (null !== $request->memberIdsShrink) {
+            @$query['MemberIds'] = $request->memberIdsShrink;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLhMembers',
@@ -4220,19 +5138,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLhMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除数仓空间成员
-     *  *
-     * @description You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
-     * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
-     *  *
-     * @param DeleteLhMembersRequest $request DeleteLhMembersRequest
+     * 删除数仓空间成员.
      *
-     * @return DeleteLhMembersResponse DeleteLhMembersResponse
+     * @remarks
+     * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+     * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](https://help.aliyun.com/document_detail/424761.html) operation.
+     *
+     * @param request - DeleteLhMembersRequest
+     * @returns DeleteLhMembersResponse
+     *
+     * @param DeleteLhMembersRequest $request
+     *
+     * @return DeleteLhMembersResponse
      */
     public function deleteLhMembers($request)
     {
@@ -4242,25 +5167,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
-     *  *
-     * @param DeleteLogicDatabaseRequest $request DeleteLogicDatabaseRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
      *
-     * @return DeleteLogicDatabaseResponse DeleteLogicDatabaseResponse
+     * @param request - DeleteLogicDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLogicDatabaseResponse
+     *
+     * @param DeleteLogicDatabaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteLogicDatabaseResponse
      */
     public function deleteLogicDatabaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logicDbId)) {
-            $query['LogicDbId'] = $request->logicDbId;
+        if (null !== $request->logicDbId) {
+            @$query['LogicDbId'] = $request->logicDbId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLogicDatabase',
@@ -4273,16 +5204,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLogicDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
-     *  *
-     * @param DeleteLogicDatabaseRequest $request DeleteLogicDatabaseRequest
+     * Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
      *
-     * @return DeleteLogicDatabaseResponse DeleteLogicDatabaseResponse
+     * @param request - DeleteLogicDatabaseRequest
+     * @returns DeleteLogicDatabaseResponse
+     *
+     * @param DeleteLogicDatabaseRequest $request
+     *
+     * @return DeleteLogicDatabaseResponse
      */
     public function deleteLogicDatabase($request)
     {
@@ -4292,28 +5229,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the routing algorithm of a logical table.
-     *  *
-     * @param DeleteLogicTableRouteConfigRequest $request DeleteLogicTableRouteConfigRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Deletes the routing algorithm of a logical table.
      *
-     * @return DeleteLogicTableRouteConfigResponse DeleteLogicTableRouteConfigResponse
+     * @param request - DeleteLogicTableRouteConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLogicTableRouteConfigResponse
+     *
+     * @param DeleteLogicTableRouteConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteLogicTableRouteConfigResponse
      */
     public function deleteLogicTableRouteConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->routeKey)) {
-            $query['RouteKey'] = $request->routeKey;
+        if (null !== $request->routeKey) {
+            @$query['RouteKey'] = $request->routeKey;
         }
-        if (!Utils::isUnset($request->tableId)) {
-            $query['TableId'] = $request->tableId;
+
+        if (null !== $request->tableId) {
+            @$query['TableId'] = $request->tableId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLogicTableRouteConfig',
@@ -4326,16 +5270,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLogicTableRouteConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the routing algorithm of a logical table.
-     *  *
-     * @param DeleteLogicTableRouteConfigRequest $request DeleteLogicTableRouteConfigRequest
+     * Deletes the routing algorithm of a logical table.
      *
-     * @return DeleteLogicTableRouteConfigResponse DeleteLogicTableRouteConfigResponse
+     * @param request - DeleteLogicTableRouteConfigRequest
+     * @returns DeleteLogicTableRouteConfigResponse
+     *
+     * @param DeleteLogicTableRouteConfigRequest $request
+     *
+     * @return DeleteLogicTableRouteConfigResponse
      */
     public function deleteLogicTableRouteConfig($request)
     {
@@ -4345,27 +5295,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to disable the data security protection proxy of a DB instance.
-     *  *
-     * @description After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
-     *  *
-     * @param DeleteProxyRequest $request DeleteProxyRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to disable the data security protection proxy of a DB instance.
      *
-     * @return DeleteProxyResponse DeleteProxyResponse
+     * @remarks
+     * After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
+     *
+     * @param request - DeleteProxyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProxyResponse
+     *
+     * @param DeleteProxyRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteProxyResponse
      */
     public function deleteProxyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->proxyId)) {
-            $query['ProxyId'] = $request->proxyId;
+        if (null !== $request->proxyId) {
+            @$query['ProxyId'] = $request->proxyId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProxy',
@@ -4378,18 +5335,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProxyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to disable the data security protection proxy of a DB instance.
-     *  *
-     * @description After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
-     *  *
-     * @param DeleteProxyRequest $request DeleteProxyRequest
+     * You can call this operation to disable the data security protection proxy of a DB instance.
      *
-     * @return DeleteProxyResponse DeleteProxyResponse
+     * @remarks
+     * After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
+     *
+     * @param request - DeleteProxyRequest
+     * @returns DeleteProxyResponse
+     *
+     * @param DeleteProxyRequest $request
+     *
+     * @return DeleteProxyResponse
      */
     public function deleteProxy($request)
     {
@@ -4399,25 +5363,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
-     *  *
-     * @param DeleteProxyAccessRequest $request DeleteProxyAccessRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
      *
-     * @return DeleteProxyAccessResponse DeleteProxyAccessResponse
+     * @param request - DeleteProxyAccessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProxyAccessResponse
+     *
+     * @param DeleteProxyAccessRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteProxyAccessResponse
      */
     public function deleteProxyAccessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->proxyAccessId)) {
-            $query['ProxyAccessId'] = $request->proxyAccessId;
+        if (null !== $request->proxyAccessId) {
+            @$query['ProxyAccessId'] = $request->proxyAccessId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProxyAccess',
@@ -4430,16 +5400,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProxyAccessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
-     *  *
-     * @param DeleteProxyAccessRequest $request DeleteProxyAccessRequest
+     * You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
      *
-     * @return DeleteProxyAccessResponse DeleteProxyAccessResponse
+     * @param request - DeleteProxyAccessRequest
+     * @returns DeleteProxyAccessResponse
+     *
+     * @param DeleteProxyAccessRequest $request
+     *
+     * @return DeleteProxyAccessResponse
      */
     public function deleteProxyAccess($request)
     {
@@ -4449,27 +5425,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a business scenario.
-     *  *
-     * @description When you call this operation, make sure that no task flow is specified in the business scenario.
-     *  *
-     * @param DeleteScenarioRequest $request DeleteScenarioRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a business scenario.
      *
-     * @return DeleteScenarioResponse DeleteScenarioResponse
+     * @remarks
+     * When you call this operation, make sure that no task flow is specified in the business scenario.
+     *
+     * @param request - DeleteScenarioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteScenarioResponse
+     *
+     * @param DeleteScenarioRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteScenarioResponse
      */
     public function deleteScenarioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteScenario',
@@ -4482,18 +5465,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteScenarioResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a business scenario.
-     *  *
-     * @description When you call this operation, make sure that no task flow is specified in the business scenario.
-     *  *
-     * @param DeleteScenarioRequest $request DeleteScenarioRequest
+     * Deletes a business scenario.
      *
-     * @return DeleteScenarioResponse DeleteScenarioResponse
+     * @remarks
+     * When you call this operation, make sure that no task flow is specified in the business scenario.
+     *
+     * @param request - DeleteScenarioRequest
+     * @returns DeleteScenarioResponse
+     *
+     * @param DeleteScenarioRequest $request
+     *
+     * @return DeleteScenarioResponse
      */
     public function deleteScenario($request)
     {
@@ -4503,25 +5493,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 删除安全规则
-     *  *
-     * @param DeleteStandardGroupRequest $request DeleteStandardGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除安全规则.
      *
-     * @return DeleteStandardGroupResponse DeleteStandardGroupResponse
+     * @param request - DeleteStandardGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteStandardGroupResponse
+     *
+     * @param DeleteStandardGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteStandardGroupResponse
      */
     public function deleteStandardGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteStandardGroup',
@@ -4534,16 +5530,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteStandardGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除安全规则
-     *  *
-     * @param DeleteStandardGroupRequest $request DeleteStandardGroupRequest
+     * 删除安全规则.
      *
-     * @return DeleteStandardGroupResponse DeleteStandardGroupResponse
+     * @param request - DeleteStandardGroupRequest
+     * @returns DeleteStandardGroupResponse
+     *
+     * @param DeleteStandardGroupRequest $request
+     *
+     * @return DeleteStandardGroupResponse
      */
     public function deleteStandardGroup($request)
     {
@@ -4553,25 +5555,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a task in a specified task flow.
-     *  *
-     * @param DeleteTaskRequest $request DeleteTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a task in a specified task flow.
      *
-     * @return DeleteTaskResponse DeleteTaskResponse
+     * @param request - DeleteTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTaskResponse
+     *
+     * @param DeleteTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteTaskResponse
      */
     public function deleteTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTask',
@@ -4584,16 +5592,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a task in a specified task flow.
-     *  *
-     * @param DeleteTaskRequest $request DeleteTaskRequest
+     * Deletes a task in a specified task flow.
      *
-     * @return DeleteTaskResponse DeleteTaskResponse
+     * @param request - DeleteTaskRequest
+     * @returns DeleteTaskResponse
+     *
+     * @param DeleteTaskRequest $request
+     *
+     * @return DeleteTaskResponse
      */
     public function deleteTask($request)
     {
@@ -4603,25 +5617,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a task flow.
-     *  *
-     * @param DeleteTaskFlowRequest $request DeleteTaskFlowRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a task flow.
      *
-     * @return DeleteTaskFlowResponse DeleteTaskFlowResponse
+     * @param request - DeleteTaskFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTaskFlowResponse
+     *
+     * @param DeleteTaskFlowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTaskFlowResponse
      */
     public function deleteTaskFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTaskFlow',
@@ -4634,16 +5654,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a task flow.
-     *  *
-     * @param DeleteTaskFlowRequest $request DeleteTaskFlowRequest
+     * Deletes a task flow.
      *
-     * @return DeleteTaskFlowResponse DeleteTaskFlowResponse
+     * @param request - DeleteTaskFlowRequest
+     * @returns DeleteTaskFlowResponse
+     *
+     * @param DeleteTaskFlowRequest $request
+     *
+     * @return DeleteTaskFlowResponse
      */
     public function deleteTaskFlow($request)
     {
@@ -4653,36 +5679,46 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Deletes task flow edges based on multiple conditions.
-     *  *
-     * @description This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
-     *  *
-     * @param DeleteTaskFlowEdgesByConditionRequest $request DeleteTaskFlowEdgesByConditionRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Deletes task flow edges based on multiple conditions.
      *
-     * @return DeleteTaskFlowEdgesByConditionResponse DeleteTaskFlowEdgesByConditionResponse
+     * @remarks
+     * This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
+     *
+     * @param request - DeleteTaskFlowEdgesByConditionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTaskFlowEdgesByConditionResponse
+     *
+     * @param DeleteTaskFlowEdgesByConditionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteTaskFlowEdgesByConditionResponse
      */
     public function deleteTaskFlowEdgesByConditionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->nodeEnd)) {
-            $query['NodeEnd'] = $request->nodeEnd;
+
+        if (null !== $request->nodeEnd) {
+            @$query['NodeEnd'] = $request->nodeEnd;
         }
-        if (!Utils::isUnset($request->nodeFrom)) {
-            $query['NodeFrom'] = $request->nodeFrom;
+
+        if (null !== $request->nodeFrom) {
+            @$query['NodeFrom'] = $request->nodeFrom;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTaskFlowEdgesByCondition',
@@ -4695,18 +5731,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTaskFlowEdgesByConditionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes task flow edges based on multiple conditions.
-     *  *
-     * @description This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
-     *  *
-     * @param DeleteTaskFlowEdgesByConditionRequest $request DeleteTaskFlowEdgesByConditionRequest
+     * Deletes task flow edges based on multiple conditions.
      *
-     * @return DeleteTaskFlowEdgesByConditionResponse DeleteTaskFlowEdgesByConditionResponse
+     * @remarks
+     * This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
+     *
+     * @param request - DeleteTaskFlowEdgesByConditionRequest
+     * @returns DeleteTaskFlowEdgesByConditionResponse
+     *
+     * @param DeleteTaskFlowEdgesByConditionRequest $request
+     *
+     * @return DeleteTaskFlowEdgesByConditionResponse
      */
     public function deleteTaskFlowEdgesByCondition($request)
     {
@@ -4716,28 +5759,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an Alibaba Cloud account that is no longer used.
-     *  *
-     * @description The effect of deleting a user by calling this operation is the same as that of deleting a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to delete a user that is no longer used from DMS Enterprise. After the user is deleted, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
-     * >  This operation only removes the association of the Alibaba Cloud account or RAM user with DMS Enterprise of the enterprise, rather than actually deleting the Alibaba Cloud account or RAM user. After the user is deleted, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is added to DMS Enterprise again.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes an Alibaba Cloud account that is no longer used.
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @remarks
+     * The effect of deleting a user by calling this operation is the same as that of deleting a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to delete a user that is no longer used from DMS Enterprise. After the user is deleted, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+     * >  This operation only removes the association of the Alibaba Cloud account or RAM user with DMS Enterprise of the enterprise, rather than actually deleting the Alibaba Cloud account or RAM user. After the user is deleted, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is added to DMS Enterprise again.
+     *
+     * @param request - DeleteUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteUserResponse
+     *
+     * @param DeleteUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteUser',
@@ -4750,19 +5800,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an Alibaba Cloud account that is no longer used.
-     *  *
-     * @description The effect of deleting a user by calling this operation is the same as that of deleting a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to delete a user that is no longer used from DMS Enterprise. After the user is deleted, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
-     * >  This operation only removes the association of the Alibaba Cloud account or RAM user with DMS Enterprise of the enterprise, rather than actually deleting the Alibaba Cloud account or RAM user. After the user is deleted, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is added to DMS Enterprise again.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
+     * Deletes an Alibaba Cloud account that is no longer used.
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @remarks
+     * The effect of deleting a user by calling this operation is the same as that of deleting a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to delete a user that is no longer used from DMS Enterprise. After the user is deleted, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+     * >  This operation only removes the association of the Alibaba Cloud account or RAM user with DMS Enterprise of the enterprise, rather than actually deleting the Alibaba Cloud account or RAM user. After the user is deleted, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is added to DMS Enterprise again.
+     *
+     * @param request - DeleteUserRequest
+     * @returns DeleteUserResponse
+     *
+     * @param DeleteUserRequest $request
+     *
+     * @return DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -4772,28 +5829,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
-     *  *
-     * @description The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
-     * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
-     *  *
-     * @param DisableUserRequest $request DisableUserRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
      *
-     * @return DisableUserResponse DisableUserResponse
+     * @remarks
+     * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+     * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
+     *
+     * @param request - DisableUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableUserResponse
+     *
+     * @param DisableUserRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DisableUserResponse
      */
     public function disableUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableUser',
@@ -4806,19 +5870,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
-     *  *
-     * @description The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
-     * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
-     *  *
-     * @param DisableUserRequest $request DisableUserRequest
+     * You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
      *
-     * @return DisableUserResponse DisableUserResponse
+     * @remarks
+     * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+     * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
+     *
+     * @param request - DisableUserRequest
+     * @returns DisableUserResponse
+     *
+     * @param DisableUserRequest $request
+     *
+     * @return DisableUserResponse
      */
     public function disableUser($request)
     {
@@ -4828,60 +5899,77 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Downloads the parsing result of a data tracking task.
-     *  *
-     * @param DownloadDataTrackResultRequest $tmpReq  DownloadDataTrackResultRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Downloads the parsing result of a data tracking task.
      *
-     * @return DownloadDataTrackResultResponse DownloadDataTrackResultResponse
+     * @param tmpReq - DownloadDataTrackResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DownloadDataTrackResultResponse
+     *
+     * @param DownloadDataTrackResultRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DownloadDataTrackResultResponse
      */
     public function downloadDataTrackResultWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DownloadDataTrackResultShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->columnFilter)) {
-            $request->columnFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->columnFilter, 'ColumnFilter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->columnFilter) {
+            $request->columnFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->columnFilter, 'ColumnFilter', 'json');
         }
-        if (!Utils::isUnset($tmpReq->eventIdList)) {
-            $request->eventIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventIdList, 'EventIdList', 'json');
+
+        if (null !== $tmpReq->eventIdList) {
+            $request->eventIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventIdList, 'EventIdList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->filterTableList)) {
-            $request->filterTableListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTableList, 'FilterTableList', 'json');
+
+        if (null !== $tmpReq->filterTableList) {
+            $request->filterTableListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterTableList, 'FilterTableList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->filterTypeList)) {
-            $request->filterTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTypeList, 'FilterTypeList', 'json');
+
+        if (null !== $tmpReq->filterTypeList) {
+            $request->filterTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterTypeList, 'FilterTypeList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->columnFilterShrink)) {
-            $query['ColumnFilter'] = $request->columnFilterShrink;
+        if (null !== $request->columnFilterShrink) {
+            @$query['ColumnFilter'] = $request->columnFilterShrink;
         }
-        if (!Utils::isUnset($request->eventIdListShrink)) {
-            $query['EventIdList'] = $request->eventIdListShrink;
+
+        if (null !== $request->eventIdListShrink) {
+            @$query['EventIdList'] = $request->eventIdListShrink;
         }
-        if (!Utils::isUnset($request->filterEndTime)) {
-            $query['FilterEndTime'] = $request->filterEndTime;
+
+        if (null !== $request->filterEndTime) {
+            @$query['FilterEndTime'] = $request->filterEndTime;
         }
-        if (!Utils::isUnset($request->filterStartTime)) {
-            $query['FilterStartTime'] = $request->filterStartTime;
+
+        if (null !== $request->filterStartTime) {
+            @$query['FilterStartTime'] = $request->filterStartTime;
         }
-        if (!Utils::isUnset($request->filterTableListShrink)) {
-            $query['FilterTableList'] = $request->filterTableListShrink;
+
+        if (null !== $request->filterTableListShrink) {
+            @$query['FilterTableList'] = $request->filterTableListShrink;
         }
-        if (!Utils::isUnset($request->filterTypeListShrink)) {
-            $query['FilterTypeList'] = $request->filterTypeListShrink;
+
+        if (null !== $request->filterTypeListShrink) {
+            @$query['FilterTypeList'] = $request->filterTypeListShrink;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->rollbackSQLType)) {
-            $query['RollbackSQLType'] = $request->rollbackSQLType;
+
+        if (null !== $request->rollbackSQLType) {
+            @$query['RollbackSQLType'] = $request->rollbackSQLType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DownloadDataTrackResult',
@@ -4894,16 +5982,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DownloadDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DownloadDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DownloadDataTrackResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Downloads the parsing result of a data tracking task.
-     *  *
-     * @param DownloadDataTrackResultRequest $request DownloadDataTrackResultRequest
+     * Downloads the parsing result of a data tracking task.
      *
-     * @return DownloadDataTrackResultResponse DownloadDataTrackResultResponse
+     * @param request - DownloadDataTrackResultRequest
+     * @returns DownloadDataTrackResultResponse
+     *
+     * @param DownloadDataTrackResultRequest $request
+     *
+     * @return DownloadDataTrackResultResponse
      */
     public function downloadDataTrackResult($request)
     {
@@ -4913,36 +6007,45 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about a logical database.
-     *  *
-     * @param EditLogicDatabaseRequest $tmpReq  EditLogicDatabaseRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about a logical database.
      *
-     * @return EditLogicDatabaseResponse EditLogicDatabaseResponse
+     * @param tmpReq - EditLogicDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EditLogicDatabaseResponse
+     *
+     * @param EditLogicDatabaseRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return EditLogicDatabaseResponse
      */
     public function editLogicDatabaseWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EditLogicDatabaseShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->databaseIds)) {
-            $request->databaseIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->databaseIds, 'DatabaseIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->databaseIds) {
+            $request->databaseIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->databaseIds, 'DatabaseIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->alias)) {
-            $query['Alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$query['Alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->databaseIdsShrink)) {
-            $query['DatabaseIds'] = $request->databaseIdsShrink;
+
+        if (null !== $request->databaseIdsShrink) {
+            @$query['DatabaseIds'] = $request->databaseIdsShrink;
         }
-        if (!Utils::isUnset($request->logicDbId)) {
-            $query['LogicDbId'] = $request->logicDbId;
+
+        if (null !== $request->logicDbId) {
+            @$query['LogicDbId'] = $request->logicDbId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EditLogicDatabase',
@@ -4955,16 +6058,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EditLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EditLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EditLogicDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about a logical database.
-     *  *
-     * @param EditLogicDatabaseRequest $request EditLogicDatabaseRequest
+     * Modifies the information about a logical database.
      *
-     * @return EditLogicDatabaseResponse EditLogicDatabaseResponse
+     * @param request - EditLogicDatabaseRequest
+     * @returns EditLogicDatabaseResponse
+     *
+     * @param EditLogicDatabaseRequest $request
+     *
+     * @return EditLogicDatabaseResponse
      */
     public function editLogicDatabase($request)
     {
@@ -4974,28 +6083,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
-     *  *
-     * @description The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
-     * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
-     *  *
-     * @param EnableUserRequest $request EnableUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
      *
-     * @return EnableUserResponse EnableUserResponse
+     * @remarks
+     * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
+     * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
+     *
+     * @param request - EnableUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableUserResponse
+     *
+     * @param EnableUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return EnableUserResponse
      */
     public function enableUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableUser',
@@ -5008,19 +6124,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
-     *  *
-     * @description The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
-     * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
-     *  *
-     * @param EnableUserRequest $request EnableUserRequest
+     * You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
      *
-     * @return EnableUserResponse EnableUserResponse
+     * @remarks
+     * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
+     * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
+     *
+     * @param request - EnableUserRequest
+     * @returns EnableUserResponse
+     *
+     * @param EnableUserRequest $request
+     *
+     * @return EnableUserResponse
      */
     public function enableUser($request)
     {
@@ -5030,36 +6153,45 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Submits a ticket for data change.
-     *  *
-     * @param ExecuteDataCorrectRequest $tmpReq  ExecuteDataCorrectRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Submits a ticket for data change.
      *
-     * @return ExecuteDataCorrectResponse ExecuteDataCorrectResponse
+     * @param tmpReq - ExecuteDataCorrectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteDataCorrectResponse
+     *
+     * @param ExecuteDataCorrectRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ExecuteDataCorrectResponse
      */
     public function executeDataCorrectWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExecuteDataCorrectShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actionDetail)) {
-            $request->actionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionDetail) {
+            $request->actionDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->actionDetailShrink)) {
-            $query['ActionDetail'] = $request->actionDetailShrink;
+        if (null !== $request->actionDetailShrink) {
+            @$query['ActionDetail'] = $request->actionDetailShrink;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExecuteDataCorrect',
@@ -5072,16 +6204,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteDataCorrectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteDataCorrectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteDataCorrectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a ticket for data change.
-     *  *
-     * @param ExecuteDataCorrectRequest $request ExecuteDataCorrectRequest
+     * Submits a ticket for data change.
      *
-     * @return ExecuteDataCorrectResponse ExecuteDataCorrectResponse
+     * @param request - ExecuteDataCorrectRequest
+     * @returns ExecuteDataCorrectResponse
+     *
+     * @param ExecuteDataCorrectRequest $request
+     *
+     * @return ExecuteDataCorrectResponse
      */
     public function executeDataCorrect($request)
     {
@@ -5091,36 +6229,45 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Executes a data export ticket.
-     *  *
-     * @param ExecuteDataExportRequest $tmpReq  ExecuteDataExportRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Executes a data export ticket.
      *
-     * @return ExecuteDataExportResponse ExecuteDataExportResponse
+     * @param tmpReq - ExecuteDataExportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteDataExportResponse
+     *
+     * @param ExecuteDataExportRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExecuteDataExportResponse
      */
     public function executeDataExportWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExecuteDataExportShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actionDetail)) {
-            $request->actionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionDetail) {
+            $request->actionDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->actionDetailShrink)) {
-            $query['ActionDetail'] = $request->actionDetailShrink;
+        if (null !== $request->actionDetailShrink) {
+            @$query['ActionDetail'] = $request->actionDetailShrink;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExecuteDataExport',
@@ -5133,16 +6280,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteDataExportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteDataExportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteDataExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Executes a data export ticket.
-     *  *
-     * @param ExecuteDataExportRequest $request ExecuteDataExportRequest
+     * Executes a data export ticket.
      *
-     * @return ExecuteDataExportResponse ExecuteDataExportResponse
+     * @param request - ExecuteDataExportRequest
+     * @returns ExecuteDataExportResponse
+     *
+     * @param ExecuteDataExportRequest $request
+     *
+     * @return ExecuteDataExportResponse
      */
     public function executeDataExport($request)
     {
@@ -5152,33 +6305,42 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Executes SQL statements.
-     *  *
-     * @description You can call this operation only for instances that are managed in Security Collaboration mode.
-     *  *
-     * @param ExecuteScriptRequest $request ExecuteScriptRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Executes SQL statements.
      *
-     * @return ExecuteScriptResponse ExecuteScriptResponse
+     * @remarks
+     * You can call this operation only for instances that are managed in Security Collaboration mode.
+     *
+     * @param request - ExecuteScriptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteScriptResponse
+     *
+     * @param ExecuteScriptRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ExecuteScriptResponse
      */
     public function executeScriptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->script)) {
-            $query['Script'] = $request->script;
+
+        if (null !== $request->script) {
+            @$query['Script'] = $request->script;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExecuteScript',
@@ -5191,18 +6353,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteScriptResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Executes SQL statements.
-     *  *
-     * @description You can call this operation only for instances that are managed in Security Collaboration mode.
-     *  *
-     * @param ExecuteScriptRequest $request ExecuteScriptRequest
+     * Executes SQL statements.
      *
-     * @return ExecuteScriptResponse ExecuteScriptResponse
+     * @remarks
+     * You can call this operation only for instances that are managed in Security Collaboration mode.
+     *
+     * @param request - ExecuteScriptRequest
+     * @returns ExecuteScriptResponse
+     *
+     * @param ExecuteScriptRequest $request
+     *
+     * @return ExecuteScriptResponse
      */
     public function executeScript($request)
     {
@@ -5212,28 +6381,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Executes a schema synchronization task.
-     *  *
-     * @description If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](https://help.aliyun.com/document_detail/206166.html) operation to submit the ticket for approval.
-     * >  You can call the [GetStructSyncJobDetail](https://help.aliyun.com/document_detail/206160.html) operation to query whether you need to submit a ticket for approval.
-     *  *
-     * @param ExecuteStructSyncRequest $request ExecuteStructSyncRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Executes a schema synchronization task.
      *
-     * @return ExecuteStructSyncResponse ExecuteStructSyncResponse
+     * @remarks
+     * If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](https://help.aliyun.com/document_detail/206166.html) operation to submit the ticket for approval.
+     * >  You can call the [GetStructSyncJobDetail](https://help.aliyun.com/document_detail/206160.html) operation to query whether you need to submit a ticket for approval.
+     *
+     * @param request - ExecuteStructSyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteStructSyncResponse
+     *
+     * @param ExecuteStructSyncRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExecuteStructSyncResponse
      */
     public function executeStructSyncWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExecuteStructSync',
@@ -5246,19 +6422,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteStructSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteStructSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteStructSyncResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Executes a schema synchronization task.
-     *  *
-     * @description If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](https://help.aliyun.com/document_detail/206166.html) operation to submit the ticket for approval.
-     * >  You can call the [GetStructSyncJobDetail](https://help.aliyun.com/document_detail/206160.html) operation to query whether you need to submit a ticket for approval.
-     *  *
-     * @param ExecuteStructSyncRequest $request ExecuteStructSyncRequest
+     * Executes a schema synchronization task.
      *
-     * @return ExecuteStructSyncResponse ExecuteStructSyncResponse
+     * @remarks
+     * If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](https://help.aliyun.com/document_detail/206166.html) operation to submit the ticket for approval.
+     * >  You can call the [GetStructSyncJobDetail](https://help.aliyun.com/document_detail/206160.html) operation to query whether you need to submit a ticket for approval.
+     *
+     * @param request - ExecuteStructSyncRequest
+     * @returns ExecuteStructSyncResponse
+     *
+     * @param ExecuteStructSyncRequest $request
+     *
+     * @return ExecuteStructSyncResponse
      */
     public function executeStructSync($request)
     {
@@ -5268,28 +6451,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取策略详情
-     *  *
-     * @param GetAbacPolicyRequest $request GetAbacPolicyRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取策略详情.
      *
-     * @return GetAbacPolicyResponse GetAbacPolicyResponse
+     * @param request - GetAbacPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAbacPolicyResponse
+     *
+     * @param GetAbacPolicyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAbacPolicyResponse
      */
     public function getAbacPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->abacPolicyId)) {
-            $query['AbacPolicyId'] = $request->abacPolicyId;
+        if (null !== $request->abacPolicyId) {
+            @$query['AbacPolicyId'] = $request->abacPolicyId;
         }
-        if (!Utils::isUnset($request->abacPolicyName)) {
-            $query['AbacPolicyName'] = $request->abacPolicyName;
+
+        if (null !== $request->abacPolicyName) {
+            @$query['AbacPolicyName'] = $request->abacPolicyName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAbacPolicy',
@@ -5302,16 +6492,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAbacPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取策略详情
-     *  *
-     * @param GetAbacPolicyRequest $request GetAbacPolicyRequest
+     * 获取策略详情.
      *
-     * @return GetAbacPolicyResponse GetAbacPolicyResponse
+     * @param request - GetAbacPolicyRequest
+     * @returns GetAbacPolicyResponse
+     *
+     * @param GetAbacPolicyRequest $request
+     *
+     * @return GetAbacPolicyResponse
      */
     public function getAbacPolicy($request)
     {
@@ -5321,25 +6517,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the approval details of a ticket.
-     *  *
-     * @param GetApprovalDetailRequest $request GetApprovalDetailRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the approval details of a ticket.
      *
-     * @return GetApprovalDetailResponse GetApprovalDetailResponse
+     * @param request - GetApprovalDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetApprovalDetailResponse
+     *
+     * @param GetApprovalDetailRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetApprovalDetailResponse
      */
     public function getApprovalDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->workflowInstanceId)) {
-            $query['WorkflowInstanceId'] = $request->workflowInstanceId;
+
+        if (null !== $request->workflowInstanceId) {
+            @$query['WorkflowInstanceId'] = $request->workflowInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetApprovalDetail',
@@ -5352,16 +6554,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetApprovalDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApprovalDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApprovalDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the approval details of a ticket.
-     *  *
-     * @param GetApprovalDetailRequest $request GetApprovalDetailRequest
+     * Queries the approval details of a ticket.
      *
-     * @return GetApprovalDetailResponse GetApprovalDetailResponse
+     * @param request - GetApprovalDetailRequest
+     * @returns GetApprovalDetailResponse
+     *
+     * @param GetApprovalDetailRequest $request
+     *
+     * @return GetApprovalDetailResponse
      */
     public function getApprovalDetail($request)
     {
@@ -5371,27 +6579,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a permission template.
-     *  *
-     * @description You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param GetAuthorityTemplateRequest $request GetAuthorityTemplateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a permission template.
      *
-     * @return GetAuthorityTemplateResponse GetAuthorityTemplateResponse
+     * @remarks
+     * You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - GetAuthorityTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAuthorityTemplateResponse
+     *
+     * @param GetAuthorityTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAuthorityTemplateResponse
      */
     public function getAuthorityTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAuthorityTemplate',
@@ -5404,18 +6619,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a permission template.
-     *  *
-     * @description You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param GetAuthorityTemplateRequest $request GetAuthorityTemplateRequest
+     * Queries the information about a permission template.
      *
-     * @return GetAuthorityTemplateResponse GetAuthorityTemplateResponse
+     * @remarks
+     * You must be a Data Management (DMS) administrator or a database administrator (DBA). For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - GetAuthorityTemplateRequest
+     * @returns GetAuthorityTemplateResponse
+     *
+     * @param GetAuthorityTemplateRequest $request
+     *
+     * @return GetAuthorityTemplateResponse
      */
     public function getAuthorityTemplate($request)
     {
@@ -5425,27 +6647,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resources in a permission template.
-     *  *
-     * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param GetAuthorityTemplateItemRequest $request GetAuthorityTemplateItemRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the resources in a permission template.
      *
-     * @return GetAuthorityTemplateItemResponse GetAuthorityTemplateItemResponse
+     * @remarks
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - GetAuthorityTemplateItemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAuthorityTemplateItemResponse
+     *
+     * @param GetAuthorityTemplateItemRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAuthorityTemplateItemResponse
      */
     public function getAuthorityTemplateItemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAuthorityTemplateItem',
@@ -5458,18 +6687,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAuthorityTemplateItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAuthorityTemplateItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAuthorityTemplateItemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resources in a permission template.
-     *  *
-     * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param GetAuthorityTemplateItemRequest $request GetAuthorityTemplateItemRequest
+     * Queries the resources in a permission template.
      *
-     * @return GetAuthorityTemplateItemResponse GetAuthorityTemplateItemResponse
+     * @remarks
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - GetAuthorityTemplateItemRequest
+     * @returns GetAuthorityTemplateItemResponse
+     *
+     * @param GetAuthorityTemplateItemRequest $request
+     *
+     * @return GetAuthorityTemplateItemResponse
      */
     public function getAuthorityTemplateItem($request)
     {
@@ -5479,25 +6715,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例绑定的分类分级模板
-     *  *
-     * @param GetClassificationTemplateRequest $request GetClassificationTemplateRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 获取实例绑定的分类分级模板
      *
-     * @return GetClassificationTemplateResponse GetClassificationTemplateResponse
+     * @param request - GetClassificationTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetClassificationTemplateResponse
+     *
+     * @param GetClassificationTemplateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetClassificationTemplateResponse
      */
     public function getClassificationTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetClassificationTemplate',
@@ -5510,16 +6752,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetClassificationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClassificationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClassificationTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实例绑定的分类分级模板
-     *  *
-     * @param GetClassificationTemplateRequest $request GetClassificationTemplateRequest
+     * 获取实例绑定的分类分级模板
      *
-     * @return GetClassificationTemplateResponse GetClassificationTemplateResponse
+     * @param request - GetClassificationTemplateRequest
+     * @returns GetClassificationTemplateResponse
+     *
+     * @param GetClassificationTemplateRequest $request
+     *
+     * @return GetClassificationTemplateResponse
      */
     public function getClassificationTemplate($request)
     {
@@ -5529,25 +6777,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the log that records the scheduling details of an SQL task.
-     *  *
-     * @param GetDBTaskSQLJobLogRequest $request GetDBTaskSQLJobLogRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the log that records the scheduling details of an SQL task.
      *
-     * @return GetDBTaskSQLJobLogResponse GetDBTaskSQLJobLogResponse
+     * @param request - GetDBTaskSQLJobLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDBTaskSQLJobLogResponse
+     *
+     * @param GetDBTaskSQLJobLogRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDBTaskSQLJobLogResponse
      */
     public function getDBTaskSQLJobLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDBTaskSQLJobLog',
@@ -5560,16 +6814,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDBTaskSQLJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDBTaskSQLJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDBTaskSQLJobLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the log that records the scheduling details of an SQL task.
-     *  *
-     * @param GetDBTaskSQLJobLogRequest $request GetDBTaskSQLJobLogRequest
+     * Queries the log that records the scheduling details of an SQL task.
      *
-     * @return GetDBTaskSQLJobLogResponse GetDBTaskSQLJobLogResponse
+     * @param request - GetDBTaskSQLJobLogRequest
+     * @returns GetDBTaskSQLJobLogResponse
+     *
+     * @param GetDBTaskSQLJobLogRequest $request
+     *
+     * @return GetDBTaskSQLJobLogResponse
      */
     public function getDBTaskSQLJobLog($request)
     {
@@ -5579,25 +6839,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the topologies of a logical database and its physical database shards.
-     *  *
-     * @param GetDBTopologyRequest $request GetDBTopologyRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the topologies of a logical database and its physical database shards.
      *
-     * @return GetDBTopologyResponse GetDBTopologyResponse
+     * @param request - GetDBTopologyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDBTopologyResponse
+     *
+     * @param GetDBTopologyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDBTopologyResponse
      */
     public function getDBTopologyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logicDbId)) {
-            $query['LogicDbId'] = $request->logicDbId;
+        if (null !== $request->logicDbId) {
+            @$query['LogicDbId'] = $request->logicDbId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDBTopology',
@@ -5610,16 +6876,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDBTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDBTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDBTopologyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the topologies of a logical database and its physical database shards.
-     *  *
-     * @param GetDBTopologyRequest $request GetDBTopologyRequest
+     * Queries the topologies of a logical database and its physical database shards.
      *
-     * @return GetDBTopologyResponse GetDBTopologyResponse
+     * @param request - GetDBTopologyRequest
+     * @returns GetDBTopologyResponse
+     *
+     * @param GetDBTopologyRequest $request
+     *
+     * @return GetDBTopologyResponse
      */
     public function getDBTopology($request)
     {
@@ -5629,31 +6901,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on the number of data archiving tickets, including the number of tickets of successful data archiving, failed data archiving,and in-progress data archiving, and the total number of data archiving tickets.
-     *  *
-     * @param GetDataArchiveCountRequest $request GetDataArchiveCountRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on the number of data archiving tickets, including the number of tickets of successful data archiving, failed data archiving,and in-progress data archiving, and the total number of data archiving tickets.
      *
-     * @return GetDataArchiveCountResponse GetDataArchiveCountResponse
+     * @param request - GetDataArchiveCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataArchiveCountResponse
+     *
+     * @param GetDataArchiveCountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetDataArchiveCountResponse
      */
     public function getDataArchiveCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderResultType)) {
-            $query['OrderResultType'] = $request->orderResultType;
+        if (null !== $request->orderResultType) {
+            @$query['OrderResultType'] = $request->orderResultType;
         }
-        if (!Utils::isUnset($request->pluginType)) {
-            $query['PluginType'] = $request->pluginType;
+
+        if (null !== $request->pluginType) {
+            @$query['PluginType'] = $request->pluginType;
         }
-        if (!Utils::isUnset($request->searchDateType)) {
-            $query['SearchDateType'] = $request->searchDateType;
+
+        if (null !== $request->searchDateType) {
+            @$query['SearchDateType'] = $request->searchDateType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataArchiveCount',
@@ -5666,16 +6946,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataArchiveCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataArchiveCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataArchiveCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on the number of data archiving tickets, including the number of tickets of successful data archiving, failed data archiving,and in-progress data archiving, and the total number of data archiving tickets.
-     *  *
-     * @param GetDataArchiveCountRequest $request GetDataArchiveCountRequest
+     * Queries the statistics on the number of data archiving tickets, including the number of tickets of successful data archiving, failed data archiving,and in-progress data archiving, and the total number of data archiving tickets.
      *
-     * @return GetDataArchiveCountResponse GetDataArchiveCountResponse
+     * @param request - GetDataArchiveCountRequest
+     * @returns GetDataArchiveCountResponse
+     *
+     * @param GetDataArchiveCountRequest $request
+     *
+     * @return GetDataArchiveCountResponse
      */
     public function getDataArchiveCount($request)
     {
@@ -5685,25 +6971,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a data archiving ticket, including the time when the ticket was created, the scheduling information of the data archiving task, the logs of the data archiving task, and the database to which data is archived.
-     *  *
-     * @param GetDataArchiveOrderDetailRequest $request GetDataArchiveOrderDetailRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a data archiving ticket, including the time when the ticket was created, the scheduling information of the data archiving task, the logs of the data archiving task, and the database to which data is archived.
      *
-     * @return GetDataArchiveOrderDetailResponse GetDataArchiveOrderDetailResponse
+     * @param request - GetDataArchiveOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataArchiveOrderDetailResponse
+     *
+     * @param GetDataArchiveOrderDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDataArchiveOrderDetailResponse
      */
     public function getDataArchiveOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataArchiveOrderDetail',
@@ -5716,16 +7008,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataArchiveOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataArchiveOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataArchiveOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a data archiving ticket, including the time when the ticket was created, the scheduling information of the data archiving task, the logs of the data archiving task, and the database to which data is archived.
-     *  *
-     * @param GetDataArchiveOrderDetailRequest $request GetDataArchiveOrderDetailRequest
+     * Queries the details of a data archiving ticket, including the time when the ticket was created, the scheduling information of the data archiving task, the logs of the data archiving task, and the database to which data is archived.
      *
-     * @return GetDataArchiveOrderDetailResponse GetDataArchiveOrderDetailResponse
+     * @param request - GetDataArchiveOrderDetailRequest
+     * @returns GetDataArchiveOrderDetailResponse
+     *
+     * @param GetDataArchiveOrderDetailRequest $request
+     *
+     * @return GetDataArchiveOrderDetailResponse
      */
     public function getDataArchiveOrderDetail($request)
     {
@@ -5735,33 +7033,41 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
-     *  *
-     * @param GetDataCorrectBackupFilesRequest $tmpReq  GetDataCorrectBackupFilesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
      *
-     * @return GetDataCorrectBackupFilesResponse GetDataCorrectBackupFilesResponse
+     * @param tmpReq - GetDataCorrectBackupFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataCorrectBackupFilesResponse
+     *
+     * @param GetDataCorrectBackupFilesRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDataCorrectBackupFilesResponse
      */
     public function getDataCorrectBackupFilesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetDataCorrectBackupFilesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actionDetail)) {
-            $request->actionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionDetail) {
+            $request->actionDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionDetail, 'ActionDetail', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->actionDetailShrink)) {
-            $query['ActionDetail'] = $request->actionDetailShrink;
+        if (null !== $request->actionDetailShrink) {
+            @$query['ActionDetail'] = $request->actionDetailShrink;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataCorrectBackupFiles',
@@ -5774,16 +7080,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataCorrectBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataCorrectBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataCorrectBackupFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
-     *  *
-     * @param GetDataCorrectBackupFilesRequest $request GetDataCorrectBackupFilesRequest
+     * Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
      *
-     * @return GetDataCorrectBackupFilesResponse GetDataCorrectBackupFilesResponse
+     * @param request - GetDataCorrectBackupFilesRequest
+     * @returns GetDataCorrectBackupFilesResponse
+     *
+     * @param GetDataCorrectBackupFilesRequest $request
+     *
+     * @return GetDataCorrectBackupFilesResponse
      */
     public function getDataCorrectBackupFiles($request)
     {
@@ -5793,25 +7105,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a data change ticket in Data Management (DMS).
-     *  *
-     * @param GetDataCorrectOrderDetailRequest $request GetDataCorrectOrderDetailRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a data change ticket in Data Management (DMS).
      *
-     * @return GetDataCorrectOrderDetailResponse GetDataCorrectOrderDetailResponse
+     * @param request - GetDataCorrectOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataCorrectOrderDetailResponse
+     *
+     * @param GetDataCorrectOrderDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDataCorrectOrderDetailResponse
      */
     public function getDataCorrectOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataCorrectOrderDetail',
@@ -5824,16 +7142,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataCorrectOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataCorrectOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataCorrectOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a data change ticket in Data Management (DMS).
-     *  *
-     * @param GetDataCorrectOrderDetailRequest $request GetDataCorrectOrderDetailRequest
+     * Queries the information about a data change ticket in Data Management (DMS).
      *
-     * @return GetDataCorrectOrderDetailResponse GetDataCorrectOrderDetailResponse
+     * @param request - GetDataCorrectOrderDetailRequest
+     * @returns GetDataCorrectOrderDetailResponse
+     *
+     * @param GetDataCorrectOrderDetailRequest $request
+     *
+     * @return GetDataCorrectOrderDetailResponse
      */
     public function getDataCorrectOrderDetail($request)
     {
@@ -5843,25 +7167,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the download URL of the rollback attachment submitted along with a data change ticket.
-     *  *
-     * @param GetDataCorrectRollbackFileRequest $request GetDataCorrectRollbackFileRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the download URL of the rollback attachment submitted along with a data change ticket.
      *
-     * @return GetDataCorrectRollbackFileResponse GetDataCorrectRollbackFileResponse
+     * @param request - GetDataCorrectRollbackFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataCorrectRollbackFileResponse
+     *
+     * @param GetDataCorrectRollbackFileRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetDataCorrectRollbackFileResponse
      */
     public function getDataCorrectRollbackFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataCorrectRollbackFile',
@@ -5874,16 +7204,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataCorrectRollbackFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataCorrectRollbackFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataCorrectRollbackFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the download URL of the rollback attachment submitted along with a data change ticket.
-     *  *
-     * @param GetDataCorrectRollbackFileRequest $request GetDataCorrectRollbackFileRequest
+     * Queries the download URL of the rollback attachment submitted along with a data change ticket.
      *
-     * @return GetDataCorrectRollbackFileResponse GetDataCorrectRollbackFileResponse
+     * @param request - GetDataCorrectRollbackFileRequest
+     * @returns GetDataCorrectRollbackFileResponse
+     *
+     * @param GetDataCorrectRollbackFileRequest $request
+     *
+     * @return GetDataCorrectRollbackFileResponse
      */
     public function getDataCorrectRollbackFile($request)
     {
@@ -5893,27 +7229,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the download URL of the SQL script for a data change task.
-     *  *
-     * @description This operation applies to [regular data change](https://help.aliyun.com/document_detail/58419.html) and [batch data import](https://help.aliyun.com/document_detail/144643.html).
-     *  *
-     * @param GetDataCorrectSQLFileRequest $request GetDataCorrectSQLFileRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the download URL of the SQL script for a data change task.
      *
-     * @return GetDataCorrectSQLFileResponse GetDataCorrectSQLFileResponse
+     * @remarks
+     * This operation applies to [regular data change](https://help.aliyun.com/document_detail/58419.html) and [batch data import](https://help.aliyun.com/document_detail/144643.html).
+     *
+     * @param request - GetDataCorrectSQLFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataCorrectSQLFileResponse
+     *
+     * @param GetDataCorrectSQLFileRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDataCorrectSQLFileResponse
      */
     public function getDataCorrectSQLFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataCorrectSQLFile',
@@ -5926,18 +7269,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataCorrectSQLFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataCorrectSQLFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataCorrectSQLFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the download URL of the SQL script for a data change task.
-     *  *
-     * @description This operation applies to [regular data change](https://help.aliyun.com/document_detail/58419.html) and [batch data import](https://help.aliyun.com/document_detail/144643.html).
-     *  *
-     * @param GetDataCorrectSQLFileRequest $request GetDataCorrectSQLFileRequest
+     * Queries the download URL of the SQL script for a data change task.
      *
-     * @return GetDataCorrectSQLFileResponse GetDataCorrectSQLFileResponse
+     * @remarks
+     * This operation applies to [regular data change](https://help.aliyun.com/document_detail/58419.html) and [batch data import](https://help.aliyun.com/document_detail/144643.html).
+     *
+     * @param request - GetDataCorrectSQLFileRequest
+     * @returns GetDataCorrectSQLFileResponse
+     *
+     * @param GetDataCorrectSQLFileRequest $request
+     *
+     * @return GetDataCorrectSQLFileResponse
      */
     public function getDataCorrectSQLFile($request)
     {
@@ -5947,25 +7297,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a data change, lock-free data change, or data import task.
-     *  *
-     * @param GetDataCorrectTaskDetailRequest $request GetDataCorrectTaskDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a data change, lock-free data change, or data import task.
      *
-     * @return GetDataCorrectTaskDetailResponse GetDataCorrectTaskDetailResponse
+     * @param request - GetDataCorrectTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataCorrectTaskDetailResponse
+     *
+     * @param GetDataCorrectTaskDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataCorrectTaskDetailResponse
      */
     public function getDataCorrectTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataCorrectTaskDetail',
@@ -5978,16 +7334,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataCorrectTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataCorrectTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataCorrectTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a data change, lock-free data change, or data import task.
-     *  *
-     * @param GetDataCorrectTaskDetailRequest $request GetDataCorrectTaskDetailRequest
+     * Queries the information about a data change, lock-free data change, or data import task.
      *
-     * @return GetDataCorrectTaskDetailResponse GetDataCorrectTaskDetailResponse
+     * @param request - GetDataCorrectTaskDetailRequest
+     * @returns GetDataCorrectTaskDetailResponse
+     *
+     * @param GetDataCorrectTaskDetailRequest $request
+     *
+     * @return GetDataCorrectTaskDetailResponse
      */
     public function getDataCorrectTaskDetail($request)
     {
@@ -5997,25 +7359,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the scheduling configuration of a ticket for cleaning up historical data.
-     *  *
-     * @param GetDataCronClearConfigRequest $request GetDataCronClearConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the scheduling configuration of a ticket for cleaning up historical data.
      *
-     * @return GetDataCronClearConfigResponse GetDataCronClearConfigResponse
+     * @param request - GetDataCronClearConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataCronClearConfigResponse
+     *
+     * @param GetDataCronClearConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDataCronClearConfigResponse
      */
     public function getDataCronClearConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataCronClearConfig',
@@ -6028,16 +7396,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataCronClearConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataCronClearConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataCronClearConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the scheduling configuration of a ticket for cleaning up historical data.
-     *  *
-     * @param GetDataCronClearConfigRequest $request GetDataCronClearConfigRequest
+     * Queries the scheduling configuration of a ticket for cleaning up historical data.
      *
-     * @return GetDataCronClearConfigResponse GetDataCronClearConfigResponse
+     * @param request - GetDataCronClearConfigRequest
+     * @returns GetDataCronClearConfigResponse
+     *
+     * @param GetDataCronClearConfigRequest $request
+     *
+     * @return GetDataCronClearConfigResponse
      */
     public function getDataCronClearConfig($request)
     {
@@ -6047,31 +7421,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a historical data cleansing ticket.
-     *  *
-     * @param GetDataCronClearTaskDetailListRequest $request GetDataCronClearTaskDetailListRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a historical data cleansing ticket.
      *
-     * @return GetDataCronClearTaskDetailListResponse GetDataCronClearTaskDetailListResponse
+     * @param request - GetDataCronClearTaskDetailListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataCronClearTaskDetailListResponse
+     *
+     * @param GetDataCronClearTaskDetailListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetDataCronClearTaskDetailListResponse
      */
     public function getDataCronClearTaskDetailListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataCronClearTaskDetailList',
@@ -6084,16 +7466,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataCronClearTaskDetailListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataCronClearTaskDetailListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataCronClearTaskDetailListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a historical data cleansing ticket.
-     *  *
-     * @param GetDataCronClearTaskDetailListRequest $request GetDataCronClearTaskDetailListRequest
+     * Queries the details of a historical data cleansing ticket.
      *
-     * @return GetDataCronClearTaskDetailListResponse GetDataCronClearTaskDetailListResponse
+     * @param request - GetDataCronClearTaskDetailListRequest
+     * @returns GetDataCronClearTaskDetailListResponse
+     *
+     * @param GetDataCronClearTaskDetailListRequest $request
+     *
+     * @return GetDataCronClearTaskDetailListResponse
      */
     public function getDataCronClearTaskDetailList($request)
     {
@@ -6103,28 +7491,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the download URL of the file that records the export results for a data export ticket in Data Management (DMS).
-     *  *
-     * @param GetDataExportDownloadURLRequest $request GetDataExportDownloadURLRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the download URL of the file that records the export results for a data export ticket in Data Management (DMS).
      *
-     * @return GetDataExportDownloadURLResponse GetDataExportDownloadURLResponse
+     * @param request - GetDataExportDownloadURLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataExportDownloadURLResponse
+     *
+     * @param GetDataExportDownloadURLRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataExportDownloadURLResponse
      */
     public function getDataExportDownloadURLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataExportDownloadURL',
@@ -6137,16 +7532,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataExportDownloadURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataExportDownloadURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataExportDownloadURLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the download URL of the file that records the export results for a data export ticket in Data Management (DMS).
-     *  *
-     * @param GetDataExportDownloadURLRequest $request GetDataExportDownloadURLRequest
+     * Queries the download URL of the file that records the export results for a data export ticket in Data Management (DMS).
      *
-     * @return GetDataExportDownloadURLResponse GetDataExportDownloadURLResponse
+     * @param request - GetDataExportDownloadURLRequest
+     * @returns GetDataExportDownloadURLResponse
+     *
+     * @param GetDataExportDownloadURLRequest $request
+     *
+     * @return GetDataExportDownloadURLResponse
      */
     public function getDataExportDownloadURL($request)
     {
@@ -6156,27 +7557,33 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a data export ticket.
-     *  *
-     * @param GetDataExportOrderDetailRequest $request GetDataExportOrderDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a data export ticket.
      *
-     * @return GetDataExportOrderDetailResponse GetDataExportOrderDetailResponse
+     * @param request - GetDataExportOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataExportOrderDetailResponse
+     *
+     * @param GetDataExportOrderDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataExportOrderDetailResponse
      */
     public function getDataExportOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $body['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$body['OrderId'] = $request->orderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataExportOrderDetail',
@@ -6189,16 +7596,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataExportOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataExportOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataExportOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a data export ticket.
-     *  *
-     * @param GetDataExportOrderDetailRequest $request GetDataExportOrderDetailRequest
+     * Queries the information about a data export ticket.
      *
-     * @return GetDataExportOrderDetailResponse GetDataExportOrderDetailResponse
+     * @param request - GetDataExportOrderDetailRequest
+     * @returns GetDataExportOrderDetailResponse
+     *
+     * @param GetDataExportOrderDetailRequest $request
+     *
+     * @return GetDataExportOrderDetailResponse
      */
     public function getDataExportOrderDetail($request)
     {
@@ -6208,25 +7621,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the precheck details of an SQL result set export ticket.
-     *  *
-     * @param GetDataExportPreCheckDetailRequest $request GetDataExportPreCheckDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the precheck details of an SQL result set export ticket.
      *
-     * @return GetDataExportPreCheckDetailResponse GetDataExportPreCheckDetailResponse
+     * @param request - GetDataExportPreCheckDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataExportPreCheckDetailResponse
+     *
+     * @param GetDataExportPreCheckDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetDataExportPreCheckDetailResponse
      */
     public function getDataExportPreCheckDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataExportPreCheckDetail',
@@ -6239,16 +7658,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataExportPreCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataExportPreCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataExportPreCheckDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the precheck details of an SQL result set export ticket.
-     *  *
-     * @param GetDataExportPreCheckDetailRequest $request GetDataExportPreCheckDetailRequest
+     * Queries the precheck details of an SQL result set export ticket.
      *
-     * @return GetDataExportPreCheckDetailResponse GetDataExportPreCheckDetailResponse
+     * @param request - GetDataExportPreCheckDetailRequest
+     * @returns GetDataExportPreCheckDetailResponse
+     *
+     * @param GetDataExportPreCheckDetailRequest $request
+     *
+     * @return GetDataExportPreCheckDetailResponse
      */
     public function getDataExportPreCheckDetail($request)
     {
@@ -6258,30 +7683,38 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the SQL statements used for data import in a ticket.
-     *  *
-     * @description You can call this operation only if the data is imported in security mode in your data import ticket.
-     *  *
-     * @param GetDataImportSQLRequest $request GetDataImportSQLRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the SQL statements used for data import in a ticket.
      *
-     * @return GetDataImportSQLResponse GetDataImportSQLResponse
+     * @remarks
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *
+     * @param request - GetDataImportSQLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataImportSQLResponse
+     *
+     * @param GetDataImportSQLRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetDataImportSQLResponse
      */
     public function getDataImportSQLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->sqlId)) {
-            $query['SqlId'] = $request->sqlId;
+
+        if (null !== $request->sqlId) {
+            @$query['SqlId'] = $request->sqlId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataImportSQL',
@@ -6294,18 +7727,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataImportSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataImportSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataImportSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the SQL statements used for data import in a ticket.
-     *  *
-     * @description You can call this operation only if the data is imported in security mode in your data import ticket.
-     *  *
-     * @param GetDataImportSQLRequest $request GetDataImportSQLRequest
+     * Queries the SQL statements used for data import in a ticket.
      *
-     * @return GetDataImportSQLResponse GetDataImportSQLResponse
+     * @remarks
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *
+     * @param request - GetDataImportSQLRequest
+     * @returns GetDataImportSQLResponse
+     *
+     * @param GetDataImportSQLRequest $request
+     *
+     * @return GetDataImportSQLResponse
      */
     public function getDataImportSQL($request)
     {
@@ -6315,28 +7755,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取uc的数据库目录
-     *  *
-     * @param GetDataLakeCatalogRequest $request GetDataLakeCatalogRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取uc的数据库目录.
      *
-     * @return GetDataLakeCatalogResponse GetDataLakeCatalogResponse
+     * @param request - GetDataLakeCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataLakeCatalogResponse
+     *
+     * @param GetDataLakeCatalogRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDataLakeCatalogResponse
      */
     public function getDataLakeCatalogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataLakeCatalog',
@@ -6349,16 +7796,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataLakeCatalogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取uc的数据库目录
-     *  *
-     * @param GetDataLakeCatalogRequest $request GetDataLakeCatalogRequest
+     * 获取uc的数据库目录.
      *
-     * @return GetDataLakeCatalogResponse GetDataLakeCatalogResponse
+     * @param request - GetDataLakeCatalogRequest
+     * @returns GetDataLakeCatalogResponse
+     *
+     * @param GetDataLakeCatalogRequest $request
+     *
+     * @return GetDataLakeCatalogResponse
      */
     public function getDataLakeCatalog($request)
     {
@@ -6368,31 +7821,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取UC的数据库
-     *  *
-     * @param GetDataLakeDatabaseRequest $request GetDataLakeDatabaseRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取UC的数据库.
      *
-     * @return GetDataLakeDatabaseResponse GetDataLakeDatabaseResponse
+     * @param request - GetDataLakeDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataLakeDatabaseResponse
+     *
+     * @param GetDataLakeDatabaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetDataLakeDatabaseResponse
      */
     public function getDataLakeDatabaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataLakeDatabase',
@@ -6405,16 +7866,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataLakeDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取UC的数据库
-     *  *
-     * @param GetDataLakeDatabaseRequest $request GetDataLakeDatabaseRequest
+     * 获取UC的数据库.
      *
-     * @return GetDataLakeDatabaseResponse GetDataLakeDatabaseResponse
+     * @param request - GetDataLakeDatabaseRequest
+     * @returns GetDataLakeDatabaseResponse
+     *
+     * @param GetDataLakeDatabaseRequest $request
+     *
+     * @return GetDataLakeDatabaseResponse
      */
     public function getDataLakeDatabase($request)
     {
@@ -6424,42 +7891,53 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取湖仓表分区详情
-     *  *
-     * @param GetDataLakePartitionRequest $tmpReq  GetDataLakePartitionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取湖仓表分区详情.
      *
-     * @return GetDataLakePartitionResponse GetDataLakePartitionResponse
+     * @param tmpReq - GetDataLakePartitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataLakePartitionResponse
+     *
+     * @param GetDataLakePartitionRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetDataLakePartitionResponse
      */
     public function getDataLakePartitionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetDataLakePartitionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->partitionValues)) {
-            $request->partitionValuesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionValues, 'PartitionValues', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->partitionValues) {
+            $request->partitionValuesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partitionValues, 'PartitionValues', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->partitionValuesShrink)) {
-            $query['PartitionValues'] = $request->partitionValuesShrink;
+
+        if (null !== $request->partitionValuesShrink) {
+            @$query['PartitionValues'] = $request->partitionValuesShrink;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataLakePartition',
@@ -6472,16 +7950,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataLakePartitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取湖仓表分区详情
-     *  *
-     * @param GetDataLakePartitionRequest $request GetDataLakePartitionRequest
+     * 获取湖仓表分区详情.
      *
-     * @return GetDataLakePartitionResponse GetDataLakePartitionResponse
+     * @param request - GetDataLakePartitionRequest
+     * @returns GetDataLakePartitionResponse
+     *
+     * @param GetDataLakePartitionRequest $request
+     *
+     * @return GetDataLakePartitionResponse
      */
     public function getDataLakePartition($request)
     {
@@ -6491,34 +7975,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取表信息
-     *  *
-     * @param GetDataLakeTableRequest $request GetDataLakeTableRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取表信息.
      *
-     * @return GetDataLakeTableResponse GetDataLakeTableResponse
+     * @param request - GetDataLakeTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataLakeTableResponse
+     *
+     * @param GetDataLakeTableRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetDataLakeTableResponse
      */
     public function getDataLakeTableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataLakeTable',
@@ -6531,16 +8024,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataLakeTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取表信息
-     *  *
-     * @param GetDataLakeTableRequest $request GetDataLakeTableRequest
+     * 获取表信息.
      *
-     * @return GetDataLakeTableResponse GetDataLakeTableResponse
+     * @param request - GetDataLakeTableRequest
+     * @returns GetDataLakeTableResponse
+     *
+     * @param GetDataLakeTableRequest $request
+     *
+     * @return GetDataLakeTableResponse
      */
     public function getDataLakeTable($request)
     {
@@ -6550,25 +8049,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the progress of a data tracking task.
-     *  *
-     * @param GetDataTrackJobDegreeRequest $request GetDataTrackJobDegreeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the progress of a data tracking task.
      *
-     * @return GetDataTrackJobDegreeResponse GetDataTrackJobDegreeResponse
+     * @param request - GetDataTrackJobDegreeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataTrackJobDegreeResponse
+     *
+     * @param GetDataTrackJobDegreeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDataTrackJobDegreeResponse
      */
     public function getDataTrackJobDegreeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataTrackJobDegree',
@@ -6581,16 +8086,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataTrackJobDegreeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataTrackJobDegreeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataTrackJobDegreeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the progress of a data tracking task.
-     *  *
-     * @param GetDataTrackJobDegreeRequest $request GetDataTrackJobDegreeRequest
+     * Queries the progress of a data tracking task.
      *
-     * @return GetDataTrackJobDegreeResponse GetDataTrackJobDegreeResponse
+     * @param request - GetDataTrackJobDegreeRequest
+     * @returns GetDataTrackJobDegreeResponse
+     *
+     * @param GetDataTrackJobDegreeRequest $request
+     *
+     * @return GetDataTrackJobDegreeResponse
      */
     public function getDataTrackJobDegree($request)
     {
@@ -6600,25 +8111,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the metadata of tables involved in a data tracking task.
-     *  *
-     * @param GetDataTrackJobTableMetaRequest $request GetDataTrackJobTableMetaRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the metadata of tables involved in a data tracking task.
      *
-     * @return GetDataTrackJobTableMetaResponse GetDataTrackJobTableMetaResponse
+     * @param request - GetDataTrackJobTableMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataTrackJobTableMetaResponse
+     *
+     * @param GetDataTrackJobTableMetaRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataTrackJobTableMetaResponse
      */
     public function getDataTrackJobTableMetaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataTrackJobTableMeta',
@@ -6631,16 +8148,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataTrackJobTableMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataTrackJobTableMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataTrackJobTableMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the metadata of tables involved in a data tracking task.
-     *  *
-     * @param GetDataTrackJobTableMetaRequest $request GetDataTrackJobTableMetaRequest
+     * Queries the metadata of tables involved in a data tracking task.
      *
-     * @return GetDataTrackJobTableMetaResponse GetDataTrackJobTableMetaResponse
+     * @param request - GetDataTrackJobTableMetaRequest
+     * @returns GetDataTrackJobTableMetaResponse
+     *
+     * @param GetDataTrackJobTableMetaRequest $request
+     *
+     * @return GetDataTrackJobTableMetaResponse
      */
     public function getDataTrackJobTableMeta($request)
     {
@@ -6650,25 +8173,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a data tracking ticket.
-     *  *
-     * @param GetDataTrackOrderDetailRequest $request GetDataTrackOrderDetailRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a data tracking ticket.
      *
-     * @return GetDataTrackOrderDetailResponse GetDataTrackOrderDetailResponse
+     * @param request - GetDataTrackOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataTrackOrderDetailResponse
+     *
+     * @param GetDataTrackOrderDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetDataTrackOrderDetailResponse
      */
     public function getDataTrackOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataTrackOrderDetail',
@@ -6681,16 +8210,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataTrackOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataTrackOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataTrackOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a data tracking ticket.
-     *  *
-     * @param GetDataTrackOrderDetailRequest $request GetDataTrackOrderDetailRequest
+     * Queries the details of a data tracking ticket.
      *
-     * @return GetDataTrackOrderDetailResponse GetDataTrackOrderDetailResponse
+     * @param request - GetDataTrackOrderDetailRequest
+     * @returns GetDataTrackOrderDetailResponse
+     *
+     * @param GetDataTrackOrderDetailRequest $request
+     *
+     * @return GetDataTrackOrderDetailResponse
      */
     public function getDataTrackOrderDetail($request)
     {
@@ -6700,34 +8235,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries details of a specific database.
-     *  *
-     * @param GetDatabaseRequest $request GetDatabaseRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries details of a specific database.
      *
-     * @return GetDatabaseResponse GetDatabaseResponse
+     * @param request - GetDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDatabaseResponse
+     *
+     * @param GetDatabaseRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetDatabaseResponse
      */
     public function getDatabaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->sid)) {
-            $query['Sid'] = $request->sid;
+
+        if (null !== $request->sid) {
+            @$query['Sid'] = $request->sid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDatabase',
@@ -6740,16 +8284,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries details of a specific database.
-     *  *
-     * @param GetDatabaseRequest $request GetDatabaseRequest
+     * Queries details of a specific database.
      *
-     * @return GetDatabaseResponse GetDatabaseResponse
+     * @param request - GetDatabaseRequest
+     * @returns GetDatabaseResponse
+     *
+     * @param GetDatabaseRequest $request
+     *
+     * @return GetDatabaseResponse
      */
     public function getDatabase($request)
     {
@@ -6759,27 +8309,33 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a database export ticket.
-     *  *
-     * @param GetDatabaseExportOrderDetailRequest $request GetDatabaseExportOrderDetailRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a database export ticket.
      *
-     * @return GetDatabaseExportOrderDetailResponse GetDatabaseExportOrderDetailResponse
+     * @param request - GetDatabaseExportOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDatabaseExportOrderDetailResponse
+     *
+     * @param GetDatabaseExportOrderDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDatabaseExportOrderDetailResponse
      */
     public function getDatabaseExportOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $body['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$body['OrderId'] = $request->orderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDatabaseExportOrderDetail',
@@ -6792,16 +8348,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDatabaseExportOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDatabaseExportOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDatabaseExportOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a database export ticket.
-     *  *
-     * @param GetDatabaseExportOrderDetailRequest $request GetDatabaseExportOrderDetailRequest
+     * Queries the details of a database export ticket.
      *
-     * @return GetDatabaseExportOrderDetailResponse GetDatabaseExportOrderDetailResponse
+     * @param request - GetDatabaseExportOrderDetailRequest
+     * @returns GetDatabaseExportOrderDetailResponse
+     *
+     * @param GetDatabaseExportOrderDetailRequest $request
+     *
+     * @return GetDatabaseExportOrderDetailResponse
      */
     public function getDatabaseExportOrderDetail($request)
     {
@@ -6811,25 +8373,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据库导出下载地址
-     *  *
-     * @param GetDbExportDownloadURLRequest $request GetDbExportDownloadURLRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取数据库导出下载地址
      *
-     * @return GetDbExportDownloadURLResponse GetDbExportDownloadURLResponse
+     * @param request - GetDbExportDownloadURLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDbExportDownloadURLResponse
+     *
+     * @param GetDbExportDownloadURLRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDbExportDownloadURLResponse
      */
     public function getDbExportDownloadURLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDbExportDownloadURL',
@@ -6842,16 +8410,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDbExportDownloadURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDbExportDownloadURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDbExportDownloadURLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据库导出下载地址
-     *  *
-     * @param GetDbExportDownloadURLRequest $request GetDbExportDownloadURLRequest
+     * 获取数据库导出下载地址
      *
-     * @return GetDbExportDownloadURLResponse GetDbExportDownloadURLResponse
+     * @param request - GetDbExportDownloadURLRequest
+     * @returns GetDbExportDownloadURLResponse
+     *
+     * @param GetDbExportDownloadURLRequest $request
+     *
+     * @return GetDbExportDownloadURLResponse
      */
     public function getDbExportDownloadURL($request)
     {
@@ -6861,31 +8435,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a database instance.
-     *  *
-     * @param GetInstanceRequest $request GetInstanceRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a database instance.
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @param request - GetInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetInstanceResponse
+     *
+     * @param GetInstanceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetInstanceResponse
      */
     public function getInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->sid)) {
-            $query['Sid'] = $request->sid;
+
+        if (null !== $request->sid) {
+            @$query['Sid'] = $request->sid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetInstance',
@@ -6898,16 +8480,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a database instance.
-     *  *
-     * @param GetInstanceRequest $request GetInstanceRequest
+     * Queries the details of a database instance.
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @param request - GetInstanceRequest
+     * @returns GetInstanceResponse
+     *
+     * @param GetInstanceRequest $request
+     *
+     * @return GetInstanceResponse
      */
     public function getInstance($request)
     {
@@ -6917,27 +8505,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the minimum scheduling cycle of a task flow when a service level agreement (SLA) timeout rule is configured for the task flow.
-     *  *
-     * @description The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
-     *  *
-     * @param GetIntervalLimitOfSLARequest $request GetIntervalLimitOfSLARequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the minimum scheduling cycle of a task flow when a service level agreement (SLA) timeout rule is configured for the task flow.
      *
-     * @return GetIntervalLimitOfSLAResponse GetIntervalLimitOfSLAResponse
+     * @remarks
+     * The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
+     *
+     * @param request - GetIntervalLimitOfSLARequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetIntervalLimitOfSLAResponse
+     *
+     * @param GetIntervalLimitOfSLARequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetIntervalLimitOfSLAResponse
      */
     public function getIntervalLimitOfSLAWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetIntervalLimitOfSLA',
@@ -6950,18 +8545,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetIntervalLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIntervalLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIntervalLimitOfSLAResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the minimum scheduling cycle of a task flow when a service level agreement (SLA) timeout rule is configured for the task flow.
-     *  *
-     * @description The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
-     *  *
-     * @param GetIntervalLimitOfSLARequest $request GetIntervalLimitOfSLARequest
+     * Queries the minimum scheduling cycle of a task flow when a service level agreement (SLA) timeout rule is configured for the task flow.
      *
-     * @return GetIntervalLimitOfSLAResponse GetIntervalLimitOfSLAResponse
+     * @remarks
+     * The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
+     *
+     * @param request - GetIntervalLimitOfSLARequest
+     * @returns GetIntervalLimitOfSLAResponse
+     *
+     * @param GetIntervalLimitOfSLARequest $request
+     *
+     * @return GetIntervalLimitOfSLAResponse
      */
     public function getIntervalLimitOfSLA($request)
     {
@@ -6971,27 +8573,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a workspace based on the workspace name in Data Management (DMS).
-     *  *
-     * @description You are a DMS administrator or a database administrator (DBA).
-     *  *
-     * @param GetLhSpaceByNameRequest $request GetLhSpaceByNameRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a workspace based on the workspace name in Data Management (DMS).
      *
-     * @return GetLhSpaceByNameResponse GetLhSpaceByNameResponse
+     * @remarks
+     * You are a DMS administrator or a database administrator (DBA).
+     *
+     * @param request - GetLhSpaceByNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLhSpaceByNameResponse
+     *
+     * @param GetLhSpaceByNameRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetLhSpaceByNameResponse
      */
     public function getLhSpaceByNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->spaceName)) {
-            $query['SpaceName'] = $request->spaceName;
+        if (null !== $request->spaceName) {
+            @$query['SpaceName'] = $request->spaceName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLhSpaceByName',
@@ -7004,18 +8613,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLhSpaceByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLhSpaceByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLhSpaceByNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a workspace based on the workspace name in Data Management (DMS).
-     *  *
-     * @description You are a DMS administrator or a database administrator (DBA).
-     *  *
-     * @param GetLhSpaceByNameRequest $request GetLhSpaceByNameRequest
+     * Queries the information about a workspace based on the workspace name in Data Management (DMS).
      *
-     * @return GetLhSpaceByNameResponse GetLhSpaceByNameResponse
+     * @remarks
+     * You are a DMS administrator or a database administrator (DBA).
+     *
+     * @param request - GetLhSpaceByNameRequest
+     * @returns GetLhSpaceByNameResponse
+     *
+     * @param GetLhSpaceByNameRequest $request
+     *
+     * @return GetLhSpaceByNameResponse
      */
     public function getLhSpaceByName($request)
     {
@@ -7025,25 +8641,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a logical database.
-     *  *
-     * @param GetLogicDatabaseRequest $request GetLogicDatabaseRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a logical database.
      *
-     * @return GetLogicDatabaseResponse GetLogicDatabaseResponse
+     * @param request - GetLogicDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLogicDatabaseResponse
+     *
+     * @param GetLogicDatabaseRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetLogicDatabaseResponse
      */
     public function getLogicDatabaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLogicDatabase',
@@ -7056,16 +8678,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLogicDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a logical database.
-     *  *
-     * @param GetLogicDatabaseRequest $request GetLogicDatabaseRequest
+     * Queries the details of a logical database.
      *
-     * @return GetLogicDatabaseResponse GetLogicDatabaseResponse
+     * @param request - GetLogicDatabaseRequest
+     * @returns GetLogicDatabaseResponse
+     *
+     * @param GetLogicDatabaseRequest $request
+     *
+     * @return GetLogicDatabaseResponse
      */
     public function getLogicDatabase($request)
     {
@@ -7075,27 +8703,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of columns in a table.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param GetMetaTableColumnRequest $request GetMetaTableColumnRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the details of columns in a table.
      *
-     * @return GetMetaTableColumnResponse GetMetaTableColumnResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - GetMetaTableColumnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMetaTableColumnResponse
+     *
+     * @param GetMetaTableColumnRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMetaTableColumnResponse
      */
     public function getMetaTableColumnWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tableGuid)) {
-            $query['TableGuid'] = $request->tableGuid;
+        if (null !== $request->tableGuid) {
+            @$query['TableGuid'] = $request->tableGuid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMetaTableColumn',
@@ -7108,18 +8743,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMetaTableColumnResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMetaTableColumnResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMetaTableColumnResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of columns in a table.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param GetMetaTableColumnRequest $request GetMetaTableColumnRequest
+     * Queries the details of columns in a table.
      *
-     * @return GetMetaTableColumnResponse GetMetaTableColumnResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - GetMetaTableColumnRequest
+     * @returns GetMetaTableColumnResponse
+     *
+     * @param GetMetaTableColumnRequest $request
+     *
+     * @return GetMetaTableColumnResponse
      */
     public function getMetaTableColumn($request)
     {
@@ -7129,27 +8771,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of columns and indexes in a table.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param GetMetaTableDetailInfoRequest $request GetMetaTableDetailInfoRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the details of columns and indexes in a table.
      *
-     * @return GetMetaTableDetailInfoResponse GetMetaTableDetailInfoResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - GetMetaTableDetailInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMetaTableDetailInfoResponse
+     *
+     * @param GetMetaTableDetailInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetMetaTableDetailInfoResponse
      */
     public function getMetaTableDetailInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tableGuid)) {
-            $query['TableGuid'] = $request->tableGuid;
+        if (null !== $request->tableGuid) {
+            @$query['TableGuid'] = $request->tableGuid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMetaTableDetailInfo',
@@ -7162,18 +8811,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMetaTableDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMetaTableDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMetaTableDetailInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of columns and indexes in a table.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param GetMetaTableDetailInfoRequest $request GetMetaTableDetailInfoRequest
+     * Queries the details of columns and indexes in a table.
      *
-     * @return GetMetaTableDetailInfoResponse GetMetaTableDetailInfoResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - GetMetaTableDetailInfoRequest
+     * @returns GetMetaTableDetailInfoResponse
+     *
+     * @param GetMetaTableDetailInfoRequest $request
+     *
+     * @return GetMetaTableDetailInfoResponse
      */
     public function getMetaTableDetailInfo($request)
     {
@@ -7183,25 +8839,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details and progress of an OnlineDDL task.
-     *  *
-     * @param GetOnlineDDLProgressRequest $request GetOnlineDDLProgressRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details and progress of an OnlineDDL task.
      *
-     * @return GetOnlineDDLProgressResponse GetOnlineDDLProgressResponse
+     * @param request - GetOnlineDDLProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOnlineDDLProgressResponse
+     *
+     * @param GetOnlineDDLProgressRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetOnlineDDLProgressResponse
      */
     public function getOnlineDDLProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobDetailId)) {
-            $query['JobDetailId'] = $request->jobDetailId;
+        if (null !== $request->jobDetailId) {
+            @$query['JobDetailId'] = $request->jobDetailId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOnlineDDLProgress',
@@ -7214,16 +8876,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOnlineDDLProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOnlineDDLProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOnlineDDLProgressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details and progress of an OnlineDDL task.
-     *  *
-     * @param GetOnlineDDLProgressRequest $request GetOnlineDDLProgressRequest
+     * Queries the details and progress of an OnlineDDL task.
      *
-     * @return GetOnlineDDLProgressResponse GetOnlineDDLProgressResponse
+     * @param request - GetOnlineDDLProgressRequest
+     * @returns GetOnlineDDLProgressResponse
+     *
+     * @param GetOnlineDDLProgressRequest $request
+     *
+     * @return GetOnlineDDLProgressResponse
      */
     public function getOnlineDDLProgress($request)
     {
@@ -7233,45 +8901,58 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of operation logs that are generated in a specified period of time.
-     *  *
-     * @description Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to obtain your user role from the RoleIdList parameter that is returned.
-     *  *
-     * @param GetOpLogRequest $request GetOpLogRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of operation logs that are generated in a specified period of time.
      *
-     * @return GetOpLogResponse GetOpLogResponse
+     * @remarks
+     * Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to obtain your user role from the RoleIdList parameter that is returned.
+     *
+     * @param request - GetOpLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOpLogResponse
+     *
+     * @param GetOpLogRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetOpLogResponse
      */
     public function getOpLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseName)) {
-            $query['DatabaseName'] = $request->databaseName;
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->module)) {
-            $query['Module'] = $request->module;
+
+        if (null !== $request->module) {
+            @$query['Module'] = $request->module;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userNick)) {
-            $query['UserNick'] = $request->userNick;
+
+        if (null !== $request->userNick) {
+            @$query['UserNick'] = $request->userNick;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOpLog',
@@ -7284,18 +8965,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOpLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOpLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOpLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of operation logs that are generated in a specified period of time.
-     *  *
-     * @description Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to obtain your user role from the RoleIdList parameter that is returned.
-     *  *
-     * @param GetOpLogRequest $request GetOpLogRequest
+     * Queries the details of operation logs that are generated in a specified period of time.
      *
-     * @return GetOpLogResponse GetOpLogResponse
+     * @remarks
+     * Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to obtain your user role from the RoleIdList parameter that is returned.
+     *
+     * @param request - GetOpLogRequest
+     * @returns GetOpLogResponse
+     *
+     * @param GetOpLogRequest $request
+     *
+     * @return GetOpLogResponse
      */
     public function getOpLog($request)
     {
@@ -7305,25 +8993,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the download URL of the attachment of a ticket.
-     *  *
-     * @param GetOrderAttachmentFileRequest $request GetOrderAttachmentFileRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the download URL of the attachment of a ticket.
      *
-     * @return GetOrderAttachmentFileResponse GetOrderAttachmentFileResponse
+     * @param request - GetOrderAttachmentFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOrderAttachmentFileResponse
+     *
+     * @param GetOrderAttachmentFileRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetOrderAttachmentFileResponse
      */
     public function getOrderAttachmentFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOrderAttachmentFile',
@@ -7336,16 +9030,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOrderAttachmentFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrderAttachmentFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrderAttachmentFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the download URL of the attachment of a ticket.
-     *  *
-     * @param GetOrderAttachmentFileRequest $request GetOrderAttachmentFileRequest
+     * Queries the download URL of the attachment of a ticket.
      *
-     * @return GetOrderAttachmentFileResponse GetOrderAttachmentFileResponse
+     * @param request - GetOrderAttachmentFileRequest
+     * @returns GetOrderAttachmentFileResponse
+     *
+     * @param GetOrderAttachmentFileRequest $request
+     *
+     * @return GetOrderAttachmentFileResponse
      */
     public function getOrderAttachmentFile($request)
     {
@@ -7355,25 +9055,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information about a ticket.
-     *  *
-     * @param GetOrderBaseInfoRequest $request GetOrderBaseInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the basic information about a ticket.
      *
-     * @return GetOrderBaseInfoResponse GetOrderBaseInfoResponse
+     * @param request - GetOrderBaseInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOrderBaseInfoResponse
+     *
+     * @param GetOrderBaseInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetOrderBaseInfoResponse
      */
     public function getOrderBaseInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOrderBaseInfo',
@@ -7386,16 +9092,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOrderBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrderBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrderBaseInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the basic information about a ticket.
-     *  *
-     * @param GetOrderBaseInfoRequest $request GetOrderBaseInfoRequest
+     * Queries the basic information about a ticket.
      *
-     * @return GetOrderBaseInfoResponse GetOrderBaseInfoResponse
+     * @param request - GetOrderBaseInfoRequest
+     * @returns GetOrderBaseInfoResponse
+     *
+     * @param GetOrderBaseInfoRequest $request
+     *
+     * @return GetOrderBaseInfoResponse
      */
     public function getOrderBaseInfo($request)
     {
@@ -7405,25 +9117,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the Database-OWNER, Table-OWNER, and Instance-OWNER tickets.
-     *  *
-     * @param GetOwnerApplyOrderDetailRequest $request GetOwnerApplyOrderDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of the Database-OWNER, Table-OWNER, and Instance-OWNER tickets.
      *
-     * @return GetOwnerApplyOrderDetailResponse GetOwnerApplyOrderDetailResponse
+     * @param request - GetOwnerApplyOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOwnerApplyOrderDetailResponse
+     *
+     * @param GetOwnerApplyOrderDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetOwnerApplyOrderDetailResponse
      */
     public function getOwnerApplyOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOwnerApplyOrderDetail',
@@ -7436,16 +9154,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOwnerApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOwnerApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOwnerApplyOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the Database-OWNER, Table-OWNER, and Instance-OWNER tickets.
-     *  *
-     * @param GetOwnerApplyOrderDetailRequest $request GetOwnerApplyOrderDetailRequest
+     * Queries the details of the Database-OWNER, Table-OWNER, and Instance-OWNER tickets.
      *
-     * @return GetOwnerApplyOrderDetailResponse GetOwnerApplyOrderDetailResponse
+     * @param request - GetOwnerApplyOrderDetailRequest
+     * @returns GetOwnerApplyOrderDetailResponse
+     *
+     * @param GetOwnerApplyOrderDetailRequest $request
+     *
+     * @return GetOwnerApplyOrderDetailResponse
      */
     public function getOwnerApplyOrderDetail($request)
     {
@@ -7455,19 +9179,23 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据归档工单任务实例
-     *  *
-     * @param GetPagedInstanceRequest $request GetPagedInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取数据归档工单任务实例.
      *
-     * @return GetPagedInstanceResponse GetPagedInstanceResponse
+     * @param request - GetPagedInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPagedInstanceResponse
+     *
+     * @param GetPagedInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetPagedInstanceResponse
      */
     public function getPagedInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPagedInstance',
@@ -7480,16 +9208,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPagedInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPagedInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPagedInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据归档工单任务实例
-     *  *
-     * @param GetPagedInstanceRequest $request GetPagedInstanceRequest
+     * 获取数据归档工单任务实例.
      *
-     * @return GetPagedInstanceResponse GetPagedInstanceResponse
+     * @param request - GetPagedInstanceRequest
+     * @returns GetPagedInstanceResponse
+     *
+     * @param GetPagedInstanceRequest $request
+     *
+     * @return GetPagedInstanceResponse
      */
     public function getPagedInstance($request)
     {
@@ -7499,27 +9233,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a ticket that applies for permissions.
-     *  *
-     * @description You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
-     *  *
-     * @param GetPermApplyOrderDetailRequest $request GetPermApplyOrderDetailRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a ticket that applies for permissions.
      *
-     * @return GetPermApplyOrderDetailResponse GetPermApplyOrderDetailResponse
+     * @remarks
+     * You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
+     *
+     * @param request - GetPermApplyOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPermApplyOrderDetailResponse
+     *
+     * @param GetPermApplyOrderDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetPermApplyOrderDetailResponse
      */
     public function getPermApplyOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPermApplyOrderDetail',
@@ -7532,18 +9273,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPermApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPermApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPermApplyOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a ticket that applies for permissions.
-     *  *
-     * @description You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
-     *  *
-     * @param GetPermApplyOrderDetailRequest $request GetPermApplyOrderDetailRequest
+     * Queries the details of a ticket that applies for permissions.
      *
-     * @return GetPermApplyOrderDetailResponse GetPermApplyOrderDetailResponse
+     * @remarks
+     * You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
+     *
+     * @param request - GetPermApplyOrderDetailRequest
+     * @returns GetPermApplyOrderDetailResponse
+     *
+     * @param GetPermApplyOrderDetailRequest $request
+     *
+     * @return GetPermApplyOrderDetailResponse
      */
     public function getPermApplyOrderDetail($request)
     {
@@ -7553,25 +9301,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a physical database.
-     *  *
-     * @param GetPhysicalDatabaseRequest $request GetPhysicalDatabaseRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a physical database.
      *
-     * @return GetPhysicalDatabaseResponse GetPhysicalDatabaseResponse
+     * @param request - GetPhysicalDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPhysicalDatabaseResponse
+     *
+     * @param GetPhysicalDatabaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPhysicalDatabaseResponse
      */
     public function getPhysicalDatabaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPhysicalDatabase',
@@ -7584,16 +9338,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPhysicalDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhysicalDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhysicalDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a physical database.
-     *  *
-     * @param GetPhysicalDatabaseRequest $request GetPhysicalDatabaseRequest
+     * Queries the details of a physical database.
      *
-     * @return GetPhysicalDatabaseResponse GetPhysicalDatabaseResponse
+     * @param request - GetPhysicalDatabaseRequest
+     * @returns GetPhysicalDatabaseResponse
+     *
+     * @param GetPhysicalDatabaseRequest $request
+     *
+     * @return GetPhysicalDatabaseResponse
      */
     public function getPhysicalDatabase($request)
     {
@@ -7603,25 +9363,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a secure access proxy.
-     *  *
-     * @param GetProxyRequest $request GetProxyRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a secure access proxy.
      *
-     * @return GetProxyResponse GetProxyResponse
+     * @param request - GetProxyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProxyResponse
+     *
+     * @param GetProxyRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetProxyResponse
      */
     public function getProxyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->proxyId)) {
-            $query['ProxyId'] = $request->proxyId;
+        if (null !== $request->proxyId) {
+            @$query['ProxyId'] = $request->proxyId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProxy',
@@ -7634,16 +9400,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProxyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a secure access proxy.
-     *  *
-     * @param GetProxyRequest $request GetProxyRequest
+     * Queries the details of a secure access proxy.
      *
-     * @return GetProxyResponse GetProxyResponse
+     * @param request - GetProxyRequest
+     * @returns GetProxyResponse
+     *
+     * @param GetProxyRequest $request
+     *
+     * @return GetProxyResponse
      */
     public function getProxy($request)
     {
@@ -7653,25 +9425,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the authorization information about the secure access proxy feature.
-     *  *
-     * @param GetProxyAccessRequest $request GetProxyAccessRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the authorization information about the secure access proxy feature.
      *
-     * @return GetProxyAccessResponse GetProxyAccessResponse
+     * @param request - GetProxyAccessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProxyAccessResponse
+     *
+     * @param GetProxyAccessRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetProxyAccessResponse
      */
     public function getProxyAccessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->proxyAccessId)) {
-            $query['ProxyAccessId'] = $request->proxyAccessId;
+        if (null !== $request->proxyAccessId) {
+            @$query['ProxyAccessId'] = $request->proxyAccessId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProxyAccess',
@@ -7684,16 +9462,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProxyAccessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the authorization information about the secure access proxy feature.
-     *  *
-     * @param GetProxyAccessRequest $request GetProxyAccessRequest
+     * Queries the authorization information about the secure access proxy feature.
      *
-     * @return GetProxyAccessResponse GetProxyAccessResponse
+     * @param request - GetProxyAccessRequest
+     * @returns GetProxyAccessResponse
+     *
+     * @param GetProxyAccessRequest $request
+     *
+     * @return GetProxyAccessResponse
      */
     public function getProxyAccess($request)
     {
@@ -7703,25 +9487,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the maximum number of custom service-level agreement (SLA) rules for task orchestration.
-     *  *
-     * @param GetRuleNumLimitOfSLARequest $request GetRuleNumLimitOfSLARequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the maximum number of custom service-level agreement (SLA) rules for task orchestration.
      *
-     * @return GetRuleNumLimitOfSLAResponse GetRuleNumLimitOfSLAResponse
+     * @param request - GetRuleNumLimitOfSLARequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRuleNumLimitOfSLAResponse
+     *
+     * @param GetRuleNumLimitOfSLARequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetRuleNumLimitOfSLAResponse
      */
     public function getRuleNumLimitOfSLAWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRuleNumLimitOfSLA',
@@ -7734,16 +9524,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRuleNumLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRuleNumLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRuleNumLimitOfSLAResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the maximum number of custom service-level agreement (SLA) rules for task orchestration.
-     *  *
-     * @param GetRuleNumLimitOfSLARequest $request GetRuleNumLimitOfSLARequest
+     * Queries the maximum number of custom service-level agreement (SLA) rules for task orchestration.
      *
-     * @return GetRuleNumLimitOfSLAResponse GetRuleNumLimitOfSLAResponse
+     * @param request - GetRuleNumLimitOfSLARequest
+     * @returns GetRuleNumLimitOfSLAResponse
+     *
+     * @param GetRuleNumLimitOfSLARequest $request
+     *
+     * @return GetRuleNumLimitOfSLAResponse
      */
     public function getRuleNumLimitOfSLA($request)
     {
@@ -7753,27 +9549,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the result of an SQL review.
-     *  *
-     * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
-     *  *
-     * @param GetSQLReviewCheckResultStatusRequest $request GetSQLReviewCheckResultStatusRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the result of an SQL review.
      *
-     * @return GetSQLReviewCheckResultStatusResponse GetSQLReviewCheckResultStatusResponse
+     * @remarks
+     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+     *
+     * @param request - GetSQLReviewCheckResultStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSQLReviewCheckResultStatusResponse
+     *
+     * @param GetSQLReviewCheckResultStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetSQLReviewCheckResultStatusResponse
      */
     public function getSQLReviewCheckResultStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSQLReviewCheckResultStatus',
@@ -7786,18 +9589,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSQLReviewCheckResultStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSQLReviewCheckResultStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSQLReviewCheckResultStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the result of an SQL review.
-     *  *
-     * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
-     *  *
-     * @param GetSQLReviewCheckResultStatusRequest $request GetSQLReviewCheckResultStatusRequest
+     * Queries the result of an SQL review.
      *
-     * @return GetSQLReviewCheckResultStatusResponse GetSQLReviewCheckResultStatusResponse
+     * @remarks
+     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+     *
+     * @param request - GetSQLReviewCheckResultStatusRequest
+     * @returns GetSQLReviewCheckResultStatusResponse
+     *
+     * @param GetSQLReviewCheckResultStatusRequest $request
+     *
+     * @return GetSQLReviewCheckResultStatusResponse
      */
     public function getSQLReviewCheckResultStatus($request)
     {
@@ -7807,27 +9617,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of optimization suggestions. The operation applies only to the tickets for the data changes and SQL review.
-     *  *
-     * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
-     *  *
-     * @param GetSQLReviewOptimizeDetailRequest $request GetSQLReviewOptimizeDetailRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the details of optimization suggestions. The operation applies only to the tickets for the data changes and SQL review.
      *
-     * @return GetSQLReviewOptimizeDetailResponse GetSQLReviewOptimizeDetailResponse
+     * @remarks
+     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+     *
+     * @param request - GetSQLReviewOptimizeDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSQLReviewOptimizeDetailResponse
+     *
+     * @param GetSQLReviewOptimizeDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetSQLReviewOptimizeDetailResponse
      */
     public function getSQLReviewOptimizeDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->SQLReviewQueryKey)) {
-            $query['SQLReviewQueryKey'] = $request->SQLReviewQueryKey;
+        if (null !== $request->SQLReviewQueryKey) {
+            @$query['SQLReviewQueryKey'] = $request->SQLReviewQueryKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSQLReviewOptimizeDetail',
@@ -7840,18 +9657,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSQLReviewOptimizeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSQLReviewOptimizeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSQLReviewOptimizeDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of optimization suggestions. The operation applies only to the tickets for the data changes and SQL review.
-     *  *
-     * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
-     *  *
-     * @param GetSQLReviewOptimizeDetailRequest $request GetSQLReviewOptimizeDetailRequest
+     * Queries the details of optimization suggestions. The operation applies only to the tickets for the data changes and SQL review.
      *
-     * @return GetSQLReviewOptimizeDetailResponse GetSQLReviewOptimizeDetailResponse
+     * @remarks
+     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+     *
+     * @param request - GetSQLReviewOptimizeDetailRequest
+     * @returns GetSQLReviewOptimizeDetailResponse
+     *
+     * @param GetSQLReviewOptimizeDetailRequest $request
+     *
+     * @return GetSQLReviewOptimizeDetailResponse
      */
     public function getSQLReviewOptimizeDetail($request)
     {
@@ -7861,25 +9685,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取安全规则
-     *  *
-     * @param GetStandardGroupRequest $request GetStandardGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取安全规则.
      *
-     * @return GetStandardGroupResponse GetStandardGroupResponse
+     * @param request - GetStandardGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStandardGroupResponse
+     *
+     * @param GetStandardGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetStandardGroupResponse
      */
     public function getStandardGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStandardGroup',
@@ -7892,16 +9722,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStandardGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取安全规则
-     *  *
-     * @param GetStandardGroupRequest $request GetStandardGroupRequest
+     * 获取安全规则.
      *
-     * @return GetStandardGroupResponse GetStandardGroupResponse
+     * @param request - GetStandardGroupRequest
+     * @returns GetStandardGroupResponse
+     *
+     * @param GetStandardGroupRequest $request
+     *
+     * @return GetStandardGroupResponse
      */
     public function getStandardGroup($request)
     {
@@ -7911,31 +9747,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the SQL statements that are involved in a schema synchronization ticket.
-     *  *
-     * @param GetStructSyncExecSqlDetailRequest $request GetStructSyncExecSqlDetailRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the SQL statements that are involved in a schema synchronization ticket.
      *
-     * @return GetStructSyncExecSqlDetailResponse GetStructSyncExecSqlDetailResponse
+     * @param request - GetStructSyncExecSqlDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStructSyncExecSqlDetailResponse
+     *
+     * @param GetStructSyncExecSqlDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetStructSyncExecSqlDetailResponse
      */
     public function getStructSyncExecSqlDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStructSyncExecSqlDetail',
@@ -7948,16 +9792,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStructSyncExecSqlDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStructSyncExecSqlDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStructSyncExecSqlDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the SQL statements that are involved in a schema synchronization ticket.
-     *  *
-     * @param GetStructSyncExecSqlDetailRequest $request GetStructSyncExecSqlDetailRequest
+     * Queries the SQL statements that are involved in a schema synchronization ticket.
      *
-     * @return GetStructSyncExecSqlDetailResponse GetStructSyncExecSqlDetailResponse
+     * @param request - GetStructSyncExecSqlDetailRequest
+     * @returns GetStructSyncExecSqlDetailResponse
+     *
+     * @param GetStructSyncExecSqlDetailRequest $request
+     *
+     * @return GetStructSyncExecSqlDetailResponse
      */
     public function getStructSyncExecSqlDetail($request)
     {
@@ -7967,34 +9817,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the analysis result of a schema synchronization task.
-     *  *
-     * @param GetStructSyncJobAnalyzeResultRequest $request GetStructSyncJobAnalyzeResultRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the analysis result of a schema synchronization task.
      *
-     * @return GetStructSyncJobAnalyzeResultResponse GetStructSyncJobAnalyzeResultResponse
+     * @param request - GetStructSyncJobAnalyzeResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStructSyncJobAnalyzeResultResponse
+     *
+     * @param GetStructSyncJobAnalyzeResultRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetStructSyncJobAnalyzeResultResponse
      */
     public function getStructSyncJobAnalyzeResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->compareType)) {
-            $query['CompareType'] = $request->compareType;
+        if (null !== $request->compareType) {
+            @$query['CompareType'] = $request->compareType;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStructSyncJobAnalyzeResult',
@@ -8007,16 +9866,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStructSyncJobAnalyzeResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStructSyncJobAnalyzeResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStructSyncJobAnalyzeResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the analysis result of a schema synchronization task.
-     *  *
-     * @param GetStructSyncJobAnalyzeResultRequest $request GetStructSyncJobAnalyzeResultRequest
+     * Queries the analysis result of a schema synchronization task.
      *
-     * @return GetStructSyncJobAnalyzeResultResponse GetStructSyncJobAnalyzeResultResponse
+     * @param request - GetStructSyncJobAnalyzeResultRequest
+     * @returns GetStructSyncJobAnalyzeResultResponse
+     *
+     * @param GetStructSyncJobAnalyzeResultRequest $request
+     *
+     * @return GetStructSyncJobAnalyzeResultResponse
      */
     public function getStructSyncJobAnalyzeResult($request)
     {
@@ -8026,25 +9891,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of a schema synchronization task.
-     *  *
-     * @param GetStructSyncJobDetailRequest $request GetStructSyncJobDetailRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the information of a schema synchronization task.
      *
-     * @return GetStructSyncJobDetailResponse GetStructSyncJobDetailResponse
+     * @param request - GetStructSyncJobDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStructSyncJobDetailResponse
+     *
+     * @param GetStructSyncJobDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetStructSyncJobDetailResponse
      */
     public function getStructSyncJobDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStructSyncJobDetail',
@@ -8057,16 +9928,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStructSyncJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStructSyncJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStructSyncJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of a schema synchronization task.
-     *  *
-     * @param GetStructSyncJobDetailRequest $request GetStructSyncJobDetailRequest
+     * Queries the information of a schema synchronization task.
      *
-     * @return GetStructSyncJobDetailResponse GetStructSyncJobDetailResponse
+     * @param request - GetStructSyncJobDetailRequest
+     * @returns GetStructSyncJobDetailResponse
+     *
+     * @param GetStructSyncJobDetailRequest $request
+     *
+     * @return GetStructSyncJobDetailResponse
      */
     public function getStructSyncJobDetail($request)
     {
@@ -8076,25 +9953,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a schema synchronization ticket.
-     *  *
-     * @param GetStructSyncOrderDetailRequest $request GetStructSyncOrderDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a schema synchronization ticket.
      *
-     * @return GetStructSyncOrderDetailResponse GetStructSyncOrderDetailResponse
+     * @param request - GetStructSyncOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStructSyncOrderDetailResponse
+     *
+     * @param GetStructSyncOrderDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetStructSyncOrderDetailResponse
      */
     public function getStructSyncOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStructSyncOrderDetail',
@@ -8107,16 +9990,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStructSyncOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStructSyncOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStructSyncOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a schema synchronization ticket.
-     *  *
-     * @param GetStructSyncOrderDetailRequest $request GetStructSyncOrderDetailRequest
+     * Queries the details of a schema synchronization ticket.
      *
-     * @return GetStructSyncOrderDetailResponse GetStructSyncOrderDetailResponse
+     * @param request - GetStructSyncOrderDetailRequest
+     * @returns GetStructSyncOrderDetailResponse
+     *
+     * @param GetStructSyncOrderDetailRequest $request
+     *
+     * @return GetStructSyncOrderDetailResponse
      */
     public function getStructSyncOrderDetail($request)
     {
@@ -8126,25 +10015,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the topology of a data table.
-     *  *
-     * @param GetTableDBTopologyRequest $request GetTableDBTopologyRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the topology of a data table.
      *
-     * @return GetTableDBTopologyResponse GetTableDBTopologyResponse
+     * @param request - GetTableDBTopologyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTableDBTopologyResponse
+     *
+     * @param GetTableDBTopologyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTableDBTopologyResponse
      */
     public function getTableDBTopologyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tableGuid)) {
-            $query['TableGuid'] = $request->tableGuid;
+        if (null !== $request->tableGuid) {
+            @$query['TableGuid'] = $request->tableGuid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTableDBTopology',
@@ -8157,16 +10052,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTableDBTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTableDBTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTableDBTopologyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the topology of a data table.
-     *  *
-     * @param GetTableDBTopologyRequest $request GetTableDBTopologyRequest
+     * Queries the topology of a data table.
      *
-     * @return GetTableDBTopologyResponse GetTableDBTopologyResponse
+     * @param request - GetTableDBTopologyRequest
+     * @returns GetTableDBTopologyResponse
+     *
+     * @param GetTableDBTopologyRequest $request
+     *
+     * @return GetTableDBTopologyResponse
      */
     public function getTableDBTopology($request)
     {
@@ -8176,25 +10077,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a schema design ticket, such as the current node of the ticket, whether the ticket can be returned to the schema design node, and the publishing strategy.
-     *  *
-     * @param GetTableDesignProjectFlowRequest $request GetTableDesignProjectFlowRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a schema design ticket, such as the current node of the ticket, whether the ticket can be returned to the schema design node, and the publishing strategy.
      *
-     * @return GetTableDesignProjectFlowResponse GetTableDesignProjectFlowResponse
+     * @param request - GetTableDesignProjectFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTableDesignProjectFlowResponse
+     *
+     * @param GetTableDesignProjectFlowRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetTableDesignProjectFlowResponse
      */
     public function getTableDesignProjectFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTableDesignProjectFlow',
@@ -8207,16 +10114,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTableDesignProjectFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTableDesignProjectFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTableDesignProjectFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a schema design ticket, such as the current node of the ticket, whether the ticket can be returned to the schema design node, and the publishing strategy.
-     *  *
-     * @param GetTableDesignProjectFlowRequest $request GetTableDesignProjectFlowRequest
+     * Queries the information about a schema design ticket, such as the current node of the ticket, whether the ticket can be returned to the schema design node, and the publishing strategy.
      *
-     * @return GetTableDesignProjectFlowResponse GetTableDesignProjectFlowResponse
+     * @param request - GetTableDesignProjectFlowRequest
+     * @returns GetTableDesignProjectFlowResponse
+     *
+     * @param GetTableDesignProjectFlowRequest $request
+     *
+     * @return GetTableDesignProjectFlowResponse
      */
     public function getTableDesignProjectFlow($request)
     {
@@ -8226,25 +10139,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the project and change base database of a schema design ticket, such as the state of the ticket, the ID of the user who created the ticket, and the name and ID of the change base database.
-     *  *
-     * @param GetTableDesignProjectInfoRequest $request GetTableDesignProjectInfoRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the project and change base database of a schema design ticket, such as the state of the ticket, the ID of the user who created the ticket, and the name and ID of the change base database.
      *
-     * @return GetTableDesignProjectInfoResponse GetTableDesignProjectInfoResponse
+     * @param request - GetTableDesignProjectInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTableDesignProjectInfoResponse
+     *
+     * @param GetTableDesignProjectInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetTableDesignProjectInfoResponse
      */
     public function getTableDesignProjectInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTableDesignProjectInfo',
@@ -8257,16 +10176,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTableDesignProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTableDesignProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTableDesignProjectInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the project and change base database of a schema design ticket, such as the state of the ticket, the ID of the user who created the ticket, and the name and ID of the change base database.
-     *  *
-     * @param GetTableDesignProjectInfoRequest $request GetTableDesignProjectInfoRequest
+     * Queries the information about the project and change base database of a schema design ticket, such as the state of the ticket, the ID of the user who created the ticket, and the name and ID of the change base database.
      *
-     * @return GetTableDesignProjectInfoResponse GetTableDesignProjectInfoResponse
+     * @param request - GetTableDesignProjectInfoRequest
+     * @returns GetTableDesignProjectInfoResponse
+     *
+     * @param GetTableDesignProjectInfoRequest $request
+     *
+     * @return GetTableDesignProjectInfoResponse
      */
     public function getTableDesignProjectInfo($request)
     {
@@ -8276,25 +10201,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the topology of a table.
-     *  *
-     * @param GetTableTopologyRequest $request GetTableTopologyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the topology of a table.
      *
-     * @return GetTableTopologyResponse GetTableTopologyResponse
+     * @param request - GetTableTopologyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTableTopologyResponse
+     *
+     * @param GetTableTopologyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetTableTopologyResponse
      */
     public function getTableTopologyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tableGuid)) {
-            $query['TableGuid'] = $request->tableGuid;
+        if (null !== $request->tableGuid) {
+            @$query['TableGuid'] = $request->tableGuid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTableTopology',
@@ -8307,16 +10238,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTableTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTableTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTableTopologyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the topology of a table.
-     *  *
-     * @param GetTableTopologyRequest $request GetTableTopologyRequest
+     * Queries the topology of a table.
      *
-     * @return GetTableTopologyResponse GetTableTopologyResponse
+     * @param request - GetTableTopologyRequest
+     * @returns GetTableTopologyResponse
+     *
+     * @param GetTableTopologyRequest $request
+     *
+     * @return GetTableTopologyResponse
      */
     public function getTableTopology($request)
     {
@@ -8326,25 +10263,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations, including time variables, of a specified task node based on the task node ID.
-     *  *
-     * @param GetTaskRequest $request GetTaskRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations, including time variables, of a specified task node based on the task node ID.
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @param request - GetTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTaskResponse
      */
     public function getTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTask',
@@ -8357,16 +10300,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations, including time variables, of a specified task node based on the task node ID.
-     *  *
-     * @param GetTaskRequest $request GetTaskRequest
+     * Queries the configurations, including time variables, of a specified task node based on the task node ID.
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @param request - GetTaskRequest
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     *
+     * @return GetTaskResponse
      */
     public function getTask($request)
     {
@@ -8376,25 +10325,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Directed Acyclic Graph (DAG) of a task flow.
-     *  *
-     * @param GetTaskFlowGraphRequest $request GetTaskFlowGraphRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the Directed Acyclic Graph (DAG) of a task flow.
      *
-     * @return GetTaskFlowGraphResponse GetTaskFlowGraphResponse
+     * @param request - GetTaskFlowGraphRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTaskFlowGraphResponse
+     *
+     * @param GetTaskFlowGraphRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetTaskFlowGraphResponse
      */
     public function getTaskFlowGraphWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTaskFlowGraph',
@@ -8407,16 +10362,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTaskFlowGraphResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTaskFlowGraphResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTaskFlowGraphResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Directed Acyclic Graph (DAG) of a task flow.
-     *  *
-     * @param GetTaskFlowGraphRequest $request GetTaskFlowGraphRequest
+     * Queries the Directed Acyclic Graph (DAG) of a task flow.
      *
-     * @return GetTaskFlowGraphResponse GetTaskFlowGraphResponse
+     * @param request - GetTaskFlowGraphRequest
+     * @returns GetTaskFlowGraphResponse
+     *
+     * @param GetTaskFlowGraphRequest $request
+     *
+     * @return GetTaskFlowGraphResponse
      */
     public function getTaskFlowGraph($request)
     {
@@ -8426,25 +10387,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the notification settings for task flows.
-     *  *
-     * @param GetTaskFlowNotificationRequest $request GetTaskFlowNotificationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the notification settings for task flows.
      *
-     * @return GetTaskFlowNotificationResponse GetTaskFlowNotificationResponse
+     * @param request - GetTaskFlowNotificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTaskFlowNotificationResponse
+     *
+     * @param GetTaskFlowNotificationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTaskFlowNotificationResponse
      */
     public function getTaskFlowNotificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTaskFlowNotification',
@@ -8457,16 +10424,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTaskFlowNotificationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the notification settings for task flows.
-     *  *
-     * @param GetTaskFlowNotificationRequest $request GetTaskFlowNotificationRequest
+     * Queries the notification settings for task flows.
      *
-     * @return GetTaskFlowNotificationResponse GetTaskFlowNotificationResponse
+     * @param request - GetTaskFlowNotificationRequest
+     * @returns GetTaskFlowNotificationResponse
+     *
+     * @param GetTaskFlowNotificationRequest $request
+     *
+     * @return GetTaskFlowNotificationResponse
      */
     public function getTaskFlowNotification($request)
     {
@@ -8476,28 +10449,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the nodes in an execution record of a task flow.
-     *  *
-     * @param GetTaskInstanceRelationRequest $request GetTaskInstanceRelationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the nodes in an execution record of a task flow.
      *
-     * @return GetTaskInstanceRelationResponse GetTaskInstanceRelationResponse
+     * @param request - GetTaskInstanceRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTaskInstanceRelationResponse
+     *
+     * @param GetTaskInstanceRelationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTaskInstanceRelationResponse
      */
     public function getTaskInstanceRelationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->dagInstanceId)) {
-            $query['DagInstanceId'] = $request->dagInstanceId;
+
+        if (null !== $request->dagInstanceId) {
+            @$query['DagInstanceId'] = $request->dagInstanceId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTaskInstanceRelation',
@@ -8510,16 +10490,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTaskInstanceRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTaskInstanceRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTaskInstanceRelationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the nodes in an execution record of a task flow.
-     *  *
-     * @param GetTaskInstanceRelationRequest $request GetTaskInstanceRelationRequest
+     * Queries the information about the nodes in an execution record of a task flow.
      *
-     * @return GetTaskInstanceRelationResponse GetTaskInstanceRelationResponse
+     * @param request - GetTaskInstanceRelationRequest
+     * @returns GetTaskInstanceRelationResponse
+     *
+     * @param GetTaskInstanceRelationRequest $request
+     *
+     * @return GetTaskInstanceRelationResponse
      */
     public function getTaskInstanceRelation($request)
     {
@@ -8529,28 +10515,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a user.
-     *  *
-     * @param GetUserRequest $request GetUserRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a user.
      *
-     * @return GetUserResponse GetUserResponse
+     * @param request - GetUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserResponse
      */
     public function getUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUser',
@@ -8563,16 +10556,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a user.
-     *  *
-     * @param GetUserRequest $request GetUserRequest
+     * Queries the information about a user.
      *
-     * @return GetUserResponse GetUserResponse
+     * @param request - GetUserRequest
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     *
+     * @return GetUserResponse
      */
     public function getUser($request)
     {
@@ -8582,22 +10581,27 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries details of the active tenant.
-     *  *
-     * @param GetUserActiveTenantRequest $request GetUserActiveTenantRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries details of the active tenant.
      *
-     * @return GetUserActiveTenantResponse GetUserActiveTenantResponse
+     * @param request - GetUserActiveTenantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserActiveTenantResponse
+     *
+     * @param GetUserActiveTenantRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetUserActiveTenantResponse
      */
     public function getUserActiveTenantWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUserActiveTenant',
@@ -8610,16 +10614,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserActiveTenantResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserActiveTenantResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserActiveTenantResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries details of the active tenant.
-     *  *
-     * @param GetUserActiveTenantRequest $request GetUserActiveTenantRequest
+     * Queries details of the active tenant.
      *
-     * @return GetUserActiveTenantResponse GetUserActiveTenantResponse
+     * @param request - GetUserActiveTenantRequest
+     * @returns GetUserActiveTenantResponse
+     *
+     * @param GetUserActiveTenantRequest $request
+     *
+     * @return GetUserActiveTenantResponse
      */
     public function getUserActiveTenant($request)
     {
@@ -8629,25 +10639,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the information of a file upload task.
-     *  *
-     * @param GetUserUploadFileJobRequest $request GetUserUploadFileJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Obtains the information of a file upload task.
      *
-     * @return GetUserUploadFileJobResponse GetUserUploadFileJobResponse
+     * @param request - GetUserUploadFileJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserUploadFileJobResponse
+     *
+     * @param GetUserUploadFileJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetUserUploadFileJobResponse
      */
     public function getUserUploadFileJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobKey)) {
-            $query['JobKey'] = $request->jobKey;
+        if (null !== $request->jobKey) {
+            @$query['JobKey'] = $request->jobKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUserUploadFileJob',
@@ -8660,16 +10676,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserUploadFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserUploadFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserUploadFileJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the information of a file upload task.
-     *  *
-     * @param GetUserUploadFileJobRequest $request GetUserUploadFileJobRequest
+     * Obtains the information of a file upload task.
      *
-     * @return GetUserUploadFileJobResponse GetUserUploadFileJobResponse
+     * @param request - GetUserUploadFileJobRequest
+     * @returns GetUserUploadFileJobResponse
+     *
+     * @param GetUserUploadFileJobRequest $request
+     *
+     * @return GetUserUploadFileJobResponse
      */
     public function getUserUploadFileJob($request)
     {
@@ -8679,36 +10701,46 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Grants permissions on resources to users by using a permission template.
-     *  *
-     * @description You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param GrantTemplateAuthorityRequest $request GrantTemplateAuthorityRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Grants permissions on resources to users by using a permission template.
      *
-     * @return GrantTemplateAuthorityResponse GrantTemplateAuthorityResponse
+     * @remarks
+     * You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - GrantTemplateAuthorityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GrantTemplateAuthorityResponse
+     *
+     * @param GrantTemplateAuthorityRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GrantTemplateAuthorityResponse
      */
     public function grantTemplateAuthorityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->expireDate)) {
-            $query['ExpireDate'] = $request->expireDate;
+
+        if (null !== $request->expireDate) {
+            @$query['ExpireDate'] = $request->expireDate;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GrantTemplateAuthority',
@@ -8721,18 +10753,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GrantTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GrantTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GrantTemplateAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Grants permissions on resources to users by using a permission template.
-     *  *
-     * @description You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param GrantTemplateAuthorityRequest $request GrantTemplateAuthorityRequest
+     * Grants permissions on resources to users by using a permission template.
      *
-     * @return GrantTemplateAuthorityResponse GrantTemplateAuthorityResponse
+     * @remarks
+     * You must be a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - GrantTemplateAuthorityRequest
+     * @returns GrantTemplateAuthorityResponse
+     *
+     * @param GrantTemplateAuthorityRequest $request
+     *
+     * @return GrantTemplateAuthorityResponse
      */
     public function grantTemplateAuthority($request)
     {
@@ -8742,49 +10781,63 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Grants permissions on an instance, a database, or a table to a user.
-     *  *
-     * @param GrantUserPermissionRequest $request GrantUserPermissionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Grants permissions on an instance, a database, or a table to a user.
      *
-     * @return GrantUserPermissionResponse GrantUserPermissionResponse
+     * @param request - GrantUserPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GrantUserPermissionResponse
+     *
+     * @param GrantUserPermissionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GrantUserPermissionResponse
      */
     public function grantUserPermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->dsType)) {
-            $query['DsType'] = $request->dsType;
+
+        if (null !== $request->dsType) {
+            @$query['DsType'] = $request->dsType;
         }
-        if (!Utils::isUnset($request->expireDate)) {
-            $query['ExpireDate'] = $request->expireDate;
+
+        if (null !== $request->expireDate) {
+            @$query['ExpireDate'] = $request->expireDate;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->permTypes)) {
-            $query['PermTypes'] = $request->permTypes;
+
+        if (null !== $request->permTypes) {
+            @$query['PermTypes'] = $request->permTypes;
         }
-        if (!Utils::isUnset($request->tableId)) {
-            $query['TableId'] = $request->tableId;
+
+        if (null !== $request->tableId) {
+            @$query['TableId'] = $request->tableId;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GrantUserPermission',
@@ -8797,16 +10850,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GrantUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GrantUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GrantUserPermissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Grants permissions on an instance, a database, or a table to a user.
-     *  *
-     * @param GrantUserPermissionRequest $request GrantUserPermissionRequest
+     * Grants permissions on an instance, a database, or a table to a user.
      *
-     * @return GrantUserPermissionResponse GrantUserPermissionResponse
+     * @param request - GrantUserPermissionRequest
+     * @returns GrantUserPermissionResponse
+     *
+     * @param GrantUserPermissionRequest $request
+     *
+     * @return GrantUserPermissionResponse
      */
     public function grantUserPermission($request)
     {
@@ -8816,25 +10875,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to obtain the authorization password of the security protection agent InspectProxyAccessSecret.
-     *  *
-     * @param InspectProxyAccessSecretRequest $request InspectProxyAccessSecretRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to obtain the authorization password of the security protection agent InspectProxyAccessSecret.
      *
-     * @return InspectProxyAccessSecretResponse InspectProxyAccessSecretResponse
+     * @param request - InspectProxyAccessSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InspectProxyAccessSecretResponse
+     *
+     * @param InspectProxyAccessSecretRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return InspectProxyAccessSecretResponse
      */
     public function inspectProxyAccessSecretWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->proxyAccessId)) {
-            $query['ProxyAccessId'] = $request->proxyAccessId;
+        if (null !== $request->proxyAccessId) {
+            @$query['ProxyAccessId'] = $request->proxyAccessId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InspectProxyAccessSecret',
@@ -8847,16 +10912,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InspectProxyAccessSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InspectProxyAccessSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InspectProxyAccessSecretResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to obtain the authorization password of the security protection agent InspectProxyAccessSecret.
-     *  *
-     * @param InspectProxyAccessSecretRequest $request InspectProxyAccessSecretRequest
+     * You can call this operation to obtain the authorization password of the security protection agent InspectProxyAccessSecret.
      *
-     * @return InspectProxyAccessSecretResponse InspectProxyAccessSecretResponse
+     * @param request - InspectProxyAccessSecretRequest
+     * @returns InspectProxyAccessSecretResponse
+     *
+     * @param InspectProxyAccessSecretRequest $request
+     *
+     * @return InspectProxyAccessSecretResponse
      */
     public function inspectProxyAccessSecret($request)
     {
@@ -8866,34 +10937,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取权限策略授权列表
-     *  *
-     * @param ListAbacAuthorizationsRequest $request ListAbacAuthorizationsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取权限策略授权列表.
      *
-     * @return ListAbacAuthorizationsResponse ListAbacAuthorizationsResponse
+     * @param request - ListAbacAuthorizationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAbacAuthorizationsResponse
+     *
+     * @param ListAbacAuthorizationsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAbacAuthorizationsResponse
      */
     public function listAbacAuthorizationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->policySource)) {
-            $query['PolicySource'] = $request->policySource;
+
+        if (null !== $request->policySource) {
+            @$query['PolicySource'] = $request->policySource;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAbacAuthorizations',
@@ -8906,16 +10986,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAbacAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAbacAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAbacAuthorizationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取权限策略授权列表
-     *  *
-     * @param ListAbacAuthorizationsRequest $request ListAbacAuthorizationsRequest
+     * 获取权限策略授权列表.
      *
-     * @return ListAbacAuthorizationsResponse ListAbacAuthorizationsResponse
+     * @param request - ListAbacAuthorizationsRequest
+     * @returns ListAbacAuthorizationsResponse
+     *
+     * @param ListAbacAuthorizationsRequest $request
+     *
+     * @return ListAbacAuthorizationsResponse
      */
     public function listAbacAuthorizations($request)
     {
@@ -8925,31 +11011,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取权限策略列表
-     *  *
-     * @param ListAbacPoliciesRequest $request ListAbacPoliciesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取权限策略列表.
      *
-     * @return ListAbacPoliciesResponse ListAbacPoliciesResponse
+     * @param request - ListAbacPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAbacPoliciesResponse
+     *
+     * @param ListAbacPoliciesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAbacPoliciesResponse
      */
     public function listAbacPoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAbacPolicies',
@@ -8962,16 +11056,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAbacPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAbacPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAbacPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取权限策略列表
-     *  *
-     * @param ListAbacPoliciesRequest $request ListAbacPoliciesRequest
+     * 获取权限策略列表.
      *
-     * @return ListAbacPoliciesResponse ListAbacPoliciesResponse
+     * @param request - ListAbacPoliciesRequest
+     * @returns ListAbacPoliciesResponse
+     *
+     * @param ListAbacPoliciesRequest $request
+     *
+     * @return ListAbacPoliciesResponse
      */
     public function listAbacPolicies($request)
     {
@@ -8981,31 +11081,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取权限模版列表
-     *  *
-     * @param ListAuthorityTemplateRequest $request ListAuthorityTemplateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取权限模版列表.
      *
-     * @return ListAuthorityTemplateResponse ListAuthorityTemplateResponse
+     * @param request - ListAuthorityTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAuthorityTemplateResponse
+     *
+     * @param ListAuthorityTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAuthorityTemplateResponse
      */
     public function listAuthorityTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAuthorityTemplate',
@@ -9018,16 +11126,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取权限模版列表
-     *  *
-     * @param ListAuthorityTemplateRequest $request ListAuthorityTemplateRequest
+     * 获取权限模版列表.
      *
-     * @return ListAuthorityTemplateResponse ListAuthorityTemplateResponse
+     * @param request - ListAuthorityTemplateRequest
+     * @returns ListAuthorityTemplateResponse
+     *
+     * @param ListAuthorityTemplateRequest $request
+     *
+     * @return ListAuthorityTemplateResponse
      */
     public function listAuthorityTemplate($request)
     {
@@ -9037,43 +11151,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户有权限的数据库
-     *  *
-     * @param ListAuthorizedDatabasesForUserRequest $request ListAuthorizedDatabasesForUserRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 获取用户有权限的数据库.
      *
-     * @return ListAuthorizedDatabasesForUserResponse ListAuthorizedDatabasesForUserResponse
+     * @param request - ListAuthorizedDatabasesForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAuthorizedDatabasesForUserResponse
+     *
+     * @param ListAuthorizedDatabasesForUserRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListAuthorizedDatabasesForUserResponse
      */
     public function listAuthorizedDatabasesForUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAuthorizedDatabasesForUser',
@@ -9086,16 +11212,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAuthorizedDatabasesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAuthorizedDatabasesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAuthorizedDatabasesForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户有权限的数据库
-     *  *
-     * @param ListAuthorizedDatabasesForUserRequest $request ListAuthorizedDatabasesForUserRequest
+     * 获取用户有权限的数据库.
      *
-     * @return ListAuthorizedDatabasesForUserResponse ListAuthorizedDatabasesForUserResponse
+     * @param request - ListAuthorizedDatabasesForUserRequest
+     * @returns ListAuthorizedDatabasesForUserResponse
+     *
+     * @param ListAuthorizedDatabasesForUserRequest $request
+     *
+     * @return ListAuthorizedDatabasesForUserResponse
      */
     public function listAuthorizedDatabasesForUser($request)
     {
@@ -9105,40 +11237,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户有权限的实例
-     *  *
-     * @param ListAuthorizedInstancesForUserRequest $request ListAuthorizedInstancesForUserRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 获取用户有权限的实例.
      *
-     * @return ListAuthorizedInstancesForUserResponse ListAuthorizedInstancesForUserResponse
+     * @param request - ListAuthorizedInstancesForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAuthorizedInstancesForUserResponse
+     *
+     * @param ListAuthorizedInstancesForUserRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListAuthorizedInstancesForUserResponse
      */
     public function listAuthorizedInstancesForUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAuthorizedInstancesForUser',
@@ -9151,16 +11294,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAuthorizedInstancesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAuthorizedInstancesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAuthorizedInstancesForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户有权限的实例
-     *  *
-     * @param ListAuthorizedInstancesForUserRequest $request ListAuthorizedInstancesForUserRequest
+     * 获取用户有权限的实例.
      *
-     * @return ListAuthorizedInstancesForUserResponse ListAuthorizedInstancesForUserResponse
+     * @param request - ListAuthorizedInstancesForUserRequest
+     * @returns ListAuthorizedInstancesForUserResponse
+     *
+     * @param ListAuthorizedInstancesForUserRequest $request
+     *
+     * @return ListAuthorizedInstancesForUserResponse
      */
     public function listAuthorizedInstancesForUser($request)
     {
@@ -9170,37 +11319,47 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 查询有数据库权限的用户
-     *  *
-     * @param ListAuthorizedUsersForDatabaseRequest $request ListAuthorizedUsersForDatabaseRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 查询有数据库权限的用户.
      *
-     * @return ListAuthorizedUsersForDatabaseResponse ListAuthorizedUsersForDatabaseResponse
+     * @param request - ListAuthorizedUsersForDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAuthorizedUsersForDatabaseResponse
+     *
+     * @param ListAuthorizedUsersForDatabaseRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListAuthorizedUsersForDatabaseResponse
      */
     public function listAuthorizedUsersForDatabaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAuthorizedUsersForDatabase',
@@ -9213,16 +11372,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAuthorizedUsersForDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAuthorizedUsersForDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAuthorizedUsersForDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询有数据库权限的用户
-     *  *
-     * @param ListAuthorizedUsersForDatabaseRequest $request ListAuthorizedUsersForDatabaseRequest
+     * 查询有数据库权限的用户.
      *
-     * @return ListAuthorizedUsersForDatabaseResponse ListAuthorizedUsersForDatabaseResponse
+     * @param request - ListAuthorizedUsersForDatabaseRequest
+     * @returns ListAuthorizedUsersForDatabaseResponse
+     *
+     * @param ListAuthorizedUsersForDatabaseRequest $request
+     *
+     * @return ListAuthorizedUsersForDatabaseResponse
      */
     public function listAuthorizedUsersForDatabase($request)
     {
@@ -9232,34 +11397,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 查询有实例权限的用户
-     *  *
-     * @param ListAuthorizedUsersForInstanceRequest $request ListAuthorizedUsersForInstanceRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 查询有实例权限的用户.
      *
-     * @return ListAuthorizedUsersForInstanceResponse ListAuthorizedUsersForInstanceResponse
+     * @param request - ListAuthorizedUsersForInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAuthorizedUsersForInstanceResponse
+     *
+     * @param ListAuthorizedUsersForInstanceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListAuthorizedUsersForInstanceResponse
      */
     public function listAuthorizedUsersForInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAuthorizedUsersForInstance',
@@ -9272,16 +11446,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAuthorizedUsersForInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAuthorizedUsersForInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAuthorizedUsersForInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询有实例权限的用户
-     *  *
-     * @param ListAuthorizedUsersForInstanceRequest $request ListAuthorizedUsersForInstanceRequest
+     * 查询有实例权限的用户.
      *
-     * @return ListAuthorizedUsersForInstanceResponse ListAuthorizedUsersForInstanceResponse
+     * @param request - ListAuthorizedUsersForInstanceRequest
+     * @returns ListAuthorizedUsersForInstanceResponse
+     *
+     * @param ListAuthorizedUsersForInstanceRequest $request
+     *
+     * @return ListAuthorizedUsersForInstanceResponse
      */
     public function listAuthorizedUsersForInstance($request)
     {
@@ -9291,22 +11471,27 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the classification templates.
-     *  *
-     * @param ListClassificationTemplatesRequest $request ListClassificationTemplatesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the classification templates.
      *
-     * @return ListClassificationTemplatesResponse ListClassificationTemplatesResponse
+     * @param request - ListClassificationTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListClassificationTemplatesResponse
+     *
+     * @param ListClassificationTemplatesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListClassificationTemplatesResponse
      */
     public function listClassificationTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListClassificationTemplates',
@@ -9319,16 +11504,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListClassificationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClassificationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClassificationTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the classification templates.
-     *  *
-     * @param ListClassificationTemplatesRequest $request ListClassificationTemplatesRequest
+     * Queries the classification templates.
      *
-     * @return ListClassificationTemplatesResponse ListClassificationTemplatesResponse
+     * @param request - ListClassificationTemplatesRequest
+     * @returns ListClassificationTemplatesResponse
+     *
+     * @param ListClassificationTemplatesRequest $request
+     *
+     * @return ListClassificationTemplatesResponse
      */
     public function listClassificationTemplates($request)
     {
@@ -9338,30 +11529,38 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Returns the column information of a table.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param ListColumnsRequest $request ListColumnsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Returns the column information of a table.
      *
-     * @return ListColumnsResponse ListColumnsResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - ListColumnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListColumnsResponse
+     *
+     * @param ListColumnsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListColumnsResponse
      */
     public function listColumnsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->tableId)) {
-            $query['TableId'] = $request->tableId;
+
+        if (null !== $request->tableId) {
+            @$query['TableId'] = $request->tableId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListColumns',
@@ -9374,18 +11573,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListColumnsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Returns the column information of a table.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param ListColumnsRequest $request ListColumnsRequest
+     * Returns the column information of a table.
      *
-     * @return ListColumnsResponse ListColumnsResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - ListColumnsRequest
+     * @returns ListColumnsResponse
+     *
+     * @param ListColumnsRequest $request
+     *
+     * @return ListColumnsResponse
      */
     public function listColumns($request)
     {
@@ -9395,31 +11601,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the published versions of a task flow.
-     *  *
-     * @param ListDAGVersionsRequest $request ListDAGVersionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the published versions of a task flow.
      *
-     * @return ListDAGVersionsResponse ListDAGVersionsResponse
+     * @param request - ListDAGVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDAGVersionsResponse
+     *
+     * @param ListDAGVersionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDAGVersionsResponse
      */
     public function listDAGVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDAGVersions',
@@ -9432,16 +11646,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDAGVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDAGVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDAGVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the published versions of a task flow.
-     *  *
-     * @param ListDAGVersionsRequest $request ListDAGVersionsRequest
+     * Queries the published versions of a task flow.
      *
-     * @return ListDAGVersionsResponse ListDAGVersionsResponse
+     * @param request - ListDAGVersionsRequest
+     * @returns ListDAGVersionsResponse
+     *
+     * @param ListDAGVersionsRequest $request
+     *
+     * @return ListDAGVersionsResponse
      */
     public function listDAGVersions($request)
     {
@@ -9451,31 +11671,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of SQL tasks.
-     *  *
-     * @param ListDBTaskSQLJobRequest $request ListDBTaskSQLJobRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries a list of SQL tasks.
      *
-     * @return ListDBTaskSQLJobResponse ListDBTaskSQLJobResponse
+     * @param request - ListDBTaskSQLJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDBTaskSQLJobResponse
+     *
+     * @param ListDBTaskSQLJobRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDBTaskSQLJobResponse
      */
     public function listDBTaskSQLJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBTaskGroupId)) {
-            $query['DBTaskGroupId'] = $request->DBTaskGroupId;
+        if (null !== $request->DBTaskGroupId) {
+            @$query['DBTaskGroupId'] = $request->DBTaskGroupId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDBTaskSQLJob',
@@ -9488,16 +11716,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDBTaskSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDBTaskSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDBTaskSQLJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of SQL tasks.
-     *  *
-     * @param ListDBTaskSQLJobRequest $request ListDBTaskSQLJobRequest
+     * Queries a list of SQL tasks.
      *
-     * @return ListDBTaskSQLJobResponse ListDBTaskSQLJobResponse
+     * @param request - ListDBTaskSQLJobRequest
+     * @returns ListDBTaskSQLJobResponse
+     *
+     * @param ListDBTaskSQLJobRequest $request
+     *
+     * @return ListDBTaskSQLJobResponse
      */
     public function listDBTaskSQLJob($request)
     {
@@ -9507,31 +11741,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an SQL task.
-     *  *
-     * @param ListDBTaskSQLJobDetailRequest $request ListDBTaskSQLJobDetailRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an SQL task.
      *
-     * @return ListDBTaskSQLJobDetailResponse ListDBTaskSQLJobDetailResponse
+     * @param request - ListDBTaskSQLJobDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDBTaskSQLJobDetailResponse
+     *
+     * @param ListDBTaskSQLJobDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDBTaskSQLJobDetailResponse
      */
     public function listDBTaskSQLJobDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDBTaskSQLJobDetail',
@@ -9544,16 +11786,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDBTaskSQLJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDBTaskSQLJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDBTaskSQLJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an SQL task.
-     *  *
-     * @param ListDBTaskSQLJobDetailRequest $request ListDBTaskSQLJobDetailRequest
+     * Queries the details of an SQL task.
      *
-     * @return ListDBTaskSQLJobDetailResponse ListDBTaskSQLJobDetailResponse
+     * @param request - ListDBTaskSQLJobDetailRequest
+     * @returns ListDBTaskSQLJobDetailResponse
+     *
+     * @param ListDBTaskSQLJobDetailRequest $request
+     *
+     * @return ListDBTaskSQLJobDetailResponse
      */
     public function listDBTaskSQLJobDetail($request)
     {
@@ -9563,25 +11811,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the publishing details of a schema design ticket.
-     *  *
-     * @param ListDDLPublishRecordsRequest $request ListDDLPublishRecordsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the publishing details of a schema design ticket.
      *
-     * @return ListDDLPublishRecordsResponse ListDDLPublishRecordsResponse
+     * @param request - ListDDLPublishRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDDLPublishRecordsResponse
+     *
+     * @param ListDDLPublishRecordsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDDLPublishRecordsResponse
      */
     public function listDDLPublishRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDDLPublishRecords',
@@ -9594,16 +11848,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDDLPublishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDDLPublishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDDLPublishRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the publishing details of a schema design ticket.
-     *  *
-     * @param ListDDLPublishRecordsRequest $request ListDDLPublishRecordsRequest
+     * Queries the publishing details of a schema design ticket.
      *
-     * @return ListDDLPublishRecordsResponse ListDDLPublishRecordsResponse
+     * @param request - ListDDLPublishRecordsRequest
+     * @returns ListDDLPublishRecordsResponse
+     *
+     * @param ListDDLPublishRecordsRequest $request
+     *
+     * @return ListDDLPublishRecordsResponse
      */
     public function listDDLPublishRecords($request)
     {
@@ -9613,33 +11873,42 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the databases that are involved in the precheck of a data change ticket.
-     *  *
-     * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
-     *  *
-     * @param ListDataCorrectPreCheckDBRequest $request ListDataCorrectPreCheckDBRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the databases that are involved in the precheck of a data change ticket.
      *
-     * @return ListDataCorrectPreCheckDBResponse ListDataCorrectPreCheckDBResponse
+     * @remarks
+     * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+     *
+     * @param request - ListDataCorrectPreCheckDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataCorrectPreCheckDBResponse
+     *
+     * @param ListDataCorrectPreCheckDBRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDataCorrectPreCheckDBResponse
      */
     public function listDataCorrectPreCheckDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataCorrectPreCheckDB',
@@ -9652,18 +11921,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataCorrectPreCheckDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataCorrectPreCheckDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataCorrectPreCheckDBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the databases that are involved in the precheck of a data change ticket.
-     *  *
-     * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
-     *  *
-     * @param ListDataCorrectPreCheckDBRequest $request ListDataCorrectPreCheckDBRequest
+     * Queries the databases that are involved in the precheck of a data change ticket.
      *
-     * @return ListDataCorrectPreCheckDBResponse ListDataCorrectPreCheckDBResponse
+     * @remarks
+     * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+     *
+     * @param request - ListDataCorrectPreCheckDBRequest
+     * @returns ListDataCorrectPreCheckDBResponse
+     *
+     * @param ListDataCorrectPreCheckDBRequest $request
+     *
+     * @return ListDataCorrectPreCheckDBResponse
      */
     public function listDataCorrectPreCheckDB($request)
     {
@@ -9673,36 +11949,46 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the precheck information about an SQL statement that is specified in a data change ticket.
-     *  *
-     * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
-     *  *
-     * @param ListDataCorrectPreCheckSQLRequest $request ListDataCorrectPreCheckSQLRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the precheck information about an SQL statement that is specified in a data change ticket.
      *
-     * @return ListDataCorrectPreCheckSQLResponse ListDataCorrectPreCheckSQLResponse
+     * @remarks
+     * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+     *
+     * @param request - ListDataCorrectPreCheckSQLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataCorrectPreCheckSQLResponse
+     *
+     * @param ListDataCorrectPreCheckSQLRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListDataCorrectPreCheckSQLResponse
      */
     public function listDataCorrectPreCheckSQLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataCorrectPreCheckSQL',
@@ -9715,18 +12001,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataCorrectPreCheckSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataCorrectPreCheckSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataCorrectPreCheckSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the precheck information about an SQL statement that is specified in a data change ticket.
-     *  *
-     * @description For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
-     *  *
-     * @param ListDataCorrectPreCheckSQLRequest $request ListDataCorrectPreCheckSQLRequest
+     * Queries the precheck information about an SQL statement that is specified in a data change ticket.
      *
-     * @return ListDataCorrectPreCheckSQLResponse ListDataCorrectPreCheckSQLResponse
+     * @remarks
+     * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
+     *
+     * @param request - ListDataCorrectPreCheckSQLRequest
+     * @returns ListDataCorrectPreCheckSQLResponse
+     *
+     * @param ListDataCorrectPreCheckSQLRequest $request
+     *
+     * @return ListDataCorrectPreCheckSQLResponse
      */
     public function listDataCorrectPreCheckSQL($request)
     {
@@ -9736,39 +12029,50 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the precheck information of SQL statements used for data import in a ticket.
-     *  *
-     * @description You can call this operation only if the data is imported in security mode in your data import ticket.
-     *  *
-     * @param ListDataImportSQLPreCheckDetailRequest $request ListDataImportSQLPreCheckDetailRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the precheck information of SQL statements used for data import in a ticket.
      *
-     * @return ListDataImportSQLPreCheckDetailResponse ListDataImportSQLPreCheckDetailResponse
+     * @remarks
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *
+     * @param request - ListDataImportSQLPreCheckDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataImportSQLPreCheckDetailResponse
+     *
+     * @param ListDataImportSQLPreCheckDetailRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListDataImportSQLPreCheckDetailResponse
      */
     public function listDataImportSQLPreCheckDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->pageNumer)) {
-            $query['PageNumer'] = $request->pageNumer;
+
+        if (null !== $request->pageNumer) {
+            @$query['PageNumer'] = $request->pageNumer;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sqlType)) {
-            $query['SqlType'] = $request->sqlType;
+
+        if (null !== $request->sqlType) {
+            @$query['SqlType'] = $request->sqlType;
         }
-        if (!Utils::isUnset($request->statusCode)) {
-            $query['StatusCode'] = $request->statusCode;
+
+        if (null !== $request->statusCode) {
+            @$query['StatusCode'] = $request->statusCode;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataImportSQLPreCheckDetail',
@@ -9781,18 +12085,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataImportSQLPreCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataImportSQLPreCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataImportSQLPreCheckDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the precheck information of SQL statements used for data import in a ticket.
-     *  *
-     * @description You can call this operation only if the data is imported in security mode in your data import ticket.
-     *  *
-     * @param ListDataImportSQLPreCheckDetailRequest $request ListDataImportSQLPreCheckDetailRequest
+     * Queries the precheck information of SQL statements used for data import in a ticket.
      *
-     * @return ListDataImportSQLPreCheckDetailResponse ListDataImportSQLPreCheckDetailResponse
+     * @remarks
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *
+     * @param request - ListDataImportSQLPreCheckDetailRequest
+     * @returns ListDataImportSQLPreCheckDetailResponse
+     *
+     * @param ListDataImportSQLPreCheckDetailRequest $request
+     *
+     * @return ListDataImportSQLPreCheckDetailResponse
      */
     public function listDataImportSQLPreCheckDetail($request)
     {
@@ -9802,27 +12113,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the types of SQL statements used for data import in a ticket.
-     *  *
-     * @description You can call this operation only if the data is imported in security mode in your data import ticket.
-     *  *
-     * @param ListDataImportSQLTypeRequest $request ListDataImportSQLTypeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the types of SQL statements used for data import in a ticket.
      *
-     * @return ListDataImportSQLTypeResponse ListDataImportSQLTypeResponse
+     * @remarks
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *
+     * @param request - ListDataImportSQLTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataImportSQLTypeResponse
+     *
+     * @param ListDataImportSQLTypeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDataImportSQLTypeResponse
      */
     public function listDataImportSQLTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataImportSQLType',
@@ -9835,18 +12153,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataImportSQLTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataImportSQLTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataImportSQLTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the types of SQL statements used for data import in a ticket.
-     *  *
-     * @description You can call this operation only if the data is imported in security mode in your data import ticket.
-     *  *
-     * @param ListDataImportSQLTypeRequest $request ListDataImportSQLTypeRequest
+     * Queries the types of SQL statements used for data import in a ticket.
      *
-     * @return ListDataImportSQLTypeResponse ListDataImportSQLTypeResponse
+     * @remarks
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *
+     * @param request - ListDataImportSQLTypeRequest
+     * @returns ListDataImportSQLTypeResponse
+     *
+     * @param ListDataImportSQLTypeRequest $request
+     *
+     * @return ListDataImportSQLTypeResponse
      */
     public function listDataImportSQLType($request)
     {
@@ -9856,28 +12181,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取uc的数据库目录列表
-     *  *
-     * @param ListDataLakeCatalogRequest $request ListDataLakeCatalogRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取uc的数据库目录列表.
      *
-     * @return ListDataLakeCatalogResponse ListDataLakeCatalogResponse
+     * @param request - ListDataLakeCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakeCatalogResponse
+     *
+     * @param ListDataLakeCatalogRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataLakeCatalogResponse
      */
     public function listDataLakeCatalogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataLakeCatalog',
@@ -9890,16 +12222,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataLakeCatalogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取uc的数据库目录列表
-     *  *
-     * @param ListDataLakeCatalogRequest $request ListDataLakeCatalogRequest
+     * 获取uc的数据库目录列表.
      *
-     * @return ListDataLakeCatalogResponse ListDataLakeCatalogResponse
+     * @param request - ListDataLakeCatalogRequest
+     * @returns ListDataLakeCatalogResponse
+     *
+     * @param ListDataLakeCatalogRequest $request
+     *
+     * @return ListDataLakeCatalogResponse
      */
     public function listDataLakeCatalog($request)
     {
@@ -9909,37 +12247,47 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据库列表
-     *  *
-     * @param ListDataLakeDatabaseRequest $request ListDataLakeDatabaseRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取数据库列表.
      *
-     * @return ListDataLakeDatabaseResponse ListDataLakeDatabaseResponse
+     * @param request - ListDataLakeDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakeDatabaseResponse
+     *
+     * @param ListDataLakeDatabaseRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDataLakeDatabaseResponse
      */
     public function listDataLakeDatabaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataLakeDatabase',
@@ -9952,16 +12300,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataLakeDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据库列表
-     *  *
-     * @param ListDataLakeDatabaseRequest $request ListDataLakeDatabaseRequest
+     * 获取数据库列表.
      *
-     * @return ListDataLakeDatabaseResponse ListDataLakeDatabaseResponse
+     * @param request - ListDataLakeDatabaseRequest
+     * @returns ListDataLakeDatabaseResponse
+     *
+     * @param ListDataLakeDatabaseRequest $request
+     *
+     * @return ListDataLakeDatabaseResponse
      */
     public function listDataLakeDatabase($request)
     {
@@ -9971,50 +12325,63 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据湖表分区列表
-     *  *
-     * @param ListDataLakePartitionRequest $tmpReq  ListDataLakePartitionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取数据湖表分区列表.
      *
-     * @return ListDataLakePartitionResponse ListDataLakePartitionResponse
+     * @param tmpReq - ListDataLakePartitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakePartitionResponse
+     *
+     * @param ListDataLakePartitionRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDataLakePartitionResponse
      */
     public function listDataLakePartitionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataLakePartitionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->partNames)) {
-            $request->partNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partNames, 'PartNames', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->partNames) {
+            $request->partNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partNames, 'PartNames', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->partNamesShrink)) {
-            $body['PartNames'] = $request->partNamesShrink;
+        if (null !== $request->partNamesShrink) {
+            @$body['PartNames'] = $request->partNamesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDataLakePartition',
@@ -10027,16 +12394,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataLakePartitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据湖表分区列表
-     *  *
-     * @param ListDataLakePartitionRequest $request ListDataLakePartitionRequest
+     * 获取数据湖表分区列表.
      *
-     * @return ListDataLakePartitionResponse ListDataLakePartitionResponse
+     * @param request - ListDataLakePartitionRequest
+     * @returns ListDataLakePartitionResponse
+     *
+     * @param ListDataLakePartitionRequest $request
+     *
+     * @return ListDataLakePartitionResponse
      */
     public function listDataLakePartition($request)
     {
@@ -10046,45 +12419,57 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 根据筛选条件获取数据湖表分区列表
-     *  *
-     * @param ListDataLakePartitionByFilterRequest $request ListDataLakePartitionByFilterRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 根据筛选条件获取数据湖表分区列表.
      *
-     * @return ListDataLakePartitionByFilterResponse ListDataLakePartitionByFilterResponse
+     * @param request - ListDataLakePartitionByFilterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakePartitionByFilterResponse
+     *
+     * @param ListDataLakePartitionByFilterRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListDataLakePartitionByFilterResponse
      */
     public function listDataLakePartitionByFilterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->filter)) {
-            $body['Filter'] = $request->filter;
+        if (null !== $request->filter) {
+            @$body['Filter'] = $request->filter;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListDataLakePartitionByFilter',
@@ -10097,16 +12482,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakePartitionByFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataLakePartitionByFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataLakePartitionByFilterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据筛选条件获取数据湖表分区列表
-     *  *
-     * @param ListDataLakePartitionByFilterRequest $request ListDataLakePartitionByFilterRequest
+     * 根据筛选条件获取数据湖表分区列表.
      *
-     * @return ListDataLakePartitionByFilterResponse ListDataLakePartitionByFilterResponse
+     * @param request - ListDataLakePartitionByFilterRequest
+     * @returns ListDataLakePartitionByFilterResponse
+     *
+     * @param ListDataLakePartitionByFilterRequest $request
+     *
+     * @return ListDataLakePartitionByFilterResponse
      */
     public function listDataLakePartitionByFilter($request)
     {
@@ -10116,40 +12507,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据湖表分区名列表
-     *  *
-     * @param ListDataLakePartitionNameRequest $request ListDataLakePartitionNameRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 获取数据湖表分区名列表.
      *
-     * @return ListDataLakePartitionNameResponse ListDataLakePartitionNameResponse
+     * @param request - ListDataLakePartitionNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakePartitionNameResponse
+     *
+     * @param ListDataLakePartitionNameRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDataLakePartitionNameResponse
      */
     public function listDataLakePartitionNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataLakePartitionName',
@@ -10162,16 +12564,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakePartitionNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataLakePartitionNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataLakePartitionNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据湖表分区名列表
-     *  *
-     * @param ListDataLakePartitionNameRequest $request ListDataLakePartitionNameRequest
+     * 获取数据湖表分区名列表.
      *
-     * @return ListDataLakePartitionNameResponse ListDataLakePartitionNameResponse
+     * @param request - ListDataLakePartitionNameRequest
+     * @returns ListDataLakePartitionNameResponse
+     *
+     * @param ListDataLakePartitionNameRequest $request
+     *
+     * @return ListDataLakePartitionNameResponse
      */
     public function listDataLakePartitionName($request)
     {
@@ -10181,43 +12589,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据湖表列表
-     *  *
-     * @param ListDataLakeTableRequest $request ListDataLakeTableRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取数据湖表列表.
      *
-     * @return ListDataLakeTableResponse ListDataLakeTableResponse
+     * @param request - ListDataLakeTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakeTableResponse
+     *
+     * @param ListDataLakeTableRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDataLakeTableResponse
      */
     public function listDataLakeTableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->tableNamePattern)) {
-            $query['TableNamePattern'] = $request->tableNamePattern;
+
+        if (null !== $request->tableNamePattern) {
+            @$query['TableNamePattern'] = $request->tableNamePattern;
         }
-        if (!Utils::isUnset($request->tableType)) {
-            $query['TableType'] = $request->tableType;
+
+        if (null !== $request->tableType) {
+            @$query['TableType'] = $request->tableType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataLakeTable',
@@ -10230,16 +12650,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataLakeTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据湖表列表
-     *  *
-     * @param ListDataLakeTableRequest $request ListDataLakeTableRequest
+     * 获取数据湖表列表.
      *
-     * @return ListDataLakeTableResponse ListDataLakeTableResponse
+     * @param request - ListDataLakeTableRequest
+     * @returns ListDataLakeTableResponse
+     *
+     * @param ListDataLakeTableRequest $request
+     *
+     * @return ListDataLakeTableResponse
      */
     public function listDataLakeTable($request)
     {
@@ -10249,43 +12675,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据湖表名列表
-     *  *
-     * @param ListDataLakeTableNameRequest $request ListDataLakeTableNameRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取数据湖表名列表.
      *
-     * @return ListDataLakeTableNameResponse ListDataLakeTableNameResponse
+     * @param request - ListDataLakeTableNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakeTableNameResponse
+     *
+     * @param ListDataLakeTableNameRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDataLakeTableNameResponse
      */
     public function listDataLakeTableNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->tableNamePattern)) {
-            $query['TableNamePattern'] = $request->tableNamePattern;
+
+        if (null !== $request->tableNamePattern) {
+            @$query['TableNamePattern'] = $request->tableNamePattern;
         }
-        if (!Utils::isUnset($request->tableType)) {
-            $query['TableType'] = $request->tableType;
+
+        if (null !== $request->tableType) {
+            @$query['TableType'] = $request->tableType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataLakeTableName',
@@ -10298,16 +12736,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakeTableNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataLakeTableNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataLakeTableNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据湖表名列表
-     *  *
-     * @param ListDataLakeTableNameRequest $request ListDataLakeTableNameRequest
+     * 获取数据湖表名列表.
      *
-     * @return ListDataLakeTableNameResponse ListDataLakeTableNameResponse
+     * @param request - ListDataLakeTableNameRequest
+     * @returns ListDataLakeTableNameResponse
+     *
+     * @param ListDataLakeTableNameRequest $request
+     *
+     * @return ListDataLakeTableNameResponse
      */
     public function listDataLakeTableName($request)
     {
@@ -10317,40 +12761,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取表信息
-     *  *
-     * @param ListDataLakeTablebaseInfoRequest $request ListDataLakeTablebaseInfoRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 获取表信息.
      *
-     * @return ListDataLakeTablebaseInfoResponse ListDataLakeTablebaseInfoResponse
+     * @param request - ListDataLakeTablebaseInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakeTablebaseInfoResponse
+     *
+     * @param ListDataLakeTablebaseInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDataLakeTablebaseInfoResponse
      */
     public function listDataLakeTablebaseInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->rows)) {
-            $query['Rows'] = $request->rows;
+
+        if (null !== $request->rows) {
+            @$query['Rows'] = $request->rows;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataLakeTablebaseInfo',
@@ -10363,16 +12818,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakeTablebaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataLakeTablebaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataLakeTablebaseInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取表信息
-     *  *
-     * @param ListDataLakeTablebaseInfoRequest $request ListDataLakeTablebaseInfoRequest
+     * 获取表信息.
      *
-     * @return ListDataLakeTablebaseInfoResponse ListDataLakeTablebaseInfoResponse
+     * @param request - ListDataLakeTablebaseInfoRequest
+     * @returns ListDataLakeTablebaseInfoResponse
+     *
+     * @param ListDataLakeTablebaseInfoRequest $request
+     *
+     * @return ListDataLakeTablebaseInfoResponse
      */
     public function listDataLakeTablebaseInfo($request)
     {
@@ -10382,40 +12843,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the permissions of users on a database.
-     *  *
-     * @param ListDatabaseUserPermssionsRequest $request ListDatabaseUserPermssionsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the permissions of users on a database.
      *
-     * @return ListDatabaseUserPermssionsResponse ListDatabaseUserPermssionsResponse
+     * @param request - ListDatabaseUserPermssionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDatabaseUserPermssionsResponse
+     *
+     * @param ListDatabaseUserPermssionsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListDatabaseUserPermssionsResponse
      */
     public function listDatabaseUserPermssionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->permType)) {
-            $query['PermType'] = $request->permType;
+
+        if (null !== $request->permType) {
+            @$query['PermType'] = $request->permType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDatabaseUserPermssions',
@@ -10428,16 +12900,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDatabaseUserPermssionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDatabaseUserPermssionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDatabaseUserPermssionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the permissions of users on a database.
-     *  *
-     * @param ListDatabaseUserPermssionsRequest $request ListDatabaseUserPermssionsRequest
+     * Queries the permissions of users on a database.
      *
-     * @return ListDatabaseUserPermssionsResponse ListDatabaseUserPermssionsResponse
+     * @param request - ListDatabaseUserPermssionsRequest
+     * @returns ListDatabaseUserPermssionsResponse
+     *
+     * @param ListDatabaseUserPermssionsRequest $request
+     *
+     * @return ListDatabaseUserPermssionsResponse
      */
     public function listDatabaseUserPermssions($request)
     {
@@ -10447,31 +12925,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the databases in a database instance.
-     *  *
-     * @param ListDatabasesRequest $request ListDatabasesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the databases in a database instance.
      *
-     * @return ListDatabasesResponse ListDatabasesResponse
+     * @param request - ListDatabasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDatabasesResponse
+     *
+     * @param ListDatabasesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDatabasesResponse
      */
     public function listDatabasesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDatabases',
@@ -10484,16 +12970,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the databases in a database instance.
-     *  *
-     * @param ListDatabasesRequest $request ListDatabasesRequest
+     * Queries the databases in a database instance.
      *
-     * @return ListDatabasesResponse ListDatabasesResponse
+     * @param request - ListDatabasesRequest
+     * @returns ListDatabasesResponse
+     *
+     * @param ListDatabasesRequest $request
+     *
+     * @return ListDatabasesResponse
      */
     public function listDatabases($request)
     {
@@ -10503,25 +12995,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the default service level agreement (SLA) timeout rules.
-     *  *
-     * @param ListDefaultSLARulesRequest $request ListDefaultSLARulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the default service level agreement (SLA) timeout rules.
      *
-     * @return ListDefaultSLARulesResponse ListDefaultSLARulesResponse
+     * @param request - ListDefaultSLARulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDefaultSLARulesResponse
+     *
+     * @param ListDefaultSLARulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDefaultSLARulesResponse
      */
     public function listDefaultSLARulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDefaultSLARules',
@@ -10534,16 +13032,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDefaultSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDefaultSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDefaultSLARulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the default service level agreement (SLA) timeout rules.
-     *  *
-     * @param ListDefaultSLARulesRequest $request ListDefaultSLARulesRequest
+     * Queries the default service level agreement (SLA) timeout rules.
      *
-     * @return ListDefaultSLARulesResponse ListDefaultSLARulesResponse
+     * @param request - ListDefaultSLARulesRequest
+     * @returns ListDefaultSLARulesResponse
+     *
+     * @param ListDefaultSLARulesRequest $request
+     *
+     * @return ListDefaultSLARulesResponse
      */
     public function listDefaultSLARules($request)
     {
@@ -10553,40 +13057,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries masking rules.
-     *  *
-     * @param ListDesensitizationRuleRequest $request ListDesensitizationRuleRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries masking rules.
      *
-     * @return ListDesensitizationRuleResponse ListDesensitizationRuleResponse
+     * @param request - ListDesensitizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDesensitizationRuleResponse
+     *
+     * @param ListDesensitizationRuleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDesensitizationRuleResponse
      */
     public function listDesensitizationRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->funcType)) {
-            $query['FuncType'] = $request->funcType;
+        if (null !== $request->funcType) {
+            @$query['FuncType'] = $request->funcType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDesensitizationRule',
@@ -10599,16 +13114,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDesensitizationRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries masking rules.
-     *  *
-     * @param ListDesensitizationRuleRequest $request ListDesensitizationRuleRequest
+     * Queries masking rules.
      *
-     * @return ListDesensitizationRuleResponse ListDesensitizationRuleResponse
+     * @param request - ListDesensitizationRuleRequest
+     * @returns ListDesensitizationRuleResponse
+     *
+     * @param ListDesensitizationRuleRequest $request
+     *
+     * @return ListDesensitizationRuleResponse
      */
     public function listDesensitizationRule($request)
     {
@@ -10618,22 +13139,27 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries valid orders.
-     *  *
-     * @param ListEffectiveOrdersRequest $request ListEffectiveOrdersRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries valid orders.
      *
-     * @return ListEffectiveOrdersResponse ListEffectiveOrdersResponse
+     * @param request - ListEffectiveOrdersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEffectiveOrdersResponse
+     *
+     * @param ListEffectiveOrdersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListEffectiveOrdersResponse
      */
     public function listEffectiveOrdersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEffectiveOrders',
@@ -10646,16 +13172,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEffectiveOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEffectiveOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEffectiveOrdersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries valid orders.
-     *  *
-     * @param ListEffectiveOrdersRequest $request ListEffectiveOrdersRequest
+     * Queries valid orders.
      *
-     * @return ListEffectiveOrdersResponse ListEffectiveOrdersResponse
+     * @param request - ListEffectiveOrdersRequest
+     * @returns ListEffectiveOrdersResponse
+     *
+     * @param ListEffectiveOrdersRequest $request
+     *
+     * @return ListEffectiveOrdersResponse
      */
     public function listEffectiveOrders($request)
     {
@@ -10665,28 +13197,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the indexes of a table.
-     *  *
-     * @param ListIndexesRequest $request ListIndexesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the indexes of a table.
      *
-     * @return ListIndexesResponse ListIndexesResponse
+     * @param request - ListIndexesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIndexesResponse
+     *
+     * @param ListIndexesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListIndexesResponse
      */
     public function listIndexesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->tableId)) {
-            $query['TableId'] = $request->tableId;
+
+        if (null !== $request->tableId) {
+            @$query['TableId'] = $request->tableId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIndexes',
@@ -10699,16 +13238,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIndexesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIndexesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIndexesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the indexes of a table.
-     *  *
-     * @param ListIndexesRequest $request ListIndexesRequest
+     * Queries the indexes of a table.
      *
-     * @return ListIndexesResponse ListIndexesResponse
+     * @param request - ListIndexesRequest
+     * @returns ListIndexesResponse
+     *
+     * @param ListIndexesRequest $request
+     *
+     * @return ListIndexesResponse
      */
     public function listIndexes($request)
     {
@@ -10718,40 +13263,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the logon records of an instance.
-     *  *
-     * @param ListInstanceLoginAuditLogRequest $request ListInstanceLoginAuditLogRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the logon records of an instance.
      *
-     * @return ListInstanceLoginAuditLogResponse ListInstanceLoginAuditLogResponse
+     * @param request - ListInstanceLoginAuditLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstanceLoginAuditLogResponse
+     *
+     * @param ListInstanceLoginAuditLogRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListInstanceLoginAuditLogResponse
      */
     public function listInstanceLoginAuditLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->opUserName)) {
-            $query['OpUserName'] = $request->opUserName;
+
+        if (null !== $request->opUserName) {
+            @$query['OpUserName'] = $request->opUserName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
+
+        if (null !== $request->searchName) {
+            @$query['SearchName'] = $request->searchName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceLoginAuditLog',
@@ -10764,16 +13320,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstanceLoginAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstanceLoginAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstanceLoginAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the logon records of an instance.
-     *  *
-     * @param ListInstanceLoginAuditLogRequest $request ListInstanceLoginAuditLogRequest
+     * Queries the logon records of an instance.
      *
-     * @return ListInstanceLoginAuditLogResponse ListInstanceLoginAuditLogResponse
+     * @param request - ListInstanceLoginAuditLogRequest
+     * @returns ListInstanceLoginAuditLogResponse
+     *
+     * @param ListInstanceLoginAuditLogRequest $request
+     *
+     * @return ListInstanceLoginAuditLogResponse
      */
     public function listInstanceLoginAuditLog($request)
     {
@@ -10783,34 +13345,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the permissions of a user on a specific instance.
-     *  *
-     * @param ListInstanceUserPermissionsRequest $request ListInstanceUserPermissionsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the permissions of a user on a specific instance.
      *
-     * @return ListInstanceUserPermissionsResponse ListInstanceUserPermissionsResponse
+     * @param request - ListInstanceUserPermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstanceUserPermissionsResponse
+     *
+     * @param ListInstanceUserPermissionsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListInstanceUserPermissionsResponse
      */
     public function listInstanceUserPermissionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceUserPermissions',
@@ -10823,16 +13394,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstanceUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstanceUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstanceUserPermissionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the permissions of a user on a specific instance.
-     *  *
-     * @param ListInstanceUserPermissionsRequest $request ListInstanceUserPermissionsRequest
+     * Queries the permissions of a user on a specific instance.
      *
-     * @return ListInstanceUserPermissionsResponse ListInstanceUserPermissionsResponse
+     * @param request - ListInstanceUserPermissionsRequest
+     * @returns ListInstanceUserPermissionsResponse
+     *
+     * @param ListInstanceUserPermissionsRequest $request
+     *
+     * @return ListInstanceUserPermissionsResponse
      */
     public function listInstanceUserPermissions($request)
     {
@@ -10842,46 +13419,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about database instances.
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about database instances.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->instanceSource)) {
-            $query['InstanceSource'] = $request->instanceSource;
+
+        if (null !== $request->instanceSource) {
+            @$query['InstanceSource'] = $request->instanceSource;
         }
-        if (!Utils::isUnset($request->instanceState)) {
-            $query['InstanceState'] = $request->instanceState;
+
+        if (null !== $request->instanceState) {
+            @$query['InstanceState'] = $request->instanceState;
         }
-        if (!Utils::isUnset($request->netType)) {
-            $query['NetType'] = $request->netType;
+
+        if (null !== $request->netType) {
+            @$query['NetType'] = $request->netType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstances',
@@ -10894,16 +13484,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about database instances.
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * Queries the information about database instances.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -10913,31 +13509,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
-     *  *
-     * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
-     * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
-     *  *
-     * @param ListLhTaskFlowAndScenarioRequest $request ListLhTaskFlowAndScenarioRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
      *
-     * @return ListLhTaskFlowAndScenarioResponse ListLhTaskFlowAndScenarioResponse
+     * @remarks
+     *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
+     * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
+     *
+     * @param request - ListLhTaskFlowAndScenarioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLhTaskFlowAndScenarioResponse
+     *
+     * @param ListLhTaskFlowAndScenarioRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListLhTaskFlowAndScenarioResponse
      */
     public function listLhTaskFlowAndScenarioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->spaceId)) {
-            $query['SpaceId'] = $request->spaceId;
+        if (null !== $request->spaceId) {
+            @$query['SpaceId'] = $request->spaceId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLhTaskFlowAndScenario',
@@ -10950,19 +13554,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLhTaskFlowAndScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLhTaskFlowAndScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLhTaskFlowAndScenarioResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
-     *  *
-     * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
-     * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
-     *  *
-     * @param ListLhTaskFlowAndScenarioRequest $request ListLhTaskFlowAndScenarioRequest
+     * Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
      *
-     * @return ListLhTaskFlowAndScenarioResponse ListLhTaskFlowAndScenarioResponse
+     * @remarks
+     *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
+     * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
+     *
+     * @param request - ListLhTaskFlowAndScenarioRequest
+     * @returns ListLhTaskFlowAndScenarioResponse
+     *
+     * @param ListLhTaskFlowAndScenarioRequest $request
+     *
+     * @return ListLhTaskFlowAndScenarioResponse
      */
     public function listLhTaskFlowAndScenario($request)
     {
@@ -10972,28 +13583,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of logical databases.
-     *  *
-     * @param ListLogicDatabasesRequest $request ListLogicDatabasesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the details of logical databases.
      *
-     * @return ListLogicDatabasesResponse ListLogicDatabasesResponse
+     * @param request - ListLogicDatabasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLogicDatabasesResponse
+     *
+     * @param ListLogicDatabasesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListLogicDatabasesResponse
      */
     public function listLogicDatabasesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLogicDatabases',
@@ -11006,16 +13624,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLogicDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLogicDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLogicDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of logical databases.
-     *  *
-     * @param ListLogicDatabasesRequest $request ListLogicDatabasesRequest
+     * Queries the details of logical databases.
      *
-     * @return ListLogicDatabasesResponse ListLogicDatabasesResponse
+     * @param request - ListLogicDatabasesRequest
+     * @returns ListLogicDatabasesResponse
+     *
+     * @param ListLogicDatabasesRequest $request
+     *
+     * @return ListLogicDatabasesResponse
      */
     public function listLogicDatabases($request)
     {
@@ -11025,25 +13649,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the routing algorithms of a logical table.
-     *  *
-     * @param ListLogicTableRouteConfigRequest $request ListLogicTableRouteConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the routing algorithms of a logical table.
      *
-     * @return ListLogicTableRouteConfigResponse ListLogicTableRouteConfigResponse
+     * @param request - ListLogicTableRouteConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLogicTableRouteConfigResponse
+     *
+     * @param ListLogicTableRouteConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListLogicTableRouteConfigResponse
      */
     public function listLogicTableRouteConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tableId)) {
-            $query['TableId'] = $request->tableId;
+        if (null !== $request->tableId) {
+            @$query['TableId'] = $request->tableId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLogicTableRouteConfig',
@@ -11056,16 +13686,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLogicTableRouteConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the routing algorithms of a logical table.
-     *  *
-     * @param ListLogicTableRouteConfigRequest $request ListLogicTableRouteConfigRequest
+     * Queries the routing algorithms of a logical table.
      *
-     * @return ListLogicTableRouteConfigResponse ListLogicTableRouteConfigResponse
+     * @param request - ListLogicTableRouteConfigRequest
+     * @returns ListLogicTableRouteConfigResponse
+     *
+     * @param ListLogicTableRouteConfigRequest $request
+     *
+     * @return ListLogicTableRouteConfigResponse
      */
     public function listLogicTableRouteConfig($request)
     {
@@ -11075,37 +13711,47 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the logical tables in a logical database.
-     *  *
-     * @param ListLogicTablesRequest $request ListLogicTablesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the details of the logical tables in a logical database.
      *
-     * @return ListLogicTablesResponse ListLogicTablesResponse
+     * @param request - ListLogicTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLogicTablesResponse
+     *
+     * @param ListLogicTablesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListLogicTablesResponse
      */
     public function listLogicTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseId)) {
-            $query['DatabaseId'] = $request->databaseId;
+        if (null !== $request->databaseId) {
+            @$query['DatabaseId'] = $request->databaseId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->returnGuid)) {
-            $query['ReturnGuid'] = $request->returnGuid;
+
+        if (null !== $request->returnGuid) {
+            @$query['ReturnGuid'] = $request->returnGuid;
         }
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
+
+        if (null !== $request->searchName) {
+            @$query['SearchName'] = $request->searchName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLogicTables',
@@ -11118,16 +13764,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLogicTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLogicTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLogicTablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the logical tables in a logical database.
-     *  *
-     * @param ListLogicTablesRequest $request ListLogicTablesRequest
+     * Queries the details of the logical tables in a logical database.
      *
-     * @return ListLogicTablesResponse ListLogicTablesResponse
+     * @param request - ListLogicTablesRequest
+     * @returns ListLogicTablesResponse
+     *
+     * @param ListLogicTablesRequest $request
+     *
+     * @return ListLogicTablesResponse
      */
     public function listLogicTables($request)
     {
@@ -11137,49 +13789,63 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries tickets in Data Management (DMS).
-     *  *
-     * @param ListOrdersRequest $request ListOrdersRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries tickets in Data Management (DMS).
      *
-     * @return ListOrdersResponse ListOrdersResponse
+     * @param request - ListOrdersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOrdersResponse
+     *
+     * @param ListOrdersRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListOrdersResponse
      */
     public function listOrdersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->orderResultType)) {
-            $query['OrderResultType'] = $request->orderResultType;
+
+        if (null !== $request->orderResultType) {
+            @$query['OrderResultType'] = $request->orderResultType;
         }
-        if (!Utils::isUnset($request->orderStatus)) {
-            $query['OrderStatus'] = $request->orderStatus;
+
+        if (null !== $request->orderStatus) {
+            @$query['OrderStatus'] = $request->orderStatus;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pluginType)) {
-            $query['PluginType'] = $request->pluginType;
+
+        if (null !== $request->pluginType) {
+            @$query['PluginType'] = $request->pluginType;
         }
-        if (!Utils::isUnset($request->searchContent)) {
-            $query['SearchContent'] = $request->searchContent;
+
+        if (null !== $request->searchContent) {
+            @$query['SearchContent'] = $request->searchContent;
         }
-        if (!Utils::isUnset($request->searchDateType)) {
-            $query['SearchDateType'] = $request->searchDateType;
+
+        if (null !== $request->searchDateType) {
+            @$query['SearchDateType'] = $request->searchDateType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOrders',
@@ -11192,16 +13858,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrdersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tickets in Data Management (DMS).
-     *  *
-     * @param ListOrdersRequest $request ListOrdersRequest
+     * Queries tickets in Data Management (DMS).
      *
-     * @return ListOrdersResponse ListOrdersResponse
+     * @param request - ListOrdersRequest
+     * @returns ListOrdersResponse
+     *
+     * @param ListOrdersRequest $request
+     *
+     * @return ListOrdersResponse
      */
     public function listOrders($request)
     {
@@ -11211,22 +13883,27 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the proxies that are generated by the secure access proxy feature.
-     *  *
-     * @param ListProxiesRequest $request ListProxiesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the proxies that are generated by the secure access proxy feature.
      *
-     * @return ListProxiesResponse ListProxiesResponse
+     * @param request - ListProxiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProxiesResponse
+     *
+     * @param ListProxiesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListProxiesResponse
      */
     public function listProxiesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProxies',
@@ -11239,16 +13916,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProxiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProxiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProxiesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the proxies that are generated by the secure access proxy feature.
-     *  *
-     * @param ListProxiesRequest $request ListProxiesRequest
+     * Queries the proxies that are generated by the secure access proxy feature.
      *
-     * @return ListProxiesResponse ListProxiesResponse
+     * @param request - ListProxiesRequest
+     * @returns ListProxiesResponse
+     *
+     * @param ListProxiesRequest $request
+     *
+     * @return ListProxiesResponse
      */
     public function listProxies($request)
     {
@@ -11258,25 +13941,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about users that are authorized to access a database instance by using the secure access proxy feature.
-     *  *
-     * @param ListProxyAccessesRequest $request ListProxyAccessesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries information about users that are authorized to access a database instance by using the secure access proxy feature.
      *
-     * @return ListProxyAccessesResponse ListProxyAccessesResponse
+     * @param request - ListProxyAccessesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProxyAccessesResponse
+     *
+     * @param ListProxyAccessesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListProxyAccessesResponse
      */
     public function listProxyAccessesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->proxyId)) {
-            $query['ProxyId'] = $request->proxyId;
+        if (null !== $request->proxyId) {
+            @$query['ProxyId'] = $request->proxyId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProxyAccesses',
@@ -11289,16 +13978,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProxyAccessesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProxyAccessesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProxyAccessesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about users that are authorized to access a database instance by using the secure access proxy feature.
-     *  *
-     * @param ListProxyAccessesRequest $request ListProxyAccessesRequest
+     * Queries information about users that are authorized to access a database instance by using the secure access proxy feature.
      *
-     * @return ListProxyAccessesResponse ListProxyAccessesResponse
+     * @param request - ListProxyAccessesRequest
+     * @returns ListProxyAccessesResponse
+     *
+     * @param ListProxyAccessesRequest $request
+     *
+     * @return ListProxyAccessesResponse
      */
     public function listProxyAccesses($request)
     {
@@ -11308,46 +14003,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 操作审计-数据安全代理SQL执行列表
-     *  *
-     * @param ListProxySQLExecAuditLogRequest $request ListProxySQLExecAuditLogRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 操作审计-数据安全代理SQL执行列表.
      *
-     * @return ListProxySQLExecAuditLogResponse ListProxySQLExecAuditLogResponse
+     * @param request - ListProxySQLExecAuditLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProxySQLExecAuditLogResponse
+     *
+     * @param ListProxySQLExecAuditLogRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListProxySQLExecAuditLogResponse
      */
     public function listProxySQLExecAuditLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->execState)) {
-            $query['ExecState'] = $request->execState;
+
+        if (null !== $request->execState) {
+            @$query['ExecState'] = $request->execState;
         }
-        if (!Utils::isUnset($request->opUserName)) {
-            $query['OpUserName'] = $request->opUserName;
+
+        if (null !== $request->opUserName) {
+            @$query['OpUserName'] = $request->opUserName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->SQLType)) {
-            $query['SQLType'] = $request->SQLType;
+
+        if (null !== $request->SQLType) {
+            @$query['SQLType'] = $request->SQLType;
         }
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
+
+        if (null !== $request->searchName) {
+            @$query['SearchName'] = $request->searchName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProxySQLExecAuditLog',
@@ -11360,16 +14068,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProxySQLExecAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProxySQLExecAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProxySQLExecAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 操作审计-数据安全代理SQL执行列表
-     *  *
-     * @param ListProxySQLExecAuditLogRequest $request ListProxySQLExecAuditLogRequest
+     * 操作审计-数据安全代理SQL执行列表.
      *
-     * @return ListProxySQLExecAuditLogResponse ListProxySQLExecAuditLogResponse
+     * @param request - ListProxySQLExecAuditLogRequest
+     * @returns ListProxySQLExecAuditLogResponse
+     *
+     * @param ListProxySQLExecAuditLogRequest $request
+     *
+     * @return ListProxySQLExecAuditLogResponse
      */
     public function listProxySQLExecAuditLog($request)
     {
@@ -11379,25 +14093,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the custom service level agreement (SLA) rules.
-     *  *
-     * @param ListSLARulesRequest $request ListSLARulesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the custom service level agreement (SLA) rules.
      *
-     * @return ListSLARulesResponse ListSLARulesResponse
+     * @param request - ListSLARulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSLARulesResponse
+     *
+     * @param ListSLARulesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListSLARulesResponse
      */
     public function listSLARulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSLARules',
@@ -11410,16 +14130,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSLARulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the custom service level agreement (SLA) rules.
-     *  *
-     * @param ListSLARulesRequest $request ListSLARulesRequest
+     * Queries the custom service level agreement (SLA) rules.
      *
-     * @return ListSLARulesResponse ListSLARulesResponse
+     * @param request - ListSLARulesRequest
+     * @returns ListSLARulesResponse
+     *
+     * @param ListSLARulesRequest $request
+     *
+     * @return ListSLARulesResponse
      */
     public function listSLARules($request)
     {
@@ -11429,46 +14155,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries SQL statements that were written on the SQLConsole tab.
-     *  *
-     * @param ListSQLExecAuditLogRequest $request ListSQLExecAuditLogRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries SQL statements that were written on the SQLConsole tab.
      *
-     * @return ListSQLExecAuditLogResponse ListSQLExecAuditLogResponse
+     * @param request - ListSQLExecAuditLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSQLExecAuditLogResponse
+     *
+     * @param ListSQLExecAuditLogRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSQLExecAuditLogResponse
      */
     public function listSQLExecAuditLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->execState)) {
-            $query['ExecState'] = $request->execState;
+
+        if (null !== $request->execState) {
+            @$query['ExecState'] = $request->execState;
         }
-        if (!Utils::isUnset($request->opUserName)) {
-            $query['OpUserName'] = $request->opUserName;
+
+        if (null !== $request->opUserName) {
+            @$query['OpUserName'] = $request->opUserName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
+
+        if (null !== $request->searchName) {
+            @$query['SearchName'] = $request->searchName;
         }
-        if (!Utils::isUnset($request->sqlType)) {
-            $query['SqlType'] = $request->sqlType;
+
+        if (null !== $request->sqlType) {
+            @$query['SqlType'] = $request->sqlType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSQLExecAuditLog',
@@ -11481,16 +14220,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSQLExecAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSQLExecAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSQLExecAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries SQL statements that were written on the SQLConsole tab.
-     *  *
-     * @param ListSQLExecAuditLogRequest $request ListSQLExecAuditLogRequest
+     * Queries SQL statements that were written on the SQLConsole tab.
      *
-     * @return ListSQLExecAuditLogResponse ListSQLExecAuditLogResponse
+     * @param request - ListSQLExecAuditLogRequest
+     * @returns ListSQLExecAuditLogResponse
+     *
+     * @param ListSQLExecAuditLogRequest $request
+     *
+     * @return ListSQLExecAuditLogResponse
      */
     public function listSQLExecAuditLog($request)
     {
@@ -11500,35 +14245,44 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the SQL statements that are involved in an SQL review ticket.
-     *  *
-     * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
-     *  *
-     * @param ListSQLReviewOriginSQLRequest $tmpReq  ListSQLReviewOriginSQLRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the details of the SQL statements that are involved in an SQL review ticket.
      *
-     * @return ListSQLReviewOriginSQLResponse ListSQLReviewOriginSQLResponse
+     * @remarks
+     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+     *
+     * @param tmpReq - ListSQLReviewOriginSQLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSQLReviewOriginSQLResponse
+     *
+     * @param ListSQLReviewOriginSQLRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListSQLReviewOriginSQLResponse
      */
     public function listSQLReviewOriginSQLWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListSQLReviewOriginSQLShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->orderActionDetail)) {
-            $request->orderActionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->orderActionDetail, 'OrderActionDetail', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->orderActionDetail) {
+            $request->orderActionDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->orderActionDetail, 'OrderActionDetail', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->orderActionDetailShrink)) {
-            $query['OrderActionDetail'] = $request->orderActionDetailShrink;
+        if (null !== $request->orderActionDetailShrink) {
+            @$query['OrderActionDetail'] = $request->orderActionDetailShrink;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSQLReviewOriginSQL',
@@ -11541,18 +14295,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSQLReviewOriginSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSQLReviewOriginSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSQLReviewOriginSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the SQL statements that are involved in an SQL review ticket.
-     *  *
-     * @description For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
-     *  *
-     * @param ListSQLReviewOriginSQLRequest $request ListSQLReviewOriginSQLRequest
+     * Queries the details of the SQL statements that are involved in an SQL review ticket.
      *
-     * @return ListSQLReviewOriginSQLResponse ListSQLReviewOriginSQLResponse
+     * @remarks
+     * For more information about the SQL review feature, see [SQL review](https://help.aliyun.com/document_detail/60374.html).
+     *
+     * @param request - ListSQLReviewOriginSQLRequest
+     * @returns ListSQLReviewOriginSQLResponse
+     *
+     * @param ListSQLReviewOriginSQLRequest $request
+     *
+     * @return ListSQLReviewOriginSQLResponse
      */
     public function listSQLReviewOriginSQL($request)
     {
@@ -11562,22 +14323,27 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries business scenarios.
-     *  *
-     * @param ListScenariosRequest $request ListScenariosRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries business scenarios.
      *
-     * @return ListScenariosResponse ListScenariosResponse
+     * @param request - ListScenariosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListScenariosResponse
+     *
+     * @param ListScenariosRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListScenariosResponse
      */
     public function listScenariosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListScenarios',
@@ -11590,16 +14356,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListScenariosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScenariosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScenariosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries business scenarios.
-     *  *
-     * @param ListScenariosRequest $request ListScenariosRequest
+     * Queries business scenarios.
      *
-     * @return ListScenariosResponse ListScenariosResponse
+     * @param request - ListScenariosRequest
+     * @returns ListScenariosResponse
+     *
+     * @param ListScenariosRequest $request
+     *
+     * @return ListScenariosResponse
      */
     public function listScenarios($request)
     {
@@ -11609,40 +14381,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取敏感字段信息
-     *  *
-     * @param ListSensitiveColumnInfoRequest $request ListSensitiveColumnInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取敏感字段信息.
      *
-     * @return ListSensitiveColumnInfoResponse ListSensitiveColumnInfoResponse
+     * @param request - ListSensitiveColumnInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSensitiveColumnInfoResponse
+     *
+     * @param ListSensitiveColumnInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListSensitiveColumnInfoResponse
      */
     public function listSensitiveColumnInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->columnName)) {
-            $query['ColumnName'] = $request->columnName;
+        if (null !== $request->columnName) {
+            @$query['ColumnName'] = $request->columnName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSensitiveColumnInfo',
@@ -11655,16 +14438,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSensitiveColumnInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSensitiveColumnInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSensitiveColumnInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取敏感字段信息
-     *  *
-     * @param ListSensitiveColumnInfoRequest $request ListSensitiveColumnInfoRequest
+     * 获取敏感字段信息.
      *
-     * @return ListSensitiveColumnInfoResponse ListSensitiveColumnInfoResponse
+     * @param request - ListSensitiveColumnInfoRequest
+     * @returns ListSensitiveColumnInfoResponse
+     *
+     * @param ListSensitiveColumnInfoRequest $request
+     *
+     * @return ListSensitiveColumnInfoResponse
      */
     public function listSensitiveColumnInfo($request)
     {
@@ -11674,46 +14463,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries sensitive fields in a table of a database.
-     *  *
-     * @param ListSensitiveColumnsRequest $request ListSensitiveColumnsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries sensitive fields in a table of a database.
      *
-     * @return ListSensitiveColumnsResponse ListSensitiveColumnsResponse
+     * @param request - ListSensitiveColumnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSensitiveColumnsResponse
+     *
+     * @param ListSensitiveColumnsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSensitiveColumnsResponse
      */
     public function listSensitiveColumnsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->columnName)) {
-            $query['ColumnName'] = $request->columnName;
+        if (null !== $request->columnName) {
+            @$query['ColumnName'] = $request->columnName;
         }
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->securityLevel)) {
-            $query['SecurityLevel'] = $request->securityLevel;
+
+        if (null !== $request->securityLevel) {
+            @$query['SecurityLevel'] = $request->securityLevel;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSensitiveColumns',
@@ -11726,16 +14528,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSensitiveColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSensitiveColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSensitiveColumnsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries sensitive fields in a table of a database.
-     *  *
-     * @param ListSensitiveColumnsRequest $request ListSensitiveColumnsRequest
+     * Queries sensitive fields in a table of a database.
      *
-     * @return ListSensitiveColumnsResponse ListSensitiveColumnsResponse
+     * @param request - ListSensitiveColumnsRequest
+     * @returns ListSensitiveColumnsResponse
+     *
+     * @param ListSensitiveColumnsRequest $request
+     *
+     * @return ListSensitiveColumnsResponse
      */
     public function listSensitiveColumns($request)
     {
@@ -11745,37 +14553,47 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a sensitive field.
-     *  *
-     * @param ListSensitiveColumnsDetailRequest $request ListSensitiveColumnsDetailRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a sensitive field.
      *
-     * @return ListSensitiveColumnsDetailResponse ListSensitiveColumnsDetailResponse
+     * @param request - ListSensitiveColumnsDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSensitiveColumnsDetailResponse
+     *
+     * @param ListSensitiveColumnsDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListSensitiveColumnsDetailResponse
      */
     public function listSensitiveColumnsDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->columnName)) {
-            $query['ColumnName'] = $request->columnName;
+        if (null !== $request->columnName) {
+            @$query['ColumnName'] = $request->columnName;
         }
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSensitiveColumnsDetail',
@@ -11788,16 +14606,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSensitiveColumnsDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSensitiveColumnsDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSensitiveColumnsDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a sensitive field.
-     *  *
-     * @param ListSensitiveColumnsDetailRequest $request ListSensitiveColumnsDetailRequest
+     * Queries the details of a sensitive field.
      *
-     * @return ListSensitiveColumnsDetailResponse ListSensitiveColumnsDetailResponse
+     * @param request - ListSensitiveColumnsDetailRequest
+     * @returns ListSensitiveColumnsDetailResponse
+     *
+     * @param ListSensitiveColumnsDetailRequest $request
+     *
+     * @return ListSensitiveColumnsDetailResponse
      */
     public function listSensitiveColumnsDetail($request)
     {
@@ -11807,49 +14631,63 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the audit logs for sensitive information.
-     *  *
-     * @param ListSensitiveDataAuditLogRequest $request ListSensitiveDataAuditLogRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the audit logs for sensitive information.
      *
-     * @return ListSensitiveDataAuditLogResponse ListSensitiveDataAuditLogResponse
+     * @param request - ListSensitiveDataAuditLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSensitiveDataAuditLogResponse
+     *
+     * @param ListSensitiveDataAuditLogRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListSensitiveDataAuditLogResponse
      */
     public function listSensitiveDataAuditLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->columnName)) {
-            $query['ColumnName'] = $request->columnName;
+        if (null !== $request->columnName) {
+            @$query['ColumnName'] = $request->columnName;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
         }
-        if (!Utils::isUnset($request->opUserName)) {
-            $query['OpUserName'] = $request->opUserName;
+
+        if (null !== $request->opUserName) {
+            @$query['OpUserName'] = $request->opUserName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSensitiveDataAuditLog',
@@ -11862,16 +14700,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSensitiveDataAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSensitiveDataAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSensitiveDataAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the audit logs for sensitive information.
-     *  *
-     * @param ListSensitiveDataAuditLogRequest $request ListSensitiveDataAuditLogRequest
+     * Queries the audit logs for sensitive information.
      *
-     * @return ListSensitiveDataAuditLogResponse ListSensitiveDataAuditLogResponse
+     * @param request - ListSensitiveDataAuditLogRequest
+     * @returns ListSensitiveDataAuditLogResponse
+     *
+     * @param ListSensitiveDataAuditLogRequest $request
+     *
+     * @return ListSensitiveDataAuditLogResponse
      */
     public function listSensitiveDataAuditLog($request)
     {
@@ -11881,19 +14725,23 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the sensitivity levels of a classification template.
-     *  *
-     * @param ListSensitivityLevelRequest $request ListSensitivityLevelRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the sensitivity levels of a classification template.
      *
-     * @return ListSensitivityLevelResponse ListSensitivityLevelResponse
+     * @param request - ListSensitivityLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSensitivityLevelResponse
+     *
+     * @param ListSensitivityLevelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSensitivityLevelResponse
      */
     public function listSensitivityLevelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSensitivityLevel',
@@ -11906,16 +14754,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSensitivityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSensitivityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSensitivityLevelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the sensitivity levels of a classification template.
-     *  *
-     * @param ListSensitivityLevelRequest $request ListSensitivityLevelRequest
+     * Queries the sensitivity levels of a classification template.
      *
-     * @return ListSensitivityLevelResponse ListSensitivityLevelResponse
+     * @param request - ListSensitivityLevelRequest
+     * @returns ListSensitivityLevelResponse
+     *
+     * @param ListSensitivityLevelRequest $request
+     *
+     * @return ListSensitivityLevelResponse
      */
     public function listSensitivityLevel($request)
     {
@@ -11925,22 +14779,27 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries security rule sets.
-     *  *
-     * @param ListStandardGroupsRequest $request ListStandardGroupsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries security rule sets.
      *
-     * @return ListStandardGroupsResponse ListStandardGroupsResponse
+     * @param request - ListStandardGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStandardGroupsResponse
+     *
+     * @param ListStandardGroupsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListStandardGroupsResponse
      */
     public function listStandardGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListStandardGroups',
@@ -11953,16 +14812,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStandardGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStandardGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStandardGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries security rule sets.
-     *  *
-     * @param ListStandardGroupsRequest $request ListStandardGroupsRequest
+     * Queries security rule sets.
      *
-     * @return ListStandardGroupsResponse ListStandardGroupsResponse
+     * @param request - ListStandardGroupsRequest
+     * @returns ListStandardGroupsResponse
+     *
+     * @param ListStandardGroupsRequest $request
+     *
+     * @return ListStandardGroupsResponse
      */
     public function listStandardGroups($request)
     {
@@ -11972,39 +14837,50 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tables in a database.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param ListTablesRequest $request ListTablesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the tables in a database.
      *
-     * @return ListTablesResponse ListTablesResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - ListTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTablesResponse
+     *
+     * @param ListTablesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListTablesResponse
      */
     public function listTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseId)) {
-            $query['DatabaseId'] = $request->databaseId;
+        if (null !== $request->databaseId) {
+            @$query['DatabaseId'] = $request->databaseId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->returnGuid)) {
-            $query['ReturnGuid'] = $request->returnGuid;
+
+        if (null !== $request->returnGuid) {
+            @$query['ReturnGuid'] = $request->returnGuid;
         }
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
+
+        if (null !== $request->searchName) {
+            @$query['SearchName'] = $request->searchName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTables',
@@ -12017,18 +14893,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tables in a database.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param ListTablesRequest $request ListTablesRequest
+     * Queries the tables in a database.
      *
-     * @return ListTablesResponse ListTablesResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - ListTablesRequest
+     * @returns ListTablesResponse
+     *
+     * @param ListTablesRequest $request
+     *
+     * @return ListTablesResponse
      */
     public function listTables($request)
     {
@@ -12038,22 +14921,27 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 任务编排获取任务流列表
-     *  *
-     * @param ListTaskFlowRequest $request ListTaskFlowRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 任务编排获取任务流列表.
      *
-     * @return ListTaskFlowResponse ListTaskFlowResponse
+     * @param request - ListTaskFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskFlowResponse
+     *
+     * @param ListTaskFlowRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListTaskFlowResponse
      */
     public function listTaskFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskFlow',
@@ -12066,16 +14954,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 任务编排获取任务流列表
-     *  *
-     * @param ListTaskFlowRequest $request ListTaskFlowRequest
+     * 任务编排获取任务流列表.
      *
-     * @return ListTaskFlowResponse ListTaskFlowResponse
+     * @param request - ListTaskFlowRequest
+     * @returns ListTaskFlowResponse
+     *
+     * @param ListTaskFlowRequest $request
+     *
+     * @return ListTaskFlowResponse
      */
     public function listTaskFlow($request)
     {
@@ -12085,25 +14979,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the constants for a task flow.
-     *  *
-     * @param ListTaskFlowConstantsRequest $request ListTaskFlowConstantsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the constants for a task flow.
      *
-     * @return ListTaskFlowConstantsResponse ListTaskFlowConstantsResponse
+     * @param request - ListTaskFlowConstantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskFlowConstantsResponse
+     *
+     * @param ListTaskFlowConstantsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListTaskFlowConstantsResponse
      */
     public function listTaskFlowConstantsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskFlowConstants',
@@ -12116,16 +15016,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskFlowConstantsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the constants for a task flow.
-     *  *
-     * @param ListTaskFlowConstantsRequest $request ListTaskFlowConstantsRequest
+     * Queries the constants for a task flow.
      *
-     * @return ListTaskFlowConstantsResponse ListTaskFlowConstantsResponse
+     * @param request - ListTaskFlowConstantsRequest
+     * @returns ListTaskFlowConstantsResponse
+     *
+     * @param ListTaskFlowConstantsRequest $request
+     *
+     * @return ListTaskFlowConstantsResponse
      */
     public function listTaskFlowConstants($request)
     {
@@ -12135,25 +15041,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the users that are involved in a specified task flow.
-     *  *
-     * @param ListTaskFlowCooperatorsRequest $request ListTaskFlowCooperatorsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the users that are involved in a specified task flow.
      *
-     * @return ListTaskFlowCooperatorsResponse ListTaskFlowCooperatorsResponse
+     * @param request - ListTaskFlowCooperatorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskFlowCooperatorsResponse
+     *
+     * @param ListTaskFlowCooperatorsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListTaskFlowCooperatorsResponse
      */
     public function listTaskFlowCooperatorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskFlowCooperators',
@@ -12166,16 +15078,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskFlowCooperatorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the users that are involved in a specified task flow.
-     *  *
-     * @param ListTaskFlowCooperatorsRequest $request ListTaskFlowCooperatorsRequest
+     * Queries the users that are involved in a specified task flow.
      *
-     * @return ListTaskFlowCooperatorsResponse ListTaskFlowCooperatorsResponse
+     * @param request - ListTaskFlowCooperatorsRequest
+     * @returns ListTaskFlowCooperatorsResponse
+     *
+     * @param ListTaskFlowCooperatorsRequest $request
+     *
+     * @return ListTaskFlowCooperatorsResponse
      */
     public function listTaskFlowCooperators($request)
     {
@@ -12185,36 +15103,46 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
-     *  *
-     * @description This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
-     *  *
-     * @param ListTaskFlowEdgesByConditionRequest $request ListTaskFlowEdgesByConditionRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
      *
-     * @return ListTaskFlowEdgesByConditionResponse ListTaskFlowEdgesByConditionResponse
+     * @remarks
+     * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
+     *
+     * @param request - ListTaskFlowEdgesByConditionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskFlowEdgesByConditionResponse
+     *
+     * @param ListTaskFlowEdgesByConditionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListTaskFlowEdgesByConditionResponse
      */
     public function listTaskFlowEdgesByConditionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->nodeEnd)) {
-            $query['NodeEnd'] = $request->nodeEnd;
+
+        if (null !== $request->nodeEnd) {
+            @$query['NodeEnd'] = $request->nodeEnd;
         }
-        if (!Utils::isUnset($request->nodeFrom)) {
-            $query['NodeFrom'] = $request->nodeFrom;
+
+        if (null !== $request->nodeFrom) {
+            @$query['NodeFrom'] = $request->nodeFrom;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskFlowEdgesByCondition',
@@ -12227,18 +15155,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskFlowEdgesByConditionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
-     *  *
-     * @description This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
-     *  *
-     * @param ListTaskFlowEdgesByConditionRequest $request ListTaskFlowEdgesByConditionRequest
+     * Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
      *
-     * @return ListTaskFlowEdgesByConditionResponse ListTaskFlowEdgesByConditionResponse
+     * @remarks
+     * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
+     *
+     * @param request - ListTaskFlowEdgesByConditionRequest
+     * @returns ListTaskFlowEdgesByConditionResponse
+     *
+     * @param ListTaskFlowEdgesByConditionRequest $request
+     *
+     * @return ListTaskFlowEdgesByConditionResponse
      */
     public function listTaskFlowEdgesByCondition($request)
     {
@@ -12248,46 +15183,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution records of a task flow.
-     *  *
-     * @param ListTaskFlowInstanceRequest $request ListTaskFlowInstanceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the execution records of a task flow.
      *
-     * @return ListTaskFlowInstanceResponse ListTaskFlowInstanceResponse
+     * @param request - ListTaskFlowInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskFlowInstanceResponse
+     *
+     * @param ListTaskFlowInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListTaskFlowInstanceResponse
      */
     public function listTaskFlowInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTimeBegin)) {
-            $query['StartTimeBegin'] = $request->startTimeBegin;
+
+        if (null !== $request->startTimeBegin) {
+            @$query['StartTimeBegin'] = $request->startTimeBegin;
         }
-        if (!Utils::isUnset($request->startTimeEnd)) {
-            $query['StartTimeEnd'] = $request->startTimeEnd;
+
+        if (null !== $request->startTimeEnd) {
+            @$query['StartTimeEnd'] = $request->startTimeEnd;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->triggerType)) {
-            $query['TriggerType'] = $request->triggerType;
+
+        if (null !== $request->triggerType) {
+            @$query['TriggerType'] = $request->triggerType;
         }
-        if (!Utils::isUnset($request->useBizDate)) {
-            $query['UseBizDate'] = $request->useBizDate;
+
+        if (null !== $request->useBizDate) {
+            @$query['UseBizDate'] = $request->useBizDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskFlowInstance',
@@ -12300,16 +15248,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the execution records of a task flow.
-     *  *
-     * @param ListTaskFlowInstanceRequest $request ListTaskFlowInstanceRequest
+     * Queries the execution records of a task flow.
      *
-     * @return ListTaskFlowInstanceResponse ListTaskFlowInstanceResponse
+     * @param request - ListTaskFlowInstanceRequest
+     * @returns ListTaskFlowInstanceResponse
+     *
+     * @param ListTaskFlowInstanceRequest $request
+     *
+     * @return ListTaskFlowInstanceResponse
      */
     public function listTaskFlowInstance($request)
     {
@@ -12319,25 +15273,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the time variables for a task flow.
-     *  *
-     * @param ListTaskFlowTimeVariablesRequest $request ListTaskFlowTimeVariablesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the time variables for a task flow.
      *
-     * @return ListTaskFlowTimeVariablesResponse ListTaskFlowTimeVariablesResponse
+     * @param request - ListTaskFlowTimeVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskFlowTimeVariablesResponse
+     *
+     * @param ListTaskFlowTimeVariablesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListTaskFlowTimeVariablesResponse
      */
     public function listTaskFlowTimeVariablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskFlowTimeVariables',
@@ -12350,16 +15310,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskFlowTimeVariablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the time variables for a task flow.
-     *  *
-     * @param ListTaskFlowTimeVariablesRequest $request ListTaskFlowTimeVariablesRequest
+     * Queries the time variables for a task flow.
      *
-     * @return ListTaskFlowTimeVariablesResponse ListTaskFlowTimeVariablesResponse
+     * @param request - ListTaskFlowTimeVariablesRequest
+     * @returns ListTaskFlowTimeVariablesResponse
+     *
+     * @param ListTaskFlowTimeVariablesRequest $request
+     *
+     * @return ListTaskFlowTimeVariablesResponse
      */
     public function listTaskFlowTimeVariables($request)
     {
@@ -12369,42 +15335,53 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries task flows by page.
-     *  *
-     * @param ListTaskFlowsByPageRequest $tmpReq  ListTaskFlowsByPageRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries task flows by page.
      *
-     * @return ListTaskFlowsByPageResponse ListTaskFlowsByPageResponse
+     * @param tmpReq - ListTaskFlowsByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskFlowsByPageResponse
+     *
+     * @param ListTaskFlowsByPageRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListTaskFlowsByPageResponse
      */
     public function listTaskFlowsByPageWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTaskFlowsByPageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dagIdList)) {
-            $request->dagIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dagIdList, 'DagIdList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dagIdList) {
+            $request->dagIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dagIdList, 'DagIdList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->dagIdListShrink)) {
-            $query['DagIdList'] = $request->dagIdListShrink;
+        if (null !== $request->dagIdListShrink) {
+            @$query['DagIdList'] = $request->dagIdListShrink;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskFlowsByPage',
@@ -12417,16 +15394,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskFlowsByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskFlowsByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskFlowsByPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries task flows by page.
-     *  *
-     * @param ListTaskFlowsByPageRequest $request ListTaskFlowsByPageRequest
+     * Queries task flows by page.
      *
-     * @return ListTaskFlowsByPageResponse ListTaskFlowsByPageResponse
+     * @param request - ListTaskFlowsByPageRequest
+     * @returns ListTaskFlowsByPageResponse
+     *
+     * @param ListTaskFlowsByPageRequest $request
+     *
+     * @return ListTaskFlowsByPageResponse
      */
     public function listTaskFlowsByPage($request)
     {
@@ -12436,25 +15419,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tasks in a specified task flow.
-     *  *
-     * @param ListTasksInTaskFlowRequest $request ListTasksInTaskFlowRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the tasks in a specified task flow.
      *
-     * @return ListTasksInTaskFlowResponse ListTasksInTaskFlowResponse
+     * @param request - ListTasksInTaskFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTasksInTaskFlowResponse
+     *
+     * @param ListTasksInTaskFlowRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListTasksInTaskFlowResponse
      */
     public function listTasksInTaskFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTasksInTaskFlow',
@@ -12467,16 +15456,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTasksInTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTasksInTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTasksInTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tasks in a specified task flow.
-     *  *
-     * @param ListTasksInTaskFlowRequest $request ListTasksInTaskFlowRequest
+     * Queries the tasks in a specified task flow.
      *
-     * @return ListTasksInTaskFlowResponse ListTasksInTaskFlowResponse
+     * @param request - ListTasksInTaskFlowRequest
+     * @returns ListTasksInTaskFlowResponse
+     *
+     * @param ListTasksInTaskFlowRequest $request
+     *
+     * @return ListTasksInTaskFlowResponse
      */
     public function listTasksInTaskFlow($request)
     {
@@ -12486,49 +15481,63 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the permissions of a specific user on a database or a table.
-     *  *
-     * @param ListUserPermissionsRequest $request ListUserPermissionsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the permissions of a specific user on a database or a table.
      *
-     * @return ListUserPermissionsResponse ListUserPermissionsResponse
+     * @param request - ListUserPermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserPermissionsResponse
+     *
+     * @param ListUserPermissionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUserPermissionsResponse
      */
     public function listUserPermissionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseName)) {
-            $query['DatabaseName'] = $request->databaseName;
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
         }
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->permType)) {
-            $query['PermType'] = $request->permType;
+
+        if (null !== $request->permType) {
+            @$query['PermType'] = $request->permType;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserPermissions',
@@ -12541,16 +15550,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserPermissionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the permissions of a specific user on a database or a table.
-     *  *
-     * @param ListUserPermissionsRequest $request ListUserPermissionsRequest
+     * Queries the permissions of a specific user on a database or a table.
      *
-     * @return ListUserPermissionsResponse ListUserPermissionsResponse
+     * @param request - ListUserPermissionsRequest
+     * @returns ListUserPermissionsResponse
+     *
+     * @param ListUserPermissionsRequest $request
+     *
+     * @return ListUserPermissionsResponse
      */
     public function listUserPermissions($request)
     {
@@ -12560,22 +15575,27 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户租户列表
-     *  *
-     * @param ListUserTenantsRequest $request ListUserTenantsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取用户租户列表.
      *
-     * @return ListUserTenantsResponse ListUserTenantsResponse
+     * @param request - ListUserTenantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserTenantsResponse
+     *
+     * @param ListUserTenantsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListUserTenantsResponse
      */
     public function listUserTenantsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserTenants',
@@ -12588,16 +15608,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserTenantsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户租户列表
-     *  *
-     * @param ListUserTenantsRequest $request ListUserTenantsRequest
+     * 获取用户租户列表.
      *
-     * @return ListUserTenantsResponse ListUserTenantsResponse
+     * @param request - ListUserTenantsRequest
+     * @returns ListUserTenantsResponse
+     *
+     * @param ListUserTenantsRequest $request
+     *
+     * @return ListUserTenantsResponse
      */
     public function listUserTenants($request)
     {
@@ -12607,37 +15633,47 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of users.
-     *  *
-     * @param ListUsersRequest $request ListUsersRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the details of users.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param request - ListUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->role)) {
-            $query['Role'] = $request->role;
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userState)) {
-            $query['UserState'] = $request->userState;
+
+        if (null !== $request->userState) {
+            @$query['UserState'] = $request->userState;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUsers',
@@ -12650,16 +15686,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of users.
-     *  *
-     * @param ListUsersRequest $request ListUsersRequest
+     * Queries the details of users.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param request - ListUsersRequest
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     *
+     * @return ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -12669,25 +15711,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries approval nodes.
-     *  *
-     * @param ListWorkFlowNodesRequest $request ListWorkFlowNodesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries approval nodes.
      *
-     * @return ListWorkFlowNodesResponse ListWorkFlowNodesResponse
+     * @param request - ListWorkFlowNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkFlowNodesResponse
+     *
+     * @param ListWorkFlowNodesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListWorkFlowNodesResponse
      */
     public function listWorkFlowNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
+        if (null !== $request->searchName) {
+            @$query['SearchName'] = $request->searchName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWorkFlowNodes',
@@ -12700,16 +15748,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkFlowNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkFlowNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkFlowNodesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries approval nodes.
-     *  *
-     * @param ListWorkFlowNodesRequest $request ListWorkFlowNodesRequest
+     * Queries approval nodes.
      *
-     * @return ListWorkFlowNodesResponse ListWorkFlowNodesResponse
+     * @param request - ListWorkFlowNodesRequest
+     * @returns ListWorkFlowNodesResponse
+     *
+     * @param ListWorkFlowNodesRequest $request
+     *
+     * @return ListWorkFlowNodesResponse
      */
     public function listWorkFlowNodes($request)
     {
@@ -12719,25 +15773,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries approval templates.
-     *  *
-     * @param ListWorkFlowTemplatesRequest $request ListWorkFlowTemplatesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries approval templates.
      *
-     * @return ListWorkFlowTemplatesResponse ListWorkFlowTemplatesResponse
+     * @param request - ListWorkFlowTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkFlowTemplatesResponse
+     *
+     * @param ListWorkFlowTemplatesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListWorkFlowTemplatesResponse
      */
     public function listWorkFlowTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
+        if (null !== $request->searchName) {
+            @$query['SearchName'] = $request->searchName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWorkFlowTemplates',
@@ -12750,16 +15810,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkFlowTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkFlowTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkFlowTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries approval templates.
-     *  *
-     * @param ListWorkFlowTemplatesRequest $request ListWorkFlowTemplatesRequest
+     * Queries approval templates.
      *
-     * @return ListWorkFlowTemplatesResponse ListWorkFlowTemplatesResponse
+     * @param request - ListWorkFlowTemplatesRequest
+     * @returns ListWorkFlowTemplatesResponse
+     *
+     * @param ListWorkFlowTemplatesRequest $request
+     *
+     * @return ListWorkFlowTemplatesResponse
      */
     public function listWorkFlowTemplates($request)
     {
@@ -12769,28 +15835,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Sets the status of a task flow to "Successful".
-     *  *
-     * @param MakeTaskFlowInstanceSuccessRequest $request MakeTaskFlowInstanceSuccessRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Sets the status of a task flow to "Successful".
      *
-     * @return MakeTaskFlowInstanceSuccessResponse MakeTaskFlowInstanceSuccessResponse
+     * @param request - MakeTaskFlowInstanceSuccessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MakeTaskFlowInstanceSuccessResponse
+     *
+     * @param MakeTaskFlowInstanceSuccessRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return MakeTaskFlowInstanceSuccessResponse
      */
     public function makeTaskFlowInstanceSuccessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->dagInstanceId)) {
-            $query['DagInstanceId'] = $request->dagInstanceId;
+
+        if (null !== $request->dagInstanceId) {
+            @$query['DagInstanceId'] = $request->dagInstanceId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MakeTaskFlowInstanceSuccess',
@@ -12803,16 +15876,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MakeTaskFlowInstanceSuccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MakeTaskFlowInstanceSuccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MakeTaskFlowInstanceSuccessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets the status of a task flow to "Successful".
-     *  *
-     * @param MakeTaskFlowInstanceSuccessRequest $request MakeTaskFlowInstanceSuccessRequest
+     * Sets the status of a task flow to "Successful".
      *
-     * @return MakeTaskFlowInstanceSuccessResponse MakeTaskFlowInstanceSuccessResponse
+     * @param request - MakeTaskFlowInstanceSuccessRequest
+     * @returns MakeTaskFlowInstanceSuccessResponse
+     *
+     * @param MakeTaskFlowInstanceSuccessRequest $request
+     *
+     * @return MakeTaskFlowInstanceSuccessResponse
      */
     public function makeTaskFlowInstanceSuccess($request)
     {
@@ -12822,31 +15901,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the SQL script that is submitted by using a data change ticket.
-     *  *
-     * @param ModifyDataCorrectExecSQLRequest $request ModifyDataCorrectExecSQLRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Modifies the SQL script that is submitted by using a data change ticket.
      *
-     * @return ModifyDataCorrectExecSQLResponse ModifyDataCorrectExecSQLResponse
+     * @param request - ModifyDataCorrectExecSQLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDataCorrectExecSQLResponse
+     *
+     * @param ModifyDataCorrectExecSQLRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDataCorrectExecSQLResponse
      */
     public function modifyDataCorrectExecSQLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->execSQL)) {
-            $query['ExecSQL'] = $request->execSQL;
+        if (null !== $request->execSQL) {
+            @$query['ExecSQL'] = $request->execSQL;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDataCorrectExecSQL',
@@ -12859,16 +15946,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDataCorrectExecSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDataCorrectExecSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDataCorrectExecSQLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the SQL script that is submitted by using a data change ticket.
-     *  *
-     * @param ModifyDataCorrectExecSQLRequest $request ModifyDataCorrectExecSQLRequest
+     * Modifies the SQL script that is submitted by using a data change ticket.
      *
-     * @return ModifyDataCorrectExecSQLResponse ModifyDataCorrectExecSQLResponse
+     * @param request - ModifyDataCorrectExecSQLRequest
+     * @returns ModifyDataCorrectExecSQLResponse
+     *
+     * @param ModifyDataCorrectExecSQLRequest $request
+     *
+     * @return ModifyDataCorrectExecSQLResponse
      */
     public function modifyDataCorrectExecSQL($request)
     {
@@ -12878,46 +15971,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the masking rule bound to a specified field.
-     *  *
-     * @param ModifyDesensitizationStrategyRequest $request ModifyDesensitizationStrategyRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Modifies the masking rule bound to a specified field.
      *
-     * @return ModifyDesensitizationStrategyResponse ModifyDesensitizationStrategyResponse
+     * @param request - ModifyDesensitizationStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDesensitizationStrategyResponse
+     *
+     * @param ModifyDesensitizationStrategyRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyDesensitizationStrategyResponse
      */
     public function modifyDesensitizationStrategyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->columnName)) {
-            $query['ColumnName'] = $request->columnName;
+        if (null !== $request->columnName) {
+            @$query['ColumnName'] = $request->columnName;
         }
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->isDefault)) {
-            $query['IsDefault'] = $request->isDefault;
+
+        if (null !== $request->isDefault) {
+            @$query['IsDefault'] = $request->isDefault;
         }
-        if (!Utils::isUnset($request->isLogic)) {
-            $query['IsLogic'] = $request->isLogic;
+
+        if (null !== $request->isLogic) {
+            @$query['IsLogic'] = $request->isLogic;
         }
-        if (!Utils::isUnset($request->isReset)) {
-            $query['IsReset'] = $request->isReset;
+
+        if (null !== $request->isReset) {
+            @$query['IsReset'] = $request->isReset;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDesensitizationStrategy',
@@ -12930,16 +16036,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDesensitizationStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDesensitizationStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDesensitizationStrategyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the masking rule bound to a specified field.
-     *  *
-     * @param ModifyDesensitizationStrategyRequest $request ModifyDesensitizationStrategyRequest
+     * Modifies the masking rule bound to a specified field.
      *
-     * @return ModifyDesensitizationStrategyResponse ModifyDesensitizationStrategyResponse
+     * @param request - ModifyDesensitizationStrategyRequest
+     * @returns ModifyDesensitizationStrategyResponse
+     *
+     * @param ModifyDesensitizationStrategyRequest $request
+     *
+     * @return ModifyDesensitizationStrategyResponse
      */
     public function modifyDesensitizationStrategy($request)
     {
@@ -12949,109 +16061,143 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例信息，同时检查该实例连通性
-     *  *
-     * @param ModifyInstanceRequest $request ModifyInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 修改实例信息，同时检查该实例连通性.
      *
-     * @return ModifyInstanceResponse ModifyInstanceResponse
+     * @param request - ModifyInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyInstanceResponse
+     *
+     * @param ModifyInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyInstanceResponse
      */
     public function modifyInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataLinkName)) {
-            $query['DataLinkName'] = $request->dataLinkName;
+        if (null !== $request->dataLinkName) {
+            @$query['DataLinkName'] = $request->dataLinkName;
         }
-        if (!Utils::isUnset($request->databasePassword)) {
-            $query['DatabasePassword'] = $request->databasePassword;
+
+        if (null !== $request->databasePassword) {
+            @$query['DatabasePassword'] = $request->databasePassword;
         }
-        if (!Utils::isUnset($request->databaseUser)) {
-            $query['DatabaseUser'] = $request->databaseUser;
+
+        if (null !== $request->databaseUser) {
+            @$query['DatabaseUser'] = $request->databaseUser;
         }
-        if (!Utils::isUnset($request->dbaId)) {
-            $query['DbaId'] = $request->dbaId;
+
+        if (null !== $request->dbaId) {
+            @$query['DbaId'] = $request->dbaId;
         }
-        if (!Utils::isUnset($request->ddlOnline)) {
-            $query['DdlOnline'] = $request->ddlOnline;
+
+        if (null !== $request->ddlOnline) {
+            @$query['DdlOnline'] = $request->ddlOnline;
         }
-        if (!Utils::isUnset($request->ecsInstanceId)) {
-            $query['EcsInstanceId'] = $request->ecsInstanceId;
+
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
         }
-        if (!Utils::isUnset($request->ecsRegion)) {
-            $query['EcsRegion'] = $request->ecsRegion;
+
+        if (null !== $request->ecsRegion) {
+            @$query['EcsRegion'] = $request->ecsRegion;
         }
-        if (!Utils::isUnset($request->enableSellCommon)) {
-            $query['EnableSellCommon'] = $request->enableSellCommon;
+
+        if (null !== $request->enableSellCommon) {
+            @$query['EnableSellCommon'] = $request->enableSellCommon;
         }
-        if (!Utils::isUnset($request->enableSellSitd)) {
-            $query['EnableSellSitd'] = $request->enableSellSitd;
+
+        if (null !== $request->enableSellSitd) {
+            @$query['EnableSellSitd'] = $request->enableSellSitd;
         }
-        if (!Utils::isUnset($request->enableSellStable)) {
-            $query['EnableSellStable'] = $request->enableSellStable;
+
+        if (null !== $request->enableSellStable) {
+            @$query['EnableSellStable'] = $request->enableSellStable;
         }
-        if (!Utils::isUnset($request->enableSellTrust)) {
-            $query['EnableSellTrust'] = $request->enableSellTrust;
+
+        if (null !== $request->enableSellTrust) {
+            @$query['EnableSellTrust'] = $request->enableSellTrust;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->exportTimeout)) {
-            $query['ExportTimeout'] = $request->exportTimeout;
+
+        if (null !== $request->exportTimeout) {
+            @$query['ExportTimeout'] = $request->exportTimeout;
         }
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->instanceAlias)) {
-            $query['InstanceAlias'] = $request->instanceAlias;
+
+        if (null !== $request->instanceAlias) {
+            @$query['InstanceAlias'] = $request->instanceAlias;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceSource)) {
-            $query['InstanceSource'] = $request->instanceSource;
+
+        if (null !== $request->instanceSource) {
+            @$query['InstanceSource'] = $request->instanceSource;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->queryTimeout)) {
-            $query['QueryTimeout'] = $request->queryTimeout;
+
+        if (null !== $request->queryTimeout) {
+            @$query['QueryTimeout'] = $request->queryTimeout;
         }
-        if (!Utils::isUnset($request->safeRule)) {
-            $query['SafeRule'] = $request->safeRule;
+
+        if (null !== $request->safeRule) {
+            @$query['SafeRule'] = $request->safeRule;
         }
-        if (!Utils::isUnset($request->sid)) {
-            $query['Sid'] = $request->sid;
+
+        if (null !== $request->sid) {
+            @$query['Sid'] = $request->sid;
         }
-        if (!Utils::isUnset($request->skipTest)) {
-            $query['SkipTest'] = $request->skipTest;
+
+        if (null !== $request->skipTest) {
+            @$query['SkipTest'] = $request->skipTest;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->useDsql)) {
-            $query['UseDsql'] = $request->useDsql;
+
+        if (null !== $request->useDsql) {
+            @$query['UseDsql'] = $request->useDsql;
         }
-        if (!Utils::isUnset($request->useSsl)) {
-            $query['UseSsl'] = $request->useSsl;
+
+        if (null !== $request->useSsl) {
+            @$query['UseSsl'] = $request->useSsl;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyInstance',
@@ -13064,16 +16210,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改实例信息，同时检查该实例连通性
-     *  *
-     * @param ModifyInstanceRequest $request ModifyInstanceRequest
+     * 修改实例信息，同时检查该实例连通性.
      *
-     * @return ModifyInstanceResponse ModifyInstanceResponse
+     * @param request - ModifyInstanceRequest
+     * @returns ModifyInstanceResponse
+     *
+     * @param ModifyInstanceRequest $request
+     *
+     * @return ModifyInstanceResponse
      */
     public function modifyInstance($request)
     {
@@ -13083,28 +16235,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Migrates a task flow to a specified business scenario.
-     *  *
-     * @param MoveTaskFlowToScenarioRequest $request MoveTaskFlowToScenarioRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Migrates a task flow to a specified business scenario.
      *
-     * @return MoveTaskFlowToScenarioResponse MoveTaskFlowToScenarioResponse
+     * @param request - MoveTaskFlowToScenarioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveTaskFlowToScenarioResponse
+     *
+     * @param MoveTaskFlowToScenarioRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return MoveTaskFlowToScenarioResponse
      */
     public function moveTaskFlowToScenarioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MoveTaskFlowToScenario',
@@ -13117,16 +16276,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveTaskFlowToScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveTaskFlowToScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveTaskFlowToScenarioResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Migrates a task flow to a specified business scenario.
-     *  *
-     * @param MoveTaskFlowToScenarioRequest $request MoveTaskFlowToScenarioRequest
+     * Migrates a task flow to a specified business scenario.
      *
-     * @return MoveTaskFlowToScenarioResponse MoveTaskFlowToScenarioResponse
+     * @param request - MoveTaskFlowToScenarioRequest
+     * @returns MoveTaskFlowToScenarioResponse
+     *
+     * @param MoveTaskFlowToScenarioRequest $request
+     *
+     * @return MoveTaskFlowToScenarioResponse
      */
     public function moveTaskFlowToScenario($request)
     {
@@ -13136,25 +16301,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Unpublishes a published task flow.
-     *  *
-     * @param OfflineTaskFlowRequest $request OfflineTaskFlowRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Unpublishes a published task flow.
      *
-     * @return OfflineTaskFlowResponse OfflineTaskFlowResponse
+     * @param request - OfflineTaskFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OfflineTaskFlowResponse
+     *
+     * @param OfflineTaskFlowRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OfflineTaskFlowResponse
      */
     public function offlineTaskFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OfflineTaskFlow',
@@ -13167,16 +16338,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OfflineTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OfflineTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OfflineTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unpublishes a published task flow.
-     *  *
-     * @param OfflineTaskFlowRequest $request OfflineTaskFlowRequest
+     * Unpublishes a published task flow.
      *
-     * @return OfflineTaskFlowResponse OfflineTaskFlowResponse
+     * @param request - OfflineTaskFlowRequest
+     * @returns OfflineTaskFlowResponse
+     *
+     * @param OfflineTaskFlowRequest $request
+     *
+     * @return OfflineTaskFlowResponse
      */
     public function offlineTaskFlow($request)
     {
@@ -13186,33 +16363,42 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Pauses a SQL task for data change.
-     *  *
-     * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
-     *  *
-     * @param PauseDataCorrectSQLJobRequest $request PauseDataCorrectSQLJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Pauses a SQL task for data change.
      *
-     * @return PauseDataCorrectSQLJobResponse PauseDataCorrectSQLJobResponse
+     * @remarks
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *
+     * @param request - PauseDataCorrectSQLJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PauseDataCorrectSQLJobResponse
+     *
+     * @param PauseDataCorrectSQLJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return PauseDataCorrectSQLJobResponse
      */
     public function pauseDataCorrectSQLJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PauseDataCorrectSQLJob',
@@ -13225,18 +16411,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PauseDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PauseDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PauseDataCorrectSQLJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Pauses a SQL task for data change.
-     *  *
-     * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
-     *  *
-     * @param PauseDataCorrectSQLJobRequest $request PauseDataCorrectSQLJobRequest
+     * Pauses a SQL task for data change.
      *
-     * @return PauseDataCorrectSQLJobResponse PauseDataCorrectSQLJobResponse
+     * @remarks
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *
+     * @param request - PauseDataCorrectSQLJobRequest
+     * @returns PauseDataCorrectSQLJobResponse
+     *
+     * @param PauseDataCorrectSQLJobRequest $request
+     *
+     * @return PauseDataCorrectSQLJobResponse
      */
     public function pauseDataCorrectSQLJob($request)
     {
@@ -13246,28 +16439,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 终止数据导出任务
-     *  *
-     * @param PauseDataExportJobRequest $request PauseDataExportJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 终止数据导出任务
      *
-     * @return PauseDataExportJobResponse PauseDataExportJobResponse
+     * @param request - PauseDataExportJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PauseDataExportJobResponse
+     *
+     * @param PauseDataExportJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PauseDataExportJobResponse
      */
     public function pauseDataExportJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PauseDataExportJob',
@@ -13280,16 +16480,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PauseDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PauseDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PauseDataExportJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 终止数据导出任务
-     *  *
-     * @param PauseDataExportJobRequest $request PauseDataExportJobRequest
+     * 终止数据导出任务
      *
-     * @return PauseDataExportJobResponse PauseDataExportJobResponse
+     * @param request - PauseDataExportJobRequest
+     * @returns PauseDataExportJobResponse
+     *
+     * @param PauseDataExportJobRequest $request
+     *
+     * @return PauseDataExportJobResponse
      */
     public function pauseDataExportJob($request)
     {
@@ -13299,25 +16505,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 创建工单审批流
-     *  *
-     * @param PreviewWorkflowRequest $request PreviewWorkflowRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建工单审批流
      *
-     * @return PreviewWorkflowResponse PreviewWorkflowResponse
+     * @param request - PreviewWorkflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PreviewWorkflowResponse
+     *
+     * @param PreviewWorkflowRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PreviewWorkflowResponse
      */
     public function previewWorkflowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PreviewWorkflow',
@@ -13330,16 +16542,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PreviewWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PreviewWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PreviewWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建工单审批流
-     *  *
-     * @param PreviewWorkflowRequest $request PreviewWorkflowRequest
+     * 创建工单审批流
      *
-     * @return PreviewWorkflowResponse PreviewWorkflowResponse
+     * @param request - PreviewWorkflowRequest
+     * @returns PreviewWorkflowResponse
+     *
+     * @param PreviewWorkflowRequest $request
+     *
+     * @return PreviewWorkflowResponse
      */
     public function previewWorkflow($request)
     {
@@ -13349,28 +16567,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Publishes and deploys a task flow.
-     *  *
-     * @param PublishAndDeployTaskFlowRequest $request PublishAndDeployTaskFlowRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Publishes and deploys a task flow.
      *
-     * @return PublishAndDeployTaskFlowResponse PublishAndDeployTaskFlowResponse
+     * @param request - PublishAndDeployTaskFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PublishAndDeployTaskFlowResponse
+     *
+     * @param PublishAndDeployTaskFlowRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return PublishAndDeployTaskFlowResponse
      */
     public function publishAndDeployTaskFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->versionComments)) {
-            $query['VersionComments'] = $request->versionComments;
+
+        if (null !== $request->versionComments) {
+            @$query['VersionComments'] = $request->versionComments;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PublishAndDeployTaskFlow',
@@ -13383,16 +16608,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PublishAndDeployTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishAndDeployTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishAndDeployTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Publishes and deploys a task flow.
-     *  *
-     * @param PublishAndDeployTaskFlowRequest $request PublishAndDeployTaskFlowRequest
+     * Publishes and deploys a task flow.
      *
-     * @return PublishAndDeployTaskFlowResponse PublishAndDeployTaskFlowResponse
+     * @param request - PublishAndDeployTaskFlowRequest
+     * @returns PublishAndDeployTaskFlowResponse
+     *
+     * @param PublishAndDeployTaskFlowRequest $request
+     *
+     * @return PublishAndDeployTaskFlowResponse
      */
     public function publishAndDeployTaskFlow($request)
     {
@@ -13402,28 +16633,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the download and parsing progress of data tracking logs.
-     *  *
-     * @param QueryDataTrackResultDownloadStatusRequest $request QueryDataTrackResultDownloadStatusRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the download and parsing progress of data tracking logs.
      *
-     * @return QueryDataTrackResultDownloadStatusResponse QueryDataTrackResultDownloadStatusResponse
+     * @param request - QueryDataTrackResultDownloadStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryDataTrackResultDownloadStatusResponse
+     *
+     * @param QueryDataTrackResultDownloadStatusRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return QueryDataTrackResultDownloadStatusResponse
      */
     public function queryDataTrackResultDownloadStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->downloadKeyId)) {
-            $query['DownloadKeyId'] = $request->downloadKeyId;
+        if (null !== $request->downloadKeyId) {
+            @$query['DownloadKeyId'] = $request->downloadKeyId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryDataTrackResultDownloadStatus',
@@ -13436,16 +16674,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryDataTrackResultDownloadStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDataTrackResultDownloadStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDataTrackResultDownloadStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the download and parsing progress of data tracking logs.
-     *  *
-     * @param QueryDataTrackResultDownloadStatusRequest $request QueryDataTrackResultDownloadStatusRequest
+     * Queries the download and parsing progress of data tracking logs.
      *
-     * @return QueryDataTrackResultDownloadStatusResponse QueryDataTrackResultDownloadStatusResponse
+     * @param request - QueryDataTrackResultDownloadStatusRequest
+     * @returns QueryDataTrackResultDownloadStatusResponse
+     *
+     * @param QueryDataTrackResultDownloadStatusRequest $request
+     *
+     * @return QueryDataTrackResultDownloadStatusResponse
      */
     public function queryDataTrackResultDownloadStatus($request)
     {
@@ -13455,28 +16699,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 部署任务流的历史版本
-     *  *
-     * @param ReDeployLhDagVersionRequest $request ReDeployLhDagVersionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 部署任务流的历史版本.
      *
-     * @return ReDeployLhDagVersionResponse ReDeployLhDagVersionResponse
+     * @param request - ReDeployLhDagVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReDeployLhDagVersionResponse
+     *
+     * @param ReDeployLhDagVersionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ReDeployLhDagVersionResponse
      */
     public function reDeployLhDagVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->dagVersion)) {
-            $query['DagVersion'] = $request->dagVersion;
+
+        if (null !== $request->dagVersion) {
+            @$query['DagVersion'] = $request->dagVersion;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReDeployLhDagVersion',
@@ -13489,16 +16740,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReDeployLhDagVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReDeployLhDagVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReDeployLhDagVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 部署任务流的历史版本
-     *  *
-     * @param ReDeployLhDagVersionRequest $request ReDeployLhDagVersionRequest
+     * 部署任务流的历史版本.
      *
-     * @return ReDeployLhDagVersionResponse ReDeployLhDagVersionResponse
+     * @param request - ReDeployLhDagVersionRequest
+     * @returns ReDeployLhDagVersionResponse
+     *
+     * @param ReDeployLhDagVersionRequest $request
+     *
+     * @return ReDeployLhDagVersionResponse
      */
     public function reDeployLhDagVersion($request)
     {
@@ -13508,31 +16765,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Reruns a task flow instance.
-     *  *
-     * @param ReRunTaskFlowInstanceRequest $request ReRunTaskFlowInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Reruns a task flow instance.
      *
-     * @return ReRunTaskFlowInstanceResponse ReRunTaskFlowInstanceResponse
+     * @param request - ReRunTaskFlowInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReRunTaskFlowInstanceResponse
+     *
+     * @param ReRunTaskFlowInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ReRunTaskFlowInstanceResponse
      */
     public function reRunTaskFlowInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->dagInstanceId)) {
-            $query['DagInstanceId'] = $request->dagInstanceId;
+
+        if (null !== $request->dagInstanceId) {
+            @$query['DagInstanceId'] = $request->dagInstanceId;
         }
-        if (!Utils::isUnset($request->dagVersion)) {
-            $query['DagVersion'] = $request->dagVersion;
+
+        if (null !== $request->dagVersion) {
+            @$query['DagVersion'] = $request->dagVersion;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReRunTaskFlowInstance',
@@ -13545,16 +16810,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReRunTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReRunTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReRunTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Reruns a task flow instance.
-     *  *
-     * @param ReRunTaskFlowInstanceRequest $request ReRunTaskFlowInstanceRequest
+     * Reruns a task flow instance.
      *
-     * @return ReRunTaskFlowInstanceResponse ReRunTaskFlowInstanceResponse
+     * @param request - ReRunTaskFlowInstanceRequest
+     * @returns ReRunTaskFlowInstanceResponse
+     *
+     * @param ReRunTaskFlowInstanceRequest $request
+     *
+     * @return ReRunTaskFlowInstanceResponse
      */
     public function reRunTaskFlowInstance($request)
     {
@@ -13564,28 +16835,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Unsubscribes from a pay-as-you-go Data Management (DMS) resource.
-     *  *
-     * @param RefundPayAsYouGoOrderRequest $request RefundPayAsYouGoOrderRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Unsubscribes from a pay-as-you-go Data Management (DMS) resource.
      *
-     * @return RefundPayAsYouGoOrderResponse RefundPayAsYouGoOrderResponse
+     * @param request - RefundPayAsYouGoOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RefundPayAsYouGoOrderResponse
+     *
+     * @param RefundPayAsYouGoOrderRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RefundPayAsYouGoOrderResponse
      */
     public function refundPayAsYouGoOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RefundPayAsYouGoOrder',
@@ -13598,16 +16876,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RefundPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefundPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefundPayAsYouGoOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unsubscribes from a pay-as-you-go Data Management (DMS) resource.
-     *  *
-     * @param RefundPayAsYouGoOrderRequest $request RefundPayAsYouGoOrderRequest
+     * Unsubscribes from a pay-as-you-go Data Management (DMS) resource.
      *
-     * @return RefundPayAsYouGoOrderResponse RefundPayAsYouGoOrderResponse
+     * @param request - RefundPayAsYouGoOrderRequest
+     * @returns RefundPayAsYouGoOrderResponse
+     *
+     * @param RefundPayAsYouGoOrderRequest $request
+     *
+     * @return RefundPayAsYouGoOrderResponse
      */
     public function refundPayAsYouGoOrder($request)
     {
@@ -13617,99 +16901,130 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Registers a database instance in Data Management (DMS).
-     *  *
-     * @description Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query your user role from the RoleIdList parameter that is returned.
-     *  *
-     * @param RegisterInstanceRequest $request RegisterInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Registers a database instance in Data Management (DMS).
      *
-     * @return RegisterInstanceResponse RegisterInstanceResponse
+     * @remarks
+     * Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query your user role from the RoleIdList parameter that is returned.
+     *
+     * @param request - RegisterInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterInstanceResponse
+     *
+     * @param RegisterInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RegisterInstanceResponse
      */
     public function registerInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataLinkName)) {
-            $query['DataLinkName'] = $request->dataLinkName;
+        if (null !== $request->dataLinkName) {
+            @$query['DataLinkName'] = $request->dataLinkName;
         }
-        if (!Utils::isUnset($request->databasePassword)) {
-            $query['DatabasePassword'] = $request->databasePassword;
+
+        if (null !== $request->databasePassword) {
+            @$query['DatabasePassword'] = $request->databasePassword;
         }
-        if (!Utils::isUnset($request->databaseUser)) {
-            $query['DatabaseUser'] = $request->databaseUser;
+
+        if (null !== $request->databaseUser) {
+            @$query['DatabaseUser'] = $request->databaseUser;
         }
-        if (!Utils::isUnset($request->dbaUid)) {
-            $query['DbaUid'] = $request->dbaUid;
+
+        if (null !== $request->dbaUid) {
+            @$query['DbaUid'] = $request->dbaUid;
         }
-        if (!Utils::isUnset($request->dbaUidByString)) {
-            $query['DbaUidByString'] = $request->dbaUidByString;
+
+        if (null !== $request->dbaUidByString) {
+            @$query['DbaUidByString'] = $request->dbaUidByString;
         }
-        if (!Utils::isUnset($request->ddlOnline)) {
-            $query['DdlOnline'] = $request->ddlOnline;
+
+        if (null !== $request->ddlOnline) {
+            @$query['DdlOnline'] = $request->ddlOnline;
         }
-        if (!Utils::isUnset($request->ecsInstanceId)) {
-            $query['EcsInstanceId'] = $request->ecsInstanceId;
+
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
         }
-        if (!Utils::isUnset($request->ecsRegion)) {
-            $query['EcsRegion'] = $request->ecsRegion;
+
+        if (null !== $request->ecsRegion) {
+            @$query['EcsRegion'] = $request->ecsRegion;
         }
-        if (!Utils::isUnset($request->enableSellSitd)) {
-            $query['EnableSellSitd'] = $request->enableSellSitd;
+
+        if (null !== $request->enableSellSitd) {
+            @$query['EnableSellSitd'] = $request->enableSellSitd;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->exportTimeout)) {
-            $query['ExportTimeout'] = $request->exportTimeout;
+
+        if (null !== $request->exportTimeout) {
+            @$query['ExportTimeout'] = $request->exportTimeout;
         }
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->instanceAlias)) {
-            $query['InstanceAlias'] = $request->instanceAlias;
+
+        if (null !== $request->instanceAlias) {
+            @$query['InstanceAlias'] = $request->instanceAlias;
         }
-        if (!Utils::isUnset($request->instanceSource)) {
-            $query['InstanceSource'] = $request->instanceSource;
+
+        if (null !== $request->instanceSource) {
+            @$query['InstanceSource'] = $request->instanceSource;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->queryTimeout)) {
-            $query['QueryTimeout'] = $request->queryTimeout;
+
+        if (null !== $request->queryTimeout) {
+            @$query['QueryTimeout'] = $request->queryTimeout;
         }
-        if (!Utils::isUnset($request->safeRule)) {
-            $query['SafeRule'] = $request->safeRule;
+
+        if (null !== $request->safeRule) {
+            @$query['SafeRule'] = $request->safeRule;
         }
-        if (!Utils::isUnset($request->sid)) {
-            $query['Sid'] = $request->sid;
+
+        if (null !== $request->sid) {
+            @$query['Sid'] = $request->sid;
         }
-        if (!Utils::isUnset($request->skipTest)) {
-            $query['SkipTest'] = $request->skipTest;
+
+        if (null !== $request->skipTest) {
+            @$query['SkipTest'] = $request->skipTest;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->useDsql)) {
-            $query['UseDsql'] = $request->useDsql;
+
+        if (null !== $request->useDsql) {
+            @$query['UseDsql'] = $request->useDsql;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RegisterInstance',
@@ -13722,18 +17037,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RegisterInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RegisterInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Registers a database instance in Data Management (DMS).
-     *  *
-     * @description Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query your user role from the RoleIdList parameter that is returned.
-     *  *
-     * @param RegisterInstanceRequest $request RegisterInstanceRequest
+     * Registers a database instance in Data Management (DMS).
      *
-     * @return RegisterInstanceResponse RegisterInstanceResponse
+     * @remarks
+     * Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query your user role from the RoleIdList parameter that is returned.
+     *
+     * @param request - RegisterInstanceRequest
+     * @returns RegisterInstanceResponse
+     *
+     * @param RegisterInstanceRequest $request
+     *
+     * @return RegisterInstanceResponse
      */
     public function registerInstance($request)
     {
@@ -13743,36 +17065,46 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Registers a user for your enterprise.
-     *  *
-     * @description If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
-     *  *
-     * @param RegisterUserRequest $request RegisterUserRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Registers a user for your enterprise.
      *
-     * @return RegisterUserResponse RegisterUserResponse
+     * @remarks
+     * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
+     *
+     * @param request - RegisterUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterUserResponse
+     *
+     * @param RegisterUserRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RegisterUserResponse
      */
     public function registerUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mobile)) {
-            $query['Mobile'] = $request->mobile;
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
         }
-        if (!Utils::isUnset($request->roleNames)) {
-            $query['RoleNames'] = $request->roleNames;
+
+        if (null !== $request->roleNames) {
+            @$query['RoleNames'] = $request->roleNames;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
-        if (!Utils::isUnset($request->userNick)) {
-            $query['UserNick'] = $request->userNick;
+
+        if (null !== $request->userNick) {
+            @$query['UserNick'] = $request->userNick;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RegisterUser',
@@ -13785,18 +17117,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RegisterUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RegisterUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Registers a user for your enterprise.
-     *  *
-     * @description If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
-     *  *
-     * @param RegisterUserRequest $request RegisterUserRequest
+     * Registers a user for your enterprise.
      *
-     * @return RegisterUserResponse RegisterUserResponse
+     * @remarks
+     * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
+     *
+     * @param request - RegisterUserRequest
+     * @returns RegisterUserResponse
+     *
+     * @param RegisterUserRequest $request
+     *
+     * @return RegisterUserResponse
      */
     public function registerUser($request)
     {
@@ -13806,28 +17145,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据导出任务
-     *  *
-     * @param RemoveDataExportJobRequest $request RemoveDataExportJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除数据导出任务
      *
-     * @return RemoveDataExportJobResponse RemoveDataExportJobResponse
+     * @param request - RemoveDataExportJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveDataExportJobResponse
+     *
+     * @param RemoveDataExportJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RemoveDataExportJobResponse
      */
     public function removeDataExportJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveDataExportJob',
@@ -13840,16 +17186,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveDataExportJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除数据导出任务
-     *  *
-     * @param RemoveDataExportJobRequest $request RemoveDataExportJobRequest
+     * 删除数据导出任务
      *
-     * @return RemoveDataExportJobResponse RemoveDataExportJobResponse
+     * @param request - RemoveDataExportJobRequest
+     * @returns RemoveDataExportJobResponse
+     *
+     * @param RemoveDataExportJobRequest $request
+     *
+     * @return RemoveDataExportJobResponse
      */
     public function removeDataExportJob($request)
     {
@@ -13859,34 +17211,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Reruns a failed SQL task for data change.
-     *  *
-     * @param RestartDataCorrectSQLJobRequest $request RestartDataCorrectSQLJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Reruns a failed SQL task for data change.
      *
-     * @return RestartDataCorrectSQLJobResponse RestartDataCorrectSQLJobResponse
+     * @param request - RestartDataCorrectSQLJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestartDataCorrectSQLJobResponse
+     *
+     * @param RestartDataCorrectSQLJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RestartDataCorrectSQLJobResponse
      */
     public function restartDataCorrectSQLJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RestartDataCorrectSQLJob',
@@ -13899,16 +17260,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RestartDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartDataCorrectSQLJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Reruns a failed SQL task for data change.
-     *  *
-     * @param RestartDataCorrectSQLJobRequest $request RestartDataCorrectSQLJobRequest
+     * Reruns a failed SQL task for data change.
      *
-     * @return RestartDataCorrectSQLJobResponse RestartDataCorrectSQLJobResponse
+     * @param request - RestartDataCorrectSQLJobRequest
+     * @returns RestartDataCorrectSQLJobResponse
+     *
+     * @param RestartDataCorrectSQLJobRequest $request
+     *
+     * @return RestartDataCorrectSQLJobResponse
      */
     public function restartDataCorrectSQLJob($request)
     {
@@ -13918,28 +17285,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 重启数据导出任务
-     *  *
-     * @param RestartDataExportJobRequest $request RestartDataExportJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 重启数据导出任务
      *
-     * @return RestartDataExportJobResponse RestartDataExportJobResponse
+     * @param request - RestartDataExportJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestartDataExportJobResponse
+     *
+     * @param RestartDataExportJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RestartDataExportJobResponse
      */
     public function restartDataExportJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RestartDataExportJob',
@@ -13952,16 +17326,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RestartDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartDataExportJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 重启数据导出任务
-     *  *
-     * @param RestartDataExportJobRequest $request RestartDataExportJobRequest
+     * 重启数据导出任务
      *
-     * @return RestartDataExportJobResponse RestartDataExportJobResponse
+     * @param request - RestartDataExportJobRequest
+     * @returns RestartDataExportJobResponse
+     *
+     * @param RestartDataExportJobRequest $request
+     *
+     * @return RestartDataExportJobResponse
      */
     public function restartDataExportJob($request)
     {
@@ -13971,33 +17351,42 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Resumes a suspended task flow.
-     *  *
-     * @description You can call this operation only for task flows that are suspended.
-     *  *
-     * @param ResumeTaskFlowInstanceRequest $request ResumeTaskFlowInstanceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Resumes a suspended task flow.
      *
-     * @return ResumeTaskFlowInstanceResponse ResumeTaskFlowInstanceResponse
+     * @remarks
+     * You can call this operation only for task flows that are suspended.
+     *
+     * @param request - ResumeTaskFlowInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResumeTaskFlowInstanceResponse
+     *
+     * @param ResumeTaskFlowInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ResumeTaskFlowInstanceResponse
      */
     public function resumeTaskFlowInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->dagInstanceId)) {
-            $query['DagInstanceId'] = $request->dagInstanceId;
+
+        if (null !== $request->dagInstanceId) {
+            @$query['DagInstanceId'] = $request->dagInstanceId;
         }
-        if (!Utils::isUnset($request->dagVersion)) {
-            $query['DagVersion'] = $request->dagVersion;
+
+        if (null !== $request->dagVersion) {
+            @$query['DagVersion'] = $request->dagVersion;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResumeTaskFlowInstance',
@@ -14010,18 +17399,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResumeTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResumeTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResumeTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Resumes a suspended task flow.
-     *  *
-     * @description You can call this operation only for task flows that are suspended.
-     *  *
-     * @param ResumeTaskFlowInstanceRequest $request ResumeTaskFlowInstanceRequest
+     * Resumes a suspended task flow.
      *
-     * @return ResumeTaskFlowInstanceResponse ResumeTaskFlowInstanceResponse
+     * @remarks
+     * You can call this operation only for task flows that are suspended.
+     *
+     * @param request - ResumeTaskFlowInstanceRequest
+     * @returns ResumeTaskFlowInstanceResponse
+     *
+     * @param ResumeTaskFlowInstanceRequest $request
+     *
+     * @return ResumeTaskFlowInstanceResponse
      */
     public function resumeTaskFlowInstance($request)
     {
@@ -14031,28 +17427,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Reruns the precheck for a data change ticket.
-     *  *
-     * @param RetryDataCorrectPreCheckRequest $request RetryDataCorrectPreCheckRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Reruns the precheck for a data change ticket.
      *
-     * @return RetryDataCorrectPreCheckResponse RetryDataCorrectPreCheckResponse
+     * @param request - RetryDataCorrectPreCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RetryDataCorrectPreCheckResponse
+     *
+     * @param RetryDataCorrectPreCheckRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RetryDataCorrectPreCheckResponse
      */
     public function retryDataCorrectPreCheckWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RetryDataCorrectPreCheck',
@@ -14065,16 +17468,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RetryDataCorrectPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RetryDataCorrectPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RetryDataCorrectPreCheckResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Reruns the precheck for a data change ticket.
-     *  *
-     * @param RetryDataCorrectPreCheckRequest $request RetryDataCorrectPreCheckRequest
+     * Reruns the precheck for a data change ticket.
      *
-     * @return RetryDataCorrectPreCheckResponse RetryDataCorrectPreCheckResponse
+     * @param request - RetryDataCorrectPreCheckRequest
+     * @returns RetryDataCorrectPreCheckResponse
+     *
+     * @param RetryDataCorrectPreCheckRequest $request
+     *
+     * @return RetryDataCorrectPreCheckResponse
      */
     public function retryDataCorrectPreCheck($request)
     {
@@ -14084,30 +17493,38 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Revokes permissions on resources from Data Management (DMS) users by using a permission template.
-     *  *
-     * @description You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param RevokeTemplateAuthorityRequest $request RevokeTemplateAuthorityRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Revokes permissions on resources from Data Management (DMS) users by using a permission template.
      *
-     * @return RevokeTemplateAuthorityResponse RevokeTemplateAuthorityResponse
+     * @remarks
+     * You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - RevokeTemplateAuthorityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevokeTemplateAuthorityResponse
+     *
+     * @param RevokeTemplateAuthorityRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RevokeTemplateAuthorityResponse
      */
     public function revokeTemplateAuthorityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RevokeTemplateAuthority',
@@ -14120,18 +17537,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevokeTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeTemplateAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes permissions on resources from Data Management (DMS) users by using a permission template.
-     *  *
-     * @description You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param RevokeTemplateAuthorityRequest $request RevokeTemplateAuthorityRequest
+     * Revokes permissions on resources from Data Management (DMS) users by using a permission template.
      *
-     * @return RevokeTemplateAuthorityResponse RevokeTemplateAuthorityResponse
+     * @remarks
+     * You must be a database administrator (DBA) or a DMS administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - RevokeTemplateAuthorityRequest
+     * @returns RevokeTemplateAuthorityResponse
+     *
+     * @param RevokeTemplateAuthorityRequest $request
+     *
+     * @return RevokeTemplateAuthorityResponse
      */
     public function revokeTemplateAuthority($request)
     {
@@ -14141,49 +17565,63 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Revokes the permissions on instances, databases, and tables from a user.
-     *  *
-     * @param RevokeUserPermissionRequest $request RevokeUserPermissionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Revokes the permissions on instances, databases, and tables from a user.
      *
-     * @return RevokeUserPermissionResponse RevokeUserPermissionResponse
+     * @param request - RevokeUserPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevokeUserPermissionResponse
+     *
+     * @param RevokeUserPermissionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RevokeUserPermissionResponse
      */
     public function revokeUserPermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->dsType)) {
-            $query['DsType'] = $request->dsType;
+
+        if (null !== $request->dsType) {
+            @$query['DsType'] = $request->dsType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->permTypes)) {
-            $query['PermTypes'] = $request->permTypes;
+
+        if (null !== $request->permTypes) {
+            @$query['PermTypes'] = $request->permTypes;
         }
-        if (!Utils::isUnset($request->tableId)) {
-            $query['TableId'] = $request->tableId;
+
+        if (null !== $request->tableId) {
+            @$query['TableId'] = $request->tableId;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->userAccessId)) {
-            $query['UserAccessId'] = $request->userAccessId;
+
+        if (null !== $request->userAccessId) {
+            @$query['UserAccessId'] = $request->userAccessId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RevokeUserPermission',
@@ -14196,16 +17634,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevokeUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeUserPermissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes the permissions on instances, databases, and tables from a user.
-     *  *
-     * @param RevokeUserPermissionRequest $request RevokeUserPermissionRequest
+     * Revokes the permissions on instances, databases, and tables from a user.
      *
-     * @return RevokeUserPermissionResponse RevokeUserPermissionResponse
+     * @param request - RevokeUserPermissionRequest
+     * @returns RevokeUserPermissionResponse
+     *
+     * @param RevokeUserPermissionRequest $request
+     *
+     * @return RevokeUserPermissionResponse
      */
     public function revokeUserPermission($request)
     {
@@ -14215,51 +17659,65 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Searches for the parsing result of a data tracking task.
-     *  *
-     * @param SearchDataTrackResultRequest $tmpReq  SearchDataTrackResultRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Searches for the parsing result of a data tracking task.
      *
-     * @return SearchDataTrackResultResponse SearchDataTrackResultResponse
+     * @param tmpReq - SearchDataTrackResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchDataTrackResultResponse
+     *
+     * @param SearchDataTrackResultRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SearchDataTrackResultResponse
      */
     public function searchDataTrackResultWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchDataTrackResultShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->columnFilter)) {
-            $request->columnFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->columnFilter, 'ColumnFilter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->columnFilter) {
+            $request->columnFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->columnFilter, 'ColumnFilter', 'json');
         }
-        if (!Utils::isUnset($tmpReq->filterTableList)) {
-            $request->filterTableListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTableList, 'FilterTableList', 'json');
+
+        if (null !== $tmpReq->filterTableList) {
+            $request->filterTableListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterTableList, 'FilterTableList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->filterTypeList)) {
-            $request->filterTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTypeList, 'FilterTypeList', 'json');
+
+        if (null !== $tmpReq->filterTypeList) {
+            $request->filterTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterTypeList, 'FilterTypeList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->columnFilterShrink)) {
-            $query['ColumnFilter'] = $request->columnFilterShrink;
+        if (null !== $request->columnFilterShrink) {
+            @$query['ColumnFilter'] = $request->columnFilterShrink;
         }
-        if (!Utils::isUnset($request->filterEndTime)) {
-            $query['FilterEndTime'] = $request->filterEndTime;
+
+        if (null !== $request->filterEndTime) {
+            @$query['FilterEndTime'] = $request->filterEndTime;
         }
-        if (!Utils::isUnset($request->filterStartTime)) {
-            $query['FilterStartTime'] = $request->filterStartTime;
+
+        if (null !== $request->filterStartTime) {
+            @$query['FilterStartTime'] = $request->filterStartTime;
         }
-        if (!Utils::isUnset($request->filterTableListShrink)) {
-            $query['FilterTableList'] = $request->filterTableListShrink;
+
+        if (null !== $request->filterTableListShrink) {
+            @$query['FilterTableList'] = $request->filterTableListShrink;
         }
-        if (!Utils::isUnset($request->filterTypeListShrink)) {
-            $query['FilterTypeList'] = $request->filterTypeListShrink;
+
+        if (null !== $request->filterTypeListShrink) {
+            @$query['FilterTypeList'] = $request->filterTypeListShrink;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchDataTrackResult',
@@ -14272,16 +17730,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchDataTrackResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Searches for the parsing result of a data tracking task.
-     *  *
-     * @param SearchDataTrackResultRequest $request SearchDataTrackResultRequest
+     * Searches for the parsing result of a data tracking task.
      *
-     * @return SearchDataTrackResultResponse SearchDataTrackResultResponse
+     * @param request - SearchDataTrackResultRequest
+     * @returns SearchDataTrackResultResponse
+     *
+     * @param SearchDataTrackResultRequest $request
+     *
+     * @return SearchDataTrackResultResponse
      */
     public function searchDataTrackResult($request)
     {
@@ -14291,43 +17755,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the databases.
-     *  *
-     * @param SearchDatabaseRequest $request SearchDatabaseRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the details of the databases.
      *
-     * @return SearchDatabaseResponse SearchDatabaseResponse
+     * @param request - SearchDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchDatabaseResponse
+     *
+     * @param SearchDatabaseRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SearchDatabaseResponse
      */
     public function searchDatabaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->searchRange)) {
-            $query['SearchRange'] = $request->searchRange;
+
+        if (null !== $request->searchRange) {
+            @$query['SearchRange'] = $request->searchRange;
         }
-        if (!Utils::isUnset($request->searchTarget)) {
-            $query['SearchTarget'] = $request->searchTarget;
+
+        if (null !== $request->searchTarget) {
+            @$query['SearchTarget'] = $request->searchTarget;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchDatabase',
@@ -14340,16 +17816,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the databases.
-     *  *
-     * @param SearchDatabaseRequest $request SearchDatabaseRequest
+     * Queries the details of the databases.
      *
-     * @return SearchDatabaseResponse SearchDatabaseResponse
+     * @param request - SearchDatabaseRequest
+     * @returns SearchDatabaseResponse
+     *
+     * @param SearchDatabaseRequest $request
+     *
+     * @return SearchDatabaseResponse
      */
     public function searchDatabase($request)
     {
@@ -14359,48 +17841,62 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Queries detailed information about tables.
-     *  *
-     * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
-     *  *
-     * @param SearchTableRequest $request SearchTableRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries detailed information about tables.
      *
-     * @return SearchTableResponse SearchTableResponse
+     * @remarks
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *
+     * @param request - SearchTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchTableResponse
+     *
+     * @param SearchTableRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SearchTableResponse
      */
     public function searchTableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->returnGuid)) {
-            $query['ReturnGuid'] = $request->returnGuid;
+
+        if (null !== $request->returnGuid) {
+            @$query['ReturnGuid'] = $request->returnGuid;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->searchRange)) {
-            $query['SearchRange'] = $request->searchRange;
+
+        if (null !== $request->searchRange) {
+            @$query['SearchRange'] = $request->searchRange;
         }
-        if (!Utils::isUnset($request->searchTarget)) {
-            $query['SearchTarget'] = $request->searchTarget;
+
+        if (null !== $request->searchTarget) {
+            @$query['SearchTarget'] = $request->searchTarget;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchTable',
@@ -14413,18 +17909,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries detailed information about tables.
-     *  *
-     * @description You can call this operation only for database instances that are managed in Security Collaboration mode.
-     *  *
-     * @param SearchTableRequest $request SearchTableRequest
+     * Queries detailed information about tables.
      *
-     * @return SearchTableResponse SearchTableResponse
+     * @remarks
+     * You can call this operation only for database instances that are managed in Security Collaboration mode.
+     *
+     * @param request - SearchTableRequest
+     * @returns SearchTableResponse
+     *
+     * @param SearchTableRequest $request
+     *
+     * @return SearchTableResponse
      */
     public function searchTable($request)
     {
@@ -14434,31 +17937,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Configures the owner of an instance, a database, or a table.
-     *  *
-     * @param SetOwnersRequest $request SetOwnersRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Configures the owner of an instance, a database, or a table.
      *
-     * @return SetOwnersResponse SetOwnersResponse
+     * @param request - SetOwnersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetOwnersResponse
+     *
+     * @param SetOwnersRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return SetOwnersResponse
      */
     public function setOwnersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerIds)) {
-            $query['OwnerIds'] = $request->ownerIds;
+        if (null !== $request->ownerIds) {
+            @$query['OwnerIds'] = $request->ownerIds;
         }
-        if (!Utils::isUnset($request->ownerType)) {
-            $query['OwnerType'] = $request->ownerType;
+
+        if (null !== $request->ownerType) {
+            @$query['OwnerType'] = $request->ownerType;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetOwners',
@@ -14471,16 +17982,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetOwnersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetOwnersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetOwnersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the owner of an instance, a database, or a table.
-     *  *
-     * @param SetOwnersRequest $request SetOwnersRequest
+     * Configures the owner of an instance, a database, or a table.
      *
-     * @return SetOwnersResponse SetOwnersResponse
+     * @param request - SetOwnersRequest
+     * @returns SetOwnersResponse
+     *
+     * @param SetOwnersRequest $request
+     *
+     * @return SetOwnersResponse
      */
     public function setOwners($request)
     {
@@ -14490,46 +18007,59 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 修改审批流额外信息
-     *  *
-     * @param SetWorkflowExtraInfoRequest $request SetWorkflowExtraInfoRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 修改审批流额外信息.
      *
-     * @return SetWorkflowExtraInfoResponse SetWorkflowExtraInfoResponse
+     * @param request - SetWorkflowExtraInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetWorkflowExtraInfoResponse
+     *
+     * @param SetWorkflowExtraInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetWorkflowExtraInfoResponse
      */
     public function setWorkflowExtraInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->renderAddApprovalNode)) {
-            $query['RenderAddApprovalNode'] = $request->renderAddApprovalNode;
+        if (null !== $request->renderAddApprovalNode) {
+            @$query['RenderAddApprovalNode'] = $request->renderAddApprovalNode;
         }
-        if (!Utils::isUnset($request->renderAgree)) {
-            $query['RenderAgree'] = $request->renderAgree;
+
+        if (null !== $request->renderAgree) {
+            @$query['RenderAgree'] = $request->renderAgree;
         }
-        if (!Utils::isUnset($request->renderCancel)) {
-            $query['RenderCancel'] = $request->renderCancel;
+
+        if (null !== $request->renderCancel) {
+            @$query['RenderCancel'] = $request->renderCancel;
         }
-        if (!Utils::isUnset($request->renderReject)) {
-            $query['RenderReject'] = $request->renderReject;
+
+        if (null !== $request->renderReject) {
+            @$query['RenderReject'] = $request->renderReject;
         }
-        if (!Utils::isUnset($request->renderTransfer)) {
-            $query['RenderTransfer'] = $request->renderTransfer;
+
+        if (null !== $request->renderTransfer) {
+            @$query['RenderTransfer'] = $request->renderTransfer;
         }
-        if (!Utils::isUnset($request->thirdpartyWorkflowComment)) {
-            $query['ThirdpartyWorkflowComment'] = $request->thirdpartyWorkflowComment;
+
+        if (null !== $request->thirdpartyWorkflowComment) {
+            @$query['ThirdpartyWorkflowComment'] = $request->thirdpartyWorkflowComment;
         }
-        if (!Utils::isUnset($request->thirdpartyWorkflowUrl)) {
-            $query['ThirdpartyWorkflowUrl'] = $request->thirdpartyWorkflowUrl;
+
+        if (null !== $request->thirdpartyWorkflowUrl) {
+            @$query['ThirdpartyWorkflowUrl'] = $request->thirdpartyWorkflowUrl;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->workflowInstanceId)) {
-            $query['WorkflowInstanceId'] = $request->workflowInstanceId;
+
+        if (null !== $request->workflowInstanceId) {
+            @$query['WorkflowInstanceId'] = $request->workflowInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetWorkflowExtraInfo',
@@ -14542,16 +18072,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetWorkflowExtraInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetWorkflowExtraInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetWorkflowExtraInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改审批流额外信息
-     *  *
-     * @param SetWorkflowExtraInfoRequest $request SetWorkflowExtraInfoRequest
+     * 修改审批流额外信息.
      *
-     * @return SetWorkflowExtraInfoResponse SetWorkflowExtraInfoResponse
+     * @param request - SetWorkflowExtraInfoRequest
+     * @returns SetWorkflowExtraInfoResponse
+     *
+     * @param SetWorkflowExtraInfoRequest $request
+     *
+     * @return SetWorkflowExtraInfoResponse
      */
     public function setWorkflowExtraInfo($request)
     {
@@ -14561,31 +18097,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Skips the verification on the number of rows in the precheck for data change.
-     *  *
-     * @param SkipDataCorrectRowCheckRequest $request SkipDataCorrectRowCheckRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Skips the verification on the number of rows in the precheck for data change.
      *
-     * @return SkipDataCorrectRowCheckResponse SkipDataCorrectRowCheckResponse
+     * @param request - SkipDataCorrectRowCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SkipDataCorrectRowCheckResponse
+     *
+     * @param SkipDataCorrectRowCheckRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SkipDataCorrectRowCheckResponse
      */
     public function skipDataCorrectRowCheckWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $query['Reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$query['Reason'] = $request->reason;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SkipDataCorrectRowCheck',
@@ -14598,16 +18142,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SkipDataCorrectRowCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SkipDataCorrectRowCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SkipDataCorrectRowCheckResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Skips the verification on the number of rows in the precheck for data change.
-     *  *
-     * @param SkipDataCorrectRowCheckRequest $request SkipDataCorrectRowCheckRequest
+     * Skips the verification on the number of rows in the precheck for data change.
      *
-     * @return SkipDataCorrectRowCheckResponse SkipDataCorrectRowCheckResponse
+     * @param request - SkipDataCorrectRowCheckRequest
+     * @returns SkipDataCorrectRowCheckResponse
+     *
+     * @param SkipDataCorrectRowCheckRequest $request
+     *
+     * @return SkipDataCorrectRowCheckResponse
      */
     public function skipDataCorrectRowCheck($request)
     {
@@ -14617,28 +18167,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Stops a task flow instance.
-     *  *
-     * @param StopTaskFlowInstanceRequest $request StopTaskFlowInstanceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Stops a task flow instance.
      *
-     * @return StopTaskFlowInstanceResponse StopTaskFlowInstanceResponse
+     * @param request - StopTaskFlowInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopTaskFlowInstanceResponse
+     *
+     * @param StopTaskFlowInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StopTaskFlowInstanceResponse
      */
     public function stopTaskFlowInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->dagInstanceId)) {
-            $query['DagInstanceId'] = $request->dagInstanceId;
+
+        if (null !== $request->dagInstanceId) {
+            @$query['DagInstanceId'] = $request->dagInstanceId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopTaskFlowInstance',
@@ -14651,16 +18208,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops a task flow instance.
-     *  *
-     * @param StopTaskFlowInstanceRequest $request StopTaskFlowInstanceRequest
+     * Stops a task flow instance.
      *
-     * @return StopTaskFlowInstanceResponse StopTaskFlowInstanceResponse
+     * @param request - StopTaskFlowInstanceRequest
+     * @returns StopTaskFlowInstanceResponse
+     *
+     * @param StopTaskFlowInstanceRequest $request
+     *
+     * @return StopTaskFlowInstanceResponse
      */
     public function stopTaskFlowInstance($request)
     {
@@ -14670,28 +18233,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Submits a ticket for approval.
-     *  *
-     * @param SubmitOrderApprovalRequest $request SubmitOrderApprovalRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Submits a ticket for approval.
      *
-     * @return SubmitOrderApprovalResponse SubmitOrderApprovalResponse
+     * @param request - SubmitOrderApprovalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitOrderApprovalResponse
+     *
+     * @param SubmitOrderApprovalRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitOrderApprovalResponse
      */
     public function submitOrderApprovalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->realLoginUserUid)) {
-            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+
+        if (null !== $request->realLoginUserUid) {
+            @$query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitOrderApproval',
@@ -14704,16 +18274,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitOrderApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitOrderApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitOrderApprovalResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a ticket for approval.
-     *  *
-     * @param SubmitOrderApprovalRequest $request SubmitOrderApprovalRequest
+     * Submits a ticket for approval.
      *
-     * @return SubmitOrderApprovalResponse SubmitOrderApprovalResponse
+     * @param request - SubmitOrderApprovalRequest
+     * @returns SubmitOrderApprovalResponse
+     *
+     * @param SubmitOrderApprovalRequest $request
+     *
+     * @return SubmitOrderApprovalResponse
      */
     public function submitOrderApproval($request)
     {
@@ -14723,25 +18299,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Submits a schema synchronization ticket for approval.
-     *  *
-     * @param SubmitStructSyncOrderApprovalRequest $request SubmitStructSyncOrderApprovalRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Submits a schema synchronization ticket for approval.
      *
-     * @return SubmitStructSyncOrderApprovalResponse SubmitStructSyncOrderApprovalResponse
+     * @param request - SubmitStructSyncOrderApprovalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitStructSyncOrderApprovalResponse
+     *
+     * @param SubmitStructSyncOrderApprovalRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SubmitStructSyncOrderApprovalResponse
      */
     public function submitStructSyncOrderApprovalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitStructSyncOrderApproval',
@@ -14754,16 +18336,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitStructSyncOrderApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitStructSyncOrderApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitStructSyncOrderApprovalResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a schema synchronization ticket for approval.
-     *  *
-     * @param SubmitStructSyncOrderApprovalRequest $request SubmitStructSyncOrderApprovalRequest
+     * Submits a schema synchronization ticket for approval.
      *
-     * @return SubmitStructSyncOrderApprovalResponse SubmitStructSyncOrderApprovalResponse
+     * @param request - SubmitStructSyncOrderApprovalRequest
+     * @returns SubmitStructSyncOrderApprovalResponse
+     *
+     * @param SubmitStructSyncOrderApprovalRequest $request
+     *
+     * @return SubmitStructSyncOrderApprovalResponse
      */
     public function submitStructSyncOrderApproval($request)
     {
@@ -14773,28 +18361,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 中断数据导出任务
-     *  *
-     * @param SuspendDataExportJobRequest $request SuspendDataExportJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 中断数据导出任务
      *
-     * @return SuspendDataExportJobResponse SuspendDataExportJobResponse
+     * @param request - SuspendDataExportJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SuspendDataExportJobResponse
+     *
+     * @param SuspendDataExportJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SuspendDataExportJobResponse
      */
     public function suspendDataExportJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SuspendDataExportJob',
@@ -14807,16 +18402,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SuspendDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SuspendDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SuspendDataExportJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 中断数据导出任务
-     *  *
-     * @param SuspendDataExportJobRequest $request SuspendDataExportJobRequest
+     * 中断数据导出任务
      *
-     * @return SuspendDataExportJobResponse SuspendDataExportJobResponse
+     * @param request - SuspendDataExportJobRequest
+     * @returns SuspendDataExportJobResponse
+     *
+     * @param SuspendDataExportJobRequest $request
+     *
+     * @return SuspendDataExportJobResponse
      */
     public function suspendDataExportJob($request)
     {
@@ -14826,28 +18427,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Suspends a task flow instance.
-     *  *
-     * @param SuspendTaskFlowInstanceRequest $request SuspendTaskFlowInstanceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Suspends a task flow instance.
      *
-     * @return SuspendTaskFlowInstanceResponse SuspendTaskFlowInstanceResponse
+     * @param request - SuspendTaskFlowInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SuspendTaskFlowInstanceResponse
+     *
+     * @param SuspendTaskFlowInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SuspendTaskFlowInstanceResponse
      */
     public function suspendTaskFlowInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->dagInstanceId)) {
-            $query['DagInstanceId'] = $request->dagInstanceId;
+
+        if (null !== $request->dagInstanceId) {
+            @$query['DagInstanceId'] = $request->dagInstanceId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SuspendTaskFlowInstance',
@@ -14860,16 +18468,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SuspendTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SuspendTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SuspendTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Suspends a task flow instance.
-     *  *
-     * @param SuspendTaskFlowInstanceRequest $request SuspendTaskFlowInstanceRequest
+     * Suspends a task flow instance.
      *
-     * @return SuspendTaskFlowInstanceResponse SuspendTaskFlowInstanceResponse
+     * @param request - SuspendTaskFlowInstanceRequest
+     * @returns SuspendTaskFlowInstanceResponse
+     *
+     * @param SuspendTaskFlowInstanceRequest $request
+     *
+     * @return SuspendTaskFlowInstanceResponse
      */
     public function suspendTaskFlowInstance($request)
     {
@@ -14879,28 +18493,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Synchronizes the metadata of a database.
-     *  *
-     * @param SyncDatabaseMetaRequest $request SyncDatabaseMetaRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Synchronizes the metadata of a database.
      *
-     * @return SyncDatabaseMetaResponse SyncDatabaseMetaResponse
+     * @param request - SyncDatabaseMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SyncDatabaseMetaResponse
+     *
+     * @param SyncDatabaseMetaRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SyncDatabaseMetaResponse
      */
     public function syncDatabaseMetaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $query['DbId'] = $request->dbId;
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
         }
-        if (!Utils::isUnset($request->logic)) {
-            $query['Logic'] = $request->logic;
+
+        if (null !== $request->logic) {
+            @$query['Logic'] = $request->logic;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SyncDatabaseMeta',
@@ -14913,16 +18534,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SyncDatabaseMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SyncDatabaseMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SyncDatabaseMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Synchronizes the metadata of a database.
-     *  *
-     * @param SyncDatabaseMetaRequest $request SyncDatabaseMetaRequest
+     * Synchronizes the metadata of a database.
      *
-     * @return SyncDatabaseMetaResponse SyncDatabaseMetaResponse
+     * @param request - SyncDatabaseMetaRequest
+     * @returns SyncDatabaseMetaResponse
+     *
+     * @param SyncDatabaseMetaRequest $request
+     *
+     * @return SyncDatabaseMetaResponse
      */
     public function syncDatabaseMeta($request)
     {
@@ -14932,30 +18559,38 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Synchronizes the metadata of all databases in a database instance.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param SyncInstanceMetaRequest $request SyncInstanceMetaRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Synchronizes the metadata of all databases in a database instance.
      *
-     * @return SyncInstanceMetaResponse SyncInstanceMetaResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - SyncInstanceMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SyncInstanceMetaResponse
+     *
+     * @param SyncInstanceMetaRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SyncInstanceMetaResponse
      */
     public function syncInstanceMetaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ignoreTable)) {
-            $query['IgnoreTable'] = $request->ignoreTable;
+        if (null !== $request->ignoreTable) {
+            @$query['IgnoreTable'] = $request->ignoreTable;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SyncInstanceMeta',
@@ -14968,18 +18603,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SyncInstanceMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SyncInstanceMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SyncInstanceMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Synchronizes the metadata of all databases in a database instance.
-     *  *
-     * @description You can call this operation only for database instances whose control mode is Security Collaboration.
-     *  *
-     * @param SyncInstanceMetaRequest $request SyncInstanceMetaRequest
+     * Synchronizes the metadata of all databases in a database instance.
      *
-     * @return SyncInstanceMetaResponse SyncInstanceMetaResponse
+     * @remarks
+     * You can call this operation only for database instances whose control mode is Security Collaboration.
+     *
+     * @param request - SyncInstanceMetaRequest
+     * @returns SyncInstanceMetaResponse
+     *
+     * @param SyncInstanceMetaRequest $request
+     *
+     * @return SyncInstanceMetaResponse
      */
     public function syncInstanceMeta($request)
     {
@@ -14989,34 +18631,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 更新权限策略
-     *  *
-     * @param UpdateAbacPolicyRequest $request UpdateAbacPolicyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 更新权限策略.
      *
-     * @return UpdateAbacPolicyResponse UpdateAbacPolicyResponse
+     * @param request - UpdateAbacPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAbacPolicyResponse
+     *
+     * @param UpdateAbacPolicyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateAbacPolicyResponse
      */
     public function updateAbacPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->abacPolicyContent)) {
-            $query['AbacPolicyContent'] = $request->abacPolicyContent;
+        if (null !== $request->abacPolicyContent) {
+            @$query['AbacPolicyContent'] = $request->abacPolicyContent;
         }
-        if (!Utils::isUnset($request->abacPolicyDesc)) {
-            $query['AbacPolicyDesc'] = $request->abacPolicyDesc;
+
+        if (null !== $request->abacPolicyDesc) {
+            @$query['AbacPolicyDesc'] = $request->abacPolicyDesc;
         }
-        if (!Utils::isUnset($request->abacPolicyId)) {
-            $query['AbacPolicyId'] = $request->abacPolicyId;
+
+        if (null !== $request->abacPolicyId) {
+            @$query['AbacPolicyId'] = $request->abacPolicyId;
         }
-        if (!Utils::isUnset($request->abacPolicyName)) {
-            $query['AbacPolicyName'] = $request->abacPolicyName;
+
+        if (null !== $request->abacPolicyName) {
+            @$query['AbacPolicyName'] = $request->abacPolicyName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAbacPolicy',
@@ -15029,16 +18680,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAbacPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新权限策略
-     *  *
-     * @param UpdateAbacPolicyRequest $request UpdateAbacPolicyRequest
+     * 更新权限策略.
      *
-     * @return UpdateAbacPolicyResponse UpdateAbacPolicyResponse
+     * @param request - UpdateAbacPolicyRequest
+     * @returns UpdateAbacPolicyResponse
+     *
+     * @param UpdateAbacPolicyRequest $request
+     *
+     * @return UpdateAbacPolicyResponse
      */
     public function updateAbacPolicy($request)
     {
@@ -15048,33 +18705,42 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a permission template.
-     *  *
-     * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param UpdateAuthorityTemplateRequest $request UpdateAuthorityTemplateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies a permission template.
      *
-     * @return UpdateAuthorityTemplateResponse UpdateAuthorityTemplateResponse
+     * @remarks
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - UpdateAuthorityTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAuthorityTemplateResponse
+     *
+     * @param UpdateAuthorityTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAuthorityTemplateResponse
      */
     public function updateAuthorityTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAuthorityTemplate',
@@ -15087,18 +18753,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a permission template.
-     *  *
-     * @description You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
-     *  *
-     * @param UpdateAuthorityTemplateRequest $request UpdateAuthorityTemplateRequest
+     * Modifies a permission template.
      *
-     * @return UpdateAuthorityTemplateResponse UpdateAuthorityTemplateResponse
+     * @remarks
+     * You are a database administrator (DBA) or a Data Management (DMS) administrator. For more information about how to view system roles, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
+     *
+     * @param request - UpdateAuthorityTemplateRequest
+     * @returns UpdateAuthorityTemplateResponse
+     *
+     * @param UpdateAuthorityTemplateRequest $request
+     *
+     * @return UpdateAuthorityTemplateResponse
      */
     public function updateAuthorityTemplate($request)
     {
@@ -15108,45 +18781,57 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 更新湖仓数据库
-     *  *
-     * @param UpdateDataLakeDatabaseRequest $tmpReq  UpdateDataLakeDatabaseRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 更新湖仓数据库.
      *
-     * @return UpdateDataLakeDatabaseResponse UpdateDataLakeDatabaseResponse
+     * @param tmpReq - UpdateDataLakeDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDataLakeDatabaseResponse
+     *
+     * @param UpdateDataLakeDatabaseRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateDataLakeDatabaseResponse
      */
     public function updateDataLakeDatabaseWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataLakeDatabaseShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->parameters)) {
-            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->location)) {
-            $query['Location'] = $request->location;
+
+        if (null !== $request->location) {
+            @$query['Location'] = $request->location;
         }
-        if (!Utils::isUnset($request->parametersShrink)) {
-            $query['Parameters'] = $request->parametersShrink;
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataLakeDatabase',
@@ -15159,16 +18844,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataLakeDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新湖仓数据库
-     *  *
-     * @param UpdateDataLakeDatabaseRequest $request UpdateDataLakeDatabaseRequest
+     * 更新湖仓数据库.
      *
-     * @return UpdateDataLakeDatabaseResponse UpdateDataLakeDatabaseResponse
+     * @param request - UpdateDataLakeDatabaseRequest
+     * @returns UpdateDataLakeDatabaseResponse
+     *
+     * @param UpdateDataLakeDatabaseRequest $request
+     *
+     * @return UpdateDataLakeDatabaseResponse
      */
     public function updateDataLakeDatabase($request)
     {
@@ -15178,44 +18869,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 更新湖仓表分区
-     *  *
-     * @param UpdateDataLakePartitionRequest $tmpReq  UpdateDataLakePartitionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 更新湖仓表分区.
      *
-     * @return UpdateDataLakePartitionResponse UpdateDataLakePartitionResponse
+     * @param tmpReq - UpdateDataLakePartitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDataLakePartitionResponse
+     *
+     * @param UpdateDataLakePartitionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateDataLakePartitionResponse
      */
     public function updateDataLakePartitionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataLakePartitionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->partitionInput)) {
-            $request->partitionInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionInput, 'PartitionInput', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->partitionInput) {
+            $request->partitionInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partitionInput, 'PartitionInput', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->partitionInputShrink)) {
-            $body['PartitionInput'] = $request->partitionInputShrink;
+        if (null !== $request->partitionInputShrink) {
+            @$body['PartitionInput'] = $request->partitionInputShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataLakePartition',
@@ -15228,16 +18930,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataLakePartitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新湖仓表分区
-     *  *
-     * @param UpdateDataLakePartitionRequest $request UpdateDataLakePartitionRequest
+     * 更新湖仓表分区.
      *
-     * @return UpdateDataLakePartitionResponse UpdateDataLakePartitionResponse
+     * @param request - UpdateDataLakePartitionRequest
+     * @returns UpdateDataLakePartitionResponse
+     *
+     * @param UpdateDataLakePartitionRequest $request
+     *
+     * @return UpdateDataLakePartitionResponse
      */
     public function updateDataLakePartition($request)
     {
@@ -15247,41 +18955,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary 更新湖仓表信息
-     *  *
-     * @param UpdateDataLakeTableRequest $tmpReq  UpdateDataLakeTableRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 更新湖仓表信息.
      *
-     * @return UpdateDataLakeTableResponse UpdateDataLakeTableResponse
+     * @param tmpReq - UpdateDataLakeTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDataLakeTableResponse
+     *
+     * @param UpdateDataLakeTableRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDataLakeTableResponse
      */
     public function updateDataLakeTableWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataLakeTableShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tableInput)) {
-            $request->tableInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableInput, 'TableInput', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableInput) {
+            $request->tableInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableInput, 'TableInput', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['CatalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
-        if (!Utils::isUnset($request->dataRegion)) {
-            $query['DataRegion'] = $request->dataRegion;
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->tableInputShrink)) {
-            $body['TableInput'] = $request->tableInputShrink;
+        if (null !== $request->tableInputShrink) {
+            @$body['TableInput'] = $request->tableInputShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataLakeTable',
@@ -15294,16 +19012,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataLakeTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新湖仓表信息
-     *  *
-     * @param UpdateDataLakeTableRequest $request UpdateDataLakeTableRequest
+     * 更新湖仓表信息.
      *
-     * @return UpdateDataLakeTableResponse UpdateDataLakeTableResponse
+     * @param request - UpdateDataLakeTableRequest
+     * @returns UpdateDataLakeTableResponse
+     *
+     * @param UpdateDataLakeTableRequest $request
+     *
+     * @return UpdateDataLakeTableResponse
      */
     public function updateDataLakeTable($request)
     {
@@ -15313,96 +19037,126 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a database instance and checks the connectivity of the database instance.
-     *  *
-     * @description Before you call the UpdateInstance operation, call the [GetInstance](https://help.aliyun.com/document_detail/141567.html) or [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the complete information about the instance.
-     *  *
-     * @param UpdateInstanceRequest $request UpdateInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a database instance and checks the connectivity of the database instance.
      *
-     * @return UpdateInstanceResponse UpdateInstanceResponse
+     * @remarks
+     * Before you call the UpdateInstance operation, call the [GetInstance](https://help.aliyun.com/document_detail/141567.html) or [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the complete information about the instance.
+     *
+     * @param request - UpdateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateInstanceResponse
+     *
+     * @param UpdateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataLinkName)) {
-            $query['DataLinkName'] = $request->dataLinkName;
+        if (null !== $request->dataLinkName) {
+            @$query['DataLinkName'] = $request->dataLinkName;
         }
-        if (!Utils::isUnset($request->databasePassword)) {
-            $query['DatabasePassword'] = $request->databasePassword;
+
+        if (null !== $request->databasePassword) {
+            @$query['DatabasePassword'] = $request->databasePassword;
         }
-        if (!Utils::isUnset($request->databaseUser)) {
-            $query['DatabaseUser'] = $request->databaseUser;
+
+        if (null !== $request->databaseUser) {
+            @$query['DatabaseUser'] = $request->databaseUser;
         }
-        if (!Utils::isUnset($request->dbaId)) {
-            $query['DbaId'] = $request->dbaId;
+
+        if (null !== $request->dbaId) {
+            @$query['DbaId'] = $request->dbaId;
         }
-        if (!Utils::isUnset($request->ddlOnline)) {
-            $query['DdlOnline'] = $request->ddlOnline;
+
+        if (null !== $request->ddlOnline) {
+            @$query['DdlOnline'] = $request->ddlOnline;
         }
-        if (!Utils::isUnset($request->ecsInstanceId)) {
-            $query['EcsInstanceId'] = $request->ecsInstanceId;
+
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
         }
-        if (!Utils::isUnset($request->ecsRegion)) {
-            $query['EcsRegion'] = $request->ecsRegion;
+
+        if (null !== $request->ecsRegion) {
+            @$query['EcsRegion'] = $request->ecsRegion;
         }
-        if (!Utils::isUnset($request->enableSellSitd)) {
-            $query['EnableSellSitd'] = $request->enableSellSitd;
+
+        if (null !== $request->enableSellSitd) {
+            @$query['EnableSellSitd'] = $request->enableSellSitd;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->exportTimeout)) {
-            $query['ExportTimeout'] = $request->exportTimeout;
+
+        if (null !== $request->exportTimeout) {
+            @$query['ExportTimeout'] = $request->exportTimeout;
         }
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->instanceAlias)) {
-            $query['InstanceAlias'] = $request->instanceAlias;
+
+        if (null !== $request->instanceAlias) {
+            @$query['InstanceAlias'] = $request->instanceAlias;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceSource)) {
-            $query['InstanceSource'] = $request->instanceSource;
+
+        if (null !== $request->instanceSource) {
+            @$query['InstanceSource'] = $request->instanceSource;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->queryTimeout)) {
-            $query['QueryTimeout'] = $request->queryTimeout;
+
+        if (null !== $request->queryTimeout) {
+            @$query['QueryTimeout'] = $request->queryTimeout;
         }
-        if (!Utils::isUnset($request->safeRuleId)) {
-            $query['SafeRuleId'] = $request->safeRuleId;
+
+        if (null !== $request->safeRuleId) {
+            @$query['SafeRuleId'] = $request->safeRuleId;
         }
-        if (!Utils::isUnset($request->sid)) {
-            $query['Sid'] = $request->sid;
+
+        if (null !== $request->sid) {
+            @$query['Sid'] = $request->sid;
         }
-        if (!Utils::isUnset($request->skipTest)) {
-            $query['SkipTest'] = $request->skipTest;
+
+        if (null !== $request->skipTest) {
+            @$query['SkipTest'] = $request->skipTest;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->useDsql)) {
-            $query['UseDsql'] = $request->useDsql;
+
+        if (null !== $request->useDsql) {
+            @$query['UseDsql'] = $request->useDsql;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateInstance',
@@ -15415,18 +19169,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about a database instance and checks the connectivity of the database instance.
-     *  *
-     * @description Before you call the UpdateInstance operation, call the [GetInstance](https://help.aliyun.com/document_detail/141567.html) or [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the complete information about the instance.
-     *  *
-     * @param UpdateInstanceRequest $request UpdateInstanceRequest
+     * Updates the information about a database instance and checks the connectivity of the database instance.
      *
-     * @return UpdateInstanceResponse UpdateInstanceResponse
+     * @remarks
+     * Before you call the UpdateInstance operation, call the [GetInstance](https://help.aliyun.com/document_detail/141567.html) or [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the complete information about the instance.
+     *
+     * @param request - UpdateInstanceRequest
+     * @returns UpdateInstanceResponse
+     *
+     * @param UpdateInstanceRequest $request
+     *
+     * @return UpdateInstanceResponse
      */
     public function updateInstance($request)
     {
@@ -15436,35 +19197,44 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the service level agreement (SLA) timeout reminder for a task flow.
-     *  *
-     * @description SLA rules take effect after task flows are deployed and published.
-     *  *
-     * @param UpdateSLARulesRequest $tmpReq  UpdateSLARulesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates the service level agreement (SLA) timeout reminder for a task flow.
      *
-     * @return UpdateSLARulesResponse UpdateSLARulesResponse
+     * @remarks
+     * SLA rules take effect after task flows are deployed and published.
+     *
+     * @param tmpReq - UpdateSLARulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSLARulesResponse
+     *
+     * @param UpdateSLARulesRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateSLARulesResponse
      */
     public function updateSLARulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateSLARulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->slaRuleList)) {
-            $request->slaRuleListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->slaRuleList, 'SlaRuleList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->slaRuleList) {
+            $request->slaRuleListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->slaRuleList, 'SlaRuleList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->slaRuleListShrink)) {
-            $query['SlaRuleList'] = $request->slaRuleListShrink;
+
+        if (null !== $request->slaRuleListShrink) {
+            @$query['SlaRuleList'] = $request->slaRuleListShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSLARules',
@@ -15477,18 +19247,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSLARulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the service level agreement (SLA) timeout reminder for a task flow.
-     *  *
-     * @description SLA rules take effect after task flows are deployed and published.
-     *  *
-     * @param UpdateSLARulesRequest $request UpdateSLARulesRequest
+     * Updates the service level agreement (SLA) timeout reminder for a task flow.
      *
-     * @return UpdateSLARulesResponse UpdateSLARulesResponse
+     * @remarks
+     * SLA rules take effect after task flows are deployed and published.
+     *
+     * @param request - UpdateSLARulesRequest
+     * @returns UpdateSLARulesResponse
+     *
+     * @param UpdateSLARulesRequest $request
+     *
+     * @return UpdateSLARulesResponse
      */
     public function updateSLARules($request)
     {
@@ -15498,31 +19275,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the name and description of the business scenario for a specified task flow.
-     *  *
-     * @param UpdateScenarioRequest $request UpdateScenarioRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates the name and description of the business scenario for a specified task flow.
      *
-     * @return UpdateScenarioResponse UpdateScenarioResponse
+     * @param request - UpdateScenarioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateScenarioResponse
+     *
+     * @param UpdateScenarioRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateScenarioResponse
      */
     public function updateScenarioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
-        if (!Utils::isUnset($request->scenarioName)) {
-            $query['ScenarioName'] = $request->scenarioName;
+
+        if (null !== $request->scenarioName) {
+            @$query['ScenarioName'] = $request->scenarioName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateScenario',
@@ -15535,16 +19320,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateScenarioResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the name and description of the business scenario for a specified task flow.
-     *  *
-     * @param UpdateScenarioRequest $request UpdateScenarioRequest
+     * Updates the name and description of the business scenario for a specified task flow.
      *
-     * @return UpdateScenarioResponse UpdateScenarioResponse
+     * @param request - UpdateScenarioRequest
+     * @returns UpdateScenarioResponse
+     *
+     * @param UpdateScenarioRequest $request
+     *
+     * @return UpdateScenarioResponse
      */
     public function updateScenario($request)
     {
@@ -15554,31 +19345,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the name and description of a specific security rule set.
-     *  *
-     * @param UpdateStandardGroupRequest $request UpdateStandardGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the name and description of a specific security rule set.
      *
-     * @return UpdateStandardGroupResponse UpdateStandardGroupResponse
+     * @param request - UpdateStandardGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateStandardGroupResponse
+     *
+     * @param UpdateStandardGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateStandardGroupResponse
      */
     public function updateStandardGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateStandardGroup',
@@ -15591,16 +19390,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateStandardGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the name and description of a specific security rule set.
-     *  *
-     * @param UpdateStandardGroupRequest $request UpdateStandardGroupRequest
+     * Modifies the name and description of a specific security rule set.
      *
-     * @return UpdateStandardGroupResponse UpdateStandardGroupResponse
+     * @param request - UpdateStandardGroupRequest
+     * @returns UpdateStandardGroupResponse
+     *
+     * @param UpdateStandardGroupRequest $request
+     *
+     * @return UpdateStandardGroupResponse
      */
     public function updateStandardGroup($request)
     {
@@ -15610,30 +19415,38 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the advanced configuration of a task node.
-     *  *
-     * @description You can call this operation to configure a failed task or rerun a task.
-     *  *
-     * @param UpdateTaskConfigRequest $request UpdateTaskConfigRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Updates the advanced configuration of a task node.
      *
-     * @return UpdateTaskConfigResponse UpdateTaskConfigResponse
+     * @remarks
+     * You can call this operation to configure a failed task or rerun a task.
+     *
+     * @param request - UpdateTaskConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskConfigResponse
+     *
+     * @param UpdateTaskConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateTaskConfigResponse
      */
     public function updateTaskConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nodeConfig)) {
-            $query['NodeConfig'] = $request->nodeConfig;
+        if (null !== $request->nodeConfig) {
+            @$query['NodeConfig'] = $request->nodeConfig;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskConfig',
@@ -15646,18 +19459,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the advanced configuration of a task node.
-     *  *
-     * @description You can call this operation to configure a failed task or rerun a task.
-     *  *
-     * @param UpdateTaskConfigRequest $request UpdateTaskConfigRequest
+     * Updates the advanced configuration of a task node.
      *
-     * @return UpdateTaskConfigResponse UpdateTaskConfigResponse
+     * @remarks
+     * You can call this operation to configure a failed task or rerun a task.
+     *
+     * @param request - UpdateTaskConfigRequest
+     * @returns UpdateTaskConfigResponse
+     *
+     * @param UpdateTaskConfigRequest $request
+     *
+     * @return UpdateTaskConfigResponse
      */
     public function updateTaskConfig($request)
     {
@@ -15667,30 +19487,38 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates tasks in a task flow.
-     *  *
-     * @description You can call this operation to modify node configurations.
-     *  *
-     * @param UpdateTaskContentRequest $request UpdateTaskContentRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Updates tasks in a task flow.
      *
-     * @return UpdateTaskContentResponse UpdateTaskContentResponse
+     * @remarks
+     * You can call this operation to modify node configurations.
+     *
+     * @param request - UpdateTaskContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskContentResponse
+     *
+     * @param UpdateTaskContentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateTaskContentResponse
      */
     public function updateTaskContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nodeContent)) {
-            $query['NodeContent'] = $request->nodeContent;
+        if (null !== $request->nodeContent) {
+            @$query['NodeContent'] = $request->nodeContent;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskContent',
@@ -15703,18 +19531,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskContentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates tasks in a task flow.
-     *  *
-     * @description You can call this operation to modify node configurations.
-     *  *
-     * @param UpdateTaskContentRequest $request UpdateTaskContentRequest
+     * Updates tasks in a task flow.
      *
-     * @return UpdateTaskContentResponse UpdateTaskContentResponse
+     * @remarks
+     * You can call this operation to modify node configurations.
+     *
+     * @param request - UpdateTaskContentRequest
+     * @returns UpdateTaskContentResponse
+     *
+     * @param UpdateTaskContentRequest $request
+     *
+     * @return UpdateTaskContentResponse
      */
     public function updateTaskContent($request)
     {
@@ -15724,33 +19559,41 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the constants for a specified task flow.
-     *  *
-     * @param UpdateTaskFlowConstantsRequest $tmpReq  UpdateTaskFlowConstantsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Updates the constants for a specified task flow.
      *
-     * @return UpdateTaskFlowConstantsResponse UpdateTaskFlowConstantsResponse
+     * @param tmpReq - UpdateTaskFlowConstantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskFlowConstantsResponse
+     *
+     * @param UpdateTaskFlowConstantsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateTaskFlowConstantsResponse
      */
     public function updateTaskFlowConstantsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTaskFlowConstantsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dagConstants)) {
-            $request->dagConstantsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dagConstants, 'DagConstants', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dagConstants) {
+            $request->dagConstantsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dagConstants, 'DagConstants', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->dagConstantsShrink)) {
-            $query['DagConstants'] = $request->dagConstantsShrink;
+        if (null !== $request->dagConstantsShrink) {
+            @$query['DagConstants'] = $request->dagConstantsShrink;
         }
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskFlowConstants',
@@ -15763,16 +19606,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskFlowConstantsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the constants for a specified task flow.
-     *  *
-     * @param UpdateTaskFlowConstantsRequest $request UpdateTaskFlowConstantsRequest
+     * Updates the constants for a specified task flow.
      *
-     * @return UpdateTaskFlowConstantsResponse UpdateTaskFlowConstantsResponse
+     * @param request - UpdateTaskFlowConstantsRequest
+     * @returns UpdateTaskFlowConstantsResponse
+     *
+     * @param UpdateTaskFlowConstantsRequest $request
+     *
+     * @return UpdateTaskFlowConstantsResponse
      */
     public function updateTaskFlowConstants($request)
     {
@@ -15782,33 +19631,41 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the IDs of the users who are involved in the task flow.
-     *  *
-     * @param UpdateTaskFlowCooperatorsRequest $tmpReq  UpdateTaskFlowCooperatorsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Updates the IDs of the users who are involved in the task flow.
      *
-     * @return UpdateTaskFlowCooperatorsResponse UpdateTaskFlowCooperatorsResponse
+     * @param tmpReq - UpdateTaskFlowCooperatorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskFlowCooperatorsResponse
+     *
+     * @param UpdateTaskFlowCooperatorsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateTaskFlowCooperatorsResponse
      */
     public function updateTaskFlowCooperatorsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTaskFlowCooperatorsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cooperatorIds)) {
-            $request->cooperatorIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cooperatorIds, 'CooperatorIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cooperatorIds) {
+            $request->cooperatorIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cooperatorIds, 'CooperatorIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->cooperatorIdsShrink)) {
-            $query['CooperatorIds'] = $request->cooperatorIdsShrink;
+        if (null !== $request->cooperatorIdsShrink) {
+            @$query['CooperatorIds'] = $request->cooperatorIdsShrink;
         }
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskFlowCooperators',
@@ -15821,16 +19678,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskFlowCooperatorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the IDs of the users who are involved in the task flow.
-     *  *
-     * @param UpdateTaskFlowCooperatorsRequest $request UpdateTaskFlowCooperatorsRequest
+     * Updates the IDs of the users who are involved in the task flow.
      *
-     * @return UpdateTaskFlowCooperatorsResponse UpdateTaskFlowCooperatorsResponse
+     * @param request - UpdateTaskFlowCooperatorsRequest
+     * @returns UpdateTaskFlowCooperatorsResponse
+     *
+     * @param UpdateTaskFlowCooperatorsRequest $request
+     *
+     * @return UpdateTaskFlowCooperatorsResponse
      */
     public function updateTaskFlowCooperators($request)
     {
@@ -15840,39 +19703,48 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the start node and end node of multiple edges at a time for a task flow.
-     *  *
-     * @description ###
+     * Updates the start node and end node of multiple edges at a time for a task flow.
+     *
+     * @remarks
+     * ###
      * The edges can be updated only when the following conditions are met:
      * 1.  The specified edge exists in the directed acyclic graph (DAG) of the task flow specified by DagId.
      * 2.  The specified edge nodes exist in the DAG of the task flow specified by DagId.
      * 3.  After the update, rings do not exist in the DAG.
-     *  *
-     * @param UpdateTaskFlowEdgesRequest $tmpReq  UpdateTaskFlowEdgesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskFlowEdgesResponse UpdateTaskFlowEdgesResponse
+     * @param tmpReq - UpdateTaskFlowEdgesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskFlowEdgesResponse
+     *
+     * @param UpdateTaskFlowEdgesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateTaskFlowEdgesResponse
      */
     public function updateTaskFlowEdgesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTaskFlowEdgesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->edges)) {
-            $request->edgesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->edges, 'Edges', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->edges) {
+            $request->edgesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->edges, 'Edges', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->edgesShrink)) {
-            $query['Edges'] = $request->edgesShrink;
+
+        if (null !== $request->edgesShrink) {
+            @$query['Edges'] = $request->edgesShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskFlowEdges',
@@ -15885,22 +19757,29 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskFlowEdgesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the start node and end node of multiple edges at a time for a task flow.
-     *  *
-     * @description ###
+     * Updates the start node and end node of multiple edges at a time for a task flow.
+     *
+     * @remarks
+     * ###
      * The edges can be updated only when the following conditions are met:
      * 1.  The specified edge exists in the directed acyclic graph (DAG) of the task flow specified by DagId.
      * 2.  The specified edge nodes exist in the DAG of the task flow specified by DagId.
      * 3.  After the update, rings do not exist in the DAG.
-     *  *
-     * @param UpdateTaskFlowEdgesRequest $request UpdateTaskFlowEdgesRequest
      *
-     * @return UpdateTaskFlowEdgesResponse UpdateTaskFlowEdgesResponse
+     * @param request - UpdateTaskFlowEdgesRequest
+     * @returns UpdateTaskFlowEdgesResponse
+     *
+     * @param UpdateTaskFlowEdgesRequest $request
+     *
+     * @return UpdateTaskFlowEdgesResponse
      */
     public function updateTaskFlowEdges($request)
     {
@@ -15910,31 +19789,39 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the name and description of a task flow.
-     *  *
-     * @param UpdateTaskFlowNameAndDescRequest $request UpdateTaskFlowNameAndDescRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Updates the name and description of a task flow.
      *
-     * @return UpdateTaskFlowNameAndDescResponse UpdateTaskFlowNameAndDescResponse
+     * @param request - UpdateTaskFlowNameAndDescRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskFlowNameAndDescResponse
+     *
+     * @param UpdateTaskFlowNameAndDescRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateTaskFlowNameAndDescResponse
      */
     public function updateTaskFlowNameAndDescWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->dagName)) {
-            $query['DagName'] = $request->dagName;
+
+        if (null !== $request->dagName) {
+            @$query['DagName'] = $request->dagName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskFlowNameAndDesc',
@@ -15947,16 +19834,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskFlowNameAndDescResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskFlowNameAndDescResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskFlowNameAndDescResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the name and description of a task flow.
-     *  *
-     * @param UpdateTaskFlowNameAndDescRequest $request UpdateTaskFlowNameAndDescRequest
+     * Updates the name and description of a task flow.
      *
-     * @return UpdateTaskFlowNameAndDescResponse UpdateTaskFlowNameAndDescResponse
+     * @param request - UpdateTaskFlowNameAndDescRequest
+     * @returns UpdateTaskFlowNameAndDescResponse
+     *
+     * @param UpdateTaskFlowNameAndDescRequest $request
+     *
+     * @return UpdateTaskFlowNameAndDescResponse
      */
     public function updateTaskFlowNameAndDesc($request)
     {
@@ -15966,34 +19859,43 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the notification settings for task flows.
-     *  *
-     * @param UpdateTaskFlowNotificationRequest $request UpdateTaskFlowNotificationRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Updates the notification settings for task flows.
      *
-     * @return UpdateTaskFlowNotificationResponse UpdateTaskFlowNotificationResponse
+     * @param request - UpdateTaskFlowNotificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskFlowNotificationResponse
+     *
+     * @param UpdateTaskFlowNotificationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateTaskFlowNotificationResponse
      */
     public function updateTaskFlowNotificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->dagNotificationFail)) {
-            $query['DagNotificationFail'] = $request->dagNotificationFail;
+
+        if (null !== $request->dagNotificationFail) {
+            @$query['DagNotificationFail'] = $request->dagNotificationFail;
         }
-        if (!Utils::isUnset($request->dagNotificationSla)) {
-            $query['DagNotificationSla'] = $request->dagNotificationSla;
+
+        if (null !== $request->dagNotificationSla) {
+            @$query['DagNotificationSla'] = $request->dagNotificationSla;
         }
-        if (!Utils::isUnset($request->dagNotificationSuccess)) {
-            $query['DagNotificationSuccess'] = $request->dagNotificationSuccess;
+
+        if (null !== $request->dagNotificationSuccess) {
+            @$query['DagNotificationSuccess'] = $request->dagNotificationSuccess;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskFlowNotification',
@@ -16006,16 +19908,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskFlowNotificationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the notification settings for task flows.
-     *  *
-     * @param UpdateTaskFlowNotificationRequest $request UpdateTaskFlowNotificationRequest
+     * Updates the notification settings for task flows.
      *
-     * @return UpdateTaskFlowNotificationResponse UpdateTaskFlowNotificationResponse
+     * @param request - UpdateTaskFlowNotificationRequest
+     * @returns UpdateTaskFlowNotificationResponse
+     *
+     * @param UpdateTaskFlowNotificationRequest $request
+     *
+     * @return UpdateTaskFlowNotificationResponse
      */
     public function updateTaskFlowNotification($request)
     {
@@ -16025,30 +19933,38 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Changes the owner of a task flow.
-     *  *
-     * @description Note: The new owner of the task flow must belong to the same tenant as the previous owner.
-     *  *
-     * @param UpdateTaskFlowOwnerRequest $request UpdateTaskFlowOwnerRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Changes the owner of a task flow.
      *
-     * @return UpdateTaskFlowOwnerResponse UpdateTaskFlowOwnerResponse
+     * @remarks
+     * Note: The new owner of the task flow must belong to the same tenant as the previous owner.
+     *
+     * @param request - UpdateTaskFlowOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskFlowOwnerResponse
+     *
+     * @param UpdateTaskFlowOwnerRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateTaskFlowOwnerResponse
      */
     public function updateTaskFlowOwnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->newOwnerId)) {
-            $query['NewOwnerId'] = $request->newOwnerId;
+
+        if (null !== $request->newOwnerId) {
+            @$query['NewOwnerId'] = $request->newOwnerId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskFlowOwner',
@@ -16061,18 +19977,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskFlowOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskFlowOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskFlowOwnerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the owner of a task flow.
-     *  *
-     * @description Note: The new owner of the task flow must belong to the same tenant as the previous owner.
-     *  *
-     * @param UpdateTaskFlowOwnerRequest $request UpdateTaskFlowOwnerRequest
+     * Changes the owner of a task flow.
      *
-     * @return UpdateTaskFlowOwnerResponse UpdateTaskFlowOwnerResponse
+     * @remarks
+     * Note: The new owner of the task flow must belong to the same tenant as the previous owner.
+     *
+     * @param request - UpdateTaskFlowOwnerRequest
+     * @returns UpdateTaskFlowOwnerResponse
+     *
+     * @param UpdateTaskFlowOwnerRequest $request
+     *
+     * @return UpdateTaskFlowOwnerResponse
      */
     public function updateTaskFlowOwner($request)
     {
@@ -16082,35 +20005,44 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Fully updates the edges of a task flow.
-     *  *
-     * @description You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
-     *  *
-     * @param UpdateTaskFlowRelationsRequest $tmpReq  UpdateTaskFlowRelationsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Fully updates the edges of a task flow.
      *
-     * @return UpdateTaskFlowRelationsResponse UpdateTaskFlowRelationsResponse
+     * @remarks
+     * You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
+     *
+     * @param tmpReq - UpdateTaskFlowRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskFlowRelationsResponse
+     *
+     * @param UpdateTaskFlowRelationsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateTaskFlowRelationsResponse
      */
     public function updateTaskFlowRelationsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTaskFlowRelationsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->edges)) {
-            $request->edgesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->edges, 'Edges', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->edges) {
+            $request->edgesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->edges, 'Edges', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->edgesShrink)) {
-            $query['Edges'] = $request->edgesShrink;
+
+        if (null !== $request->edgesShrink) {
+            @$query['Edges'] = $request->edgesShrink;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskFlowRelations',
@@ -16123,18 +20055,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskFlowRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskFlowRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskFlowRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Fully updates the edges of a task flow.
-     *  *
-     * @description You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
-     *  *
-     * @param UpdateTaskFlowRelationsRequest $request UpdateTaskFlowRelationsRequest
+     * Fully updates the edges of a task flow.
      *
-     * @return UpdateTaskFlowRelationsResponse UpdateTaskFlowRelationsResponse
+     * @remarks
+     * You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
+     *
+     * @param request - UpdateTaskFlowRelationsRequest
+     * @returns UpdateTaskFlowRelationsResponse
+     *
+     * @param UpdateTaskFlowRelationsRequest $request
+     *
+     * @return UpdateTaskFlowRelationsResponse
      */
     public function updateTaskFlowRelations($request)
     {
@@ -16144,52 +20083,67 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the scheduling properties for a task flow.
-     *  *
-     * @description You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
-     * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
-     *  *
-     * @param UpdateTaskFlowScheduleRequest $request UpdateTaskFlowScheduleRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Updates the scheduling properties for a task flow.
      *
-     * @return UpdateTaskFlowScheduleResponse UpdateTaskFlowScheduleResponse
+     * @remarks
+     * You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
+     * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
+     *
+     * @param request - UpdateTaskFlowScheduleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskFlowScheduleResponse
+     *
+     * @param UpdateTaskFlowScheduleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateTaskFlowScheduleResponse
      */
     public function updateTaskFlowScheduleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cronBeginDate)) {
-            $query['CronBeginDate'] = $request->cronBeginDate;
+        if (null !== $request->cronBeginDate) {
+            @$query['CronBeginDate'] = $request->cronBeginDate;
         }
-        if (!Utils::isUnset($request->cronEndDate)) {
-            $query['CronEndDate'] = $request->cronEndDate;
+
+        if (null !== $request->cronEndDate) {
+            @$query['CronEndDate'] = $request->cronEndDate;
         }
-        if (!Utils::isUnset($request->cronStr)) {
-            $query['CronStr'] = $request->cronStr;
+
+        if (null !== $request->cronStr) {
+            @$query['CronStr'] = $request->cronStr;
         }
-        if (!Utils::isUnset($request->cronType)) {
-            $query['CronType'] = $request->cronType;
+
+        if (null !== $request->cronType) {
+            @$query['CronType'] = $request->cronType;
         }
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->scheduleParam)) {
-            $query['ScheduleParam'] = $request->scheduleParam;
+
+        if (null !== $request->scheduleParam) {
+            @$query['ScheduleParam'] = $request->scheduleParam;
         }
-        if (!Utils::isUnset($request->scheduleSwitch)) {
-            $query['ScheduleSwitch'] = $request->scheduleSwitch;
+
+        if (null !== $request->scheduleSwitch) {
+            @$query['ScheduleSwitch'] = $request->scheduleSwitch;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->timeZoneId)) {
-            $query['TimeZoneId'] = $request->timeZoneId;
+
+        if (null !== $request->timeZoneId) {
+            @$query['TimeZoneId'] = $request->timeZoneId;
         }
-        if (!Utils::isUnset($request->triggerType)) {
-            $query['TriggerType'] = $request->triggerType;
+
+        if (null !== $request->triggerType) {
+            @$query['TriggerType'] = $request->triggerType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskFlowSchedule',
@@ -16202,19 +20156,26 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskFlowScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskFlowScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskFlowScheduleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the scheduling properties for a task flow.
-     *  *
-     * @description You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
-     * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
-     *  *
-     * @param UpdateTaskFlowScheduleRequest $request UpdateTaskFlowScheduleRequest
+     * Updates the scheduling properties for a task flow.
      *
-     * @return UpdateTaskFlowScheduleResponse UpdateTaskFlowScheduleResponse
+     * @remarks
+     * You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
+     * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
+     *
+     * @param request - UpdateTaskFlowScheduleRequest
+     * @returns UpdateTaskFlowScheduleResponse
+     *
+     * @param UpdateTaskFlowScheduleRequest $request
+     *
+     * @return UpdateTaskFlowScheduleResponse
      */
     public function updateTaskFlowSchedule($request)
     {
@@ -16224,28 +20185,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the time variables for a task flow.
-     *  *
-     * @param UpdateTaskFlowTimeVariablesRequest $request UpdateTaskFlowTimeVariablesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Updates the time variables for a task flow.
      *
-     * @return UpdateTaskFlowTimeVariablesResponse UpdateTaskFlowTimeVariablesResponse
+     * @param request - UpdateTaskFlowTimeVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskFlowTimeVariablesResponse
+     *
+     * @param UpdateTaskFlowTimeVariablesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateTaskFlowTimeVariablesResponse
      */
     public function updateTaskFlowTimeVariablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagId)) {
-            $query['DagId'] = $request->dagId;
+        if (null !== $request->dagId) {
+            @$query['DagId'] = $request->dagId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->timeVariables)) {
-            $query['TimeVariables'] = $request->timeVariables;
+
+        if (null !== $request->timeVariables) {
+            @$query['TimeVariables'] = $request->timeVariables;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskFlowTimeVariables',
@@ -16258,16 +20226,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskFlowTimeVariablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the time variables for a task flow.
-     *  *
-     * @param UpdateTaskFlowTimeVariablesRequest $request UpdateTaskFlowTimeVariablesRequest
+     * Updates the time variables for a task flow.
      *
-     * @return UpdateTaskFlowTimeVariablesResponse UpdateTaskFlowTimeVariablesResponse
+     * @param request - UpdateTaskFlowTimeVariablesRequest
+     * @returns UpdateTaskFlowTimeVariablesResponse
+     *
+     * @param UpdateTaskFlowTimeVariablesRequest $request
+     *
+     * @return UpdateTaskFlowTimeVariablesResponse
      */
     public function updateTaskFlowTimeVariables($request)
     {
@@ -16277,28 +20251,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the name of a specified task.
-     *  *
-     * @param UpdateTaskNameRequest $request UpdateTaskNameRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates the name of a specified task.
      *
-     * @return UpdateTaskNameResponse UpdateTaskNameResponse
+     * @param request - UpdateTaskNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskNameResponse
+     *
+     * @param UpdateTaskNameRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTaskNameResponse
      */
     public function updateTaskNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskName',
@@ -16311,16 +20292,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the name of a specified task.
-     *  *
-     * @param UpdateTaskNameRequest $request UpdateTaskNameRequest
+     * Updates the name of a specified task.
      *
-     * @return UpdateTaskNameResponse UpdateTaskNameResponse
+     * @param request - UpdateTaskNameRequest
+     * @returns UpdateTaskNameResponse
+     *
+     * @param UpdateTaskNameRequest $request
+     *
+     * @return UpdateTaskNameResponse
      */
     public function updateTaskName($request)
     {
@@ -16330,30 +20317,38 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates the output variables for a specified task node.
-     *  *
-     * @description Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
-     *  *
-     * @param UpdateTaskOutputRequest $request UpdateTaskOutputRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Updates the output variables for a specified task node.
      *
-     * @return UpdateTaskOutputResponse UpdateTaskOutputResponse
+     * @remarks
+     * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
+     *
+     * @param request - UpdateTaskOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskOutputResponse
+     *
+     * @param UpdateTaskOutputRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateTaskOutputResponse
      */
     public function updateTaskOutputWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->nodeOutput)) {
-            $query['NodeOutput'] = $request->nodeOutput;
+
+        if (null !== $request->nodeOutput) {
+            @$query['NodeOutput'] = $request->nodeOutput;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskOutput',
@@ -16366,18 +20361,25 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskOutputResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the output variables for a specified task node.
-     *  *
-     * @description Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
-     *  *
-     * @param UpdateTaskOutputRequest $request UpdateTaskOutputRequest
+     * Updates the output variables for a specified task node.
      *
-     * @return UpdateTaskOutputResponse UpdateTaskOutputResponse
+     * @remarks
+     * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
+     *
+     * @param request - UpdateTaskOutputRequest
+     * @returns UpdateTaskOutputResponse
+     *
+     * @param UpdateTaskOutputRequest $request
+     *
+     * @return UpdateTaskOutputResponse
      */
     public function updateTaskOutput($request)
     {
@@ -16387,28 +20389,35 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates time variables for a task.
-     *  *
-     * @param UpdateTaskTimeVariablesRequest $request UpdateTaskTimeVariablesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Updates time variables for a task.
      *
-     * @return UpdateTaskTimeVariablesResponse UpdateTaskTimeVariablesResponse
+     * @param request - UpdateTaskTimeVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskTimeVariablesResponse
+     *
+     * @param UpdateTaskTimeVariablesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateTaskTimeVariablesResponse
      */
     public function updateTaskTimeVariablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->timeVariables)) {
-            $query['TimeVariables'] = $request->timeVariables;
+
+        if (null !== $request->timeVariables) {
+            @$query['TimeVariables'] = $request->timeVariables;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskTimeVariables',
@@ -16421,16 +20430,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskTimeVariablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates time variables for a task.
-     *  *
-     * @param UpdateTaskTimeVariablesRequest $request UpdateTaskTimeVariablesRequest
+     * Updates time variables for a task.
      *
-     * @return UpdateTaskTimeVariablesResponse UpdateTaskTimeVariablesResponse
+     * @param request - UpdateTaskTimeVariablesRequest
+     * @returns UpdateTaskTimeVariablesResponse
+     *
+     * @param UpdateTaskTimeVariablesRequest $request
+     *
+     * @return UpdateTaskTimeVariablesResponse
      */
     public function updateTaskTimeVariables($request)
     {
@@ -16440,40 +20455,51 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @summary Updates user information.
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Updates user information.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param request - UpdateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxExecuteCount)) {
-            $query['MaxExecuteCount'] = $request->maxExecuteCount;
+        if (null !== $request->maxExecuteCount) {
+            @$query['MaxExecuteCount'] = $request->maxExecuteCount;
         }
-        if (!Utils::isUnset($request->maxResultCount)) {
-            $query['MaxResultCount'] = $request->maxResultCount;
+
+        if (null !== $request->maxResultCount) {
+            @$query['MaxResultCount'] = $request->maxResultCount;
         }
-        if (!Utils::isUnset($request->mobile)) {
-            $query['Mobile'] = $request->mobile;
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
         }
-        if (!Utils::isUnset($request->roleNames)) {
-            $query['RoleNames'] = $request->roleNames;
+
+        if (null !== $request->roleNames) {
+            @$query['RoleNames'] = $request->roleNames;
         }
-        if (!Utils::isUnset($request->tid)) {
-            $query['Tid'] = $request->tid;
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
-        if (!Utils::isUnset($request->userNick)) {
-            $query['UserNick'] = $request->userNick;
+
+        if (null !== $request->userNick) {
+            @$query['UserNick'] = $request->userNick;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateUser',
@@ -16486,16 +20512,22 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates user information.
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
+     * Updates user information.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param request - UpdateUserRequest
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
      */
     public function updateUser($request)
     {

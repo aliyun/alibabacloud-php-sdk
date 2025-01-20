@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPhysicalDatabaseRequest extends Model
 {
     /**
-     * @description The ID of the physical database. You can call the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the ID.
-     *
-     * This parameter is required.
-     * @example 43153
-     *
      * @var int
      */
     public $dbId;
-
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the ID of the tenant.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $tid;
@@ -33,14 +23,16 @@ class GetPhysicalDatabaseRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -48,17 +40,18 @@ class GetPhysicalDatabaseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPhysicalDatabaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

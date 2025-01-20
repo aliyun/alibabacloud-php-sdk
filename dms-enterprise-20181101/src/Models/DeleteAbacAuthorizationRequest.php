@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAbacAuthorizationRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123***
-     *
      * @var int
      */
     public $authorizationId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example USER
-     *
      * @var string
      */
     public $identityType;
-
     /**
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -40,17 +28,20 @@ class DeleteAbacAuthorizationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizationId) {
             $res['AuthorizationId'] = $this->authorizationId;
         }
+
         if (null !== $this->identityType) {
             $res['IdentityType'] = $this->identityType;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -58,20 +49,22 @@ class DeleteAbacAuthorizationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAbacAuthorizationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizationId'])) {
             $model->authorizationId = $map['AuthorizationId'];
         }
+
         if (isset($map['IdentityType'])) {
             $model->identityType = $map['IdentityType'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

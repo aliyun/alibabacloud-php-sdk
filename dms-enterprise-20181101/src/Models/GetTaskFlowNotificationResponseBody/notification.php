@@ -4,42 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowNotificationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notification extends Model
 {
     /**
-     * @description Indicates whether notifications for failed task flows are enabled. Valid values:
-     *
-     *   **true**: enabled
-     *   **false**: disabled
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dagNotificationFail;
-
     /**
-     * @description Indicates whether service level agreement (SLA) global notifications for task flows are enabled. Valid values:
-     *
-     *   **true**: enabled
-     *   **false**: disabled
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dagNotificationSla;
-
     /**
-     * @description Indicates whether notifications for successful task flows are enabled. Valid values:
-     *
-     *   **true**: enabled
-     *   **false**: disabled
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dagNotificationSuccess;
@@ -51,17 +28,20 @@ class notification extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dagNotificationFail) {
             $res['DagNotificationFail'] = $this->dagNotificationFail;
         }
+
         if (null !== $this->dagNotificationSla) {
             $res['DagNotificationSla'] = $this->dagNotificationSla;
         }
+
         if (null !== $this->dagNotificationSuccess) {
             $res['DagNotificationSuccess'] = $this->dagNotificationSuccess;
         }
@@ -69,20 +49,22 @@ class notification extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notification
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagNotificationFail'])) {
             $model->dagNotificationFail = $map['DagNotificationFail'];
         }
+
         if (isset($map['DagNotificationSla'])) {
             $model->dagNotificationSla = $map['DagNotificationSla'];
         }
+
         if (isset($map['DagNotificationSuccess'])) {
             $model->dagNotificationSuccess = $map['DagNotificationSuccess'];
         }

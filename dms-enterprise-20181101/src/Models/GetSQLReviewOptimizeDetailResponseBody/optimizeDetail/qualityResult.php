@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailResponseBody\optimizeDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailResponseBody\optimizeDetail\qualityResult\results;
-use AlibabaCloud\Tea\Model;
 
 class qualityResult extends Model
 {
     /**
-     * @description The error message returned.
-     *
-     * @example syntax error
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description Indicates whether an error occurs. Valid values:
-     *
-     *   **true**: An error occurs.
-     *   **false**: No error occurs.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $occurError;
-
     /**
-     * @description The review results based on rules.
-     *
      * @var results[]
      */
     public $results;
@@ -44,23 +29,29 @@ class qualityResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->results)) {
+            Model::validateArray($this->results);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->occurError) {
             $res['OccurError'] = $this->occurError;
         }
+
         if (null !== $this->results) {
-            $res['Results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->results)) {
+                $res['Results'] = [];
+                $n1             = 0;
+                foreach ($this->results as $item1) {
+                    $res['Results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -68,26 +59,28 @@ class qualityResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return qualityResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['OccurError'])) {
             $model->occurError = $map['OccurError'];
         }
+
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
-                foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Results'] as $item1) {
+                    $model->results[$n1++] = results::fromMap($item1);
                 }
             }
         }

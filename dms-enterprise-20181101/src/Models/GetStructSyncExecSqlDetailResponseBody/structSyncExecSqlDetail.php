@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncExecSqlDetailResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class structSyncExecSqlDetail extends Model
 {
     /**
-     * @description The SQL statements that are executed.
-     *
      * @var string
      */
     public $execSql;
-
     /**
-     * @description The total number of SQL statements.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalSqlCount;
@@ -30,14 +23,16 @@ class structSyncExecSqlDetail extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->execSql) {
             $res['ExecSql'] = $this->execSql;
         }
+
         if (null !== $this->totalSqlCount) {
             $res['TotalSqlCount'] = $this->totalSqlCount;
         }
@@ -45,17 +40,18 @@ class structSyncExecSqlDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return structSyncExecSqlDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecSql'])) {
             $model->execSql = $map['ExecSql'];
         }
+
         if (isset($map['TotalSqlCount'])) {
             $model->totalSqlCount = $map['TotalSqlCount'];
         }

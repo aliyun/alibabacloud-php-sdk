@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOrderBaseInfoResponseBody\orderBaseInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relatedUserNickList extends Model
 {
@@ -18,29 +18,43 @@ class relatedUserNickList extends Model
 
     public function validate()
     {
+        if (\is_array($this->userNicks)) {
+            Model::validateArray($this->userNicks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userNicks) {
-            $res['UserNicks'] = $this->userNicks;
+            if (\is_array($this->userNicks)) {
+                $res['UserNicks'] = [];
+                $n1               = 0;
+                foreach ($this->userNicks as $item1) {
+                    $res['UserNicks'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedUserNickList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserNicks'])) {
             if (!empty($map['UserNicks'])) {
-                $model->userNicks = $map['UserNicks'];
+                $model->userNicks = [];
+                $n1               = 0;
+                foreach ($map['UserNicks'] as $item1) {
+                    $model->userNicks[$n1++] = $item1;
+                }
             }
         }
 

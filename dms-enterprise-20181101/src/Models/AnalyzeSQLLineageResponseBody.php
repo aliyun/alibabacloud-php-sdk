@@ -4,53 +4,28 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponseBody\lineageResult;
-use AlibabaCloud\Tea\Model;
 
 class AnalyzeSQLLineageResponseBody extends Model
 {
     /**
-     * @description The error code returned.
-     *
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description The error message returned if the request failed.
-     *
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description Returned data set of SQL lineage.
-     *
      * @var lineageResult
      */
     public $lineageResult;
-
     /**
-     * @description The request ID.
-     *
-     * @example B4B07137-F6AE-4756-8474-7F92BB6C4E04
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -64,23 +39,31 @@ class AnalyzeSQLLineageResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->lineageResult) {
+            $this->lineageResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->lineageResult) {
-            $res['LineageResult'] = null !== $this->lineageResult ? $this->lineageResult->toMap() : null;
+            $res['LineageResult'] = null !== $this->lineageResult ? $this->lineageResult->toArray($noStream) : $this->lineageResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -88,26 +71,30 @@ class AnalyzeSQLLineageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AnalyzeSQLLineageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['LineageResult'])) {
             $model->lineageResult = lineageResult::fromMap($map['LineageResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

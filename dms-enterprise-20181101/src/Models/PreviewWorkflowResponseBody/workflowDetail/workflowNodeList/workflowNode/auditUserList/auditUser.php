@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PreviewWorkflowResponseBody\workflowDetail\workflowNodeList\workflowNode\auditUserList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class auditUser extends Model
 {
     /**
-     * @example Owner
-     *
      * @var string
      */
     public $nickName;
-
     /**
-     * @example db_test
-     *
      * @var string
      */
     public $realName;
-
     /**
-     * @example 16***
-     *
      * @var int
      */
     public $userId;
@@ -36,17 +28,20 @@ class auditUser extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
+
         if (null !== $this->realName) {
             $res['RealName'] = $this->realName;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -54,20 +49,22 @@ class auditUser extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return auditUser
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
+
         if (isset($map['RealName'])) {
             $model->realName = $map['RealName'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

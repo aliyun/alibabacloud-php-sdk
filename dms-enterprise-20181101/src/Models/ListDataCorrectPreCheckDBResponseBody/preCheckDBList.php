@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataCorrectPreCheckDBResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class preCheckDBList extends Model
 {
     /**
-     * @description The ID of the database.
-     *
-     * @example 43***
-     *
      * @var int
      */
     public $dbId;
-
     /**
-     * @description The name of the database.
-     *
-     * @example test@localhost:3306
-     *
      * @var string
      */
     public $searchName;
-
     /**
-     * @description The number of SQL statements.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $sqlNum;
@@ -42,17 +28,20 @@ class preCheckDBList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
+
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
         }
+
         if (null !== $this->sqlNum) {
             $res['SqlNum'] = $this->sqlNum;
         }
@@ -60,20 +49,22 @@ class preCheckDBList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preCheckDBList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
+
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
         }
+
         if (isset($map['SqlNum'])) {
             $model->sqlNum = $map['SqlNum'];
         }

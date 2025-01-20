@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowEdgesByConditionResponseBody\edges;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class edge extends Model
 {
     /**
-     * @description The ID of the task flow edge.
-     *
-     * @example 24***
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The ID of the end node on the edge.
-     *
-     * @example 44***
-     *
      * @var int
      */
     public $nodeEnd;
-
     /**
-     * @description The ID of the start node on the edge.
-     *
-     * @example 44***
-     *
      * @var int
      */
     public $nodeFrom;
@@ -42,17 +28,20 @@ class edge extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->nodeEnd) {
             $res['NodeEnd'] = $this->nodeEnd;
         }
+
         if (null !== $this->nodeFrom) {
             $res['NodeFrom'] = $this->nodeFrom;
         }
@@ -60,20 +49,22 @@ class edge extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return edge
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['NodeEnd'])) {
             $model->nodeEnd = $map['NodeEnd'];
         }
+
         if (isset($map['NodeFrom'])) {
             $model->nodeFrom = $map['NodeFrom'];
         }

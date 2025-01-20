@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderRequest\param;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableInfoList extends Model
 {
     /**
-     * @description The name of the source table.
-     *
-     * @example test_tbl
-     *
      * @var string
      */
     public $sourceTableName;
-
     /**
-     * @description The name of the destination table.
-     *
-     * @example test_tbl
-     *
      * @var string
      */
     public $targetTableName;
@@ -32,14 +23,16 @@ class tableInfoList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceTableName) {
             $res['SourceTableName'] = $this->sourceTableName;
         }
+
         if (null !== $this->targetTableName) {
             $res['TargetTableName'] = $this->targetTableName;
         }
@@ -47,17 +40,18 @@ class tableInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceTableName'])) {
             $model->sourceTableName = $map['SourceTableName'];
         }
+
         if (isset($map['TargetTableName'])) {
             $model->targetTableName = $map['TargetTableName'];
         }

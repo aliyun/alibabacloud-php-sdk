@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsResponseBody\userPermissions\userPermission;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsResponseBody\userPermissions\userPermission\permDetails\permDetail;
-use AlibabaCloud\Tea\Model;
 
 class permDetails extends Model
 {
@@ -19,17 +19,21 @@ class permDetails extends Model
 
     public function validate()
     {
+        if (\is_array($this->permDetail)) {
+            Model::validateArray($this->permDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->permDetail) {
-            $res['PermDetail'] = [];
-            if (null !== $this->permDetail && \is_array($this->permDetail)) {
-                $n = 0;
-                foreach ($this->permDetail as $item) {
-                    $res['PermDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->permDetail)) {
+                $res['PermDetail'] = [];
+                $n1                = 0;
+                foreach ($this->permDetail as $item1) {
+                    $res['PermDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class permDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return permDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PermDetail'])) {
             if (!empty($map['PermDetail'])) {
                 $model->permDetail = [];
-                $n                 = 0;
-                foreach ($map['PermDetail'] as $item) {
-                    $model->permDetail[$n++] = null !== $item ? permDetail::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['PermDetail'] as $item1) {
+                    $model->permDetail[$n1++] = permDetail::fromMap($item1);
                 }
             }
         }

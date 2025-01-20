@@ -4,61 +4,35 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDataLakeDatabaseRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example hive
-     *
      * @var string
      */
     public $catalogName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $dataRegion;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example default
-     *
      * @var string
      */
     public $dbName;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example oss://path/to/database
-     *
      * @var string
      */
     public $location;
-
     /**
      * @var string[]
      */
     public $parameters;
-
     /**
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -74,29 +48,44 @@ class CreateDataLakeDatabaseRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->catalogName) {
             $res['CatalogName'] = $this->catalogName;
         }
+
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
         }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['Parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -104,32 +93,43 @@ class CreateDataLakeDatabaseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataLakeDatabaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CatalogName'])) {
             $model->catalogName = $map['CatalogName'];
         }
+
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
         }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                foreach ($map['Parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

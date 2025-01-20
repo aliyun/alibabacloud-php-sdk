@@ -4,47 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDataLakeTableRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example hive
-     *
      * @var string
      */
     public $catalogName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $dataRegion;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example default
-     *
      * @var string
      */
     public $dbName;
-
     /**
-     * @description This parameter is required.
-     *
      * @var OpenStructDLTableInput
      */
     public $tableInput;
-
     /**
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -58,23 +38,31 @@ class CreateDataLakeTableRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tableInput) {
+            $this->tableInput->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->catalogName) {
             $res['CatalogName'] = $this->catalogName;
         }
+
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
         }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->tableInput) {
-            $res['TableInput'] = null !== $this->tableInput ? $this->tableInput->toMap() : null;
+            $res['TableInput'] = null !== $this->tableInput ? $this->tableInput->toArray($noStream) : $this->tableInput;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -82,26 +70,30 @@ class CreateDataLakeTableRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataLakeTableRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CatalogName'])) {
             $model->catalogName = $map['CatalogName'];
         }
+
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
         }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['TableInput'])) {
             $model->tableInput = OpenStructDLTableInput::fromMap($map['TableInput']);
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

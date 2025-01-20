@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListScenariosResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scenarioList extends Model
 {
     /**
-     * @description The ID of the user who created the business scenario.
-     *
-     * @example 23***
-     *
      * @var string
      */
     public $creatorId;
-
     /**
-     * @description The description of the business scenario.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the business scenario.
-     *
-     * @example 41***
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the business scenario.
-     *
-     * @example test
-     *
      * @var string
      */
     public $scenarioName;
@@ -52,20 +33,24 @@ class scenarioList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->scenarioName) {
             $res['ScenarioName'] = $this->scenarioName;
         }
@@ -73,23 +58,26 @@ class scenarioList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scenarioList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ScenarioName'])) {
             $model->scenarioName = $map['ScenarioName'];
         }

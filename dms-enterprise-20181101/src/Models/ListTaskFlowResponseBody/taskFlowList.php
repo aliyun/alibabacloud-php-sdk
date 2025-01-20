@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowResponseBody\taskFlowList\taskFlow;
-use AlibabaCloud\Tea\Model;
 
 class taskFlowList extends Model
 {
@@ -19,17 +19,21 @@ class taskFlowList extends Model
 
     public function validate()
     {
+        if (\is_array($this->taskFlow)) {
+            Model::validateArray($this->taskFlow);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskFlow) {
-            $res['TaskFlow'] = [];
-            if (null !== $this->taskFlow && \is_array($this->taskFlow)) {
-                $n = 0;
-                foreach ($this->taskFlow as $item) {
-                    $res['TaskFlow'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskFlow)) {
+                $res['TaskFlow'] = [];
+                $n1              = 0;
+                foreach ($this->taskFlow as $item1) {
+                    $res['TaskFlow'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class taskFlowList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskFlowList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskFlow'])) {
             if (!empty($map['TaskFlow'])) {
                 $model->taskFlow = [];
-                $n               = 0;
-                foreach ($map['TaskFlow'] as $item) {
-                    $model->taskFlow[$n++] = null !== $item ? taskFlow::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['TaskFlow'] as $item1) {
+                    $model->taskFlow[$n1++] = taskFlow::fromMap($item1);
                 }
             }
         }

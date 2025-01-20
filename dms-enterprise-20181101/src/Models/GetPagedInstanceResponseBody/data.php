@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPagedInstanceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPagedInstanceResponseBody\data\instance;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->instance)) {
+            Model::validateArray($this->instance);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instance) {
-            $res['Instance'] = [];
-            if (null !== $this->instance && \is_array($this->instance)) {
-                $n = 0;
-                foreach ($this->instance as $item) {
-                    $res['Instance'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instance)) {
+                $res['Instance'] = [];
+                $n1              = 0;
+                foreach ($this->instance as $item1) {
+                    $res['Instance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instance'])) {
             if (!empty($map['Instance'])) {
                 $model->instance = [];
-                $n               = 0;
-                foreach ($map['Instance'] as $item) {
-                    $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Instance'] as $item1) {
+                    $model->instance[$n1++] = instance::fromMap($item1);
                 }
             }
         }

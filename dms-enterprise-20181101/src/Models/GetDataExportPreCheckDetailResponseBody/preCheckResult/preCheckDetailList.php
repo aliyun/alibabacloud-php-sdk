@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportPreCheckDetailResponseBody\preCheckResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportPreCheckDetailResponseBody\preCheckResult\preCheckDetailList\preCheckDetailList;
 
 class preCheckDetailList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportPreCheckDetailResponseBody\preCheckResult\preCheckDetailList\preCheckDetailList[]
+     * @var preCheckDetailList[]
      */
     public $preCheckDetailList;
     protected $_name = [
@@ -18,17 +19,21 @@ class preCheckDetailList extends Model
 
     public function validate()
     {
+        if (\is_array($this->preCheckDetailList)) {
+            Model::validateArray($this->preCheckDetailList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->preCheckDetailList) {
-            $res['PreCheckDetailList'] = [];
-            if (null !== $this->preCheckDetailList && \is_array($this->preCheckDetailList)) {
-                $n = 0;
-                foreach ($this->preCheckDetailList as $item) {
-                    $res['PreCheckDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->preCheckDetailList)) {
+                $res['PreCheckDetailList'] = [];
+                $n1                        = 0;
+                foreach ($this->preCheckDetailList as $item1) {
+                    $res['PreCheckDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class preCheckDetailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preCheckDetailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PreCheckDetailList'])) {
             if (!empty($map['PreCheckDetailList'])) {
                 $model->preCheckDetailList = [];
-                $n                         = 0;
-                foreach ($map['PreCheckDetailList'] as $item) {
-                    $model->preCheckDetailList[$n++] = null !== $item ? \AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportPreCheckDetailResponseBody\preCheckResult\preCheckDetailList\preCheckDetailList::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['PreCheckDetailList'] as $item1) {
+                    $model->preCheckDetailList[$n1++] = self::fromMap($item1);
                 }
             }
         }

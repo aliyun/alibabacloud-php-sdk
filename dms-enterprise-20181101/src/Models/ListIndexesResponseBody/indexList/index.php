@@ -4,57 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesResponseBody\indexList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class index extends Model
 {
     /**
-     * @description The description of the index.
-     *
-     * @example test
-     *
      * @var string
      */
     public $indexComment;
-
     /**
-     * @description The ID of the index.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $indexId;
-
     /**
-     * @description The name of the index.
-     *
-     * @example idx_test
-     *
      * @var string
      */
     public $indexName;
-
     /**
-     * @description The type of the index. Valid values:
-     *
-     *   Primary
-     *   Unique
-     *   Normal
-     *   FullText
-     *   Spatial
-     *
-     * @example Primary
-     *
      * @var string
      */
     public $indexType;
-
     /**
-     * @description The ID of the table.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $tableId;
@@ -68,23 +38,28 @@ class index extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexComment) {
             $res['IndexComment'] = $this->indexComment;
         }
+
         if (null !== $this->indexId) {
             $res['IndexId'] = $this->indexId;
         }
+
         if (null !== $this->indexName) {
             $res['IndexName'] = $this->indexName;
         }
+
         if (null !== $this->indexType) {
             $res['IndexType'] = $this->indexType;
         }
+
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
         }
@@ -92,26 +67,30 @@ class index extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return index
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IndexComment'])) {
             $model->indexComment = $map['IndexComment'];
         }
+
         if (isset($map['IndexId'])) {
             $model->indexId = $map['IndexId'];
         }
+
         if (isset($map['IndexName'])) {
             $model->indexName = $map['IndexName'];
         }
+
         if (isset($map['IndexType'])) {
             $model->indexType = $map['IndexType'];
         }
+
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];
         }
