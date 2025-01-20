@@ -4,31 +4,22 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\RgeoCodeResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class businessAreas extends Model
 {
     /**
-     * @example 110108
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @example 39.996850
-     *
      * @var string
      */
     public $latitude;
-
     /**
-     * @example 116.294214
-     *
      * @var string
      */
     public $longitude;
-
     /**
      * @var string
      */
@@ -42,20 +33,24 @@ class businessAreas extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->latitude) {
             $res['latitude'] = $this->latitude;
         }
+
         if (null !== $this->longitude) {
             $res['longitude'] = $this->longitude;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -63,23 +58,26 @@ class businessAreas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return businessAreas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['latitude'])) {
             $model->latitude = $map['latitude'];
         }
+
         if (isset($map['longitude'])) {
             $model->longitude = $map['longitude'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

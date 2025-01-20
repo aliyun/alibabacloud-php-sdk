@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TransitIntegratedDirectionRequest extends Model
 {
@@ -12,36 +12,23 @@ class TransitIntegratedDirectionRequest extends Model
      * @var string
      */
     public $destinationCity;
-
     /**
-     * @example 40.345456
-     *
      * @var string
      */
     public $destinationLatitude;
-
     /**
-     * @example 116.46424
-     *
      * @var string
      */
     public $destinationLongitude;
-
     /**
      * @var string
      */
     public $originCity;
-
     /**
-     * @example 39.995197
-     *
      * @var string
      */
     public $originLatitude;
-
     /**
-     * @example 116.466485
-     *
      * @var string
      */
     public $originLongitude;
@@ -56,26 +43,32 @@ class TransitIntegratedDirectionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationCity) {
             $res['destinationCity'] = $this->destinationCity;
         }
+
         if (null !== $this->destinationLatitude) {
             $res['destinationLatitude'] = $this->destinationLatitude;
         }
+
         if (null !== $this->destinationLongitude) {
             $res['destinationLongitude'] = $this->destinationLongitude;
         }
+
         if (null !== $this->originCity) {
             $res['originCity'] = $this->originCity;
         }
+
         if (null !== $this->originLatitude) {
             $res['originLatitude'] = $this->originLatitude;
         }
+
         if (null !== $this->originLongitude) {
             $res['originLongitude'] = $this->originLongitude;
         }
@@ -83,29 +76,34 @@ class TransitIntegratedDirectionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TransitIntegratedDirectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['destinationCity'])) {
             $model->destinationCity = $map['destinationCity'];
         }
+
         if (isset($map['destinationLatitude'])) {
             $model->destinationLatitude = $map['destinationLatitude'];
         }
+
         if (isset($map['destinationLongitude'])) {
             $model->destinationLongitude = $map['destinationLongitude'];
         }
+
         if (isset($map['originCity'])) {
             $model->originCity = $map['originCity'];
         }
+
         if (isset($map['originLatitude'])) {
             $model->originLatitude = $map['originLatitude'];
         }
+
         if (isset($map['originLongitude'])) {
             $model->originLongitude = $map['originLongitude'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\bus\buslines;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\bus\buslines\arrivalStop\exit_;
-use AlibabaCloud\Tea\Model;
 
 class arrivalStop extends Model
 {
@@ -13,21 +13,14 @@ class arrivalStop extends Model
      * @var exit_
      */
     public $exit;
-
     /**
-     * @example 100935
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @example 119.82416178385417,30.27139702690972
-     *
      * @var string
      */
     public $location;
-
     /**
      * @var string
      */
@@ -41,20 +34,27 @@ class arrivalStop extends Model
 
     public function validate()
     {
+        if (null !== $this->exit) {
+            $this->exit->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exit) {
-            $res['exit'] = null !== $this->exit ? $this->exit->toMap() : null;
+            $res['exit'] = null !== $this->exit ? $this->exit->toArray($noStream) : $this->exit;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->location) {
             $res['location'] = $this->location;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -62,23 +62,26 @@ class arrivalStop extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return arrivalStop
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['exit'])) {
             $model->exit = exit_::fromMap($map['exit']);
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['location'])) {
             $model->location = $map['location'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\NearbySearchNovaResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class images extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $title;
-
     /**
-     * @example https://alidocs.dingtalk.com/i/team/nb9XJVAdyvMrOXyA/docs/b9XJlRRKq1BQaGyA
-     *
      * @var string
      */
     public $url;
@@ -28,14 +23,16 @@ class images extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -43,17 +40,18 @@ class images extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return images
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

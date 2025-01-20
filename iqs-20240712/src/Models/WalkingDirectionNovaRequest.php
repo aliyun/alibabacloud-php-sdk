@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WalkingDirectionNovaRequest extends Model
 {
     /**
-     * @example 40.345456
-     *
      * @var string
      */
     public $destinationLatitude;
-
     /**
-     * @example 116.46424
-     *
      * @var string
      */
     public $destinationLongitude;
-
     /**
-     * @example 39.995197
-     *
      * @var string
      */
     public $originLatitude;
-
     /**
-     * @example 116.466485
-     *
      * @var string
      */
     public $originLongitude;
@@ -44,20 +33,24 @@ class WalkingDirectionNovaRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationLatitude) {
             $res['destinationLatitude'] = $this->destinationLatitude;
         }
+
         if (null !== $this->destinationLongitude) {
             $res['destinationLongitude'] = $this->destinationLongitude;
         }
+
         if (null !== $this->originLatitude) {
             $res['originLatitude'] = $this->originLatitude;
         }
+
         if (null !== $this->originLongitude) {
             $res['originLongitude'] = $this->originLongitude;
         }
@@ -65,23 +58,26 @@ class WalkingDirectionNovaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WalkingDirectionNovaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['destinationLatitude'])) {
             $model->destinationLatitude = $map['destinationLatitude'];
         }
+
         if (isset($map['destinationLongitude'])) {
             $model->destinationLongitude = $map['destinationLongitude'];
         }
+
         if (isset($map['originLatitude'])) {
             $model->originLatitude = $map['originLatitude'];
         }
+
         if (isset($map['originLongitude'])) {
             $model->originLongitude = $map['originLongitude'];
         }
