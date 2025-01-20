@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RegisterDevicesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example test-device
-     *
      * @var string
      */
     public $deviceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example password
-     *
      * @var string
      */
     public $password;
-
     /**
-     * @example ["user-test@ccc-test"]
-     *
      * @var string
      */
     public $userIdListJson;
@@ -50,20 +33,24 @@ class RegisterDevicesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->userIdListJson) {
             $res['UserIdListJson'] = $this->userIdListJson;
         }
@@ -71,23 +58,26 @@ class RegisterDevicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegisterDevicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['UserIdListJson'])) {
             $model->userIdListJson = $map['UserIdListJson'];
         }

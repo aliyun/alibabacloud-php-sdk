@@ -4,43 +4,32 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListDocumentsResponseBody extends Model
 {
     /**
-     * @example OK
-     *
      * @var string
      */
     public $code;
-
     /**
      * @var data
      */
     public $data;
-
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
      * @var string
      */
     public $message;
-
     /**
      * @var string[]
      */
     public $params;
-
     /**
-     * @example 7BEEA660-A45A-45E3-98CC-AFC65E715C23
-     *
      * @var string
      */
     public $requestId;
@@ -55,26 +44,44 @@ class ListDocumentsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        if (\is_array($this->params)) {
+            Model::validateArray($this->params);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->params) {
-            $res['Params'] = $this->params;
+            if (\is_array($this->params)) {
+                $res['Params'] = [];
+                $n1            = 0;
+                foreach ($this->params as $item1) {
+                    $res['Params'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -82,31 +89,40 @@ class ListDocumentsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDocumentsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
-                $model->params = $map['Params'];
+                $model->params = [];
+                $n1            = 0;
+                foreach ($map['Params'] as $item1) {
+                    $model->params[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

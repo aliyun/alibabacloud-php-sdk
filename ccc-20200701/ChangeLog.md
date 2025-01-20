@@ -1,3 +1,7 @@
+2025-01-20 Version: 2.32.1
+- Update API GetConversationDetail: update response param.
+
+
 2024-11-15 Version: 2.32.0
 - Support API AddFeedback.
 - Support API DeleteInstance.

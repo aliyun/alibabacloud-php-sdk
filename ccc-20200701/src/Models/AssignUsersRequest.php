@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssignUsersRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ["28036411123456****","29234301123456****"]
-     *
      * @var string
      */
     public $ramIdList;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example Agent@ccc-test
-     *
      * @var string
      */
     public $roleId;
-
     /**
-     * @example [{"skillGroupId":"skillgroup@ccc-test","skillLevel":5}]
-     *
      * @var string
      */
     public $skillLevelList;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ON_SITE
-     *
      * @var string
      */
     public $workMode;
@@ -60,23 +38,28 @@ class AssignUsersRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ramIdList) {
             $res['RamIdList'] = $this->ramIdList;
         }
+
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
+
         if (null !== $this->skillLevelList) {
             $res['SkillLevelList'] = $this->skillLevelList;
         }
+
         if (null !== $this->workMode) {
             $res['WorkMode'] = $this->workMode;
         }
@@ -84,26 +67,30 @@ class AssignUsersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssignUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RamIdList'])) {
             $model->ramIdList = $map['RamIdList'];
         }
+
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
+
         if (isset($map['SkillLevelList'])) {
             $model->skillLevelList = $map['SkillLevelList'];
         }
+
         if (isset($map['WorkMode'])) {
             $model->workMode = $map['WorkMode'];
         }

@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddCasesShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c58b9719-3bc3-441d-a4d3-fc0309ef7066
-     *
      * @var string
      */
     public $campaignId;
-
     /**
      * @var string
      */
     public $caseListShrink;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
@@ -38,17 +28,20 @@ class AddCasesShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->campaignId) {
             $res['CampaignId'] = $this->campaignId;
         }
+
         if (null !== $this->caseListShrink) {
             $res['CaseList'] = $this->caseListShrink;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -56,20 +49,22 @@ class AddCasesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddCasesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CampaignId'])) {
             $model->campaignId = $map['CampaignId'];
         }
+
         if (isset($map['CaseList'])) {
             $model->caseListShrink = $map['CaseList'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

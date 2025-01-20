@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models\ListInstancesResponseBody\data\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class numberList extends Model
 {
     /**
-     * @example 0830011****
-     *
      * @var string
      */
     public $number;
@@ -20,9 +18,10 @@ class numberList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->number) {
@@ -32,11 +31,11 @@ class numberList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return numberList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

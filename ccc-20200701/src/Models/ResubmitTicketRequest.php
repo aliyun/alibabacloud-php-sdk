@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResubmitTicketRequest extends Model
 {
@@ -12,21 +12,11 @@ class ResubmitTicketRequest extends Model
      * @var string
      */
     public $comment;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example f2c6722b-cd13-442d-bf10-22a07c70d6d5
-     *
      * @var string
      */
     public $ticketId;
@@ -38,17 +28,20 @@ class ResubmitTicketRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ticketId) {
             $res['TicketId'] = $this->ticketId;
         }
@@ -56,20 +49,22 @@ class ResubmitTicketRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResubmitTicketRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TicketId'])) {
             $model->ticketId = $map['TicketId'];
         }

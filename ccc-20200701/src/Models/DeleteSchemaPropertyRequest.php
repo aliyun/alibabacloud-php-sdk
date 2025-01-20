@@ -4,41 +4,23 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSchemaPropertyRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example name
-     *
      * @var string
      */
     public $propertyName;
-
     /**
-     * @example 7BEEA660-A45A-45E3-98CC-AFC65E715C23
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description schema id
-     *
-     * This parameter is required.
-     * @example profile
-     *
      * @var string
      */
     public $schemaId;
@@ -51,20 +33,24 @@ class DeleteSchemaPropertyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->propertyName) {
             $res['PropertyName'] = $this->propertyName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->schemaId) {
             $res['SchemaId'] = $this->schemaId;
         }
@@ -72,23 +58,26 @@ class DeleteSchemaPropertyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSchemaPropertyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PropertyName'])) {
             $model->propertyName = $map['PropertyName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SchemaId'])) {
             $model->schemaId = $map['SchemaId'];
         }

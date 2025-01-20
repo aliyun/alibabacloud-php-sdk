@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\CCC\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFlashSmsTemplatesRequest extends Model
 {
     /**
-     * @example 71b396fa-1*********-70b7c0
-     *
      * @var string
      */
     public $applicationId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example Uincall
-     *
      * @var string
      */
     public $providerId;
@@ -38,17 +28,20 @@ class ListFlashSmsTemplatesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->providerId) {
             $res['ProviderId'] = $this->providerId;
         }
@@ -56,20 +49,22 @@ class ListFlashSmsTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFlashSmsTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ProviderId'])) {
             $model->providerId = $map['ProviderId'];
         }
