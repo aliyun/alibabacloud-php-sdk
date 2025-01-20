@@ -4,33 +4,20 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListRecentlyRecycledDirectoriesResponseBody\entries;
-use AlibabaCloud\Tea\Model;
 
 class ListRecentlyRecycledDirectoriesResponseBody extends Model
 {
     /**
-     * @description The information about the directories that are recently deleted.
-     *
      * @var entries[]
      */
     public $entries;
-
     /**
-     * @description A pagination token.
-     *
-     * If not all directories are returned in a query, the return value of the NextToken parameter is not empty. In this case, you can specify a valid value for the NextToken parameter to continue the query.
-     * @example 1256****25
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9E15E394-38A6-457A-A62A-D9797C9A****
-     *
      * @var string
      */
     public $requestId;
@@ -42,23 +29,29 @@ class ListRecentlyRecycledDirectoriesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->entries)) {
+            Model::validateArray($this->entries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entries) {
-            $res['Entries'] = [];
-            if (null !== $this->entries && \is_array($this->entries)) {
-                $n = 0;
-                foreach ($this->entries as $item) {
-                    $res['Entries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entries)) {
+                $res['Entries'] = [];
+                $n1             = 0;
+                foreach ($this->entries as $item1) {
+                    $res['Entries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -66,26 +59,28 @@ class ListRecentlyRecycledDirectoriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRecentlyRecycledDirectoriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Entries'])) {
             if (!empty($map['Entries'])) {
                 $model->entries = [];
-                $n              = 0;
-                foreach ($map['Entries'] as $item) {
-                    $model->entries[$n++] = null !== $item ? entries::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Entries'] as $item1) {
+                    $model->entries[$n1++] = entries::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

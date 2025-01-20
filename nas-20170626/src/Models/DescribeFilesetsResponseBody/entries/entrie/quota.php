@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesetsResponseBody\entries\entrie;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class quota extends Model
 {
     /**
-     * @description The limit of the file quantity of the quota. Valid values:
-     *
-     * Maximum value: 10000000000.
-     * @example 10000
-     *
      * @var int
      */
     public $fileCountLimit;
-
     /**
-     * @description The limit of the quota capacity. Unit: bytes.
-     *
-     * Step size: 1073741824 (1 GiB).
-     * @example 10737418240
-     *
      * @var int
      */
     public $sizeLimit;
@@ -34,14 +23,16 @@ class quota extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileCountLimit) {
             $res['FileCountLimit'] = $this->fileCountLimit;
         }
+
         if (null !== $this->sizeLimit) {
             $res['SizeLimit'] = $this->sizeLimit;
         }
@@ -49,17 +40,18 @@ class quota extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quota
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileCountLimit'])) {
             $model->fileCountLimit = $map['FileCountLimit'];
         }
+
         if (isset($map['SizeLimit'])) {
             $model->sizeLimit = $map['SizeLimit'];
         }

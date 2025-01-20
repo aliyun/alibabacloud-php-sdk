@@ -4,77 +4,36 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeFileSystemsRequest extends Model
 {
     /**
-     * @description The ID of the file system.
-     *
-     * - Sample ID of a General-purpose NAS file system: 31a8e4****.
-     * - The IDs of Extreme NAS file systems must start with extreme-, for example, extreme-0015****.
-     * - The IDs of Cloud Parallel File Storage (CPFS) file systems must start with cpfs-, for example, cpfs-125487****.
-     * > CPFS file systems are available only on the China site (aliyun.com).
-     * @example 31a8e4****
-     *
      * @var string
      */
     public $fileSystemId;
-
     /**
-     * @description The type of the file system.
-     *
-     * > CPFS file systems are available only on the China site (aliyun.com).
-     * @example standard
-     *
      * @var string
      */
     public $fileSystemType;
-
     /**
-     * @description The page number.
-     *
-     * Pages start from page 1. Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The resource group ID.
-     *
-     * You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?) to view resource group IDs.
-     * @example rg-acfmwavnfdf****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The details about the tags.
-     *
      * @var tag[]
      */
     public $tag;
-
     /**
-     * @description The ID of the virtual private cloud (VPC).
-     *
-     * If you want to mount the file system on an Elastic Compute Service (ECS) instance, the file system and the ECS instance must reside in the same VPC.
-     * @example vpc-bp1sevsgtqvk5gxbl****
-     *
      * @var string
      */
     public $vpcId;
@@ -90,35 +49,45 @@ class DescribeFileSystemsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->fileSystemType) {
             $res['FileSystemType'] = $this->fileSystemType;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -126,38 +95,44 @@ class DescribeFileSystemsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeFileSystemsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['FileSystemType'])) {
             $model->fileSystemType = $map['FileSystemType'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

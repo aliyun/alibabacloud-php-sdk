@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResetFileSystemRequest extends Model
 {
     /**
-     * @description The ID of the advanced Extreme NAS file system.
-     *
-     * This parameter is required.
-     * @example extreme-012dd****
-     *
      * @var string
      */
     public $fileSystemId;
-
     /**
-     * @description The snapshot ID.
-     *
-     * This parameter is required.
-     * @example s-extreme-snapsho****
-     *
      * @var string
      */
     public $snapshotId;
@@ -34,14 +23,16 @@ class ResetFileSystemRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
@@ -49,17 +40,18 @@ class ResetFileSystemRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResetFileSystemRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }

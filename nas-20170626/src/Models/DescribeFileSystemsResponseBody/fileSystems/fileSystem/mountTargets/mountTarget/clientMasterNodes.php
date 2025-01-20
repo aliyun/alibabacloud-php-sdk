@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\mountTargets\mountTarget;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\mountTargets\mountTarget\clientMasterNodes\clientMasterNode;
-use AlibabaCloud\Tea\Model;
 
 class clientMasterNodes extends Model
 {
@@ -19,17 +19,21 @@ class clientMasterNodes extends Model
 
     public function validate()
     {
+        if (\is_array($this->clientMasterNode)) {
+            Model::validateArray($this->clientMasterNode);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientMasterNode) {
-            $res['ClientMasterNode'] = [];
-            if (null !== $this->clientMasterNode && \is_array($this->clientMasterNode)) {
-                $n = 0;
-                foreach ($this->clientMasterNode as $item) {
-                    $res['ClientMasterNode'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clientMasterNode)) {
+                $res['ClientMasterNode'] = [];
+                $n1                      = 0;
+                foreach ($this->clientMasterNode as $item1) {
+                    $res['ClientMasterNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class clientMasterNodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clientMasterNodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientMasterNode'])) {
             if (!empty($map['ClientMasterNode'])) {
                 $model->clientMasterNode = [];
-                $n                       = 0;
-                foreach ($map['ClientMasterNode'] as $item) {
-                    $model->clientMasterNode[$n++] = null !== $item ? clientMasterNode::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['ClientMasterNode'] as $item1) {
+                    $model->clientMasterNode[$n1++] = clientMasterNode::fromMap($item1);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportedFeatures extends Model
 {
@@ -18,29 +18,43 @@ class supportedFeatures extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedFeature)) {
+            Model::validateArray($this->supportedFeature);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedFeature) {
-            $res['SupportedFeature'] = $this->supportedFeature;
+            if (\is_array($this->supportedFeature)) {
+                $res['SupportedFeature'] = [];
+                $n1                      = 0;
+                foreach ($this->supportedFeature as $item1) {
+                    $res['SupportedFeature'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedFeatures
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedFeature'])) {
             if (!empty($map['SupportedFeature'])) {
-                $model->supportedFeature = $map['SupportedFeature'];
+                $model->supportedFeature = [];
+                $n1                      = 0;
+                foreach ($map['SupportedFeature'] as $item1) {
+                    $model->supportedFeature[$n1++] = $item1;
+                }
             }
         }
 

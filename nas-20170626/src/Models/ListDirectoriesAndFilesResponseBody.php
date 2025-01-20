@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ListDirectoriesAndFilesResponseBody\entries;
-use AlibabaCloud\Tea\Model;
 
 class ListDirectoriesAndFilesResponseBody extends Model
 {
     /**
-     * @description The details about the files or directories.
-     *
      * @var entries[]
      */
     public $entries;
-
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example 2D69A58F-345C-4FDE-88E4-BF518948****
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class ListDirectoriesAndFilesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->entries)) {
+            Model::validateArray($this->entries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entries) {
-            $res['Entries'] = [];
-            if (null !== $this->entries && \is_array($this->entries)) {
-                $n = 0;
-                foreach ($this->entries as $item) {
-                    $res['Entries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entries)) {
+                $res['Entries'] = [];
+                $n1             = 0;
+                foreach ($this->entries as $item1) {
+                    $res['Entries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class ListDirectoriesAndFilesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDirectoriesAndFilesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Entries'])) {
             if (!empty($map['Entries'])) {
                 $model->entries = [];
-                $n              = 0;
-                foreach ($map['Entries'] as $item) {
-                    $model->entries[$n++] = null !== $item ? entries::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Entries'] as $item1) {
+                    $model->entries[$n1++] = entries::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAutoSnapshotPoliciesRequest extends Model
 {
     /**
-     * @description The ID of the automatic snapshot policy.
-     *
-     * @example sp-extreme-233e6****
-     *
      * @var string
      */
     public $autoSnapshotPolicyId;
-
     /**
-     * @description The type of the file system.
-     *
-     * Valid value: extreme, which indicates Extreme File Storage NAS (NAS) file systems.
-     * @example extreme
-     *
      * @var string
      */
     public $fileSystemType;
-
     /**
-     * @description The page number.
-     *
-     * Pages start from page 1. Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -55,20 +33,24 @@ class DescribeAutoSnapshotPoliciesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
         }
+
         if (null !== $this->fileSystemType) {
             $res['FileSystemType'] = $this->fileSystemType;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -76,23 +58,26 @@ class DescribeAutoSnapshotPoliciesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAutoSnapshotPoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
         }
+
         if (isset($map['FileSystemType'])) {
             $model->fileSystemType = $map['FileSystemType'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

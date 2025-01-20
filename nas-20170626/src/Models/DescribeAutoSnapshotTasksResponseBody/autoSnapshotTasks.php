@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAutoSnapshotTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAutoSnapshotTasksResponseBody\autoSnapshotTasks\autoSnapshotTask;
-use AlibabaCloud\Tea\Model;
 
 class autoSnapshotTasks extends Model
 {
@@ -19,17 +19,21 @@ class autoSnapshotTasks extends Model
 
     public function validate()
     {
+        if (\is_array($this->autoSnapshotTask)) {
+            Model::validateArray($this->autoSnapshotTask);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoSnapshotTask) {
-            $res['AutoSnapshotTask'] = [];
-            if (null !== $this->autoSnapshotTask && \is_array($this->autoSnapshotTask)) {
-                $n = 0;
-                foreach ($this->autoSnapshotTask as $item) {
-                    $res['AutoSnapshotTask'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->autoSnapshotTask)) {
+                $res['AutoSnapshotTask'] = [];
+                $n1                      = 0;
+                foreach ($this->autoSnapshotTask as $item1) {
+                    $res['AutoSnapshotTask'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class autoSnapshotTasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoSnapshotTasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoSnapshotTask'])) {
             if (!empty($map['AutoSnapshotTask'])) {
                 $model->autoSnapshotTask = [];
-                $n                       = 0;
-                foreach ($map['AutoSnapshotTask'] as $item) {
-                    $model->autoSnapshotTask[$n++] = null !== $item ? autoSnapshotTask::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['AutoSnapshotTask'] as $item1) {
+                    $model->autoSnapshotTask[$n1++] = autoSnapshotTask::fromMap($item1);
                 }
             }
         }

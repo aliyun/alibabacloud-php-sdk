@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteLogAnalysisResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 70EACC9C-D07A-4A34-ADA4-77506C42B023
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteLogAnalysisResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteLogAnalysisResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLogAnalysisResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

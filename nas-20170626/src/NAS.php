@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\NAS\V20170626\Models\AddClientToBlackListRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\AddClientToBlackListResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\AddTagsRequest;
@@ -236,11 +235,10 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateRecycleBinAttributeRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateRecycleBinAttributeResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpgradeFileSystemRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpgradeFileSystemResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class NAS extends OpenApiClient
 {
@@ -270,48 +268,58 @@ class NAS extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
+    // Deprecated
+
     /**
+     * 将客户端加入黑名单.
+     *
+     * @remarks
+     * The API operation is available only for CPFS file systems.
+     *
      * @deprecated OpenAPI AddClientToBlackList is deprecated
-     *  *
-     * @summary 将客户端加入黑名单
-     *  *
-     * @description The API operation is available only for CPFS file systems.
-     *  *
-     * Deprecated
      *
-     * @param AddClientToBlackListRequest $request AddClientToBlackListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - AddClientToBlackListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddClientToBlackListResponse
      *
-     * @return AddClientToBlackListResponse AddClientToBlackListResponse
+     * @param AddClientToBlackListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddClientToBlackListResponse
      */
     public function addClientToBlackListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientIP)) {
-            $query['ClientIP'] = $request->clientIP;
+        if (null !== $request->clientIP) {
+            @$query['ClientIP'] = $request->clientIP;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddClientToBlackList',
@@ -324,22 +332,29 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddClientToBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddClientToBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddClientToBlackListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * 将客户端加入黑名单.
+     *
+     * @remarks
+     * The API operation is available only for CPFS file systems.
+     *
      * @deprecated OpenAPI AddClientToBlackList is deprecated
-     *  *
-     * @summary 将客户端加入黑名单
-     *  *
-     * @description The API operation is available only for CPFS file systems.
-     *  *
-     * Deprecated
      *
-     * @param AddClientToBlackListRequest $request AddClientToBlackListRequest
+     * @param request - AddClientToBlackListRequest
+     * @returns AddClientToBlackListResponse
      *
-     * @return AddClientToBlackListResponse AddClientToBlackListResponse
+     * @param AddClientToBlackListRequest $request
+     *
+     * @return AddClientToBlackListResponse
      */
     public function addClientToBlackList($request)
     {
@@ -348,12 +363,13 @@ class NAS extends OpenApiClient
         return $this->addClientToBlackListWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
-     * @deprecated openAPI AddTags is deprecated, please use NAS::2017-06-26::TagResources instead
-     *  *
-     * @summary Adds one or more tags to a file system or overwrites one or more tags of a file system.
-     *  *
-     * @description >  The tag feature has been upgraded and this document will be unpublished. For more information, see TagResources.
+     * Adds one or more tags to a file system or overwrites one or more tags of a file system.
+     *
+     * @remarks
+     * >  The tag feature has been upgraded and this document will be unpublished. For more information, see TagResources.
      * *   Each tag consists of a tag key (TagKey) and a tag value (TagValue).
      * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. Placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
      * *   You must specify a tag key. You can leave a tag value empty.
@@ -361,26 +377,32 @@ class NAS extends OpenApiClient
      * *   A tag key can be up to 64 characters in length and a tag value can be up to 128 characters in length.
      * *   You can add a maximum of 10 tags to a file system. If you add two tags with the same tag key, the newly added tag will overwrite the existing tag.
      * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
-     *  *
-     * Deprecated
      *
-     * @param AddTagsRequest $request AddTagsRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @deprecated openAPI AddTags is deprecated, please use NAS::2017-06-26::TagResources instead
      *
-     * @return AddTagsResponse AddTagsResponse
+     * @param request - AddTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddTagsResponse
+     *
+     * @param AddTagsRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return AddTagsResponse
      */
     public function addTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddTags',
@@ -393,16 +415,20 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
-     * @deprecated openAPI AddTags is deprecated, please use NAS::2017-06-26::TagResources instead
-     *  *
-     * @summary Adds one or more tags to a file system or overwrites one or more tags of a file system.
-     *  *
-     * @description >  The tag feature has been upgraded and this document will be unpublished. For more information, see TagResources.
+     * Adds one or more tags to a file system or overwrites one or more tags of a file system.
+     *
+     * @remarks
+     * >  The tag feature has been upgraded and this document will be unpublished. For more information, see TagResources.
      * *   Each tag consists of a tag key (TagKey) and a tag value (TagValue).
      * *   Placeholders at the start and end of each TagKey and TagValue are automatically removed. Placeholders include the spacebar ( ), tab (\\t), line break (\\n), and carriage return (\\r).
      * *   You must specify a tag key. You can leave a tag value empty.
@@ -410,12 +436,15 @@ class NAS extends OpenApiClient
      * *   A tag key can be up to 64 characters in length and a tag value can be up to 128 characters in length.
      * *   You can add a maximum of 10 tags to a file system. If you add two tags with the same tag key, the newly added tag will overwrite the existing tag.
      * *   If you remove a tag from all linked file systems, the tag is automatically deleted.
-     *  *
-     * Deprecated
      *
-     * @param AddTagsRequest $request AddTagsRequest
+     * @deprecated openAPI AddTags is deprecated, please use NAS::2017-06-26::TagResources instead
      *
-     * @return AddTagsResponse AddTagsResponse
+     * @param request - AddTagsRequest
+     * @returns AddTagsResponse
+     *
+     * @param AddTagsRequest $request
+     *
+     * @return AddTagsResponse
      */
     public function addTags($request)
     {
@@ -425,31 +454,38 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Applies an automatic snapshot policy to one or more file systems.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Applies an automatic snapshot policy to one or more file systems.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support this feature.
      * *   You can apply only one automatic snapshot policy to each file system.
      * *   Each automatic snapshot policy can be applied to multiple file systems.
      * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
-     *  *
-     * @param ApplyAutoSnapshotPolicyRequest $request ApplyAutoSnapshotPolicyRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyAutoSnapshotPolicyResponse ApplyAutoSnapshotPolicyResponse
+     * @param request - ApplyAutoSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApplyAutoSnapshotPolicyResponse
+     *
+     * @param ApplyAutoSnapshotPolicyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ApplyAutoSnapshotPolicyResponse
      */
     public function applyAutoSnapshotPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoSnapshotPolicyId)) {
-            $query['AutoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
+        if (null !== $request->autoSnapshotPolicyId) {
+            @$query['AutoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
         }
-        if (!Utils::isUnset($request->fileSystemIds)) {
-            $query['FileSystemIds'] = $request->fileSystemIds;
+
+        if (null !== $request->fileSystemIds) {
+            @$query['FileSystemIds'] = $request->fileSystemIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ApplyAutoSnapshotPolicy',
@@ -462,22 +498,29 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ApplyAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyAutoSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Applies an automatic snapshot policy to one or more file systems.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Applies an automatic snapshot policy to one or more file systems.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support this feature.
      * *   You can apply only one automatic snapshot policy to each file system.
      * *   Each automatic snapshot policy can be applied to multiple file systems.
      * *   If an automatic snapshot policy is applied to a file system, you can call the ApplyAutoSnapshotPolicy operation to change the automatic snapshot policy.
-     *  *
-     * @param ApplyAutoSnapshotPolicyRequest $request ApplyAutoSnapshotPolicyRequest
      *
-     * @return ApplyAutoSnapshotPolicyResponse ApplyAutoSnapshotPolicyResponse
+     * @param request - ApplyAutoSnapshotPolicyRequest
+     * @returns ApplyAutoSnapshotPolicyResponse
+     *
+     * @param ApplyAutoSnapshotPolicyRequest $request
+     *
+     * @return ApplyAutoSnapshotPolicyResponse
      */
     public function applyAutoSnapshotPolicy($request)
     {
@@ -487,9 +530,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Adds AutoRefresh configurations to a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Adds AutoRefresh configurations to a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
      * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
      * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
@@ -499,39 +543,50 @@ class NAS extends OpenApiClient
      * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
      * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
      * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-     *  *
-     * @param ApplyDataFlowAutoRefreshRequest $request ApplyDataFlowAutoRefreshRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyDataFlowAutoRefreshResponse ApplyDataFlowAutoRefreshResponse
+     * @param request - ApplyDataFlowAutoRefreshRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApplyDataFlowAutoRefreshResponse
+     *
+     * @param ApplyDataFlowAutoRefreshRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ApplyDataFlowAutoRefreshResponse
      */
     public function applyDataFlowAutoRefreshWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRefreshInterval)) {
-            $query['AutoRefreshInterval'] = $request->autoRefreshInterval;
+        if (null !== $request->autoRefreshInterval) {
+            @$query['AutoRefreshInterval'] = $request->autoRefreshInterval;
         }
-        if (!Utils::isUnset($request->autoRefreshPolicy)) {
-            $query['AutoRefreshPolicy'] = $request->autoRefreshPolicy;
+
+        if (null !== $request->autoRefreshPolicy) {
+            @$query['AutoRefreshPolicy'] = $request->autoRefreshPolicy;
         }
-        if (!Utils::isUnset($request->autoRefreshs)) {
-            $query['AutoRefreshs'] = $request->autoRefreshs;
+
+        if (null !== $request->autoRefreshs) {
+            @$query['AutoRefreshs'] = $request->autoRefreshs;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ApplyDataFlowAutoRefresh',
@@ -544,14 +599,18 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ApplyDataFlowAutoRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyDataFlowAutoRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyDataFlowAutoRefreshResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds AutoRefresh configurations to a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Adds AutoRefresh configurations to a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
      * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
      * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
@@ -561,10 +620,13 @@ class NAS extends OpenApiClient
      * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
      * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
      * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
-     *  *
-     * @param ApplyDataFlowAutoRefreshRequest $request ApplyDataFlowAutoRefreshRequest
      *
-     * @return ApplyDataFlowAutoRefreshResponse ApplyDataFlowAutoRefreshResponse
+     * @param request - ApplyDataFlowAutoRefreshRequest
+     * @returns ApplyDataFlowAutoRefreshResponse
+     *
+     * @param ApplyDataFlowAutoRefreshRequest $request
+     *
+     * @return ApplyDataFlowAutoRefreshResponse
      */
     public function applyDataFlowAutoRefresh($request)
     {
@@ -574,25 +636,31 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Removes automatic snapshot policies from one or more file systems.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param CancelAutoSnapshotPolicyRequest $request CancelAutoSnapshotPolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Removes automatic snapshot policies from one or more file systems.
      *
-     * @return CancelAutoSnapshotPolicyResponse CancelAutoSnapshotPolicyResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - CancelAutoSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelAutoSnapshotPolicyResponse
+     *
+     * @param CancelAutoSnapshotPolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CancelAutoSnapshotPolicyResponse
      */
     public function cancelAutoSnapshotPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemIds)) {
-            $query['FileSystemIds'] = $request->fileSystemIds;
+        if (null !== $request->fileSystemIds) {
+            @$query['FileSystemIds'] = $request->fileSystemIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelAutoSnapshotPolicy',
@@ -605,19 +673,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelAutoSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes automatic snapshot policies from one or more file systems.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param CancelAutoSnapshotPolicyRequest $request CancelAutoSnapshotPolicyRequest
+     * Removes automatic snapshot policies from one or more file systems.
      *
-     * @return CancelAutoSnapshotPolicyResponse CancelAutoSnapshotPolicyResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - CancelAutoSnapshotPolicyRequest
+     * @returns CancelAutoSnapshotPolicyResponse
+     *
+     * @param CancelAutoSnapshotPolicyRequest $request
+     *
+     * @return CancelAutoSnapshotPolicyResponse
      */
     public function cancelAutoSnapshotPolicy($request)
     {
@@ -627,39 +702,49 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels the AutoRefresh configuration for a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Cancels the AutoRefresh configuration for a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
      * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
      * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the status of the AutoRefresh tasks.
-     *  *
-     * @param CancelDataFlowAutoRefreshRequest $request CancelDataFlowAutoRefreshRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelDataFlowAutoRefreshResponse CancelDataFlowAutoRefreshResponse
+     * @param request - CancelDataFlowAutoRefreshRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelDataFlowAutoRefreshResponse
+     *
+     * @param CancelDataFlowAutoRefreshRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CancelDataFlowAutoRefreshResponse
      */
     public function cancelDataFlowAutoRefreshWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->refreshPath)) {
-            $query['RefreshPath'] = $request->refreshPath;
+
+        if (null !== $request->refreshPath) {
+            @$query['RefreshPath'] = $request->refreshPath;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelDataFlowAutoRefresh',
@@ -672,21 +757,28 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelDataFlowAutoRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelDataFlowAutoRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelDataFlowAutoRefreshResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels the AutoRefresh configuration for a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Cancels the AutoRefresh configuration for a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
      * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
      * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the status of the AutoRefresh tasks.
-     *  *
-     * @param CancelDataFlowAutoRefreshRequest $request CancelDataFlowAutoRefreshRequest
      *
-     * @return CancelDataFlowAutoRefreshResponse CancelDataFlowAutoRefreshResponse
+     * @param request - CancelDataFlowAutoRefreshRequest
+     * @returns CancelDataFlowAutoRefreshResponse
+     *
+     * @param CancelDataFlowAutoRefreshRequest $request
+     *
+     * @return CancelDataFlowAutoRefreshResponse
      */
     public function cancelDataFlowAutoRefresh($request)
     {
@@ -696,41 +788,52 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a data streaming task.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+     * Cancels a data streaming task.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
      * *   You can cancel a data streaming task only when the task is in the CREATED or RUNNING state.
      * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
-     *  *
-     * @param CancelDataFlowSubTaskRequest $request CancelDataFlowSubTaskRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelDataFlowSubTaskResponse CancelDataFlowSubTaskResponse
+     * @param request - CancelDataFlowSubTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelDataFlowSubTaskResponse
+     *
+     * @param CancelDataFlowSubTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CancelDataFlowSubTaskResponse
      */
     public function cancelDataFlowSubTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dataFlowSubTaskId)) {
-            $query['DataFlowSubTaskId'] = $request->dataFlowSubTaskId;
+
+        if (null !== $request->dataFlowSubTaskId) {
+            @$query['DataFlowSubTaskId'] = $request->dataFlowSubTaskId;
         }
-        if (!Utils::isUnset($request->dataFlowTaskId)) {
-            $query['DataFlowTaskId'] = $request->dataFlowTaskId;
+
+        if (null !== $request->dataFlowTaskId) {
+            @$query['DataFlowTaskId'] = $request->dataFlowTaskId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelDataFlowSubTask',
@@ -743,20 +846,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelDataFlowSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelDataFlowSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelDataFlowSubTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels a data streaming task.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+     * Cancels a data streaming task.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
      * *   You can cancel a data streaming task only when the task is in the CREATED or RUNNING state.
      * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
-     *  *
-     * @param CancelDataFlowSubTaskRequest $request CancelDataFlowSubTaskRequest
      *
-     * @return CancelDataFlowSubTaskResponse CancelDataFlowSubTaskResponse
+     * @param request - CancelDataFlowSubTaskRequest
+     * @returns CancelDataFlowSubTaskResponse
+     *
+     * @param CancelDataFlowSubTaskRequest $request
+     *
+     * @return CancelDataFlowSubTaskResponse
      */
     public function cancelDataFlowSubTask($request)
     {
@@ -766,38 +876,48 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a dataflow task that is not running.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flow tasks. You can view the version information on the file system details page in the console.
+     * Cancels a dataflow task that is not running.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flow tasks. You can view the version information on the file system details page in the console.
      * *   You can cancel only the data flow tasks that are in the `Pending` and `Executing` states.
      * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation.
-     *  *
-     * @param CancelDataFlowTaskRequest $request CancelDataFlowTaskRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelDataFlowTaskResponse CancelDataFlowTaskResponse
+     * @param request - CancelDataFlowTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelDataFlowTaskResponse
+     *
+     * @param CancelDataFlowTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CancelDataFlowTaskResponse
      */
     public function cancelDataFlowTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelDataFlowTask',
@@ -810,20 +930,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelDataFlowTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelDataFlowTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelDataFlowTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels a dataflow task that is not running.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flow tasks. You can view the version information on the file system details page in the console.
+     * Cancels a dataflow task that is not running.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flow tasks. You can view the version information on the file system details page in the console.
      * *   You can cancel only the data flow tasks that are in the `Pending` and `Executing` states.
      * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation.
-     *  *
-     * @param CancelDataFlowTaskRequest $request CancelDataFlowTaskRequest
      *
-     * @return CancelDataFlowTaskResponse CancelDataFlowTaskResponse
+     * @param request - CancelDataFlowTaskRequest
+     * @returns CancelDataFlowTaskResponse
+     *
+     * @param CancelDataFlowTaskRequest $request
+     *
+     * @return CancelDataFlowTaskResponse
      */
     public function cancelDataFlowTask($request)
     {
@@ -833,33 +960,42 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels the directory quota of a file system.
-     *  *
-     * @description Only General-purpose file systems support the directory quota feature.
-     *  *
-     * @param CancelDirQuotaRequest $request CancelDirQuotaRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Cancels the directory quota of a file system.
      *
-     * @return CancelDirQuotaResponse CancelDirQuotaResponse
+     * @remarks
+     * Only General-purpose file systems support the directory quota feature.
+     *
+     * @param request - CancelDirQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelDirQuotaResponse
+     *
+     * @param CancelDirQuotaRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CancelDirQuotaResponse
      */
     public function cancelDirQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userType)) {
-            $query['UserType'] = $request->userType;
+
+        if (null !== $request->userType) {
+            @$query['UserType'] = $request->userType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelDirQuota',
@@ -872,18 +1008,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelDirQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelDirQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelDirQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels the directory quota of a file system.
-     *  *
-     * @description Only General-purpose file systems support the directory quota feature.
-     *  *
-     * @param CancelDirQuotaRequest $request CancelDirQuotaRequest
+     * Cancels the directory quota of a file system.
      *
-     * @return CancelDirQuotaResponse CancelDirQuotaResponse
+     * @remarks
+     * Only General-purpose file systems support the directory quota feature.
+     *
+     * @param request - CancelDirQuotaRequest
+     * @returns CancelDirQuotaResponse
+     *
+     * @param CancelDirQuotaRequest $request
+     *
+     * @return CancelDirQuotaResponse
      */
     public function cancelDirQuota($request)
     {
@@ -893,33 +1036,42 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels the quota set for a fileset.
-     *  *
-     * @description Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
-     *  *
-     * @param CancelFilesetQuotaRequest $request CancelFilesetQuotaRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Cancels the quota set for a fileset.
      *
-     * @return CancelFilesetQuotaResponse CancelFilesetQuotaResponse
+     * @remarks
+     * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+     *
+     * @param request - CancelFilesetQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelFilesetQuotaResponse
+     *
+     * @param CancelFilesetQuotaRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CancelFilesetQuotaResponse
      */
     public function cancelFilesetQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fsetId)) {
-            $query['FsetId'] = $request->fsetId;
+
+        if (null !== $request->fsetId) {
+            @$query['FsetId'] = $request->fsetId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelFilesetQuota',
@@ -932,18 +1084,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelFilesetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelFilesetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelFilesetQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels the quota set for a fileset.
-     *  *
-     * @description Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
-     *  *
-     * @param CancelFilesetQuotaRequest $request CancelFilesetQuotaRequest
+     * Cancels the quota set for a fileset.
      *
-     * @return CancelFilesetQuotaResponse CancelFilesetQuotaResponse
+     * @remarks
+     * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+     *
+     * @param request - CancelFilesetQuotaRequest
+     * @returns CancelFilesetQuotaResponse
+     *
+     * @param CancelFilesetQuotaRequest $request
+     *
+     * @return CancelFilesetQuotaResponse
      */
     public function cancelFilesetQuota($request)
     {
@@ -953,24 +1112,30 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a running data retrieval task.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param CancelLifecycleRetrieveJobRequest $request CancelLifecycleRetrieveJobRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Cancels a running data retrieval task.
      *
-     * @return CancelLifecycleRetrieveJobResponse CancelLifecycleRetrieveJobResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - CancelLifecycleRetrieveJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelLifecycleRetrieveJobResponse
+     *
+     * @param CancelLifecycleRetrieveJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelLifecycleRetrieveJobResponse
      */
     public function cancelLifecycleRetrieveJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelLifecycleRetrieveJob',
@@ -983,18 +1148,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelLifecycleRetrieveJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelLifecycleRetrieveJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelLifecycleRetrieveJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels a running data retrieval task.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param CancelLifecycleRetrieveJobRequest $request CancelLifecycleRetrieveJobRequest
+     * Cancels a running data retrieval task.
      *
-     * @return CancelLifecycleRetrieveJobResponse CancelLifecycleRetrieveJobResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - CancelLifecycleRetrieveJobRequest
+     * @returns CancelLifecycleRetrieveJobResponse
+     *
+     * @param CancelLifecycleRetrieveJobRequest $request
+     *
+     * @return CancelLifecycleRetrieveJobResponse
      */
     public function cancelLifecycleRetrieveJob($request)
     {
@@ -1004,24 +1176,29 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a running job of the recycle bin.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
+     * Cancels a running job of the recycle bin.
+     *
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
      * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
      * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
      * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
-     *  *
-     * @param CancelRecycleBinJobRequest $request CancelRecycleBinJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelRecycleBinJobResponse CancelRecycleBinJobResponse
+     * @param request - CancelRecycleBinJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelRecycleBinJobResponse
+     *
+     * @param CancelRecycleBinJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelRecycleBinJobResponse
      */
     public function cancelRecycleBinJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelRecycleBinJob',
@@ -1034,21 +1211,28 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelRecycleBinJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelRecycleBinJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelRecycleBinJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels a running job of the recycle bin.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
+     * Cancels a running job of the recycle bin.
+     *
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
      * *   You can cancel only jobs that are in the Running state. You cannot cancel jobs that are in the PartialSuccess, Success, Fail, or Cancelled state.
      * *   If you cancel a running job that permanently deletes files, you cannot restore the files that are already permanently deleted.
      * *   If you cancel a running job that restores files, you can query the restored files from the file system, and query the unrestored files from the recycle bin.
-     *  *
-     * @param CancelRecycleBinJobRequest $request CancelRecycleBinJobRequest
      *
-     * @return CancelRecycleBinJobResponse CancelRecycleBinJobResponse
+     * @param request - CancelRecycleBinJobRequest
+     * @returns CancelRecycleBinJobResponse
+     *
+     * @param CancelRecycleBinJobRequest $request
+     *
+     * @return CancelRecycleBinJobResponse
      */
     public function cancelRecycleBinJob($request)
     {
@@ -1058,31 +1242,39 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Changes the resource group to which a file system belongs.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Changes the resource group to which a file system belongs.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeResourceGroup',
@@ -1095,16 +1287,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the resource group to which a file system belongs.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Changes the resource group to which a file system belongs.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -1114,31 +1312,39 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a permission group.
-     *  *
-     * @param CreateAccessGroupRequest $request CreateAccessGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a permission group.
      *
-     * @return CreateAccessGroupResponse CreateAccessGroupResponse
+     * @param request - CreateAccessGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAccessGroupResponse
+     *
+     * @param CreateAccessGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAccessGroupResponse
      */
     public function createAccessGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->accessGroupType)) {
-            $query['AccessGroupType'] = $request->accessGroupType;
+
+        if (null !== $request->accessGroupType) {
+            @$query['AccessGroupType'] = $request->accessGroupType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAccessGroup',
@@ -1151,16 +1357,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAccessGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAccessGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAccessGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a permission group.
-     *  *
-     * @param CreateAccessGroupRequest $request CreateAccessGroupRequest
+     * Creates a permission group.
      *
-     * @return CreateAccessGroupResponse CreateAccessGroupResponse
+     * @param request - CreateAccessGroupRequest
+     * @returns CreateAccessGroupResponse
+     *
+     * @param CreateAccessGroupRequest $request
+     *
+     * @return CreateAccessGroupResponse
      */
     public function createAccessGroup($request)
     {
@@ -1170,62 +1382,80 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates an access point.
-     *  *
-     * @description *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you call the CreateAccessPoint operation successfully, call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
+     * Creates an access point.
+     *
+     * @remarks
+     *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you call the CreateAccessPoint operation successfully, call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
      * *   Only General-purpose Network File System (NFS) file systems support access points.
      * *   If you want to call the EnabledRam operation to enable a Resource Access Management (RAM) policy, you must configure the corresponding RAM permissions. For more information, see [Manage endpoints](https://help.aliyun.com/document_detail/2545998.html).
-     *  *
-     * @param CreateAccessPointRequest $request CreateAccessPointRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessPointResponse CreateAccessPointResponse
+     * @param request - CreateAccessPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAccessPointResponse
+     *
+     * @param CreateAccessPointRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAccessPointResponse
      */
     public function createAccessPointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroup)) {
-            $query['AccessGroup'] = $request->accessGroup;
+        if (null !== $request->accessGroup) {
+            @$query['AccessGroup'] = $request->accessGroup;
         }
-        if (!Utils::isUnset($request->accessPointName)) {
-            $query['AccessPointName'] = $request->accessPointName;
+
+        if (null !== $request->accessPointName) {
+            @$query['AccessPointName'] = $request->accessPointName;
         }
-        if (!Utils::isUnset($request->enabledRam)) {
-            $query['EnabledRam'] = $request->enabledRam;
+
+        if (null !== $request->enabledRam) {
+            @$query['EnabledRam'] = $request->enabledRam;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->ownerGroupId)) {
-            $query['OwnerGroupId'] = $request->ownerGroupId;
+
+        if (null !== $request->ownerGroupId) {
+            @$query['OwnerGroupId'] = $request->ownerGroupId;
         }
-        if (!Utils::isUnset($request->ownerUserId)) {
-            $query['OwnerUserId'] = $request->ownerUserId;
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
         }
-        if (!Utils::isUnset($request->permission)) {
-            $query['Permission'] = $request->permission;
+
+        if (null !== $request->permission) {
+            @$query['Permission'] = $request->permission;
         }
-        if (!Utils::isUnset($request->posixGroupId)) {
-            $query['PosixGroupId'] = $request->posixGroupId;
+
+        if (null !== $request->posixGroupId) {
+            @$query['PosixGroupId'] = $request->posixGroupId;
         }
-        if (!Utils::isUnset($request->posixSecondaryGroupIds)) {
-            $query['PosixSecondaryGroupIds'] = $request->posixSecondaryGroupIds;
+
+        if (null !== $request->posixSecondaryGroupIds) {
+            @$query['PosixSecondaryGroupIds'] = $request->posixSecondaryGroupIds;
         }
-        if (!Utils::isUnset($request->posixUserId)) {
-            $query['PosixUserId'] = $request->posixUserId;
+
+        if (null !== $request->posixUserId) {
+            @$query['PosixUserId'] = $request->posixUserId;
         }
-        if (!Utils::isUnset($request->rootDirectory)) {
-            $query['RootDirectory'] = $request->rootDirectory;
+
+        if (null !== $request->rootDirectory) {
+            @$query['RootDirectory'] = $request->rootDirectory;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vswId)) {
-            $query['VswId'] = $request->vswId;
+
+        if (null !== $request->vswId) {
+            @$query['VswId'] = $request->vswId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAccessPoint',
@@ -1238,20 +1468,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAccessPointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an access point.
-     *  *
-     * @description *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you call the CreateAccessPoint operation successfully, call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
+     * Creates an access point.
+     *
+     * @remarks
+     *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you call the CreateAccessPoint operation successfully, call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
      * *   Only General-purpose Network File System (NFS) file systems support access points.
      * *   If you want to call the EnabledRam operation to enable a Resource Access Management (RAM) policy, you must configure the corresponding RAM permissions. For more information, see [Manage endpoints](https://help.aliyun.com/document_detail/2545998.html).
-     *  *
-     * @param CreateAccessPointRequest $request CreateAccessPointRequest
      *
-     * @return CreateAccessPointResponse CreateAccessPointResponse
+     * @param request - CreateAccessPointRequest
+     * @returns CreateAccessPointResponse
+     *
+     * @param CreateAccessPointRequest $request
+     *
+     * @return CreateAccessPointResponse
      */
     public function createAccessPoint($request)
     {
@@ -1261,40 +1498,51 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a rule for a permission group.
-     *  *
-     * @param CreateAccessRuleRequest $request CreateAccessRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a rule for a permission group.
      *
-     * @return CreateAccessRuleResponse CreateAccessRuleResponse
+     * @param request - CreateAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAccessRuleResponse
+     *
+     * @param CreateAccessRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAccessRuleResponse
      */
     public function createAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->ipv6SourceCidrIp)) {
-            $query['Ipv6SourceCidrIp'] = $request->ipv6SourceCidrIp;
+
+        if (null !== $request->ipv6SourceCidrIp) {
+            @$query['Ipv6SourceCidrIp'] = $request->ipv6SourceCidrIp;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->RWAccessType)) {
-            $query['RWAccessType'] = $request->RWAccessType;
+
+        if (null !== $request->RWAccessType) {
+            @$query['RWAccessType'] = $request->RWAccessType;
         }
-        if (!Utils::isUnset($request->sourceCidrIp)) {
-            $query['SourceCidrIp'] = $request->sourceCidrIp;
+
+        if (null !== $request->sourceCidrIp) {
+            @$query['SourceCidrIp'] = $request->sourceCidrIp;
         }
-        if (!Utils::isUnset($request->userAccessType)) {
-            $query['UserAccessType'] = $request->userAccessType;
+
+        if (null !== $request->userAccessType) {
+            @$query['UserAccessType'] = $request->userAccessType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAccessRule',
@@ -1307,16 +1555,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAccessRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a rule for a permission group.
-     *  *
-     * @param CreateAccessRuleRequest $request CreateAccessRuleRequest
+     * Creates a rule for a permission group.
      *
-     * @return CreateAccessRuleResponse CreateAccessRuleResponse
+     * @param request - CreateAccessRuleRequest
+     * @returns CreateAccessRuleResponse
+     *
+     * @param CreateAccessRuleRequest $request
+     *
+     * @return CreateAccessRuleResponse
      */
     public function createAccessRule($request)
     {
@@ -1326,9 +1580,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates an automatic snapshot policy.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Creates an automatic snapshot policy.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support the snapshot feature.
      * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
      * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
@@ -1338,33 +1593,42 @@ class NAS extends OpenApiClient
      * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
      * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
      * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
-     *  *
-     * @param CreateAutoSnapshotPolicyRequest $request CreateAutoSnapshotPolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAutoSnapshotPolicyResponse CreateAutoSnapshotPolicyResponse
+     * @param request - CreateAutoSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAutoSnapshotPolicyResponse
+     *
+     * @param CreateAutoSnapshotPolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateAutoSnapshotPolicyResponse
      */
     public function createAutoSnapshotPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoSnapshotPolicyName)) {
-            $query['AutoSnapshotPolicyName'] = $request->autoSnapshotPolicyName;
+        if (null !== $request->autoSnapshotPolicyName) {
+            @$query['AutoSnapshotPolicyName'] = $request->autoSnapshotPolicyName;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->repeatWeekdays)) {
-            $query['RepeatWeekdays'] = $request->repeatWeekdays;
+
+        if (null !== $request->repeatWeekdays) {
+            @$query['RepeatWeekdays'] = $request->repeatWeekdays;
         }
-        if (!Utils::isUnset($request->retentionDays)) {
-            $query['RetentionDays'] = $request->retentionDays;
+
+        if (null !== $request->retentionDays) {
+            @$query['RetentionDays'] = $request->retentionDays;
         }
-        if (!Utils::isUnset($request->timePoints)) {
-            $query['TimePoints'] = $request->timePoints;
+
+        if (null !== $request->timePoints) {
+            @$query['TimePoints'] = $request->timePoints;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAutoSnapshotPolicy',
@@ -1377,14 +1641,18 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAutoSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an automatic snapshot policy.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Creates an automatic snapshot policy.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support the snapshot feature.
      * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
      * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
@@ -1394,10 +1662,13 @@ class NAS extends OpenApiClient
      * *   You can only apply automatic snapshot policies to a file system that is in the Running state.
      * *   All auto snapshots are named in the `auto_yyyyMMdd_X` format, where: `auto` indicates that the snapshot is created based on an automatic snapshot policy. `yyyyMMdd` indicates the date on which the snapshot is created. `y` indicates the year. `M` indicates the month. `d` indicates the day. `X` indicates the ordinal number of the snapshot on the current day. For example, `auto_20201018_1` indicates the first auto snapshot that was created on October 18, 2020.
      * *   After an automatic snapshot policy is created, you can call the ApplyAutoSnapshotPolicy operation to apply the policy to a file system and call the ModifyAutoSnapshotPolicy operation to modify the policy.
-     *  *
-     * @param CreateAutoSnapshotPolicyRequest $request CreateAutoSnapshotPolicyRequest
      *
-     * @return CreateAutoSnapshotPolicyResponse CreateAutoSnapshotPolicyResponse
+     * @param request - CreateAutoSnapshotPolicyRequest
+     * @returns CreateAutoSnapshotPolicyResponse
+     *
+     * @param CreateAutoSnapshotPolicyRequest $request
+     *
+     * @return CreateAutoSnapshotPolicyResponse
      */
     public function createAutoSnapshotPolicy($request)
     {
@@ -1407,9 +1678,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
-     *  *
-     * @description *   Basic operations
+     * Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
+     *
+     * @remarks
+     *   Basic operations
      *     *   Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
      *     *   You can create a data flow only when a CPFS for LINGJUN file system is in the Running state.
      *     *   A maximum of 10 data flows can be created for a CPFS for LINGJUN file system.
@@ -1439,57 +1711,74 @@ class NAS extends OpenApiClient
      *         *   Hard links can be synchronized to OSS only as common files that contain no link information.
      *         *   After a file of the Socket, Device, or Pipe type is exported to an OSS bucket, the file is converted into a common object that contains no data.
      *         *   The directory path can be up to 1,023 characters in length.
-     *  *
-     * @param CreateDataFlowRequest $request CreateDataFlowRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataFlowResponse CreateDataFlowResponse
+     * @param request - CreateDataFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataFlowResponse
+     *
+     * @param CreateDataFlowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateDataFlowResponse
      */
     public function createDataFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRefreshInterval)) {
-            $query['AutoRefreshInterval'] = $request->autoRefreshInterval;
+        if (null !== $request->autoRefreshInterval) {
+            @$query['AutoRefreshInterval'] = $request->autoRefreshInterval;
         }
-        if (!Utils::isUnset($request->autoRefreshPolicy)) {
-            $query['AutoRefreshPolicy'] = $request->autoRefreshPolicy;
+
+        if (null !== $request->autoRefreshPolicy) {
+            @$query['AutoRefreshPolicy'] = $request->autoRefreshPolicy;
         }
-        if (!Utils::isUnset($request->autoRefreshs)) {
-            $query['AutoRefreshs'] = $request->autoRefreshs;
+
+        if (null !== $request->autoRefreshs) {
+            @$query['AutoRefreshs'] = $request->autoRefreshs;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fileSystemPath)) {
-            $query['FileSystemPath'] = $request->fileSystemPath;
+
+        if (null !== $request->fileSystemPath) {
+            @$query['FileSystemPath'] = $request->fileSystemPath;
         }
-        if (!Utils::isUnset($request->fsetId)) {
-            $query['FsetId'] = $request->fsetId;
+
+        if (null !== $request->fsetId) {
+            @$query['FsetId'] = $request->fsetId;
         }
-        if (!Utils::isUnset($request->sourceSecurityType)) {
-            $query['SourceSecurityType'] = $request->sourceSecurityType;
+
+        if (null !== $request->sourceSecurityType) {
+            @$query['SourceSecurityType'] = $request->sourceSecurityType;
         }
-        if (!Utils::isUnset($request->sourceStorage)) {
-            $query['SourceStorage'] = $request->sourceStorage;
+
+        if (null !== $request->sourceStorage) {
+            @$query['SourceStorage'] = $request->sourceStorage;
         }
-        if (!Utils::isUnset($request->sourceStoragePath)) {
-            $query['SourceStoragePath'] = $request->sourceStoragePath;
+
+        if (null !== $request->sourceStoragePath) {
+            @$query['SourceStoragePath'] = $request->sourceStoragePath;
         }
-        if (!Utils::isUnset($request->throughput)) {
-            $query['Throughput'] = $request->throughput;
+
+        if (null !== $request->throughput) {
+            @$query['Throughput'] = $request->throughput;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataFlow',
@@ -1502,14 +1791,18 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
-     *  *
-     * @description *   Basic operations
+     * Creates a dataflow for a Cloud Parallel File Storage (CPFS) file system and source storage.
+     *
+     * @remarks
+     *   Basic operations
      *     *   Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
      *     *   You can create a data flow only when a CPFS for LINGJUN file system is in the Running state.
      *     *   A maximum of 10 data flows can be created for a CPFS for LINGJUN file system.
@@ -1539,10 +1832,13 @@ class NAS extends OpenApiClient
      *         *   Hard links can be synchronized to OSS only as common files that contain no link information.
      *         *   After a file of the Socket, Device, or Pipe type is exported to an OSS bucket, the file is converted into a common object that contains no data.
      *         *   The directory path can be up to 1,023 characters in length.
-     *  *
-     * @param CreateDataFlowRequest $request CreateDataFlowRequest
      *
-     * @return CreateDataFlowResponse CreateDataFlowResponse
+     * @param request - CreateDataFlowRequest
+     * @returns CreateDataFlowResponse
+     *
+     * @param CreateDataFlowRequest $request
+     *
+     * @return CreateDataFlowResponse
      */
     public function createDataFlow($request)
     {
@@ -1552,48 +1848,61 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a data streaming subtask.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+     * Creates a data streaming subtask.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
      * *   You can create subtasks only for a data streaming subtask in the Executing state.
      * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
      * *   When the type of data flow task is streaming, the running status only indicates that a streaming import or export task can be created. It does not indicate that the import or export task is running.
-     *  *
-     * @param CreateDataFlowSubTaskRequest $request CreateDataFlowSubTaskRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataFlowSubTaskResponse CreateDataFlowSubTaskResponse
+     * @param request - CreateDataFlowSubTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataFlowSubTaskResponse
+     *
+     * @param CreateDataFlowSubTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDataFlowSubTaskResponse
      */
     public function createDataFlowSubTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->condition)) {
-            $query['Condition'] = $request->condition;
+
+        if (null !== $request->condition) {
+            @$query['Condition'] = $request->condition;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dataFlowTaskId)) {
-            $query['DataFlowTaskId'] = $request->dataFlowTaskId;
+
+        if (null !== $request->dataFlowTaskId) {
+            @$query['DataFlowTaskId'] = $request->dataFlowTaskId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->dstFilePath)) {
-            $query['DstFilePath'] = $request->dstFilePath;
+
+        if (null !== $request->dstFilePath) {
+            @$query['DstFilePath'] = $request->dstFilePath;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->srcFilePath)) {
-            $query['SrcFilePath'] = $request->srcFilePath;
+
+        if (null !== $request->srcFilePath) {
+            @$query['SrcFilePath'] = $request->srcFilePath;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataFlowSubTask',
@@ -1606,21 +1915,28 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataFlowSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataFlowSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataFlowSubTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a data streaming subtask.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+     * Creates a data streaming subtask.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
      * *   You can create subtasks only for a data streaming subtask in the Executing state.
      * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
      * *   When the type of data flow task is streaming, the running status only indicates that a streaming import or export task can be created. It does not indicate that the import or export task is running.
-     *  *
-     * @param CreateDataFlowSubTaskRequest $request CreateDataFlowSubTaskRequest
      *
-     * @return CreateDataFlowSubTaskResponse CreateDataFlowSubTaskResponse
+     * @param request - CreateDataFlowSubTaskRequest
+     * @returns CreateDataFlowSubTaskResponse
+     *
+     * @param CreateDataFlowSubTaskRequest $request
+     *
+     * @return CreateDataFlowSubTaskResponse
      */
     public function createDataFlowSubTask($request)
     {
@@ -1630,62 +1946,79 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a dataflow task.
-     *  *
-     * @description *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+     * Creates a dataflow task.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
      * *   You can create a data flow task only for a data flow that is in the Running state.
      * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
      * *   When you manually run a data flow task, the automatic data update task for the data flow is interrupted and enters the pending state.
      * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS or CPFS for LINGJUN file system does not exceed 1,023 characters.
      * *   CPFS for LINGJUN supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
-     *  *
-     * @param CreateDataFlowTaskRequest $request CreateDataFlowTaskRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataFlowTaskResponse CreateDataFlowTaskResponse
+     * @param request - CreateDataFlowTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataFlowTaskResponse
+     *
+     * @param CreateDataFlowTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDataFlowTaskResponse
      */
     public function createDataFlowTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->conflictPolicy)) {
-            $query['ConflictPolicy'] = $request->conflictPolicy;
+
+        if (null !== $request->conflictPolicy) {
+            @$query['ConflictPolicy'] = $request->conflictPolicy;
         }
-        if (!Utils::isUnset($request->createDirIfNotExist)) {
-            $query['CreateDirIfNotExist'] = $request->createDirIfNotExist;
+
+        if (null !== $request->createDirIfNotExist) {
+            @$query['CreateDirIfNotExist'] = $request->createDirIfNotExist;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dataType)) {
-            $query['DataType'] = $request->dataType;
+
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
         }
-        if (!Utils::isUnset($request->directory)) {
-            $query['Directory'] = $request->directory;
+
+        if (null !== $request->directory) {
+            @$query['Directory'] = $request->directory;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->dstDirectory)) {
-            $query['DstDirectory'] = $request->dstDirectory;
+
+        if (null !== $request->dstDirectory) {
+            @$query['DstDirectory'] = $request->dstDirectory;
         }
-        if (!Utils::isUnset($request->entryList)) {
-            $query['EntryList'] = $request->entryList;
+
+        if (null !== $request->entryList) {
+            @$query['EntryList'] = $request->entryList;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->srcTaskId)) {
-            $query['SrcTaskId'] = $request->srcTaskId;
+
+        if (null !== $request->srcTaskId) {
+            @$query['SrcTaskId'] = $request->srcTaskId;
         }
-        if (!Utils::isUnset($request->taskAction)) {
-            $query['TaskAction'] = $request->taskAction;
+
+        if (null !== $request->taskAction) {
+            @$query['TaskAction'] = $request->taskAction;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataFlowTask',
@@ -1698,23 +2031,30 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataFlowTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataFlowTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataFlowTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a dataflow task.
-     *  *
-     * @description *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+     * Creates a dataflow task.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
      * *   You can create a data flow task only for a data flow that is in the Running state.
      * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
      * *   When you manually run a data flow task, the automatic data update task for the data flow is interrupted and enters the pending state.
      * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS or CPFS for LINGJUN file system does not exceed 1,023 characters.
      * *   CPFS for LINGJUN supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
-     *  *
-     * @param CreateDataFlowTaskRequest $request CreateDataFlowTaskRequest
      *
-     * @return CreateDataFlowTaskResponse CreateDataFlowTaskResponse
+     * @param request - CreateDataFlowTaskRequest
+     * @returns CreateDataFlowTaskResponse
+     *
+     * @param CreateDataFlowTaskRequest $request
+     *
+     * @return CreateDataFlowTaskResponse
      */
     public function createDataFlowTask($request)
     {
@@ -1724,39 +2064,50 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a directory in a file system.
-     *  *
-     * @description Only General-purpose Network File System (NFS) file systems support this operation.
-     *  *
-     * @param CreateDirRequest $request CreateDirRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Creates a directory in a file system.
      *
-     * @return CreateDirResponse CreateDirResponse
+     * @remarks
+     * Only General-purpose Network File System (NFS) file systems support this operation.
+     *
+     * @param request - CreateDirRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDirResponse
+     *
+     * @param CreateDirRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateDirResponse
      */
     public function createDirWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->ownerGroupId)) {
-            $query['OwnerGroupId'] = $request->ownerGroupId;
+
+        if (null !== $request->ownerGroupId) {
+            @$query['OwnerGroupId'] = $request->ownerGroupId;
         }
-        if (!Utils::isUnset($request->ownerUserId)) {
-            $query['OwnerUserId'] = $request->ownerUserId;
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
         }
-        if (!Utils::isUnset($request->permission)) {
-            $query['Permission'] = $request->permission;
+
+        if (null !== $request->permission) {
+            @$query['Permission'] = $request->permission;
         }
-        if (!Utils::isUnset($request->recursion)) {
-            $query['Recursion'] = $request->recursion;
+
+        if (null !== $request->recursion) {
+            @$query['Recursion'] = $request->recursion;
         }
-        if (!Utils::isUnset($request->rootDirectory)) {
-            $query['RootDirectory'] = $request->rootDirectory;
+
+        if (null !== $request->rootDirectory) {
+            @$query['RootDirectory'] = $request->rootDirectory;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDir',
@@ -1769,18 +2120,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDirResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDirResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDirResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a directory in a file system.
-     *  *
-     * @description Only General-purpose Network File System (NFS) file systems support this operation.
-     *  *
-     * @param CreateDirRequest $request CreateDirRequest
+     * Creates a directory in a file system.
      *
-     * @return CreateDirResponse CreateDirResponse
+     * @remarks
+     * Only General-purpose Network File System (NFS) file systems support this operation.
+     *
+     * @param request - CreateDirRequest
+     * @returns CreateDirResponse
+     *
+     * @param CreateDirRequest $request
+     *
+     * @return CreateDirResponse
      */
     public function createDir($request)
     {
@@ -1790,37 +2148,47 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a directory or file.
-     *  *
-     * @description *   This operation is only available to some users.
-     * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
-     *  *
-     * @param CreateFileRequest $request CreateFileRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a directory or file.
      *
-     * @return CreateFileResponse CreateFileResponse
+     * @remarks
+     *   This operation is only available to some users.
+     * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
+     *
+     * @param request - CreateFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFileResponse
+     *
+     * @param CreateFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateFileResponse
      */
     public function createFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->ownerAccessInheritable)) {
-            $query['OwnerAccessInheritable'] = $request->ownerAccessInheritable;
+
+        if (null !== $request->ownerAccessInheritable) {
+            @$query['OwnerAccessInheritable'] = $request->ownerAccessInheritable;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFile',
@@ -1833,19 +2201,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a directory or file.
-     *  *
-     * @description *   This operation is only available to some users.
-     * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
-     *  *
-     * @param CreateFileRequest $request CreateFileRequest
+     * Creates a directory or file.
      *
-     * @return CreateFileResponse CreateFileResponse
+     * @remarks
+     *   This operation is only available to some users.
+     * *   This operation supports only General-purpose NAS file systems that use the Server Message Block (SMB) protocol and have Resource Access Management (RAM) enabled.
+     *
+     * @param request - CreateFileRequest
+     * @returns CreateFileResponse
+     *
+     * @param CreateFileRequest $request
+     *
+     * @return CreateFileResponse
      */
     public function createFile($request)
     {
@@ -1855,74 +2230,96 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a file system.
-     *  *
-     * @description *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+     * Creates a file system.
+     *
+     * @remarks
+     *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
      * *   Before you create a file system, you must complete real-name verification.
      * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
-     *  *
-     * @param CreateFileSystemRequest $request CreateFileSystemRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileSystemResponse CreateFileSystemResponse
+     * @param request - CreateFileSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFileSystemResponse
+     *
+     * @param CreateFileSystemRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateFileSystemResponse
      */
     public function createFileSystemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->capacity)) {
-            $query['Capacity'] = $request->capacity;
+
+        if (null !== $request->capacity) {
+            @$query['Capacity'] = $request->capacity;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->encryptType)) {
-            $query['EncryptType'] = $request->encryptType;
+
+        if (null !== $request->encryptType) {
+            @$query['EncryptType'] = $request->encryptType;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->kmsKeyId)) {
-            $query['KmsKeyId'] = $request->kmsKeyId;
+
+        if (null !== $request->kmsKeyId) {
+            @$query['KmsKeyId'] = $request->kmsKeyId;
         }
-        if (!Utils::isUnset($request->protocolType)) {
-            $query['ProtocolType'] = $request->protocolType;
+
+        if (null !== $request->protocolType) {
+            @$query['ProtocolType'] = $request->protocolType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFileSystem',
@@ -1935,20 +2332,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFileSystemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a file system.
-     *  *
-     * @description *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+     * Creates a file system.
+     *
+     * @remarks
+     *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
      * *   Before you create a file system, you must complete real-name verification.
      * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
-     *  *
-     * @param CreateFileSystemRequest $request CreateFileSystemRequest
      *
-     * @return CreateFileSystemResponse CreateFileSystemResponse
+     * @param request - CreateFileSystemRequest
+     * @returns CreateFileSystemResponse
+     *
+     * @param CreateFileSystemRequest $request
+     *
+     * @return CreateFileSystemResponse
      */
     public function createFileSystem($request)
     {
@@ -1958,9 +2362,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a fileset.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
+     * Creates a fileset.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
      * *   A maximum of 500 filesets can be created for a CPFS file system.
      * *   The fileset path must be a new path and cannot be an existing path. Fileset paths cannot be renamed and cannot be symbolic links.
      * *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
@@ -1970,39 +2375,50 @@ class NAS extends OpenApiClient
      * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
      * *   When you modify a directory quota, you must set the quota capacity or the number of files to be greater than the capacity or file quantity that has been used.
      * *   The quota statistics have a 5-minute latency. The actual usage takes effect after 5 minutes.
-     *  *
-     * @param CreateFilesetRequest $request CreateFilesetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFilesetResponse CreateFilesetResponse
+     * @param request - CreateFilesetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFilesetResponse
+     *
+     * @param CreateFilesetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateFilesetResponse
      */
     public function createFilesetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->deletionProtection)) {
-            $query['DeletionProtection'] = $request->deletionProtection;
+
+        if (null !== $request->deletionProtection) {
+            @$query['DeletionProtection'] = $request->deletionProtection;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fileSystemPath)) {
-            $query['FileSystemPath'] = $request->fileSystemPath;
+
+        if (null !== $request->fileSystemPath) {
+            @$query['FileSystemPath'] = $request->fileSystemPath;
         }
-        if (!Utils::isUnset($request->quota)) {
-            $query['Quota'] = $request->quota;
+
+        if (null !== $request->quota) {
+            @$query['Quota'] = $request->quota;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFileset',
@@ -2015,14 +2431,18 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFilesetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFilesetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFilesetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a fileset.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
+     * Creates a fileset.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
      * *   A maximum of 500 filesets can be created for a CPFS file system.
      * *   The fileset path must be a new path and cannot be an existing path. Fileset paths cannot be renamed and cannot be symbolic links.
      * *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
@@ -2032,10 +2452,13 @@ class NAS extends OpenApiClient
      * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
      * *   When you modify a directory quota, you must set the quota capacity or the number of files to be greater than the capacity or file quantity that has been used.
      * *   The quota statistics have a 5-minute latency. The actual usage takes effect after 5 minutes.
-     *  *
-     * @param CreateFilesetRequest $request CreateFilesetRequest
      *
-     * @return CreateFilesetResponse CreateFilesetResponse
+     * @param request - CreateFilesetRequest
+     * @returns CreateFilesetResponse
+     *
+     * @param CreateFilesetRequest $request
+     *
+     * @return CreateFilesetResponse
      */
     public function createFileset($request)
     {
@@ -2044,36 +2467,44 @@ class NAS extends OpenApiClient
         return $this->createFilesetWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Creates LDAP configurations.
+     *
      * @deprecated OpenAPI CreateLDAPConfig is deprecated
-     *  *
-     * @summary Creates LDAP configurations.
-     *  *
-     * Deprecated
      *
-     * @param CreateLDAPConfigRequest $request CreateLDAPConfigRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateLDAPConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLDAPConfigResponse
      *
-     * @return CreateLDAPConfigResponse CreateLDAPConfigResponse
+     * @param CreateLDAPConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateLDAPConfigResponse
      */
     public function createLDAPConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bindDN)) {
-            $query['BindDN'] = $request->bindDN;
+        if (null !== $request->bindDN) {
+            @$query['BindDN'] = $request->bindDN;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->searchBase)) {
-            $query['SearchBase'] = $request->searchBase;
+
+        if (null !== $request->searchBase) {
+            @$query['SearchBase'] = $request->searchBase;
         }
-        if (!Utils::isUnset($request->URI)) {
-            $query['URI'] = $request->URI;
+
+        if (null !== $request->URI) {
+            @$query['URI'] = $request->URI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLDAPConfig',
@@ -2086,20 +2517,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLDAPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLDAPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLDAPConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Creates LDAP configurations.
+     *
      * @deprecated OpenAPI CreateLDAPConfig is deprecated
-     *  *
-     * @summary Creates LDAP configurations.
-     *  *
-     * Deprecated
      *
-     * @param CreateLDAPConfigRequest $request CreateLDAPConfigRequest
+     * @param request - CreateLDAPConfigRequest
+     * @returns CreateLDAPConfigResponse
      *
-     * @return CreateLDAPConfigResponse CreateLDAPConfigResponse
+     * @param CreateLDAPConfigRequest $request
+     *
+     * @return CreateLDAPConfigResponse
      */
     public function createLDAPConfig($request)
     {
@@ -2109,40 +2546,51 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a lifecycle policy.
-     *  *
-     * @description *   You can create lifecycle policies only for General-purpose NAS file systems.
-     * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
-     *  *
-     * @param CreateLifecyclePolicyRequest $request CreateLifecyclePolicyRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a lifecycle policy.
      *
-     * @return CreateLifecyclePolicyResponse CreateLifecyclePolicyResponse
+     * @remarks
+     *   You can create lifecycle policies only for General-purpose NAS file systems.
+     * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+     *
+     * @param request - CreateLifecyclePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLifecyclePolicyResponse
+     *
+     * @param CreateLifecyclePolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateLifecyclePolicyResponse
      */
     public function createLifecyclePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->lifecyclePolicyName)) {
-            $query['LifecyclePolicyName'] = $request->lifecyclePolicyName;
+
+        if (null !== $request->lifecyclePolicyName) {
+            @$query['LifecyclePolicyName'] = $request->lifecyclePolicyName;
         }
-        if (!Utils::isUnset($request->lifecycleRuleName)) {
-            $query['LifecycleRuleName'] = $request->lifecycleRuleName;
+
+        if (null !== $request->lifecycleRuleName) {
+            @$query['LifecycleRuleName'] = $request->lifecycleRuleName;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->paths)) {
-            $query['Paths'] = $request->paths;
+
+        if (null !== $request->paths) {
+            @$query['Paths'] = $request->paths;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLifecyclePolicy',
@@ -2155,19 +2603,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLifecyclePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLifecyclePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLifecyclePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a lifecycle policy.
-     *  *
-     * @description *   You can create lifecycle policies only for General-purpose NAS file systems.
-     * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
-     *  *
-     * @param CreateLifecyclePolicyRequest $request CreateLifecyclePolicyRequest
+     * Creates a lifecycle policy.
      *
-     * @return CreateLifecyclePolicyResponse CreateLifecyclePolicyResponse
+     * @remarks
+     *   You can create lifecycle policies only for General-purpose NAS file systems.
+     * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+     *
+     * @param request - CreateLifecyclePolicyRequest
+     * @returns CreateLifecyclePolicyResponse
+     *
+     * @param CreateLifecyclePolicyRequest $request
+     *
+     * @return CreateLifecyclePolicyResponse
      */
     public function createLifecyclePolicy($request)
     {
@@ -2177,31 +2632,39 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a data retrieval task.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
-     * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
-     *  *
-     * @param CreateLifecycleRetrieveJobRequest $request CreateLifecycleRetrieveJobRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates a data retrieval task.
      *
-     * @return CreateLifecycleRetrieveJobResponse CreateLifecycleRetrieveJobResponse
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
+     * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+     *
+     * @param request - CreateLifecycleRetrieveJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLifecycleRetrieveJobResponse
+     *
+     * @param CreateLifecycleRetrieveJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateLifecycleRetrieveJobResponse
      */
     public function createLifecycleRetrieveJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->paths)) {
-            $query['Paths'] = $request->paths;
+
+        if (null !== $request->paths) {
+            @$query['Paths'] = $request->paths;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLifecycleRetrieveJob',
@@ -2214,19 +2677,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLifecycleRetrieveJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLifecycleRetrieveJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLifecycleRetrieveJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a data retrieval task.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
-     * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
-     *  *
-     * @param CreateLifecycleRetrieveJobRequest $request CreateLifecycleRetrieveJobRequest
+     * Creates a data retrieval task.
      *
-     * @return CreateLifecycleRetrieveJobResponse CreateLifecycleRetrieveJobResponse
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
+     * *   You can run a maximum of 20 data retrieval tasks in each region within an Alibaba Cloud account.
+     *
+     * @param request - CreateLifecycleRetrieveJobRequest
+     * @returns CreateLifecycleRetrieveJobResponse
+     *
+     * @param CreateLifecycleRetrieveJobRequest $request
+     *
+     * @return CreateLifecycleRetrieveJobResponse
      */
     public function createLifecycleRetrieveJob($request)
     {
@@ -2236,25 +2706,31 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Dumps the logs of a General-purpose NAS file system to Simple Log Service.
-     *  *
-     * @param CreateLogAnalysisRequest $request CreateLogAnalysisRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Dumps the logs of a General-purpose NAS file system to Simple Log Service.
      *
-     * @return CreateLogAnalysisResponse CreateLogAnalysisResponse
+     * @param request - CreateLogAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLogAnalysisResponse
+     *
+     * @param CreateLogAnalysisRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateLogAnalysisResponse
      */
     public function createLogAnalysisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLogAnalysis',
@@ -2267,16 +2743,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLogAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLogAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLogAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Dumps the logs of a General-purpose NAS file system to Simple Log Service.
-     *  *
-     * @param CreateLogAnalysisRequest $request CreateLogAnalysisRequest
+     * Dumps the logs of a General-purpose NAS file system to Simple Log Service.
      *
-     * @return CreateLogAnalysisResponse CreateLogAnalysisResponse
+     * @param request - CreateLogAnalysisRequest
+     * @returns CreateLogAnalysisResponse
+     *
+     * @param CreateLogAnalysisRequest $request
+     *
+     * @return CreateLogAnalysisResponse
      */
     public function createLogAnalysis($request)
     {
@@ -2286,46 +2768,59 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a mount target.
-     *  *
-     * @description *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-     * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
-     *  *
-     * @param CreateMountTargetRequest $request CreateMountTargetRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a mount target.
      *
-     * @return CreateMountTargetResponse CreateMountTargetResponse
+     * @remarks
+     *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+     * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+     *
+     * @param request - CreateMountTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateMountTargetResponse
+     *
+     * @param CreateMountTargetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateMountTargetResponse
      */
     public function createMountTargetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->enableIpv6)) {
-            $query['EnableIpv6'] = $request->enableIpv6;
+
+        if (null !== $request->enableIpv6) {
+            @$query['EnableIpv6'] = $request->enableIpv6;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateMountTarget',
@@ -2338,19 +2833,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMountTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a mount target.
-     *  *
-     * @description *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-     * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
-     *  *
-     * @param CreateMountTargetRequest $request CreateMountTargetRequest
+     * Creates a mount target.
      *
-     * @return CreateMountTargetResponse CreateMountTargetResponse
+     * @remarks
+     *   After you call the CreateMountTarget operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the **Active** state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+     * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
+     *
+     * @param request - CreateMountTargetRequest
+     * @returns CreateMountTargetResponse
+     *
+     * @param CreateMountTargetRequest $request
+     *
+     * @return CreateMountTargetResponse
      */
     public function createMountTarget($request)
     {
@@ -2360,9 +2862,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates an export directory for a protocol service.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Creates an export directory for a protocol service.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Prerequisites
      *     A protocol service is created.
      * *   Others
@@ -2370,48 +2873,62 @@ class NAS extends OpenApiClient
      *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
      *     *   You can create a maximum of 10 export directories for a protocol service.
      *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
-     *  *
-     * @param CreateProtocolMountTargetRequest $request CreateProtocolMountTargetRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProtocolMountTargetResponse CreateProtocolMountTargetResponse
+     * @param request - CreateProtocolMountTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProtocolMountTargetResponse
+     *
+     * @param CreateProtocolMountTargetRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateProtocolMountTargetResponse
      */
     public function createProtocolMountTargetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fsetId)) {
-            $query['FsetId'] = $request->fsetId;
+
+        if (null !== $request->fsetId) {
+            @$query['FsetId'] = $request->fsetId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->protocolServiceId)) {
-            $query['ProtocolServiceId'] = $request->protocolServiceId;
+
+        if (null !== $request->protocolServiceId) {
+            @$query['ProtocolServiceId'] = $request->protocolServiceId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateProtocolMountTarget',
@@ -2424,14 +2941,18 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProtocolMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProtocolMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProtocolMountTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an export directory for a protocol service.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Creates an export directory for a protocol service.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Prerequisites
      *     A protocol service is created.
      * *   Others
@@ -2439,10 +2960,13 @@ class NAS extends OpenApiClient
      *     *   The VPC CIDR blocks of multiple export directories of a protocol service cannot overlap.
      *     *   You can create a maximum of 10 export directories for a protocol service.
      *     *   When you create export directories for a protocol service, a maximum of 32 IP addresses that are allocated by the specified vSwitch are used. Make sure that the vSwitch can provide sufficient IP addresses.
-     *  *
-     * @param CreateProtocolMountTargetRequest $request CreateProtocolMountTargetRequest
      *
-     * @return CreateProtocolMountTargetResponse CreateProtocolMountTargetResponse
+     * @param request - CreateProtocolMountTargetRequest
+     * @returns CreateProtocolMountTargetResponse
+     *
+     * @param CreateProtocolMountTargetRequest $request
+     *
+     * @return CreateProtocolMountTargetResponse
      */
     public function createProtocolMountTarget($request)
     {
@@ -2452,9 +2976,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
-     *  *
-     * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+     * Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
+     *
+     * @remarks
+     *   This operation is available only to CPFS file systems on the China site (aliyun.com).
      * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
      * *   Protocol service types
      *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
@@ -2466,45 +2991,58 @@ class NAS extends OpenApiClient
      * *   Others
      *     *   Only one protocol service can be created for a CPFS file system.
      *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
-     *  *
-     * @param CreateProtocolServiceRequest $request CreateProtocolServiceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProtocolServiceResponse CreateProtocolServiceResponse
+     * @param request - CreateProtocolServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProtocolServiceResponse
+     *
+     * @param CreateProtocolServiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateProtocolServiceResponse
      */
     public function createProtocolServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->protocolSpec)) {
-            $query['ProtocolSpec'] = $request->protocolSpec;
+
+        if (null !== $request->protocolSpec) {
+            @$query['ProtocolSpec'] = $request->protocolSpec;
         }
-        if (!Utils::isUnset($request->protocolType)) {
-            $query['ProtocolType'] = $request->protocolType;
+
+        if (null !== $request->protocolType) {
+            @$query['ProtocolType'] = $request->protocolType;
         }
-        if (!Utils::isUnset($request->throughput)) {
-            $query['Throughput'] = $request->throughput;
+
+        if (null !== $request->throughput) {
+            @$query['Throughput'] = $request->throughput;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateProtocolService',
@@ -2517,14 +3055,18 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProtocolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProtocolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProtocolServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
-     *  *
-     * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+     * Creates a protocol service for a Cloud Parallel File Storage (CPFS) file system. The creation takes about 5 to 10 minutes.
+     *
+     * @remarks
+     *   This operation is available only to CPFS file systems on the China site (aliyun.com).
      * *   Only CPFS V2.3.0 and later support protocol services. You can query the version information of the file system by calling the [DescribeFileSystems](~~2402188.~~) operation.
      * *   Protocol service types
      *     Protocol services are classified into general-purpose protocol services and cache protocol services. Different from general-purpose protocol services, cache protocol services can cache hot data. If data exists in the cache, the bandwidth of the cache protocol service may exceed the bandwidth of the CPFS file system, reaching the maximum bandwidth specified for the protocol service.
@@ -2536,10 +3078,13 @@ class NAS extends OpenApiClient
      * *   Others
      *     *   Only one protocol service can be created for a CPFS file system.
      *     *   A protocol service can use a maximum of 32 IP addresses that are allocated by a specified vSwitch. Make sure that the vSwitch can provide sufficient IP addresses.
-     *  *
-     * @param CreateProtocolServiceRequest $request CreateProtocolServiceRequest
      *
-     * @return CreateProtocolServiceResponse CreateProtocolServiceResponse
+     * @param request - CreateProtocolServiceRequest
+     * @returns CreateProtocolServiceResponse
+     *
+     * @param CreateProtocolServiceRequest $request
+     *
+     * @return CreateProtocolServiceResponse
      */
     public function createProtocolService($request)
     {
@@ -2549,23 +3094,28 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a job to permanently delete a file or directory from the recycle bin.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
+     * Creates a job to permanently delete a file or directory from the recycle bin.
+     *
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
      * *   If you permanently delete a directory, the files in the directory are recursively cleared.
      * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
-     *  *
-     * @param CreateRecycleBinDeleteJobRequest $request CreateRecycleBinDeleteJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRecycleBinDeleteJobResponse CreateRecycleBinDeleteJobResponse
+     * @param request - CreateRecycleBinDeleteJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRecycleBinDeleteJobResponse
+     *
+     * @param CreateRecycleBinDeleteJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateRecycleBinDeleteJobResponse
      */
     public function createRecycleBinDeleteJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRecycleBinDeleteJob',
@@ -2578,20 +3128,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRecycleBinDeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRecycleBinDeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRecycleBinDeleteJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a job to permanently delete a file or directory from the recycle bin.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
+     * Creates a job to permanently delete a file or directory from the recycle bin.
+     *
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
      * *   If you permanently delete a directory, the files in the directory are recursively cleared.
      * *   You can run only one job at a time for a single file system to permanently delete the files from the file system. You cannot create a restoration or deletion job when a file or directory is being deleted.
-     *  *
-     * @param CreateRecycleBinDeleteJobRequest $request CreateRecycleBinDeleteJobRequest
      *
-     * @return CreateRecycleBinDeleteJobResponse CreateRecycleBinDeleteJobResponse
+     * @param request - CreateRecycleBinDeleteJobRequest
+     * @returns CreateRecycleBinDeleteJobResponse
+     *
+     * @param CreateRecycleBinDeleteJobRequest $request
+     *
+     * @return CreateRecycleBinDeleteJobResponse
      */
     public function createRecycleBinDeleteJob($request)
     {
@@ -2601,25 +3158,30 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Restores a file or directory from the recycle bin.
-     *  *
-     * @description ### Usage notes
+     * Restores a file or directory from the recycle bin.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Only General-purpose NAS file systems support this operation.
      * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
      * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
      * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
-     *  *
-     * @param CreateRecycleBinRestoreJobRequest $request CreateRecycleBinRestoreJobRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRecycleBinRestoreJobResponse CreateRecycleBinRestoreJobResponse
+     * @param request - CreateRecycleBinRestoreJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRecycleBinRestoreJobResponse
+     *
+     * @param CreateRecycleBinRestoreJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateRecycleBinRestoreJobResponse
      */
     public function createRecycleBinRestoreJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRecycleBinRestoreJob',
@@ -2632,22 +3194,29 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRecycleBinRestoreJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRecycleBinRestoreJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRecycleBinRestoreJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Restores a file or directory from the recycle bin.
-     *  *
-     * @description ### Usage notes
+     * Restores a file or directory from the recycle bin.
+     *
+     * @remarks
+     * ### Usage notes
      * *   Only General-purpose NAS file systems support this operation.
      * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
      * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
      * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
-     *  *
-     * @param CreateRecycleBinRestoreJobRequest $request CreateRecycleBinRestoreJobRequest
      *
-     * @return CreateRecycleBinRestoreJobResponse CreateRecycleBinRestoreJobResponse
+     * @param request - CreateRecycleBinRestoreJobRequest
+     * @returns CreateRecycleBinRestoreJobResponse
+     *
+     * @param CreateRecycleBinRestoreJobRequest $request
+     *
+     * @return CreateRecycleBinRestoreJobResponse
      */
     public function createRecycleBinRestoreJob($request)
     {
@@ -2657,9 +3226,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a snapshot.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Creates a snapshot.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support the snapshot feature.
      * *   You can create a maximum of 128 snapshots for a file system.
      * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
@@ -2668,30 +3238,38 @@ class NAS extends OpenApiClient
      * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
      * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
      * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to overdue payments. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
-     *  *
-     * @param CreateSnapshotRequest $request CreateSnapshotRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSnapshotResponse CreateSnapshotResponse
+     * @param request - CreateSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSnapshotResponse
+     *
+     * @param CreateSnapshotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateSnapshotResponse
      */
     public function createSnapshotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->retentionDays)) {
-            $query['RetentionDays'] = $request->retentionDays;
+
+        if (null !== $request->retentionDays) {
+            @$query['RetentionDays'] = $request->retentionDays;
         }
-        if (!Utils::isUnset($request->snapshotName)) {
-            $query['SnapshotName'] = $request->snapshotName;
+
+        if (null !== $request->snapshotName) {
+            @$query['SnapshotName'] = $request->snapshotName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSnapshot',
@@ -2704,14 +3282,18 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSnapshotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a snapshot.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Creates a snapshot.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support the snapshot feature.
      * *   You can create a maximum of 128 snapshots for a file system.
      * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
@@ -2720,10 +3302,13 @@ class NAS extends OpenApiClient
      * *   When you create a snapshot for a file system, the I/O performance of the file system may be degraded for a short period of time. We recommend that you create snapshots during off-peak hours.
      * *   A snapshot is a backup of a file system at a specific point in time. After you create a snapshot, incremental data that is generated in the file system will not be synchronized to the snapshot.
      * *   Manually created snapshots will not be deleted until 15 days after the service is suspended due to overdue payments. We recommend that you delete unnecessary snapshots at regular intervals to prevent extra fees incurred by the snapshots.
-     *  *
-     * @param CreateSnapshotRequest $request CreateSnapshotRequest
      *
-     * @return CreateSnapshotResponse CreateSnapshotResponse
+     * @param request - CreateSnapshotRequest
+     * @returns CreateSnapshotResponse
+     *
+     * @param CreateSnapshotRequest $request
+     *
+     * @return CreateSnapshotResponse
      */
     public function createSnapshot($request)
     {
@@ -2733,27 +3318,34 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a permission group.
-     *  *
-     * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-     *  *
-     * @param DeleteAccessGroupRequest $request DeleteAccessGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a permission group.
      *
-     * @return DeleteAccessGroupResponse DeleteAccessGroupResponse
+     * @remarks
+     * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+     *
+     * @param request - DeleteAccessGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAccessGroupResponse
+     *
+     * @param DeleteAccessGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAccessGroupResponse
      */
     public function deleteAccessGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccessGroup',
@@ -2766,18 +3358,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAccessGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAccessGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAccessGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a permission group.
-     *  *
-     * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-     *  *
-     * @param DeleteAccessGroupRequest $request DeleteAccessGroupRequest
+     * Deletes a permission group.
      *
-     * @return DeleteAccessGroupResponse DeleteAccessGroupResponse
+     * @remarks
+     * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+     *
+     * @param request - DeleteAccessGroupRequest
+     * @returns DeleteAccessGroupResponse
+     *
+     * @param DeleteAccessGroupRequest $request
+     *
+     * @return DeleteAccessGroupResponse
      */
     public function deleteAccessGroup($request)
     {
@@ -2787,28 +3386,35 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an access point.
-     *  *
-     * @description *   Only General-purpose Network File System (NFS) file systems support access points.
-     * *   After an access point is deleted, all I/O operations that are being performed on the directory accessed over the access point are interrupted immediately. Exercise caution when you perform this operation.
-     *  *
-     * @param DeleteAccessPointRequest $request DeleteAccessPointRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes an access point.
      *
-     * @return DeleteAccessPointResponse DeleteAccessPointResponse
+     * @remarks
+     *   Only General-purpose Network File System (NFS) file systems support access points.
+     * *   After an access point is deleted, all I/O operations that are being performed on the directory accessed over the access point are interrupted immediately. Exercise caution when you perform this operation.
+     *
+     * @param request - DeleteAccessPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAccessPointResponse
+     *
+     * @param DeleteAccessPointRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAccessPointResponse
      */
     public function deleteAccessPointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessPointId)) {
-            $query['AccessPointId'] = $request->accessPointId;
+        if (null !== $request->accessPointId) {
+            @$query['AccessPointId'] = $request->accessPointId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccessPoint',
@@ -2821,19 +3427,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAccessPointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an access point.
-     *  *
-     * @description *   Only General-purpose Network File System (NFS) file systems support access points.
-     * *   After an access point is deleted, all I/O operations that are being performed on the directory accessed over the access point are interrupted immediately. Exercise caution when you perform this operation.
-     *  *
-     * @param DeleteAccessPointRequest $request DeleteAccessPointRequest
+     * Deletes an access point.
      *
-     * @return DeleteAccessPointResponse DeleteAccessPointResponse
+     * @remarks
+     *   Only General-purpose Network File System (NFS) file systems support access points.
+     * *   After an access point is deleted, all I/O operations that are being performed on the directory accessed over the access point are interrupted immediately. Exercise caution when you perform this operation.
+     *
+     * @param request - DeleteAccessPointRequest
+     * @returns DeleteAccessPointResponse
+     *
+     * @param DeleteAccessPointRequest $request
+     *
+     * @return DeleteAccessPointResponse
      */
     public function deleteAccessPoint($request)
     {
@@ -2843,30 +3456,38 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a rule from a permission group.
-     *  *
-     * @description Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-     *  *
-     * @param DeleteAccessRuleRequest $request DeleteAccessRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a rule from a permission group.
      *
-     * @return DeleteAccessRuleResponse DeleteAccessRuleResponse
+     * @remarks
+     * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+     *
+     * @param request - DeleteAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAccessRuleResponse
+     *
+     * @param DeleteAccessRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteAccessRuleResponse
      */
     public function deleteAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->accessRuleId)) {
-            $query['AccessRuleId'] = $request->accessRuleId;
+
+        if (null !== $request->accessRuleId) {
+            @$query['AccessRuleId'] = $request->accessRuleId;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccessRule',
@@ -2879,18 +3500,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAccessRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a rule from a permission group.
-     *  *
-     * @description Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
-     *  *
-     * @param DeleteAccessRuleRequest $request DeleteAccessRuleRequest
+     * Deletes a rule from a permission group.
      *
-     * @return DeleteAccessRuleResponse DeleteAccessRuleResponse
+     * @remarks
+     * Rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be deleted.
+     *
+     * @param request - DeleteAccessRuleRequest
+     * @returns DeleteAccessRuleResponse
+     *
+     * @param DeleteAccessRuleRequest $request
+     *
+     * @return DeleteAccessRuleResponse
      */
     public function deleteAccessRule($request)
     {
@@ -2900,26 +3528,32 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an automatic snapshot policy.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Deletes an automatic snapshot policy.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support the snapshot feature.
      * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
-     *  *
-     * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAutoSnapshotPolicyResponse DeleteAutoSnapshotPolicyResponse
+     * @param request - DeleteAutoSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAutoSnapshotPolicyResponse
+     *
+     * @param DeleteAutoSnapshotPolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteAutoSnapshotPolicyResponse
      */
     public function deleteAutoSnapshotPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoSnapshotPolicyId)) {
-            $query['AutoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
+        if (null !== $request->autoSnapshotPolicyId) {
+            @$query['AutoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAutoSnapshotPolicy',
@@ -2932,20 +3566,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAutoSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an automatic snapshot policy.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Deletes an automatic snapshot policy.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support the snapshot feature.
      * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
-     *  *
-     * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
      *
-     * @return DeleteAutoSnapshotPolicyResponse DeleteAutoSnapshotPolicyResponse
+     * @param request - DeleteAutoSnapshotPolicyRequest
+     * @returns DeleteAutoSnapshotPolicyResponse
+     *
+     * @param DeleteAutoSnapshotPolicyRequest $request
+     *
+     * @return DeleteAutoSnapshotPolicyResponse
      */
     public function deleteAutoSnapshotPolicy($request)
     {
@@ -2955,35 +3596,44 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a dataflow.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+     * Deletes a dataflow.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
      * *   You can delete the data flows that are only in the `Running` or `Stopped` state.
      * *   After a data flow is deleted, the resources related to the data flow are released and cannot be restored. You must create a data flow again if required.
-     *  *
-     * @param DeleteDataFlowRequest $request DeleteDataFlowRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataFlowResponse DeleteDataFlowResponse
+     * @param request - DeleteDataFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataFlowResponse
+     *
+     * @param DeleteDataFlowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDataFlowResponse
      */
     public function deleteDataFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataFlow',
@@ -2996,20 +3646,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a dataflow.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+     * Deletes a dataflow.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
      * *   You can delete the data flows that are only in the `Running` or `Stopped` state.
      * *   After a data flow is deleted, the resources related to the data flow are released and cannot be restored. You must create a data flow again if required.
-     *  *
-     * @param DeleteDataFlowRequest $request DeleteDataFlowRequest
      *
-     * @return DeleteDataFlowResponse DeleteDataFlowResponse
+     * @param request - DeleteDataFlowRequest
+     * @returns DeleteDataFlowResponse
+     *
+     * @param DeleteDataFlowRequest $request
+     *
+     * @return DeleteDataFlowResponse
      */
     public function deleteDataFlow($request)
     {
@@ -3019,26 +3676,32 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a file system.
-     *  *
-     * @description *   Before you delete a file system, you must delete all mount targets of the file system.
+     * Deletes a file system.
+     *
+     * @remarks
+     *   Before you delete a file system, you must delete all mount targets of the file system.
      * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
      * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
-     *  *
-     * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFileSystemResponse DeleteFileSystemResponse
+     * @param request - DeleteFileSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFileSystemResponse
+     *
+     * @param DeleteFileSystemRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteFileSystemResponse
      */
     public function deleteFileSystemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFileSystem',
@@ -3051,20 +3714,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFileSystemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a file system.
-     *  *
-     * @description *   Before you delete a file system, you must delete all mount targets of the file system.
+     * Deletes a file system.
+     *
+     * @remarks
+     *   Before you delete a file system, you must delete all mount targets of the file system.
      * *   Before you delete a file system, you must make sure that no lifecycle policy is created for the file system.
      * *   After a file system is deleted, the data on the file system cannot be restored. Proceed with caution.
-     *  *
-     * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
      *
-     * @return DeleteFileSystemResponse DeleteFileSystemResponse
+     * @param request - DeleteFileSystemRequest
+     * @returns DeleteFileSystemResponse
+     *
+     * @param DeleteFileSystemRequest $request
+     *
+     * @return DeleteFileSystemResponse
      */
     public function deleteFileSystem($request)
     {
@@ -3074,34 +3744,43 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a fileset.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
-     * *   If deletion protection is enabled for the fileset, you must disable deletion protection before you delete the fileset.
-     *  *
-     * @param DeleteFilesetRequest $request DeleteFilesetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a fileset.
      *
-     * @return DeleteFilesetResponse DeleteFilesetResponse
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+     * *   If deletion protection is enabled for the fileset, you must disable deletion protection before you delete the fileset.
+     *
+     * @param request - DeleteFilesetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFilesetResponse
+     *
+     * @param DeleteFilesetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteFilesetResponse
      */
     public function deleteFilesetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fsetId)) {
-            $query['FsetId'] = $request->fsetId;
+
+        if (null !== $request->fsetId) {
+            @$query['FsetId'] = $request->fsetId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFileset',
@@ -3114,19 +3793,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFilesetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFilesetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFilesetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a fileset.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
-     * *   If deletion protection is enabled for the fileset, you must disable deletion protection before you delete the fileset.
-     *  *
-     * @param DeleteFilesetRequest $request DeleteFilesetRequest
+     * Deletes a fileset.
      *
-     * @return DeleteFilesetResponse DeleteFilesetResponse
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+     * *   If deletion protection is enabled for the fileset, you must disable deletion protection before you delete the fileset.
+     *
+     * @param request - DeleteFilesetRequest
+     * @returns DeleteFilesetResponse
+     *
+     * @param DeleteFilesetRequest $request
+     *
+     * @return DeleteFilesetResponse
      */
     public function deleteFileset($request)
     {
@@ -3135,27 +3821,32 @@ class NAS extends OpenApiClient
         return $this->deleteFilesetWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * 删除LDAP配置.
+     *
      * @deprecated OpenAPI DeleteLDAPConfig is deprecated
-     *  *
-     * @summary 删除LDAP配置
-     *  *
-     * Deprecated
      *
-     * @param DeleteLDAPConfigRequest $request DeleteLDAPConfigRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteLDAPConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLDAPConfigResponse
      *
-     * @return DeleteLDAPConfigResponse DeleteLDAPConfigResponse
+     * @param DeleteLDAPConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteLDAPConfigResponse
      */
     public function deleteLDAPConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLDAPConfig',
@@ -3168,20 +3859,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLDAPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLDAPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLDAPConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * 删除LDAP配置.
+     *
      * @deprecated OpenAPI DeleteLDAPConfig is deprecated
-     *  *
-     * @summary 删除LDAP配置
-     *  *
-     * Deprecated
      *
-     * @param DeleteLDAPConfigRequest $request DeleteLDAPConfigRequest
+     * @param request - DeleteLDAPConfigRequest
+     * @returns DeleteLDAPConfigResponse
      *
-     * @return DeleteLDAPConfigResponse DeleteLDAPConfigResponse
+     * @param DeleteLDAPConfigRequest $request
+     *
+     * @return DeleteLDAPConfigResponse
      */
     public function deleteLDAPConfig($request)
     {
@@ -3191,27 +3888,34 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a lifecycle policy.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param DeleteLifecyclePolicyRequest $request DeleteLifecyclePolicyRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a lifecycle policy.
      *
-     * @return DeleteLifecyclePolicyResponse DeleteLifecyclePolicyResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - DeleteLifecyclePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLifecyclePolicyResponse
+     *
+     * @param DeleteLifecyclePolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteLifecyclePolicyResponse
      */
     public function deleteLifecyclePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->lifecyclePolicyName)) {
-            $query['LifecyclePolicyName'] = $request->lifecyclePolicyName;
+
+        if (null !== $request->lifecyclePolicyName) {
+            @$query['LifecyclePolicyName'] = $request->lifecyclePolicyName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLifecyclePolicy',
@@ -3224,18 +3928,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLifecyclePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLifecyclePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLifecyclePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a lifecycle policy.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param DeleteLifecyclePolicyRequest $request DeleteLifecyclePolicyRequest
+     * Deletes a lifecycle policy.
      *
-     * @return DeleteLifecyclePolicyResponse DeleteLifecyclePolicyResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - DeleteLifecyclePolicyRequest
+     * @returns DeleteLifecyclePolicyResponse
+     *
+     * @param DeleteLifecyclePolicyRequest $request
+     *
+     * @return DeleteLifecyclePolicyResponse
      */
     public function deleteLifecyclePolicy($request)
     {
@@ -3245,25 +3956,31 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Disables log dumping for a General-purpose NAS file system.
-     *  *
-     * @param DeleteLogAnalysisRequest $request DeleteLogAnalysisRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Disables log dumping for a General-purpose NAS file system.
      *
-     * @return DeleteLogAnalysisResponse DeleteLogAnalysisResponse
+     * @param request - DeleteLogAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLogAnalysisResponse
+     *
+     * @param DeleteLogAnalysisRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteLogAnalysisResponse
      */
     public function deleteLogAnalysisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLogAnalysis',
@@ -3276,16 +3993,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLogAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLogAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLogAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables log dumping for a General-purpose NAS file system.
-     *  *
-     * @param DeleteLogAnalysisRequest $request DeleteLogAnalysisRequest
+     * Disables log dumping for a General-purpose NAS file system.
      *
-     * @return DeleteLogAnalysisResponse DeleteLogAnalysisResponse
+     * @param request - DeleteLogAnalysisRequest
+     * @returns DeleteLogAnalysisResponse
+     *
+     * @param DeleteLogAnalysisRequest $request
+     *
+     * @return DeleteLogAnalysisResponse
      */
     public function deleteLogAnalysis($request)
     {
@@ -3295,27 +4018,34 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a mount target.
-     *  *
-     * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-     *  *
-     * @param DeleteMountTargetRequest $request DeleteMountTargetRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a mount target.
      *
-     * @return DeleteMountTargetResponse DeleteMountTargetResponse
+     * @remarks
+     * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+     *
+     * @param request - DeleteMountTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMountTargetResponse
+     *
+     * @param DeleteMountTargetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteMountTargetResponse
      */
     public function deleteMountTargetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->mountTargetDomain)) {
-            $query['MountTargetDomain'] = $request->mountTargetDomain;
+
+        if (null !== $request->mountTargetDomain) {
+            @$query['MountTargetDomain'] = $request->mountTargetDomain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteMountTarget',
@@ -3328,18 +4058,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMountTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a mount target.
-     *  *
-     * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-     *  *
-     * @param DeleteMountTargetRequest $request DeleteMountTargetRequest
+     * Deletes a mount target.
      *
-     * @return DeleteMountTargetResponse DeleteMountTargetResponse
+     * @remarks
+     * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+     *
+     * @param request - DeleteMountTargetRequest
+     * @returns DeleteMountTargetResponse
+     *
+     * @param DeleteMountTargetRequest $request
+     *
+     * @return DeleteMountTargetResponse
      */
     public function deleteMountTarget($request)
     {
@@ -3349,36 +4086,46 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an export directory of a protocol service.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param DeleteProtocolMountTargetRequest $request DeleteProtocolMountTargetRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Deletes an export directory of a protocol service.
      *
-     * @return DeleteProtocolMountTargetResponse DeleteProtocolMountTargetResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - DeleteProtocolMountTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProtocolMountTargetResponse
+     *
+     * @param DeleteProtocolMountTargetRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteProtocolMountTargetResponse
      */
     public function deleteProtocolMountTargetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->exportId)) {
-            $query['ExportId'] = $request->exportId;
+
+        if (null !== $request->exportId) {
+            @$query['ExportId'] = $request->exportId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->protocolServiceId)) {
-            $query['ProtocolServiceId'] = $request->protocolServiceId;
+
+        if (null !== $request->protocolServiceId) {
+            @$query['ProtocolServiceId'] = $request->protocolServiceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProtocolMountTarget',
@@ -3391,18 +4138,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProtocolMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProtocolMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProtocolMountTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an export directory of a protocol service.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param DeleteProtocolMountTargetRequest $request DeleteProtocolMountTargetRequest
+     * Deletes an export directory of a protocol service.
      *
-     * @return DeleteProtocolMountTargetResponse DeleteProtocolMountTargetResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - DeleteProtocolMountTargetRequest
+     * @returns DeleteProtocolMountTargetResponse
+     *
+     * @param DeleteProtocolMountTargetRequest $request
+     *
+     * @return DeleteProtocolMountTargetResponse
      */
     public function deleteProtocolMountTarget($request)
     {
@@ -3412,34 +4166,43 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
-     *  *
-     * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-     * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
-     *  *
-     * @param DeleteProtocolServiceRequest $request DeleteProtocolServiceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
      *
-     * @return DeleteProtocolServiceResponse DeleteProtocolServiceResponse
+     * @remarks
+     *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+     * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+     *
+     * @param request - DeleteProtocolServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProtocolServiceResponse
+     *
+     * @param DeleteProtocolServiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteProtocolServiceResponse
      */
     public function deleteProtocolServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->protocolServiceId)) {
-            $query['ProtocolServiceId'] = $request->protocolServiceId;
+
+        if (null !== $request->protocolServiceId) {
+            @$query['ProtocolServiceId'] = $request->protocolServiceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProtocolService',
@@ -3452,19 +4215,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProtocolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProtocolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProtocolServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
-     *  *
-     * @description *   This operation is available only to CPFS file systems on the China site (aliyun.com).
-     * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
-     *  *
-     * @param DeleteProtocolServiceRequest $request DeleteProtocolServiceRequest
+     * Deletes a protocol service of a Cloud Parallel File Storage (CPFS) file system.
      *
-     * @return DeleteProtocolServiceResponse DeleteProtocolServiceResponse
+     * @remarks
+     *   This operation is available only to CPFS file systems on the China site (aliyun.com).
+     * *   When you delete a protocol service, the export directories in the protocol service are also deleted.
+     *
+     * @param request - DeleteProtocolServiceRequest
+     * @returns DeleteProtocolServiceResponse
+     *
+     * @param DeleteProtocolServiceRequest $request
+     *
+     * @return DeleteProtocolServiceResponse
      */
     public function deleteProtocolService($request)
     {
@@ -3474,25 +4244,31 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a snapshot or cancels a snapshot that is being created.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a snapshot or cancels a snapshot that is being created.
      *
-     * @return DeleteSnapshotResponse DeleteSnapshotResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - DeleteSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSnapshotResponse
+     *
+     * @param DeleteSnapshotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSnapshotResponse
      */
     public function deleteSnapshotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSnapshot',
@@ -3505,19 +4281,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSnapshotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a snapshot or cancels a snapshot that is being created.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
+     * Deletes a snapshot or cancels a snapshot that is being created.
      *
-     * @return DeleteSnapshotResponse DeleteSnapshotResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - DeleteSnapshotRequest
+     * @returns DeleteSnapshotResponse
+     *
+     * @param DeleteSnapshotRequest $request
+     *
+     * @return DeleteSnapshotResponse
      */
     public function deleteSnapshot($request)
     {
@@ -3527,34 +4310,43 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries permission groups.
-     *  *
-     * @param DescribeAccessGroupsRequest $request DescribeAccessGroupsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries permission groups.
      *
-     * @return DescribeAccessGroupsResponse DescribeAccessGroupsResponse
+     * @param request - DescribeAccessGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAccessGroupsResponse
+     *
+     * @param DescribeAccessGroupsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAccessGroupsResponse
      */
     public function describeAccessGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->useUTCDateTime)) {
-            $query['UseUTCDateTime'] = $request->useUTCDateTime;
+
+        if (null !== $request->useUTCDateTime) {
+            @$query['UseUTCDateTime'] = $request->useUTCDateTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccessGroups',
@@ -3567,16 +4359,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAccessGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAccessGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAccessGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries permission groups.
-     *  *
-     * @param DescribeAccessGroupsRequest $request DescribeAccessGroupsRequest
+     * Queries permission groups.
      *
-     * @return DescribeAccessGroupsResponse DescribeAccessGroupsResponse
+     * @param request - DescribeAccessGroupsRequest
+     * @returns DescribeAccessGroupsResponse
+     *
+     * @param DescribeAccessGroupsRequest $request
+     *
+     * @return DescribeAccessGroupsResponse
      */
     public function describeAccessGroups($request)
     {
@@ -3586,27 +4384,34 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an access point.
-     *  *
-     * @description Only General-purpose Network File System (NFS) file systems support this operation.
-     *  *
-     * @param DescribeAccessPointRequest $request DescribeAccessPointRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an access point.
      *
-     * @return DescribeAccessPointResponse DescribeAccessPointResponse
+     * @remarks
+     * Only General-purpose Network File System (NFS) file systems support this operation.
+     *
+     * @param request - DescribeAccessPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAccessPointResponse
+     *
+     * @param DescribeAccessPointRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAccessPointResponse
      */
     public function describeAccessPointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessPointId)) {
-            $query['AccessPointId'] = $request->accessPointId;
+        if (null !== $request->accessPointId) {
+            @$query['AccessPointId'] = $request->accessPointId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccessPoint',
@@ -3619,18 +4424,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAccessPointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an access point.
-     *  *
-     * @description Only General-purpose Network File System (NFS) file systems support this operation.
-     *  *
-     * @param DescribeAccessPointRequest $request DescribeAccessPointRequest
+     * Queries the details of an access point.
      *
-     * @return DescribeAccessPointResponse DescribeAccessPointResponse
+     * @remarks
+     * Only General-purpose Network File System (NFS) file systems support this operation.
+     *
+     * @param request - DescribeAccessPointRequest
+     * @returns DescribeAccessPointResponse
+     *
+     * @param DescribeAccessPointRequest $request
+     *
+     * @return DescribeAccessPointResponse
      */
     public function describeAccessPoint($request)
     {
@@ -3640,33 +4452,42 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an access point.
-     *  *
-     * @description Only General-purpose Network File System (NFS) file systems support this operation.
-     *  *
-     * @param DescribeAccessPointsRequest $request DescribeAccessPointsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an access point.
      *
-     * @return DescribeAccessPointsResponse DescribeAccessPointsResponse
+     * @remarks
+     * Only General-purpose Network File System (NFS) file systems support this operation.
+     *
+     * @param request - DescribeAccessPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAccessPointsResponse
+     *
+     * @param DescribeAccessPointsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAccessPointsResponse
      */
     public function describeAccessPointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroup)) {
-            $query['AccessGroup'] = $request->accessGroup;
+        if (null !== $request->accessGroup) {
+            @$query['AccessGroup'] = $request->accessGroup;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccessPoints',
@@ -3679,18 +4500,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAccessPointsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an access point.
-     *  *
-     * @description Only General-purpose Network File System (NFS) file systems support this operation.
-     *  *
-     * @param DescribeAccessPointsRequest $request DescribeAccessPointsRequest
+     * Queries the information about an access point.
      *
-     * @return DescribeAccessPointsResponse DescribeAccessPointsResponse
+     * @remarks
+     * Only General-purpose Network File System (NFS) file systems support this operation.
+     *
+     * @param request - DescribeAccessPointsRequest
+     * @returns DescribeAccessPointsResponse
+     *
+     * @param DescribeAccessPointsRequest $request
+     *
+     * @return DescribeAccessPointsResponse
      */
     public function describeAccessPoints($request)
     {
@@ -3700,34 +4528,43 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about rules in a permission group.
-     *  *
-     * @param DescribeAccessRulesRequest $request DescribeAccessRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about rules in a permission group.
      *
-     * @return DescribeAccessRulesResponse DescribeAccessRulesResponse
+     * @param request - DescribeAccessRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAccessRulesResponse
+     *
+     * @param DescribeAccessRulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAccessRulesResponse
      */
     public function describeAccessRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->accessRuleId)) {
-            $query['AccessRuleId'] = $request->accessRuleId;
+
+        if (null !== $request->accessRuleId) {
+            @$query['AccessRuleId'] = $request->accessRuleId;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccessRules',
@@ -3740,16 +4577,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAccessRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAccessRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAccessRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about rules in a permission group.
-     *  *
-     * @param DescribeAccessRulesRequest $request DescribeAccessRulesRequest
+     * Queries the information about rules in a permission group.
      *
-     * @return DescribeAccessRulesResponse DescribeAccessRulesResponse
+     * @param request - DescribeAccessRulesRequest
+     * @returns DescribeAccessRulesResponse
+     *
+     * @param DescribeAccessRulesRequest $request
+     *
+     * @return DescribeAccessRulesResponse
      */
     public function describeAccessRules($request)
     {
@@ -3759,34 +4602,43 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries automatic snapshot policies.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param DescribeAutoSnapshotPoliciesRequest $request DescribeAutoSnapshotPoliciesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries automatic snapshot policies.
      *
-     * @return DescribeAutoSnapshotPoliciesResponse DescribeAutoSnapshotPoliciesResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - DescribeAutoSnapshotPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAutoSnapshotPoliciesResponse
+     *
+     * @param DescribeAutoSnapshotPoliciesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAutoSnapshotPoliciesResponse
      */
     public function describeAutoSnapshotPoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoSnapshotPolicyId)) {
-            $query['AutoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
+        if (null !== $request->autoSnapshotPolicyId) {
+            @$query['AutoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAutoSnapshotPolicies',
@@ -3799,19 +4651,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAutoSnapshotPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAutoSnapshotPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAutoSnapshotPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries automatic snapshot policies.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param DescribeAutoSnapshotPoliciesRequest $request DescribeAutoSnapshotPoliciesRequest
+     * Queries automatic snapshot policies.
      *
-     * @return DescribeAutoSnapshotPoliciesResponse DescribeAutoSnapshotPoliciesResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - DescribeAutoSnapshotPoliciesRequest
+     * @returns DescribeAutoSnapshotPoliciesResponse
+     *
+     * @param DescribeAutoSnapshotPoliciesRequest $request
+     *
+     * @return DescribeAutoSnapshotPoliciesResponse
      */
     public function describeAutoSnapshotPolicies($request)
     {
@@ -3821,37 +4680,47 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries automatic snapshot tasks.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support the snapshot feature.
-     *  *
-     * @param DescribeAutoSnapshotTasksRequest $request DescribeAutoSnapshotTasksRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries automatic snapshot tasks.
      *
-     * @return DescribeAutoSnapshotTasksResponse DescribeAutoSnapshotTasksResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     *
+     * @param request - DescribeAutoSnapshotTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAutoSnapshotTasksResponse
+     *
+     * @param DescribeAutoSnapshotTasksRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAutoSnapshotTasksResponse
      */
     public function describeAutoSnapshotTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoSnapshotPolicyIds)) {
-            $query['AutoSnapshotPolicyIds'] = $request->autoSnapshotPolicyIds;
+        if (null !== $request->autoSnapshotPolicyIds) {
+            @$query['AutoSnapshotPolicyIds'] = $request->autoSnapshotPolicyIds;
         }
-        if (!Utils::isUnset($request->fileSystemIds)) {
-            $query['FileSystemIds'] = $request->fileSystemIds;
+
+        if (null !== $request->fileSystemIds) {
+            @$query['FileSystemIds'] = $request->fileSystemIds;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAutoSnapshotTasks',
@@ -3864,19 +4733,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAutoSnapshotTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAutoSnapshotTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAutoSnapshotTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries automatic snapshot tasks.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support the snapshot feature.
-     *  *
-     * @param DescribeAutoSnapshotTasksRequest $request DescribeAutoSnapshotTasksRequest
+     * Queries automatic snapshot tasks.
      *
-     * @return DescribeAutoSnapshotTasksResponse DescribeAutoSnapshotTasksResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support the snapshot feature.
+     *
+     * @param request - DescribeAutoSnapshotTasksRequest
+     * @returns DescribeAutoSnapshotTasksResponse
+     *
+     * @param DescribeAutoSnapshotTasksRequest $request
+     *
+     * @return DescribeAutoSnapshotTasksResponse
      */
     public function describeAutoSnapshotTasks($request)
     {
@@ -3885,35 +4761,43 @@ class NAS extends OpenApiClient
         return $this->describeAutoSnapshotTasksWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * 获取CPFS服务中黑名单客户端的状态
+     *
+     * @remarks
+     * The API operation is available only for CPFS file systems.
+     *
      * @deprecated OpenAPI DescribeBlackListClients is deprecated
-     *  *
-     * @summary 获取CPFS服务中黑名单客户端的状态
-     *  *
-     * @description The API operation is available only for CPFS file systems.
-     *  *
-     * Deprecated
      *
-     * @param DescribeBlackListClientsRequest $request DescribeBlackListClientsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBlackListClientsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBlackListClientsResponse
      *
-     * @return DescribeBlackListClientsResponse DescribeBlackListClientsResponse
+     * @param DescribeBlackListClientsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeBlackListClientsResponse
      */
     public function describeBlackListClientsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientIP)) {
-            $query['ClientIP'] = $request->clientIP;
+        if (null !== $request->clientIP) {
+            @$query['ClientIP'] = $request->clientIP;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBlackListClients',
@@ -3926,22 +4810,29 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBlackListClientsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBlackListClientsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBlackListClientsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * 获取CPFS服务中黑名单客户端的状态
+     *
+     * @remarks
+     * The API operation is available only for CPFS file systems.
+     *
      * @deprecated OpenAPI DescribeBlackListClients is deprecated
-     *  *
-     * @summary 获取CPFS服务中黑名单客户端的状态
-     *  *
-     * @description The API operation is available only for CPFS file systems.
-     *  *
-     * Deprecated
      *
-     * @param DescribeBlackListClientsRequest $request DescribeBlackListClientsRequest
+     * @param request - DescribeBlackListClientsRequest
+     * @returns DescribeBlackListClientsResponse
      *
-     * @return DescribeBlackListClientsResponse DescribeBlackListClientsResponse
+     * @param DescribeBlackListClientsRequest $request
+     *
+     * @return DescribeBlackListClientsResponse
      */
     public function describeBlackListClients($request)
     {
@@ -3951,33 +4842,42 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries data flow subtasks in batches.
-     *  *
-     * @description Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
-     *  *
-     * @param DescribeDataFlowSubTasksRequest $request DescribeDataFlowSubTasksRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries data flow subtasks in batches.
      *
-     * @return DescribeDataFlowSubTasksResponse DescribeDataFlowSubTasksResponse
+     * @remarks
+     * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+     *
+     * @param request - DescribeDataFlowSubTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataFlowSubTasksResponse
+     *
+     * @param DescribeDataFlowSubTasksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDataFlowSubTasksResponse
      */
     public function describeDataFlowSubTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataFlowSubTasks',
@@ -3990,18 +4890,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDataFlowSubTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDataFlowSubTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDataFlowSubTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries data flow subtasks in batches.
-     *  *
-     * @description Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
-     *  *
-     * @param DescribeDataFlowSubTasksRequest $request DescribeDataFlowSubTasksRequest
+     * Queries data flow subtasks in batches.
      *
-     * @return DescribeDataFlowSubTasksResponse DescribeDataFlowSubTasksResponse
+     * @remarks
+     * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+     *
+     * @param request - DescribeDataFlowSubTasksRequest
+     * @returns DescribeDataFlowSubTasksResponse
+     *
+     * @param DescribeDataFlowSubTasksRequest $request
+     *
+     * @return DescribeDataFlowSubTasksResponse
      */
     public function describeDataFlowSubTasks($request)
     {
@@ -4011,33 +4918,42 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of data flow tasks.
-     *  *
-     * @description Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support query of data flow tasks. You can view the version information on the file system details page in the console.
-     *  *
-     * @param DescribeDataFlowTasksRequest $request DescribeDataFlowTasksRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the details of data flow tasks.
      *
-     * @return DescribeDataFlowTasksResponse DescribeDataFlowTasksResponse
+     * @remarks
+     * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support query of data flow tasks. You can view the version information on the file system details page in the console.
+     *
+     * @param request - DescribeDataFlowTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataFlowTasksResponse
+     *
+     * @param DescribeDataFlowTasksRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDataFlowTasksResponse
      */
     public function describeDataFlowTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataFlowTasks',
@@ -4050,18 +4966,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDataFlowTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDataFlowTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDataFlowTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of data flow tasks.
-     *  *
-     * @description Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support query of data flow tasks. You can view the version information on the file system details page in the console.
-     *  *
-     * @param DescribeDataFlowTasksRequest $request DescribeDataFlowTasksRequest
+     * Queries the details of data flow tasks.
      *
-     * @return DescribeDataFlowTasksResponse DescribeDataFlowTasksResponse
+     * @remarks
+     * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support query of data flow tasks. You can view the version information on the file system details page in the console.
+     *
+     * @param request - DescribeDataFlowTasksRequest
+     * @returns DescribeDataFlowTasksResponse
+     *
+     * @param DescribeDataFlowTasksRequest $request
+     *
+     * @return DescribeDataFlowTasksResponse
      */
     public function describeDataFlowTasks($request)
     {
@@ -4071,35 +4994,44 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the dataflows of a CPFS file system.
-     *  *
-     * @description *   Only CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+     * Queries the dataflows of a CPFS file system.
+     *
+     * @remarks
+     *   Only CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
      * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath, Description, and SourceStoragePath support fuzzy match.
      * *   Combined query is supported.
-     *  *
-     * @param DescribeDataFlowsRequest $request DescribeDataFlowsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataFlowsResponse DescribeDataFlowsResponse
+     * @param request - DescribeDataFlowsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataFlowsResponse
+     *
+     * @param DescribeDataFlowsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeDataFlowsResponse
      */
     public function describeDataFlowsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataFlows',
@@ -4112,20 +5044,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDataFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDataFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDataFlowsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the dataflows of a CPFS file system.
-     *  *
-     * @description *   Only CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+     * Queries the dataflows of a CPFS file system.
+     *
+     * @remarks
+     *   Only CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
      * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath, Description, and SourceStoragePath support fuzzy match.
      * *   Combined query is supported.
-     *  *
-     * @param DescribeDataFlowsRequest $request DescribeDataFlowsRequest
      *
-     * @return DescribeDataFlowsResponse DescribeDataFlowsResponse
+     * @param request - DescribeDataFlowsRequest
+     * @returns DescribeDataFlowsResponse
+     *
+     * @param DescribeDataFlowsRequest $request
+     *
+     * @return DescribeDataFlowsResponse
      */
     public function describeDataFlows($request)
     {
@@ -4135,33 +5074,42 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the directory quotas of a file system.
-     *  *
-     * @description Only General-purpose NAS file systems support the directory quota feature.
-     *  *
-     * @param DescribeDirQuotasRequest $request DescribeDirQuotasRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the directory quotas of a file system.
      *
-     * @return DescribeDirQuotasResponse DescribeDirQuotasResponse
+     * @remarks
+     * Only General-purpose NAS file systems support the directory quota feature.
+     *
+     * @param request - DescribeDirQuotasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDirQuotasResponse
+     *
+     * @param DescribeDirQuotasRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeDirQuotasResponse
      */
     public function describeDirQuotasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDirQuotas',
@@ -4174,18 +5122,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDirQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDirQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDirQuotasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the directory quotas of a file system.
-     *  *
-     * @description Only General-purpose NAS file systems support the directory quota feature.
-     *  *
-     * @param DescribeDirQuotasRequest $request DescribeDirQuotasRequest
+     * Queries the directory quotas of a file system.
      *
-     * @return DescribeDirQuotasResponse DescribeDirQuotasResponse
+     * @remarks
+     * Only General-purpose NAS file systems support the directory quota feature.
+     *
+     * @param request - DescribeDirQuotasRequest
+     * @returns DescribeDirQuotasResponse
+     *
+     * @param DescribeDirQuotasRequest $request
+     *
+     * @return DescribeDirQuotasResponse
      */
     public function describeDirQuotas($request)
     {
@@ -4194,30 +5149,36 @@ class NAS extends OpenApiClient
         return $this->describeDirQuotasWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Queries the statistics of file systems that are owned by the current account.
+     *
      * @deprecated openAPI DescribeFileSystemStatistics is deprecated, please use NAS::2017-06-26::DescribeResourceStatistics instead
-     *  *
-     * @summary Queries the statistics of file systems that are owned by the current account.
-     *  *
-     * Deprecated
      *
-     * @param DescribeFileSystemStatisticsRequest $request DescribeFileSystemStatisticsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeFileSystemStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFileSystemStatisticsResponse
      *
-     * @return DescribeFileSystemStatisticsResponse DescribeFileSystemStatisticsResponse
+     * @param DescribeFileSystemStatisticsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeFileSystemStatisticsResponse
      */
     public function describeFileSystemStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFileSystemStatistics',
@@ -4230,20 +5191,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFileSystemStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFileSystemStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFileSystemStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Queries the statistics of file systems that are owned by the current account.
+     *
      * @deprecated openAPI DescribeFileSystemStatistics is deprecated, please use NAS::2017-06-26::DescribeResourceStatistics instead
-     *  *
-     * @summary Queries the statistics of file systems that are owned by the current account.
-     *  *
-     * Deprecated
      *
-     * @param DescribeFileSystemStatisticsRequest $request DescribeFileSystemStatisticsRequest
+     * @param request - DescribeFileSystemStatisticsRequest
+     * @returns DescribeFileSystemStatisticsResponse
      *
-     * @return DescribeFileSystemStatisticsResponse DescribeFileSystemStatisticsResponse
+     * @param DescribeFileSystemStatisticsRequest $request
+     *
+     * @return DescribeFileSystemStatisticsResponse
      */
     public function describeFileSystemStatistics($request)
     {
@@ -4253,40 +5220,51 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries file systems.
-     *  *
-     * @param DescribeFileSystemsRequest $request DescribeFileSystemsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries file systems.
      *
-     * @return DescribeFileSystemsResponse DescribeFileSystemsResponse
+     * @param request - DescribeFileSystemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFileSystemsResponse
+     *
+     * @param DescribeFileSystemsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeFileSystemsResponse
      */
     public function describeFileSystemsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFileSystems',
@@ -4299,16 +5277,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFileSystemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFileSystemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFileSystemsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries file systems.
-     *  *
-     * @param DescribeFileSystemsRequest $request DescribeFileSystemsRequest
+     * Queries file systems.
      *
-     * @return DescribeFileSystemsResponse DescribeFileSystemsResponse
+     * @param request - DescribeFileSystemsRequest
+     * @returns DescribeFileSystemsResponse
+     *
+     * @param DescribeFileSystemsRequest $request
+     *
+     * @return DescribeFileSystemsResponse
      */
     public function describeFileSystems($request)
     {
@@ -4318,35 +5302,52 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about created filesets.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
+     * Queries the information about created filesets.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
      * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
      * *   Combined query is supported.
-     *  *
-     * @param DescribeFilesetsRequest $request DescribeFilesetsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFilesetsResponse DescribeFilesetsResponse
+     * @param request - DescribeFilesetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFilesetsResponse
+     *
+     * @param DescribeFilesetsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeFilesetsResponse
      */
     public function describeFilesetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
+        if (null !== $request->orderByField) {
+            @$query['OrderByField'] = $request->orderByField;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFilesets',
@@ -4359,20 +5360,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFilesetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFilesetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFilesetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about created filesets.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
+     * Queries the information about created filesets.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
      * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
      * *   Combined query is supported.
-     *  *
-     * @param DescribeFilesetsRequest $request DescribeFilesetsRequest
      *
-     * @return DescribeFilesetsResponse DescribeFilesetsResponse
+     * @param request - DescribeFilesetsRequest
+     * @returns DescribeFilesetsResponse
+     *
+     * @param DescribeFilesetsRequest $request
+     *
+     * @return DescribeFilesetsResponse
      */
     public function describeFilesets($request)
     {
@@ -4382,21 +5390,26 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries lifecycle policies.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param DescribeLifecyclePoliciesRequest $request DescribeLifecyclePoliciesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries lifecycle policies.
      *
-     * @return DescribeLifecyclePoliciesResponse DescribeLifecyclePoliciesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - DescribeLifecyclePoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeLifecyclePoliciesResponse
+     *
+     * @param DescribeLifecyclePoliciesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeLifecyclePoliciesResponse
      */
     public function describeLifecyclePoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeLifecyclePolicies',
@@ -4409,18 +5422,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeLifecyclePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLifecyclePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLifecyclePoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries lifecycle policies.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param DescribeLifecyclePoliciesRequest $request DescribeLifecyclePoliciesRequest
+     * Queries lifecycle policies.
      *
-     * @return DescribeLifecyclePoliciesResponse DescribeLifecyclePoliciesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - DescribeLifecyclePoliciesRequest
+     * @returns DescribeLifecyclePoliciesResponse
+     *
+     * @param DescribeLifecyclePoliciesRequest $request
+     *
+     * @return DescribeLifecyclePoliciesResponse
      */
     public function describeLifecyclePolicies($request)
     {
@@ -4430,31 +5450,39 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the log dump information configured in log analysis.
-     *  *
-     * @param DescribeLogAnalysisRequest $request DescribeLogAnalysisRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the log dump information configured in log analysis.
      *
-     * @return DescribeLogAnalysisResponse DescribeLogAnalysisResponse
+     * @param request - DescribeLogAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeLogAnalysisResponse
+     *
+     * @param DescribeLogAnalysisRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeLogAnalysisResponse
      */
     public function describeLogAnalysisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeLogAnalysis',
@@ -4467,16 +5495,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeLogAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLogAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLogAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the log dump information configured in log analysis.
-     *  *
-     * @param DescribeLogAnalysisRequest $request DescribeLogAnalysisRequest
+     * Queries the log dump information configured in log analysis.
      *
-     * @return DescribeLogAnalysisResponse DescribeLogAnalysisResponse
+     * @param request - DescribeLogAnalysisRequest
+     * @returns DescribeLogAnalysisResponse
+     *
+     * @param DescribeLogAnalysisRequest $request
+     *
+     * @return DescribeLogAnalysisResponse
      */
     public function describeLogAnalysis($request)
     {
@@ -4486,34 +5520,43 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries mount targets.
-     *  *
-     * @param DescribeMountTargetsRequest $request DescribeMountTargetsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries mount targets.
      *
-     * @return DescribeMountTargetsResponse DescribeMountTargetsResponse
+     * @param request - DescribeMountTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMountTargetsResponse
+     *
+     * @param DescribeMountTargetsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeMountTargetsResponse
      */
     public function describeMountTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dualStackMountTargetDomain)) {
-            $query['DualStackMountTargetDomain'] = $request->dualStackMountTargetDomain;
+        if (null !== $request->dualStackMountTargetDomain) {
+            @$query['DualStackMountTargetDomain'] = $request->dualStackMountTargetDomain;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->mountTargetDomain)) {
-            $query['MountTargetDomain'] = $request->mountTargetDomain;
+
+        if (null !== $request->mountTargetDomain) {
+            @$query['MountTargetDomain'] = $request->mountTargetDomain;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMountTargets',
@@ -4526,16 +5569,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMountTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMountTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMountTargetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries mount targets.
-     *  *
-     * @param DescribeMountTargetsRequest $request DescribeMountTargetsRequest
+     * Queries mount targets.
      *
-     * @return DescribeMountTargetsResponse DescribeMountTargetsResponse
+     * @param request - DescribeMountTargetsRequest
+     * @returns DescribeMountTargetsResponse
+     *
+     * @param DescribeMountTargetsRequest $request
+     *
+     * @return DescribeMountTargetsResponse
      */
     public function describeMountTargets($request)
     {
@@ -4545,40 +5594,51 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the clients on which a file system is mounted.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
-     * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
-     *  *
-     * @param DescribeMountedClientsRequest $request DescribeMountedClientsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the clients on which a file system is mounted.
      *
-     * @return DescribeMountedClientsResponse DescribeMountedClientsResponse
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
+     * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+     *
+     * @param request - DescribeMountedClientsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMountedClientsResponse
+     *
+     * @param DescribeMountedClientsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeMountedClientsResponse
      */
     public function describeMountedClientsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientIP)) {
-            $query['ClientIP'] = $request->clientIP;
+        if (null !== $request->clientIP) {
+            @$query['ClientIP'] = $request->clientIP;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->mountTargetDomain)) {
-            $query['MountTargetDomain'] = $request->mountTargetDomain;
+
+        if (null !== $request->mountTargetDomain) {
+            @$query['MountTargetDomain'] = $request->mountTargetDomain;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMountedClients',
@@ -4591,19 +5651,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMountedClientsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMountedClientsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMountedClientsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the clients on which a file system is mounted.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
-     * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
-     *  *
-     * @param DescribeMountedClientsRequest $request DescribeMountedClientsRequest
+     * Queries the clients on which a file system is mounted.
      *
-     * @return DescribeMountedClientsResponse DescribeMountedClientsResponse
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
+     * *   This operation returns the clients that have accessed the specified file system within the last minute. If the file system is mounted on a client but the client did not access the file system within the last minute, the client is not included in the returned information.
+     *
+     * @param request - DescribeMountedClientsRequest
+     * @returns DescribeMountedClientsResponse
+     *
+     * @param DescribeMountedClientsRequest $request
+     *
+     * @return DescribeMountedClientsResponse
      */
     public function describeMountedClients($request)
     {
@@ -4613,22 +5680,27 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether the NFS ACL feature is enabled for a file system.
-     *  *
-     * @param DescribeNfsAclRequest $request DescribeNfsAclRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries whether the NFS ACL feature is enabled for a file system.
      *
-     * @return DescribeNfsAclResponse DescribeNfsAclResponse
+     * @param request - DescribeNfsAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeNfsAclResponse
+     *
+     * @param DescribeNfsAclRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeNfsAclResponse
      */
     public function describeNfsAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeNfsAcl',
@@ -4641,16 +5713,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNfsAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNfsAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNfsAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether the NFS ACL feature is enabled for a file system.
-     *  *
-     * @param DescribeNfsAclRequest $request DescribeNfsAclRequest
+     * Queries whether the NFS ACL feature is enabled for a file system.
      *
-     * @return DescribeNfsAclResponse DescribeNfsAclResponse
+     * @param request - DescribeNfsAclRequest
+     * @returns DescribeNfsAclResponse
+     *
+     * @param DescribeNfsAclRequest $request
+     *
+     * @return DescribeNfsAclResponse
      */
     public function describeNfsAcl($request)
     {
@@ -4660,36 +5738,46 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the export directories of a protocol service.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param DescribeProtocolMountTargetRequest $request DescribeProtocolMountTargetRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the export directories of a protocol service.
      *
-     * @return DescribeProtocolMountTargetResponse DescribeProtocolMountTargetResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - DescribeProtocolMountTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProtocolMountTargetResponse
+     *
+     * @param DescribeProtocolMountTargetRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeProtocolMountTargetResponse
      */
     public function describeProtocolMountTargetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProtocolMountTarget',
@@ -4702,18 +5790,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProtocolMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProtocolMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProtocolMountTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the export directories of a protocol service.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param DescribeProtocolMountTargetRequest $request DescribeProtocolMountTargetRequest
+     * Queries the export directories of a protocol service.
      *
-     * @return DescribeProtocolMountTargetResponse DescribeProtocolMountTargetResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - DescribeProtocolMountTargetRequest
+     * @returns DescribeProtocolMountTargetResponse
+     *
+     * @param DescribeProtocolMountTargetRequest $request
+     *
+     * @return DescribeProtocolMountTargetResponse
      */
     public function describeProtocolMountTarget($request)
     {
@@ -4723,42 +5818,54 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about protocol services.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param DescribeProtocolServiceRequest $request DescribeProtocolServiceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about protocol services.
      *
-     * @return DescribeProtocolServiceResponse DescribeProtocolServiceResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - DescribeProtocolServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProtocolServiceResponse
+     *
+     * @param DescribeProtocolServiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeProtocolServiceResponse
      */
     public function describeProtocolServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->protocolServiceIds)) {
-            $query['ProtocolServiceIds'] = $request->protocolServiceIds;
+
+        if (null !== $request->protocolServiceIds) {
+            @$query['ProtocolServiceIds'] = $request->protocolServiceIds;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProtocolService',
@@ -4771,18 +5878,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProtocolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProtocolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProtocolServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about protocol services.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param DescribeProtocolServiceRequest $request DescribeProtocolServiceRequest
+     * Queries the information about protocol services.
      *
-     * @return DescribeProtocolServiceResponse DescribeProtocolServiceResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - DescribeProtocolServiceRequest
+     * @returns DescribeProtocolServiceResponse
+     *
+     * @param DescribeProtocolServiceRequest $request
+     *
+     * @return DescribeProtocolServiceResponse
      */
     public function describeProtocolService($request)
     {
@@ -4792,28 +5906,35 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions in which File Storage NAS is available.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the regions in which File Storage NAS is available.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -4826,16 +5947,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the regions in which File Storage NAS is available.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries the regions in which File Storage NAS is available.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -4845,22 +5972,27 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
-     *  *
-     * @param DescribeSmbAclRequest $request DescribeSmbAclRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
      *
-     * @return DescribeSmbAclResponse DescribeSmbAclResponse
+     * @param request - DescribeSmbAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSmbAclResponse
+     *
+     * @param DescribeSmbAclRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeSmbAclResponse
      */
     public function describeSmbAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSmbAcl',
@@ -4873,16 +6005,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSmbAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSmbAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSmbAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
-     *  *
-     * @param DescribeSmbAclRequest $request DescribeSmbAclRequest
+     * Queries the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
      *
-     * @return DescribeSmbAclResponse DescribeSmbAclResponse
+     * @param request - DescribeSmbAclRequest
+     * @returns DescribeSmbAclResponse
+     *
+     * @param DescribeSmbAclRequest $request
+     *
+     * @return DescribeSmbAclResponse
      */
     public function describeSmbAcl($request)
     {
@@ -4892,46 +6030,59 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about one or more snapshots of a file system.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about one or more snapshots of a file system.
      *
-     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - DescribeSnapshotsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSnapshotsResponse
+     *
+     * @param DescribeSnapshotsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSnapshotsResponse
      */
     public function describeSnapshotsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->snapshotIds)) {
-            $query['SnapshotIds'] = $request->snapshotIds;
+
+        if (null !== $request->snapshotIds) {
+            @$query['SnapshotIds'] = $request->snapshotIds;
         }
-        if (!Utils::isUnset($request->snapshotName)) {
-            $query['SnapshotName'] = $request->snapshotName;
+
+        if (null !== $request->snapshotName) {
+            @$query['SnapshotName'] = $request->snapshotName;
         }
-        if (!Utils::isUnset($request->snapshotType)) {
-            $query['SnapshotType'] = $request->snapshotType;
+
+        if (null !== $request->snapshotType) {
+            @$query['SnapshotType'] = $request->snapshotType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSnapshots',
@@ -4944,19 +6095,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSnapshotsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about one or more snapshots of a file system.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
+     * Queries the information about one or more snapshots of a file system.
      *
-     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - DescribeSnapshotsRequest
+     * @returns DescribeSnapshotsResponse
+     *
+     * @param DescribeSnapshotsRequest $request
+     *
+     * @return DescribeSnapshotsResponse
      */
     public function describeSnapshots($request)
     {
@@ -4966,31 +6124,39 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the DescribeStoragePackages operation to query the list of storage plans.
-     *  *
-     * @param DescribeStoragePackagesRequest $request DescribeStoragePackagesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * You can call the DescribeStoragePackages operation to query the list of storage plans.
      *
-     * @return DescribeStoragePackagesResponse DescribeStoragePackagesResponse
+     * @param request - DescribeStoragePackagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeStoragePackagesResponse
+     *
+     * @param DescribeStoragePackagesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeStoragePackagesResponse
      */
     public function describeStoragePackagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->useUTCDateTime)) {
-            $query['UseUTCDateTime'] = $request->useUTCDateTime;
+
+        if (null !== $request->useUTCDateTime) {
+            @$query['UseUTCDateTime'] = $request->useUTCDateTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeStoragePackages',
@@ -5003,16 +6169,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeStoragePackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeStoragePackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeStoragePackagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call the DescribeStoragePackages operation to query the list of storage plans.
-     *  *
-     * @param DescribeStoragePackagesRequest $request DescribeStoragePackagesRequest
+     * You can call the DescribeStoragePackages operation to query the list of storage plans.
      *
-     * @return DescribeStoragePackagesResponse DescribeStoragePackagesResponse
+     * @param request - DescribeStoragePackagesRequest
+     * @returns DescribeStoragePackagesResponse
+     *
+     * @param DescribeStoragePackagesRequest $request
+     *
+     * @return DescribeStoragePackagesResponse
      */
     public function describeStoragePackages($request)
     {
@@ -5022,25 +6194,31 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries all zones in a region and the file system types that are supported in each zone.
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries all zones in a region and the file system types that are supported in each zone.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeZones',
@@ -5053,16 +6231,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all zones in a region and the file system types that are supported in each zone.
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * Queries all zones in a region and the file system types that are supported in each zone.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -5072,23 +6256,28 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Disables and empties the recycle bin of a General-purpose NAS file system.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
+     * Disables and empties the recycle bin of a General-purpose NAS file system.
+     *
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
      * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
      * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
-     *  *
-     * @param DisableAndCleanRecycleBinRequest $request DisableAndCleanRecycleBinRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableAndCleanRecycleBinResponse DisableAndCleanRecycleBinResponse
+     * @param request - DisableAndCleanRecycleBinRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableAndCleanRecycleBinResponse
+     *
+     * @param DisableAndCleanRecycleBinRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableAndCleanRecycleBinResponse
      */
     public function disableAndCleanRecycleBinWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableAndCleanRecycleBin',
@@ -5101,20 +6290,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableAndCleanRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableAndCleanRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableAndCleanRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables and empties the recycle bin of a General-purpose NAS file system.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
+     * Disables and empties the recycle bin of a General-purpose NAS file system.
+     *
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
      * *   If you disable the recycle bin, all files in the recycle bin are permanently deleted.
      * *   If you disable and then enable the recycle bin, the recycle bin is empty. You cannot retrieve the deleted files.
-     *  *
-     * @param DisableAndCleanRecycleBinRequest $request DisableAndCleanRecycleBinRequest
      *
-     * @return DisableAndCleanRecycleBinResponse DisableAndCleanRecycleBinResponse
+     * @param request - DisableAndCleanRecycleBinRequest
+     * @returns DisableAndCleanRecycleBinResponse
+     *
+     * @param DisableAndCleanRecycleBinRequest $request
+     *
+     * @return DisableAndCleanRecycleBinResponse
      */
     public function disableAndCleanRecycleBin($request)
     {
@@ -5124,22 +6320,27 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Disables the NFS ACL feature for a file system.
-     *  *
-     * @param DisableNfsAclRequest $request DisableNfsAclRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Disables the NFS ACL feature for a file system.
      *
-     * @return DisableNfsAclResponse DisableNfsAclResponse
+     * @param request - DisableNfsAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableNfsAclResponse
+     *
+     * @param DisableNfsAclRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DisableNfsAclResponse
      */
     public function disableNfsAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableNfsAcl',
@@ -5152,16 +6353,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableNfsAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableNfsAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableNfsAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables the NFS ACL feature for a file system.
-     *  *
-     * @param DisableNfsAclRequest $request DisableNfsAclRequest
+     * Disables the NFS ACL feature for a file system.
      *
-     * @return DisableNfsAclResponse DisableNfsAclResponse
+     * @param request - DisableNfsAclRequest
+     * @returns DisableNfsAclResponse
+     *
+     * @param DisableNfsAclRequest $request
+     *
+     * @return DisableNfsAclResponse
      */
     public function disableNfsAcl($request)
     {
@@ -5171,22 +6378,27 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Disables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
-     *  *
-     * @param DisableSmbAclRequest $request DisableSmbAclRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Disables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
      *
-     * @return DisableSmbAclResponse DisableSmbAclResponse
+     * @param request - DisableSmbAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableSmbAclResponse
+     *
+     * @param DisableSmbAclRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DisableSmbAclResponse
      */
     public function disableSmbAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableSmbAcl',
@@ -5199,16 +6411,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableSmbAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableSmbAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableSmbAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
-     *  *
-     * @param DisableSmbAclRequest $request DisableSmbAclRequest
+     * Disables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
      *
-     * @return DisableSmbAclResponse DisableSmbAclResponse
+     * @param request - DisableSmbAclRequest
+     * @returns DisableSmbAclResponse
+     *
+     * @param DisableSmbAclRequest $request
+     *
+     * @return DisableSmbAclResponse
      */
     public function disableSmbAcl($request)
     {
@@ -5218,22 +6436,27 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Enables the NFS ACL feature for a file system.
-     *  *
-     * @param EnableNfsAclRequest $request EnableNfsAclRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Enables the NFS ACL feature for a file system.
      *
-     * @return EnableNfsAclResponse EnableNfsAclResponse
+     * @param request - EnableNfsAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableNfsAclResponse
+     *
+     * @param EnableNfsAclRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EnableNfsAclResponse
      */
     public function enableNfsAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableNfsAcl',
@@ -5246,16 +6469,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableNfsAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableNfsAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableNfsAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the NFS ACL feature for a file system.
-     *  *
-     * @param EnableNfsAclRequest $request EnableNfsAclRequest
+     * Enables the NFS ACL feature for a file system.
      *
-     * @return EnableNfsAclResponse EnableNfsAclResponse
+     * @param request - EnableNfsAclRequest
+     * @returns EnableNfsAclResponse
+     *
+     * @param EnableNfsAclRequest $request
+     *
+     * @return EnableNfsAclResponse
      */
     public function enableNfsAcl($request)
     {
@@ -5265,27 +6494,34 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Enables the recycle bin feature for a file system.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param EnableRecycleBinRequest $request EnableRecycleBinRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Enables the recycle bin feature for a file system.
      *
-     * @return EnableRecycleBinResponse EnableRecycleBinResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - EnableRecycleBinRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableRecycleBinResponse
+     *
+     * @param EnableRecycleBinRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EnableRecycleBinResponse
      */
     public function enableRecycleBinWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->reservedDays)) {
-            $query['ReservedDays'] = $request->reservedDays;
+
+        if (null !== $request->reservedDays) {
+            @$query['ReservedDays'] = $request->reservedDays;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableRecycleBin',
@@ -5298,18 +6534,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the recycle bin feature for a file system.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param EnableRecycleBinRequest $request EnableRecycleBinRequest
+     * Enables the recycle bin feature for a file system.
      *
-     * @return EnableRecycleBinResponse EnableRecycleBinResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - EnableRecycleBinRequest
+     * @returns EnableRecycleBinResponse
+     *
+     * @param EnableRecycleBinRequest $request
+     *
+     * @return EnableRecycleBinResponse
      */
     public function enableRecycleBin($request)
     {
@@ -5319,28 +6562,35 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Enables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
-     *  *
-     * @param EnableSmbAclRequest $request EnableSmbAclRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Enables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
      *
-     * @return EnableSmbAclResponse EnableSmbAclResponse
+     * @param request - EnableSmbAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableSmbAclResponse
+     *
+     * @param EnableSmbAclRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EnableSmbAclResponse
      */
     public function enableSmbAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->keytab)) {
-            $query['Keytab'] = $request->keytab;
+
+        if (null !== $request->keytab) {
+            @$query['Keytab'] = $request->keytab;
         }
-        if (!Utils::isUnset($request->keytabMd5)) {
-            $query['KeytabMd5'] = $request->keytabMd5;
+
+        if (null !== $request->keytabMd5) {
+            @$query['KeytabMd5'] = $request->keytabMd5;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableSmbAcl',
@@ -5353,16 +6603,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableSmbAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableSmbAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableSmbAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
-     *  *
-     * @param EnableSmbAclRequest $request EnableSmbAclRequest
+     * Enables the access control list (ACL) feature for a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
      *
-     * @return EnableSmbAclResponse EnableSmbAclResponse
+     * @param request - EnableSmbAclRequest
+     * @returns EnableSmbAclResponse
+     *
+     * @param EnableSmbAclRequest $request
+     *
+     * @return EnableSmbAclResponse
      */
     public function enableSmbAcl($request)
     {
@@ -5372,27 +6628,34 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param GetDirectoryOrFilePropertiesRequest $request GetDirectoryOrFilePropertiesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
      *
-     * @return GetDirectoryOrFilePropertiesResponse GetDirectoryOrFilePropertiesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - GetDirectoryOrFilePropertiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDirectoryOrFilePropertiesResponse
+     *
+     * @param GetDirectoryOrFilePropertiesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDirectoryOrFilePropertiesResponse
      */
     public function getDirectoryOrFilePropertiesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDirectoryOrFileProperties',
@@ -5405,18 +6668,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDirectoryOrFilePropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDirectoryOrFilePropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDirectoryOrFilePropertiesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param GetDirectoryOrFilePropertiesRequest $request GetDirectoryOrFilePropertiesRequest
+     * Queries whether a directory contains files that are stored in the Infrequent Access (IA) or Archive storage class, or whether a file is stored in the IA or Archive storage class.
      *
-     * @return GetDirectoryOrFilePropertiesResponse GetDirectoryOrFilePropertiesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - GetDirectoryOrFilePropertiesRequest
+     * @returns GetDirectoryOrFilePropertiesResponse
+     *
+     * @param GetDirectoryOrFilePropertiesRequest $request
+     *
+     * @return GetDirectoryOrFilePropertiesResponse
      */
     public function getDirectoryOrFileProperties($request)
     {
@@ -5426,21 +6696,26 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the recycle bin configurations of a General-purpose NAS file system.
-     *  *
-     * @description Only General-purpose File Storage NAS (NAS) file systems support this operation.
-     *  *
-     * @param GetRecycleBinAttributeRequest $request GetRecycleBinAttributeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the recycle bin configurations of a General-purpose NAS file system.
      *
-     * @return GetRecycleBinAttributeResponse GetRecycleBinAttributeResponse
+     * @remarks
+     * Only General-purpose File Storage NAS (NAS) file systems support this operation.
+     *
+     * @param request - GetRecycleBinAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRecycleBinAttributeResponse
+     *
+     * @param GetRecycleBinAttributeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetRecycleBinAttributeResponse
      */
     public function getRecycleBinAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRecycleBinAttribute',
@@ -5453,18 +6728,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRecycleBinAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRecycleBinAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRecycleBinAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the recycle bin configurations of a General-purpose NAS file system.
-     *  *
-     * @description Only General-purpose File Storage NAS (NAS) file systems support this operation.
-     *  *
-     * @param GetRecycleBinAttributeRequest $request GetRecycleBinAttributeRequest
+     * Queries the recycle bin configurations of a General-purpose NAS file system.
      *
-     * @return GetRecycleBinAttributeResponse GetRecycleBinAttributeResponse
+     * @remarks
+     * Only General-purpose File Storage NAS (NAS) file systems support this operation.
+     *
+     * @param request - GetRecycleBinAttributeRequest
+     * @returns GetRecycleBinAttributeResponse
+     *
+     * @param GetRecycleBinAttributeRequest $request
+     *
+     * @return GetRecycleBinAttributeResponse
      */
     public function getRecycleBinAttribute($request)
     {
@@ -5474,39 +6756,50 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ListDirectoriesAndFilesRequest $request ListDirectoriesAndFilesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
      *
-     * @return ListDirectoriesAndFilesResponse ListDirectoriesAndFilesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ListDirectoriesAndFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDirectoriesAndFilesResponse
+     *
+     * @param ListDirectoriesAndFilesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDirectoriesAndFilesResponse
      */
     public function listDirectoriesAndFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->directoryOnly)) {
-            $query['DirectoryOnly'] = $request->directoryOnly;
+        if (null !== $request->directoryOnly) {
+            @$query['DirectoryOnly'] = $request->directoryOnly;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDirectoriesAndFiles',
@@ -5519,18 +6812,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDirectoriesAndFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDirectoriesAndFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDirectoriesAndFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ListDirectoriesAndFilesRequest $request ListDirectoriesAndFilesRequest
+     * Queries the infrequently-accessed files in a specified directory of a General-purpose NAS file system and the subdirectories that contain the files.
      *
-     * @return ListDirectoriesAndFilesResponse ListDirectoriesAndFilesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ListDirectoriesAndFilesRequest
+     * @returns ListDirectoriesAndFilesResponse
+     *
+     * @param ListDirectoriesAndFilesRequest $request
+     *
+     * @return ListDirectoriesAndFilesResponse
      */
     public function listDirectoriesAndFiles($request)
     {
@@ -5540,36 +6840,46 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries data retrieval tasks.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ListLifecycleRetrieveJobsRequest $request ListLifecycleRetrieveJobsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries data retrieval tasks.
      *
-     * @return ListLifecycleRetrieveJobsResponse ListLifecycleRetrieveJobsResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ListLifecycleRetrieveJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLifecycleRetrieveJobsResponse
+     *
+     * @param ListLifecycleRetrieveJobsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListLifecycleRetrieveJobsResponse
      */
     public function listLifecycleRetrieveJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLifecycleRetrieveJobs',
@@ -5582,18 +6892,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLifecycleRetrieveJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLifecycleRetrieveJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLifecycleRetrieveJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries data retrieval tasks.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ListLifecycleRetrieveJobsRequest $request ListLifecycleRetrieveJobsRequest
+     * Queries data retrieval tasks.
      *
-     * @return ListLifecycleRetrieveJobsResponse ListLifecycleRetrieveJobsResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ListLifecycleRetrieveJobsRequest
+     * @returns ListLifecycleRetrieveJobsResponse
+     *
+     * @param ListLifecycleRetrieveJobsRequest $request
+     *
+     * @return ListLifecycleRetrieveJobsResponse
      */
     public function listLifecycleRetrieveJobs($request)
     {
@@ -5603,21 +6920,26 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the directories that are recently deleted.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ListRecentlyRecycledDirectoriesRequest $request ListRecentlyRecycledDirectoriesRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the directories that are recently deleted.
      *
-     * @return ListRecentlyRecycledDirectoriesResponse ListRecentlyRecycledDirectoriesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ListRecentlyRecycledDirectoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRecentlyRecycledDirectoriesResponse
+     *
+     * @param ListRecentlyRecycledDirectoriesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListRecentlyRecycledDirectoriesResponse
      */
     public function listRecentlyRecycledDirectoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRecentlyRecycledDirectories',
@@ -5630,18 +6952,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRecentlyRecycledDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRecentlyRecycledDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRecentlyRecycledDirectoriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the directories that are recently deleted.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ListRecentlyRecycledDirectoriesRequest $request ListRecentlyRecycledDirectoriesRequest
+     * Queries the directories that are recently deleted.
      *
-     * @return ListRecentlyRecycledDirectoriesResponse ListRecentlyRecycledDirectoriesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ListRecentlyRecycledDirectoriesRequest
+     * @returns ListRecentlyRecycledDirectoriesResponse
+     *
+     * @param ListRecentlyRecycledDirectoriesRequest $request
+     *
+     * @return ListRecentlyRecycledDirectoriesResponse
      */
     public function listRecentlyRecycledDirectories($request)
     {
@@ -5651,22 +6980,27 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the jobs of the recycle bin.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
-     * *   You can query a maximum of 50 jobs that are recently executed.
-     *  *
-     * @param ListRecycleBinJobsRequest $request ListRecycleBinJobsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the jobs of the recycle bin.
      *
-     * @return ListRecycleBinJobsResponse ListRecycleBinJobsResponse
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
+     * *   You can query a maximum of 50 jobs that are recently executed.
+     *
+     * @param request - ListRecycleBinJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRecycleBinJobsResponse
+     *
+     * @param ListRecycleBinJobsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListRecycleBinJobsResponse
      */
     public function listRecycleBinJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRecycleBinJobs',
@@ -5679,19 +7013,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRecycleBinJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRecycleBinJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRecycleBinJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the jobs of the recycle bin.
-     *  *
-     * @description *   Only General-purpose NAS file systems support this operation.
-     * *   You can query a maximum of 50 jobs that are recently executed.
-     *  *
-     * @param ListRecycleBinJobsRequest $request ListRecycleBinJobsRequest
+     * Queries the jobs of the recycle bin.
      *
-     * @return ListRecycleBinJobsResponse ListRecycleBinJobsResponse
+     * @remarks
+     *   Only General-purpose NAS file systems support this operation.
+     * *   You can query a maximum of 50 jobs that are recently executed.
+     *
+     * @param request - ListRecycleBinJobsRequest
+     * @returns ListRecycleBinJobsResponse
+     *
+     * @param ListRecycleBinJobsRequest $request
+     *
+     * @return ListRecycleBinJobsResponse
      */
     public function listRecycleBinJobs($request)
     {
@@ -5701,21 +7042,26 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries deleted files or directories.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ListRecycledDirectoriesAndFilesRequest $request ListRecycledDirectoriesAndFilesRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries deleted files or directories.
      *
-     * @return ListRecycledDirectoriesAndFilesResponse ListRecycledDirectoriesAndFilesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ListRecycledDirectoriesAndFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRecycledDirectoriesAndFilesResponse
+     *
+     * @param ListRecycledDirectoriesAndFilesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListRecycledDirectoriesAndFilesResponse
      */
     public function listRecycledDirectoriesAndFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRecycledDirectoriesAndFiles',
@@ -5728,18 +7074,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRecycledDirectoriesAndFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRecycledDirectoriesAndFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRecycledDirectoriesAndFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries deleted files or directories.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ListRecycledDirectoriesAndFilesRequest $request ListRecycledDirectoriesAndFilesRequest
+     * Queries deleted files or directories.
      *
-     * @return ListRecycledDirectoriesAndFilesResponse ListRecycledDirectoriesAndFilesResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ListRecycledDirectoriesAndFilesRequest
+     * @returns ListRecycledDirectoriesAndFilesResponse
+     *
+     * @param ListRecycledDirectoriesAndFilesRequest $request
+     *
+     * @return ListRecycledDirectoriesAndFilesResponse
      */
     public function listRecycledDirectoriesAndFiles($request)
     {
@@ -5749,31 +7102,39 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries tags.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -5786,16 +7147,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tags.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries tags.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -5805,30 +7172,38 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a permission group.
-     *  *
-     * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-     *  *
-     * @param ModifyAccessGroupRequest $request ModifyAccessGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies a permission group.
      *
-     * @return ModifyAccessGroupResponse ModifyAccessGroupResponse
+     * @remarks
+     * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+     *
+     * @param request - ModifyAccessGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAccessGroupResponse
+     *
+     * @param ModifyAccessGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyAccessGroupResponse
      */
     public function modifyAccessGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAccessGroup',
@@ -5841,18 +7216,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAccessGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAccessGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAccessGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a permission group.
-     *  *
-     * @description The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-     *  *
-     * @param ModifyAccessGroupRequest $request ModifyAccessGroupRequest
+     * Modifies a permission group.
      *
-     * @return ModifyAccessGroupResponse ModifyAccessGroupResponse
+     * @remarks
+     * The default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+     *
+     * @param request - ModifyAccessGroupRequest
+     * @returns ModifyAccessGroupResponse
+     *
+     * @param ModifyAccessGroupRequest $request
+     *
+     * @return ModifyAccessGroupResponse
      */
     public function modifyAccessGroup($request)
     {
@@ -5862,36 +7244,46 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about an access point.
-     *  *
-     * @description Only General-purpose Network File System (NFS) file systems support this operation.
-     *  *
-     * @param ModifyAccessPointRequest $request ModifyAccessPointRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about an access point.
      *
-     * @return ModifyAccessPointResponse ModifyAccessPointResponse
+     * @remarks
+     * Only General-purpose Network File System (NFS) file systems support this operation.
+     *
+     * @param request - ModifyAccessPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAccessPointResponse
+     *
+     * @param ModifyAccessPointRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyAccessPointResponse
      */
     public function modifyAccessPointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroup)) {
-            $query['AccessGroup'] = $request->accessGroup;
+        if (null !== $request->accessGroup) {
+            @$query['AccessGroup'] = $request->accessGroup;
         }
-        if (!Utils::isUnset($request->accessPointId)) {
-            $query['AccessPointId'] = $request->accessPointId;
+
+        if (null !== $request->accessPointId) {
+            @$query['AccessPointId'] = $request->accessPointId;
         }
-        if (!Utils::isUnset($request->accessPointName)) {
-            $query['AccessPointName'] = $request->accessPointName;
+
+        if (null !== $request->accessPointName) {
+            @$query['AccessPointName'] = $request->accessPointName;
         }
-        if (!Utils::isUnset($request->enabledRam)) {
-            $query['EnabledRam'] = $request->enabledRam;
+
+        if (null !== $request->enabledRam) {
+            @$query['EnabledRam'] = $request->enabledRam;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAccessPoint',
@@ -5904,18 +7296,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAccessPointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about an access point.
-     *  *
-     * @description Only General-purpose Network File System (NFS) file systems support this operation.
-     *  *
-     * @param ModifyAccessPointRequest $request ModifyAccessPointRequest
+     * Modifies the information about an access point.
      *
-     * @return ModifyAccessPointResponse ModifyAccessPointResponse
+     * @remarks
+     * Only General-purpose Network File System (NFS) file systems support this operation.
+     *
+     * @param request - ModifyAccessPointRequest
+     * @returns ModifyAccessPointResponse
+     *
+     * @param ModifyAccessPointRequest $request
+     *
+     * @return ModifyAccessPointResponse
      */
     public function modifyAccessPoint($request)
     {
@@ -5925,45 +7324,58 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a rule in a permission group.
-     *  *
-     * @description The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-     *  *
-     * @param ModifyAccessRuleRequest $request ModifyAccessRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies a rule in a permission group.
      *
-     * @return ModifyAccessRuleResponse ModifyAccessRuleResponse
+     * @remarks
+     * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+     *
+     * @param request - ModifyAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAccessRuleResponse
+     *
+     * @param ModifyAccessRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyAccessRuleResponse
      */
     public function modifyAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->accessRuleId)) {
-            $query['AccessRuleId'] = $request->accessRuleId;
+
+        if (null !== $request->accessRuleId) {
+            @$query['AccessRuleId'] = $request->accessRuleId;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
-        if (!Utils::isUnset($request->ipv6SourceCidrIp)) {
-            $query['Ipv6SourceCidrIp'] = $request->ipv6SourceCidrIp;
+
+        if (null !== $request->ipv6SourceCidrIp) {
+            @$query['Ipv6SourceCidrIp'] = $request->ipv6SourceCidrIp;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->RWAccessType)) {
-            $query['RWAccessType'] = $request->RWAccessType;
+
+        if (null !== $request->RWAccessType) {
+            @$query['RWAccessType'] = $request->RWAccessType;
         }
-        if (!Utils::isUnset($request->sourceCidrIp)) {
-            $query['SourceCidrIp'] = $request->sourceCidrIp;
+
+        if (null !== $request->sourceCidrIp) {
+            @$query['SourceCidrIp'] = $request->sourceCidrIp;
         }
-        if (!Utils::isUnset($request->userAccessType)) {
-            $query['UserAccessType'] = $request->userAccessType;
+
+        if (null !== $request->userAccessType) {
+            @$query['UserAccessType'] = $request->userAccessType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAccessRule',
@@ -5976,18 +7388,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAccessRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a rule in a permission group.
-     *  *
-     * @description The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
-     *  *
-     * @param ModifyAccessRuleRequest $request ModifyAccessRuleRequest
+     * Modifies a rule in a permission group.
      *
-     * @return ModifyAccessRuleResponse ModifyAccessRuleResponse
+     * @remarks
+     * The rules in the default permission group (DEFAULT_VPC_GROUP_NAME) cannot be modified.
+     *
+     * @param request - ModifyAccessRuleRequest
+     * @returns ModifyAccessRuleResponse
+     *
+     * @param ModifyAccessRuleRequest $request
+     *
+     * @return ModifyAccessRuleResponse
      */
     public function modifyAccessRule($request)
     {
@@ -5997,37 +7416,47 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param ModifyAutoSnapshotPolicyRequest $request ModifyAutoSnapshotPolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
      *
-     * @return ModifyAutoSnapshotPolicyResponse ModifyAutoSnapshotPolicyResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - ModifyAutoSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAutoSnapshotPolicyResponse
+     *
+     * @param ModifyAutoSnapshotPolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyAutoSnapshotPolicyResponse
      */
     public function modifyAutoSnapshotPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoSnapshotPolicyId)) {
-            $query['AutoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
+        if (null !== $request->autoSnapshotPolicyId) {
+            @$query['AutoSnapshotPolicyId'] = $request->autoSnapshotPolicyId;
         }
-        if (!Utils::isUnset($request->autoSnapshotPolicyName)) {
-            $query['AutoSnapshotPolicyName'] = $request->autoSnapshotPolicyName;
+
+        if (null !== $request->autoSnapshotPolicyName) {
+            @$query['AutoSnapshotPolicyName'] = $request->autoSnapshotPolicyName;
         }
-        if (!Utils::isUnset($request->repeatWeekdays)) {
-            $query['RepeatWeekdays'] = $request->repeatWeekdays;
+
+        if (null !== $request->repeatWeekdays) {
+            @$query['RepeatWeekdays'] = $request->repeatWeekdays;
         }
-        if (!Utils::isUnset($request->retentionDays)) {
-            $query['RetentionDays'] = $request->retentionDays;
+
+        if (null !== $request->retentionDays) {
+            @$query['RetentionDays'] = $request->retentionDays;
         }
-        if (!Utils::isUnset($request->timePoints)) {
-            $query['TimePoints'] = $request->timePoints;
+
+        if (null !== $request->timePoints) {
+            @$query['TimePoints'] = $request->timePoints;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAutoSnapshotPolicy',
@@ -6040,19 +7469,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAutoSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAutoSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
-     * *   Only advanced Extreme NAS file systems support this feature.
-     *  *
-     * @param ModifyAutoSnapshotPolicyRequest $request ModifyAutoSnapshotPolicyRequest
+     * An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
      *
-     * @return ModifyAutoSnapshotPolicyResponse ModifyAutoSnapshotPolicyResponse
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * *   Only advanced Extreme NAS file systems support this feature.
+     *
+     * @param request - ModifyAutoSnapshotPolicyRequest
+     * @returns ModifyAutoSnapshotPolicyResponse
+     *
+     * @param ModifyAutoSnapshotPolicyRequest $request
+     *
+     * @return ModifyAutoSnapshotPolicyResponse
      */
     public function modifyAutoSnapshotPolicy($request)
     {
@@ -6062,41 +7498,52 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of a dataflow.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
+     * Modifies the attributes of a dataflow.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
      * *   You can modify the attributes only of the data flows that are in the `Running` state.
      * *   It generally takes 2 to 5 minutes to modify the attributes of a data flow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the status of the data flow to be modified.
-     *  *
-     * @param ModifyDataFlowRequest $request ModifyDataFlowRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDataFlowResponse ModifyDataFlowResponse
+     * @param request - ModifyDataFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDataFlowResponse
+     *
+     * @param ModifyDataFlowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyDataFlowResponse
      */
     public function modifyDataFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->throughput)) {
-            $query['Throughput'] = $request->throughput;
+
+        if (null !== $request->throughput) {
+            @$query['Throughput'] = $request->throughput;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDataFlow',
@@ -6109,20 +7556,27 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDataFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes of a dataflow.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
+     * Modifies the attributes of a dataflow.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
      * *   You can modify the attributes only of the data flows that are in the `Running` state.
      * *   It generally takes 2 to 5 minutes to modify the attributes of a data flow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the status of the data flow to be modified.
-     *  *
-     * @param ModifyDataFlowRequest $request ModifyDataFlowRequest
      *
-     * @return ModifyDataFlowResponse ModifyDataFlowResponse
+     * @param request - ModifyDataFlowRequest
+     * @returns ModifyDataFlowResponse
+     *
+     * @param ModifyDataFlowRequest $request
+     *
+     * @return ModifyDataFlowResponse
      */
     public function modifyDataFlow($request)
     {
@@ -6132,42 +7586,53 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an AutoRefresh configuration of a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Modifies an AutoRefresh configuration of a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
      * *   You can modify the AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
      * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the task of modifying an AutoRefresh configuration.
-     *  *
-     * @param ModifyDataFlowAutoRefreshRequest $request ModifyDataFlowAutoRefreshRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDataFlowAutoRefreshResponse ModifyDataFlowAutoRefreshResponse
+     * @param request - ModifyDataFlowAutoRefreshRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDataFlowAutoRefreshResponse
+     *
+     * @param ModifyDataFlowAutoRefreshRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyDataFlowAutoRefreshResponse
      */
     public function modifyDataFlowAutoRefreshWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRefreshInterval)) {
-            $query['AutoRefreshInterval'] = $request->autoRefreshInterval;
+        if (null !== $request->autoRefreshInterval) {
+            @$query['AutoRefreshInterval'] = $request->autoRefreshInterval;
         }
-        if (!Utils::isUnset($request->autoRefreshPolicy)) {
-            $query['AutoRefreshPolicy'] = $request->autoRefreshPolicy;
+
+        if (null !== $request->autoRefreshPolicy) {
+            @$query['AutoRefreshPolicy'] = $request->autoRefreshPolicy;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDataFlowAutoRefresh',
@@ -6180,21 +7645,28 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDataFlowAutoRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDataFlowAutoRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDataFlowAutoRefreshResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an AutoRefresh configuration of a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Modifies an AutoRefresh configuration of a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
      * *   You can modify the AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
      * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the task of modifying an AutoRefresh configuration.
-     *  *
-     * @param ModifyDataFlowAutoRefreshRequest $request ModifyDataFlowAutoRefreshRequest
      *
-     * @return ModifyDataFlowAutoRefreshResponse ModifyDataFlowAutoRefreshResponse
+     * @param request - ModifyDataFlowAutoRefreshRequest
+     * @returns ModifyDataFlowAutoRefreshResponse
+     *
+     * @param ModifyDataFlowAutoRefreshRequest $request
+     *
+     * @return ModifyDataFlowAutoRefreshResponse
      */
     public function modifyDataFlowAutoRefresh($request)
     {
@@ -6204,33 +7676,41 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a file system.
-     *  *
-     * @param ModifyFileSystemRequest $tmpReq  ModifyFileSystemRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of a file system.
      *
-     * @return ModifyFileSystemResponse ModifyFileSystemResponse
+     * @param tmpReq - ModifyFileSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyFileSystemResponse
+     *
+     * @param ModifyFileSystemRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyFileSystemResponse
      */
     public function modifyFileSystemWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyFileSystemShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->options)) {
-            $request->optionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->options, 'Options', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->options) {
+            $request->optionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->options, 'Options', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->optionsShrink)) {
-            $query['Options'] = $request->optionsShrink;
+
+        if (null !== $request->optionsShrink) {
+            @$query['Options'] = $request->optionsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyFileSystem',
@@ -6243,16 +7723,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyFileSystemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of a file system.
-     *  *
-     * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
+     * Modifies the description of a file system.
      *
-     * @return ModifyFileSystemResponse ModifyFileSystemResponse
+     * @param request - ModifyFileSystemRequest
+     * @returns ModifyFileSystemResponse
+     *
+     * @param ModifyFileSystemRequest $request
+     *
+     * @return ModifyFileSystemResponse
      */
     public function modifyFileSystem($request)
     {
@@ -6262,39 +7748,50 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a fileset.
-     *  *
-     * @description Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
-     *  *
-     * @param ModifyFilesetRequest $request ModifyFilesetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Modifies a fileset.
      *
-     * @return ModifyFilesetResponse ModifyFilesetResponse
+     * @remarks
+     * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+     *
+     * @param request - ModifyFilesetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyFilesetResponse
+     *
+     * @param ModifyFilesetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyFilesetResponse
      */
     public function modifyFilesetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->deletionProtection)) {
-            $query['DeletionProtection'] = $request->deletionProtection;
+
+        if (null !== $request->deletionProtection) {
+            @$query['DeletionProtection'] = $request->deletionProtection;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fsetId)) {
-            $query['FsetId'] = $request->fsetId;
+
+        if (null !== $request->fsetId) {
+            @$query['FsetId'] = $request->fsetId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyFileset',
@@ -6307,18 +7804,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyFilesetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyFilesetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyFilesetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a fileset.
-     *  *
-     * @description Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
-     *  *
-     * @param ModifyFilesetRequest $request ModifyFilesetRequest
+     * Modifies a fileset.
      *
-     * @return ModifyFilesetResponse ModifyFilesetResponse
+     * @remarks
+     * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+     *
+     * @param request - ModifyFilesetRequest
+     * @returns ModifyFilesetResponse
+     *
+     * @param ModifyFilesetRequest $request
+     *
+     * @return ModifyFilesetResponse
      */
     public function modifyFileset($request)
     {
@@ -6327,38 +7831,47 @@ class NAS extends OpenApiClient
         return $this->modifyFilesetWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * 修改LDAP配置.
+     *
+     * @remarks
+     * The API operation is available only for Cloud Parallel File Storage (CPFS) file systems.
+     *
      * @deprecated OpenAPI ModifyLDAPConfig is deprecated
-     *  *
-     * @summary 修改LDAP配置
-     *  *
-     * @description The API operation is available only for Cloud Parallel File Storage (CPFS) file systems.
-     *  *
-     * Deprecated
      *
-     * @param ModifyLDAPConfigRequest $request ModifyLDAPConfigRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyLDAPConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyLDAPConfigResponse
      *
-     * @return ModifyLDAPConfigResponse ModifyLDAPConfigResponse
+     * @param ModifyLDAPConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyLDAPConfigResponse
      */
     public function modifyLDAPConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bindDN)) {
-            $query['BindDN'] = $request->bindDN;
+        if (null !== $request->bindDN) {
+            @$query['BindDN'] = $request->bindDN;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->searchBase)) {
-            $query['SearchBase'] = $request->searchBase;
+
+        if (null !== $request->searchBase) {
+            @$query['SearchBase'] = $request->searchBase;
         }
-        if (!Utils::isUnset($request->URI)) {
-            $query['URI'] = $request->URI;
+
+        if (null !== $request->URI) {
+            @$query['URI'] = $request->URI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyLDAPConfig',
@@ -6371,22 +7884,29 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyLDAPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyLDAPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyLDAPConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * 修改LDAP配置.
+     *
+     * @remarks
+     * The API operation is available only for Cloud Parallel File Storage (CPFS) file systems.
+     *
      * @deprecated OpenAPI ModifyLDAPConfig is deprecated
-     *  *
-     * @summary 修改LDAP配置
-     *  *
-     * @description The API operation is available only for Cloud Parallel File Storage (CPFS) file systems.
-     *  *
-     * Deprecated
      *
-     * @param ModifyLDAPConfigRequest $request ModifyLDAPConfigRequest
+     * @param request - ModifyLDAPConfigRequest
+     * @returns ModifyLDAPConfigResponse
      *
-     * @return ModifyLDAPConfigResponse ModifyLDAPConfigResponse
+     * @param ModifyLDAPConfigRequest $request
+     *
+     * @return ModifyLDAPConfigResponse
      */
     public function modifyLDAPConfig($request)
     {
@@ -6396,36 +7916,46 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a lifecycle policy.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ModifyLifecyclePolicyRequest $request ModifyLifecyclePolicyRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Modifies a lifecycle policy.
      *
-     * @return ModifyLifecyclePolicyResponse ModifyLifecyclePolicyResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ModifyLifecyclePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyLifecyclePolicyResponse
+     *
+     * @param ModifyLifecyclePolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyLifecyclePolicyResponse
      */
     public function modifyLifecyclePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->lifecyclePolicyName)) {
-            $query['LifecyclePolicyName'] = $request->lifecyclePolicyName;
+
+        if (null !== $request->lifecyclePolicyName) {
+            @$query['LifecyclePolicyName'] = $request->lifecyclePolicyName;
         }
-        if (!Utils::isUnset($request->lifecycleRuleName)) {
-            $query['LifecycleRuleName'] = $request->lifecycleRuleName;
+
+        if (null !== $request->lifecycleRuleName) {
+            @$query['LifecycleRuleName'] = $request->lifecycleRuleName;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyLifecyclePolicy',
@@ -6438,18 +7968,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyLifecyclePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyLifecyclePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyLifecyclePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a lifecycle policy.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param ModifyLifecyclePolicyRequest $request ModifyLifecyclePolicyRequest
+     * Modifies a lifecycle policy.
      *
-     * @return ModifyLifecyclePolicyResponse ModifyLifecyclePolicyResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - ModifyLifecyclePolicyRequest
+     * @returns ModifyLifecyclePolicyResponse
+     *
+     * @param ModifyLifecyclePolicyRequest $request
+     *
+     * @return ModifyLifecyclePolicyResponse
      */
     public function modifyLifecyclePolicy($request)
     {
@@ -6459,34 +7996,43 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a mount target.
-     *  *
-     * @param ModifyMountTargetRequest $request ModifyMountTargetRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies a mount target.
      *
-     * @return ModifyMountTargetResponse ModifyMountTargetResponse
+     * @param request - ModifyMountTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyMountTargetResponse
+     *
+     * @param ModifyMountTargetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyMountTargetResponse
      */
     public function modifyMountTargetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessGroupName)) {
-            $query['AccessGroupName'] = $request->accessGroupName;
+        if (null !== $request->accessGroupName) {
+            @$query['AccessGroupName'] = $request->accessGroupName;
         }
-        if (!Utils::isUnset($request->dualStackMountTargetDomain)) {
-            $query['DualStackMountTargetDomain'] = $request->dualStackMountTargetDomain;
+
+        if (null !== $request->dualStackMountTargetDomain) {
+            @$query['DualStackMountTargetDomain'] = $request->dualStackMountTargetDomain;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->mountTargetDomain)) {
-            $query['MountTargetDomain'] = $request->mountTargetDomain;
+
+        if (null !== $request->mountTargetDomain) {
+            @$query['MountTargetDomain'] = $request->mountTargetDomain;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyMountTarget',
@@ -6499,16 +8045,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyMountTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a mount target.
-     *  *
-     * @param ModifyMountTargetRequest $request ModifyMountTargetRequest
+     * Modifies a mount target.
      *
-     * @return ModifyMountTargetResponse ModifyMountTargetResponse
+     * @param request - ModifyMountTargetRequest
+     * @returns ModifyMountTargetResponse
+     *
+     * @param ModifyMountTargetRequest $request
+     *
+     * @return ModifyMountTargetResponse
      */
     public function modifyMountTarget($request)
     {
@@ -6518,39 +8070,50 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param ModifyProtocolMountTargetRequest $request ModifyProtocolMountTargetRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
      *
-     * @return ModifyProtocolMountTargetResponse ModifyProtocolMountTargetResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - ModifyProtocolMountTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyProtocolMountTargetResponse
+     *
+     * @param ModifyProtocolMountTargetRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyProtocolMountTargetResponse
      */
     public function modifyProtocolMountTargetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->exportId)) {
-            $query['ExportId'] = $request->exportId;
+
+        if (null !== $request->exportId) {
+            @$query['ExportId'] = $request->exportId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->protocolServiceId)) {
-            $query['ProtocolServiceId'] = $request->protocolServiceId;
+
+        if (null !== $request->protocolServiceId) {
+            @$query['ProtocolServiceId'] = $request->protocolServiceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyProtocolMountTarget',
@@ -6563,18 +8126,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyProtocolMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyProtocolMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyProtocolMountTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param ModifyProtocolMountTargetRequest $request ModifyProtocolMountTargetRequest
+     * Modifies the export directory parameters of a protocol service. Only the description can be modified. The virtual private cloud (VPC) ID and vSwitch ID cannot be changed. To change these IDs, you must delete the export directory and create a new one.
      *
-     * @return ModifyProtocolMountTargetResponse ModifyProtocolMountTargetResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - ModifyProtocolMountTargetRequest
+     * @returns ModifyProtocolMountTargetResponse
+     *
+     * @param ModifyProtocolMountTargetRequest $request
+     *
+     * @return ModifyProtocolMountTargetResponse
      */
     public function modifyProtocolMountTarget($request)
     {
@@ -6584,36 +8154,46 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a protocol service. You can modify the description of a protocol service.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param ModifyProtocolServiceRequest $request ModifyProtocolServiceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Modifies a protocol service. You can modify the description of a protocol service.
      *
-     * @return ModifyProtocolServiceResponse ModifyProtocolServiceResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - ModifyProtocolServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyProtocolServiceResponse
+     *
+     * @param ModifyProtocolServiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyProtocolServiceResponse
      */
     public function modifyProtocolServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->protocolServiceId)) {
-            $query['ProtocolServiceId'] = $request->protocolServiceId;
+
+        if (null !== $request->protocolServiceId) {
+            @$query['ProtocolServiceId'] = $request->protocolServiceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyProtocolService',
@@ -6626,18 +8206,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyProtocolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyProtocolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyProtocolServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a protocol service. You can modify the description of a protocol service.
-     *  *
-     * @description This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-     *  *
-     * @param ModifyProtocolServiceRequest $request ModifyProtocolServiceRequest
+     * Modifies a protocol service. You can modify the description of a protocol service.
      *
-     * @return ModifyProtocolServiceResponse ModifyProtocolServiceResponse
+     * @remarks
+     * This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     *
+     * @param request - ModifyProtocolServiceRequest
+     * @returns ModifyProtocolServiceResponse
+     *
+     * @param ModifyProtocolServiceRequest $request
+     *
+     * @return ModifyProtocolServiceResponse
      */
     public function modifyProtocolService($request)
     {
@@ -6647,43 +8234,55 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
-     *  *
-     * @param ModifySmbAclRequest $request ModifySmbAclRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Updates the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
      *
-     * @return ModifySmbAclResponse ModifySmbAclResponse
+     * @param request - ModifySmbAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifySmbAclResponse
+     *
+     * @param ModifySmbAclRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifySmbAclResponse
      */
     public function modifySmbAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->enableAnonymousAccess)) {
-            $query['EnableAnonymousAccess'] = $request->enableAnonymousAccess;
+        if (null !== $request->enableAnonymousAccess) {
+            @$query['EnableAnonymousAccess'] = $request->enableAnonymousAccess;
         }
-        if (!Utils::isUnset($request->encryptData)) {
-            $query['EncryptData'] = $request->encryptData;
+
+        if (null !== $request->encryptData) {
+            @$query['EncryptData'] = $request->encryptData;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->homeDirPath)) {
-            $query['HomeDirPath'] = $request->homeDirPath;
+
+        if (null !== $request->homeDirPath) {
+            @$query['HomeDirPath'] = $request->homeDirPath;
         }
-        if (!Utils::isUnset($request->keytab)) {
-            $query['Keytab'] = $request->keytab;
+
+        if (null !== $request->keytab) {
+            @$query['Keytab'] = $request->keytab;
         }
-        if (!Utils::isUnset($request->keytabMd5)) {
-            $query['KeytabMd5'] = $request->keytabMd5;
+
+        if (null !== $request->keytabMd5) {
+            @$query['KeytabMd5'] = $request->keytabMd5;
         }
-        if (!Utils::isUnset($request->rejectUnencryptedAccess)) {
-            $query['RejectUnencryptedAccess'] = $request->rejectUnencryptedAccess;
+
+        if (null !== $request->rejectUnencryptedAccess) {
+            @$query['RejectUnencryptedAccess'] = $request->rejectUnencryptedAccess;
         }
-        if (!Utils::isUnset($request->superAdminSid)) {
-            $query['SuperAdminSid'] = $request->superAdminSid;
+
+        if (null !== $request->superAdminSid) {
+            @$query['SuperAdminSid'] = $request->superAdminSid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifySmbAcl',
@@ -6696,16 +8295,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifySmbAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySmbAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySmbAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
-     *  *
-     * @param ModifySmbAclRequest $request ModifySmbAclRequest
+     * Updates the information about the access control list (ACL) feature of a Server Message Block (SMB) file system that resides in an Active Directory (AD) domain.
      *
-     * @return ModifySmbAclResponse ModifySmbAclResponse
+     * @param request - ModifySmbAclRequest
+     * @returns ModifySmbAclResponse
+     *
+     * @param ModifySmbAclRequest $request
+     *
+     * @return ModifySmbAclResponse
      */
     public function modifySmbAcl($request)
     {
@@ -6715,11 +8320,15 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Activates File Storage NAS.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Activates File Storage NAS.
      *
-     * @return OpenNASServiceResponse OpenNASServiceResponse
+     * @param request - OpenNASServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OpenNASServiceResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return OpenNASServiceResponse
      */
     public function openNASServiceWithOptions($runtime)
     {
@@ -6735,14 +8344,19 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OpenNASServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenNASServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenNASServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates File Storage NAS.
-     *  *
-     * @return OpenNASServiceResponse OpenNASServiceResponse
+     * Activates File Storage NAS.
+     *
+     * @returns OpenNASServiceResponse
+     *
+     * @return OpenNASServiceResponse
      */
     public function openNASService()
     {
@@ -6751,38 +8365,47 @@ class NAS extends OpenApiClient
         return $this->openNASServiceWithOptions($runtime);
     }
 
+    // Deprecated
+
     /**
+     * 移除黑名单.
+     *
+     * @remarks
+     * The IP address of a client to remove from the blacklist.
+     *
      * @deprecated OpenAPI RemoveClientFromBlackList is deprecated
-     *  *
-     * @summary 移除黑名单
-     *  *
-     * @description The IP address of a client to remove from the blacklist.
-     *  *
-     * Deprecated
      *
-     * @param RemoveClientFromBlackListRequest $request RemoveClientFromBlackListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - RemoveClientFromBlackListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveClientFromBlackListResponse
      *
-     * @return RemoveClientFromBlackListResponse RemoveClientFromBlackListResponse
+     * @param RemoveClientFromBlackListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RemoveClientFromBlackListResponse
      */
     public function removeClientFromBlackListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientIP)) {
-            $query['ClientIP'] = $request->clientIP;
+        if (null !== $request->clientIP) {
+            @$query['ClientIP'] = $request->clientIP;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveClientFromBlackList',
@@ -6795,22 +8418,29 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveClientFromBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveClientFromBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveClientFromBlackListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * 移除黑名单.
+     *
+     * @remarks
+     * The IP address of a client to remove from the blacklist.
+     *
      * @deprecated OpenAPI RemoveClientFromBlackList is deprecated
-     *  *
-     * @summary 移除黑名单
-     *  *
-     * @description The IP address of a client to remove from the blacklist.
-     *  *
-     * Deprecated
      *
-     * @param RemoveClientFromBlackListRequest $request RemoveClientFromBlackListRequest
+     * @param request - RemoveClientFromBlackListRequest
+     * @returns RemoveClientFromBlackListResponse
      *
-     * @return RemoveClientFromBlackListResponse RemoveClientFromBlackListResponse
+     * @param RemoveClientFromBlackListRequest $request
+     *
+     * @return RemoveClientFromBlackListResponse
      */
     public function removeClientFromBlackList($request)
     {
@@ -6819,33 +8449,40 @@ class NAS extends OpenApiClient
         return $this->removeClientFromBlackListWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
-     * @deprecated openAPI RemoveTags is deprecated, please use NAS::2017-06-26::UntagResources instead
-     *  *
-     * @summary Removes one or more tags from a file system.
-     *  *
-     * @description >  The tag feature has been upgraded and this document will be unpublished. For more information, see UntagResources.
+     * Removes one or more tags from a file system.
+     *
+     * @remarks
+     * >  The tag feature has been upgraded and this document will be unpublished. For more information, see UntagResources.
      * A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is still returned.
-     *  *
-     * Deprecated
      *
-     * @param RemoveTagsRequest $request RemoveTagsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @deprecated openAPI RemoveTags is deprecated, please use NAS::2017-06-26::UntagResources instead
      *
-     * @return RemoveTagsResponse RemoveTagsResponse
+     * @param request - RemoveTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveTagsResponse
+     *
+     * @param RemoveTagsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RemoveTagsResponse
      */
     public function removeTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveTags',
@@ -6858,23 +8495,30 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
-     * @deprecated openAPI RemoveTags is deprecated, please use NAS::2017-06-26::UntagResources instead
-     *  *
-     * @summary Removes one or more tags from a file system.
-     *  *
-     * @description >  The tag feature has been upgraded and this document will be unpublished. For more information, see UntagResources.
+     * Removes one or more tags from a file system.
+     *
+     * @remarks
+     * >  The tag feature has been upgraded and this document will be unpublished. For more information, see UntagResources.
      * A request ID is returned even if the tag that you want to remove or the associated file system does not exist. For example, if the associated file system does not exist, or the TagKey and TagValue cannot be found, a request ID is still returned.
-     *  *
-     * Deprecated
      *
-     * @param RemoveTagsRequest $request RemoveTagsRequest
+     * @deprecated openAPI RemoveTags is deprecated, please use NAS::2017-06-26::UntagResources instead
      *
-     * @return RemoveTagsResponse RemoveTagsResponse
+     * @param request - RemoveTagsRequest
+     * @returns RemoveTagsResponse
+     *
+     * @param RemoveTagsRequest $request
+     *
+     * @return RemoveTagsResponse
      */
     public function removeTags($request)
     {
@@ -6884,30 +8528,37 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Rolls back a file system to a snapshot of the file system.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Rolls back a file system to a snapshot of the file system.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support this feature.
      * *   The file system must be in the Running state.
      * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
-     *  *
-     * @param ResetFileSystemRequest $request ResetFileSystemRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetFileSystemResponse ResetFileSystemResponse
+     * @param request - ResetFileSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetFileSystemResponse
+     *
+     * @param ResetFileSystemRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ResetFileSystemResponse
      */
     public function resetFileSystemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetFileSystem',
@@ -6920,21 +8571,28 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetFileSystemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Rolls back a file system to a snapshot of the file system.
-     *  *
-     * @description *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+     * Rolls back a file system to a snapshot of the file system.
+     *
+     * @remarks
+     *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
      * *   Only advanced Extreme NAS file systems support this feature.
      * *   The file system must be in the Running state.
      * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
-     *  *
-     * @param ResetFileSystemRequest $request ResetFileSystemRequest
      *
-     * @return ResetFileSystemResponse ResetFileSystemResponse
+     * @param request - ResetFileSystemRequest
+     * @returns ResetFileSystemResponse
+     *
+     * @param ResetFileSystemRequest $request
+     *
+     * @return ResetFileSystemResponse
      */
     public function resetFileSystem($request)
     {
@@ -6944,24 +8602,30 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Retries failed a data retrieval task.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param RetryLifecycleRetrieveJobRequest $request RetryLifecycleRetrieveJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Retries failed a data retrieval task.
      *
-     * @return RetryLifecycleRetrieveJobResponse RetryLifecycleRetrieveJobResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - RetryLifecycleRetrieveJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RetryLifecycleRetrieveJobResponse
+     *
+     * @param RetryLifecycleRetrieveJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RetryLifecycleRetrieveJobResponse
      */
     public function retryLifecycleRetrieveJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RetryLifecycleRetrieveJob',
@@ -6974,18 +8638,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RetryLifecycleRetrieveJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RetryLifecycleRetrieveJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RetryLifecycleRetrieveJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Retries failed a data retrieval task.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param RetryLifecycleRetrieveJobRequest $request RetryLifecycleRetrieveJobRequest
+     * Retries failed a data retrieval task.
      *
-     * @return RetryLifecycleRetrieveJobResponse RetryLifecycleRetrieveJobResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - RetryLifecycleRetrieveJobRequest
+     * @returns RetryLifecycleRetrieveJobResponse
+     *
+     * @param RetryLifecycleRetrieveJobRequest $request
+     *
+     * @return RetryLifecycleRetrieveJobResponse
      */
     public function retryLifecycleRetrieveJob($request)
     {
@@ -6995,42 +8666,54 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a directory quota for a file system.
-     *  *
-     * @description Only General-purpose File Storage NAS (NAS) file systems support the directory quota feature.
-     *  *
-     * @param SetDirQuotaRequest $request SetDirQuotaRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a directory quota for a file system.
      *
-     * @return SetDirQuotaResponse SetDirQuotaResponse
+     * @remarks
+     * Only General-purpose File Storage NAS (NAS) file systems support the directory quota feature.
+     *
+     * @param request - SetDirQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetDirQuotaResponse
+     *
+     * @param SetDirQuotaRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SetDirQuotaResponse
      */
     public function setDirQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileCountLimit)) {
-            $query['FileCountLimit'] = $request->fileCountLimit;
+        if (null !== $request->fileCountLimit) {
+            @$query['FileCountLimit'] = $request->fileCountLimit;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->quotaType)) {
-            $query['QuotaType'] = $request->quotaType;
+
+        if (null !== $request->quotaType) {
+            @$query['QuotaType'] = $request->quotaType;
         }
-        if (!Utils::isUnset($request->sizeLimit)) {
-            $query['SizeLimit'] = $request->sizeLimit;
+
+        if (null !== $request->sizeLimit) {
+            @$query['SizeLimit'] = $request->sizeLimit;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userType)) {
-            $query['UserType'] = $request->userType;
+
+        if (null !== $request->userType) {
+            @$query['UserType'] = $request->userType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDirQuota',
@@ -7043,18 +8726,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetDirQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDirQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDirQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a directory quota for a file system.
-     *  *
-     * @description Only General-purpose File Storage NAS (NAS) file systems support the directory quota feature.
-     *  *
-     * @param SetDirQuotaRequest $request SetDirQuotaRequest
+     * Creates a directory quota for a file system.
      *
-     * @return SetDirQuotaResponse SetDirQuotaResponse
+     * @remarks
+     * Only General-purpose File Storage NAS (NAS) file systems support the directory quota feature.
+     *
+     * @param request - SetDirQuotaRequest
+     * @returns SetDirQuotaResponse
+     *
+     * @param SetDirQuotaRequest $request
+     *
+     * @return SetDirQuotaResponse
      */
     public function setDirQuota($request)
     {
@@ -7064,43 +8754,54 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Sets the quota for a fileset.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+     * Sets the quota for a fileset.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
      * *   The minimum capacity quota of a fileset is 10 GiB, and the maximum capacity quota is 1,000 TiB. The scaling step size is 1 GiB. The capacity quota cannot exceed the total capacity of the file system.
      * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
      * *   When you modify a directory quota, you must set the quota capacity or the file quantity to be greater than the capacity or file quantity that has been used.
      * *   The quota statistics have a 5-minute latency. The actual usage takes effect after 5 minutes.
-     *  *
-     * @param SetFilesetQuotaRequest $request SetFilesetQuotaRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetFilesetQuotaResponse SetFilesetQuotaResponse
+     * @param request - SetFilesetQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetFilesetQuotaResponse
+     *
+     * @param SetFilesetQuotaRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetFilesetQuotaResponse
      */
     public function setFilesetQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileCountLimit)) {
-            $query['FileCountLimit'] = $request->fileCountLimit;
+
+        if (null !== $request->fileCountLimit) {
+            @$query['FileCountLimit'] = $request->fileCountLimit;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fsetId)) {
-            $query['FsetId'] = $request->fsetId;
+
+        if (null !== $request->fsetId) {
+            @$query['FsetId'] = $request->fsetId;
         }
-        if (!Utils::isUnset($request->sizeLimit)) {
-            $query['SizeLimit'] = $request->sizeLimit;
+
+        if (null !== $request->sizeLimit) {
+            @$query['SizeLimit'] = $request->sizeLimit;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetFilesetQuota',
@@ -7113,22 +8814,29 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetFilesetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetFilesetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetFilesetQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets the quota for a fileset.
-     *  *
-     * @description *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+     * Sets the quota for a fileset.
+     *
+     * @remarks
+     *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
      * *   The minimum capacity quota of a fileset is 10 GiB, and the maximum capacity quota is 1,000 TiB. The scaling step size is 1 GiB. The capacity quota cannot exceed the total capacity of the file system.
      * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
      * *   When you modify a directory quota, you must set the quota capacity or the file quantity to be greater than the capacity or file quantity that has been used.
      * *   The quota statistics have a 5-minute latency. The actual usage takes effect after 5 minutes.
-     *  *
-     * @param SetFilesetQuotaRequest $request SetFilesetQuotaRequest
      *
-     * @return SetFilesetQuotaResponse SetFilesetQuotaResponse
+     * @param request - SetFilesetQuotaRequest
+     * @returns SetFilesetQuotaResponse
+     *
+     * @param SetFilesetQuotaRequest $request
+     *
+     * @return SetFilesetQuotaResponse
      */
     public function setFilesetQuota($request)
     {
@@ -7138,37 +8846,46 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Enables a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Enables a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
      * *   You can enable the data flows that are only in the `Stopped` state.
      * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified data flow. If the resources are insufficient, the data flow cannot be enabled.
      * *   It generally takes 2 to 5 minutes to enable a data flow. You can query the data flow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
-     *  *
-     * @param StartDataFlowRequest $request StartDataFlowRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartDataFlowResponse StartDataFlowResponse
+     * @param request - StartDataFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartDataFlowResponse
+     *
+     * @param StartDataFlowRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartDataFlowResponse
      */
     public function startDataFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartDataFlow',
@@ -7181,22 +8898,29 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartDataFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Enables a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support data flows. You can view the version information on the file system details page in the console.
      * *   You can enable the data flows that are only in the `Stopped` state.
      * *   If the value of DryRun is `true`, you can check whether sufficient resources are available to enable the specified data flow. If the resources are insufficient, the data flow cannot be enabled.
      * *   It generally takes 2 to 5 minutes to enable a data flow. You can query the data flow status by calling the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation.
-     *  *
-     * @param StartDataFlowRequest $request StartDataFlowRequest
      *
-     * @return StartDataFlowResponse StartDataFlowResponse
+     * @param request - StartDataFlowRequest
+     * @returns StartDataFlowResponse
+     *
+     * @param StartDataFlowRequest $request
+     *
+     * @return StartDataFlowResponse
      */
     public function startDataFlow($request)
     {
@@ -7206,38 +8930,47 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Disables a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Disables a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
      * *   You can disable only the dataflows that are in the `Running` state.
      * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
      * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
      * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html) operation to query the dataflow status.
-     *  *
-     * @param StopDataFlowRequest $request StopDataFlowRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopDataFlowResponse StopDataFlowResponse
+     * @param request - StopDataFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopDataFlowResponse
+     *
+     * @param StopDataFlowRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopDataFlowResponse
      */
     public function stopDataFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataFlowId)) {
-            $query['DataFlowId'] = $request->dataFlowId;
+
+        if (null !== $request->dataFlowId) {
+            @$query['DataFlowId'] = $request->dataFlowId;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopDataFlow',
@@ -7250,23 +8983,30 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopDataFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopDataFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables a dataflow.
-     *  *
-     * @description *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
+     * Disables a dataflow.
+     *
+     * @remarks
+     *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
      * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
      * *   You can disable only the dataflows that are in the `Running` state.
      * *   After a dataflow is disabled, you cannot create a dataflow task for the dataflow. If AutoRefresh is configured, source data updates are not synchronized to CPFS.
      * *   After a dataflow is disabled, the dataflow throughput is no longer billed because resources are reclaimed. However, the dataflow may fail to be restarted due to insufficient resources.
      * *   It generally takes 2 to 5 minutes to disable a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402271.html) operation to query the dataflow status.
-     *  *
-     * @param StopDataFlowRequest $request StopDataFlowRequest
      *
-     * @return StopDataFlowResponse StopDataFlowResponse
+     * @param request - StopDataFlowRequest
+     * @returns StopDataFlowResponse
+     *
+     * @param StopDataFlowRequest $request
+     *
+     * @return StopDataFlowResponse
      */
     public function stopDataFlow($request)
     {
@@ -7276,28 +9016,35 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Creates tags and binds the tags to file systems.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Creates tags and binds the tags to file systems.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -7310,16 +9057,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates tags and binds the tags to file systems.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Creates tags and binds the tags to file systems.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -7329,31 +9082,39 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from a file system.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from a file system.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -7366,16 +9127,22 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from a file system.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from a file system.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -7385,21 +9152,26 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the retention period of data in the recycle bin of a file system.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param UpdateRecycleBinAttributeRequest $request UpdateRecycleBinAttributeRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Modifies the retention period of data in the recycle bin of a file system.
      *
-     * @return UpdateRecycleBinAttributeResponse UpdateRecycleBinAttributeResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - UpdateRecycleBinAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRecycleBinAttributeResponse
+     *
+     * @param UpdateRecycleBinAttributeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateRecycleBinAttributeResponse
      */
     public function updateRecycleBinAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateRecycleBinAttribute',
@@ -7412,18 +9184,25 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRecycleBinAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRecycleBinAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRecycleBinAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the retention period of data in the recycle bin of a file system.
-     *  *
-     * @description Only General-purpose NAS file systems support this operation.
-     *  *
-     * @param UpdateRecycleBinAttributeRequest $request UpdateRecycleBinAttributeRequest
+     * Modifies the retention period of data in the recycle bin of a file system.
      *
-     * @return UpdateRecycleBinAttributeResponse UpdateRecycleBinAttributeResponse
+     * @remarks
+     * Only General-purpose NAS file systems support this operation.
+     *
+     * @param request - UpdateRecycleBinAttributeRequest
+     * @returns UpdateRecycleBinAttributeResponse
+     *
+     * @param UpdateRecycleBinAttributeRequest $request
+     *
+     * @return UpdateRecycleBinAttributeResponse
      */
     public function updateRecycleBinAttribute($request)
     {
@@ -7433,34 +9212,43 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * @summary Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
-     *  *
-     * @description *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
-     * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
-     *  *
-     * @param UpgradeFileSystemRequest $request UpgradeFileSystemRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
      *
-     * @return UpgradeFileSystemResponse UpgradeFileSystemResponse
+     * @remarks
+     *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
+     * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+     *
+     * @param request - UpgradeFileSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpgradeFileSystemResponse
+     *
+     * @param UpgradeFileSystemRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpgradeFileSystemResponse
      */
     public function upgradeFileSystemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->capacity)) {
-            $query['Capacity'] = $request->capacity;
+        if (null !== $request->capacity) {
+            @$query['Capacity'] = $request->capacity;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeFileSystem',
@@ -7473,19 +9261,26 @@ class NAS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpgradeFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpgradeFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeFileSystemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
-     *  *
-     * @description *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
-     * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
-     *  *
-     * @param UpgradeFileSystemRequest $request UpgradeFileSystemRequest
+     * Scales up an Extreme NAS file system or a Cloud Parallel File Storage (CPFS) file system.
      *
-     * @return UpgradeFileSystemResponse UpgradeFileSystemResponse
+     * @remarks
+     *   Only Extreme NAS file systems and CPFS file systems can be scaled up. CPFS file systems are available only on the China site (aliyun.com).
+     * *   A General-purpose NAS file system is automatically scaled up. You do not need to call this operation to scale up a General-purpose NAS file system.
+     *
+     * @param request - UpgradeFileSystemRequest
+     * @returns UpgradeFileSystemResponse
+     *
+     * @param UpgradeFileSystemRequest $request
+     *
+     * @return UpgradeFileSystemResponse
      */
     public function upgradeFileSystem($request)
     {
