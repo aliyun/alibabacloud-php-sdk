@@ -2,6 +2,10 @@
 - Update API CloneSentinelRuleFromAhas: add param MseAppName.
 
 
+2025-01-20 Version: 6.17.3
+- Update API CloneSentinelRuleFromAhas: add param MseAppName.
+
+
 2025-01-15 Version: 6.17.2
 - Update API QueryAllSwimmingLane: update response param.
 
