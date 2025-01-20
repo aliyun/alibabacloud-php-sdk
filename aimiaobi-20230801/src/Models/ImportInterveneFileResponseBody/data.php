@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,10 +12,7 @@ class data extends Model
      * @var string[]
      */
     public $failIdList;
-
     /**
-     * @example 3f7045e099474ba28ceca1b4eb6d6e21
-     *
      * @var string
      */
     public $taskId;
@@ -26,14 +23,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->failIdList)) {
+            Model::validateArray($this->failIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failIdList) {
-            $res['FailIdList'] = $this->failIdList;
+            if (\is_array($this->failIdList)) {
+                $res['FailIdList'] = [];
+                $n1                = 0;
+                foreach ($this->failIdList as $item1) {
+                    $res['FailIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -41,19 +49,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailIdList'])) {
             if (!empty($map['FailIdList'])) {
-                $model->failIdList = $map['FailIdList'];
+                $model->failIdList = [];
+                $n1                = 0;
+                foreach ($map['FailIdList'] as $item1) {
+                    $model->failIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

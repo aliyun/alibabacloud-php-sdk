@@ -4,31 +4,22 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contentTags extends Model
 {
     /**
-     * @example 一级标签-二级标签
-     *
      * @var string
      */
     public $tagDefinePrompt;
-
     /**
-     * @example 一级标签-二级标签
-     *
      * @var string
      */
     public $tagName;
-
     /**
-     * @example singleTagValue
-     *
      * @var string
      */
     public $tagTaskType;
-
     /**
      * @var string
      */
@@ -42,20 +33,24 @@ class contentTags extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagDefinePrompt) {
             $res['TagDefinePrompt'] = $this->tagDefinePrompt;
         }
+
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
+
         if (null !== $this->tagTaskType) {
             $res['TagTaskType'] = $this->tagTaskType;
         }
+
         if (null !== $this->tagValueDefinePrompt) {
             $res['TagValueDefinePrompt'] = $this->tagValueDefinePrompt;
         }
@@ -63,23 +58,26 @@ class contentTags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contentTags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagDefinePrompt'])) {
             $model->tagDefinePrompt = $map['TagDefinePrompt'];
         }
+
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }
+
         if (isset($map['TagTaskType'])) {
             $model->tagTaskType = $map['TagTaskType'];
         }
+
         if (isset($map['TagValueDefinePrompt'])) {
             $model->tagValueDefinePrompt = $map['TagValueDefinePrompt'];
         }

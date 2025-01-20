@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest\inputConfig\stickers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stickerId extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example oss://default/bucket-name/filepath/sticker.png
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example fileKey
-     *
      * @var string
      */
     public $type;
@@ -32,14 +23,16 @@ class stickerId extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -47,17 +40,18 @@ class stickerId extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stickerId
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

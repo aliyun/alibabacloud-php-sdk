@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateUploadConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example oss://default/oss-bucket-name/aimiaobi/2021/07/01/1625126400000/1.docx
-     *
      * @var string
      */
     public $fileKey;
-
     /**
      * @var mixed[]
      */
     public $formDatas;
-
     /**
-     * @example https://bucket-name.oss-cn-hangzhou.aliyuncs.com
-     *
      * @var string
      */
     public $postUrl;
@@ -34,17 +28,28 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->formDatas)) {
+            Model::validateArray($this->formDatas);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
+
         if (null !== $this->formDatas) {
-            $res['FormDatas'] = $this->formDatas;
+            if (\is_array($this->formDatas)) {
+                $res['FormDatas'] = [];
+                foreach ($this->formDatas as $key1 => $value1) {
+                    $res['FormDatas'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->postUrl) {
             $res['PostUrl'] = $this->postUrl;
         }
@@ -52,20 +57,27 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
+
         if (isset($map['FormDatas'])) {
-            $model->formDatas = $map['FormDatas'];
+            if (!empty($map['FormDatas'])) {
+                $model->formDatas = [];
+                foreach ($map['FormDatas'] as $key1 => $value1) {
+                    $model->formDatas[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['PostUrl'])) {
             $model->postUrl = $map['PostUrl'];
         }

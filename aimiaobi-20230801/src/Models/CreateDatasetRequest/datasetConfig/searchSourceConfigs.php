@@ -4,32 +4,25 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest\datasetConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest\datasetConfig\searchSourceConfigs\searchSourceRequestConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest\datasetConfig\searchSourceConfigs\searchSourceResponseConfig;
-use AlibabaCloud\Tea\Model;
 
 class searchSourceConfigs extends Model
 {
     /**
-     * @example 可以搜索到的关键词，用来验证是否可用
-     *
      * @var string
      */
     public $demoQuery;
-
     /**
      * @var searchSourceRequestConfig
      */
     public $searchSourceRequestConfig;
-
     /**
      * @var searchSourceResponseConfig
      */
     public $searchSourceResponseConfig;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $size;
@@ -42,20 +35,30 @@ class searchSourceConfigs extends Model
 
     public function validate()
     {
+        if (null !== $this->searchSourceRequestConfig) {
+            $this->searchSourceRequestConfig->validate();
+        }
+        if (null !== $this->searchSourceResponseConfig) {
+            $this->searchSourceResponseConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->demoQuery) {
             $res['DemoQuery'] = $this->demoQuery;
         }
+
         if (null !== $this->searchSourceRequestConfig) {
-            $res['SearchSourceRequestConfig'] = null !== $this->searchSourceRequestConfig ? $this->searchSourceRequestConfig->toMap() : null;
+            $res['SearchSourceRequestConfig'] = null !== $this->searchSourceRequestConfig ? $this->searchSourceRequestConfig->toArray($noStream) : $this->searchSourceRequestConfig;
         }
+
         if (null !== $this->searchSourceResponseConfig) {
-            $res['SearchSourceResponseConfig'] = null !== $this->searchSourceResponseConfig ? $this->searchSourceResponseConfig->toMap() : null;
+            $res['SearchSourceResponseConfig'] = null !== $this->searchSourceResponseConfig ? $this->searchSourceResponseConfig->toArray($noStream) : $this->searchSourceResponseConfig;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -63,23 +66,26 @@ class searchSourceConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchSourceConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DemoQuery'])) {
             $model->demoQuery = $map['DemoQuery'];
         }
+
         if (isset($map['SearchSourceRequestConfig'])) {
             $model->searchSourceRequestConfig = searchSourceRequestConfig::fromMap($map['SearchSourceRequestConfig']);
         }
+
         if (isset($map['SearchSourceResponseConfig'])) {
             $model->searchSourceResponseConfig = searchSourceResponseConfig::fromMap($map['SearchSourceResponseConfig']);
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

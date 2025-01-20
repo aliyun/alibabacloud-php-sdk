@@ -4,60 +4,39 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskResponseBody\data\timedViewPointsResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskResponseBody\data\timedViewPointsResult\attitudes\viewPoints;
-use AlibabaCloud\Tea\Model;
 
 class attitudes extends Model
 {
     /**
-     * @example 当前观点
-     *
      * @var string
      */
     public $attitude;
-
     /**
-     * @example 观点类型
-     *
      * @var string
      */
     public $attitudeType;
-
     /**
-     * @example 2024-01-22 10:29
-     *
      * @var string
      */
     public $pubTime;
-
     /**
-     * @example 当前观点占比
-     *
      * @var string
      */
     public $ratio;
-
     /**
-     * @example 新浪
-     *
      * @var string
      */
     public $source;
-
     /**
-     * @example 标题
-     *
      * @var string
      */
     public $title;
-
     /**
-     * @example http://www.example.com/news/1.html
-     *
      * @var string
      */
     public $url;
-
     /**
      * @var viewPoints[]
      */
@@ -75,38 +54,49 @@ class attitudes extends Model
 
     public function validate()
     {
+        if (\is_array($this->viewPoints)) {
+            Model::validateArray($this->viewPoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attitude) {
             $res['Attitude'] = $this->attitude;
         }
+
         if (null !== $this->attitudeType) {
             $res['AttitudeType'] = $this->attitudeType;
         }
+
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
         }
+
         if (null !== $this->ratio) {
             $res['Ratio'] = $this->ratio;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->viewPoints) {
-            $res['ViewPoints'] = [];
-            if (null !== $this->viewPoints && \is_array($this->viewPoints)) {
-                $n = 0;
-                foreach ($this->viewPoints as $item) {
-                    $res['ViewPoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->viewPoints)) {
+                $res['ViewPoints'] = [];
+                $n1                = 0;
+                foreach ($this->viewPoints as $item1) {
+                    $res['ViewPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -114,41 +104,48 @@ class attitudes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return attitudes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attitude'])) {
             $model->attitude = $map['Attitude'];
         }
+
         if (isset($map['AttitudeType'])) {
             $model->attitudeType = $map['AttitudeType'];
         }
+
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
         }
+
         if (isset($map['Ratio'])) {
             $model->ratio = $map['Ratio'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['ViewPoints'])) {
             if (!empty($map['ViewPoints'])) {
                 $model->viewPoints = [];
-                $n                 = 0;
-                foreach ($map['ViewPoints'] as $item) {
-                    $model->viewPoints[$n++] = null !== $item ? viewPoints::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['ViewPoints'] as $item1) {
+                    $model->viewPoints[$n1++] = viewPoints::fromMap($item1);
                 }
             }
         }

@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest\editingConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class titleConfig extends Model
 {
     /**
-     * @example TopLeft
-     *
      * @var string
      */
     public $alignment;
-
     /**
-     * @example 2
-     *
      * @var float
      */
     public $timelineIn;
-
     /**
-     * @example 3
-     *
      * @var float
      */
     public $timelineOut;
-
     /**
-     * @example 100
-     *
      * @var float
      */
     public $x;
-
     /**
-     * @example 100
-     *
      * @var float
      */
     public $y;
@@ -52,23 +38,28 @@ class titleConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alignment) {
             $res['Alignment'] = $this->alignment;
         }
+
         if (null !== $this->timelineIn) {
             $res['TimelineIn'] = $this->timelineIn;
         }
+
         if (null !== $this->timelineOut) {
             $res['TimelineOut'] = $this->timelineOut;
         }
+
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
@@ -76,26 +67,30 @@ class titleConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return titleConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alignment'])) {
             $model->alignment = $map['Alignment'];
         }
+
         if (isset($map['TimelineIn'])) {
             $model->timelineIn = $map['TimelineIn'];
         }
+
         if (isset($map['TimelineOut'])) {
             $model->timelineOut = $map['TimelineOut'];
         }
+
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
+
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }

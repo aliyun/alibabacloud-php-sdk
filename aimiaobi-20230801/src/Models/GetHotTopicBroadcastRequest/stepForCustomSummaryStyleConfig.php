@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stepForCustomSummaryStyleConfig extends Model
 {
     /**
-     * @example 90
-     *
      * @var int
      */
     public $summaryImageCount;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 摘要模型
-     *
      * @var string
      */
     public $summaryModel;
-
     /**
-     * @example 摘要-自定义Prompt
-     *
      * @var string
      */
     public $summaryPrompt;
@@ -38,17 +28,20 @@ class stepForCustomSummaryStyleConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->summaryImageCount) {
             $res['SummaryImageCount'] = $this->summaryImageCount;
         }
+
         if (null !== $this->summaryModel) {
             $res['SummaryModel'] = $this->summaryModel;
         }
+
         if (null !== $this->summaryPrompt) {
             $res['SummaryPrompt'] = $this->summaryPrompt;
         }
@@ -56,20 +49,22 @@ class stepForCustomSummaryStyleConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stepForCustomSummaryStyleConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SummaryImageCount'])) {
             $model->summaryImageCount = $map['SummaryImageCount'];
         }
+
         if (isset($map['SummaryModel'])) {
             $model->summaryModel = $map['SummaryModel'];
         }
+
         if (isset($map['SummaryPrompt'])) {
             $model->summaryPrompt = $map['SummaryPrompt'];
         }

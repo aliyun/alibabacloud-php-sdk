@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunDocSmartCardRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 84ufBYEeLMZOjRFo84HJ7ySL3Efr55
-     *
      * @var string
      */
     public $docId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 3f7045e099474ba28ceca1b4eb6d6e21
-     *
      * @var string
      */
     public $sessionId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-2setzb9x4ewsd
-     *
      * @var string
      */
     public $workspaceId;
@@ -42,17 +28,20 @@ class RunDocSmartCardRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -60,20 +49,22 @@ class RunDocSmartCardRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunDocSmartCardRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

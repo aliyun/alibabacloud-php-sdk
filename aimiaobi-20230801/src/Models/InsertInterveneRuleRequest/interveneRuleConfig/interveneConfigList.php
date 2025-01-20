@@ -4,26 +4,18 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest\interveneRuleConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class interveneConfigList extends Model
 {
     /**
-     * @description id
-     *
-     * @example 37249
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $operationType;
-
     /**
      * @var string
      */
@@ -36,17 +28,20 @@ class interveneConfigList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
+
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
@@ -54,20 +49,22 @@ class interveneConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return interveneConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }
+
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }

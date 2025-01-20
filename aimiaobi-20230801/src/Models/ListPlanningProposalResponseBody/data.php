@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalResponseBody\data\outlines;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,12 +13,10 @@ class data extends Model
      * @var outlines[]
      */
     public $outlines;
-
     /**
      * @var string
      */
     public $summary;
-
     /**
      * @var string
      */
@@ -31,23 +29,29 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->outlines)) {
+            Model::validateArray($this->outlines);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outlines) {
-            $res['Outlines'] = [];
-            if (null !== $this->outlines && \is_array($this->outlines)) {
-                $n = 0;
-                foreach ($this->outlines as $item) {
-                    $res['Outlines'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outlines)) {
+                $res['Outlines'] = [];
+                $n1              = 0;
+                foreach ($this->outlines as $item1) {
+                    $res['Outlines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -55,26 +59,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Outlines'])) {
             if (!empty($map['Outlines'])) {
                 $model->outlines = [];
-                $n               = 0;
-                foreach ($map['Outlines'] as $item) {
-                    $model->outlines[$n++] = null !== $item ? outlines::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Outlines'] as $item1) {
+                    $model->outlines[$n1++] = outlines::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunTextPolishingRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 文本内容
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -32,14 +23,16 @@ class RunTextPolishingRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -47,17 +40,18 @@ class RunTextPolishingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunTextPolishingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaRequest\conversationContexts;
-use AlibabaCloud\Tea\Model;
 
 class RunDocQaRequest extends Model
 {
@@ -13,52 +13,31 @@ class RunDocQaRequest extends Model
      * @var string[]
      */
     public $categoryIds;
-
     /**
      * @var conversationContexts[]
      */
     public $conversationContexts;
-
     /**
      * @var string[]
      */
     public $docIds;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $query;
-
     /**
      * @var string
      */
     public $referenceContent;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example fromWeb
-     *
      * @var string
      */
     public $searchSource;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example f486c4e2-b773-4d65-88f8-2ba540610456
-     *
      * @var string
      */
     public $sessionId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-dswd4003ny4gh9rw
-     *
      * @var string
      */
     public $workspaceId;
@@ -75,38 +54,67 @@ class RunDocQaRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->categoryIds)) {
+            Model::validateArray($this->categoryIds);
+        }
+        if (\is_array($this->conversationContexts)) {
+            Model::validateArray($this->conversationContexts);
+        }
+        if (\is_array($this->docIds)) {
+            Model::validateArray($this->docIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryIds) {
-            $res['CategoryIds'] = $this->categoryIds;
-        }
-        if (null !== $this->conversationContexts) {
-            $res['ConversationContexts'] = [];
-            if (null !== $this->conversationContexts && \is_array($this->conversationContexts)) {
-                $n = 0;
-                foreach ($this->conversationContexts as $item) {
-                    $res['ConversationContexts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->categoryIds)) {
+                $res['CategoryIds'] = [];
+                $n1                 = 0;
+                foreach ($this->categoryIds as $item1) {
+                    $res['CategoryIds'][$n1++] = $item1;
                 }
             }
         }
-        if (null !== $this->docIds) {
-            $res['DocIds'] = $this->docIds;
+
+        if (null !== $this->conversationContexts) {
+            if (\is_array($this->conversationContexts)) {
+                $res['ConversationContexts'] = [];
+                $n1                          = 0;
+                foreach ($this->conversationContexts as $item1) {
+                    $res['ConversationContexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
+
+        if (null !== $this->docIds) {
+            if (\is_array($this->docIds)) {
+                $res['DocIds'] = [];
+                $n1            = 0;
+                foreach ($this->docIds as $item1) {
+                    $res['DocIds'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
+
         if (null !== $this->referenceContent) {
             $res['ReferenceContent'] = $this->referenceContent;
         }
+
         if (null !== $this->searchSource) {
             $res['SearchSource'] = $this->searchSource;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -114,45 +122,60 @@ class RunDocQaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunDocQaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryIds'])) {
             if (!empty($map['CategoryIds'])) {
-                $model->categoryIds = $map['CategoryIds'];
-            }
-        }
-        if (isset($map['ConversationContexts'])) {
-            if (!empty($map['ConversationContexts'])) {
-                $model->conversationContexts = [];
-                $n                           = 0;
-                foreach ($map['ConversationContexts'] as $item) {
-                    $model->conversationContexts[$n++] = null !== $item ? conversationContexts::fromMap($item) : $item;
+                $model->categoryIds = [];
+                $n1                 = 0;
+                foreach ($map['CategoryIds'] as $item1) {
+                    $model->categoryIds[$n1++] = $item1;
                 }
             }
         }
-        if (isset($map['DocIds'])) {
-            if (!empty($map['DocIds'])) {
-                $model->docIds = $map['DocIds'];
+
+        if (isset($map['ConversationContexts'])) {
+            if (!empty($map['ConversationContexts'])) {
+                $model->conversationContexts = [];
+                $n1                          = 0;
+                foreach ($map['ConversationContexts'] as $item1) {
+                    $model->conversationContexts[$n1++] = conversationContexts::fromMap($item1);
+                }
             }
         }
+
+        if (isset($map['DocIds'])) {
+            if (!empty($map['DocIds'])) {
+                $model->docIds = [];
+                $n1            = 0;
+                foreach ($map['DocIds'] as $item1) {
+                    $model->docIds[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }
+
         if (isset($map['ReferenceContent'])) {
             $model->referenceContent = $map['ReferenceContent'];
         }
+
         if (isset($map['SearchSource'])) {
             $model->searchSource = $map['SearchSource'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

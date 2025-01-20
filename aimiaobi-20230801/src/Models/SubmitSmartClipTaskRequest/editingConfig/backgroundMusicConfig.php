@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest\editingConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backgroundMusicConfig extends Model
 {
@@ -12,10 +12,7 @@ class backgroundMusicConfig extends Model
      * @var string
      */
     public $style;
-
     /**
-     * @example 0.2
-     *
      * @var float
      */
     public $volume;
@@ -26,14 +23,16 @@ class backgroundMusicConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->style) {
             $res['Style'] = $this->style;
         }
+
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
         }
@@ -41,17 +40,18 @@ class backgroundMusicConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backgroundMusicConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Style'])) {
             $model->style = $map['Style'];
         }
+
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
         }

@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingRequest\writingConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class promptTag extends Model
 {
     /**
-     * @example 必要提示
-     *
      * @var string
      */
     public $necessaryTips;
-
     /**
-     * @example 立场
-     *
      * @var string
      */
     public $position;
-
     /**
-     * @example 反向词
-     *
      * @var string
      */
     public $reverseWords;
-
     /**
-     * @example 主题
-     *
      * @var string
      */
     public $theme;
@@ -44,20 +33,24 @@ class promptTag extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->necessaryTips) {
             $res['NecessaryTips'] = $this->necessaryTips;
         }
+
         if (null !== $this->position) {
             $res['Position'] = $this->position;
         }
+
         if (null !== $this->reverseWords) {
             $res['ReverseWords'] = $this->reverseWords;
         }
+
         if (null !== $this->theme) {
             $res['Theme'] = $this->theme;
         }
@@ -65,23 +58,26 @@ class promptTag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return promptTag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NecessaryTips'])) {
             $model->necessaryTips = $map['NecessaryTips'];
         }
+
         if (isset($map['Position'])) {
             $model->position = $map['Position'];
         }
+
         if (isset($map['ReverseWords'])) {
             $model->reverseWords = $map['ReverseWords'];
         }
+
         if (isset($map['Theme'])) {
             $model->theme = $map['Theme'];
         }

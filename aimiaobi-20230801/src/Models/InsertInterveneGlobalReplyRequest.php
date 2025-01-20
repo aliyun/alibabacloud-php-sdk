@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyRequest\replyMessagList;
-use AlibabaCloud\Tea\Model;
 
 class InsertInterveneGlobalReplyRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xxx_efm
-     *
      * @var string
      */
     public $agentKey;
-
     /**
      * @var replyMessagList[]
      */
@@ -29,20 +24,25 @@ class InsertInterveneGlobalReplyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->replyMessagList)) {
+            Model::validateArray($this->replyMessagList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->replyMessagList) {
-            $res['ReplyMessagList'] = [];
-            if (null !== $this->replyMessagList && \is_array($this->replyMessagList)) {
-                $n = 0;
-                foreach ($this->replyMessagList as $item) {
-                    $res['ReplyMessagList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->replyMessagList)) {
+                $res['ReplyMessagList'] = [];
+                $n1                     = 0;
+                foreach ($this->replyMessagList as $item1) {
+                    $res['ReplyMessagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +50,24 @@ class InsertInterveneGlobalReplyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InsertInterveneGlobalReplyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['ReplyMessagList'])) {
             if (!empty($map['ReplyMessagList'])) {
                 $model->replyMessagList = [];
-                $n                      = 0;
-                foreach ($map['ReplyMessagList'] as $item) {
-                    $model->replyMessagList[$n++] = null !== $item ? replyMessagList::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['ReplyMessagList'] as $item1) {
+                    $model->replyMessagList[$n1++] = replyMessagList::fromMap($item1);
                 }
             }
         }

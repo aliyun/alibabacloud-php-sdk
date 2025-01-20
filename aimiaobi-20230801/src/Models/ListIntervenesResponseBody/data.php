@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListIntervenesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListIntervenesResponseBody\data\interveneList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,24 +13,15 @@ class data extends Model
      * @var interveneList[]
      */
     public $interveneList;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageIndex;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalSize;
@@ -43,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->interveneList)) {
+            Model::validateArray($this->interveneList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->interveneList) {
-            $res['InterveneList'] = [];
-            if (null !== $this->interveneList && \is_array($this->interveneList)) {
-                $n = 0;
-                foreach ($this->interveneList as $item) {
-                    $res['InterveneList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->interveneList)) {
+                $res['InterveneList'] = [];
+                $n1                   = 0;
+                foreach ($this->interveneList as $item1) {
+                    $res['InterveneList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
         }
@@ -70,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InterveneList'])) {
             if (!empty($map['InterveneList'])) {
                 $model->interveneList = [];
-                $n                    = 0;
-                foreach ($map['InterveneList'] as $item) {
-                    $model->interveneList[$n++] = null !== $item ? interveneList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['InterveneList'] as $item1) {
+                    $model->interveneList[$n1++] = interveneList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
         }

@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 错误信息
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @example 热点话题版本号标识
-     *
      * @var string
      */
     public $hotTopicVersion;
-
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
@@ -36,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->hotTopicVersion) {
             $res['HotTopicVersion'] = $this->hotTopicVersion;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -54,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['HotTopicVersion'])) {
             $model->hotTopicVersion = $map['HotTopicVersion'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

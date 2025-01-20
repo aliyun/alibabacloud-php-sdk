@@ -4,32 +4,24 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest\datasetConfig\searchSourceConfigs\searchSourceResponseConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest\datasetConfig\searchSourceConfigs\searchSourceResponseConfig\jqNodes\jqNodes;
 
 class jqNodes extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest\datasetConfig\searchSourceConfigs\searchSourceResponseConfig\jqNodes\jqNodes[]
+     * @var jqNodes[]
      */
     public $jqNodes;
-
     /**
-     * @example 节点key
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @example 节点路径
-     *
      * @var string
      */
     public $path;
-
     /**
-     * @example 节点数据类型：string number list object base
-     *
      * @var string
      */
     public $type;
@@ -42,26 +34,33 @@ class jqNodes extends Model
 
     public function validate()
     {
+        if (\is_array($this->jqNodes)) {
+            Model::validateArray($this->jqNodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jqNodes) {
-            $res['JqNodes'] = [];
-            if (null !== $this->jqNodes && \is_array($this->jqNodes)) {
-                $n = 0;
-                foreach ($this->jqNodes as $item) {
-                    $res['JqNodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jqNodes)) {
+                $res['JqNodes'] = [];
+                $n1             = 0;
+                foreach ($this->jqNodes as $item1) {
+                    $res['JqNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -69,29 +68,32 @@ class jqNodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jqNodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JqNodes'])) {
             if (!empty($map['JqNodes'])) {
                 $model->jqNodes = [];
-                $n              = 0;
-                foreach ($map['JqNodes'] as $item) {
-                    $model->jqNodes[$n++] = null !== $item ? \AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest\datasetConfig\searchSourceConfigs\searchSourceResponseConfig\jqNodes\jqNodes::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['JqNodes'] as $item1) {
+                    $model->jqNodes[$n1++] = self::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

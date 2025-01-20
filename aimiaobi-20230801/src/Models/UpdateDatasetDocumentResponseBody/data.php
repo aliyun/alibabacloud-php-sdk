@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetDocumentResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 用户指定的文档唯一ID
-     *
      * @var string
      */
     public $docId;
-
     /**
-     * @example 内部文档唯一ID
-     *
      * @var string
      */
     public $docUuid;
-
     /**
      * @var string
      */
@@ -34,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
+
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -52,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
+
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

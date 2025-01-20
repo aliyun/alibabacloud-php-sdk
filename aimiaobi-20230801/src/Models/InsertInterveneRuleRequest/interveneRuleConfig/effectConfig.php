@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest\interveneRuleConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class effectConfig extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $effectType;
-
     /**
-     * @example 2023-03-28 06:04:29
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @example 2023-03-28 06:04:29
-     *
      * @var string
      */
     public $startTime;
@@ -36,17 +28,20 @@ class effectConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effectType) {
             $res['EffectType'] = $this->effectType;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -54,20 +49,22 @@ class effectConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return effectConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EffectType'])) {
             $model->effectType = $map['EffectType'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,33 +4,24 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneImportTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneImportTasksResponseBody\data\statusList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageIndex;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
      * @var statusList[]
      */
     public $statusList;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $totalSize;
@@ -43,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->statusList)) {
+            Model::validateArray($this->statusList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->statusList) {
-            $res['StatusList'] = [];
-            if (null !== $this->statusList && \is_array($this->statusList)) {
-                $n = 0;
-                foreach ($this->statusList as $item) {
-                    $res['StatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statusList)) {
+                $res['StatusList'] = [];
+                $n1                = 0;
+                foreach ($this->statusList as $item1) {
+                    $res['StatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
         }
@@ -70,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
                 $model->statusList = [];
-                $n                 = 0;
-                foreach ($map['StatusList'] as $item) {
-                    $model->statusList[$n++] = null !== $item ? statusList::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['StatusList'] as $item1) {
+                    $model->statusList[$n1++] = statusList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
         }

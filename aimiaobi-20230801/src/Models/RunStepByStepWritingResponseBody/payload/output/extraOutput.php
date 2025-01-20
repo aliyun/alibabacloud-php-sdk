@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingResponseBody\payload\output;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extraOutput extends Model
 {
@@ -18,29 +18,43 @@ class extraOutput extends Model
 
     public function validate()
     {
+        if (\is_array($this->summarization)) {
+            Model::validateArray($this->summarization);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->summarization) {
-            $res['summarization'] = $this->summarization;
+            if (\is_array($this->summarization)) {
+                $res['summarization'] = [];
+                $n1                   = 0;
+                foreach ($this->summarization as $item1) {
+                    $res['summarization'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extraOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['summarization'])) {
             if (!empty($map['summarization'])) {
-                $model->summarization = $map['summarization'];
+                $model->summarization = [];
+                $n1                   = 0;
+                foreach ($map['summarization'] as $item1) {
+                    $model->summarization[$n1++] = $item1;
+                }
             }
         }
 

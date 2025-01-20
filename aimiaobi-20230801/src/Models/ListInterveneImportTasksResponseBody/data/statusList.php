@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneImportTasksResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class statusList extends Model
 {
     /**
-     * @example Success
-     *
      * @var string
      */
     public $msg;
-
     /**
-     * @example 5
-     *
      * @var int
      */
     public $percentage;
-
     /**
-     * @example Success
-     *
      * @var int
      */
     public $status;
-
     /**
-     * @example 4854
-     *
      * @var string
      */
     public $taskId;
-
     /**
-     * @example 12344454
-     *
      * @var string
      */
     public $taskName;
@@ -52,23 +38,28 @@ class statusList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
         }
+
         if (null !== $this->percentage) {
             $res['Percentage'] = $this->percentage;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -76,26 +67,30 @@ class statusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
         }
+
         if (isset($map['Percentage'])) {
             $model->percentage = $map['Percentage'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

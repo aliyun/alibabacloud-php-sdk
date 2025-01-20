@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicByIdResponseBody\data\structureSummary;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class docList extends Model
 {
@@ -12,15 +12,11 @@ class docList extends Model
      * @var string
      */
     public $source;
-
     /**
      * @var string
      */
     public $title;
-
     /**
-     * @example http://www.example.com
-     *
      * @var string
      */
     public $url;
@@ -32,17 +28,20 @@ class docList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -50,20 +49,22 @@ class docList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return docList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

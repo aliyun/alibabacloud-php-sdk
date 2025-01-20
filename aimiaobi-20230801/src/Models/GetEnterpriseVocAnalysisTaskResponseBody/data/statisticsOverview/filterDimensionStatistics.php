@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponseBody\data\statisticsOverview;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponseBody\data\statisticsOverview\filterDimensionStatistics\tagValueCountStatistic;
-use AlibabaCloud\Tea\Model;
 
 class filterDimensionStatistics extends Model
 {
@@ -19,17 +19,21 @@ class filterDimensionStatistics extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagValueCountStatistic)) {
+            Model::validateArray($this->tagValueCountStatistic);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagValueCountStatistic) {
-            $res['TagValueCountStatistic'] = [];
-            if (null !== $this->tagValueCountStatistic && \is_array($this->tagValueCountStatistic)) {
-                $n = 0;
-                foreach ($this->tagValueCountStatistic as $item) {
-                    $res['TagValueCountStatistic'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagValueCountStatistic)) {
+                $res['TagValueCountStatistic'] = [];
+                $n1                            = 0;
+                foreach ($this->tagValueCountStatistic as $item1) {
+                    $res['TagValueCountStatistic'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class filterDimensionStatistics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filterDimensionStatistics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagValueCountStatistic'])) {
             if (!empty($map['TagValueCountStatistic'])) {
                 $model->tagValueCountStatistic = [];
-                $n                             = 0;
-                foreach ($map['TagValueCountStatistic'] as $item) {
-                    $model->tagValueCountStatistic[$n++] = null !== $item ? tagValueCountStatistic::fromMap($item) : $item;
+                $n1                            = 0;
+                foreach ($map['TagValueCountStatistic'] as $item1) {
+                    $model->tagValueCountStatistic[$n1++] = tagValueCountStatistic::fromMap($item1);
                 }
             }
         }

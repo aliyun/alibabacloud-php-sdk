@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest\hotTopicBroadcastConfig\stepForNewsBroadcastContentConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customHotValueWeights extends Model
 {
     /**
-     * @example views
-     *
      * @var string
      */
     public $dimension;
-
     /**
-     * @example 维度名称
-     *
      * @var string
      */
     public $dimensionName;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $weight;
@@ -36,17 +28,20 @@ class customHotValueWeights extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
         }
+
         if (null !== $this->dimensionName) {
             $res['DimensionName'] = $this->dimensionName;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -54,20 +49,22 @@ class customHotValueWeights extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customHotValueWeights
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
         }
+
         if (isset($map['DimensionName'])) {
             $model->dimensionName = $map['DimensionName'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

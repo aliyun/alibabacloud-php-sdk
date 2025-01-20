@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskResponseBody\data\hotViewPointsResult\attitudes\viewPoints;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class outlines extends Model
 {
     /**
-     * @example 大纲
-     *
      * @var string
      */
     public $outline;
-
     /**
-     * @example 大纲摘要
-     *
      * @var string
      */
     public $summary;
@@ -28,14 +23,16 @@ class outlines extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outline) {
             $res['Outline'] = $this->outline;
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
@@ -43,17 +40,18 @@ class outlines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outlines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Outline'])) {
             $model->outline = $map['Outline'];
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportAnalysisTagDetailByTaskIdRequest extends Model
 {
@@ -12,21 +12,11 @@ class ExportAnalysisTagDetailByTaskIdRequest extends Model
      * @var string[]
      */
     public $categories;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $taskId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -38,17 +28,29 @@ class ExportAnalysisTagDetailByTaskIdRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->categories)) {
+            Model::validateArray($this->categories);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categories) {
-            $res['Categories'] = $this->categories;
+            if (\is_array($this->categories)) {
+                $res['Categories'] = [];
+                $n1                = 0;
+                foreach ($this->categories as $item1) {
+                    $res['Categories'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -56,22 +58,28 @@ class ExportAnalysisTagDetailByTaskIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportAnalysisTagDetailByTaskIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
-                $model->categories = $map['Categories'];
+                $model->categories = [];
+                $n1                = 0;
+                foreach ($map['Categories'] as $item1) {
+                    $model->categories[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

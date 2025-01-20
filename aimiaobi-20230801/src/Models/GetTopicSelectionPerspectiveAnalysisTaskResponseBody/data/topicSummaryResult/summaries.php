@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskResponseBody\data\topicSummaryResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskResponseBody\data\topicSummaryResult\summaries\docList;
-use AlibabaCloud\Tea\Model;
 
 class summaries extends Model
 {
@@ -13,17 +13,11 @@ class summaries extends Model
      * @var docList[]
      */
     public $docList;
-
     /**
-     * @example 摘要
-     *
      * @var string
      */
     public $summary;
-
     /**
-     * @example 标题
-     *
      * @var string
      */
     public $title;
@@ -35,23 +29,29 @@ class summaries extends Model
 
     public function validate()
     {
+        if (\is_array($this->docList)) {
+            Model::validateArray($this->docList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docList) {
-            $res['DocList'] = [];
-            if (null !== $this->docList && \is_array($this->docList)) {
-                $n = 0;
-                foreach ($this->docList as $item) {
-                    $res['DocList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->docList)) {
+                $res['DocList'] = [];
+                $n1             = 0;
+                foreach ($this->docList as $item1) {
+                    $res['DocList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -59,26 +59,28 @@ class summaries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return summaries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocList'])) {
             if (!empty($map['DocList'])) {
                 $model->docList = [];
-                $n              = 0;
-                foreach ($map['DocList'] as $item) {
-                    $model->docList[$n++] = null !== $item ? docList::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['DocList'] as $item1) {
+                    $model->docList[$n1++] = docList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

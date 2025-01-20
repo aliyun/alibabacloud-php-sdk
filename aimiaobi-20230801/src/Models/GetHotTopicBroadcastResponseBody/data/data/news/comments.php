@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponseBody\data\data\news;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class comments extends Model
 {
     /**
-     * @example 评论内容
-     *
      * @var string
      */
     public $text;
-
     /**
-     * @example 评论用户名
-     *
      * @var string
      */
     public $username;
@@ -28,14 +23,16 @@ class comments extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -43,17 +40,18 @@ class comments extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return comments
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

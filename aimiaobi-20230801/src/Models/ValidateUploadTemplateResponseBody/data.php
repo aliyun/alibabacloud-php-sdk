@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ValidateUploadTemplateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 50
-     *
      * @var int
      */
     public $commentCount;
-
     /**
-     * @example 50
-     *
      * @var int
      */
     public $dialogueCount;
-
     /**
-     * @example 50
-     *
      * @var int
      */
     public $totalCount;
@@ -36,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commentCount) {
             $res['CommentCount'] = $this->commentCount;
         }
+
         if (null !== $this->dialogueCount) {
             $res['DialogueCount'] = $this->dialogueCount;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -54,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommentCount'])) {
             $model->commentCount = $map['CommentCount'];
         }
+
         if (isset($map['DialogueCount'])) {
             $model->dialogueCount = $map['DialogueCount'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

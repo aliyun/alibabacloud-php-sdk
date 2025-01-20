@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\clusterTopicResult\clusterTopics;
-use AlibabaCloud\Tea\Model;
 
 class clusterTopicResult extends Model
 {
@@ -13,17 +13,11 @@ class clusterTopicResult extends Model
      * @var clusterTopics[]
      */
     public $clusterTopics;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $generateFinished;
-
     /**
-     * @example xx
-     *
      * @var string
      */
     public $textGenerate;
@@ -35,23 +29,29 @@ class clusterTopicResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->clusterTopics)) {
+            Model::validateArray($this->clusterTopics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterTopics) {
-            $res['ClusterTopics'] = [];
-            if (null !== $this->clusterTopics && \is_array($this->clusterTopics)) {
-                $n = 0;
-                foreach ($this->clusterTopics as $item) {
-                    $res['ClusterTopics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusterTopics)) {
+                $res['ClusterTopics'] = [];
+                $n1                   = 0;
+                foreach ($this->clusterTopics as $item1) {
+                    $res['ClusterTopics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->generateFinished) {
             $res['GenerateFinished'] = $this->generateFinished;
         }
+
         if (null !== $this->textGenerate) {
             $res['TextGenerate'] = $this->textGenerate;
         }
@@ -59,26 +59,28 @@ class clusterTopicResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusterTopicResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterTopics'])) {
             if (!empty($map['ClusterTopics'])) {
                 $model->clusterTopics = [];
-                $n                    = 0;
-                foreach ($map['ClusterTopics'] as $item) {
-                    $model->clusterTopics[$n++] = null !== $item ? clusterTopics::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['ClusterTopics'] as $item1) {
+                    $model->clusterTopics[$n1++] = clusterTopics::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['GenerateFinished'])) {
             $model->generateFinished = $map['GenerateFinished'];
         }
+
         if (isset($map['TextGenerate'])) {
             $model->textGenerate = $map['TextGenerate'];
         }

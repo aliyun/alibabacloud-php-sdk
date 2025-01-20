@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest\interveneRuleConfig\answerConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest\interveneRuleConfig\effectConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest\interveneRuleConfig\interveneConfigList;
-use AlibabaCloud\Tea\Model;
 
 class interveneRuleConfig extends Model
 {
@@ -15,39 +15,27 @@ class interveneRuleConfig extends Model
      * @var answerConfig[]
      */
     public $answerConfig;
-
     /**
      * @var effectConfig
      */
     public $effectConfig;
-
     /**
      * @var interveneConfigList[]
      */
     public $interveneConfigList;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $interveneType;
-
     /**
      * @var string[]
      */
     public $namespaceList;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $ruleId;
-
     /**
-     * @example tf-test-rule
-     *
      * @var string
      */
     public $ruleName;
@@ -63,41 +51,66 @@ class interveneRuleConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->answerConfig)) {
+            Model::validateArray($this->answerConfig);
+        }
+        if (null !== $this->effectConfig) {
+            $this->effectConfig->validate();
+        }
+        if (\is_array($this->interveneConfigList)) {
+            Model::validateArray($this->interveneConfigList);
+        }
+        if (\is_array($this->namespaceList)) {
+            Model::validateArray($this->namespaceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answerConfig) {
-            $res['AnswerConfig'] = [];
-            if (null !== $this->answerConfig && \is_array($this->answerConfig)) {
-                $n = 0;
-                foreach ($this->answerConfig as $item) {
-                    $res['AnswerConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->answerConfig)) {
+                $res['AnswerConfig'] = [];
+                $n1                  = 0;
+                foreach ($this->answerConfig as $item1) {
+                    $res['AnswerConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->effectConfig) {
-            $res['EffectConfig'] = null !== $this->effectConfig ? $this->effectConfig->toMap() : null;
+            $res['EffectConfig'] = null !== $this->effectConfig ? $this->effectConfig->toArray($noStream) : $this->effectConfig;
         }
+
         if (null !== $this->interveneConfigList) {
-            $res['InterveneConfigList'] = [];
-            if (null !== $this->interveneConfigList && \is_array($this->interveneConfigList)) {
-                $n = 0;
-                foreach ($this->interveneConfigList as $item) {
-                    $res['InterveneConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->interveneConfigList)) {
+                $res['InterveneConfigList'] = [];
+                $n1                         = 0;
+                foreach ($this->interveneConfigList as $item1) {
+                    $res['InterveneConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->interveneType) {
             $res['InterveneType'] = $this->interveneType;
         }
+
         if (null !== $this->namespaceList) {
-            $res['NamespaceList'] = $this->namespaceList;
+            if (\is_array($this->namespaceList)) {
+                $res['NamespaceList'] = [];
+                $n1                   = 0;
+                foreach ($this->namespaceList as $item1) {
+                    $res['NamespaceList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -105,46 +118,56 @@ class interveneRuleConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return interveneRuleConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnswerConfig'])) {
             if (!empty($map['AnswerConfig'])) {
                 $model->answerConfig = [];
-                $n                   = 0;
-                foreach ($map['AnswerConfig'] as $item) {
-                    $model->answerConfig[$n++] = null !== $item ? answerConfig::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['AnswerConfig'] as $item1) {
+                    $model->answerConfig[$n1++] = answerConfig::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['EffectConfig'])) {
             $model->effectConfig = effectConfig::fromMap($map['EffectConfig']);
         }
+
         if (isset($map['InterveneConfigList'])) {
             if (!empty($map['InterveneConfigList'])) {
                 $model->interveneConfigList = [];
-                $n                          = 0;
-                foreach ($map['InterveneConfigList'] as $item) {
-                    $model->interveneConfigList[$n++] = null !== $item ? interveneConfigList::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['InterveneConfigList'] as $item1) {
+                    $model->interveneConfigList[$n1++] = interveneConfigList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InterveneType'])) {
             $model->interveneType = $map['InterveneType'];
         }
+
         if (isset($map['NamespaceList'])) {
             if (!empty($map['NamespaceList'])) {
-                $model->namespaceList = $map['NamespaceList'];
+                $model->namespaceList = [];
+                $n1                   = 0;
+                foreach ($map['NamespaceList'] as $item1) {
+                    $model->namespaceList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

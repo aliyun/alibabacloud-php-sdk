@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTopicByIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxxx_p_efm
-     *
      * @var string
      */
     public $agentKey;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 数据ID
-     *
      * @var string
      */
     public $id;
@@ -32,14 +23,16 @@ class GetTopicByIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -47,17 +40,18 @@ class GetTopicByIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTopicByIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

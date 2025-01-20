@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDialoguesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example xx
-     *
      * @var string
      */
     public $bot;
-
     /**
-     * @example 2024-01-04 11:46:07
-     *
      * @var string
      */
     public $createTime;
-
     /**
-     * @example xx
-     *
      * @var string
      */
     public $createUser;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $dialogueType;
-
     /**
-     * @example xx
-     *
      * @var string
      */
     public $taskId;
-
     /**
-     * @example x
-     *
      * @var string
      */
     public $user;
@@ -60,26 +43,32 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bot) {
             $res['Bot'] = $this->bot;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->createUser) {
             $res['CreateUser'] = $this->createUser;
         }
+
         if (null !== $this->dialogueType) {
             $res['DialogueType'] = $this->dialogueType;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->user) {
             $res['User'] = $this->user;
         }
@@ -87,29 +76,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bot'])) {
             $model->bot = $map['Bot'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['CreateUser'])) {
             $model->createUser = $map['CreateUser'];
         }
+
         if (isset($map['DialogueType'])) {
             $model->dialogueType = $map['DialogueType'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['User'])) {
             $model->user = $map['User'];
         }

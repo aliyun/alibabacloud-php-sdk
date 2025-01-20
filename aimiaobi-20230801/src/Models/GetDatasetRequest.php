@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDatasetRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $datasetId;
-
     /**
-     * @example businessDataset
-     *
      * @var string
      */
     public $datasetName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -38,17 +28,20 @@ class GetDatasetRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
+
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -56,20 +49,22 @@ class GetDatasetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDatasetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }
+
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

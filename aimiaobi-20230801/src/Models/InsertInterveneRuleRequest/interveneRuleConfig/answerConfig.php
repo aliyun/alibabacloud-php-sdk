@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest\interveneRuleConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class answerConfig extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $answerType;
-
     /**
      * @var string
      */
     public $message;
-
     /**
-     * @example namespace_qa_query
-     *
      * @var string
      */
     public $namespace;
@@ -34,17 +28,20 @@ class answerConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answerType) {
             $res['AnswerType'] = $this->answerType;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -52,20 +49,22 @@ class answerConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return answerConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnswerType'])) {
             $model->answerType = $map['AnswerType'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

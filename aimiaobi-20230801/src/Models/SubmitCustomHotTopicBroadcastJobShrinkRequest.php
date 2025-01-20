@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitCustomHotTopicBroadcastJobShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $hotTopicBroadcastConfigShrink;
-
     /**
-     * @example 热点版本
-     *
      * @var string
      */
     public $hotTopicVersion;
-
     /**
      * @var string
      */
     public $topicsShrink;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -44,20 +33,24 @@ class SubmitCustomHotTopicBroadcastJobShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotTopicBroadcastConfigShrink) {
             $res['HotTopicBroadcastConfig'] = $this->hotTopicBroadcastConfigShrink;
         }
+
         if (null !== $this->hotTopicVersion) {
             $res['HotTopicVersion'] = $this->hotTopicVersion;
         }
+
         if (null !== $this->topicsShrink) {
             $res['Topics'] = $this->topicsShrink;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -65,23 +58,26 @@ class SubmitCustomHotTopicBroadcastJobShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitCustomHotTopicBroadcastJobShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotTopicBroadcastConfig'])) {
             $model->hotTopicBroadcastConfigShrink = $map['HotTopicBroadcastConfig'];
         }
+
         if (isset($map['HotTopicVersion'])) {
             $model->hotTopicVersion = $map['HotTopicVersion'];
         }
+
         if (isset($map['Topics'])) {
             $model->topicsShrink = $map['Topics'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

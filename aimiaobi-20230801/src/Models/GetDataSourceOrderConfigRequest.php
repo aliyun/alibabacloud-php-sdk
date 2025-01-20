@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataSourceOrderConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example d9a1f6146a37446495d9985c2e7b267e_p_outbound_public
-     *
      * @var string
      */
     public $agentKey;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example miaobi
-     *
      * @var string
      */
     public $productCode;
@@ -32,14 +23,16 @@ class GetDataSourceOrderConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -47,17 +40,18 @@ class GetDataSourceOrderConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataSourceOrderConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }

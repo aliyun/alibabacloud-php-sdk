@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInterveneImportTaskInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 67c520d1fa43455ea44fb69fa402d54d_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
-
     /**
-     * @example 19162157
-     *
      * @var string
      */
     public $taskId;
@@ -30,14 +23,16 @@ class GetInterveneImportTaskInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -45,17 +40,18 @@ class GetInterveneImportTaskInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInterveneImportTaskInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

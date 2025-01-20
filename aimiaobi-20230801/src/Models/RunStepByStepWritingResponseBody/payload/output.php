@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingResponseBody\payload;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingResponseBody\payload\output\articles;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingResponseBody\payload\output\extraOutput;
-use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -14,29 +14,19 @@ class output extends Model
      * @var articles[]
      */
     public $articles;
-
     /**
      * @var extraOutput
      */
     public $extraOutput;
-
     /**
-     * @example 文章精排之后的片段
-     *
      * @var string[]
      */
     public $miniDoc;
-
     /**
-     * @example 大模型改变世界
-     *
      * @var string
      */
     public $searchQuery;
-
     /**
-     * @example 文本生成结果
-     *
      * @var string
      */
     public $text;
@@ -50,29 +40,49 @@ class output extends Model
 
     public function validate()
     {
+        if (\is_array($this->articles)) {
+            Model::validateArray($this->articles);
+        }
+        if (null !== $this->extraOutput) {
+            $this->extraOutput->validate();
+        }
+        if (\is_array($this->miniDoc)) {
+            Model::validateArray($this->miniDoc);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->articles) {
-            $res['Articles'] = [];
-            if (null !== $this->articles && \is_array($this->articles)) {
-                $n = 0;
-                foreach ($this->articles as $item) {
-                    $res['Articles'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->articles)) {
+                $res['Articles'] = [];
+                $n1              = 0;
+                foreach ($this->articles as $item1) {
+                    $res['Articles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->extraOutput) {
-            $res['ExtraOutput'] = null !== $this->extraOutput ? $this->extraOutput->toMap() : null;
+            $res['ExtraOutput'] = null !== $this->extraOutput ? $this->extraOutput->toArray($noStream) : $this->extraOutput;
         }
+
         if (null !== $this->miniDoc) {
-            $res['MiniDoc'] = $this->miniDoc;
+            if (\is_array($this->miniDoc)) {
+                $res['MiniDoc'] = [];
+                $n1             = 0;
+                foreach ($this->miniDoc as $item1) {
+                    $res['MiniDoc'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->searchQuery) {
             $res['SearchQuery'] = $this->searchQuery;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -80,34 +90,42 @@ class output extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return output
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Articles'])) {
             if (!empty($map['Articles'])) {
                 $model->articles = [];
-                $n               = 0;
-                foreach ($map['Articles'] as $item) {
-                    $model->articles[$n++] = null !== $item ? articles::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Articles'] as $item1) {
+                    $model->articles[$n1++] = articles::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ExtraOutput'])) {
             $model->extraOutput = extraOutput::fromMap($map['ExtraOutput']);
         }
+
         if (isset($map['MiniDoc'])) {
             if (!empty($map['MiniDoc'])) {
-                $model->miniDoc = $map['MiniDoc'];
+                $model->miniDoc = [];
+                $n1             = 0;
+                foreach ($map['MiniDoc'] as $item1) {
+                    $model->miniDoc[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SearchQuery'])) {
             $model->searchQuery = $map['SearchQuery'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

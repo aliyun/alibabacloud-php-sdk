@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest\chatConfig\searchParam;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class searchSources extends Model
 {
     /**
-     * @example SystemSearch
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @example QuarkCommonNews
-     *
      * @var string
      */
     public $datasetName;
@@ -28,14 +23,16 @@ class searchSources extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
@@ -43,17 +40,18 @@ class searchSources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchSources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }

@@ -4,32 +4,23 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingResponseBody\payload;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class usage extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $inputTokens;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $outputTokens;
-
     /**
      * @var int[]
      */
     public $tokenMap;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $totalTokens;
@@ -42,20 +33,32 @@ class usage extends Model
 
     public function validate()
     {
+        if (\is_array($this->tokenMap)) {
+            Model::validateArray($this->tokenMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputTokens) {
             $res['InputTokens'] = $this->inputTokens;
         }
+
         if (null !== $this->outputTokens) {
             $res['OutputTokens'] = $this->outputTokens;
         }
+
         if (null !== $this->tokenMap) {
-            $res['TokenMap'] = $this->tokenMap;
+            if (\is_array($this->tokenMap)) {
+                $res['TokenMap'] = [];
+                foreach ($this->tokenMap as $key1 => $value1) {
+                    $res['TokenMap'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->totalTokens) {
             $res['TotalTokens'] = $this->totalTokens;
         }
@@ -63,23 +66,31 @@ class usage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return usage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputTokens'])) {
             $model->inputTokens = $map['InputTokens'];
         }
+
         if (isset($map['OutputTokens'])) {
             $model->outputTokens = $map['OutputTokens'];
         }
+
         if (isset($map['TokenMap'])) {
-            $model->tokenMap = $map['TokenMap'];
+            if (!empty($map['TokenMap'])) {
+                $model->tokenMap = [];
+                foreach ($map['TokenMap'] as $key1 => $value1) {
+                    $model->tokenMap[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['TotalTokens'])) {
             $model->totalTokens = $map['TotalTokens'];
         }

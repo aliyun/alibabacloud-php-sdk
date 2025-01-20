@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialogueDatasResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class videos extends Model
 {
     /**
-     * @example 图片或视频文件地址
-     *
      * @var string
      */
     public $fileUrl;
-
     /**
-     * @example 多模态数据唯一标识
-     *
      * @var string
      */
     public $mediaId;
-
     /**
-     * @example 多模态数据类型
-     *
      * @var string
      */
     public $mediaType;
@@ -36,17 +28,20 @@ class videos extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
+
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
@@ -54,20 +49,22 @@ class videos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
+
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }

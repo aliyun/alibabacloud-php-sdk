@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointRequest\referenceData;
-use AlibabaCloud\Tea\Model;
 
 class GenerateViewPointRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c160c841c8e54295bf2f441432785944_p_efm
-     *
      * @var string
      */
     public $agentKey;
-
     /**
      * @var referenceData
      */
@@ -29,32 +24,38 @@ class GenerateViewPointRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->referenceData) {
+            $this->referenceData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->referenceData) {
-            $res['ReferenceData'] = null !== $this->referenceData ? $this->referenceData->toMap() : null;
+            $res['ReferenceData'] = null !== $this->referenceData ? $this->referenceData->toArray($noStream) : $this->referenceData;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateViewPointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['ReferenceData'])) {
             $model->referenceData = referenceData::fromMap($map['ReferenceData']);
         }
