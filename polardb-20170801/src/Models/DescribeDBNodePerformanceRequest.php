@@ -4,81 +4,35 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBNodePerformanceRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example pc-****************
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The ID of the cluster node.
-     *
-     * This parameter is required.
-     * @example pi-*************
-     *
      * @var string
      */
     public $DBNodeId;
-
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
-     *
-     * This parameter is required.
-     * @example 2020-09-23T01:01Z
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @description The interval at which performance data is collected. Valid values:
-     *
-     *   5
-     *   30
-     *   60
-     *   600
-     *   1800
-     *   3600
-     *   86400
-     *
-     * @example 60
-     *
      * @var string
      */
     public $interval;
-
     /**
-     * @description The performance metrics that you want to query. Separate multiple metrics with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/141787.html).
-     *
-     * This parameter is required.
-     * @example PolarDBDiskUsage
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
-     *
-     * This parameter is required.
-     * @example 2020-09-23T01:00Z
-     *
      * @var string
      */
     public $startTime;
-
     /**
-     * @description The special metric. Set the value to tair, which indicates the PolarTair architecture.
-     *
-     * @example tair
-     *
      * @var string
      */
     public $type;
@@ -94,29 +48,36 @@ class DescribeDBNodePerformanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->DBNodeId) {
             $res['DBNodeId'] = $this->DBNodeId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -124,32 +85,38 @@ class DescribeDBNodePerformanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBNodePerformanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['DBNodeId'])) {
             $model->DBNodeId = $map['DBNodeId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloseDBClusterMigrationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 3AA69096-757C-4647-B36C-29EBC2******
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CloseDBClusterMigrationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CloseDBClusterMigrationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseDBClusterMigrationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

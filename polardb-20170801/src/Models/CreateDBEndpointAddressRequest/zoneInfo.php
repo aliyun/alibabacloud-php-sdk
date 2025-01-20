@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBEndpointAddressRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zoneInfo extends Model
 {
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vsw-**********
-     *
      * @var string
      */
     public $vSwitchId;
-
     /**
-     * @description The ID of the zone.
-     *
-     * @example cn-hangzhou-b
-     *
      * @var string
      */
     public $zoneId;
@@ -32,14 +23,16 @@ class zoneInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -47,17 +40,18 @@ class zoneInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zoneInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

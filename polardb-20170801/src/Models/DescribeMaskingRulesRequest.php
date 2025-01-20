@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMaskingRulesRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * This parameter is required.
-     * @example pc-*****************
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The name of the masking rule.
-     *
-     * @example testrule
-     *
      * @var string
      */
     public $ruleNameList;
@@ -33,14 +23,16 @@ class DescribeMaskingRulesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->ruleNameList) {
             $res['RuleNameList'] = $this->ruleNameList;
         }
@@ -48,17 +40,18 @@ class DescribeMaskingRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMaskingRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['RuleNameList'])) {
             $model->ruleNameList = $map['RuleNameList'];
         }

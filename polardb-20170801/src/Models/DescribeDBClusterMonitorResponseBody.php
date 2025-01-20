@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBClusterMonitorResponseBody extends Model
 {
     /**
-     * @description The interval at which monitoring data is collected. Unit: seconds.
-     *
-     * @example 60
-     *
      * @var string
      */
     public $period;
-
     /**
-     * @description The request ID.
-     *
-     * @example 593AE1C5-B70C-463F-9207-074639******
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DescribeDBClusterMonitorResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DescribeDBClusterMonitorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBClusterMonitorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

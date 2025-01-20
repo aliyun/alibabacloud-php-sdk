@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefreshDBClusterStorageUsageRequest extends Model
 {
@@ -12,30 +12,19 @@ class RefreshDBClusterStorageUsageRequest extends Model
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description Specifies whether to enable real-time synchronization. Valid values:
-     *
-     *   **true**
-     *   **false**: T + 1
-     *
-     * @example true
-     *
      * @var bool
      */
     public $syncRealTime;
@@ -49,23 +38,28 @@ class RefreshDBClusterStorageUsageRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->syncRealTime) {
             $res['SyncRealTime'] = $this->syncRealTime;
         }
@@ -73,26 +67,30 @@ class RefreshDBClusterStorageUsageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefreshDBClusterStorageUsageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SyncRealTime'])) {
             $model->syncRealTime = $map['SyncRealTime'];
         }

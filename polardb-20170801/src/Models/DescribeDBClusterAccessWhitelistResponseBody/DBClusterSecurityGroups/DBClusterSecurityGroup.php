@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAccessWhitelistResponseBody\DBClusterSecurityGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBClusterSecurityGroup extends Model
 {
     /**
-     * @description The ID of the ECS security group.
-     *
-     * @example sg-bp**************
-     *
      * @var string
      */
     public $securityGroupId;
-
     /**
-     * @description The name of the ECS security group.
-     *
-     * @example vpc-********************
-     *
      * @var string
      */
     public $securityGroupName;
@@ -32,14 +23,16 @@ class DBClusterSecurityGroup extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->securityGroupName) {
             $res['SecurityGroupName'] = $this->securityGroupName;
         }
@@ -47,17 +40,18 @@ class DBClusterSecurityGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBClusterSecurityGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['SecurityGroupName'])) {
             $model->securityGroupName = $map['SecurityGroupName'];
         }

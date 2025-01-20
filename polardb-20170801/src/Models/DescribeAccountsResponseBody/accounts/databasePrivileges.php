@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsResponseBody\accounts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class databasePrivileges extends Model
 {
     /**
-     * @description The permissions that the account is granted on the database. Valid values:
-     *
-     * @example ReadOnly
-     *
      * @var string
      */
     public $accountPrivilege;
-
     /**
-     * @description The name of the database.
-     *
-     * @example DBtest
-     *
      * @var string
      */
     public $DBName;
@@ -32,14 +23,16 @@ class databasePrivileges extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountPrivilege) {
             $res['AccountPrivilege'] = $this->accountPrivilege;
         }
+
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
@@ -47,17 +40,18 @@ class databasePrivileges extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databasePrivileges
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountPrivilege'])) {
             $model->accountPrivilege = $map['AccountPrivilege'];
         }
+
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }

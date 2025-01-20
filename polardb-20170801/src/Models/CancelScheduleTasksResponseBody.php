@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelScheduleTasksResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 7F2007D3-7E74-4ECB-89A8-BF130D******
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request is successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -32,14 +23,16 @@ class CancelScheduleTasksResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -47,17 +40,18 @@ class CancelScheduleTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelScheduleTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

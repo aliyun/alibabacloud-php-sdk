@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBLinksResponseBody\DBLinkInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBLinksResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * @example pc-a*************
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
-     * @description Details about the database links.
-     *
      * @var DBLinkInfos[]
      */
     public $DBLinkInfos;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 45D24263-7E3A-4140-9472-************
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class DescribeDBLinksResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBLinkInfos)) {
+            Model::validateArray($this->DBLinkInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->DBLinkInfos) {
-            $res['DBLinkInfos'] = [];
-            if (null !== $this->DBLinkInfos && \is_array($this->DBLinkInfos)) {
-                $n = 0;
-                foreach ($this->DBLinkInfos as $item) {
-                    $res['DBLinkInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBLinkInfos)) {
+                $res['DBLinkInfos'] = [];
+                $n1                 = 0;
+                foreach ($this->DBLinkInfos as $item1) {
+                    $res['DBLinkInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class DescribeDBLinksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBLinksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['DBLinkInfos'])) {
             if (!empty($map['DBLinkInfos'])) {
                 $model->DBLinkInfos = [];
-                $n                  = 0;
-                foreach ($map['DBLinkInfos'] as $item) {
-                    $model->DBLinkInfos[$n++] = null !== $item ? DBLinkInfos::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['DBLinkInfos'] as $item1) {
+                    $model->DBLinkInfos[$n1++] = DBLinkInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

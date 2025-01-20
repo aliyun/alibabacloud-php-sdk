@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAvailableResourcesResponseBody\availableZones;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBClusterAvailableResourcesResponseBody extends Model
 {
     /**
-     * @description The available zones of the cluster.
-     *
      * @var availableZones[]
      */
     public $availableZones;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 2B19F698-8FFC-4918-B9E2-58D878******
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeDBClusterAvailableResourcesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableZones)) {
+            Model::validateArray($this->availableZones);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableZones) {
-            $res['AvailableZones'] = [];
-            if (null !== $this->availableZones && \is_array($this->availableZones)) {
-                $n = 0;
-                foreach ($this->availableZones as $item) {
-                    $res['AvailableZones'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->availableZones)) {
+                $res['AvailableZones'] = [];
+                $n1                    = 0;
+                foreach ($this->availableZones as $item1) {
+                    $res['AvailableZones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeDBClusterAvailableResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBClusterAvailableResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableZones'])) {
             if (!empty($map['AvailableZones'])) {
                 $model->availableZones = [];
-                $n                     = 0;
-                foreach ($map['AvailableZones'] as $item) {
-                    $model->availableZones[$n++] = null !== $item ? availableZones::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['AvailableZones'] as $item1) {
+                    $model->availableZones[$n1++] = availableZones::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

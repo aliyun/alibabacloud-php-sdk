@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeMetaListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @description The name of the database that can be restored.
-     *
-     * @example test_db
-     *
      * @var string
      */
     public $database;
-
     /**
-     * @description The name of the table that can be restored.
-     *
      * @var string[]
      */
     public $tables;
@@ -30,35 +23,51 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
+
         if (null !== $this->tables) {
-            $res['Tables'] = $this->tables;
+            if (\is_array($this->tables)) {
+                $res['Tables'] = [];
+                $n1            = 0;
+                foreach ($this->tables as $item1) {
+                    $res['Tables'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
+
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
-                $model->tables = $map['Tables'];
+                $model->tables = [];
+                $n1            = 0;
+                foreach ($map['Tables'] as $item1) {
+                    $model->tables[$n1++] = $item1;
+                }
             }
         }
 

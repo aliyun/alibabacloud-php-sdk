@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRegionsResponseBody\regions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRegionsResponseBody extends Model
 {
     /**
-     * @description The list of regions.
-     *
      * @var regions
      */
     public $regions;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 3F9E6A3B-C13E-4064-A010-18582A******
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeRegionsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->regions) {
+            $this->regions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regions) {
-            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
+            $res['Regions'] = null !== $this->regions ? $this->regions->toArray($noStream) : $this->regions;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeRegionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRegionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Regions'])) {
             $model->regions = regions::fromMap($map['Regions']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

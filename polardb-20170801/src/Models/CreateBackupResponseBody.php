@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBackupResponseBody extends Model
 {
     /**
-     * @description The ID of the backup set.
-     *
-     * @example 11111111
-     *
      * @var string
      */
     public $backupJobId;
-
     /**
-     * @description The request ID.
-     *
-     * @example F3322AFE-083E-4D77-A074-421301******
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateBackupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupJobId) {
             $res['BackupJobId'] = $this->backupJobId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateBackupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBackupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupJobId'])) {
             $model->backupJobId = $map['BackupJobId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

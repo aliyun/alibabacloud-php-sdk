@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDasConfigResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example 593AE1C5-B70C-463F-9207-074639******
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the automatic storage expansion feature is enabled for the standard cluster.
-     *
-     * @example Enable
-     *
      * @var string
      */
     public $storageAutoScale;
-
     /**
-     * @description The maximum storage capacity of the standard cluster that is scaled up. Unit: GB.
-     *
-     * >  This parameter is returned when the StorageAutoScale parameter is set to Enable.
-     * @example 800
-     *
      * @var int
      */
     public $storageUpperBound;
@@ -43,17 +28,20 @@ class DescribeDasConfigResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->storageAutoScale) {
             $res['StorageAutoScale'] = $this->storageAutoScale;
         }
+
         if (null !== $this->storageUpperBound) {
             $res['StorageUpperBound'] = $this->storageUpperBound;
         }
@@ -61,20 +49,22 @@ class DescribeDasConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDasConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StorageAutoScale'])) {
             $model->storageAutoScale = $map['StorageAutoScale'];
         }
+
         if (isset($map['StorageUpperBound'])) {
             $model->storageUpperBound = $map['StorageUpperBound'];
         }
