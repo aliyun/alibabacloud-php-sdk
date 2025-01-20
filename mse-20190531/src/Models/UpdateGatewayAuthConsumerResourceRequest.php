@@ -4,46 +4,24 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceRequest\resourceList;
-use AlibabaCloud\Tea\Model;
 
 class UpdateGatewayAuthConsumerResourceRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description The gateway authentication consumer ID.
-     *
-     * This parameter is required.
-     * @example 2
-     *
      * @var int
      */
     public $consumerId;
-
     /**
-     * @description The unique ID of the gateway.
-     *
-     * This parameter is required.
-     * @example gw-3f97e2989c344f35ab3fd62b19f1****
-     *
      * @var string
      */
     public $gatewayUniqueId;
-
     /**
-     * @description The gateway authentication consumer ID.
-     *
      * @var resourceList[]
      */
     public $resourceList;
@@ -56,26 +34,33 @@ class UpdateGatewayAuthConsumerResourceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceList)) {
+            Model::validateArray($this->resourceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->consumerId) {
             $res['ConsumerId'] = $this->consumerId;
         }
+
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
+
         if (null !== $this->resourceList) {
-            $res['ResourceList'] = [];
-            if (null !== $this->resourceList && \is_array($this->resourceList)) {
-                $n = 0;
-                foreach ($this->resourceList as $item) {
-                    $res['ResourceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceList)) {
+                $res['ResourceList'] = [];
+                $n1                  = 0;
+                foreach ($this->resourceList as $item1) {
+                    $res['ResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -83,29 +68,32 @@ class UpdateGatewayAuthConsumerResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateGatewayAuthConsumerResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['ConsumerId'])) {
             $model->consumerId = $map['ConsumerId'];
         }
+
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
+
         if (isset($map['ResourceList'])) {
             if (!empty($map['ResourceList'])) {
                 $model->resourceList = [];
-                $n                   = 0;
-                foreach ($map['ResourceList'] as $item) {
-                    $model->resourceList[$n++] = null !== $item ? resourceList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['ResourceList'] as $item1) {
+                    $model->resourceList[$n1++] = resourceList::fromMap($item1);
                 }
             }
         }

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRouteRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class redirectJSON extends Model
 {
     /**
-     * @description The status code returned.
-     *
-     * @example 302
-     *
      * @var int
      */
     public $code;
-
     /**
-     * @description The hostname to be redirected to.
-     *
-     * @example test.com
-     *
      * @var string
      */
     public $host;
-
     /**
-     * @description The path to be redirected to.
-     *
-     * @example /test
-     *
      * @var string
      */
     public $path;
@@ -42,17 +28,20 @@ class redirectJSON extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -60,20 +49,22 @@ class redirectJSON extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return redirectJSON
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\TagResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key must be 1 to 128 characters in length. The tag key cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
-     *
-     * @example env
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The value of the tag.
-     *
-     * @example prd
-     *
      * @var string
      */
     public $value;
@@ -32,14 +23,16 @@ class tag extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +40,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

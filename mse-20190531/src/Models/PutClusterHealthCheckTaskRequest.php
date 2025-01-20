@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutClusterHealthCheckTaskRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description The ID of the instance.
-     *
-     * @example mse_prepaid_public_cn-2r42o83h506
-     *
      * @var string
      */
     public $instanceId;
@@ -35,14 +23,16 @@ class PutClusterHealthCheckTaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -50,17 +40,18 @@ class PutClusterHealthCheckTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutClusterHealthCheckTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

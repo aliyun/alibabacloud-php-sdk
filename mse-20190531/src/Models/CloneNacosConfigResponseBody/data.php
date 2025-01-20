@@ -4,40 +4,25 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponseBody\data\failData;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponseBody\data\skipData;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The details of the failed configurations.
-     *
      * @var failData[]
      */
     public $failData;
-
     /**
-     * @description The data structure.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $skipCount;
-
     /**
-     * @description The ID of the data.
-     *
      * @var skipData[]
      */
     public $skipData;
-
     /**
-     * @description The details of the skipped configurations.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $succCount;
@@ -50,32 +35,42 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->failData)) {
+            Model::validateArray($this->failData);
+        }
+        if (\is_array($this->skipData)) {
+            Model::validateArray($this->skipData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failData) {
-            $res['FailData'] = [];
-            if (null !== $this->failData && \is_array($this->failData)) {
-                $n = 0;
-                foreach ($this->failData as $item) {
-                    $res['FailData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failData)) {
+                $res['FailData'] = [];
+                $n1              = 0;
+                foreach ($this->failData as $item1) {
+                    $res['FailData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->skipCount) {
             $res['SkipCount'] = $this->skipCount;
         }
+
         if (null !== $this->skipData) {
-            $res['SkipData'] = [];
-            if (null !== $this->skipData && \is_array($this->skipData)) {
-                $n = 0;
-                foreach ($this->skipData as $item) {
-                    $res['SkipData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->skipData)) {
+                $res['SkipData'] = [];
+                $n1              = 0;
+                foreach ($this->skipData as $item1) {
+                    $res['SkipData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->succCount) {
             $res['SuccCount'] = $this->succCount;
         }
@@ -83,35 +78,38 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailData'])) {
             if (!empty($map['FailData'])) {
                 $model->failData = [];
-                $n               = 0;
-                foreach ($map['FailData'] as $item) {
-                    $model->failData[$n++] = null !== $item ? failData::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['FailData'] as $item1) {
+                    $model->failData[$n1++] = failData::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SkipCount'])) {
             $model->skipCount = $map['SkipCount'];
         }
+
         if (isset($map['SkipData'])) {
             if (!empty($map['SkipData'])) {
                 $model->skipData = [];
-                $n               = 0;
-                foreach ($map['SkipData'] as $item) {
-                    $model->skipData[$n++] = null !== $item ? skipData::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['SkipData'] as $item1) {
+                    $model->skipData[$n1++] = skipData::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SuccCount'])) {
             $model->succCount = $map['SuccCount'];
         }

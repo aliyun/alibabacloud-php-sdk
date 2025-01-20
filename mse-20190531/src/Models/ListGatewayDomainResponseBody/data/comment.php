@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class comment extends Model
 {
     /**
-     * @description The route status.
-     *
-     * @example Error
-     *
      * @var string
      */
     public $status;
@@ -22,9 +18,10 @@ class comment extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
@@ -34,11 +31,11 @@ class comment extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return comment
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

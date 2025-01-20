@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\routePredicates;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class queryPredicates extends Model
 {
     /**
-     * @description The parameter name.
-     *
-     * @example userid
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The route type.
-     *
-     * @example PRE
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The value of the parameter.
-     *
-     * @example test
-     *
      * @var string
      */
     public $value;
@@ -42,17 +28,20 @@ class queryPredicates extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -60,20 +49,22 @@ class queryPredicates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryPredicates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryAllSwimmingLaneResponseBody\data\gatewaySwimmingLaneRoute;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class conditions extends Model
 {
     /**
-     * @example PRE
-     *
      * @var string
      */
     public $cond;
-
     /**
-     * @example name
-     *
      * @var string
      */
     public $name;
-
     /**
      * @var string[]
      */
     public $nameList;
-
     /**
-     * @example header
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @example xiaoming
-     *
      * @var string
      */
     public $value;
@@ -50,23 +38,37 @@ class conditions extends Model
 
     public function validate()
     {
+        if (\is_array($this->nameList)) {
+            Model::validateArray($this->nameList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cond) {
             $res['Cond'] = $this->cond;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nameList) {
-            $res['NameList'] = $this->nameList;
+            if (\is_array($this->nameList)) {
+                $res['NameList'] = [];
+                $n1              = 0;
+                foreach ($this->nameList as $item1) {
+                    $res['NameList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -74,28 +76,36 @@ class conditions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cond'])) {
             $model->cond = $map['Cond'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NameList'])) {
             if (!empty($map['NameList'])) {
-                $model->nameList = $map['NameList'];
+                $model->nameList = [];
+                $n1              = 0;
+                foreach ($map['NameList'] as $item1) {
+                    $model->nameList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

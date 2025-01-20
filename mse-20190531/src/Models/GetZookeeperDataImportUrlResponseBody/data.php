@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetZookeeperDataImportUrlResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description code
-     *
-     * @example 250000
-     *
      * @var string
      */
     public $maxSize;
-
     /**
-     * @description The maximum size of a file that can be uploaded each time. Unit: MB.
-     *
-     * @example http://xxxxxxxxx
-     *
      * @var string
      */
     public $url;
@@ -32,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxSize) {
             $res['MaxSize'] = $this->maxSize;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -47,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxSize'])) {
             $model->maxSize = $map['MaxSize'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

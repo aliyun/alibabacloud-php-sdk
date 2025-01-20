@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class directResponse extends Model
 {
     /**
-     * @description The mock return value.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $body;
-
     /**
-     * @description The response code returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
@@ -32,14 +23,16 @@ class directResponse extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['Body'] = $this->body;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -47,17 +40,18 @@ class directResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return directResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = $map['Body'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

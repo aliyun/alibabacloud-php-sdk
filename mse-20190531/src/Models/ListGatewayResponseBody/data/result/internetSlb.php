@@ -4,87 +4,43 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class internetSlb extends Model
 {
     /**
-     * @description The mode of the SLB instance.
-     *
-     * @example UserHost
-     *
      * @var string
      */
     public $gatewaySlbMode;
-
     /**
-     * @description The state of the SLB instance.
-     *
-     * @example Ready
-     *
      * @var string
      */
     public $gatewaySlbStatus;
-
     /**
-     * @description The traffic of the gateway.
-     *
-     * @example 20
-     *
      * @var string
      */
     public $internetNetworkFlow;
-
     /**
-     * @description The ID of the SLB instance.
-     *
-     * @example lb-bp1ut8asdfgucjk****
-     *
      * @var string
      */
     public $slbId;
-
     /**
-     * @description The IP address of the SLB instance.
-     *
-     * @example 153.12.XX.XX
-     *
      * @var string
      */
     public $slbIp;
-
     /**
-     * @description The port number of the SLB instance.
-     *
-     * @example slb.s2.small
-     *
      * @var string
      */
     public $slbPort;
-
     /**
-     * @description The specifications of the SLB instance.
-     *
-     * @example slb.s2.small
-     *
      * @var string
      */
     public $slbSpec;
-
     /**
-     * @description The description of the state.
-     *
-     * @example Creating
-     *
      * @var string
      */
     public $statusDesc;
-
     /**
-     * @description The type of the SLB instance.
-     *
-     * @example PUB_NET
-     *
      * @var string
      */
     public $type;
@@ -102,35 +58,44 @@ class internetSlb extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gatewaySlbMode) {
             $res['GatewaySlbMode'] = $this->gatewaySlbMode;
         }
+
         if (null !== $this->gatewaySlbStatus) {
             $res['GatewaySlbStatus'] = $this->gatewaySlbStatus;
         }
+
         if (null !== $this->internetNetworkFlow) {
             $res['InternetNetworkFlow'] = $this->internetNetworkFlow;
         }
+
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
         }
+
         if (null !== $this->slbIp) {
             $res['SlbIp'] = $this->slbIp;
         }
+
         if (null !== $this->slbPort) {
             $res['SlbPort'] = $this->slbPort;
         }
+
         if (null !== $this->slbSpec) {
             $res['SlbSpec'] = $this->slbSpec;
         }
+
         if (null !== $this->statusDesc) {
             $res['StatusDesc'] = $this->statusDesc;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -138,38 +103,46 @@ class internetSlb extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return internetSlb
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GatewaySlbMode'])) {
             $model->gatewaySlbMode = $map['GatewaySlbMode'];
         }
+
         if (isset($map['GatewaySlbStatus'])) {
             $model->gatewaySlbStatus = $map['GatewaySlbStatus'];
         }
+
         if (isset($map['InternetNetworkFlow'])) {
             $model->internetNetworkFlow = $map['InternetNetworkFlow'];
         }
+
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];
         }
+
         if (isset($map['SlbIp'])) {
             $model->slbIp = $map['SlbIp'];
         }
+
         if (isset($map['SlbPort'])) {
             $model->slbPort = $map['SlbPort'];
         }
+
         if (isset($map['SlbSpec'])) {
             $model->slbSpec = $map['SlbSpec'];
         }
+
         if (isset($map['StatusDesc'])) {
             $model->statusDesc = $map['StatusDesc'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

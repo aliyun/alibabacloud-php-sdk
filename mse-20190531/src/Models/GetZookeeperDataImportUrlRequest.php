@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetZookeeperDataImportUrlRequest extends Model
 {
     /**
-     * @description RestResult
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zip
-     *
      * @var string
      */
     public $contentType;
-
     /**
-     * @description The type of the file.
-     *
-     * @example mse_prepaid_public_cn-zvp2xzzkk06
-     *
      * @var string
      */
     public $instanceId;
@@ -45,17 +28,20 @@ class GetZookeeperDataImportUrlRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -63,20 +49,22 @@ class GetZookeeperDataImportUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetZookeeperDataImportUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

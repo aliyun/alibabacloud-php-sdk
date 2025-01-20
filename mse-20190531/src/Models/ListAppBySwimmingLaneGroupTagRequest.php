@@ -4,47 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAppBySwimmingLaneGroupTagRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description The ID of the lane group.
-     *
-     * This parameter is required.
-     * @example 119
-     *
      * @var int
      */
     public $groupId;
-
     /**
-     * @description The name of the Microservices Engine (MSE) namespace that you want to query.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
-
     /**
-     * @description The tag.
-     *
-     * This parameter is required.
-     * @example gray
-     *
      * @var string
      */
     public $tag;
@@ -57,20 +33,24 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
@@ -78,23 +58,26 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAppBySwimmingLaneGroupTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }

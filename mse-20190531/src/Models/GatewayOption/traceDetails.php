@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GatewayOption;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class traceDetails extends Model
 {
@@ -12,27 +12,19 @@ class traceDetails extends Model
      * @var int
      */
     public $sample;
-
     /**
      * @var int
      */
     public $serviceId;
-
     /**
      * @var string
      */
     public $servicePort;
-
     /**
-     * @description This parameter is required.
-     *
      * @var bool
      */
     public $traceEnabled;
-
     /**
-     * @example XTRACE
-     *
      * @var string
      */
     public $traceType;
@@ -46,23 +38,28 @@ class traceDetails extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sample) {
             $res['Sample'] = $this->sample;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->servicePort) {
             $res['ServicePort'] = $this->servicePort;
         }
+
         if (null !== $this->traceEnabled) {
             $res['TraceEnabled'] = $this->traceEnabled;
         }
+
         if (null !== $this->traceType) {
             $res['TraceType'] = $this->traceType;
         }
@@ -70,26 +67,30 @@ class traceDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return traceDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Sample'])) {
             $model->sample = $map['Sample'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['ServicePort'])) {
             $model->servicePort = $map['ServicePort'];
         }
+
         if (isset($map['TraceEnabled'])) {
             $model->traceEnabled = $map['TraceEnabled'];
         }
+
         if (isset($map['TraceType'])) {
             $model->traceType = $map['TraceType'];
         }

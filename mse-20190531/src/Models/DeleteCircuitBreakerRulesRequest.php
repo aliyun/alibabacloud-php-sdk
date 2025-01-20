@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCircuitBreakerRulesRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description The name of the application.
-     *
-     * This parameter is required.
-     * @example spring-cloud-a
-     *
      * @var string
      */
     public $appName;
-
     /**
-     * @description The IDs of the rules that you want to delete.
-     *
      * @var int[]
      */
     public $ids;
-
     /**
-     * @description The microservice namespace to which the application belongs.
-     *
-     * This parameter is required.
-     * @example default
-     *
      * @var string
      */
     public $namespace;
@@ -52,20 +33,33 @@ class DeleteCircuitBreakerRulesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->ids)) {
+            Model::validateArray($this->ids);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
+            if (\is_array($this->ids)) {
+                $res['Ids'] = [];
+                $n1         = 0;
+                foreach ($this->ids as $item1) {
+                    $res['Ids'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -73,25 +67,32 @@ class DeleteCircuitBreakerRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCircuitBreakerRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = $map['Ids'];
+                $model->ids = [];
+                $n1         = 0;
+                foreach ($map['Ids'] as $item1) {
+                    $model->ids[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

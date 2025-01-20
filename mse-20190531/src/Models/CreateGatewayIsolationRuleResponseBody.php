@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateGatewayIsolationRuleResponseBody extends Model
 {
     /**
-     * @example 608
-     *
      * @var int
      */
     public $data;
-
     /**
-     * @example 94B12406-E44D-57C9-BF93-A8B35BFF****
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class CreateGatewayIsolationRuleResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class CreateGatewayIsolationRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGatewayIsolationRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

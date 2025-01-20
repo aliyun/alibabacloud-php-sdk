@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\headerOp\headerOpItems;
-use AlibabaCloud\Tea\Model;
 
 class headerOp extends Model
 {
     /**
-     * @description The information about headers.
-     *
      * @var headerOpItems[]
      */
     public $headerOpItems;
-
     /**
-     * @description The status.
-     *
-     * @example off
-     *
      * @var string
      */
     public $status;
@@ -31,20 +24,25 @@ class headerOp extends Model
 
     public function validate()
     {
+        if (\is_array($this->headerOpItems)) {
+            Model::validateArray($this->headerOpItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headerOpItems) {
-            $res['HeaderOpItems'] = [];
-            if (null !== $this->headerOpItems && \is_array($this->headerOpItems)) {
-                $n = 0;
-                foreach ($this->headerOpItems as $item) {
-                    $res['HeaderOpItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->headerOpItems)) {
+                $res['HeaderOpItems'] = [];
+                $n1                   = 0;
+                foreach ($this->headerOpItems as $item1) {
+                    $res['HeaderOpItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,23 +50,24 @@ class headerOp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return headerOp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HeaderOpItems'])) {
             if (!empty($map['HeaderOpItems'])) {
                 $model->headerOpItems = [];
-                $n                    = 0;
-                foreach ($map['HeaderOpItems'] as $item) {
-                    $model->headerOpItems[$n++] = null !== $item ? headerOpItems::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['HeaderOpItems'] as $item1) {
+                    $model->headerOpItems[$n1++] = headerOpItems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

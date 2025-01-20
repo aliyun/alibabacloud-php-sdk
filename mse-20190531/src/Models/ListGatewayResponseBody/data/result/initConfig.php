@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class initConfig extends Model
 {
     /**
-     * @description Indicates whether Web Application Firewall (WAF) is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableWaf;
-
     /**
-     * @description Indicates whether WAF is supported.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $supportWaf;
@@ -32,14 +23,16 @@ class initConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableWaf) {
             $res['EnableWaf'] = $this->enableWaf;
         }
+
         if (null !== $this->supportWaf) {
             $res['SupportWaf'] = $this->supportWaf;
         }
@@ -47,17 +40,18 @@ class initConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return initConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableWaf'])) {
             $model->enableWaf = $map['EnableWaf'];
         }
+
         if (isset($map['SupportWaf'])) {
             $model->supportWaf = $map['SupportWaf'];
         }

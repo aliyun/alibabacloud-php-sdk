@@ -4,72 +4,27 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportNacosConfigRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * This parameter is required.
-     * @example http://mse-shared.oss-xxx.aliyuncs.com/cfg/import/xxxx/2021/01/11/xxxx.zip
-     *
      * @var string
      */
     public $fileUrl;
-
     /**
-     * @description The ID of the namespace.
-     *
-     * This parameter is required.
-     * @example mse_prepaid_public_cn-****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The policy.
-     *
-     * @example f5cdc80a-****-8094-282f5650fc00
-     *
      * @var string
      */
     public $namespaceId;
-
     /**
-     * @description The policy.
-     *
-     * Valid values:
-     *
-     *   ABORT
-     *
-     * <!-- -->
-     *
-     *   OVERWRITE
-     *
-     * <!-- -->
-     *
-     *   SKIP
-     *
-     * <!-- -->
-     * @example overwrite
-     *
      * @var string
      */
     public $policy;
@@ -83,23 +38,28 @@ class ImportNacosConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
@@ -107,26 +67,30 @@ class ImportNacosConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportNacosConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }

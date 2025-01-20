@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceList extends Model
 {
     /**
-     * @description The route ID.
-     *
-     * @example 7816
-     *
      * @var int
      */
     public $routeId;
-
     /**
-     * @description The name of the route.
-     *
-     * @example helo
-     *
      * @var string
      */
     public $routeName;
@@ -32,14 +23,16 @@ class resourceList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->routeId) {
             $res['RouteId'] = $this->routeId;
         }
+
         if (null !== $this->routeName) {
             $res['RouteName'] = $this->routeName;
         }
@@ -47,17 +40,18 @@ class resourceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RouteId'])) {
             $model->routeId = $map['RouteId'];
         }
+
         if (isset($map['RouteName'])) {
             $model->routeName = $map['RouteName'];
         }

@@ -4,36 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSentinelBlockFallbackDefinitionsRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example spring-cloud-a
-     *
      * @var string
      */
     public $appName;
-
     /**
      * @var int[]
      */
     public $classificationSet;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
@@ -46,20 +33,33 @@ class ListSentinelBlockFallbackDefinitionsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->classificationSet)) {
+            Model::validateArray($this->classificationSet);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->classificationSet) {
-            $res['ClassificationSet'] = $this->classificationSet;
+            if (\is_array($this->classificationSet)) {
+                $res['ClassificationSet'] = [];
+                $n1                       = 0;
+                foreach ($this->classificationSet as $item1) {
+                    $res['ClassificationSet'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -67,25 +67,32 @@ class ListSentinelBlockFallbackDefinitionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSentinelBlockFallbackDefinitionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ClassificationSet'])) {
             if (!empty($map['ClassificationSet'])) {
-                $model->classificationSet = $map['ClassificationSet'];
+                $model->classificationSet = [];
+                $n1                       = 0;
+                foreach ($map['ClassificationSet'] as $item1) {
+                    $model->classificationSet[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

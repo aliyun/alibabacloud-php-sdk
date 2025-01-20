@@ -4,58 +4,31 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindSentinelBlockFallbackDefinitionRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example spring-cloud-a
-     *
      * @var string
      */
     public $appName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 21
-     *
      * @var int
      */
     public $fallbackId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example prod
-     *
      * @var string
      */
     public $namespace;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example /a
-     *
      * @var string
      */
     public $resource;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $targetType;
@@ -70,26 +43,32 @@ class BindSentinelBlockFallbackDefinitionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->fallbackId) {
             $res['FallbackId'] = $this->fallbackId;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -97,29 +76,34 @@ class BindSentinelBlockFallbackDefinitionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindSentinelBlockFallbackDefinitionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['FallbackId'])) {
             $model->fallbackId = $map['FallbackId'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

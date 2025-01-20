@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetApplicationInstanceListResponseBody extends Model
 {
     /**
-     * @description The returned data.
-     *
      * @var data
      */
     public $data;
@@ -21,23 +19,27 @@ class GetApplicationInstanceListResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetApplicationInstanceListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

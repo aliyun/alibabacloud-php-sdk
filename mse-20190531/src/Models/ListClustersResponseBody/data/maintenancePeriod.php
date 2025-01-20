@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class maintenancePeriod extends Model
 {
@@ -12,7 +12,6 @@ class maintenancePeriod extends Model
      * @var string
      */
     public $endTime;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class maintenancePeriod extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -39,17 +40,18 @@ class maintenancePeriod extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return maintenancePeriod
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest\predicates;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class headerPredicates extends Model
 {
     /**
-     * @description The key of the request header.
-     *
-     * @example debug
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The matching type.
-     *
-     * @example PRE
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The value of the request header.
-     *
-     * @example on
-     *
      * @var string
      */
     public $value;
@@ -42,17 +28,20 @@ class headerPredicates extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -60,20 +49,22 @@ class headerPredicates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return headerPredicates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayResponseBody\data\elasticPolicy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class timePolicyList extends Model
 {
     /**
-     * @description The number of expected replicas.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $desiredReplica;
-
     /**
-     * @description The end time of auto scale-out.
-     *
-     * @example 18:00
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @description The start time of auto scale-out.
-     *
-     * @example 16:00
-     *
      * @var string
      */
     public $startTime;
@@ -42,17 +28,20 @@ class timePolicyList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desiredReplica) {
             $res['DesiredReplica'] = $this->desiredReplica;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -60,20 +49,22 @@ class timePolicyList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timePolicyList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesiredReplica'])) {
             $model->desiredReplica = $map['DesiredReplica'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

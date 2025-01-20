@@ -4,55 +4,35 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListSentinelBlockFallbackDefinitionsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example spring-cloud-a
-     *
      * @var string
      */
     public $appName;
-
     /**
-     * @example {"webRespStatusCode":429,"webRespMessage":"test","webFallbackMode":0,"webRespContentType":0}
-     *
      * @var mixed[]
      */
     public $fallbackBehavior;
-
     /**
-     * @example 12
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @example defaultFallback
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example default
-     *
      * @var string
      */
     public $namespace;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $resourceClassification;
-
     /**
-     * @example {"/params/{hot}":[1]}
-     *
      * @var mixed[]
      */
     public $targetMap;
@@ -68,64 +48,103 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->fallbackBehavior)) {
+            Model::validateArray($this->fallbackBehavior);
+        }
+        if (\is_array($this->targetMap)) {
+            Model::validateArray($this->targetMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->fallbackBehavior) {
-            $res['FallbackBehavior'] = $this->fallbackBehavior;
+            if (\is_array($this->fallbackBehavior)) {
+                $res['FallbackBehavior'] = [];
+                foreach ($this->fallbackBehavior as $key1 => $value1) {
+                    $res['FallbackBehavior'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->resourceClassification) {
             $res['ResourceClassification'] = $this->resourceClassification;
         }
+
         if (null !== $this->targetMap) {
-            $res['TargetMap'] = $this->targetMap;
+            if (\is_array($this->targetMap)) {
+                $res['TargetMap'] = [];
+                foreach ($this->targetMap as $key1 => $value1) {
+                    $res['TargetMap'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['FallbackBehavior'])) {
-            $model->fallbackBehavior = $map['FallbackBehavior'];
+            if (!empty($map['FallbackBehavior'])) {
+                $model->fallbackBehavior = [];
+                foreach ($map['FallbackBehavior'] as $key1 => $value1) {
+                    $model->fallbackBehavior[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['ResourceClassification'])) {
             $model->resourceClassification = $map['ResourceClassification'];
         }
+
         if (isset($map['TargetMap'])) {
-            $model->targetMap = $map['TargetMap'];
+            if (!empty($map['TargetMap'])) {
+                $model->targetMap = [];
+                foreach ($map['TargetMap'] as $key1 => $value1) {
+                    $model->targetMap[$key1] = $value1;
+                }
+            }
         }
 
         return $model;
