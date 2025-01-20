@@ -64,6 +64,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateAudioFileRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateAudioFileResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallSummaryRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallSummaryResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallTagsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallTagsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignRequest;
@@ -187,6 +189,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetSchemaRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetSchemaResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetSkillGroupResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetSummaryTemplateRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetSummaryTemplateResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTicketSummaryReportRequest;
@@ -480,6 +484,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnregisterDeviceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnregisterDeviceResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCallSummaryRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCallSummaryResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateChatRoutingProfileRequest;
@@ -2518,6 +2524,72 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAudioFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - CreateCallSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCallSummaryResponse
+     *
+     * @param CreateCallSummaryRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCallSummaryResponse
+     */
+    public function createCallSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->context) {
+            @$query['Context'] = $request->context;
+        }
+
+        if (null !== $request->customerId) {
+            @$query['CustomerId'] = $request->customerId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCallSummary',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCallSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateCallSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateCallSummaryRequest
+     * @returns CreateCallSummaryResponse
+     *
+     * @param CreateCallSummaryRequest $request
+     *
+     * @return CreateCallSummaryResponse
+     */
+    public function createCallSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCallSummaryWithOptions($request, $runtime);
     }
 
     /**
@@ -6340,6 +6412,64 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - GetSummaryTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSummaryTemplateResponse
+     *
+     * @param GetSummaryTemplateRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetSummaryTemplateResponse
+     */
+    public function getSummaryTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSummaryTemplate',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSummaryTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSummaryTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetSummaryTemplateRequest
+     * @returns GetSummaryTemplateResponse
+     *
+     * @param GetSummaryTemplateRequest $request
+     *
+     * @return GetSummaryTemplateResponse
+     */
+    public function getSummaryTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSummaryTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -16512,6 +16642,68 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unregisterDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - UpdateCallSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCallSummaryResponse
+     *
+     * @param UpdateCallSummaryRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateCallSummaryResponse
+     */
+    public function updateCallSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->context) {
+            @$query['Context'] = $request->context;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ticketId) {
+            @$query['TicketId'] = $request->ticketId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCallSummary',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCallSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateCallSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateCallSummaryRequest
+     * @returns UpdateCallSummaryResponse
+     *
+     * @param UpdateCallSummaryRequest $request
+     *
+     * @return UpdateCallSummaryResponse
+     */
+    public function updateCallSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCallSummaryWithOptions($request, $runtime);
     }
 
     /**
