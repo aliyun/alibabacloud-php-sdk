@@ -4,54 +4,28 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorRequest\aggregatorAccounts;
-use AlibabaCloud\Tea\Model;
 
 class UpdateAggregatorRequest extends Model
 {
     /**
-     * @description The members in the account group.
-     *
-     * >  When you modify the configurations of an account group, this parameter can be left empty. In this case, the member list is not updated. If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
      * @var aggregatorAccounts[]
      */
     public $aggregatorAccounts;
-
     /**
-     * @description The ID of the account group.
-     *
-     * This parameter is required.
-     * @example ca-dacf86d8314e00eb****
-     *
      * @var string
      */
     public $aggregatorId;
-
     /**
-     * @description The name of the account group.
-     *
-     * For more information about how to obtain the name of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-     * @example Test_Group
-     *
      * @var string
      */
     public $aggregatorName;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The description of the account group.
-     *
-     * For more information about how to obtain the description of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
-     * @example Test_Aggregator_Description
-     *
      * @var string
      */
     public $description;
@@ -65,29 +39,37 @@ class UpdateAggregatorRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->aggregatorAccounts)) {
+            Model::validateArray($this->aggregatorAccounts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregatorAccounts) {
-            $res['AggregatorAccounts'] = [];
-            if (null !== $this->aggregatorAccounts && \is_array($this->aggregatorAccounts)) {
-                $n = 0;
-                foreach ($this->aggregatorAccounts as $item) {
-                    $res['AggregatorAccounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aggregatorAccounts)) {
+                $res['AggregatorAccounts'] = [];
+                $n1                        = 0;
+                foreach ($this->aggregatorAccounts as $item1) {
+                    $res['AggregatorAccounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
         }
+
         if (null !== $this->aggregatorName) {
             $res['AggregatorName'] = $this->aggregatorName;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -95,32 +77,36 @@ class UpdateAggregatorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAggregatorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregatorAccounts'])) {
             if (!empty($map['AggregatorAccounts'])) {
                 $model->aggregatorAccounts = [];
-                $n                         = 0;
-                foreach ($map['AggregatorAccounts'] as $item) {
-                    $model->aggregatorAccounts[$n++] = null !== $item ? aggregatorAccounts::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['AggregatorAccounts'] as $item1) {
+                    $model->aggregatorAccounts[$n1++] = aggregatorAccounts::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
         }
+
         if (isset($map['AggregatorName'])) {
             $model->aggregatorName = $map['AggregatorName'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

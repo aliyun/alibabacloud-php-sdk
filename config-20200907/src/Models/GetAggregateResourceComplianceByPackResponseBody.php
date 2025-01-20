@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceByPackResponseBody\resourceComplianceResult;
-use AlibabaCloud\Tea\Model;
 
 class GetAggregateResourceComplianceByPackResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The compliance evaluation results returned.
-     *
      * @var resourceComplianceResult
      */
     public $resourceComplianceResult;
@@ -31,32 +24,38 @@ class GetAggregateResourceComplianceByPackResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->resourceComplianceResult) {
+            $this->resourceComplianceResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceComplianceResult) {
-            $res['ResourceComplianceResult'] = null !== $this->resourceComplianceResult ? $this->resourceComplianceResult->toMap() : null;
+            $res['ResourceComplianceResult'] = null !== $this->resourceComplianceResult ? $this->resourceComplianceResult->toArray($noStream) : $this->resourceComplianceResult;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAggregateResourceComplianceByPackResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceComplianceResult'])) {
             $model->resourceComplianceResult = resourceComplianceResult::fromMap($map['ResourceComplianceResult']);
         }

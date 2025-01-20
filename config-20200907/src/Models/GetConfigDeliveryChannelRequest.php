@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetConfigDeliveryChannelRequest extends Model
 {
     /**
-     * @description The ID of the delivery channel.
-     *
-     * This parameter is required.
-     * @example cdc-d9106457e0d900b1****
-     *
      * @var string
      */
     public $deliveryChannelId;
@@ -23,9 +18,10 @@ class GetConfigDeliveryChannelRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliveryChannelId) {
@@ -35,11 +31,11 @@ class GetConfigDeliveryChannelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConfigDeliveryChannelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

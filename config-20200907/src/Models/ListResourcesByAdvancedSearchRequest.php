@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListResourcesByAdvancedSearchRequest extends Model
 {
     /**
-     * @description The SQL query statement.
-     *
-     * This parameter is required.
-     * @example SELECT ResourceId, ResourceName WHERE Tags.Kvpair=\\"business:online\\"
-     *
      * @var string
      */
     public $sql;
@@ -23,9 +18,10 @@ class ListResourcesByAdvancedSearchRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sql) {
@@ -35,11 +31,11 @@ class ListResourcesByAdvancedSearchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourcesByAdvancedSearchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

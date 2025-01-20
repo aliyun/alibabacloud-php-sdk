@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackResponseBody\compliancePack\configRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configRuleParameters extends Model
 {
     /**
-     * @description The name of the input parameter.
-     *
-     * @example bandwidth
-     *
      * @var string
      */
     public $parameterName;
-
     /**
-     * @description The value of the input parameter.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $parameterValue;
-
     /**
-     * @description Indicates whether the input parameter was required. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $required;
@@ -45,17 +28,20 @@ class configRuleParameters extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
+
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
         }
+
         if (null !== $this->required) {
             $res['Required'] = $this->required;
         }
@@ -63,20 +49,22 @@ class configRuleParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configRuleParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }
+
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
         }
+
         if (isset($map['Required'])) {
             $model->required = $map['Required'];
         }

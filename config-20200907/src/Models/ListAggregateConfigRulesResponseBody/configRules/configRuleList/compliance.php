@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesResponseBody\configRules\configRuleList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class compliance extends Model
 {
     /**
-     * @description The compliance evaluation result. Valid values:
-     *
-     *   COMPLIANT: The resources are evaluated as compliant.
-     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
-     *   NOT_APPLICABLE: The rule does not apply to the resources.
-     *   INSUFFICIENT_DATA: No data is available.
-     *
-     * @example COMPLIANT
-     *
      * @var string
      */
     public $complianceType;
-
     /**
-     * @description The number of evaluation resources that correspond to the summary result of the rule compliance evaluation.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
@@ -37,14 +23,16 @@ class compliance extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -52,17 +40,18 @@ class compliance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return compliance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }

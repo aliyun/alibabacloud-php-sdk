@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartRemediationRequest extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * This parameter is required.
-     * @example cr-8a973ac2e2be00a2****
-     *
      * @var string
      */
     public $configRuleId;
@@ -23,9 +18,10 @@ class StartRemediationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleId) {
@@ -35,11 +31,11 @@ class StartRemediationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartRemediationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

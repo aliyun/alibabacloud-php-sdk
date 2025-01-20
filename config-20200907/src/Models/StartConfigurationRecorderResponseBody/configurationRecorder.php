@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\StartConfigurationRecorderResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configurationRecorder extends Model
 {
     /**
-     * @description The status of the configuration recorder. Valid values:
-     *
-     *   REGISTRABLE: The configuration recorder has not been registered.
-     *   BUILDING: The configuration recorder is being deployed.
-     *   REGISTERED: The configuration recorder has been registered.
-     *   REBUILDING: The configuration recorder is being redeployed.
-     *
-     * @example REGISTERED
-     *
      * @var string
      */
     public $configurationRecorderStatus;
-
     /**
-     * @description The types of the resources that are monitored by Cloud Config.
-     *
      * @var string[]
      */
     public $resourceTypes;
@@ -35,35 +23,51 @@ class configurationRecorder extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceTypes)) {
+            Model::validateArray($this->resourceTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configurationRecorderStatus) {
             $res['ConfigurationRecorderStatus'] = $this->configurationRecorderStatus;
         }
+
         if (null !== $this->resourceTypes) {
-            $res['ResourceTypes'] = $this->resourceTypes;
+            if (\is_array($this->resourceTypes)) {
+                $res['ResourceTypes'] = [];
+                $n1                   = 0;
+                foreach ($this->resourceTypes as $item1) {
+                    $res['ResourceTypes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configurationRecorder
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigurationRecorderStatus'])) {
             $model->configurationRecorderStatus = $map['ConfigurationRecorderStatus'];
         }
+
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
-                $model->resourceTypes = $map['ResourceTypes'];
+                $model->resourceTypes = [];
+                $n1                   = 0;
+                foreach ($map['ResourceTypes'] as $item1) {
+                    $model->resourceTypes[$n1++] = $item1;
+                }
             }
         }
 

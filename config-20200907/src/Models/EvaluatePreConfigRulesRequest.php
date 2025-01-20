@@ -4,78 +4,85 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\EvaluatePreConfigRulesRequest\resourceEvaluateItems;
-use AlibabaCloud\Tea\Model;
 
 class EvaluatePreConfigRulesRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the managed rule. Valid values:
-     *
-     *   true: enables the managed rule.
-     *   false: does not enable the managed rule. This is the default value.
-     *
-     * >  After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
-     * @example false
-     *
      * @var bool
      */
     public $enableManagedRules;
-
     /**
-     * @description The resources that you want to evaluate.
-     *
-     * This parameter is required.
      * @var resourceEvaluateItems[]
      */
     public $resourceEvaluateItems;
+    /**
+     * @var string
+     */
+    public $resourceTypeFormat;
     protected $_name = [
         'enableManagedRules'    => 'EnableManagedRules',
         'resourceEvaluateItems' => 'ResourceEvaluateItems',
+        'resourceTypeFormat'    => 'ResourceTypeFormat',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceEvaluateItems)) {
+            Model::validateArray($this->resourceEvaluateItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableManagedRules) {
             $res['EnableManagedRules'] = $this->enableManagedRules;
         }
+
         if (null !== $this->resourceEvaluateItems) {
-            $res['ResourceEvaluateItems'] = [];
-            if (null !== $this->resourceEvaluateItems && \is_array($this->resourceEvaluateItems)) {
-                $n = 0;
-                foreach ($this->resourceEvaluateItems as $item) {
-                    $res['ResourceEvaluateItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceEvaluateItems)) {
+                $res['ResourceEvaluateItems'] = [];
+                $n1                           = 0;
+                foreach ($this->resourceEvaluateItems as $item1) {
+                    $res['ResourceEvaluateItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->resourceTypeFormat) {
+            $res['ResourceTypeFormat'] = $this->resourceTypeFormat;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EvaluatePreConfigRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableManagedRules'])) {
             $model->enableManagedRules = $map['EnableManagedRules'];
         }
+
         if (isset($map['ResourceEvaluateItems'])) {
             if (!empty($map['ResourceEvaluateItems'])) {
                 $model->resourceEvaluateItems = [];
-                $n                            = 0;
-                foreach ($map['ResourceEvaluateItems'] as $item) {
-                    $model->resourceEvaluateItems[$n++] = null !== $item ? resourceEvaluateItems::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['ResourceEvaluateItems'] as $item1) {
+                    $model->resourceEvaluateItems[$n1++] = resourceEvaluateItems::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['ResourceTypeFormat'])) {
+            $model->resourceTypeFormat = $map['ResourceTypeFormat'];
         }
 
         return $model;

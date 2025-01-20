@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIntegratedServiceStatusRequest extends Model
 {
     /**
-     * @description The identity of the cloud service that is integrated with Cloud Config. Valid values:
-     *
-     *   eventbridge: EventBridge
-     *   cms: CloudMonitor
-     *   bpstudio: Cloud Architect Design Tools (CADT)
-     *
-     * This parameter is required.
-     * @example cadt
-     *
      * @var string
      */
     public $serviceCode;
@@ -27,9 +18,10 @@ class GetIntegratedServiceStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceCode) {
@@ -39,11 +31,11 @@ class GetIntegratedServiceStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIntegratedServiceStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

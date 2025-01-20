@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAggregatorResponseBody extends Model
 {
     /**
-     * @description The account group ID.
-     *
-     * @example ca-dacf86d8314e00eb****
-     *
      * @var string
      */
     public $aggregatorId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 8195B664-9565-4685-89AC-8B5F04B44B92
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateAggregatorResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateAggregatorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAggregatorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

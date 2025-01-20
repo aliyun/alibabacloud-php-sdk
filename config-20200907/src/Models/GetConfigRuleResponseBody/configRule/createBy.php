@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class createBy extends Model
 {
     /**
-     * @description The compliance package ID.
-     *
-     * @example cp-541e626622af008****
-     *
      * @var string
      */
     public $compliancePackId;
-
     /**
-     * @description The name of the compliance package.
-     *
-     * @example example-name
-     *
      * @var string
      */
     public $compliancePackName;
-
     /**
-     * @description The ID of the account that was used to create the rule.
-     *
-     * @example 100931896542****
-     *
      * @var string
      */
     public $creatorId;
-
     /**
-     * @description The name of the account that was used to create the rule.
-     *
-     * @example Alice
-     *
      * @var string
      */
     public $creatorName;
@@ -52,20 +33,24 @@ class createBy extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
         }
+
         if (null !== $this->compliancePackName) {
             $res['CompliancePackName'] = $this->compliancePackName;
         }
+
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
+
         if (null !== $this->creatorName) {
             $res['CreatorName'] = $this->creatorName;
         }
@@ -73,23 +58,26 @@ class createBy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return createBy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
         }
+
         if (isset($map['CompliancePackName'])) {
             $model->compliancePackName = $map['CompliancePackName'];
         }
+
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
+
         if (isset($map['CreatorName'])) {
             $model->creatorName = $map['CreatorName'];
         }

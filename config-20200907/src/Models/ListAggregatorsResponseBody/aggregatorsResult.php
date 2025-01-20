@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsResponseBody\aggregatorsResult\aggregators;
-use AlibabaCloud\Tea\Model;
 
 class aggregatorsResult extends Model
 {
     /**
-     * @description The list of the account groups.
-     *
      * @var aggregators[]
      */
     public $aggregators;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
-     *
-     * @example TGlzdFJlc291cmNlU2hhcmVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0
-     *
      * @var string
      */
     public $nextToken;
@@ -31,20 +24,25 @@ class aggregatorsResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->aggregators)) {
+            Model::validateArray($this->aggregators);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregators) {
-            $res['Aggregators'] = [];
-            if (null !== $this->aggregators && \is_array($this->aggregators)) {
-                $n = 0;
-                foreach ($this->aggregators as $item) {
-                    $res['Aggregators'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aggregators)) {
+                $res['Aggregators'] = [];
+                $n1                 = 0;
+                foreach ($this->aggregators as $item1) {
+                    $res['Aggregators'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -52,23 +50,24 @@ class aggregatorsResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aggregatorsResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Aggregators'])) {
             if (!empty($map['Aggregators'])) {
                 $model->aggregators = [];
-                $n                  = 0;
-                foreach ($map['Aggregators'] as $item) {
-                    $model->aggregators[$n++] = null !== $item ? aggregators::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['Aggregators'] as $item1) {
+                    $model->aggregators[$n1++] = aggregators::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

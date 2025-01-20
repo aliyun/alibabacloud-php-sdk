@@ -4,99 +4,39 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAggregateRemediationRequest extends Model
 {
     /**
-     * @description The ID of the account group.
-     *
-     * This parameter is required.
-     * @example ca-6b4a626622af0012****
-     *
      * @var string
      */
     public $aggregatorId;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * @example AAAAAdDWBF2****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The rule ID.
-     *
-     * This parameter is required.
-     * @example cr-6b7c626622af00b4****
-     *
      * @var string
      */
     public $configRuleId;
-
     /**
-     * @description The execution mode of the remediation template. Valid values:
-     *
-     *   NON_EXECUTION: The remediation template is not executed.
-     *   AUTO_EXECUTION: The remediation template is automatically executed.
-     *   MANUAL_EXECUTION: The remediation template is manually executed.
-     *   NOT_CONFIG: The execution mode is not specified.
-     *
-     * This parameter is required.
-     * @example MANUAL_EXECUTION
-     *
      * @var string
      */
     public $invokeType;
-
     /**
-     * @description The configuration of the remediation template.
-     *
-     * This parameter is required.
-     * @example {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
-     *
      * @var string
      */
     public $params;
-
     /**
-     * @description The ID of the remediation template.
-     *
-     *   If you set the `RemediationType` parameter to `OOS`, set this parameter to the identifier of the relevant official remediation template, such as `ACS-OSS-PutBucketAcl`. For more information about how to obtain the remediation template identifier, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/416781.html).
-     *   If you set the `RemediationType` parameter to `FC`, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant Function Compute resource, such as `acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/test-php`.
-     *
-     * This parameter is required.
-     * @example ACS-OSS-PutBucketAcl
-     *
      * @var string
      */
     public $remediationTemplateId;
-
     /**
-     * @description The type of the remediation template. Valid values:
-     *
-     *   OOS: stands for Operation Orchestration Service and indicates official remediation.
-     *   FC: stands for Function Compute and indicates custom remediation.
-     *
-     * This parameter is required.
-     * @example OOS
-     *
      * @var string
      */
     public $remediationType;
-
     /**
-     * @description The source of remediation template. Valid values:
-     *
-     *   ALIYUN (default): official template.
-     *   CUSTOM: custom template.
-     *   NONE: none.
-     *
-     * @example ALIYUN
-     *
      * @var string
      */
     public $sourceType;
@@ -113,32 +53,40 @@ class CreateAggregateRemediationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
+
         if (null !== $this->invokeType) {
             $res['InvokeType'] = $this->invokeType;
         }
+
         if (null !== $this->params) {
             $res['Params'] = $this->params;
         }
+
         if (null !== $this->remediationTemplateId) {
             $res['RemediationTemplateId'] = $this->remediationTemplateId;
         }
+
         if (null !== $this->remediationType) {
             $res['RemediationType'] = $this->remediationType;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -146,35 +94,42 @@ class CreateAggregateRemediationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAggregateRemediationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
+
         if (isset($map['InvokeType'])) {
             $model->invokeType = $map['InvokeType'];
         }
+
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
         }
+
         if (isset($map['RemediationTemplateId'])) {
             $model->remediationTemplateId = $map['RemediationTemplateId'];
         }
+
         if (isset($map['RemediationType'])) {
             $model->remediationType = $map['RemediationType'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

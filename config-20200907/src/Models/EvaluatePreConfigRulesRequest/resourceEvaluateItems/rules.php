@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\EvaluatePreConfigRulesRequest\resourceEvaluateItems;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rules extends Model
 {
     /**
-     * @description The identifier of the evaluation rule.
-     *
-     * For more information about how to obtain the identifier of an evaluation rule, see [ListManagedRules](https://help.aliyun.com/document_detail/467810.html).
-     * @example ecs-instance-deletion-protection-enabled
-     *
      * @var string
      */
     public $identifier;
-
     /**
-     * @description The input parameters of the evaluation rule.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $inputParameters;
@@ -33,14 +23,16 @@ class rules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
+
         if (null !== $this->inputParameters) {
             $res['InputParameters'] = $this->inputParameters;
         }
@@ -48,17 +40,18 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
+
         if (isset($map['InputParameters'])) {
             $model->inputParameters = $map['InputParameters'];
         }

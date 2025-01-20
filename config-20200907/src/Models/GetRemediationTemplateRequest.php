@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRemediationTemplateRequest extends Model
 {
     /**
-     * @description The ID of the automatic remediation template.
-     *
-     * For more information about how to obtain the ID of a remediation template, see [Compliance library](https://help.aliyun.com/document_detail/2337741.html).
-     * @example ACS-ALB-BulkyEnableDeletionProtection
-     *
      * @var string
      */
     public $templateIdentifier;
@@ -23,9 +18,10 @@ class GetRemediationTemplateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateIdentifier) {
@@ -35,11 +31,11 @@ class GetRemediationTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRemediationTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

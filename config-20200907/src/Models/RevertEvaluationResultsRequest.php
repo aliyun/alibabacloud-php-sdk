@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\RevertEvaluationResultsRequest\resources;
-use AlibabaCloud\Tea\Model;
 
 class RevertEvaluationResultsRequest extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * This parameter is required.
-     * @example cr-7e72626622af0051****
-     *
      * @var string
      */
     public $configRuleId;
-
     /**
-     * @description The resources that are to be re-evaluated.
-     *
-     * This parameter is required.
      * @var resources[]
      */
     public $resources;
@@ -33,20 +24,25 @@ class RevertEvaluationResultsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = [];
-            if (null !== $this->resources && \is_array($this->resources)) {
-                $n = 0;
-                foreach ($this->resources as $item) {
-                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1               = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -54,23 +50,24 @@ class RevertEvaluationResultsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevertEvaluationResultsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
+
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n                = 0;
-                foreach ($map['Resources'] as $item) {
-                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1++] = resources::fromMap($item1);
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateAggregateResourceInventoryResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 5111CBA6-6485-57EB-BCDD-85D8BB31E7A7
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class GenerateAggregateResourceInventoryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class GenerateAggregateResourceInventoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateAggregateResourceInventoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

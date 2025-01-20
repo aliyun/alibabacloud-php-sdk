@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetComplianceSummaryResponseBody\complianceSummary;
-use AlibabaCloud\Tea\Model;
 
 class GetComplianceSummaryResponseBody extends Model
 {
     /**
-     * @description The summary of compliance statistics.
-     *
      * @var complianceSummary
      */
     public $complianceSummary;
-
     /**
-     * @description The request ID.
-     *
-     * @example CAEE6F34-DEDC-4BAA-AA8C-946D5D008737
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetComplianceSummaryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->complianceSummary) {
+            $this->complianceSummary->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->complianceSummary) {
-            $res['ComplianceSummary'] = null !== $this->complianceSummary ? $this->complianceSummary->toMap() : null;
+            $res['ComplianceSummary'] = null !== $this->complianceSummary ? $this->complianceSummary->toArray($noStream) : $this->complianceSummary;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetComplianceSummaryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetComplianceSummaryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComplianceSummary'])) {
             $model->complianceSummary = complianceSummary::fromMap($map['ComplianceSummary']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

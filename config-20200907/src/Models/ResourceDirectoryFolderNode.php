@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResourceDirectoryFolderNode extends Model
 {
@@ -12,27 +12,22 @@ class ResourceDirectoryFolderNode extends Model
      * @var string
      */
     public $accountId;
-
     /**
-     * @var \AlibabaCloud\SDK\Config\V20200907\Models\ResourceDirectoryFolderNode[]
+     * @var ResourceDirectoryFolderNode[]
      */
     public $children;
-
     /**
      * @var string
      */
     public $displayName;
-
     /**
      * @var string
      */
     public $folderId;
-
     /**
      * @var string
      */
     public $folderName;
-
     /**
      * @var string
      */
@@ -48,32 +43,41 @@ class ResourceDirectoryFolderNode extends Model
 
     public function validate()
     {
+        if (\is_array($this->children)) {
+            Model::validateArray($this->children);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->children) {
-            $res['Children'] = [];
-            if (null !== $this->children && \is_array($this->children)) {
-                $n = 0;
-                foreach ($this->children as $item) {
-                    $res['Children'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->children)) {
+                $res['Children'] = [];
+                $n1              = 0;
+                foreach ($this->children as $item1) {
+                    $res['Children'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
+
         if (null !== $this->folderName) {
             $res['FolderName'] = $this->folderName;
         }
+
         if (null !== $this->parentFolderId) {
             $res['ParentFolderId'] = $this->parentFolderId;
         }
@@ -81,35 +85,40 @@ class ResourceDirectoryFolderNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResourceDirectoryFolderNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['Children'])) {
             if (!empty($map['Children'])) {
                 $model->children = [];
-                $n               = 0;
-                foreach ($map['Children'] as $item) {
-                    $model->children[$n++] = null !== $item ? self::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Children'] as $item1) {
+                    $model->children[$n1++] = self::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
+
         if (isset($map['FolderName'])) {
             $model->folderName = $map['FolderName'];
         }
+
         if (isset($map['ParentFolderId'])) {
             $model->parentFolderId = $map['ParentFolderId'];
         }

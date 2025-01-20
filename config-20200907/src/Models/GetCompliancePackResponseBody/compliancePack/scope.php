@@ -4,96 +4,49 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackResponseBody\compliancePack;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackResponseBody\compliancePack\scope\excludeTagsScope;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackResponseBody\compliancePack\scope\tagsScope;
-use AlibabaCloud\Tea\Model;
 
 class scope extends Model
 {
     /**
-     * @description Excluded region scope, multiple regions should be separated by commas.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $excludeRegionIdsScope;
-
     /**
-     * @description Excluded resourceGroup scope, multiple resourceGroup should be separated by commas.
-     *
-     * @example rg-aekzc7r7rhx****
-     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
-
     /**
-     * @description The ID of the resource that you do not want to evaluate by using the compliance package.
-     *
-     * @example eip-8vbf3x310fn56ijfd****
-     *
      * @var string
      */
     public $excludeResourceIdsScope;
-
     /**
-     * @description Exclude tag scope.
-     *
-     * This parameter is required.
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
-
     /**
-     * @description The ID of the region whose resources you want to evaluate by using the compliance package.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionIdsScope;
-
     /**
-     * @description The ID of the resource group whose resources you want to evaluate by using the compliance package.
-     *
-     * @example rg-aekzc7r7rhx****
-     *
      * @var string
      */
     public $resourceGroupIdsScope;
-
     /**
-     * @description Include ResourceId scope, multiple resourceIds should be separated by commas.
-     *
-     * @example eip-8vbf3x310fn56ijfd****
-     *
      * @var string
      */
     public $resourceIdsScope;
-
     /**
-     * @description The tag key of the resource that you want to evaluate by using the compliance package.
-     *
-     * @example ECS
-     *
      * @var string
      */
     public $tagKeyScope;
-
     /**
-     * @description The tag value of the resource that you want to evaluate by using the compliance package.
-     *
-     * @example test
-     *
      * @var string
      */
     public $tagValueScope;
-
     /**
-     * @description Include tag scope.
-     *
-     * This parameter is required.
      * @var tagsScope[]
      */
     public $tagsScope;
@@ -112,50 +65,66 @@ class scope extends Model
 
     public function validate()
     {
+        if (\is_array($this->excludeTagsScope)) {
+            Model::validateArray($this->excludeTagsScope);
+        }
+        if (\is_array($this->tagsScope)) {
+            Model::validateArray($this->tagsScope);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->excludeRegionIdsScope) {
             $res['ExcludeRegionIdsScope'] = $this->excludeRegionIdsScope;
         }
+
         if (null !== $this->excludeResourceGroupIdsScope) {
             $res['ExcludeResourceGroupIdsScope'] = $this->excludeResourceGroupIdsScope;
         }
+
         if (null !== $this->excludeResourceIdsScope) {
             $res['ExcludeResourceIdsScope'] = $this->excludeResourceIdsScope;
         }
+
         if (null !== $this->excludeTagsScope) {
-            $res['ExcludeTagsScope'] = [];
-            if (null !== $this->excludeTagsScope && \is_array($this->excludeTagsScope)) {
-                $n = 0;
-                foreach ($this->excludeTagsScope as $item) {
-                    $res['ExcludeTagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->excludeTagsScope)) {
+                $res['ExcludeTagsScope'] = [];
+                $n1                      = 0;
+                foreach ($this->excludeTagsScope as $item1) {
+                    $res['ExcludeTagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->regionIdsScope) {
             $res['RegionIdsScope'] = $this->regionIdsScope;
         }
+
         if (null !== $this->resourceGroupIdsScope) {
             $res['ResourceGroupIdsScope'] = $this->resourceGroupIdsScope;
         }
+
         if (null !== $this->resourceIdsScope) {
             $res['ResourceIdsScope'] = $this->resourceIdsScope;
         }
+
         if (null !== $this->tagKeyScope) {
             $res['TagKeyScope'] = $this->tagKeyScope;
         }
+
         if (null !== $this->tagValueScope) {
             $res['TagValueScope'] = $this->tagValueScope;
         }
+
         if (null !== $this->tagsScope) {
-            $res['TagsScope'] = [];
-            if (null !== $this->tagsScope && \is_array($this->tagsScope)) {
-                $n = 0;
-                foreach ($this->tagsScope as $item) {
-                    $res['TagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagsScope)) {
+                $res['TagsScope'] = [];
+                $n1               = 0;
+                foreach ($this->tagsScope as $item1) {
+                    $res['TagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -163,53 +132,62 @@ class scope extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scope
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExcludeRegionIdsScope'])) {
             $model->excludeRegionIdsScope = $map['ExcludeRegionIdsScope'];
         }
+
         if (isset($map['ExcludeResourceGroupIdsScope'])) {
             $model->excludeResourceGroupIdsScope = $map['ExcludeResourceGroupIdsScope'];
         }
+
         if (isset($map['ExcludeResourceIdsScope'])) {
             $model->excludeResourceIdsScope = $map['ExcludeResourceIdsScope'];
         }
+
         if (isset($map['ExcludeTagsScope'])) {
             if (!empty($map['ExcludeTagsScope'])) {
                 $model->excludeTagsScope = [];
-                $n                       = 0;
-                foreach ($map['ExcludeTagsScope'] as $item) {
-                    $model->excludeTagsScope[$n++] = null !== $item ? excludeTagsScope::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['ExcludeTagsScope'] as $item1) {
+                    $model->excludeTagsScope[$n1++] = excludeTagsScope::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RegionIdsScope'])) {
             $model->regionIdsScope = $map['RegionIdsScope'];
         }
+
         if (isset($map['ResourceGroupIdsScope'])) {
             $model->resourceGroupIdsScope = $map['ResourceGroupIdsScope'];
         }
+
         if (isset($map['ResourceIdsScope'])) {
             $model->resourceIdsScope = $map['ResourceIdsScope'];
         }
+
         if (isset($map['TagKeyScope'])) {
             $model->tagKeyScope = $map['TagKeyScope'];
         }
+
         if (isset($map['TagValueScope'])) {
             $model->tagValueScope = $map['TagValueScope'];
         }
+
         if (isset($map['TagsScope'])) {
             if (!empty($map['TagsScope'])) {
                 $model->tagsScope = [];
-                $n                = 0;
-                foreach ($map['TagsScope'] as $item) {
-                    $model->tagsScope[$n++] = null !== $item ? tagsScope::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['TagsScope'] as $item1) {
+                    $model->tagsScope[$n1++] = tagsScope::fromMap($item1);
                 }
             }
         }

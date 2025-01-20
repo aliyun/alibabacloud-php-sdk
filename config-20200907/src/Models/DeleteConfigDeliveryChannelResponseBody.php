@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteConfigDeliveryChannelResponseBody extends Model
 {
     /**
-     * @description The ID of the delivery channel.
-     *
-     * @example cdc-38c32e87cadb002c****
-     *
      * @var string
      */
     public $deliveryChannelId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 35F1DA37-ECB5-54E9-AC22-0D9111A665AA
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DeleteConfigDeliveryChannelResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliveryChannelId) {
             $res['DeliveryChannelId'] = $this->deliveryChannelId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DeleteConfigDeliveryChannelResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteConfigDeliveryChannelResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeliveryChannelId'])) {
             $model->deliveryChannelId = $map['DeliveryChannelId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAggregateCompliancePackRequest extends Model
 {
     /**
-     * @description The ID of the account group.
-     *
-     * This parameter is required.
-     * @example ca-f632626622af0079****
-     *
      * @var string
      */
     public $aggregatorId;
-
     /**
-     * @description The ID of the compliance package.
-     *
-     * This parameter is required.
-     * @example cp-fdc8626622af00f9****
-     *
      * @var string
      */
     public $compliancePackId;
@@ -34,14 +23,16 @@ class GetAggregateCompliancePackRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
         }
+
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
         }
@@ -49,17 +40,18 @@ class GetAggregateCompliancePackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAggregateCompliancePackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
         }
+
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
         }

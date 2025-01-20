@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackReportResponseBody\compliancePackReport;
-use AlibabaCloud\Tea\Model;
 
 class GetAggregateCompliancePackReportResponseBody extends Model
 {
     /**
-     * @description The compliance evaluation report that is generated based on a compliance package.
-     *
      * @var compliancePackReport
      */
     public $compliancePackReport;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0D234DAC-1ABD-42E8-9475-BE317857E29B
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetAggregateCompliancePackReportResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->compliancePackReport) {
+            $this->compliancePackReport->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compliancePackReport) {
-            $res['CompliancePackReport'] = null !== $this->compliancePackReport ? $this->compliancePackReport->toMap() : null;
+            $res['CompliancePackReport'] = null !== $this->compliancePackReport ? $this->compliancePackReport->toArray($noStream) : $this->compliancePackReport;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetAggregateCompliancePackReportResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAggregateCompliancePackReportResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompliancePackReport'])) {
             $model->compliancePackReport = compliancePackReport::fromMap($map['CompliancePackReport']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

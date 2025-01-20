@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Config\V20200907\Models\ActiveAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ActiveAggregateConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ActiveConfigRulesRequest;
@@ -296,12 +295,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\UpdateIntegratedServiceStatusReques
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateIntegratedServiceStatusResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateRemediationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateRemediationResponse;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Config extends OpenApiClient
 {
@@ -330,41 +327,50 @@ class Config extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
-     *  *
-     * @description Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
-     *  *
-     * @param ActiveAggregateConfigRulesRequest $request ActiveAggregateConfigRulesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
      *
-     * @return ActiveAggregateConfigRulesResponse ActiveAggregateConfigRulesResponse
+     * @remarks
+     * Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
+     *
+     * @param request - ActiveAggregateConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ActiveAggregateConfigRulesResponse
+     *
+     * @param ActiveAggregateConfigRulesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ActiveAggregateConfigRulesResponse
      */
     public function activeAggregateConfigRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ActiveAggregateConfigRules',
@@ -382,13 +388,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
-     *  *
-     * @description Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
-     *  *
-     * @param ActiveAggregateConfigRulesRequest $request ActiveAggregateConfigRulesRequest
+     * Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
      *
-     * @return ActiveAggregateConfigRulesResponse ActiveAggregateConfigRulesResponse
+     * @remarks
+     * Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
+     *
+     * @param request - ActiveAggregateConfigRulesRequest
+     * @returns ActiveAggregateConfigRulesResponse
+     *
+     * @param ActiveAggregateConfigRulesRequest $request
+     *
+     * @return ActiveAggregateConfigRulesResponse
      */
     public function activeAggregateConfigRules($request)
     {
@@ -398,28 +408,35 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Enables a rule in Cloud Config. After a rule is enabled, Cloud Config automatically evaluates the compliance of a resource based on the trigger mechanism of the rule.
-     *  *
-     * @description ### [](#)Prerequisites
-     * The rule is in the `INACTIVE` state.
-     *  *
-     * @param ActiveConfigRulesRequest $request ActiveConfigRulesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Enables a rule in Cloud Config. After a rule is enabled, Cloud Config automatically evaluates the compliance of a resource based on the trigger mechanism of the rule.
      *
-     * @return ActiveConfigRulesResponse ActiveConfigRulesResponse
+     * @remarks
+     * ### [](#)Prerequisites
+     * The rule is in the `INACTIVE` state.
+     *
+     * @param request - ActiveConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ActiveConfigRulesResponse
+     *
+     * @param ActiveConfigRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ActiveConfigRulesResponse
      */
     public function activeConfigRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ActiveConfigRules',
@@ -437,14 +454,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Enables a rule in Cloud Config. After a rule is enabled, Cloud Config automatically evaluates the compliance of a resource based on the trigger mechanism of the rule.
-     *  *
-     * @description ### [](#)Prerequisites
-     * The rule is in the `INACTIVE` state.
-     *  *
-     * @param ActiveConfigRulesRequest $request ActiveConfigRulesRequest
+     * Enables a rule in Cloud Config. After a rule is enabled, Cloud Config automatically evaluates the compliance of a resource based on the trigger mechanism of the rule.
      *
-     * @return ActiveConfigRulesResponse ActiveConfigRulesResponse
+     * @remarks
+     * ### [](#)Prerequisites
+     * The rule is in the `INACTIVE` state.
+     *
+     * @param request - ActiveConfigRulesRequest
+     * @returns ActiveConfigRulesResponse
+     *
+     * @param ActiveConfigRulesRequest $request
+     *
+     * @return ActiveConfigRulesResponse
      */
     public function activeConfigRules($request)
     {
@@ -454,30 +475,38 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Adds one or more rules in an account group to a compliance package.
-     *  *
-     * @description The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group to the `cp-5bb1626622af00bd****` compliance package.
-     *  *
-     * @param AttachAggregateConfigRuleToCompliancePackRequest $request AttachAggregateConfigRuleToCompliancePackRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     * Adds one or more rules in an account group to a compliance package.
      *
-     * @return AttachAggregateConfigRuleToCompliancePackResponse AttachAggregateConfigRuleToCompliancePackResponse
+     * @remarks
+     * The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group to the `cp-5bb1626622af00bd****` compliance package.
+     *
+     * @param request - AttachAggregateConfigRuleToCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachAggregateConfigRuleToCompliancePackResponse
+     *
+     * @param AttachAggregateConfigRuleToCompliancePackRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return AttachAggregateConfigRuleToCompliancePackResponse
      */
     public function attachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachAggregateConfigRuleToCompliancePack',
@@ -495,13 +524,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Adds one or more rules in an account group to a compliance package.
-     *  *
-     * @description The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group to the `cp-5bb1626622af00bd****` compliance package.
-     *  *
-     * @param AttachAggregateConfigRuleToCompliancePackRequest $request AttachAggregateConfigRuleToCompliancePackRequest
+     * Adds one or more rules in an account group to a compliance package.
      *
-     * @return AttachAggregateConfigRuleToCompliancePackResponse AttachAggregateConfigRuleToCompliancePackResponse
+     * @remarks
+     * The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group to the `cp-5bb1626622af00bd****` compliance package.
+     *
+     * @param request - AttachAggregateConfigRuleToCompliancePackRequest
+     * @returns AttachAggregateConfigRuleToCompliancePackResponse
+     *
+     * @param AttachAggregateConfigRuleToCompliancePackRequest $request
+     *
+     * @return AttachAggregateConfigRuleToCompliancePackResponse
      */
     public function attachAggregateConfigRuleToCompliancePack($request)
     {
@@ -511,27 +544,34 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Adds one or more rules to a compliance package.
-     *  *
-     * @description This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
-     *  *
-     * @param AttachConfigRuleToCompliancePackRequest $request AttachConfigRuleToCompliancePackRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Adds one or more rules to a compliance package.
      *
-     * @return AttachConfigRuleToCompliancePackResponse AttachConfigRuleToCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
+     *
+     * @param request - AttachConfigRuleToCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachConfigRuleToCompliancePackResponse
+     *
+     * @param AttachConfigRuleToCompliancePackRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return AttachConfigRuleToCompliancePackResponse
      */
     public function attachConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachConfigRuleToCompliancePack',
@@ -549,13 +589,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Adds one or more rules to a compliance package.
-     *  *
-     * @description This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
-     *  *
-     * @param AttachConfigRuleToCompliancePackRequest $request AttachConfigRuleToCompliancePackRequest
+     * Adds one or more rules to a compliance package.
      *
-     * @return AttachConfigRuleToCompliancePackResponse AttachConfigRuleToCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
+     *
+     * @param request - AttachConfigRuleToCompliancePackRequest
+     * @returns AttachConfigRuleToCompliancePackResponse
+     *
+     * @param AttachConfigRuleToCompliancePackRequest $request
+     *
+     * @return AttachConfigRuleToCompliancePackResponse
      */
     public function attachConfigRuleToCompliancePack($request)
     {
@@ -565,28 +609,35 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Replicates compliance packages.
-     *  *
-     * @param CopyCompliancePacksRequest $request CopyCompliancePacksRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Replicates compliance packages.
      *
-     * @return CopyCompliancePacksResponse CopyCompliancePacksResponse
+     * @param request - CopyCompliancePacksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CopyCompliancePacksResponse
+     *
+     * @param CopyCompliancePacksRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CopyCompliancePacksResponse
      */
     public function copyCompliancePacksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->desAggregatorIds)) {
-            $query['DesAggregatorIds'] = $request->desAggregatorIds;
+        if (null !== $request->desAggregatorIds) {
+            @$query['DesAggregatorIds'] = $request->desAggregatorIds;
         }
-        if (!Utils::isUnset($request->srcAggregatorId)) {
-            $query['SrcAggregatorId'] = $request->srcAggregatorId;
+
+        if (null !== $request->srcAggregatorId) {
+            @$query['SrcAggregatorId'] = $request->srcAggregatorId;
         }
-        if (!Utils::isUnset($request->srcCompliancePackIds)) {
-            $query['SrcCompliancePackIds'] = $request->srcCompliancePackIds;
+
+        if (null !== $request->srcCompliancePackIds) {
+            @$query['SrcCompliancePackIds'] = $request->srcCompliancePackIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CopyCompliancePacks',
@@ -604,11 +655,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Replicates compliance packages.
-     *  *
-     * @param CopyCompliancePacksRequest $request CopyCompliancePacksRequest
+     * Replicates compliance packages.
      *
-     * @return CopyCompliancePacksResponse CopyCompliancePacksResponse
+     * @param request - CopyCompliancePacksRequest
+     * @returns CopyCompliancePacksResponse
+     *
+     * @param CopyCompliancePacksRequest $request
+     *
+     * @return CopyCompliancePacksResponse
      */
     public function copyCompliancePacks($request)
     {
@@ -618,28 +672,35 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Replicates rules.
-     *  *
-     * @param CopyConfigRulesRequest $request CopyConfigRulesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Replicates rules.
      *
-     * @return CopyConfigRulesResponse CopyConfigRulesResponse
+     * @param request - CopyConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CopyConfigRulesResponse
+     *
+     * @param CopyConfigRulesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CopyConfigRulesResponse
      */
     public function copyConfigRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->desAggregatorIds)) {
-            $query['DesAggregatorIds'] = $request->desAggregatorIds;
+        if (null !== $request->desAggregatorIds) {
+            @$query['DesAggregatorIds'] = $request->desAggregatorIds;
         }
-        if (!Utils::isUnset($request->srcAggregatorId)) {
-            $query['SrcAggregatorId'] = $request->srcAggregatorId;
+
+        if (null !== $request->srcAggregatorId) {
+            @$query['SrcAggregatorId'] = $request->srcAggregatorId;
         }
-        if (!Utils::isUnset($request->srcConfigRuleIds)) {
-            $query['SrcConfigRuleIds'] = $request->srcConfigRuleIds;
+
+        if (null !== $request->srcConfigRuleIds) {
+            @$query['SrcConfigRuleIds'] = $request->srcConfigRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CopyConfigRules',
@@ -657,11 +718,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Replicates rules.
-     *  *
-     * @param CopyConfigRulesRequest $request CopyConfigRulesRequest
+     * Replicates rules.
      *
-     * @return CopyConfigRulesResponse CopyConfigRulesResponse
+     * @param request - CopyConfigRulesRequest
+     * @returns CopyConfigRulesResponse
+     *
+     * @param CopyConfigRulesRequest $request
+     *
+     * @return CopyConfigRulesResponse
      */
     public function copyConfigRules($request)
     {
@@ -671,22 +735,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a downloadable resource file for the current Alibaba Cloud account.
-     *  *
-     * @param CreateAdvancedSearchFileRequest $request CreateAdvancedSearchFileRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates a downloadable resource file for the current Alibaba Cloud account.
      *
-     * @return CreateAdvancedSearchFileResponse CreateAdvancedSearchFileResponse
+     * @param request - CreateAdvancedSearchFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAdvancedSearchFileResponse
+     *
+     * @param CreateAdvancedSearchFileRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateAdvancedSearchFileResponse
      */
     public function createAdvancedSearchFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sql)) {
-            $query['Sql'] = $request->sql;
+        if (null !== $request->sql) {
+            @$query['Sql'] = $request->sql;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAdvancedSearchFile',
@@ -704,11 +773,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a downloadable resource file for the current Alibaba Cloud account.
-     *  *
-     * @param CreateAdvancedSearchFileRequest $request CreateAdvancedSearchFileRequest
+     * Creates a downloadable resource file for the current Alibaba Cloud account.
      *
-     * @return CreateAdvancedSearchFileResponse CreateAdvancedSearchFileResponse
+     * @param request - CreateAdvancedSearchFileRequest
+     * @returns CreateAdvancedSearchFileResponse
+     *
+     * @param CreateAdvancedSearchFileRequest $request
+     *
+     * @return CreateAdvancedSearchFileResponse
      */
     public function createAdvancedSearchFile($request)
     {
@@ -718,27 +790,34 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a downloadable resource file for an account group.
-     *  *
-     * @description This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
-     *  *
-     * @param CreateAggregateAdvancedSearchFileRequest $request CreateAggregateAdvancedSearchFileRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Creates a downloadable resource file for an account group.
      *
-     * @return CreateAggregateAdvancedSearchFileResponse CreateAggregateAdvancedSearchFileResponse
+     * @remarks
+     * This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
+     *
+     * @param request - CreateAggregateAdvancedSearchFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAggregateAdvancedSearchFileResponse
+     *
+     * @param CreateAggregateAdvancedSearchFileRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateAggregateAdvancedSearchFileResponse
      */
     public function createAggregateAdvancedSearchFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->sql)) {
-            $query['Sql'] = $request->sql;
+
+        if (null !== $request->sql) {
+            @$query['Sql'] = $request->sql;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAggregateAdvancedSearchFile',
@@ -756,13 +835,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a downloadable resource file for an account group.
-     *  *
-     * @description This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
-     *  *
-     * @param CreateAggregateAdvancedSearchFileRequest $request CreateAggregateAdvancedSearchFileRequest
+     * Creates a downloadable resource file for an account group.
      *
-     * @return CreateAggregateAdvancedSearchFileResponse CreateAggregateAdvancedSearchFileResponse
+     * @remarks
+     * This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
+     *
+     * @param request - CreateAggregateAdvancedSearchFileRequest
+     * @returns CreateAggregateAdvancedSearchFileResponse
+     *
+     * @param CreateAggregateAdvancedSearchFileRequest $request
+     *
+     * @return CreateAggregateAdvancedSearchFileResponse
      */
     public function createAggregateAdvancedSearchFile($request)
     {
@@ -772,85 +855,111 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a compliance package for an account group.
-     *  *
-     * @description This topic provides an example on how to create a compliance package for the account group `ca-f632626622af0079****` by using the compliance package template `ClassifiedProtectionPreCheck`.
-     *  *
-     * @param CreateAggregateCompliancePackRequest $tmpReq  CreateAggregateCompliancePackRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Creates a compliance package for an account group.
      *
-     * @return CreateAggregateCompliancePackResponse CreateAggregateCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to create a compliance package for the account group `ca-f632626622af0079****` by using the compliance package template `ClassifiedProtectionPreCheck`.
+     *
+     * @param tmpReq - CreateAggregateCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAggregateCompliancePackResponse
+     *
+     * @param CreateAggregateCompliancePackRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateAggregateCompliancePackResponse
      */
     public function createAggregateCompliancePackWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAggregateCompliancePackShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configRules)) {
-            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configRules) {
+            $request->configRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliancePackName)) {
-            $body['CompliancePackName'] = $request->compliancePackName;
+
+        if (null !== $request->compliancePackName) {
+            @$body['CompliancePackName'] = $request->compliancePackName;
         }
-        if (!Utils::isUnset($request->compliancePackTemplateId)) {
-            $body['CompliancePackTemplateId'] = $request->compliancePackTemplateId;
+
+        if (null !== $request->compliancePackTemplateId) {
+            @$body['CompliancePackTemplateId'] = $request->compliancePackTemplateId;
         }
-        if (!Utils::isUnset($request->configRulesShrink)) {
-            $body['ConfigRules'] = $request->configRulesShrink;
+
+        if (null !== $request->configRulesShrink) {
+            @$body['ConfigRules'] = $request->configRulesShrink;
         }
-        if (!Utils::isUnset($request->defaultEnable)) {
-            $body['DefaultEnable'] = $request->defaultEnable;
+
+        if (null !== $request->defaultEnable) {
+            @$body['DefaultEnable'] = $request->defaultEnable;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
-            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+
+        if (null !== $request->excludeRegionIdsScope) {
+            @$body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
-            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceIdsScope)) {
-            $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->excludeTagsScope)) {
-            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
+        if (null !== $request->excludeTagsScope) {
+            @$bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
-        if (!Utils::isUnset($request->regionIdsScope)) {
-            $body['RegionIdsScope'] = $request->regionIdsScope;
+
+        if (null !== $request->regionIdsScope) {
+            @$body['RegionIdsScope'] = $request->regionIdsScope;
         }
-        if (!Utils::isUnset($request->resourceGroupIdsScope)) {
-            $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->resourceIdsScope)) {
-            $body['ResourceIdsScope'] = $request->resourceIdsScope;
+
+        if (null !== $request->resourceIdsScope) {
+            @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $body['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->tagKeyScope)) {
-            $body['TagKeyScope'] = $request->tagKeyScope;
+
+        if (null !== $request->tagKeyScope) {
+            @$body['TagKeyScope'] = $request->tagKeyScope;
         }
-        if (!Utils::isUnset($request->tagValueScope)) {
-            $body['TagValueScope'] = $request->tagValueScope;
+
+        if (null !== $request->tagValueScope) {
+            @$body['TagValueScope'] = $request->tagValueScope;
         }
-        if (!Utils::isUnset($request->tagsScope)) {
-            $bodyFlat['TagsScope'] = $request->tagsScope;
+
+        if (null !== $request->tagsScope) {
+            @$bodyFlat['TagsScope'] = $request->tagsScope;
         }
-        if (!Utils::isUnset($request->templateContent)) {
-            $body['TemplateContent'] = $request->templateContent;
+
+        if (null !== $request->templateContent) {
+            @$body['TemplateContent'] = $request->templateContent;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAggregateCompliancePack',
@@ -868,13 +977,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a compliance package for an account group.
-     *  *
-     * @description This topic provides an example on how to create a compliance package for the account group `ca-f632626622af0079****` by using the compliance package template `ClassifiedProtectionPreCheck`.
-     *  *
-     * @param CreateAggregateCompliancePackRequest $request CreateAggregateCompliancePackRequest
+     * Creates a compliance package for an account group.
      *
-     * @return CreateAggregateCompliancePackResponse CreateAggregateCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to create a compliance package for the account group `ca-f632626622af0079****` by using the compliance package template `ClassifiedProtectionPreCheck`.
+     *
+     * @param request - CreateAggregateCompliancePackRequest
+     * @returns CreateAggregateCompliancePackResponse
+     *
+     * @param CreateAggregateCompliancePackRequest $request
+     *
+     * @return CreateAggregateCompliancePackResponse
      */
     public function createAggregateCompliancePack($request)
     {
@@ -884,60 +997,78 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a delivery channel for an account group.
-     *  *
-     * @description In this example, a delivery channel is created for an account group. The ID of the account group is `ca-a4e5626622af0079****`. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-     *  *
-     * @param CreateAggregateConfigDeliveryChannelRequest $request CreateAggregateConfigDeliveryChannelRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Creates a delivery channel for an account group.
      *
-     * @return CreateAggregateConfigDeliveryChannelResponse CreateAggregateConfigDeliveryChannelResponse
+     * @remarks
+     * In this example, a delivery channel is created for an account group. The ID of the account group is `ca-a4e5626622af0079****`. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+     *
+     * @param request - CreateAggregateConfigDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAggregateConfigDeliveryChannelResponse
+     *
+     * @param CreateAggregateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateAggregateConfigDeliveryChannelResponse
      */
     public function createAggregateConfigDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliantSnapshot)) {
-            $query['CompliantSnapshot'] = $request->compliantSnapshot;
+
+        if (null !== $request->compliantSnapshot) {
+            @$query['CompliantSnapshot'] = $request->compliantSnapshot;
         }
-        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
-            $query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+
+        if (null !== $request->configurationItemChangeNotification) {
+            @$query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
         }
-        if (!Utils::isUnset($request->configurationSnapshot)) {
-            $query['ConfigurationSnapshot'] = $request->configurationSnapshot;
+
+        if (null !== $request->configurationSnapshot) {
+            @$query['ConfigurationSnapshot'] = $request->configurationSnapshot;
         }
-        if (!Utils::isUnset($request->deliveryChannelCondition)) {
-            $query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+
+        if (null !== $request->deliveryChannelCondition) {
+            @$query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
         }
-        if (!Utils::isUnset($request->deliveryChannelName)) {
-            $query['DeliveryChannelName'] = $request->deliveryChannelName;
+
+        if (null !== $request->deliveryChannelName) {
+            @$query['DeliveryChannelName'] = $request->deliveryChannelName;
         }
-        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
-            $query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+
+        if (null !== $request->deliveryChannelTargetArn) {
+            @$query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
         }
-        if (!Utils::isUnset($request->deliveryChannelType)) {
-            $query['DeliveryChannelType'] = $request->deliveryChannelType;
+
+        if (null !== $request->deliveryChannelType) {
+            @$query['DeliveryChannelType'] = $request->deliveryChannelType;
         }
-        if (!Utils::isUnset($request->deliverySnapshotTime)) {
-            $query['DeliverySnapshotTime'] = $request->deliverySnapshotTime;
+
+        if (null !== $request->deliverySnapshotTime) {
+            @$query['DeliverySnapshotTime'] = $request->deliverySnapshotTime;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->nonCompliantNotification)) {
-            $query['NonCompliantNotification'] = $request->nonCompliantNotification;
+
+        if (null !== $request->nonCompliantNotification) {
+            @$query['NonCompliantNotification'] = $request->nonCompliantNotification;
         }
-        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
-            $query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+
+        if (null !== $request->oversizedDataOSSTargetArn) {
+            @$query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAggregateConfigDeliveryChannel',
@@ -955,13 +1086,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a delivery channel for an account group.
-     *  *
-     * @description In this example, a delivery channel is created for an account group. The ID of the account group is `ca-a4e5626622af0079****`. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-     *  *
-     * @param CreateAggregateConfigDeliveryChannelRequest $request CreateAggregateConfigDeliveryChannelRequest
+     * Creates a delivery channel for an account group.
      *
-     * @return CreateAggregateConfigDeliveryChannelResponse CreateAggregateConfigDeliveryChannelResponse
+     * @remarks
+     * In this example, a delivery channel is created for an account group. The ID of the account group is `ca-a4e5626622af0079****`. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+     *
+     * @param request - CreateAggregateConfigDeliveryChannelRequest
+     * @returns CreateAggregateConfigDeliveryChannelResponse
+     *
+     * @param CreateAggregateConfigDeliveryChannelRequest $request
+     *
+     * @return CreateAggregateConfigDeliveryChannelResponse
      */
     public function createAggregateConfigDeliveryChannel($request)
     {
@@ -971,115 +1106,150 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a rule for an account group.
-     *  *
-     * @description ### Limits
+     * Creates a rule for an account group.
+     *
+     * @remarks
+     * ### Limits
      * You can create up to 200 rules for each management account.
      * ### Usage notes
      * This topic provides an example on how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The returned result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.
-     *  *
-     * @param CreateAggregateConfigRuleRequest $tmpReq  CreateAggregateConfigRuleRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAggregateConfigRuleResponse CreateAggregateConfigRuleResponse
+     * @param tmpReq - CreateAggregateConfigRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAggregateConfigRuleResponse
+     *
+     * @param CreateAggregateConfigRuleRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateAggregateConfigRuleResponse
      */
     public function createAggregateConfigRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAggregateConfigRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->inputParameters)) {
-            $request->inputParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inputParameters) {
+            $request->inputParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
-            $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
+
+        if (null !== $tmpReq->resourceTypesScope) {
+            $request->resourceTypesScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->accountIdsScope)) {
-            $body['AccountIdsScope'] = $request->accountIdsScope;
+        if (null !== $request->accountIdsScope) {
+            @$body['AccountIdsScope'] = $request->accountIdsScope;
         }
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configRuleName)) {
-            $body['ConfigRuleName'] = $request->configRuleName;
+
+        if (null !== $request->configRuleName) {
+            @$body['ConfigRuleName'] = $request->configRuleName;
         }
-        if (!Utils::isUnset($request->configRuleTriggerTypes)) {
-            $body['ConfigRuleTriggerTypes'] = $request->configRuleTriggerTypes;
+
+        if (null !== $request->configRuleTriggerTypes) {
+            @$body['ConfigRuleTriggerTypes'] = $request->configRuleTriggerTypes;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->excludeAccountIdsScope)) {
-            $body['ExcludeAccountIdsScope'] = $request->excludeAccountIdsScope;
+
+        if (null !== $request->excludeAccountIdsScope) {
+            @$body['ExcludeAccountIdsScope'] = $request->excludeAccountIdsScope;
         }
-        if (!Utils::isUnset($request->excludeFolderIdsScope)) {
-            $body['ExcludeFolderIdsScope'] = $request->excludeFolderIdsScope;
+
+        if (null !== $request->excludeFolderIdsScope) {
+            @$body['ExcludeFolderIdsScope'] = $request->excludeFolderIdsScope;
         }
-        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
-            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+
+        if (null !== $request->excludeRegionIdsScope) {
+            @$body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
-            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceIdsScope)) {
-            $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->excludeTagsScope)) {
-            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
+        if (null !== $request->excludeTagsScope) {
+            @$bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
-        if (!Utils::isUnset($request->extendContent)) {
-            $body['ExtendContent'] = $request->extendContent;
+
+        if (null !== $request->extendContent) {
+            @$body['ExtendContent'] = $request->extendContent;
         }
-        if (!Utils::isUnset($request->folderIdsScope)) {
-            $body['FolderIdsScope'] = $request->folderIdsScope;
+
+        if (null !== $request->folderIdsScope) {
+            @$body['FolderIdsScope'] = $request->folderIdsScope;
         }
-        if (!Utils::isUnset($request->inputParametersShrink)) {
-            $body['InputParameters'] = $request->inputParametersShrink;
+
+        if (null !== $request->inputParametersShrink) {
+            @$body['InputParameters'] = $request->inputParametersShrink;
         }
-        if (!Utils::isUnset($request->maximumExecutionFrequency)) {
-            $body['MaximumExecutionFrequency'] = $request->maximumExecutionFrequency;
+
+        if (null !== $request->maximumExecutionFrequency) {
+            @$body['MaximumExecutionFrequency'] = $request->maximumExecutionFrequency;
         }
-        if (!Utils::isUnset($request->regionIdsScope)) {
-            $body['RegionIdsScope'] = $request->regionIdsScope;
+
+        if (null !== $request->regionIdsScope) {
+            @$body['RegionIdsScope'] = $request->regionIdsScope;
         }
-        if (!Utils::isUnset($request->resourceGroupIdsScope)) {
-            $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->resourceIdsScope)) {
-            $body['ResourceIdsScope'] = $request->resourceIdsScope;
+
+        if (null !== $request->resourceIdsScope) {
+            @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
-        if (!Utils::isUnset($request->resourceTypesScopeShrink)) {
-            $body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
+
+        if (null !== $request->resourceTypesScopeShrink) {
+            @$body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $body['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->sourceIdentifier)) {
-            $body['SourceIdentifier'] = $request->sourceIdentifier;
+
+        if (null !== $request->sourceIdentifier) {
+            @$body['SourceIdentifier'] = $request->sourceIdentifier;
         }
-        if (!Utils::isUnset($request->sourceOwner)) {
-            $body['SourceOwner'] = $request->sourceOwner;
+
+        if (null !== $request->sourceOwner) {
+            @$body['SourceOwner'] = $request->sourceOwner;
         }
-        if (!Utils::isUnset($request->tagKeyLogicScope)) {
-            $body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
+
+        if (null !== $request->tagKeyLogicScope) {
+            @$body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
         }
-        if (!Utils::isUnset($request->tagKeyScope)) {
-            $body['TagKeyScope'] = $request->tagKeyScope;
+
+        if (null !== $request->tagKeyScope) {
+            @$body['TagKeyScope'] = $request->tagKeyScope;
         }
-        if (!Utils::isUnset($request->tagValueScope)) {
-            $body['TagValueScope'] = $request->tagValueScope;
+
+        if (null !== $request->tagValueScope) {
+            @$body['TagValueScope'] = $request->tagValueScope;
         }
-        if (!Utils::isUnset($request->tagsScope)) {
-            $bodyFlat['TagsScope'] = $request->tagsScope;
+
+        if (null !== $request->tagsScope) {
+            @$bodyFlat['TagsScope'] = $request->tagsScope;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAggregateConfigRule',
@@ -1097,16 +1267,20 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a rule for an account group.
-     *  *
-     * @description ### Limits
+     * Creates a rule for an account group.
+     *
+     * @remarks
+     * ### Limits
      * You can create up to 200 rules for each management account.
      * ### Usage notes
      * This topic provides an example on how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The returned result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.
-     *  *
-     * @param CreateAggregateConfigRuleRequest $request CreateAggregateConfigRuleRequest
      *
-     * @return CreateAggregateConfigRuleResponse CreateAggregateConfigRuleResponse
+     * @param request - CreateAggregateConfigRuleRequest
+     * @returns CreateAggregateConfigRuleResponse
+     *
+     * @param CreateAggregateConfigRuleRequest $request
+     *
+     * @return CreateAggregateConfigRuleResponse
      */
     public function createAggregateConfigRule($request)
     {
@@ -1116,45 +1290,58 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a remediation template for a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
-     *  *
-     * @param CreateAggregateRemediationRequest $request CreateAggregateRemediationRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates a remediation template for a rule in an account group.
      *
-     * @return CreateAggregateRemediationResponse CreateAggregateRemediationResponse
+     * @remarks
+     * This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
+     *
+     * @param request - CreateAggregateRemediationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAggregateRemediationResponse
+     *
+     * @param CreateAggregateRemediationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateAggregateRemediationResponse
      */
     public function createAggregateRemediationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $body['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$body['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->invokeType)) {
-            $body['InvokeType'] = $request->invokeType;
+
+        if (null !== $request->invokeType) {
+            @$body['InvokeType'] = $request->invokeType;
         }
-        if (!Utils::isUnset($request->params)) {
-            $body['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$body['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->remediationTemplateId)) {
-            $body['RemediationTemplateId'] = $request->remediationTemplateId;
+
+        if (null !== $request->remediationTemplateId) {
+            @$body['RemediationTemplateId'] = $request->remediationTemplateId;
         }
-        if (!Utils::isUnset($request->remediationType)) {
-            $body['RemediationType'] = $request->remediationType;
+
+        if (null !== $request->remediationType) {
+            @$body['RemediationType'] = $request->remediationType;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAggregateRemediation',
@@ -1172,13 +1359,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a remediation template for a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
-     *  *
-     * @param CreateAggregateRemediationRequest $request CreateAggregateRemediationRequest
+     * Creates a remediation template for a rule in an account group.
      *
-     * @return CreateAggregateRemediationResponse CreateAggregateRemediationResponse
+     * @remarks
+     * This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
+     *
+     * @param request - CreateAggregateRemediationRequest
+     * @returns CreateAggregateRemediationResponse
+     *
+     * @param CreateAggregateRemediationRequest $request
+     *
+     * @return CreateAggregateRemediationResponse
      */
     public function createAggregateRemediation($request)
     {
@@ -1188,50 +1379,62 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates an account group.
-     *  *
-     * @description Each management account can create a maximum of five account groups. Each account group can contain a maximum of 200 member accounts.
+     * Creates an account group.
+     *
+     * @remarks
+     * Each management account can create a maximum of five account groups. Each account group can contain a maximum of 200 member accounts.
      * Cloud Config supports the following types of account groups:
      * *   Global account group: The global account group contains all the member accounts that are added to the resource directory. A management account can create only one global account group.
      * *   Custom account group: If you create a custom account group, you must manually add all or specific member accounts from the resource directory to the custom account group.
      * This topic provides an example on how to create an account group of the `CUSTOM` type. The custom account group is named `Test_Group`, and its description is `Test account group`. The custom account group contains the following two member accounts:
      * *   Member account ID: `171322098523****`. Member account name: `Alice`.
      * *   Member account ID: `100532098349****`. Member account name: `Tom`.
-     *  *
-     * @param CreateAggregatorRequest $tmpReq  CreateAggregatorRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAggregatorResponse CreateAggregatorResponse
+     * @param tmpReq - CreateAggregatorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAggregatorResponse
+     *
+     * @param CreateAggregatorRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAggregatorResponse
      */
     public function createAggregatorWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAggregatorShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aggregatorAccounts)) {
-            $request->aggregatorAccountsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aggregatorAccounts) {
+            $request->aggregatorAccountsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aggregatorAccountsShrink)) {
-            $body['AggregatorAccounts'] = $request->aggregatorAccountsShrink;
+        if (null !== $request->aggregatorAccountsShrink) {
+            @$body['AggregatorAccounts'] = $request->aggregatorAccountsShrink;
         }
-        if (!Utils::isUnset($request->aggregatorName)) {
-            $body['AggregatorName'] = $request->aggregatorName;
+
+        if (null !== $request->aggregatorName) {
+            @$body['AggregatorName'] = $request->aggregatorName;
         }
-        if (!Utils::isUnset($request->aggregatorType)) {
-            $body['AggregatorType'] = $request->aggregatorType;
+
+        if (null !== $request->aggregatorType) {
+            @$body['AggregatorType'] = $request->aggregatorType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->folderId)) {
-            $body['FolderId'] = $request->folderId;
+
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAggregator',
@@ -1249,19 +1452,23 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates an account group.
-     *  *
-     * @description Each management account can create a maximum of five account groups. Each account group can contain a maximum of 200 member accounts.
+     * Creates an account group.
+     *
+     * @remarks
+     * Each management account can create a maximum of five account groups. Each account group can contain a maximum of 200 member accounts.
      * Cloud Config supports the following types of account groups:
      * *   Global account group: The global account group contains all the member accounts that are added to the resource directory. A management account can create only one global account group.
      * *   Custom account group: If you create a custom account group, you must manually add all or specific member accounts from the resource directory to the custom account group.
      * This topic provides an example on how to create an account group of the `CUSTOM` type. The custom account group is named `Test_Group`, and its description is `Test account group`. The custom account group contains the following two member accounts:
      * *   Member account ID: `171322098523****`. Member account name: `Alice`.
      * *   Member account ID: `100532098349****`. Member account name: `Tom`.
-     *  *
-     * @param CreateAggregatorRequest $request CreateAggregatorRequest
      *
-     * @return CreateAggregatorResponse CreateAggregatorResponse
+     * @param request - CreateAggregatorRequest
+     * @returns CreateAggregatorResponse
+     *
+     * @param CreateAggregatorRequest $request
+     *
+     * @return CreateAggregatorResponse
      */
     public function createAggregator($request)
     {
@@ -1271,83 +1478,108 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a compliance package for the current account.
-     *  *
-     * @description Each ordinary account can create up to five compliance packages.
-     * This topic provides an example on how to create a compliance package named ClassifiedProtectionPreCheck. The compliance package contains a managed rule named `eip-bandwidth-limit`.
-     *  *
-     * @param CreateCompliancePackRequest $tmpReq  CreateCompliancePackRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a compliance package for the current account.
      *
-     * @return CreateCompliancePackResponse CreateCompliancePackResponse
+     * @remarks
+     * Each ordinary account can create up to five compliance packages.
+     * This topic provides an example on how to create a compliance package named ClassifiedProtectionPreCheck. The compliance package contains a managed rule named `eip-bandwidth-limit`.
+     *
+     * @param tmpReq - CreateCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCompliancePackResponse
+     *
+     * @param CreateCompliancePackRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateCompliancePackResponse
      */
     public function createCompliancePackWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateCompliancePackShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configRules)) {
-            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configRules) {
+            $request->configRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliancePackName)) {
-            $body['CompliancePackName'] = $request->compliancePackName;
+
+        if (null !== $request->compliancePackName) {
+            @$body['CompliancePackName'] = $request->compliancePackName;
         }
-        if (!Utils::isUnset($request->compliancePackTemplateId)) {
-            $body['CompliancePackTemplateId'] = $request->compliancePackTemplateId;
+
+        if (null !== $request->compliancePackTemplateId) {
+            @$body['CompliancePackTemplateId'] = $request->compliancePackTemplateId;
         }
-        if (!Utils::isUnset($request->configRulesShrink)) {
-            $body['ConfigRules'] = $request->configRulesShrink;
+
+        if (null !== $request->configRulesShrink) {
+            @$body['ConfigRules'] = $request->configRulesShrink;
         }
-        if (!Utils::isUnset($request->defaultEnable)) {
-            $body['DefaultEnable'] = $request->defaultEnable;
+
+        if (null !== $request->defaultEnable) {
+            @$body['DefaultEnable'] = $request->defaultEnable;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
-            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+
+        if (null !== $request->excludeRegionIdsScope) {
+            @$body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
-            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceIdsScope)) {
-            $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->excludeTagsScope)) {
-            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
+        if (null !== $request->excludeTagsScope) {
+            @$bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
-        if (!Utils::isUnset($request->regionIdsScope)) {
-            $body['RegionIdsScope'] = $request->regionIdsScope;
+
+        if (null !== $request->regionIdsScope) {
+            @$body['RegionIdsScope'] = $request->regionIdsScope;
         }
-        if (!Utils::isUnset($request->resourceGroupIdsScope)) {
-            $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->resourceIdsScope)) {
-            $body['ResourceIdsScope'] = $request->resourceIdsScope;
+
+        if (null !== $request->resourceIdsScope) {
+            @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $body['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->tagKeyScope)) {
-            $body['TagKeyScope'] = $request->tagKeyScope;
+
+        if (null !== $request->tagKeyScope) {
+            @$body['TagKeyScope'] = $request->tagKeyScope;
         }
-        if (!Utils::isUnset($request->tagValueScope)) {
-            $body['TagValueScope'] = $request->tagValueScope;
+
+        if (null !== $request->tagValueScope) {
+            @$body['TagValueScope'] = $request->tagValueScope;
         }
-        if (!Utils::isUnset($request->tagsScope)) {
-            $bodyFlat['TagsScope'] = $request->tagsScope;
+
+        if (null !== $request->tagsScope) {
+            @$bodyFlat['TagsScope'] = $request->tagsScope;
         }
-        if (!Utils::isUnset($request->templateContent)) {
-            $body['TemplateContent'] = $request->templateContent;
+
+        if (null !== $request->templateContent) {
+            @$body['TemplateContent'] = $request->templateContent;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCompliancePack',
@@ -1365,14 +1597,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a compliance package for the current account.
-     *  *
-     * @description Each ordinary account can create up to five compliance packages.
-     * This topic provides an example on how to create a compliance package named ClassifiedProtectionPreCheck. The compliance package contains a managed rule named `eip-bandwidth-limit`.
-     *  *
-     * @param CreateCompliancePackRequest $request CreateCompliancePackRequest
+     * Creates a compliance package for the current account.
      *
-     * @return CreateCompliancePackResponse CreateCompliancePackResponse
+     * @remarks
+     * Each ordinary account can create up to five compliance packages.
+     * This topic provides an example on how to create a compliance package named ClassifiedProtectionPreCheck. The compliance package contains a managed rule named `eip-bandwidth-limit`.
+     *
+     * @param request - CreateCompliancePackRequest
+     * @returns CreateCompliancePackResponse
+     *
+     * @param CreateCompliancePackRequest $request
+     *
+     * @return CreateCompliancePackResponse
      */
     public function createCompliancePack($request)
     {
@@ -1382,57 +1618,74 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a delivery channel.
-     *  *
-     * @description In this example, a delivery channel is created. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-     *  *
-     * @param CreateConfigDeliveryChannelRequest $request CreateConfigDeliveryChannelRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Creates a delivery channel.
      *
-     * @return CreateConfigDeliveryChannelResponse CreateConfigDeliveryChannelResponse
+     * @remarks
+     * In this example, a delivery channel is created. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+     *
+     * @param request - CreateConfigDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateConfigDeliveryChannelResponse
+     *
+     * @param CreateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateConfigDeliveryChannelResponse
      */
     public function createConfigDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliantSnapshot)) {
-            $query['CompliantSnapshot'] = $request->compliantSnapshot;
+
+        if (null !== $request->compliantSnapshot) {
+            @$query['CompliantSnapshot'] = $request->compliantSnapshot;
         }
-        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
-            $query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+
+        if (null !== $request->configurationItemChangeNotification) {
+            @$query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
         }
-        if (!Utils::isUnset($request->configurationSnapshot)) {
-            $query['ConfigurationSnapshot'] = $request->configurationSnapshot;
+
+        if (null !== $request->configurationSnapshot) {
+            @$query['ConfigurationSnapshot'] = $request->configurationSnapshot;
         }
-        if (!Utils::isUnset($request->deliveryChannelCondition)) {
-            $query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+
+        if (null !== $request->deliveryChannelCondition) {
+            @$query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
         }
-        if (!Utils::isUnset($request->deliveryChannelName)) {
-            $query['DeliveryChannelName'] = $request->deliveryChannelName;
+
+        if (null !== $request->deliveryChannelName) {
+            @$query['DeliveryChannelName'] = $request->deliveryChannelName;
         }
-        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
-            $query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+
+        if (null !== $request->deliveryChannelTargetArn) {
+            @$query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
         }
-        if (!Utils::isUnset($request->deliveryChannelType)) {
-            $query['DeliveryChannelType'] = $request->deliveryChannelType;
+
+        if (null !== $request->deliveryChannelType) {
+            @$query['DeliveryChannelType'] = $request->deliveryChannelType;
         }
-        if (!Utils::isUnset($request->deliverySnapshotTime)) {
-            $query['DeliverySnapshotTime'] = $request->deliverySnapshotTime;
+
+        if (null !== $request->deliverySnapshotTime) {
+            @$query['DeliverySnapshotTime'] = $request->deliverySnapshotTime;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->nonCompliantNotification)) {
-            $query['NonCompliantNotification'] = $request->nonCompliantNotification;
+
+        if (null !== $request->nonCompliantNotification) {
+            @$query['NonCompliantNotification'] = $request->nonCompliantNotification;
         }
-        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
-            $query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+
+        if (null !== $request->oversizedDataOSSTargetArn) {
+            @$query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateConfigDeliveryChannel',
@@ -1450,13 +1703,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a delivery channel.
-     *  *
-     * @description In this example, a delivery channel is created. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-     *  *
-     * @param CreateConfigDeliveryChannelRequest $request CreateConfigDeliveryChannelRequest
+     * Creates a delivery channel.
      *
-     * @return CreateConfigDeliveryChannelResponse CreateConfigDeliveryChannelResponse
+     * @remarks
+     * In this example, a delivery channel is created. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+     *
+     * @param request - CreateConfigDeliveryChannelRequest
+     * @returns CreateConfigDeliveryChannelResponse
+     *
+     * @param CreateConfigDeliveryChannelRequest $request
+     *
+     * @return CreateConfigDeliveryChannelResponse
      */
     public function createConfigDeliveryChannel($request)
     {
@@ -1466,106 +1723,138 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a rule for the current account.
-     *  *
-     * @description ## Limits
-     * You can use a common account to create up to 200 rules.
-     *  *
-     * @param CreateConfigRuleRequest $tmpReq  CreateConfigRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a rule for the current account.
      *
-     * @return CreateConfigRuleResponse CreateConfigRuleResponse
+     * @remarks
+     * ## Limits
+     * You can use a common account to create up to 200 rules.
+     *
+     * @param tmpReq - CreateConfigRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateConfigRuleResponse
+     *
+     * @param CreateConfigRuleRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateConfigRuleResponse
      */
     public function createConfigRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateConfigRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->inputParameters)) {
-            $request->inputParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inputParameters) {
+            $request->inputParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
-            $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
+
+        if (null !== $tmpReq->resourceTypesScope) {
+            $request->resourceTypesScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configRuleName)) {
-            $body['ConfigRuleName'] = $request->configRuleName;
+
+        if (null !== $request->configRuleName) {
+            @$body['ConfigRuleName'] = $request->configRuleName;
         }
-        if (!Utils::isUnset($request->configRuleTriggerTypes)) {
-            $body['ConfigRuleTriggerTypes'] = $request->configRuleTriggerTypes;
+
+        if (null !== $request->configRuleTriggerTypes) {
+            @$body['ConfigRuleTriggerTypes'] = $request->configRuleTriggerTypes;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
-            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+
+        if (null !== $request->excludeRegionIdsScope) {
+            @$body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
-            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceIdsScope)) {
-            $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->excludeTagsScope)) {
-            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
+        if (null !== $request->excludeTagsScope) {
+            @$bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
-        if (!Utils::isUnset($request->extendContent)) {
-            $body['ExtendContent'] = $request->extendContent;
+
+        if (null !== $request->extendContent) {
+            @$body['ExtendContent'] = $request->extendContent;
         }
-        if (!Utils::isUnset($request->inputParametersShrink)) {
-            $body['InputParameters'] = $request->inputParametersShrink;
+
+        if (null !== $request->inputParametersShrink) {
+            @$body['InputParameters'] = $request->inputParametersShrink;
         }
-        if (!Utils::isUnset($request->maximumExecutionFrequency)) {
-            $body['MaximumExecutionFrequency'] = $request->maximumExecutionFrequency;
+
+        if (null !== $request->maximumExecutionFrequency) {
+            @$body['MaximumExecutionFrequency'] = $request->maximumExecutionFrequency;
         }
-        if (!Utils::isUnset($request->regionIdsScope)) {
-            $body['RegionIdsScope'] = $request->regionIdsScope;
+
+        if (null !== $request->regionIdsScope) {
+            @$body['RegionIdsScope'] = $request->regionIdsScope;
         }
-        if (!Utils::isUnset($request->resourceGroupIdsScope)) {
-            $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->resourceIdsScope)) {
-            $body['ResourceIdsScope'] = $request->resourceIdsScope;
+
+        if (null !== $request->resourceIdsScope) {
+            @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
-        if (!Utils::isUnset($request->resourceTypesScopeShrink)) {
-            $body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
+
+        if (null !== $request->resourceTypesScopeShrink) {
+            @$body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $body['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->sourceIdentifier)) {
-            $body['SourceIdentifier'] = $request->sourceIdentifier;
+
+        if (null !== $request->sourceIdentifier) {
+            @$body['SourceIdentifier'] = $request->sourceIdentifier;
         }
-        if (!Utils::isUnset($request->sourceOwner)) {
-            $body['SourceOwner'] = $request->sourceOwner;
+
+        if (null !== $request->sourceOwner) {
+            @$body['SourceOwner'] = $request->sourceOwner;
         }
-        if (!Utils::isUnset($request->tagKeyLogicScope)) {
-            $body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
+
+        if (null !== $request->tagKeyLogicScope) {
+            @$body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
         }
-        if (!Utils::isUnset($request->tagKeyScope)) {
-            $body['TagKeyScope'] = $request->tagKeyScope;
+
+        if (null !== $request->tagKeyScope) {
+            @$body['TagKeyScope'] = $request->tagKeyScope;
         }
-        if (!Utils::isUnset($request->tagValueScope)) {
-            $body['TagValueScope'] = $request->tagValueScope;
+
+        if (null !== $request->tagValueScope) {
+            @$body['TagValueScope'] = $request->tagValueScope;
         }
-        if (!Utils::isUnset($request->tagsScope)) {
-            $bodyFlat['TagsScope'] = $request->tagsScope;
+
+        if (null !== $request->tagsScope) {
+            @$bodyFlat['TagsScope'] = $request->tagsScope;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateConfigRule',
@@ -1583,14 +1872,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a rule for the current account.
-     *  *
-     * @description ## Limits
-     * You can use a common account to create up to 200 rules.
-     *  *
-     * @param CreateConfigRuleRequest $request CreateConfigRuleRequest
+     * Creates a rule for the current account.
      *
-     * @return CreateConfigRuleResponse CreateConfigRuleResponse
+     * @remarks
+     * ## Limits
+     * You can use a common account to create up to 200 rules.
+     *
+     * @param request - CreateConfigRuleRequest
+     * @returns CreateConfigRuleResponse
+     *
+     * @param CreateConfigRuleRequest $request
+     *
+     * @return CreateConfigRuleResponse
      */
     public function createConfigRule($request)
     {
@@ -1599,59 +1892,75 @@ class Config extends OpenApiClient
         return $this->createConfigRuleWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Creates a delivery channel.
+     *
+     * @remarks
+     * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+     *
      * @deprecated openAPI CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead
-     *  *
-     * @summary Creates a delivery channel.
-     *  *
-     * @description In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-     *  *
-     * Deprecated
      *
-     * @param CreateDeliveryChannelRequest $request CreateDeliveryChannelRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDeliveryChannelResponse
      *
-     * @return CreateDeliveryChannelResponse CreateDeliveryChannelResponse
+     * @param CreateDeliveryChannelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDeliveryChannelResponse
      */
     public function createDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
-            $body['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+
+        if (null !== $request->configurationItemChangeNotification) {
+            @$body['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
         }
-        if (!Utils::isUnset($request->configurationSnapshot)) {
-            $body['ConfigurationSnapshot'] = $request->configurationSnapshot;
+
+        if (null !== $request->configurationSnapshot) {
+            @$body['ConfigurationSnapshot'] = $request->configurationSnapshot;
         }
-        if (!Utils::isUnset($request->deliveryChannelAssumeRoleArn)) {
-            $body['DeliveryChannelAssumeRoleArn'] = $request->deliveryChannelAssumeRoleArn;
+
+        if (null !== $request->deliveryChannelAssumeRoleArn) {
+            @$body['DeliveryChannelAssumeRoleArn'] = $request->deliveryChannelAssumeRoleArn;
         }
-        if (!Utils::isUnset($request->deliveryChannelCondition)) {
-            $body['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+
+        if (null !== $request->deliveryChannelCondition) {
+            @$body['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
         }
-        if (!Utils::isUnset($request->deliveryChannelName)) {
-            $body['DeliveryChannelName'] = $request->deliveryChannelName;
+
+        if (null !== $request->deliveryChannelName) {
+            @$body['DeliveryChannelName'] = $request->deliveryChannelName;
         }
-        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
-            $body['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+
+        if (null !== $request->deliveryChannelTargetArn) {
+            @$body['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
         }
-        if (!Utils::isUnset($request->deliveryChannelType)) {
-            $body['DeliveryChannelType'] = $request->deliveryChannelType;
+
+        if (null !== $request->deliveryChannelType) {
+            @$body['DeliveryChannelType'] = $request->deliveryChannelType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->nonCompliantNotification)) {
-            $body['NonCompliantNotification'] = $request->nonCompliantNotification;
+
+        if (null !== $request->nonCompliantNotification) {
+            @$body['NonCompliantNotification'] = $request->nonCompliantNotification;
         }
-        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
-            $body['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+
+        if (null !== $request->oversizedDataOSSTargetArn) {
+            @$body['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDeliveryChannel',
@@ -1668,18 +1977,22 @@ class Config extends OpenApiClient
         return CreateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Creates a delivery channel.
+     *
+     * @remarks
+     * In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
+     *
      * @deprecated openAPI CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead
-     *  *
-     * @summary Creates a delivery channel.
-     *  *
-     * @description In this example, a delivery channel is created. The type of the delivery channel is `OSS`, the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`, and the ARN of the role that is assigned to the delivery channel is `acs:ram::100931896542****:role/aliyunserviceroleforconfig`. The returned result shows that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
-     *  *
-     * Deprecated
      *
-     * @param CreateDeliveryChannelRequest $request CreateDeliveryChannelRequest
+     * @param request - CreateDeliveryChannelRequest
+     * @returns CreateDeliveryChannelResponse
      *
-     * @return CreateDeliveryChannelResponse CreateDeliveryChannelResponse
+     * @param CreateDeliveryChannelRequest $request
+     *
+     * @return CreateDeliveryChannelResponse
      */
     public function createDeliveryChannel($request)
     {
@@ -1689,42 +2002,54 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a remediation template for a rule.
-     *  *
-     * @description This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
-     *  *
-     * @param CreateRemediationRequest $request CreateRemediationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a remediation template for a rule.
      *
-     * @return CreateRemediationResponse CreateRemediationResponse
+     * @remarks
+     * This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
+     *
+     * @param request - CreateRemediationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRemediationResponse
+     *
+     * @param CreateRemediationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateRemediationResponse
      */
     public function createRemediationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $body['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$body['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->invokeType)) {
-            $body['InvokeType'] = $request->invokeType;
+
+        if (null !== $request->invokeType) {
+            @$body['InvokeType'] = $request->invokeType;
         }
-        if (!Utils::isUnset($request->params)) {
-            $body['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$body['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->remediationTemplateId)) {
-            $body['RemediationTemplateId'] = $request->remediationTemplateId;
+
+        if (null !== $request->remediationTemplateId) {
+            @$body['RemediationTemplateId'] = $request->remediationTemplateId;
         }
-        if (!Utils::isUnset($request->remediationType)) {
-            $body['RemediationType'] = $request->remediationType;
+
+        if (null !== $request->remediationType) {
+            @$body['RemediationType'] = $request->remediationType;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRemediation',
@@ -1742,13 +2067,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Creates a remediation template for a rule.
-     *  *
-     * @description This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
-     *  *
-     * @param CreateRemediationRequest $request CreateRemediationRequest
+     * Creates a remediation template for a rule.
      *
-     * @return CreateRemediationResponse CreateRemediationResponse
+     * @remarks
+     * This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
+     *
+     * @param request - CreateRemediationRequest
+     * @returns CreateRemediationResponse
+     *
+     * @param CreateRemediationRequest $request
+     *
+     * @return CreateRemediationResponse
      */
     public function createRemediation($request)
     {
@@ -1758,33 +2087,41 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Disables one or more rules in an account group. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Disables one or more rules in an account group. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * The status of the rule is `ACTIVE`.
      * ### [](#)Description
      * This topic provides an example on how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
-     *  *
-     * @param DeactiveAggregateConfigRulesRequest $request DeactiveAggregateConfigRulesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeactiveAggregateConfigRulesResponse DeactiveAggregateConfigRulesResponse
+     * @param request - DeactiveAggregateConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeactiveAggregateConfigRulesResponse
+     *
+     * @param DeactiveAggregateConfigRulesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeactiveAggregateConfigRulesResponse
      */
     public function deactiveAggregateConfigRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeactiveAggregateConfigRules',
@@ -1802,16 +2139,20 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Disables one or more rules in an account group. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Disables one or more rules in an account group. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * The status of the rule is `ACTIVE`.
      * ### [](#)Description
      * This topic provides an example on how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
-     *  *
-     * @param DeactiveAggregateConfigRulesRequest $request DeactiveAggregateConfigRulesRequest
      *
-     * @return DeactiveAggregateConfigRulesResponse DeactiveAggregateConfigRulesResponse
+     * @param request - DeactiveAggregateConfigRulesRequest
+     * @returns DeactiveAggregateConfigRulesResponse
+     *
+     * @param DeactiveAggregateConfigRulesRequest $request
+     *
+     * @return DeactiveAggregateConfigRulesResponse
      */
     public function deactiveAggregateConfigRules($request)
     {
@@ -1821,30 +2162,37 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Disables a rule. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Disables a rule. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * The status of the rule is `ACTIVE`.
      * ### [](#)Description
      * This topic provides an example on how to disable the `cr-19a56457e0d90058****` rule.
-     *  *
-     * @param DeactiveConfigRulesRequest $request DeactiveConfigRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeactiveConfigRulesResponse DeactiveConfigRulesResponse
+     * @param request - DeactiveConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeactiveConfigRulesResponse
+     *
+     * @param DeactiveConfigRulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeactiveConfigRulesResponse
      */
     public function deactiveConfigRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeactiveConfigRules',
@@ -1862,16 +2210,20 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Disables a rule. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Disables a rule. After a rule is disabled, the resource in the rule is no longer evaluated. The compliance evaluation results before the rule is disabled are still displayed.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * The status of the rule is `ACTIVE`.
      * ### [](#)Description
      * This topic provides an example on how to disable the `cr-19a56457e0d90058****` rule.
-     *  *
-     * @param DeactiveConfigRulesRequest $request DeactiveConfigRulesRequest
      *
-     * @return DeactiveConfigRulesResponse DeactiveConfigRulesResponse
+     * @param request - DeactiveConfigRulesRequest
+     * @returns DeactiveConfigRulesResponse
+     *
+     * @param DeactiveConfigRulesRequest $request
+     *
+     * @return DeactiveConfigRulesResponse
      */
     public function deactiveConfigRules($request)
     {
@@ -1881,33 +2233,42 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the compliance packages of an account group.
-     *  *
-     * @description This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
-     *  *
-     * @param DeleteAggregateCompliancePacksRequest $request DeleteAggregateCompliancePacksRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Deletes the compliance packages of an account group.
      *
-     * @return DeleteAggregateCompliancePacksResponse DeleteAggregateCompliancePacksResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
+     *
+     * @param request - DeleteAggregateCompliancePacksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAggregateCompliancePacksResponse
+     *
+     * @param DeleteAggregateCompliancePacksRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteAggregateCompliancePacksResponse
      */
     public function deleteAggregateCompliancePacksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliancePackIds)) {
-            $body['CompliancePackIds'] = $request->compliancePackIds;
+
+        if (null !== $request->compliancePackIds) {
+            @$body['CompliancePackIds'] = $request->compliancePackIds;
         }
-        if (!Utils::isUnset($request->deleteRule)) {
-            $body['DeleteRule'] = $request->deleteRule;
+
+        if (null !== $request->deleteRule) {
+            @$body['DeleteRule'] = $request->deleteRule;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteAggregateCompliancePacks',
@@ -1925,13 +2286,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the compliance packages of an account group.
-     *  *
-     * @description This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
-     *  *
-     * @param DeleteAggregateCompliancePacksRequest $request DeleteAggregateCompliancePacksRequest
+     * Deletes the compliance packages of an account group.
      *
-     * @return DeleteAggregateCompliancePacksResponse DeleteAggregateCompliancePacksResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
+     *
+     * @param request - DeleteAggregateCompliancePacksRequest
+     * @returns DeleteAggregateCompliancePacksResponse
+     *
+     * @param DeleteAggregateCompliancePacksRequest $request
+     *
+     * @return DeleteAggregateCompliancePacksResponse
      */
     public function deleteAggregateCompliancePacks($request)
     {
@@ -1941,27 +2306,34 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a delivery channel from an account group.
-     *  *
-     * @description This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
-     *  *
-     * @param DeleteAggregateConfigDeliveryChannelRequest $request DeleteAggregateConfigDeliveryChannelRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Deletes a delivery channel from an account group.
      *
-     * @return DeleteAggregateConfigDeliveryChannelResponse DeleteAggregateConfigDeliveryChannelResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+     *
+     * @param request - DeleteAggregateConfigDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAggregateConfigDeliveryChannelResponse
+     *
+     * @param DeleteAggregateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DeleteAggregateConfigDeliveryChannelResponse
      */
     public function deleteAggregateConfigDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->deliveryChannelId)) {
-            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAggregateConfigDeliveryChannel',
@@ -1979,13 +2351,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a delivery channel from an account group.
-     *  *
-     * @description This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
-     *  *
-     * @param DeleteAggregateConfigDeliveryChannelRequest $request DeleteAggregateConfigDeliveryChannelRequest
+     * Deletes a delivery channel from an account group.
      *
-     * @return DeleteAggregateConfigDeliveryChannelResponse DeleteAggregateConfigDeliveryChannelResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+     *
+     * @param request - DeleteAggregateConfigDeliveryChannelRequest
+     * @returns DeleteAggregateConfigDeliveryChannelResponse
+     *
+     * @param DeleteAggregateConfigDeliveryChannelRequest $request
+     *
+     * @return DeleteAggregateConfigDeliveryChannelResponse
      */
     public function deleteAggregateConfigDeliveryChannel($request)
     {
@@ -1995,27 +2371,34 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more rules from an account group. You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
-     *  *
-     * @description This topic provides an example on how to delete the `cr-4e3d626622af0080****` rule from the `ca-a4e5626622af0079****` account group.
-     *  *
-     * @param DeleteAggregateConfigRulesRequest $request DeleteAggregateConfigRulesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more rules from an account group. You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
      *
-     * @return DeleteAggregateConfigRulesResponse DeleteAggregateConfigRulesResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cr-4e3d626622af0080****` rule from the `ca-a4e5626622af0079****` account group.
+     *
+     * @param request - DeleteAggregateConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAggregateConfigRulesResponse
+     *
+     * @param DeleteAggregateConfigRulesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteAggregateConfigRulesResponse
      */
     public function deleteAggregateConfigRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAggregateConfigRules',
@@ -2033,13 +2416,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more rules from an account group. You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
-     *  *
-     * @description This topic provides an example on how to delete the `cr-4e3d626622af0080****` rule from the `ca-a4e5626622af0079****` account group.
-     *  *
-     * @param DeleteAggregateConfigRulesRequest $request DeleteAggregateConfigRulesRequest
+     * Deletes one or more rules from an account group. You can delete a rule in the Cloud Config console. After you delete the rule, the configurations of the rule are deleted.
      *
-     * @return DeleteAggregateConfigRulesResponse DeleteAggregateConfigRulesResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cr-4e3d626622af0080****` rule from the `ca-a4e5626622af0079****` account group.
+     *
+     * @param request - DeleteAggregateConfigRulesRequest
+     * @returns DeleteAggregateConfigRulesResponse
+     *
+     * @param DeleteAggregateConfigRulesRequest $request
+     *
+     * @return DeleteAggregateConfigRulesResponse
      */
     public function deleteAggregateConfigRules($request)
     {
@@ -2049,27 +2436,34 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more remediation templates from a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
-     *  *
-     * @param DeleteAggregateRemediationsRequest $request DeleteAggregateRemediationsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more remediation templates from a rule in an account group.
      *
-     * @return DeleteAggregateRemediationsResponse DeleteAggregateRemediationsResponse
+     * @remarks
+     * This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
+     *
+     * @param request - DeleteAggregateRemediationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAggregateRemediationsResponse
+     *
+     * @param DeleteAggregateRemediationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteAggregateRemediationsResponse
      */
     public function deleteAggregateRemediationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->remediationIds)) {
-            $body['RemediationIds'] = $request->remediationIds;
+
+        if (null !== $request->remediationIds) {
+            @$body['RemediationIds'] = $request->remediationIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteAggregateRemediations',
@@ -2087,13 +2481,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more remediation templates from a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
-     *  *
-     * @param DeleteAggregateRemediationsRequest $request DeleteAggregateRemediationsRequest
+     * Deletes one or more remediation templates from a rule in an account group.
      *
-     * @return DeleteAggregateRemediationsResponse DeleteAggregateRemediationsResponse
+     * @remarks
+     * This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
+     *
+     * @param request - DeleteAggregateRemediationsRequest
+     * @returns DeleteAggregateRemediationsResponse
+     *
+     * @param DeleteAggregateRemediationsRequest $request
+     *
+     * @return DeleteAggregateRemediationsResponse
      */
     public function deleteAggregateRemediations($request)
     {
@@ -2103,9 +2501,10 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary The management account or delegated administrator account of a resource directory can delete an account group.
-     *  *
-     * @description ### [](#)Background information
+     * The management account or delegated administrator account of a resource directory can delete an account group.
+     *
+     * @remarks
+     * ### [](#)Background information
      * After you delete an account group, the following changes occur to Cloud Config:
      * *   The rules and compliance packages of the account group are deleted and cannot be recovered.
      * *   All compliance results generated in the account group are automatically deleted and cannot be recovered.
@@ -2113,24 +2512,30 @@ class Config extends OpenApiClient
      * *   If the account groups to which a member belongs are all deleted, the member account uses Cloud Config as an independent Alibaba Cloud account.
      * ### [](#)Description
      * This topic provides an example on how to delete the account group whose ID is `ca-9190626622af00a9****`.
-     *  *
-     * @param DeleteAggregatorsRequest $request DeleteAggregatorsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAggregatorsResponse DeleteAggregatorsResponse
+     * @param request - DeleteAggregatorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAggregatorsResponse
+     *
+     * @param DeleteAggregatorsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAggregatorsResponse
      */
     public function deleteAggregatorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aggregatorIds)) {
-            $body['AggregatorIds'] = $request->aggregatorIds;
+        if (null !== $request->aggregatorIds) {
+            @$body['AggregatorIds'] = $request->aggregatorIds;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteAggregators',
@@ -2148,9 +2553,10 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary The management account or delegated administrator account of a resource directory can delete an account group.
-     *  *
-     * @description ### [](#)Background information
+     * The management account or delegated administrator account of a resource directory can delete an account group.
+     *
+     * @remarks
+     * ### [](#)Background information
      * After you delete an account group, the following changes occur to Cloud Config:
      * *   The rules and compliance packages of the account group are deleted and cannot be recovered.
      * *   All compliance results generated in the account group are automatically deleted and cannot be recovered.
@@ -2158,10 +2564,13 @@ class Config extends OpenApiClient
      * *   If the account groups to which a member belongs are all deleted, the member account uses Cloud Config as an independent Alibaba Cloud account.
      * ### [](#)Description
      * This topic provides an example on how to delete the account group whose ID is `ca-9190626622af00a9****`.
-     *  *
-     * @param DeleteAggregatorsRequest $request DeleteAggregatorsRequest
      *
-     * @return DeleteAggregatorsResponse DeleteAggregatorsResponse
+     * @param request - DeleteAggregatorsRequest
+     * @returns DeleteAggregatorsResponse
+     *
+     * @param DeleteAggregatorsRequest $request
+     *
+     * @return DeleteAggregatorsResponse
      */
     public function deleteAggregators($request)
     {
@@ -2171,30 +2580,38 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more compliance packages.
-     *  *
-     * @description This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
-     *  *
-     * @param DeleteCompliancePacksRequest $request DeleteCompliancePacksRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more compliance packages.
      *
-     * @return DeleteCompliancePacksResponse DeleteCompliancePacksResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
+     *
+     * @param request - DeleteCompliancePacksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCompliancePacksResponse
+     *
+     * @param DeleteCompliancePacksRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCompliancePacksResponse
      */
     public function deleteCompliancePacksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliancePackIds)) {
-            $body['CompliancePackIds'] = $request->compliancePackIds;
+
+        if (null !== $request->compliancePackIds) {
+            @$body['CompliancePackIds'] = $request->compliancePackIds;
         }
-        if (!Utils::isUnset($request->deleteRule)) {
-            $body['DeleteRule'] = $request->deleteRule;
+
+        if (null !== $request->deleteRule) {
+            @$body['DeleteRule'] = $request->deleteRule;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteCompliancePacks',
@@ -2212,13 +2629,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more compliance packages.
-     *  *
-     * @description This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
-     *  *
-     * @param DeleteCompliancePacksRequest $request DeleteCompliancePacksRequest
+     * Deletes one or more compliance packages.
      *
-     * @return DeleteCompliancePacksResponse DeleteCompliancePacksResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
+     *
+     * @param request - DeleteCompliancePacksRequest
+     * @returns DeleteCompliancePacksResponse
+     *
+     * @param DeleteCompliancePacksRequest $request
+     *
+     * @return DeleteCompliancePacksResponse
      */
     public function deleteCompliancePacks($request)
     {
@@ -2228,24 +2649,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a delivery channel.
-     *  *
-     * @description This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
-     *  *
-     * @param DeleteConfigDeliveryChannelRequest $request DeleteConfigDeliveryChannelRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Deletes a delivery channel.
      *
-     * @return DeleteConfigDeliveryChannelResponse DeleteConfigDeliveryChannelResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+     *
+     * @param request - DeleteConfigDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteConfigDeliveryChannelResponse
+     *
+     * @param DeleteConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteConfigDeliveryChannelResponse
      */
     public function deleteConfigDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deliveryChannelId)) {
-            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteConfigDeliveryChannel',
@@ -2263,13 +2690,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a delivery channel.
-     *  *
-     * @description This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
-     *  *
-     * @param DeleteConfigDeliveryChannelRequest $request DeleteConfigDeliveryChannelRequest
+     * Deletes a delivery channel.
      *
-     * @return DeleteConfigDeliveryChannelResponse DeleteConfigDeliveryChannelResponse
+     * @remarks
+     * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
+     *
+     * @param request - DeleteConfigDeliveryChannelRequest
+     * @returns DeleteConfigDeliveryChannelResponse
+     *
+     * @param DeleteConfigDeliveryChannelRequest $request
+     *
+     * @return DeleteConfigDeliveryChannelResponse
      */
     public function deleteConfigDeliveryChannel($request)
     {
@@ -2279,24 +2710,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes rules.
-     *  *
-     * @description In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
-     *  *
-     * @param DeleteConfigRulesRequest $request DeleteConfigRulesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes rules.
      *
-     * @return DeleteConfigRulesResponse DeleteConfigRulesResponse
+     * @remarks
+     * In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
+     *
+     * @param request - DeleteConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteConfigRulesResponse
+     *
+     * @param DeleteConfigRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteConfigRulesResponse
      */
     public function deleteConfigRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteConfigRules',
@@ -2314,13 +2751,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes rules.
-     *  *
-     * @description In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
-     *  *
-     * @param DeleteConfigRulesRequest $request DeleteConfigRulesRequest
+     * Deletes rules.
      *
-     * @return DeleteConfigRulesResponse DeleteConfigRulesResponse
+     * @remarks
+     * In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
+     *
+     * @param request - DeleteConfigRulesRequest
+     * @returns DeleteConfigRulesResponse
+     *
+     * @param DeleteConfigRulesRequest $request
+     *
+     * @return DeleteConfigRulesResponse
      */
     public function deleteConfigRules($request)
     {
@@ -2330,24 +2771,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more configured remediation templates that are associated with a rule.
-     *  *
-     * @description This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
-     *  *
-     * @param DeleteRemediationsRequest $request DeleteRemediationsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more configured remediation templates that are associated with a rule.
      *
-     * @return DeleteRemediationsResponse DeleteRemediationsResponse
+     * @remarks
+     * This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
+     *
+     * @param request - DeleteRemediationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRemediationsResponse
+     *
+     * @param DeleteRemediationsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteRemediationsResponse
      */
     public function deleteRemediationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->remediationIds)) {
-            $body['RemediationIds'] = $request->remediationIds;
+        if (null !== $request->remediationIds) {
+            @$body['RemediationIds'] = $request->remediationIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRemediations',
@@ -2365,13 +2812,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more configured remediation templates that are associated with a rule.
-     *  *
-     * @description This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
-     *  *
-     * @param DeleteRemediationsRequest $request DeleteRemediationsRequest
+     * Deletes one or more configured remediation templates that are associated with a rule.
      *
-     * @return DeleteRemediationsResponse DeleteRemediationsResponse
+     * @remarks
+     * This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
+     *
+     * @param request - DeleteRemediationsRequest
+     * @returns DeleteRemediationsResponse
+     *
+     * @param DeleteRemediationsRequest $request
+     *
+     * @return DeleteRemediationsResponse
      */
     public function deleteRemediations($request)
     {
@@ -2381,19 +2832,23 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
-     *  *
-     * @param DescribeRemediationRequest $request DescribeRemediationRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
      *
-     * @return DescribeRemediationResponse DescribeRemediationResponse
+     * @param request - DescribeRemediationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRemediationResponse
+     *
+     * @param DescribeRemediationRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeRemediationResponse
      */
     public function describeRemediationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRemediation',
@@ -2411,11 +2866,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
-     *  *
-     * @param DescribeRemediationRequest $request DescribeRemediationRequest
+     * This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
      *
-     * @return DescribeRemediationResponse DescribeRemediationResponse
+     * @param request - DescribeRemediationRequest
+     * @returns DescribeRemediationResponse
+     *
+     * @param DescribeRemediationRequest $request
+     *
+     * @return DescribeRemediationResponse
      */
     public function describeRemediation($request)
     {
@@ -2425,33 +2883,41 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Removes one or more rules in an account group from a compliance package.
-     *  *
-     * @description ### Prerequisites
+     * Removes one or more rules in an account group from a compliance package.
+     *
+     * @remarks
+     * ### Prerequisites
      * One or more rules are added to a compliance package.
      * ### Usage notes
      * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
-     *  *
-     * @param DetachAggregateConfigRuleToCompliancePackRequest $request DetachAggregateConfigRuleToCompliancePackRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachAggregateConfigRuleToCompliancePackResponse DetachAggregateConfigRuleToCompliancePackResponse
+     * @param request - DetachAggregateConfigRuleToCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachAggregateConfigRuleToCompliancePackResponse
+     *
+     * @param DetachAggregateConfigRuleToCompliancePackRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DetachAggregateConfigRuleToCompliancePackResponse
      */
     public function detachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachAggregateConfigRuleToCompliancePack',
@@ -2469,16 +2935,20 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Removes one or more rules in an account group from a compliance package.
-     *  *
-     * @description ### Prerequisites
+     * Removes one or more rules in an account group from a compliance package.
+     *
+     * @remarks
+     * ### Prerequisites
      * One or more rules are added to a compliance package.
      * ### Usage notes
      * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
-     *  *
-     * @param DetachAggregateConfigRuleToCompliancePackRequest $request DetachAggregateConfigRuleToCompliancePackRequest
      *
-     * @return DetachAggregateConfigRuleToCompliancePackResponse DetachAggregateConfigRuleToCompliancePackResponse
+     * @param request - DetachAggregateConfigRuleToCompliancePackRequest
+     * @returns DetachAggregateConfigRuleToCompliancePackResponse
+     *
+     * @param DetachAggregateConfigRuleToCompliancePackRequest $request
+     *
+     * @return DetachAggregateConfigRuleToCompliancePackResponse
      */
     public function detachAggregateConfigRuleToCompliancePack($request)
     {
@@ -2488,30 +2958,37 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Removes one or more rules from a compliance package.
-     *  *
-     * @description ### Prerequisites
+     * Removes one or more rules from a compliance package.
+     *
+     * @remarks
+     * ### Prerequisites
      * One or more rules are added to a compliance package.
      * ### Usage notes
      * This topic provides an example on how to remove the `cr-6cc4626622af00e7****` rule from the `cp-5bb1626622af00bd****` compliance package.
-     *  *
-     * @param DetachConfigRuleToCompliancePackRequest $request DetachConfigRuleToCompliancePackRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachConfigRuleToCompliancePackResponse DetachConfigRuleToCompliancePackResponse
+     * @param request - DetachConfigRuleToCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachConfigRuleToCompliancePackResponse
+     *
+     * @param DetachConfigRuleToCompliancePackRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DetachConfigRuleToCompliancePackResponse
      */
     public function detachConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachConfigRuleToCompliancePack',
@@ -2529,16 +3006,20 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Removes one or more rules from a compliance package.
-     *  *
-     * @description ### Prerequisites
+     * Removes one or more rules from a compliance package.
+     *
+     * @remarks
+     * ### Prerequisites
      * One or more rules are added to a compliance package.
      * ### Usage notes
      * This topic provides an example on how to remove the `cr-6cc4626622af00e7****` rule from the `cp-5bb1626622af00bd****` compliance package.
-     *  *
-     * @param DetachConfigRuleToCompliancePackRequest $request DetachConfigRuleToCompliancePackRequest
      *
-     * @return DetachConfigRuleToCompliancePackResponse DetachConfigRuleToCompliancePackResponse
+     * @param request - DetachConfigRuleToCompliancePackRequest
+     * @returns DetachConfigRuleToCompliancePackResponse
+     *
+     * @param DetachConfigRuleToCompliancePackRequest $request
+     *
+     * @return DetachConfigRuleToCompliancePackResponse
      */
     public function detachConfigRuleToCompliancePack($request)
     {
@@ -2548,30 +3029,41 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Executes evaluation rules to evaluate resources.
-     *  *
-     * @param EvaluatePreConfigRulesRequest $tmpReq  EvaluatePreConfigRulesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Executes evaluation rules to evaluate resources.
      *
-     * @return EvaluatePreConfigRulesResponse EvaluatePreConfigRulesResponse
+     * @param tmpReq - EvaluatePreConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EvaluatePreConfigRulesResponse
+     *
+     * @param EvaluatePreConfigRulesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EvaluatePreConfigRulesResponse
      */
     public function evaluatePreConfigRulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EvaluatePreConfigRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceEvaluateItems)) {
-            $request->resourceEvaluateItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceEvaluateItems, 'ResourceEvaluateItems', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceEvaluateItems) {
+            $request->resourceEvaluateItemsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceEvaluateItems, 'ResourceEvaluateItems', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->enableManagedRules)) {
-            $body['EnableManagedRules'] = $request->enableManagedRules;
+        if (null !== $request->enableManagedRules) {
+            @$body['EnableManagedRules'] = $request->enableManagedRules;
         }
-        if (!Utils::isUnset($request->resourceEvaluateItemsShrink)) {
-            $body['ResourceEvaluateItems'] = $request->resourceEvaluateItemsShrink;
+
+        if (null !== $request->resourceEvaluateItemsShrink) {
+            @$body['ResourceEvaluateItems'] = $request->resourceEvaluateItemsShrink;
         }
+
+        if (null !== $request->resourceTypeFormat) {
+            @$body['ResourceTypeFormat'] = $request->resourceTypeFormat;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EvaluatePreConfigRules',
@@ -2589,11 +3081,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Executes evaluation rules to evaluate resources.
-     *  *
-     * @param EvaluatePreConfigRulesRequest $request EvaluatePreConfigRulesRequest
+     * Executes evaluation rules to evaluate resources.
      *
-     * @return EvaluatePreConfigRulesResponse EvaluatePreConfigRulesResponse
+     * @param request - EvaluatePreConfigRulesRequest
+     * @returns EvaluatePreConfigRulesResponse
+     *
+     * @param EvaluatePreConfigRulesRequest $request
+     *
+     * @return EvaluatePreConfigRulesResponse
      */
     public function evaluatePreConfigRules($request)
     {
@@ -2603,31 +3098,39 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a compliance evaluation report based on a compliance package in an account group.
-     *  *
-     * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262699.html).
-     * This topic provides an example on how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-     *  *
-     * @param GenerateAggregateCompliancePackReportRequest $request GenerateAggregateCompliancePackReportRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Generates a compliance evaluation report based on a compliance package in an account group.
      *
-     * @return GenerateAggregateCompliancePackReportResponse GenerateAggregateCompliancePackReportResponse
+     * @remarks
+     * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262699.html).
+     * This topic provides an example on how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
+     *
+     * @param request - GenerateAggregateCompliancePackReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateAggregateCompliancePackReportResponse
+     *
+     * @param GenerateAggregateCompliancePackReportRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GenerateAggregateCompliancePackReportResponse
      */
     public function generateAggregateCompliancePackReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $body['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$body['CompliancePackId'] = $request->compliancePackId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenerateAggregateCompliancePackReport',
@@ -2645,14 +3148,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a compliance evaluation report based on a compliance package in an account group.
-     *  *
-     * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262699.html).
-     * This topic provides an example on how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-     *  *
-     * @param GenerateAggregateCompliancePackReportRequest $request GenerateAggregateCompliancePackReportRequest
+     * Generates a compliance evaluation report based on a compliance package in an account group.
      *
-     * @return GenerateAggregateCompliancePackReportResponse GenerateAggregateCompliancePackReportResponse
+     * @remarks
+     * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262699.html).
+     * This topic provides an example on how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
+     *
+     * @param request - GenerateAggregateCompliancePackReportRequest
+     * @returns GenerateAggregateCompliancePackReportResponse
+     *
+     * @param GenerateAggregateCompliancePackReportRequest $request
+     *
+     * @return GenerateAggregateCompliancePackReportResponse
      */
     public function generateAggregateCompliancePackReport($request)
     {
@@ -2662,31 +3169,39 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a compliance evaluation report for the rules in a specified account group.
-     *  *
-     * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262706.html).
-     * The topic provides an example on how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
-     *  *
-     * @param GenerateAggregateConfigRulesReportRequest $request GenerateAggregateConfigRulesReportRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Generates a compliance evaluation report for the rules in a specified account group.
      *
-     * @return GenerateAggregateConfigRulesReportResponse GenerateAggregateConfigRulesReportResponse
+     * @remarks
+     * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262706.html).
+     * The topic provides an example on how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
+     *
+     * @param request - GenerateAggregateConfigRulesReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateAggregateConfigRulesReportResponse
+     *
+     * @param GenerateAggregateConfigRulesReportRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GenerateAggregateConfigRulesReportResponse
      */
     public function generateAggregateConfigRulesReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $body['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$body['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenerateAggregateConfigRulesReport',
@@ -2704,14 +3219,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a compliance evaluation report for the rules in a specified account group.
-     *  *
-     * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262706.html).
-     * The topic provides an example on how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
-     *  *
-     * @param GenerateAggregateConfigRulesReportRequest $request GenerateAggregateConfigRulesReportRequest
+     * Generates a compliance evaluation report for the rules in a specified account group.
      *
-     * @return GenerateAggregateConfigRulesReportResponse GenerateAggregateConfigRulesReportResponse
+     * @remarks
+     * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetAggregateConfigRulesReport operation. For more information, see [GetAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262706.html).
+     * The topic provides an example on how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
+     *
+     * @param request - GenerateAggregateConfigRulesReportRequest
+     * @returns GenerateAggregateConfigRulesReportResponse
+     *
+     * @param GenerateAggregateConfigRulesReportRequest $request
+     *
+     * @return GenerateAggregateConfigRulesReportResponse
      */
     public function generateAggregateConfigRulesReport($request)
     {
@@ -2721,36 +3240,46 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a downloadable inventory for global resources in an account group.
-     *  *
-     * @description This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
-     *  *
-     * @param GenerateAggregateResourceInventoryRequest $request GenerateAggregateResourceInventoryRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Generates a downloadable inventory for global resources in an account group.
      *
-     * @return GenerateAggregateResourceInventoryResponse GenerateAggregateResourceInventoryResponse
+     * @remarks
+     * This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+     *
+     * @param request - GenerateAggregateResourceInventoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateAggregateResourceInventoryResponse
+     *
+     * @param GenerateAggregateResourceInventoryRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GenerateAggregateResourceInventoryResponse
      */
     public function generateAggregateResourceInventoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountIds)) {
-            $query['AccountIds'] = $request->accountIds;
+        if (null !== $request->accountIds) {
+            @$query['AccountIds'] = $request->accountIds;
         }
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->regions)) {
-            $query['Regions'] = $request->regions;
+
+        if (null !== $request->regions) {
+            @$query['Regions'] = $request->regions;
         }
-        if (!Utils::isUnset($request->resourceDeleted)) {
-            $query['ResourceDeleted'] = $request->resourceDeleted;
+
+        if (null !== $request->resourceDeleted) {
+            @$query['ResourceDeleted'] = $request->resourceDeleted;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GenerateAggregateResourceInventory',
@@ -2768,13 +3297,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a downloadable inventory for global resources in an account group.
-     *  *
-     * @description This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
-     *  *
-     * @param GenerateAggregateResourceInventoryRequest $request GenerateAggregateResourceInventoryRequest
+     * Generates a downloadable inventory for global resources in an account group.
      *
-     * @return GenerateAggregateResourceInventoryResponse GenerateAggregateResourceInventoryResponse
+     * @remarks
+     * This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+     *
+     * @param request - GenerateAggregateResourceInventoryRequest
+     * @returns GenerateAggregateResourceInventoryResponse
+     *
+     * @param GenerateAggregateResourceInventoryRequest $request
+     *
+     * @return GenerateAggregateResourceInventoryResponse
      */
     public function generateAggregateResourceInventory($request)
     {
@@ -2784,28 +3317,35 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a compliance evaluation report based on a compliance package.
-     *  *
-     * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](https://help.aliyun.com/document_detail/263347.html).
-     * This topic provides an example on how to generate a compliance evaluation report based on the `cp-a8a8626622af0082****` compliance package.
-     *  *
-     * @param GenerateCompliancePackReportRequest $request GenerateCompliancePackReportRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Generates a compliance evaluation report based on a compliance package.
      *
-     * @return GenerateCompliancePackReportResponse GenerateCompliancePackReportResponse
+     * @remarks
+     * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](https://help.aliyun.com/document_detail/263347.html).
+     * This topic provides an example on how to generate a compliance evaluation report based on the `cp-a8a8626622af0082****` compliance package.
+     *
+     * @param request - GenerateCompliancePackReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateCompliancePackReportResponse
+     *
+     * @param GenerateCompliancePackReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GenerateCompliancePackReportResponse
      */
     public function generateCompliancePackReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $body['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$body['CompliancePackId'] = $request->compliancePackId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenerateCompliancePackReport',
@@ -2823,14 +3363,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a compliance evaluation report based on a compliance package.
-     *  *
-     * @description > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](https://help.aliyun.com/document_detail/263347.html).
-     * This topic provides an example on how to generate a compliance evaluation report based on the `cp-a8a8626622af0082****` compliance package.
-     *  *
-     * @param GenerateCompliancePackReportRequest $request GenerateCompliancePackReportRequest
+     * Generates a compliance evaluation report based on a compliance package.
      *
-     * @return GenerateCompliancePackReportResponse GenerateCompliancePackReportResponse
+     * @remarks
+     * > You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetCompliancePackReport operation. For more information, see [GetCompliancePackReport](https://help.aliyun.com/document_detail/263347.html).
+     * This topic provides an example on how to generate a compliance evaluation report based on the `cp-a8a8626622af0082****` compliance package.
+     *
+     * @param request - GenerateCompliancePackReportRequest
+     * @returns GenerateCompliancePackReportResponse
+     *
+     * @param GenerateCompliancePackReportRequest $request
+     *
+     * @return GenerateCompliancePackReportResponse
      */
     public function generateCompliancePackReport($request)
     {
@@ -2840,28 +3384,35 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a compliance evaluation report for a rule.
-     *  *
-     * @description >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetConfigRulesReport operation. For more information, see [GetConfigRulesReport](https://help.aliyun.com/document_detail/263608.html).
-     * This topic provides an example of how to generate a compliance evaluation report based on all existing rules.
-     *  *
-     * @param GenerateConfigRulesReportRequest $request GenerateConfigRulesReportRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Generates a compliance evaluation report for a rule.
      *
-     * @return GenerateConfigRulesReportResponse GenerateConfigRulesReportResponse
+     * @remarks
+     * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetConfigRulesReport operation. For more information, see [GetConfigRulesReport](https://help.aliyun.com/document_detail/263608.html).
+     * This topic provides an example of how to generate a compliance evaluation report based on all existing rules.
+     *
+     * @param request - GenerateConfigRulesReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateConfigRulesReportResponse
+     *
+     * @param GenerateConfigRulesReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GenerateConfigRulesReportResponse
      */
     public function generateConfigRulesReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $body['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$body['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenerateConfigRulesReport',
@@ -2879,14 +3430,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a compliance evaluation report for a rule.
-     *  *
-     * @description >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetConfigRulesReport operation. For more information, see [GetConfigRulesReport](https://help.aliyun.com/document_detail/263608.html).
-     * This topic provides an example of how to generate a compliance evaluation report based on all existing rules.
-     *  *
-     * @param GenerateConfigRulesReportRequest $request GenerateConfigRulesReportRequest
+     * Generates a compliance evaluation report for a rule.
      *
-     * @return GenerateConfigRulesReportResponse GenerateConfigRulesReportResponse
+     * @remarks
+     * >  You can call this operation to generate the latest compliance evaluation report. To download the report, call the GetConfigRulesReport operation. For more information, see [GetConfigRulesReport](https://help.aliyun.com/document_detail/263608.html).
+     * This topic provides an example of how to generate a compliance evaluation report based on all existing rules.
+     *
+     * @param request - GenerateConfigRulesReportRequest
+     * @returns GenerateConfigRulesReportResponse
+     *
+     * @param GenerateConfigRulesReportRequest $request
+     *
+     * @return GenerateConfigRulesReportResponse
      */
     public function generateConfigRulesReport($request)
     {
@@ -2896,30 +3451,38 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a resource inventory for global resources.
-     *  *
-     * @description This topic provides an example on how to generate a resource inventory for global resources of the current account.
-     *  *
-     * @param GenerateResourceInventoryRequest $request GenerateResourceInventoryRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Generates a resource inventory for global resources.
      *
-     * @return GenerateResourceInventoryResponse GenerateResourceInventoryResponse
+     * @remarks
+     * This topic provides an example on how to generate a resource inventory for global resources of the current account.
+     *
+     * @param request - GenerateResourceInventoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateResourceInventoryResponse
+     *
+     * @param GenerateResourceInventoryRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GenerateResourceInventoryResponse
      */
     public function generateResourceInventoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regions)) {
-            $query['Regions'] = $request->regions;
+        if (null !== $request->regions) {
+            @$query['Regions'] = $request->regions;
         }
-        if (!Utils::isUnset($request->resourceDeleted)) {
-            $query['ResourceDeleted'] = $request->resourceDeleted;
+
+        if (null !== $request->resourceDeleted) {
+            @$query['ResourceDeleted'] = $request->resourceDeleted;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GenerateResourceInventory',
@@ -2937,13 +3500,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Generates a resource inventory for global resources.
-     *  *
-     * @description This topic provides an example on how to generate a resource inventory for global resources of the current account.
-     *  *
-     * @param GenerateResourceInventoryRequest $request GenerateResourceInventoryRequest
+     * Generates a resource inventory for global resources.
      *
-     * @return GenerateResourceInventoryResponse GenerateResourceInventoryResponse
+     * @remarks
+     * This topic provides an example on how to generate a resource inventory for global resources of the current account.
+     *
+     * @param request - GenerateResourceInventoryRequest
+     * @returns GenerateResourceInventoryResponse
+     *
+     * @param GenerateResourceInventoryRequest $request
+     *
+     * @return GenerateResourceInventoryResponse
      */
     public function generateResourceInventory($request)
     {
@@ -2953,14 +3520,19 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the last resource advanced search file that is generated within the current account. You can call this operation to obtain the URL of the resource advanced search file.
-     *  *
-     * @description ### [](#)Prerequisites
-     * You must call the [CreateAdvancedSearchFile](https://help.aliyun.com/document_detail/2511967.html) operation to create a resource advanced search file. Then, you can call this operation to obtain the URL of the resource advanced search file.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Obtains the last resource advanced search file that is generated within the current account. You can call this operation to obtain the URL of the resource advanced search file.
      *
-     * @return GetAdvancedSearchFileResponse GetAdvancedSearchFileResponse
+     * @remarks
+     * ### [](#)Prerequisites
+     * You must call the [CreateAdvancedSearchFile](https://help.aliyun.com/document_detail/2511967.html) operation to create a resource advanced search file. Then, you can call this operation to obtain the URL of the resource advanced search file.
+     *
+     * @param request - GetAdvancedSearchFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAdvancedSearchFileResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAdvancedSearchFileResponse
      */
     public function getAdvancedSearchFileWithOptions($runtime)
     {
@@ -2981,12 +3553,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the last resource advanced search file that is generated within the current account. You can call this operation to obtain the URL of the resource advanced search file.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Obtains the last resource advanced search file that is generated within the current account. You can call this operation to obtain the URL of the resource advanced search file.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * You must call the [CreateAdvancedSearchFile](https://help.aliyun.com/document_detail/2511967.html) operation to create a resource advanced search file. Then, you can call this operation to obtain the URL of the resource advanced search file.
-     *  *
-     * @return GetAdvancedSearchFileResponse GetAdvancedSearchFileResponse
+     * @returns GetAdvancedSearchFileResponse
+     *
+     * @return GetAdvancedSearchFileResponse
      */
     public function getAdvancedSearchFile()
     {
@@ -2996,21 +3570,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of member accounts for which a compliance package takes effect in an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
-     *  *
-     * @param GetAggregateAccountComplianceByPackRequest $request GetAggregateAccountComplianceByPackRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance evaluation results of member accounts for which a compliance package takes effect in an account group.
      *
-     * @return GetAggregateAccountComplianceByPackResponse GetAggregateAccountComplianceByPackResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
+     *
+     * @param request - GetAggregateAccountComplianceByPackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateAccountComplianceByPackResponse
+     *
+     * @param GetAggregateAccountComplianceByPackRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetAggregateAccountComplianceByPackResponse
      */
     public function getAggregateAccountComplianceByPackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateAccountComplianceByPack',
@@ -3028,13 +3607,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of member accounts for which a compliance package takes effect in an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
-     *  *
-     * @param GetAggregateAccountComplianceByPackRequest $request GetAggregateAccountComplianceByPackRequest
+     * Queries the compliance evaluation results of member accounts for which a compliance package takes effect in an account group.
      *
-     * @return GetAggregateAccountComplianceByPackResponse GetAggregateAccountComplianceByPackResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
+     *
+     * @param request - GetAggregateAccountComplianceByPackRequest
+     * @returns GetAggregateAccountComplianceByPackResponse
+     *
+     * @param GetAggregateAccountComplianceByPackRequest $request
+     *
+     * @return GetAggregateAccountComplianceByPackResponse
      */
     public function getAggregateAccountComplianceByPack($request)
     {
@@ -3044,22 +3627,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the most recently generated resource file of an account group.
-     *  *
-     * @param GetAggregateAdvancedSearchFileRequest $request GetAggregateAdvancedSearchFileRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the most recently generated resource file of an account group.
      *
-     * @return GetAggregateAdvancedSearchFileResponse GetAggregateAdvancedSearchFileResponse
+     * @param request - GetAggregateAdvancedSearchFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateAdvancedSearchFileResponse
+     *
+     * @param GetAggregateAdvancedSearchFileRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetAggregateAdvancedSearchFileResponse
      */
     public function getAggregateAdvancedSearchFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateAdvancedSearchFile',
@@ -3077,11 +3665,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the most recently generated resource file of an account group.
-     *  *
-     * @param GetAggregateAdvancedSearchFileRequest $request GetAggregateAdvancedSearchFileRequest
+     * Queries the most recently generated resource file of an account group.
      *
-     * @return GetAggregateAdvancedSearchFileResponse GetAggregateAdvancedSearchFileResponse
+     * @param request - GetAggregateAdvancedSearchFileRequest
+     * @returns GetAggregateAdvancedSearchFileResponse
+     *
+     * @param GetAggregateAdvancedSearchFileRequest $request
+     *
+     * @return GetAggregateAdvancedSearchFileResponse
      */
     public function getAggregateAdvancedSearchFile($request)
     {
@@ -3091,21 +3682,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a compliance package in an account group.
-     *  *
-     * @description The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
-     *  *
-     * @param GetAggregateCompliancePackRequest $request GetAggregateCompliancePackRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a compliance package in an account group.
      *
-     * @return GetAggregateCompliancePackResponse GetAggregateCompliancePackResponse
+     * @remarks
+     * The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
+     *
+     * @param request - GetAggregateCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateCompliancePackResponse
+     *
+     * @param GetAggregateCompliancePackRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAggregateCompliancePackResponse
      */
     public function getAggregateCompliancePackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateCompliancePack',
@@ -3123,13 +3719,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a compliance package in an account group.
-     *  *
-     * @description The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
-     *  *
-     * @param GetAggregateCompliancePackRequest $request GetAggregateCompliancePackRequest
+     * Queries the details of a compliance package in an account group.
      *
-     * @return GetAggregateCompliancePackResponse GetAggregateCompliancePackResponse
+     * @remarks
+     * The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
+     *
+     * @param request - GetAggregateCompliancePackRequest
+     * @returns GetAggregateCompliancePackResponse
+     *
+     * @param GetAggregateCompliancePackRequest $request
+     *
+     * @return GetAggregateCompliancePackResponse
      */
     public function getAggregateCompliancePack($request)
     {
@@ -3139,22 +3739,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation report that is generated based on a compliance package of an account group.
-     *  *
-     * @description > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262687.html).
-     * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-     *  *
-     * @param GetAggregateCompliancePackReportRequest $request GetAggregateCompliancePackReportRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance evaluation report that is generated based on a compliance package of an account group.
      *
-     * @return GetAggregateCompliancePackReportResponse GetAggregateCompliancePackReportResponse
+     * @remarks
+     * > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262687.html).
+     * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
+     *
+     * @param request - GetAggregateCompliancePackReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateCompliancePackReportResponse
+     *
+     * @param GetAggregateCompliancePackReportRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetAggregateCompliancePackReportResponse
      */
     public function getAggregateCompliancePackReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateCompliancePackReport',
@@ -3172,14 +3777,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation report that is generated based on a compliance package of an account group.
-     *  *
-     * @description > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262687.html).
-     * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
-     *  *
-     * @param GetAggregateCompliancePackReportRequest $request GetAggregateCompliancePackReportRequest
+     * Queries the compliance evaluation report that is generated based on a compliance package of an account group.
      *
-     * @return GetAggregateCompliancePackReportResponse GetAggregateCompliancePackReportResponse
+     * @remarks
+     * > Before you call this operation, you must call the GenerateAggregateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateAggregateCompliancePackReport](https://help.aliyun.com/document_detail/262687.html).
+     * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
+     *
+     * @param request - GetAggregateCompliancePackReportRequest
+     * @returns GetAggregateCompliancePackReportResponse
+     *
+     * @param GetAggregateCompliancePackReportRequest $request
+     *
+     * @return GetAggregateCompliancePackReportResponse
      */
     public function getAggregateCompliancePackReport($request)
     {
@@ -3189,24 +3798,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance statistics of an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
-     *  *
-     * @param GetAggregateComplianceSummaryRequest $request GetAggregateComplianceSummaryRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance statistics of an account group.
      *
-     * @return GetAggregateComplianceSummaryResponse GetAggregateComplianceSummaryResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+     *
+     * @param request - GetAggregateComplianceSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateComplianceSummaryResponse
+     *
+     * @param GetAggregateComplianceSummaryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetAggregateComplianceSummaryResponse
      */
     public function getAggregateComplianceSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateComplianceSummary',
@@ -3224,13 +3839,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance statistics of an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
-     *  *
-     * @param GetAggregateComplianceSummaryRequest $request GetAggregateComplianceSummaryRequest
+     * Queries the compliance statistics of an account group.
      *
-     * @return GetAggregateComplianceSummaryResponse GetAggregateComplianceSummaryResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+     *
+     * @param request - GetAggregateComplianceSummaryRequest
+     * @returns GetAggregateComplianceSummaryResponse
+     *
+     * @param GetAggregateComplianceSummaryRequest $request
+     *
+     * @return GetAggregateComplianceSummaryResponse
      */
     public function getAggregateComplianceSummary($request)
     {
@@ -3240,25 +3859,31 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a delivery channel in an account group.
-     *  *
-     * @param GetAggregateConfigDeliveryChannelRequest $request GetAggregateConfigDeliveryChannelRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a delivery channel in an account group.
      *
-     * @return GetAggregateConfigDeliveryChannelResponse GetAggregateConfigDeliveryChannelResponse
+     * @param request - GetAggregateConfigDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateConfigDeliveryChannelResponse
+     *
+     * @param GetAggregateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetAggregateConfigDeliveryChannelResponse
      */
     public function getAggregateConfigDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->deliveryChannelId)) {
-            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateConfigDeliveryChannel',
@@ -3276,11 +3901,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a delivery channel in an account group.
-     *  *
-     * @param GetAggregateConfigDeliveryChannelRequest $request GetAggregateConfigDeliveryChannelRequest
+     * Queries the information about a delivery channel in an account group.
      *
-     * @return GetAggregateConfigDeliveryChannelResponse GetAggregateConfigDeliveryChannelResponse
+     * @param request - GetAggregateConfigDeliveryChannelRequest
+     * @returns GetAggregateConfigDeliveryChannelResponse
+     *
+     * @param GetAggregateConfigDeliveryChannelRequest $request
+     *
+     * @return GetAggregateConfigDeliveryChannelResponse
      */
     public function getAggregateConfigDeliveryChannel($request)
     {
@@ -3290,35 +3918,44 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a rule in an account group.
-     *  *
-     * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
-     *  *
-     * @param GetAggregateConfigRuleRequest $tmpReq  GetAggregateConfigRuleRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a rule in an account group.
      *
-     * @return GetAggregateConfigRuleResponse GetAggregateConfigRuleResponse
+     * @remarks
+     * This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
+     *
+     * @param tmpReq - GetAggregateConfigRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateConfigRuleResponse
+     *
+     * @param GetAggregateConfigRuleRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetAggregateConfigRuleResponse
      */
     public function getAggregateConfigRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetAggregateConfigRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateConfigRule',
@@ -3336,13 +3973,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a rule in an account group.
-     *  *
-     * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
-     *  *
-     * @param GetAggregateConfigRuleRequest $request GetAggregateConfigRuleRequest
+     * Queries the details of a rule in an account group.
      *
-     * @return GetAggregateConfigRuleResponse GetAggregateConfigRuleResponse
+     * @remarks
+     * This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
+     *
+     * @param request - GetAggregateConfigRuleRequest
+     * @returns GetAggregateConfigRuleResponse
+     *
+     * @param GetAggregateConfigRuleRequest $request
+     *
+     * @return GetAggregateConfigRuleResponse
      */
     public function getAggregateConfigRule($request)
     {
@@ -3352,21 +3993,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries compliance evaluation results based on the rules in a compliance package in an account group.
-     *  *
-     * @description The sample request in this topic shows you how to query the compliance evaluation results based on rules in the `cp-541e626622af0087****` compliance package that is created for the `ca-04b3fd170e340007****` account group. The return result shows a total of `one` rule. `No resources` are evaluated as non-compliant based on the rule.
-     *  *
-     * @param GetAggregateConfigRuleComplianceByPackRequest $request GetAggregateConfigRuleComplianceByPackRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Queries compliance evaluation results based on the rules in a compliance package in an account group.
      *
-     * @return GetAggregateConfigRuleComplianceByPackResponse GetAggregateConfigRuleComplianceByPackResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the compliance evaluation results based on rules in the `cp-541e626622af0087****` compliance package that is created for the `ca-04b3fd170e340007****` account group. The return result shows a total of `one` rule. `No resources` are evaluated as non-compliant based on the rule.
+     *
+     * @param request - GetAggregateConfigRuleComplianceByPackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateConfigRuleComplianceByPackResponse
+     *
+     * @param GetAggregateConfigRuleComplianceByPackRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetAggregateConfigRuleComplianceByPackResponse
      */
     public function getAggregateConfigRuleComplianceByPackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateConfigRuleComplianceByPack',
@@ -3384,13 +4030,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries compliance evaluation results based on the rules in a compliance package in an account group.
-     *  *
-     * @description The sample request in this topic shows you how to query the compliance evaluation results based on rules in the `cp-541e626622af0087****` compliance package that is created for the `ca-04b3fd170e340007****` account group. The return result shows a total of `one` rule. `No resources` are evaluated as non-compliant based on the rule.
-     *  *
-     * @param GetAggregateConfigRuleComplianceByPackRequest $request GetAggregateConfigRuleComplianceByPackRequest
+     * Queries compliance evaluation results based on the rules in a compliance package in an account group.
      *
-     * @return GetAggregateConfigRuleComplianceByPackResponse GetAggregateConfigRuleComplianceByPackResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the compliance evaluation results based on rules in the `cp-541e626622af0087****` compliance package that is created for the `ca-04b3fd170e340007****` account group. The return result shows a total of `one` rule. `No resources` are evaluated as non-compliant based on the rule.
+     *
+     * @param request - GetAggregateConfigRuleComplianceByPackRequest
+     * @returns GetAggregateConfigRuleComplianceByPackResponse
+     *
+     * @param GetAggregateConfigRuleComplianceByPackRequest $request
+     *
+     * @return GetAggregateConfigRuleComplianceByPackResponse
      */
     public function getAggregateConfigRuleComplianceByPack($request)
     {
@@ -3400,24 +4050,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the summary of compliance evaluation results by rule risk level in an account group.
-     *  *
-     * @description This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
-     *  *
-     * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request GetAggregateConfigRuleSummaryByRiskLevelRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * Queries the summary of compliance evaluation results by rule risk level in an account group.
      *
-     * @return GetAggregateConfigRuleSummaryByRiskLevelResponse GetAggregateConfigRuleSummaryByRiskLevelResponse
+     * @remarks
+     * This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
+     *
+     * @param request - GetAggregateConfigRuleSummaryByRiskLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateConfigRuleSummaryByRiskLevelResponse
+     *
+     * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return GetAggregateConfigRuleSummaryByRiskLevelResponse
      */
     public function getAggregateConfigRuleSummaryByRiskLevelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateConfigRuleSummaryByRiskLevel',
@@ -3435,13 +4091,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the summary of compliance evaluation results by rule risk level in an account group.
-     *  *
-     * @description This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
-     *  *
-     * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request GetAggregateConfigRuleSummaryByRiskLevelRequest
+     * Queries the summary of compliance evaluation results by rule risk level in an account group.
      *
-     * @return GetAggregateConfigRuleSummaryByRiskLevelResponse GetAggregateConfigRuleSummaryByRiskLevelResponse
+     * @remarks
+     * This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
+     *
+     * @param request - GetAggregateConfigRuleSummaryByRiskLevelRequest
+     * @returns GetAggregateConfigRuleSummaryByRiskLevelResponse
+     *
+     * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request
+     *
+     * @return GetAggregateConfigRuleSummaryByRiskLevelResponse
      */
     public function getAggregateConfigRuleSummaryByRiskLevel($request)
     {
@@ -3451,28 +4111,35 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
-     *  *
-     * @description > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262701.html).
-     * This topic provides an example on how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
-     *  *
-     * @param GetAggregateConfigRulesReportRequest $request GetAggregateConfigRulesReportRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
      *
-     * @return GetAggregateConfigRulesReportResponse GetAggregateConfigRulesReportResponse
+     * @remarks
+     * > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262701.html).
+     * This topic provides an example on how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
+     *
+     * @param request - GetAggregateConfigRulesReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateConfigRulesReportResponse
+     *
+     * @param GetAggregateConfigRulesReportRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetAggregateConfigRulesReportResponse
      */
     public function getAggregateConfigRulesReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateConfigRulesReport',
@@ -3490,14 +4157,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
-     *  *
-     * @description > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262701.html).
-     * This topic provides an example on how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
-     *  *
-     * @param GetAggregateConfigRulesReportRequest $request GetAggregateConfigRulesReportRequest
+     * Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
      *
-     * @return GetAggregateConfigRulesReportResponse GetAggregateConfigRulesReportResponse
+     * @remarks
+     * > Before you call this operation, you must call the GenerateAggregateConfigRulesReport operation to generate the latest compliance evaluation report based on all rules in an account group. For more information, see [GenerateAggregateConfigRulesReport](https://help.aliyun.com/document_detail/262701.html).
+     * This topic provides an example on how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
+     *
+     * @param request - GetAggregateConfigRulesReportRequest
+     * @returns GetAggregateConfigRulesReportResponse
+     *
+     * @param GetAggregateConfigRulesReportRequest $request
+     *
+     * @return GetAggregateConfigRulesReportResponse
      */
     public function getAggregateConfigRulesReport($request)
     {
@@ -3507,42 +4178,54 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a specific resource in an account group.
-     *  *
-     * @description This topic provides an example on how to query the details of an Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region in the account group `ca-5885626622af0008****`.
-     *  *
-     * @param GetAggregateDiscoveredResourceRequest $request GetAggregateDiscoveredResourceRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a specific resource in an account group.
      *
-     * @return GetAggregateDiscoveredResourceResponse GetAggregateDiscoveredResourceResponse
+     * @remarks
+     * This topic provides an example on how to query the details of an Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region in the account group `ca-5885626622af0008****`.
+     *
+     * @param request - GetAggregateDiscoveredResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateDiscoveredResourceResponse
+     *
+     * @param GetAggregateDiscoveredResourceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetAggregateDiscoveredResourceResponse
      */
     public function getAggregateDiscoveredResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->complianceOption)) {
-            $query['ComplianceOption'] = $request->complianceOption;
+
+        if (null !== $request->complianceOption) {
+            @$query['ComplianceOption'] = $request->complianceOption;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceAccountId)) {
-            $query['ResourceAccountId'] = $request->resourceAccountId;
+
+        if (null !== $request->resourceAccountId) {
+            @$query['ResourceAccountId'] = $request->resourceAccountId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateDiscoveredResource',
@@ -3560,13 +4243,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a specific resource in an account group.
-     *  *
-     * @description This topic provides an example on how to query the details of an Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region in the account group `ca-5885626622af0008****`.
-     *  *
-     * @param GetAggregateDiscoveredResourceRequest $request GetAggregateDiscoveredResourceRequest
+     * Queries the details of a specific resource in an account group.
      *
-     * @return GetAggregateDiscoveredResourceResponse GetAggregateDiscoveredResourceResponse
+     * @remarks
+     * This topic provides an example on how to query the details of an Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region in the account group `ca-5885626622af0008****`.
+     *
+     * @param request - GetAggregateDiscoveredResourceRequest
+     * @returns GetAggregateDiscoveredResourceResponse
+     *
+     * @param GetAggregateDiscoveredResourceRequest $request
+     *
+     * @return GetAggregateDiscoveredResourceResponse
      */
     public function getAggregateDiscoveredResource($request)
     {
@@ -3576,36 +4263,46 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries compliance evaluation results based on the rules in a compliance package in an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
-     *  *
-     * @param GetAggregateResourceComplianceByConfigRuleRequest $request GetAggregateResourceComplianceByConfigRuleRequest
-     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
+     * Queries compliance evaluation results based on the rules in a compliance package in an account group.
      *
-     * @return GetAggregateResourceComplianceByConfigRuleResponse GetAggregateResourceComplianceByConfigRuleResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+     *
+     * @param request - GetAggregateResourceComplianceByConfigRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateResourceComplianceByConfigRuleResponse
+     *
+     * @param GetAggregateResourceComplianceByConfigRuleRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return GetAggregateResourceComplianceByConfigRuleResponse
      */
     public function getAggregateResourceComplianceByConfigRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->complianceType)) {
-            $query['ComplianceType'] = $request->complianceType;
+
+        if (null !== $request->complianceType) {
+            @$query['ComplianceType'] = $request->complianceType;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->resourceAccountId)) {
-            $query['ResourceAccountId'] = $request->resourceAccountId;
+
+        if (null !== $request->resourceAccountId) {
+            @$query['ResourceAccountId'] = $request->resourceAccountId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateResourceComplianceByConfigRule',
@@ -3623,13 +4320,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries compliance evaluation results based on the rules in a compliance package in an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
-     *  *
-     * @param GetAggregateResourceComplianceByConfigRuleRequest $request GetAggregateResourceComplianceByConfigRuleRequest
+     * Queries compliance evaluation results based on the rules in a compliance package in an account group.
      *
-     * @return GetAggregateResourceComplianceByConfigRuleResponse GetAggregateResourceComplianceByConfigRuleResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+     *
+     * @param request - GetAggregateResourceComplianceByConfigRuleRequest
+     * @returns GetAggregateResourceComplianceByConfigRuleResponse
+     *
+     * @param GetAggregateResourceComplianceByConfigRuleRequest $request
+     *
+     * @return GetAggregateResourceComplianceByConfigRuleResponse
      */
     public function getAggregateResourceComplianceByConfigRule($request)
     {
@@ -3639,21 +4340,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources evaluated based on a compliance package of an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
-     *  *
-     * @param GetAggregateResourceComplianceByPackRequest $request GetAggregateResourceComplianceByPackRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance evaluation results of resources evaluated based on a compliance package of an account group.
      *
-     * @return GetAggregateResourceComplianceByPackResponse GetAggregateResourceComplianceByPackResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
+     *
+     * @param request - GetAggregateResourceComplianceByPackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateResourceComplianceByPackResponse
+     *
+     * @param GetAggregateResourceComplianceByPackRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GetAggregateResourceComplianceByPackResponse
      */
     public function getAggregateResourceComplianceByPackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateResourceComplianceByPack',
@@ -3671,13 +4377,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources evaluated based on a compliance package of an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
-     *  *
-     * @param GetAggregateResourceComplianceByPackRequest $request GetAggregateResourceComplianceByPackRequest
+     * Queries the compliance evaluation results of resources evaluated based on a compliance package of an account group.
      *
-     * @return GetAggregateResourceComplianceByPackResponse GetAggregateResourceComplianceByPackResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
+     *
+     * @param request - GetAggregateResourceComplianceByPackRequest
+     * @returns GetAggregateResourceComplianceByPackResponse
+     *
+     * @param GetAggregateResourceComplianceByPackRequest $request
+     *
+     * @return GetAggregateResourceComplianceByPackResponse
      */
     public function getAggregateResourceComplianceByPack($request)
     {
@@ -3687,25 +4397,31 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the evaluation results grouped by resource type for an account group rule.
-     *  *
-     * @param GetAggregateResourceComplianceGroupByRegionRequest $request GetAggregateResourceComplianceGroupByRegionRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
+     * Queries the evaluation results grouped by resource type for an account group rule.
      *
-     * @return GetAggregateResourceComplianceGroupByRegionResponse GetAggregateResourceComplianceGroupByRegionResponse
+     * @param request - GetAggregateResourceComplianceGroupByRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateResourceComplianceGroupByRegionResponse
+     *
+     * @param GetAggregateResourceComplianceGroupByRegionRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return GetAggregateResourceComplianceGroupByRegionResponse
      */
     public function getAggregateResourceComplianceGroupByRegionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateResourceComplianceGroupByRegion',
@@ -3723,11 +4439,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the evaluation results grouped by resource type for an account group rule.
-     *  *
-     * @param GetAggregateResourceComplianceGroupByRegionRequest $request GetAggregateResourceComplianceGroupByRegionRequest
+     * Queries the evaluation results grouped by resource type for an account group rule.
      *
-     * @return GetAggregateResourceComplianceGroupByRegionResponse GetAggregateResourceComplianceGroupByRegionResponse
+     * @param request - GetAggregateResourceComplianceGroupByRegionRequest
+     * @returns GetAggregateResourceComplianceGroupByRegionResponse
+     *
+     * @param GetAggregateResourceComplianceGroupByRegionRequest $request
+     *
+     * @return GetAggregateResourceComplianceGroupByRegionResponse
      */
     public function getAggregateResourceComplianceGroupByRegion($request)
     {
@@ -3737,25 +4456,31 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the evaluation results grouped by resource type for an account group rule.
-     *  *
-     * @param GetAggregateResourceComplianceGroupByResourceTypeRequest $request GetAggregateResourceComplianceGroupByResourceTypeRequest
-     * @param RuntimeOptions                                           $runtime runtime options for this request RuntimeOptions
+     * Queries the evaluation results grouped by resource type for an account group rule.
      *
-     * @return GetAggregateResourceComplianceGroupByResourceTypeResponse GetAggregateResourceComplianceGroupByResourceTypeResponse
+     * @param request - GetAggregateResourceComplianceGroupByResourceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateResourceComplianceGroupByResourceTypeResponse
+     *
+     * @param GetAggregateResourceComplianceGroupByResourceTypeRequest $request
+     * @param RuntimeOptions                                           $runtime
+     *
+     * @return GetAggregateResourceComplianceGroupByResourceTypeResponse
      */
     public function getAggregateResourceComplianceGroupByResourceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateResourceComplianceGroupByResourceType',
@@ -3773,11 +4498,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the evaluation results grouped by resource type for an account group rule.
-     *  *
-     * @param GetAggregateResourceComplianceGroupByResourceTypeRequest $request GetAggregateResourceComplianceGroupByResourceTypeRequest
+     * Queries the evaluation results grouped by resource type for an account group rule.
      *
-     * @return GetAggregateResourceComplianceGroupByResourceTypeResponse GetAggregateResourceComplianceGroupByResourceTypeResponse
+     * @param request - GetAggregateResourceComplianceGroupByResourceTypeRequest
+     * @returns GetAggregateResourceComplianceGroupByResourceTypeResponse
+     *
+     * @param GetAggregateResourceComplianceGroupByResourceTypeRequest $request
+     *
+     * @return GetAggregateResourceComplianceGroupByResourceTypeResponse
      */
     public function getAggregateResourceComplianceGroupByResourceType($request)
     {
@@ -3787,21 +4515,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance timeline of a resource in an account group.
-     *  *
-     * @description The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
-     *  *
-     * @param GetAggregateResourceComplianceTimelineRequest $request GetAggregateResourceComplianceTimelineRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance timeline of a resource in an account group.
      *
-     * @return GetAggregateResourceComplianceTimelineResponse GetAggregateResourceComplianceTimelineResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+     *
+     * @param request - GetAggregateResourceComplianceTimelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateResourceComplianceTimelineResponse
+     *
+     * @param GetAggregateResourceComplianceTimelineRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetAggregateResourceComplianceTimelineResponse
      */
     public function getAggregateResourceComplianceTimelineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateResourceComplianceTimeline',
@@ -3819,13 +4552,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance timeline of a resource in an account group.
-     *  *
-     * @description The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
-     *  *
-     * @param GetAggregateResourceComplianceTimelineRequest $request GetAggregateResourceComplianceTimelineRequest
+     * Queries the compliance timeline of a resource in an account group.
      *
-     * @return GetAggregateResourceComplianceTimelineResponse GetAggregateResourceComplianceTimelineResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+     *
+     * @param request - GetAggregateResourceComplianceTimelineRequest
+     * @returns GetAggregateResourceComplianceTimelineResponse
+     *
+     * @param GetAggregateResourceComplianceTimelineRequest $request
+     *
+     * @return GetAggregateResourceComplianceTimelineResponse
      */
     public function getAggregateResourceComplianceTimeline($request)
     {
@@ -3835,21 +4572,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration timeline of a resource in an account group.
-     *  *
-     * @description The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
-     *  *
-     * @param GetAggregateResourceConfigurationTimelineRequest $request GetAggregateResourceConfigurationTimelineRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration timeline of a resource in an account group.
      *
-     * @return GetAggregateResourceConfigurationTimelineResponse GetAggregateResourceConfigurationTimelineResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+     *
+     * @param request - GetAggregateResourceConfigurationTimelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateResourceConfigurationTimelineResponse
+     *
+     * @param GetAggregateResourceConfigurationTimelineRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return GetAggregateResourceConfigurationTimelineResponse
      */
     public function getAggregateResourceConfigurationTimelineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateResourceConfigurationTimeline',
@@ -3867,13 +4609,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration timeline of a resource in an account group.
-     *  *
-     * @description The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
-     *  *
-     * @param GetAggregateResourceConfigurationTimelineRequest $request GetAggregateResourceConfigurationTimelineRequest
+     * Queries the configuration timeline of a resource in an account group.
      *
-     * @return GetAggregateResourceConfigurationTimelineResponse GetAggregateResourceConfigurationTimelineResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+     *
+     * @param request - GetAggregateResourceConfigurationTimelineRequest
+     * @returns GetAggregateResourceConfigurationTimelineResponse
+     *
+     * @param GetAggregateResourceConfigurationTimelineRequest $request
+     *
+     * @return GetAggregateResourceConfigurationTimelineResponse
      */
     public function getAggregateResourceConfigurationTimeline($request)
     {
@@ -3883,36 +4629,46 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on the resources in an account group by region.
-     *  *
-     * @description This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
-     *  *
-     * @param GetAggregateResourceCountsGroupByRegionRequest $request GetAggregateResourceCountsGroupByRegionRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on the resources in an account group by region.
      *
-     * @return GetAggregateResourceCountsGroupByRegionResponse GetAggregateResourceCountsGroupByRegionResponse
+     * @remarks
+     * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
+     *
+     * @param request - GetAggregateResourceCountsGroupByRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateResourceCountsGroupByRegionResponse
+     *
+     * @param GetAggregateResourceCountsGroupByRegionRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return GetAggregateResourceCountsGroupByRegionResponse
      */
     public function getAggregateResourceCountsGroupByRegionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->folderId)) {
-            $query['FolderId'] = $request->folderId;
+
+        if (null !== $request->folderId) {
+            @$query['FolderId'] = $request->folderId;
         }
-        if (!Utils::isUnset($request->resourceAccountId)) {
-            $query['ResourceAccountId'] = $request->resourceAccountId;
+
+        if (null !== $request->resourceAccountId) {
+            @$query['ResourceAccountId'] = $request->resourceAccountId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateResourceCountsGroupByRegion',
@@ -3930,13 +4686,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on the resources in an account group by region.
-     *  *
-     * @description This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
-     *  *
-     * @param GetAggregateResourceCountsGroupByRegionRequest $request GetAggregateResourceCountsGroupByRegionRequest
+     * Queries the statistics on the resources in an account group by region.
      *
-     * @return GetAggregateResourceCountsGroupByRegionResponse GetAggregateResourceCountsGroupByRegionResponse
+     * @remarks
+     * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
+     *
+     * @param request - GetAggregateResourceCountsGroupByRegionRequest
+     * @returns GetAggregateResourceCountsGroupByRegionResponse
+     *
+     * @param GetAggregateResourceCountsGroupByRegionRequest $request
+     *
+     * @return GetAggregateResourceCountsGroupByRegionResponse
      */
     public function getAggregateResourceCountsGroupByRegion($request)
     {
@@ -3946,36 +4706,46 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on the resources in an account group by resource type.
-     *  *
-     * @description This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
-     *  *
-     * @param GetAggregateResourceCountsGroupByResourceTypeRequest $request GetAggregateResourceCountsGroupByResourceTypeRequest
-     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on the resources in an account group by resource type.
      *
-     * @return GetAggregateResourceCountsGroupByResourceTypeResponse GetAggregateResourceCountsGroupByResourceTypeResponse
+     * @remarks
+     * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
+     *
+     * @param request - GetAggregateResourceCountsGroupByResourceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateResourceCountsGroupByResourceTypeResponse
+     *
+     * @param GetAggregateResourceCountsGroupByResourceTypeRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return GetAggregateResourceCountsGroupByResourceTypeResponse
      */
     public function getAggregateResourceCountsGroupByResourceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->folderId)) {
-            $query['FolderId'] = $request->folderId;
+
+        if (null !== $request->folderId) {
+            @$query['FolderId'] = $request->folderId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceAccountId)) {
-            $query['ResourceAccountId'] = $request->resourceAccountId;
+
+        if (null !== $request->resourceAccountId) {
+            @$query['ResourceAccountId'] = $request->resourceAccountId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateResourceCountsGroupByResourceType',
@@ -3993,13 +4763,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on the resources in an account group by resource type.
-     *  *
-     * @description This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
-     *  *
-     * @param GetAggregateResourceCountsGroupByResourceTypeRequest $request GetAggregateResourceCountsGroupByResourceTypeRequest
+     * Queries the statistics on the resources in an account group by resource type.
      *
-     * @return GetAggregateResourceCountsGroupByResourceTypeResponse GetAggregateResourceCountsGroupByResourceTypeResponse
+     * @remarks
+     * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
+     *
+     * @param request - GetAggregateResourceCountsGroupByResourceTypeRequest
+     * @returns GetAggregateResourceCountsGroupByResourceTypeResponse
+     *
+     * @param GetAggregateResourceCountsGroupByResourceTypeRequest $request
+     *
+     * @return GetAggregateResourceCountsGroupByResourceTypeResponse
      */
     public function getAggregateResourceCountsGroupByResourceType($request)
     {
@@ -4009,27 +4783,33 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the last resource inventory that is generated on the Global Resources page within the current account group.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Obtains the last resource inventory that is generated on the Global Resources page within the current account group.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * The [GenerateAggregateResourceInventory](https://help.aliyun.com/document_detail/2398353.html) operation is called to generate a resource inventory. Then, this operation is called to obtain the URL of the resource inventory.
      * ### [](#)Description
      * This topic provides an example on how to obtain the last resource inventory that is generated within the account group ca-a91d626622af0035\\*\\*\\*\\*.
-     *  *
-     * @param GetAggregateResourceInventoryRequest $request GetAggregateResourceInventoryRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAggregateResourceInventoryResponse GetAggregateResourceInventoryResponse
+     * @param request - GetAggregateResourceInventoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregateResourceInventoryResponse
+     *
+     * @param GetAggregateResourceInventoryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetAggregateResourceInventoryResponse
      */
     public function getAggregateResourceInventoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregateResourceInventory',
@@ -4047,16 +4827,20 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the last resource inventory that is generated on the Global Resources page within the current account group.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Obtains the last resource inventory that is generated on the Global Resources page within the current account group.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * The [GenerateAggregateResourceInventory](https://help.aliyun.com/document_detail/2398353.html) operation is called to generate a resource inventory. Then, this operation is called to obtain the URL of the resource inventory.
      * ### [](#)Description
      * This topic provides an example on how to obtain the last resource inventory that is generated within the account group ca-a91d626622af0035\\*\\*\\*\\*.
-     *  *
-     * @param GetAggregateResourceInventoryRequest $request GetAggregateResourceInventoryRequest
      *
-     * @return GetAggregateResourceInventoryResponse GetAggregateResourceInventoryResponse
+     * @param request - GetAggregateResourceInventoryRequest
+     * @returns GetAggregateResourceInventoryResponse
+     *
+     * @param GetAggregateResourceInventoryRequest $request
+     *
+     * @return GetAggregateResourceInventoryResponse
      */
     public function getAggregateResourceInventory($request)
     {
@@ -4066,24 +4850,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an account group. You can query the name, creation time, member, and type of an account group.
-     *  *
-     * @description The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
-     *  *
-     * @param GetAggregatorRequest $request GetAggregatorRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an account group. You can query the name, creation time, member, and type of an account group.
      *
-     * @return GetAggregatorResponse GetAggregatorResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
+     *
+     * @param request - GetAggregatorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAggregatorResponse
+     *
+     * @param GetAggregatorRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAggregatorResponse
      */
     public function getAggregatorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAggregator',
@@ -4101,13 +4891,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an account group. You can query the name, creation time, member, and type of an account group.
-     *  *
-     * @description The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
-     *  *
-     * @param GetAggregatorRequest $request GetAggregatorRequest
+     * Queries the details of an account group. You can query the name, creation time, member, and type of an account group.
      *
-     * @return GetAggregatorResponse GetAggregatorResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
+     *
+     * @param request - GetAggregatorRequest
+     * @returns GetAggregatorResponse
+     *
+     * @param GetAggregatorRequest $request
+     *
+     * @return GetAggregatorResponse
      */
     public function getAggregator($request)
     {
@@ -4117,21 +4911,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a compliance package.
-     *  *
-     * @description This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
-     *  *
-     * @param GetCompliancePackRequest $request GetCompliancePackRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a compliance package.
      *
-     * @return GetCompliancePackResponse GetCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
+     *
+     * @param request - GetCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCompliancePackResponse
+     *
+     * @param GetCompliancePackRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetCompliancePackResponse
      */
     public function getCompliancePackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCompliancePack',
@@ -4149,13 +4948,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a compliance package.
-     *  *
-     * @description This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
-     *  *
-     * @param GetCompliancePackRequest $request GetCompliancePackRequest
+     * Queries the details of a compliance package.
      *
-     * @return GetCompliancePackResponse GetCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
+     *
+     * @param request - GetCompliancePackRequest
+     * @returns GetCompliancePackResponse
+     *
+     * @param GetCompliancePackRequest $request
+     *
+     * @return GetCompliancePackResponse
      */
     public function getCompliancePack($request)
     {
@@ -4165,22 +4968,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation report that is generated based on a compliance package.
-     *  *
-     * @description > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](https://help.aliyun.com/document_detail/263525.html).
-     * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package.
-     *  *
-     * @param GetCompliancePackReportRequest $request GetCompliancePackReportRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance evaluation report that is generated based on a compliance package.
      *
-     * @return GetCompliancePackReportResponse GetCompliancePackReportResponse
+     * @remarks
+     * > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](https://help.aliyun.com/document_detail/263525.html).
+     * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package.
+     *
+     * @param request - GetCompliancePackReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCompliancePackReportResponse
+     *
+     * @param GetCompliancePackReportRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetCompliancePackReportResponse
      */
     public function getCompliancePackReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCompliancePackReport',
@@ -4198,14 +5006,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation report that is generated based on a compliance package.
-     *  *
-     * @description > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](https://help.aliyun.com/document_detail/263525.html).
-     * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package.
-     *  *
-     * @param GetCompliancePackReportRequest $request GetCompliancePackReportRequest
+     * Queries the compliance evaluation report that is generated based on a compliance package.
      *
-     * @return GetCompliancePackReportResponse GetCompliancePackReportResponse
+     * @remarks
+     * > Before you call this operation, you must call the GenerateCompliancePackReport operation to generate the latest compliance evaluation report based on a compliance package. For more information, see [GenerateCompliancePackReport](https://help.aliyun.com/document_detail/263525.html).
+     * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package.
+     *
+     * @param request - GetCompliancePackReportRequest
+     * @returns GetCompliancePackReportResponse
+     *
+     * @param GetCompliancePackReportRequest $request
+     *
+     * @return GetCompliancePackReportResponse
      */
     public function getCompliancePackReport($request)
     {
@@ -4215,13 +5027,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the summary of compliance statistics within the current account.
-     *  *
-     * @description This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the summary of compliance statistics within the current account.
      *
-     * @return GetComplianceSummaryResponse GetComplianceSummaryResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
+     *
+     * @param request - GetComplianceSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetComplianceSummaryResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetComplianceSummaryResponse
      */
     public function getComplianceSummaryWithOptions($runtime)
     {
@@ -4242,11 +5059,13 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the summary of compliance statistics within the current account.
-     *  *
-     * @description This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
-     *  *
-     * @return GetComplianceSummaryResponse GetComplianceSummaryResponse
+     * Queries the summary of compliance statistics within the current account.
+     *
+     * @remarks
+     * This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
+     * @returns GetComplianceSummaryResponse
+     *
+     * @return GetComplianceSummaryResponse
      */
     public function getComplianceSummary()
     {
@@ -4256,22 +5075,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a delivery channel.
-     *  *
-     * @param GetConfigDeliveryChannelRequest $request GetConfigDeliveryChannelRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a delivery channel.
      *
-     * @return GetConfigDeliveryChannelResponse GetConfigDeliveryChannelResponse
+     * @param request - GetConfigDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetConfigDeliveryChannelResponse
+     *
+     * @param GetConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetConfigDeliveryChannelResponse
      */
     public function getConfigDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deliveryChannelId)) {
-            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetConfigDeliveryChannel',
@@ -4289,11 +5113,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a delivery channel.
-     *  *
-     * @param GetConfigDeliveryChannelRequest $request GetConfigDeliveryChannelRequest
+     * Queries the information about a delivery channel.
      *
-     * @return GetConfigDeliveryChannelResponse GetConfigDeliveryChannelResponse
+     * @param request - GetConfigDeliveryChannelRequest
+     * @returns GetConfigDeliveryChannelResponse
+     *
+     * @param GetConfigDeliveryChannelRequest $request
+     *
+     * @return GetConfigDeliveryChannelResponse
      */
     public function getConfigDeliveryChannel($request)
     {
@@ -4303,32 +5130,40 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a rule.
-     *  *
-     * @description This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
-     *  *
-     * @param GetConfigRuleRequest $tmpReq  GetConfigRuleRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a rule.
      *
-     * @return GetConfigRuleResponse GetConfigRuleResponse
+     * @remarks
+     * This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
+     *
+     * @param tmpReq - GetConfigRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetConfigRuleResponse
+     *
+     * @param GetConfigRuleRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetConfigRuleResponse
      */
     public function getConfigRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetConfigRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetConfigRule',
@@ -4346,13 +5181,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a rule.
-     *  *
-     * @description This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
-     *  *
-     * @param GetConfigRuleRequest $request GetConfigRuleRequest
+     * Queries the details of a rule.
      *
-     * @return GetConfigRuleResponse GetConfigRuleResponse
+     * @remarks
+     * This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
+     *
+     * @param request - GetConfigRuleRequest
+     * @returns GetConfigRuleResponse
+     *
+     * @param GetConfigRuleRequest $request
+     *
+     * @return GetConfigRuleResponse
      */
     public function getConfigRule($request)
     {
@@ -4362,21 +5201,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries compliance evaluation results based on the rules in a compliance package.
-     *  *
-     * @description In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of one rule against which specific resources are evaluated as compliant.
-     *  *
-     * @param GetConfigRuleComplianceByPackRequest $request GetConfigRuleComplianceByPackRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries compliance evaluation results based on the rules in a compliance package.
      *
-     * @return GetConfigRuleComplianceByPackResponse GetConfigRuleComplianceByPackResponse
+     * @remarks
+     * In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of one rule against which specific resources are evaluated as compliant.
+     *
+     * @param request - GetConfigRuleComplianceByPackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetConfigRuleComplianceByPackResponse
+     *
+     * @param GetConfigRuleComplianceByPackRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetConfigRuleComplianceByPackResponse
      */
     public function getConfigRuleComplianceByPackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetConfigRuleComplianceByPack',
@@ -4394,13 +5238,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries compliance evaluation results based on the rules in a compliance package.
-     *  *
-     * @description In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of one rule against which specific resources are evaluated as compliant.
-     *  *
-     * @param GetConfigRuleComplianceByPackRequest $request GetConfigRuleComplianceByPackRequest
+     * Queries compliance evaluation results based on the rules in a compliance package.
      *
-     * @return GetConfigRuleComplianceByPackResponse GetConfigRuleComplianceByPackResponse
+     * @remarks
+     * In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of one rule against which specific resources are evaluated as compliant.
+     *
+     * @param request - GetConfigRuleComplianceByPackRequest
+     * @returns GetConfigRuleComplianceByPackResponse
+     *
+     * @param GetConfigRuleComplianceByPackRequest $request
+     *
+     * @return GetConfigRuleComplianceByPackResponse
      */
     public function getConfigRuleComplianceByPack($request)
     {
@@ -4410,13 +5258,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance summary based on the risk level of a rule.
-     *  *
-     * @description This topic provides an example of how to query the summary of compliance evaluation results by rule risk level. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance summary based on the risk level of a rule.
      *
-     * @return GetConfigRuleSummaryByRiskLevelResponse GetConfigRuleSummaryByRiskLevelResponse
+     * @remarks
+     * This topic provides an example of how to query the summary of compliance evaluation results by rule risk level. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
+     *
+     * @param request - GetConfigRuleSummaryByRiskLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetConfigRuleSummaryByRiskLevelResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetConfigRuleSummaryByRiskLevelResponse
      */
     public function getConfigRuleSummaryByRiskLevelWithOptions($runtime)
     {
@@ -4437,11 +5290,13 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance summary based on the risk level of a rule.
-     *  *
-     * @description This topic provides an example of how to query the summary of compliance evaluation results by rule risk level. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
-     *  *
-     * @return GetConfigRuleSummaryByRiskLevelResponse GetConfigRuleSummaryByRiskLevelResponse
+     * Queries the compliance summary based on the risk level of a rule.
+     *
+     * @remarks
+     * This topic provides an example of how to query the summary of compliance evaluation results by rule risk level. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
+     * @returns GetConfigRuleSummaryByRiskLevelResponse
+     *
+     * @return GetConfigRuleSummaryByRiskLevelResponse
      */
     public function getConfigRuleSummaryByRiskLevel()
     {
@@ -4451,25 +5306,31 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
-     *  *
-     * @description >  Before you call this operation, you must call the GenerateConfigRulesReport operation to generate the latest compliance evaluation report based on all existing rules. For more information, see [GenerateConfigRulesReport](https://help.aliyun.com/document_detail/263601.html).
-     * This topic provides an example of how to query the compliance evaluation report that is generated based on all existing rules.
-     *  *
-     * @param GetConfigRulesReportRequest $request GetConfigRulesReportRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
      *
-     * @return GetConfigRulesReportResponse GetConfigRulesReportResponse
+     * @remarks
+     * >  Before you call this operation, you must call the GenerateConfigRulesReport operation to generate the latest compliance evaluation report based on all existing rules. For more information, see [GenerateConfigRulesReport](https://help.aliyun.com/document_detail/263601.html).
+     * This topic provides an example of how to query the compliance evaluation report that is generated based on all existing rules.
+     *
+     * @param request - GetConfigRulesReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetConfigRulesReportResponse
+     *
+     * @param GetConfigRulesReportRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetConfigRulesReportResponse
      */
     public function getConfigRulesReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetConfigRulesReport',
@@ -4487,14 +5348,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
-     *  *
-     * @description >  Before you call this operation, you must call the GenerateConfigRulesReport operation to generate the latest compliance evaluation report based on all existing rules. For more information, see [GenerateConfigRulesReport](https://help.aliyun.com/document_detail/263601.html).
-     * This topic provides an example of how to query the compliance evaluation report that is generated based on all existing rules.
-     *  *
-     * @param GetConfigRulesReportRequest $request GetConfigRulesReportRequest
+     * Downloads the compliance evaluation report in the Excel format to your on-premises machine. This allows you to assign tasks and modify incompliant resource configurations.
      *
-     * @return GetConfigRulesReportResponse GetConfigRulesReportResponse
+     * @remarks
+     * >  Before you call this operation, you must call the GenerateConfigRulesReport operation to generate the latest compliance evaluation report based on all existing rules. For more information, see [GenerateConfigRulesReport](https://help.aliyun.com/document_detail/263601.html).
+     * This topic provides an example of how to query the compliance evaluation report that is generated based on all existing rules.
+     *
+     * @param request - GetConfigRulesReportRequest
+     * @returns GetConfigRulesReportResponse
+     *
+     * @param GetConfigRulesReportRequest $request
+     *
+     * @return GetConfigRulesReportResponse
      */
     public function getConfigRulesReport($request)
     {
@@ -4504,13 +5369,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the activation status and resource monitoring scope of Cloud Config for the current account.
-     *  *
-     * @description This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the activation status and resource monitoring scope of Cloud Config for the current account.
      *
-     * @return GetConfigurationRecorderResponse GetConfigurationRecorderResponse
+     * @remarks
+     * This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
+     *
+     * @param request - GetConfigurationRecorderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetConfigurationRecorderResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetConfigurationRecorderResponse
      */
     public function getConfigurationRecorderWithOptions($runtime)
     {
@@ -4531,11 +5401,13 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the activation status and resource monitoring scope of Cloud Config for the current account.
-     *  *
-     * @description This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
-     *  *
-     * @return GetConfigurationRecorderResponse GetConfigurationRecorderResponse
+     * Queries the activation status and resource monitoring scope of Cloud Config for the current account.
+     *
+     * @remarks
+     * This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
+     * @returns GetConfigurationRecorderResponse
+     *
+     * @return GetConfigurationRecorderResponse
      */
     public function getConfigurationRecorder()
     {
@@ -4545,33 +5417,42 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a specific resource.
-     *  *
-     * @description This topic provides an example on how to query the details of the Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region.
-     *  *
-     * @param GetDiscoveredResourceRequest $request GetDiscoveredResourceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a specific resource.
      *
-     * @return GetDiscoveredResourceResponse GetDiscoveredResourceResponse
+     * @remarks
+     * This topic provides an example on how to query the details of the Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region.
+     *
+     * @param request - GetDiscoveredResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDiscoveredResourceResponse
+     *
+     * @param GetDiscoveredResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDiscoveredResourceResponse
      */
     public function getDiscoveredResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->complianceOption)) {
-            $query['ComplianceOption'] = $request->complianceOption;
+        if (null !== $request->complianceOption) {
+            @$query['ComplianceOption'] = $request->complianceOption;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDiscoveredResource',
@@ -4589,13 +5470,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a specific resource.
-     *  *
-     * @description This topic provides an example on how to query the details of the Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region.
-     *  *
-     * @param GetDiscoveredResourceRequest $request GetDiscoveredResourceRequest
+     * Queries the details of a specific resource.
      *
-     * @return GetDiscoveredResourceResponse GetDiscoveredResourceResponse
+     * @remarks
+     * This topic provides an example on how to query the details of the Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region.
+     *
+     * @param request - GetDiscoveredResourceRequest
+     * @returns GetDiscoveredResourceResponse
+     *
+     * @param GetDiscoveredResourceRequest $request
+     *
+     * @return GetDiscoveredResourceResponse
      */
     public function getDiscoveredResource($request)
     {
@@ -4605,24 +5490,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on resources by region.
-     *  *
-     * @description This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
-     *  *
-     * @param GetDiscoveredResourceCountsGroupByRegionRequest $request GetDiscoveredResourceCountsGroupByRegionRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on resources by region.
      *
-     * @return GetDiscoveredResourceCountsGroupByRegionResponse GetDiscoveredResourceCountsGroupByRegionResponse
+     * @remarks
+     * This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
+     *
+     * @param request - GetDiscoveredResourceCountsGroupByRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDiscoveredResourceCountsGroupByRegionResponse
+     *
+     * @param GetDiscoveredResourceCountsGroupByRegionRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return GetDiscoveredResourceCountsGroupByRegionResponse
      */
     public function getDiscoveredResourceCountsGroupByRegionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDiscoveredResourceCountsGroupByRegion',
@@ -4640,13 +5531,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on resources by region.
-     *  *
-     * @description This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
-     *  *
-     * @param GetDiscoveredResourceCountsGroupByRegionRequest $request GetDiscoveredResourceCountsGroupByRegionRequest
+     * Queries the statistics on resources by region.
      *
-     * @return GetDiscoveredResourceCountsGroupByRegionResponse GetDiscoveredResourceCountsGroupByRegionResponse
+     * @remarks
+     * This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
+     *
+     * @param request - GetDiscoveredResourceCountsGroupByRegionRequest
+     * @returns GetDiscoveredResourceCountsGroupByRegionResponse
+     *
+     * @param GetDiscoveredResourceCountsGroupByRegionRequest $request
+     *
+     * @return GetDiscoveredResourceCountsGroupByRegionResponse
      */
     public function getDiscoveredResourceCountsGroupByRegion($request)
     {
@@ -4656,24 +5551,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on resources by resource type.
-     *  *
-     * @description This topic describes how to query the statistics on resources by resource type. The returned result shows that a total of 10 resources of the `ACS::ECS::Instance` resource type exist.
-     *  *
-     * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request GetDiscoveredResourceCountsGroupByResourceTypeRequest
-     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on resources by resource type.
      *
-     * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse GetDiscoveredResourceCountsGroupByResourceTypeResponse
+     * @remarks
+     * This topic describes how to query the statistics on resources by resource type. The returned result shows that a total of 10 resources of the `ACS::ECS::Instance` resource type exist.
+     *
+     * @param request - GetDiscoveredResourceCountsGroupByResourceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDiscoveredResourceCountsGroupByResourceTypeResponse
+     *
+     * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse
      */
     public function getDiscoveredResourceCountsGroupByResourceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDiscoveredResourceCountsGroupByResourceType',
@@ -4691,13 +5592,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on resources by resource type.
-     *  *
-     * @description This topic describes how to query the statistics on resources by resource type. The returned result shows that a total of 10 resources of the `ACS::ECS::Instance` resource type exist.
-     *  *
-     * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request GetDiscoveredResourceCountsGroupByResourceTypeRequest
+     * Queries the statistics on resources by resource type.
      *
-     * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse GetDiscoveredResourceCountsGroupByResourceTypeResponse
+     * @remarks
+     * This topic describes how to query the statistics on resources by resource type. The returned result shows that a total of 10 resources of the `ACS::ECS::Instance` resource type exist.
+     *
+     * @param request - GetDiscoveredResourceCountsGroupByResourceTypeRequest
+     * @returns GetDiscoveredResourceCountsGroupByResourceTypeResponse
+     *
+     * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request
+     *
+     * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse
      */
     public function getDiscoveredResourceCountsGroupByResourceType($request)
     {
@@ -4707,22 +5612,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the integration status of a specific cloud service.
-     *  *
-     * @param GetIntegratedServiceStatusRequest $request GetIntegratedServiceStatusRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the integration status of a specific cloud service.
      *
-     * @return GetIntegratedServiceStatusResponse GetIntegratedServiceStatusResponse
+     * @param request - GetIntegratedServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetIntegratedServiceStatusResponse
+     *
+     * @param GetIntegratedServiceStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetIntegratedServiceStatusResponse
      */
     public function getIntegratedServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
+        if (null !== $request->serviceCode) {
+            @$body['ServiceCode'] = $request->serviceCode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetIntegratedServiceStatus',
@@ -4740,11 +5650,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the integration status of a specific cloud service.
-     *  *
-     * @param GetIntegratedServiceStatusRequest $request GetIntegratedServiceStatusRequest
+     * Queries the integration status of a specific cloud service.
      *
-     * @return GetIntegratedServiceStatusResponse GetIntegratedServiceStatusResponse
+     * @param request - GetIntegratedServiceStatusRequest
+     * @returns GetIntegratedServiceStatusResponse
+     *
+     * @param GetIntegratedServiceStatusRequest $request
+     *
+     * @return GetIntegratedServiceStatusResponse
      */
     public function getIntegratedServiceStatus($request)
     {
@@ -4754,24 +5667,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a specific managed rule.
-     *  *
-     * @description This topic provides an example on how to query the details of the managed rule `cdn-domain-https-enabled`.
-     *  *
-     * @param GetManagedRuleRequest $request GetManagedRuleRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a specific managed rule.
      *
-     * @return GetManagedRuleResponse GetManagedRuleResponse
+     * @remarks
+     * This topic provides an example on how to query the details of the managed rule `cdn-domain-https-enabled`.
+     *
+     * @param request - GetManagedRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetManagedRuleResponse
+     *
+     * @param GetManagedRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetManagedRuleResponse
      */
     public function getManagedRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
+        if (null !== $request->identifier) {
+            @$query['Identifier'] = $request->identifier;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetManagedRule',
@@ -4789,13 +5708,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a specific managed rule.
-     *  *
-     * @description This topic provides an example on how to query the details of the managed rule `cdn-domain-https-enabled`.
-     *  *
-     * @param GetManagedRuleRequest $request GetManagedRuleRequest
+     * Queries the details of a specific managed rule.
      *
-     * @return GetManagedRuleResponse GetManagedRuleResponse
+     * @remarks
+     * This topic provides an example on how to query the details of the managed rule `cdn-domain-https-enabled`.
+     *
+     * @param request - GetManagedRuleRequest
+     * @returns GetManagedRuleResponse
+     *
+     * @param GetManagedRuleRequest $request
+     *
+     * @return GetManagedRuleResponse
      */
     public function getManagedRule($request)
     {
@@ -4805,24 +5728,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an automatic remediation template.
-     *  *
-     * @description This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
-     *  *
-     * @param GetRemediationTemplateRequest $request GetRemediationTemplateRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an automatic remediation template.
      *
-     * @return GetRemediationTemplateResponse GetRemediationTemplateResponse
+     * @remarks
+     * This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
+     *
+     * @param request - GetRemediationTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRemediationTemplateResponse
+     *
+     * @param GetRemediationTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetRemediationTemplateResponse
      */
     public function getRemediationTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateIdentifier)) {
-            $query['TemplateIdentifier'] = $request->templateIdentifier;
+        if (null !== $request->templateIdentifier) {
+            @$query['TemplateIdentifier'] = $request->templateIdentifier;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRemediationTemplate',
@@ -4840,13 +5769,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an automatic remediation template.
-     *  *
-     * @description This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
-     *  *
-     * @param GetRemediationTemplateRequest $request GetRemediationTemplateRequest
+     * Queries the details of an automatic remediation template.
      *
-     * @return GetRemediationTemplateResponse GetRemediationTemplateResponse
+     * @remarks
+     * This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
+     *
+     * @param request - GetRemediationTemplateRequest
+     * @returns GetRemediationTemplateResponse
+     *
+     * @param GetRemediationTemplateRequest $request
+     *
+     * @return GetRemediationTemplateResponse
      */
     public function getRemediationTemplate($request)
     {
@@ -4856,21 +5789,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance summary based on the compliance evaluation result of a rule.
-     *  *
-     * @description In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
-     *  *
-     * @param GetResourceComplianceByConfigRuleRequest $request GetResourceComplianceByConfigRuleRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance summary based on the compliance evaluation result of a rule.
      *
-     * @return GetResourceComplianceByConfigRuleResponse GetResourceComplianceByConfigRuleResponse
+     * @remarks
+     * In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
+     *
+     * @param request - GetResourceComplianceByConfigRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceComplianceByConfigRuleResponse
+     *
+     * @param GetResourceComplianceByConfigRuleRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetResourceComplianceByConfigRuleResponse
      */
     public function getResourceComplianceByConfigRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceComplianceByConfigRule',
@@ -4888,13 +5826,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance summary based on the compliance evaluation result of a rule.
-     *  *
-     * @description In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
-     *  *
-     * @param GetResourceComplianceByConfigRuleRequest $request GetResourceComplianceByConfigRuleRequest
+     * Queries the compliance summary based on the compliance evaluation result of a rule.
      *
-     * @return GetResourceComplianceByConfigRuleResponse GetResourceComplianceByConfigRuleResponse
+     * @remarks
+     * In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
+     *
+     * @param request - GetResourceComplianceByConfigRuleRequest
+     * @returns GetResourceComplianceByConfigRuleResponse
+     *
+     * @param GetResourceComplianceByConfigRuleRequest $request
+     *
+     * @return GetResourceComplianceByConfigRuleResponse
      */
     public function getResourceComplianceByConfigRule($request)
     {
@@ -4904,21 +5846,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources evaluated based on a compliance package.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
-     *  *
-     * @param GetResourceComplianceByPackRequest $request GetResourceComplianceByPackRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance evaluation results of resources evaluated based on a compliance package.
      *
-     * @return GetResourceComplianceByPackResponse GetResourceComplianceByPackResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
+     *
+     * @param request - GetResourceComplianceByPackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceComplianceByPackResponse
+     *
+     * @param GetResourceComplianceByPackRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetResourceComplianceByPackResponse
      */
     public function getResourceComplianceByPackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceComplianceByPack',
@@ -4936,13 +5883,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources evaluated based on a compliance package.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
-     *  *
-     * @param GetResourceComplianceByPackRequest $request GetResourceComplianceByPackRequest
+     * Queries the compliance evaluation results of resources evaluated based on a compliance package.
      *
-     * @return GetResourceComplianceByPackResponse GetResourceComplianceByPackResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
+     *
+     * @param request - GetResourceComplianceByPackRequest
+     * @returns GetResourceComplianceByPackResponse
+     *
+     * @param GetResourceComplianceByPackRequest $request
+     *
+     * @return GetResourceComplianceByPackResponse
      */
     public function getResourceComplianceByPack($request)
     {
@@ -4952,22 +5903,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the evaluation results grouped by region for a rule.
-     *  *
-     * @param GetResourceComplianceGroupByRegionRequest $request GetResourceComplianceGroupByRegionRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the evaluation results grouped by region for a rule.
      *
-     * @return GetResourceComplianceGroupByRegionResponse GetResourceComplianceGroupByRegionResponse
+     * @param request - GetResourceComplianceGroupByRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceComplianceGroupByRegionResponse
+     *
+     * @param GetResourceComplianceGroupByRegionRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetResourceComplianceGroupByRegionResponse
      */
     public function getResourceComplianceGroupByRegionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceComplianceGroupByRegion',
@@ -4985,11 +5941,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the evaluation results grouped by region for a rule.
-     *  *
-     * @param GetResourceComplianceGroupByRegionRequest $request GetResourceComplianceGroupByRegionRequest
+     * Queries the evaluation results grouped by region for a rule.
      *
-     * @return GetResourceComplianceGroupByRegionResponse GetResourceComplianceGroupByRegionResponse
+     * @param request - GetResourceComplianceGroupByRegionRequest
+     * @returns GetResourceComplianceGroupByRegionResponse
+     *
+     * @param GetResourceComplianceGroupByRegionRequest $request
+     *
+     * @return GetResourceComplianceGroupByRegionResponse
      */
     public function getResourceComplianceGroupByRegion($request)
     {
@@ -4999,22 +5958,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the evaluation results grouped by resource type for a rule.
-     *  *
-     * @param GetResourceComplianceGroupByResourceTypeRequest $request GetResourceComplianceGroupByResourceTypeRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * Queries the evaluation results grouped by resource type for a rule.
      *
-     * @return GetResourceComplianceGroupByResourceTypeResponse GetResourceComplianceGroupByResourceTypeResponse
+     * @param request - GetResourceComplianceGroupByResourceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceComplianceGroupByResourceTypeResponse
+     *
+     * @param GetResourceComplianceGroupByResourceTypeRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return GetResourceComplianceGroupByResourceTypeResponse
      */
     public function getResourceComplianceGroupByResourceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceComplianceGroupByResourceType',
@@ -5032,11 +5996,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the evaluation results grouped by resource type for a rule.
-     *  *
-     * @param GetResourceComplianceGroupByResourceTypeRequest $request GetResourceComplianceGroupByResourceTypeRequest
+     * Queries the evaluation results grouped by resource type for a rule.
      *
-     * @return GetResourceComplianceGroupByResourceTypeResponse GetResourceComplianceGroupByResourceTypeResponse
+     * @param request - GetResourceComplianceGroupByResourceTypeRequest
+     * @returns GetResourceComplianceGroupByResourceTypeResponse
+     *
+     * @param GetResourceComplianceGroupByResourceTypeRequest $request
+     *
+     * @return GetResourceComplianceGroupByResourceTypeResponse
      */
     public function getResourceComplianceGroupByResourceType($request)
     {
@@ -5046,22 +6013,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance timeline of a resource. The compliance timeline of a resource indicates the compliance evaluation record of the resource. A compliance timeline includes points and the content on the compliance timeline.
-     *  *
-     * @description In Cloud Config, each resource has a compliance timeline. Cloud Config generates a compliance evaluation record for a resource each time the resource is evaluated based on a rule. The compliance evaluation records of a resource are displayed in a compliance timeline. You can configure Cloud Config to execute a rule to evaluate a resource on a regular basis or each time you change the resource configuration. You can also manually execute a rule to evaluate a resource.
-     * This topic provides an example on how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The resource is an Object Storage Service (OSS) bucket. The returned result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8) and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
-     *  *
-     * @param GetResourceComplianceTimelineRequest $request GetResourceComplianceTimelineRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance timeline of a resource. The compliance timeline of a resource indicates the compliance evaluation record of the resource. A compliance timeline includes points and the content on the compliance timeline.
      *
-     * @return GetResourceComplianceTimelineResponse GetResourceComplianceTimelineResponse
+     * @remarks
+     * In Cloud Config, each resource has a compliance timeline. Cloud Config generates a compliance evaluation record for a resource each time the resource is evaluated based on a rule. The compliance evaluation records of a resource are displayed in a compliance timeline. You can configure Cloud Config to execute a rule to evaluate a resource on a regular basis or each time you change the resource configuration. You can also manually execute a rule to evaluate a resource.
+     * This topic provides an example on how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The resource is an Object Storage Service (OSS) bucket. The returned result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8) and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+     *
+     * @param request - GetResourceComplianceTimelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceComplianceTimelineResponse
+     *
+     * @param GetResourceComplianceTimelineRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetResourceComplianceTimelineResponse
      */
     public function getResourceComplianceTimelineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceComplianceTimeline',
@@ -5079,14 +6051,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance timeline of a resource. The compliance timeline of a resource indicates the compliance evaluation record of the resource. A compliance timeline includes points and the content on the compliance timeline.
-     *  *
-     * @description In Cloud Config, each resource has a compliance timeline. Cloud Config generates a compliance evaluation record for a resource each time the resource is evaluated based on a rule. The compliance evaluation records of a resource are displayed in a compliance timeline. You can configure Cloud Config to execute a rule to evaluate a resource on a regular basis or each time you change the resource configuration. You can also manually execute a rule to evaluate a resource.
-     * This topic provides an example on how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The resource is an Object Storage Service (OSS) bucket. The returned result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8) and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
-     *  *
-     * @param GetResourceComplianceTimelineRequest $request GetResourceComplianceTimelineRequest
+     * Queries the compliance timeline of a resource. The compliance timeline of a resource indicates the compliance evaluation record of the resource. A compliance timeline includes points and the content on the compliance timeline.
      *
-     * @return GetResourceComplianceTimelineResponse GetResourceComplianceTimelineResponse
+     * @remarks
+     * In Cloud Config, each resource has a compliance timeline. Cloud Config generates a compliance evaluation record for a resource each time the resource is evaluated based on a rule. The compliance evaluation records of a resource are displayed in a compliance timeline. You can configure Cloud Config to execute a rule to evaluate a resource on a regular basis or each time you change the resource configuration. You can also manually execute a rule to evaluate a resource.
+     * This topic provides an example on how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The resource is an Object Storage Service (OSS) bucket. The returned result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8) and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
+     *
+     * @param request - GetResourceComplianceTimelineRequest
+     * @returns GetResourceComplianceTimelineResponse
+     *
+     * @param GetResourceComplianceTimelineRequest $request
+     *
+     * @return GetResourceComplianceTimelineResponse
      */
     public function getResourceComplianceTimeline($request)
     {
@@ -5096,21 +6072,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration timeline of a resource.
-     *  *
-     * @description The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
-     *  *
-     * @param GetResourceConfigurationTimelineRequest $request GetResourceConfigurationTimelineRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration timeline of a resource.
      *
-     * @return GetResourceConfigurationTimelineResponse GetResourceConfigurationTimelineResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+     *
+     * @param request - GetResourceConfigurationTimelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceConfigurationTimelineResponse
+     *
+     * @param GetResourceConfigurationTimelineRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetResourceConfigurationTimelineResponse
      */
     public function getResourceConfigurationTimelineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceConfigurationTimeline',
@@ -5128,13 +6109,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration timeline of a resource.
-     *  *
-     * @description The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
-     *  *
-     * @param GetResourceConfigurationTimelineRequest $request GetResourceConfigurationTimelineRequest
+     * Queries the configuration timeline of a resource.
      *
-     * @return GetResourceConfigurationTimelineResponse GetResourceConfigurationTimelineResponse
+     * @remarks
+     * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
+     *
+     * @param request - GetResourceConfigurationTimelineRequest
+     * @returns GetResourceConfigurationTimelineResponse
+     *
+     * @param GetResourceConfigurationTimelineRequest $request
+     *
+     * @return GetResourceConfigurationTimelineResponse
      */
     public function getResourceConfigurationTimeline($request)
     {
@@ -5144,16 +6129,21 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the last resource inventory that is generated within the current Alibaba Cloud account.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Obtains the last resource inventory that is generated within the current Alibaba Cloud account.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * You can call the [GenerateResourceInventory](https://help.aliyun.com/document_detail/2398354.html) operation to generate a resource inventory. Then, you can call the GetResourceInventory operation to obtain the URL of the resource inventory.
      * ### [](#)Description
      * This topic provides an example on how to obtain the last resource inventory that is generated within the current Alibaba Cloud account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceInventoryResponse GetResourceInventoryResponse
+     * @param request - GetResourceInventoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceInventoryResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceInventoryResponse
      */
     public function getResourceInventoryWithOptions($runtime)
     {
@@ -5174,14 +6164,16 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the last resource inventory that is generated within the current Alibaba Cloud account.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Obtains the last resource inventory that is generated within the current Alibaba Cloud account.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * You can call the [GenerateResourceInventory](https://help.aliyun.com/document_detail/2398354.html) operation to generate a resource inventory. Then, you can call the GetResourceInventory operation to obtain the URL of the resource inventory.
      * ### [](#)Description
      * This topic provides an example on how to obtain the last resource inventory that is generated within the current Alibaba Cloud account.
-     *  *
-     * @return GetResourceInventoryResponse GetResourceInventoryResponse
+     * @returns GetResourceInventoryResponse
+     *
+     * @return GetResourceInventoryResponse
      */
     public function getResourceInventory()
     {
@@ -5191,24 +6183,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resource relationships supported by a resource type.
-     *  *
-     * @description This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
-     *  *
-     * @param GetSupportedResourceRelationConfigRequest $request GetSupportedResourceRelationConfigRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the resource relationships supported by a resource type.
      *
-     * @return GetSupportedResourceRelationConfigResponse GetSupportedResourceRelationConfigResponse
+     * @remarks
+     * This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
+     *
+     * @param request - GetSupportedResourceRelationConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSupportedResourceRelationConfigResponse
+     *
+     * @param GetSupportedResourceRelationConfigRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetSupportedResourceRelationConfigResponse
      */
     public function getSupportedResourceRelationConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSupportedResourceRelationConfig',
@@ -5226,13 +6224,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resource relationships supported by a resource type.
-     *  *
-     * @description This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
-     *  *
-     * @param GetSupportedResourceRelationConfigRequest $request GetSupportedResourceRelationConfigRequest
+     * Queries the resource relationships supported by a resource type.
      *
-     * @return GetSupportedResourceRelationConfigResponse GetSupportedResourceRelationConfigResponse
+     * @remarks
+     * This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
+     *
+     * @param request - GetSupportedResourceRelationConfigRequest
+     * @returns GetSupportedResourceRelationConfigResponse
+     *
+     * @param GetSupportedResourceRelationConfigRequest $request
+     *
+     * @return GetSupportedResourceRelationConfigResponse
      */
     public function getSupportedResourceRelationConfig($request)
     {
@@ -5242,42 +6244,53 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Ignores the evaluation results of some resources in an account group based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
-     *  *
-     * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
-     * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` incompliant resource that is evaluated by using the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region where the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-     *  *
-     * @param IgnoreAggregateEvaluationResultsRequest $tmpReq  IgnoreAggregateEvaluationResultsRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Ignores the evaluation results of some resources in an account group based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
      *
-     * @return IgnoreAggregateEvaluationResultsResponse IgnoreAggregateEvaluationResultsResponse
+     * @remarks
+     * After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
+     * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` incompliant resource that is evaluated by using the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region where the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
+     *
+     * @param tmpReq - IgnoreAggregateEvaluationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns IgnoreAggregateEvaluationResultsResponse
+     *
+     * @param IgnoreAggregateEvaluationResultsRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return IgnoreAggregateEvaluationResultsResponse
      */
     public function ignoreAggregateEvaluationResultsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IgnoreAggregateEvaluationResultsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resources)) {
-            $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resources) {
+            $request->resourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $body['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$body['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->ignoreDate)) {
-            $body['IgnoreDate'] = $request->ignoreDate;
+
+        if (null !== $request->ignoreDate) {
+            @$body['IgnoreDate'] = $request->ignoreDate;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $body['Reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
         }
-        if (!Utils::isUnset($request->resourcesShrink)) {
-            $body['Resources'] = $request->resourcesShrink;
+
+        if (null !== $request->resourcesShrink) {
+            @$body['Resources'] = $request->resourcesShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'IgnoreAggregateEvaluationResults',
@@ -5295,14 +6308,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Ignores the evaluation results of some resources in an account group based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
-     *  *
-     * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
-     * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` incompliant resource that is evaluated by using the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region where the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-     *  *
-     * @param IgnoreAggregateEvaluationResultsRequest $request IgnoreAggregateEvaluationResultsRequest
+     * Ignores the evaluation results of some resources in an account group based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
      *
-     * @return IgnoreAggregateEvaluationResultsResponse IgnoreAggregateEvaluationResultsResponse
+     * @remarks
+     * After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
+     * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` incompliant resource that is evaluated by using the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region where the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
+     *
+     * @param request - IgnoreAggregateEvaluationResultsRequest
+     * @returns IgnoreAggregateEvaluationResultsResponse
+     *
+     * @param IgnoreAggregateEvaluationResultsRequest $request
+     *
+     * @return IgnoreAggregateEvaluationResultsResponse
      */
     public function ignoreAggregateEvaluationResults($request)
     {
@@ -5312,39 +6329,49 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Ignores the evaluation results of some resources based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
-     *  *
-     * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
-     * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` resource that is evaluated as incompliant by using the `cr-7e72626622af0051****` rule in the `100931896542****` account. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-     *  *
-     * @param IgnoreEvaluationResultsRequest $tmpReq  IgnoreEvaluationResultsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Ignores the evaluation results of some resources based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
      *
-     * @return IgnoreEvaluationResultsResponse IgnoreEvaluationResultsResponse
+     * @remarks
+     * After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
+     * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` resource that is evaluated as incompliant by using the `cr-7e72626622af0051****` rule in the `100931896542****` account. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
+     *
+     * @param tmpReq - IgnoreEvaluationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns IgnoreEvaluationResultsResponse
+     *
+     * @param IgnoreEvaluationResultsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return IgnoreEvaluationResultsResponse
      */
     public function ignoreEvaluationResultsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IgnoreEvaluationResultsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resources)) {
-            $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resources) {
+            $request->resourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configRuleId)) {
-            $body['ConfigRuleId'] = $request->configRuleId;
+        if (null !== $request->configRuleId) {
+            @$body['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->ignoreDate)) {
-            $body['IgnoreDate'] = $request->ignoreDate;
+
+        if (null !== $request->ignoreDate) {
+            @$body['IgnoreDate'] = $request->ignoreDate;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $body['Reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
         }
-        if (!Utils::isUnset($request->resourcesShrink)) {
-            $body['Resources'] = $request->resourcesShrink;
+
+        if (null !== $request->resourcesShrink) {
+            @$body['Resources'] = $request->resourcesShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'IgnoreEvaluationResults',
@@ -5362,14 +6389,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Ignores the evaluation results of some resources based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
-     *  *
-     * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
-     * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` resource that is evaluated as incompliant by using the `cr-7e72626622af0051****` rule in the `100931896542****` account. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
-     *  *
-     * @param IgnoreEvaluationResultsRequest $request IgnoreEvaluationResultsRequest
+     * Ignores the evaluation results of some resources based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
      *
-     * @return IgnoreEvaluationResultsResponse IgnoreEvaluationResultsResponse
+     * @remarks
+     * After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
+     * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` resource that is evaluated as incompliant by using the `cr-7e72626622af0051****` rule in the `100931896542****` account. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
+     *
+     * @param request - IgnoreEvaluationResultsRequest
+     * @returns IgnoreEvaluationResultsResponse
+     *
+     * @param IgnoreEvaluationResultsRequest $request
+     *
+     * @return IgnoreEvaluationResultsResponse
      */
     public function ignoreEvaluationResults($request)
     {
@@ -5379,33 +6410,42 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of compliance packages in an account group.
-     *  *
-     * @description In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
-     *  *
-     * @param ListAggregateCompliancePacksRequest $request ListAggregateCompliancePacksRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of compliance packages in an account group.
      *
-     * @return ListAggregateCompliancePacksResponse ListAggregateCompliancePacksResponse
+     * @remarks
+     * In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
+     *
+     * @param request - ListAggregateCompliancePacksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateCompliancePacksResponse
+     *
+     * @param ListAggregateCompliancePacksRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListAggregateCompliancePacksResponse
      */
     public function listAggregateCompliancePacksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateCompliancePacks',
@@ -5423,13 +6463,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of compliance packages in an account group.
-     *  *
-     * @description In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
-     *  *
-     * @param ListAggregateCompliancePacksRequest $request ListAggregateCompliancePacksRequest
+     * Queries a list of compliance packages in an account group.
      *
-     * @return ListAggregateCompliancePacksResponse ListAggregateCompliancePacksResponse
+     * @remarks
+     * In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
+     *
+     * @param request - ListAggregateCompliancePacksRequest
+     * @returns ListAggregateCompliancePacksResponse
+     *
+     * @param ListAggregateCompliancePacksRequest $request
+     *
+     * @return ListAggregateCompliancePacksResponse
      */
     public function listAggregateCompliancePacks($request)
     {
@@ -5439,25 +6483,31 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all delivery channels in an account group.
-     *  *
-     * @param ListAggregateConfigDeliveryChannelsRequest $request ListAggregateConfigDeliveryChannelsRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about all delivery channels in an account group.
      *
-     * @return ListAggregateConfigDeliveryChannelsResponse ListAggregateConfigDeliveryChannelsResponse
+     * @param request - ListAggregateConfigDeliveryChannelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateConfigDeliveryChannelsResponse
+     *
+     * @param ListAggregateConfigDeliveryChannelsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListAggregateConfigDeliveryChannelsResponse
      */
     public function listAggregateConfigDeliveryChannelsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->deliveryChannelIds)) {
-            $query['DeliveryChannelIds'] = $request->deliveryChannelIds;
+
+        if (null !== $request->deliveryChannelIds) {
+            @$query['DeliveryChannelIds'] = $request->deliveryChannelIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateConfigDeliveryChannels',
@@ -5475,11 +6525,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all delivery channels in an account group.
-     *  *
-     * @param ListAggregateConfigDeliveryChannelsRequest $request ListAggregateConfigDeliveryChannelsRequest
+     * Queries the information about all delivery channels in an account group.
      *
-     * @return ListAggregateConfigDeliveryChannelsResponse ListAggregateConfigDeliveryChannelsResponse
+     * @param request - ListAggregateConfigDeliveryChannelsRequest
+     * @returns ListAggregateConfigDeliveryChannelsResponse
+     *
+     * @param ListAggregateConfigDeliveryChannelsRequest $request
+     *
+     * @return ListAggregateConfigDeliveryChannelsResponse
      */
     public function listAggregateConfigDeliveryChannels($request)
     {
@@ -5489,54 +6542,70 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources based on a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results of resources based on the `cr-888f626622af00ae****` rule in the `ca-d1e3326622af00cb****` account group. The returned result indicates that the `Bucket-test` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Object Storage Service (OSS) bucket.
-     *  *
-     * @param ListAggregateConfigRuleEvaluationResultsRequest $request ListAggregateConfigRuleEvaluationResultsRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance evaluation results of resources based on a rule in an account group.
      *
-     * @return ListAggregateConfigRuleEvaluationResultsResponse ListAggregateConfigRuleEvaluationResultsResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results of resources based on the `cr-888f626622af00ae****` rule in the `ca-d1e3326622af00cb****` account group. The returned result indicates that the `Bucket-test` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Object Storage Service (OSS) bucket.
+     *
+     * @param request - ListAggregateConfigRuleEvaluationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateConfigRuleEvaluationResultsResponse
+     *
+     * @param ListAggregateConfigRuleEvaluationResultsRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return ListAggregateConfigRuleEvaluationResultsResponse
      */
     public function listAggregateConfigRuleEvaluationResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->complianceType)) {
-            $query['ComplianceType'] = $request->complianceType;
+
+        if (null !== $request->complianceType) {
+            @$query['ComplianceType'] = $request->complianceType;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regions)) {
-            $query['Regions'] = $request->regions;
+
+        if (null !== $request->regions) {
+            @$query['Regions'] = $request->regions;
         }
-        if (!Utils::isUnset($request->resourceAccountId)) {
-            $query['ResourceAccountId'] = $request->resourceAccountId;
+
+        if (null !== $request->resourceAccountId) {
+            @$query['ResourceAccountId'] = $request->resourceAccountId;
         }
-        if (!Utils::isUnset($request->resourceGroupIds)) {
-            $query['ResourceGroupIds'] = $request->resourceGroupIds;
+
+        if (null !== $request->resourceGroupIds) {
+            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateConfigRuleEvaluationResults',
@@ -5554,13 +6623,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources based on a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation results of resources based on the `cr-888f626622af00ae****` rule in the `ca-d1e3326622af00cb****` account group. The returned result indicates that the `Bucket-test` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Object Storage Service (OSS) bucket.
-     *  *
-     * @param ListAggregateConfigRuleEvaluationResultsRequest $request ListAggregateConfigRuleEvaluationResultsRequest
+     * Queries the compliance evaluation results of resources based on a rule in an account group.
      *
-     * @return ListAggregateConfigRuleEvaluationResultsResponse ListAggregateConfigRuleEvaluationResultsResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation results of resources based on the `cr-888f626622af00ae****` rule in the `ca-d1e3326622af00cb****` account group. The returned result indicates that the `Bucket-test` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Object Storage Service (OSS) bucket.
+     *
+     * @param request - ListAggregateConfigRuleEvaluationResultsRequest
+     * @returns ListAggregateConfigRuleEvaluationResultsResponse
+     *
+     * @param ListAggregateConfigRuleEvaluationResultsRequest $request
+     *
+     * @return ListAggregateConfigRuleEvaluationResultsResponse
      */
     public function listAggregateConfigRuleEvaluationResults($request)
     {
@@ -5570,24 +6643,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics of compliance evaluation results of an account group.
-     *  *
-     * @description This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
-     *  *
-     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request ListAggregateConfigRuleEvaluationStatisticsRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics of compliance evaluation results of an account group.
      *
-     * @return ListAggregateConfigRuleEvaluationStatisticsResponse ListAggregateConfigRuleEvaluationStatisticsResponse
+     * @remarks
+     * This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
+     *
+     * @param request - ListAggregateConfigRuleEvaluationStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateConfigRuleEvaluationStatisticsResponse
+     *
+     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return ListAggregateConfigRuleEvaluationStatisticsResponse
      */
     public function listAggregateConfigRuleEvaluationStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateConfigRuleEvaluationStatistics',
@@ -5605,13 +6684,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics of compliance evaluation results of an account group.
-     *  *
-     * @description This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
-     *  *
-     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request ListAggregateConfigRuleEvaluationStatisticsRequest
+     * Queries the statistics of compliance evaluation results of an account group.
      *
-     * @return ListAggregateConfigRuleEvaluationStatisticsResponse ListAggregateConfigRuleEvaluationStatisticsResponse
+     * @remarks
+     * This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
+     *
+     * @param request - ListAggregateConfigRuleEvaluationStatisticsRequest
+     * @returns ListAggregateConfigRuleEvaluationStatisticsResponse
+     *
+     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request
+     *
+     * @return ListAggregateConfigRuleEvaluationStatisticsResponse
      */
     public function listAggregateConfigRuleEvaluationStatistics($request)
     {
@@ -5621,51 +6704,66 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of rules in an account group.
-     *  *
-     * @description This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
-     *  *
-     * @param ListAggregateConfigRulesRequest $request ListAggregateConfigRulesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries a list of rules in an account group.
      *
-     * @return ListAggregateConfigRulesResponse ListAggregateConfigRulesResponse
+     * @remarks
+     * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
+     *
+     * @param request - ListAggregateConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateConfigRulesResponse
+     *
+     * @param ListAggregateConfigRulesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAggregateConfigRulesResponse
      */
     public function listAggregateConfigRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->complianceType)) {
-            $query['ComplianceType'] = $request->complianceType;
+
+        if (null !== $request->complianceType) {
+            @$query['ComplianceType'] = $request->complianceType;
         }
-        if (!Utils::isUnset($request->configRuleName)) {
-            $query['ConfigRuleName'] = $request->configRuleName;
+
+        if (null !== $request->configRuleName) {
+            @$query['ConfigRuleName'] = $request->configRuleName;
         }
-        if (!Utils::isUnset($request->configRuleState)) {
-            $query['ConfigRuleState'] = $request->configRuleState;
+
+        if (null !== $request->configRuleState) {
+            @$query['ConfigRuleState'] = $request->configRuleState;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $query['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateConfigRules',
@@ -5683,13 +6781,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of rules in an account group.
-     *  *
-     * @description This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
-     *  *
-     * @param ListAggregateConfigRulesRequest $request ListAggregateConfigRulesRequest
+     * Queries a list of rules in an account group.
      *
-     * @return ListAggregateConfigRulesResponse ListAggregateConfigRulesResponse
+     * @remarks
+     * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
+     *
+     * @param request - ListAggregateConfigRulesRequest
+     * @returns ListAggregateConfigRulesResponse
+     *
+     * @param ListAggregateConfigRulesRequest $request
+     *
+     * @return ListAggregateConfigRulesResponse
      */
     public function listAggregateConfigRules($request)
     {
@@ -5699,57 +6801,74 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of resources aggregated across regions within all member accounts of a specific account group.
-     *  *
-     * @description This topic provides an example on how to query the resources within the member account `100931896542****` of the account group `ca-c560626622af0005****`. The result indicates that eight resources are queried.
-     *  *
-     * @param ListAggregateDiscoveredResourcesRequest $request ListAggregateDiscoveredResourcesRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Obtains a list of resources aggregated across regions within all member accounts of a specific account group.
      *
-     * @return ListAggregateDiscoveredResourcesResponse ListAggregateDiscoveredResourcesResponse
+     * @remarks
+     * This topic provides an example on how to query the resources within the member account `100931896542****` of the account group `ca-c560626622af0005****`. The result indicates that eight resources are queried.
+     *
+     * @param request - ListAggregateDiscoveredResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateDiscoveredResourcesResponse
+     *
+     * @param ListAggregateDiscoveredResourcesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListAggregateDiscoveredResourcesResponse
      */
     public function listAggregateDiscoveredResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->endUpdateTimestamp)) {
-            $query['EndUpdateTimestamp'] = $request->endUpdateTimestamp;
+
+        if (null !== $request->endUpdateTimestamp) {
+            @$query['EndUpdateTimestamp'] = $request->endUpdateTimestamp;
         }
-        if (!Utils::isUnset($request->excludeResourceTypes)) {
-            $query['ExcludeResourceTypes'] = $request->excludeResourceTypes;
+
+        if (null !== $request->excludeResourceTypes) {
+            @$query['ExcludeResourceTypes'] = $request->excludeResourceTypes;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regions)) {
-            $query['Regions'] = $request->regions;
+
+        if (null !== $request->regions) {
+            @$query['Regions'] = $request->regions;
         }
-        if (!Utils::isUnset($request->resourceAccountId)) {
-            $query['ResourceAccountId'] = $request->resourceAccountId;
+
+        if (null !== $request->resourceAccountId) {
+            @$query['ResourceAccountId'] = $request->resourceAccountId;
         }
-        if (!Utils::isUnset($request->resourceDeleted)) {
-            $query['ResourceDeleted'] = $request->resourceDeleted;
+
+        if (null !== $request->resourceDeleted) {
+            @$query['ResourceDeleted'] = $request->resourceDeleted;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
-        if (!Utils::isUnset($request->startUpdateTimestamp)) {
-            $query['StartUpdateTimestamp'] = $request->startUpdateTimestamp;
+
+        if (null !== $request->startUpdateTimestamp) {
+            @$query['StartUpdateTimestamp'] = $request->startUpdateTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateDiscoveredResources',
@@ -5767,13 +6886,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of resources aggregated across regions within all member accounts of a specific account group.
-     *  *
-     * @description This topic provides an example on how to query the resources within the member account `100931896542****` of the account group `ca-c560626622af0005****`. The result indicates that eight resources are queried.
-     *  *
-     * @param ListAggregateDiscoveredResourcesRequest $request ListAggregateDiscoveredResourcesRequest
+     * Obtains a list of resources aggregated across regions within all member accounts of a specific account group.
      *
-     * @return ListAggregateDiscoveredResourcesResponse ListAggregateDiscoveredResourcesResponse
+     * @remarks
+     * This topic provides an example on how to query the resources within the member account `100931896542****` of the account group `ca-c560626622af0005****`. The result indicates that eight resources are queried.
+     *
+     * @param request - ListAggregateDiscoveredResourcesRequest
+     * @returns ListAggregateDiscoveredResourcesResponse
+     *
+     * @param ListAggregateDiscoveredResourcesRequest $request
+     *
+     * @return ListAggregateDiscoveredResourcesResponse
      */
     public function listAggregateDiscoveredResources($request)
     {
@@ -5783,39 +6906,50 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remediation records of a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
-     *  *
-     * @param ListAggregateRemediationExecutionsRequest $request ListAggregateRemediationExecutionsRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the remediation records of a rule in an account group.
      *
-     * @return ListAggregateRemediationExecutionsResponse ListAggregateRemediationExecutionsResponse
+     * @remarks
+     * This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
+     *
+     * @param request - ListAggregateRemediationExecutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateRemediationExecutionsResponse
+     *
+     * @param ListAggregateRemediationExecutionsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListAggregateRemediationExecutionsResponse
      */
     public function listAggregateRemediationExecutionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->executionStatus)) {
-            $query['ExecutionStatus'] = $request->executionStatus;
+
+        if (null !== $request->executionStatus) {
+            @$query['ExecutionStatus'] = $request->executionStatus;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceAccountId)) {
-            $query['ResourceAccountId'] = $request->resourceAccountId;
+
+        if (null !== $request->resourceAccountId) {
+            @$query['ResourceAccountId'] = $request->resourceAccountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateRemediationExecutions',
@@ -5833,13 +6967,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remediation records of a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
-     *  *
-     * @param ListAggregateRemediationExecutionsRequest $request ListAggregateRemediationExecutionsRequest
+     * Queries the remediation records of a rule in an account group.
      *
-     * @return ListAggregateRemediationExecutionsResponse ListAggregateRemediationExecutionsResponse
+     * @remarks
+     * This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
+     *
+     * @param request - ListAggregateRemediationExecutionsRequest
+     * @returns ListAggregateRemediationExecutionsResponse
+     *
+     * @param ListAggregateRemediationExecutionsRequest $request
+     *
+     * @return ListAggregateRemediationExecutionsResponse
      */
     public function listAggregateRemediationExecutions($request)
     {
@@ -5849,27 +6987,34 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of remediation templates for a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
-     *  *
-     * @param ListAggregateRemediationsRequest $request ListAggregateRemediationsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of remediation templates for a rule in an account group.
      *
-     * @return ListAggregateRemediationsResponse ListAggregateRemediationsResponse
+     * @remarks
+     * This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
+     *
+     * @param request - ListAggregateRemediationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateRemediationsResponse
+     *
+     * @param ListAggregateRemediationsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListAggregateRemediationsResponse
      */
     public function listAggregateRemediationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateRemediations',
@@ -5887,13 +7032,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of remediation templates for a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
-     *  *
-     * @param ListAggregateRemediationsRequest $request ListAggregateRemediationsRequest
+     * Queries a list of remediation templates for a rule in an account group.
      *
-     * @return ListAggregateRemediationsResponse ListAggregateRemediationsResponse
+     * @remarks
+     * This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
+     *
+     * @param request - ListAggregateRemediationsRequest
+     * @returns ListAggregateRemediationsResponse
+     *
+     * @param ListAggregateRemediationsRequest $request
+     *
+     * @return ListAggregateRemediationsResponse
      */
     public function listAggregateRemediations($request)
     {
@@ -5903,42 +7052,54 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources in an account group.
-     *  *
-     * @description This example shows how to query the compliance evaluation result of the `23642660635396****` resource in the `ca-7f00626622af0041****` account group. The resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
-     *  *
-     * @param ListAggregateResourceEvaluationResultsRequest $request ListAggregateResourceEvaluationResultsRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance evaluation results of resources in an account group.
      *
-     * @return ListAggregateResourceEvaluationResultsResponse ListAggregateResourceEvaluationResultsResponse
+     * @remarks
+     * This example shows how to query the compliance evaluation result of the `23642660635396****` resource in the `ca-7f00626622af0041****` account group. The resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
+     *
+     * @param request - ListAggregateResourceEvaluationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateResourceEvaluationResultsResponse
+     *
+     * @param ListAggregateResourceEvaluationResultsRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListAggregateResourceEvaluationResultsResponse
      */
     public function listAggregateResourceEvaluationResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->complianceType)) {
-            $query['ComplianceType'] = $request->complianceType;
+
+        if (null !== $request->complianceType) {
+            @$query['ComplianceType'] = $request->complianceType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateResourceEvaluationResults',
@@ -5956,13 +7117,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources in an account group.
-     *  *
-     * @description This example shows how to query the compliance evaluation result of the `23642660635396****` resource in the `ca-7f00626622af0041****` account group. The resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
-     *  *
-     * @param ListAggregateResourceEvaluationResultsRequest $request ListAggregateResourceEvaluationResultsRequest
+     * Queries the compliance evaluation results of resources in an account group.
      *
-     * @return ListAggregateResourceEvaluationResultsResponse ListAggregateResourceEvaluationResultsResponse
+     * @remarks
+     * This example shows how to query the compliance evaluation result of the `23642660635396****` resource in the `ca-7f00626622af0041****` account group. The resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
+     *
+     * @param request - ListAggregateResourceEvaluationResultsRequest
+     * @returns ListAggregateResourceEvaluationResultsResponse
+     *
+     * @param ListAggregateResourceEvaluationResultsRequest $request
+     *
+     * @return ListAggregateResourceEvaluationResultsResponse
      */
     public function listAggregateResourceEvaluationResults($request)
     {
@@ -5972,51 +7137,66 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of the resources of a specific resource in an account group.
-     *  *
-     * @description This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
-     *  *
-     * @param ListAggregateResourceRelationsRequest $request ListAggregateResourceRelationsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries a list of the resources of a specific resource in an account group.
      *
-     * @return ListAggregateResourceRelationsResponse ListAggregateResourceRelationsResponse
+     * @remarks
+     * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
+     *
+     * @param request - ListAggregateResourceRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateResourceRelationsResponse
+     *
+     * @param ListAggregateResourceRelationsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListAggregateResourceRelationsResponse
      */
     public function listAggregateResourceRelationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->relationType)) {
-            $query['RelationType'] = $request->relationType;
+
+        if (null !== $request->relationType) {
+            @$query['RelationType'] = $request->relationType;
         }
-        if (!Utils::isUnset($request->resourceAccountId)) {
-            $query['ResourceAccountId'] = $request->resourceAccountId;
+
+        if (null !== $request->resourceAccountId) {
+            @$query['ResourceAccountId'] = $request->resourceAccountId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->targetResourceId)) {
-            $query['TargetResourceId'] = $request->targetResourceId;
+
+        if (null !== $request->targetResourceId) {
+            @$query['TargetResourceId'] = $request->targetResourceId;
         }
-        if (!Utils::isUnset($request->targetResourceType)) {
-            $query['TargetResourceType'] = $request->targetResourceType;
+
+        if (null !== $request->targetResourceType) {
+            @$query['TargetResourceType'] = $request->targetResourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateResourceRelations',
@@ -6034,13 +7214,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of the resources of a specific resource in an account group.
-     *  *
-     * @description This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
-     *  *
-     * @param ListAggregateResourceRelationsRequest $request ListAggregateResourceRelationsRequest
+     * Queries a list of the resources of a specific resource in an account group.
      *
-     * @return ListAggregateResourceRelationsResponse ListAggregateResourceRelationsResponse
+     * @remarks
+     * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
+     *
+     * @param request - ListAggregateResourceRelationsRequest
+     * @returns ListAggregateResourceRelationsResponse
+     *
+     * @param ListAggregateResourceRelationsRequest $request
+     *
+     * @return ListAggregateResourceRelationsResponse
      */
     public function listAggregateResourceRelations($request)
     {
@@ -6050,31 +7234,38 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
-     *  *
-     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see[ Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema)
+     * Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
+     *
+     * @remarks
+     * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see[ Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema)
      * >
      * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
      * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
      * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` in the account group `ca-4b05626622af000c****` by using the advanced search feature.
-     *  *
-     * @param ListAggregateResourcesByAdvancedSearchRequest $request ListAggregateResourcesByAdvancedSearchRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAggregateResourcesByAdvancedSearchResponse ListAggregateResourcesByAdvancedSearchResponse
+     * @param request - ListAggregateResourcesByAdvancedSearchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregateResourcesByAdvancedSearchResponse
+     *
+     * @param ListAggregateResourcesByAdvancedSearchRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListAggregateResourcesByAdvancedSearchResponse
      */
     public function listAggregateResourcesByAdvancedSearchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->sql)) {
-            $query['Sql'] = $request->sql;
+
+        if (null !== $request->sql) {
+            @$query['Sql'] = $request->sql;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregateResourcesByAdvancedSearch',
@@ -6092,17 +7283,21 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
-     *  *
-     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see[ Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema)
+     * Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
+     *
+     * @remarks
+     * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see[ Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema)
      * >
      * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
      * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
      * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` in the account group `ca-4b05626622af000c****` by using the advanced search feature.
-     *  *
-     * @param ListAggregateResourcesByAdvancedSearchRequest $request ListAggregateResourcesByAdvancedSearchRequest
      *
-     * @return ListAggregateResourcesByAdvancedSearchResponse ListAggregateResourcesByAdvancedSearchResponse
+     * @param request - ListAggregateResourcesByAdvancedSearchRequest
+     * @returns ListAggregateResourcesByAdvancedSearchResponse
+     *
+     * @param ListAggregateResourcesByAdvancedSearchRequest $request
+     *
+     * @return ListAggregateResourcesByAdvancedSearchResponse
      */
     public function listAggregateResourcesByAdvancedSearch($request)
     {
@@ -6112,27 +7307,34 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries all account groups within the current management account or delegated administrator account.
-     *  *
-     * @description The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
-     *  *
-     * @param ListAggregatorsRequest $request ListAggregatorsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries all account groups within the current management account or delegated administrator account.
      *
-     * @return ListAggregatorsResponse ListAggregatorsResponse
+     * @remarks
+     * The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
+     *
+     * @param request - ListAggregatorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAggregatorsResponse
+     *
+     * @param ListAggregatorsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAggregatorsResponse
      */
     public function listAggregatorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAggregators',
@@ -6150,13 +7352,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries all account groups within the current management account or delegated administrator account.
-     *  *
-     * @description The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
-     *  *
-     * @param ListAggregatorsRequest $request ListAggregatorsRequest
+     * Queries all account groups within the current management account or delegated administrator account.
      *
-     * @return ListAggregatorsResponse ListAggregatorsResponse
+     * @remarks
+     * The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
+     *
+     * @param request - ListAggregatorsRequest
+     * @returns ListAggregatorsResponse
+     *
+     * @param ListAggregatorsRequest $request
+     *
+     * @return ListAggregatorsResponse
      */
     public function listAggregators($request)
     {
@@ -6166,33 +7372,42 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
-     *  *
-     * @description A compliance package template is a collection of rules that Cloud Config can create based on compliance scenarios.
-     *  *
-     * @param ListCompliancePackTemplatesRequest $request ListCompliancePackTemplatesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
      *
-     * @return ListCompliancePackTemplatesResponse ListCompliancePackTemplatesResponse
+     * @remarks
+     * A compliance package template is a collection of rules that Cloud Config can create based on compliance scenarios.
+     *
+     * @param request - ListCompliancePackTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCompliancePackTemplatesResponse
+     *
+     * @param ListCompliancePackTemplatesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListCompliancePackTemplatesResponse
      */
     public function listCompliancePackTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->compliancePackTemplateId)) {
-            $query['CompliancePackTemplateId'] = $request->compliancePackTemplateId;
+        if (null !== $request->compliancePackTemplateId) {
+            @$query['CompliancePackTemplateId'] = $request->compliancePackTemplateId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCompliancePackTemplates',
@@ -6210,13 +7425,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
-     *  *
-     * @description A compliance package template is a collection of rules that Cloud Config can create based on compliance scenarios.
-     *  *
-     * @param ListCompliancePackTemplatesRequest $request ListCompliancePackTemplatesRequest
+     * Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
      *
-     * @return ListCompliancePackTemplatesResponse ListCompliancePackTemplatesResponse
+     * @remarks
+     * A compliance package template is a collection of rules that Cloud Config can create based on compliance scenarios.
+     *
+     * @param request - ListCompliancePackTemplatesRequest
+     * @returns ListCompliancePackTemplatesResponse
+     *
+     * @param ListCompliancePackTemplatesRequest $request
+     *
+     * @return ListCompliancePackTemplatesResponse
      */
     public function listCompliancePackTemplates($request)
     {
@@ -6226,30 +7445,38 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of compliance packages.
-     *  *
-     * @description This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
-     *  *
-     * @param ListCompliancePacksRequest $request ListCompliancePacksRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of compliance packages.
      *
-     * @return ListCompliancePacksResponse ListCompliancePacksResponse
+     * @remarks
+     * This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
+     *
+     * @param request - ListCompliancePacksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCompliancePacksResponse
+     *
+     * @param ListCompliancePacksRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCompliancePacksResponse
      */
     public function listCompliancePacksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCompliancePacks',
@@ -6267,13 +7494,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of compliance packages.
-     *  *
-     * @description This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
-     *  *
-     * @param ListCompliancePacksRequest $request ListCompliancePacksRequest
+     * Queries a list of compliance packages.
      *
-     * @return ListCompliancePacksResponse ListCompliancePacksResponse
+     * @remarks
+     * This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
+     *
+     * @param request - ListCompliancePacksRequest
+     * @returns ListCompliancePacksResponse
+     *
+     * @param ListCompliancePacksRequest $request
+     *
+     * @return ListCompliancePacksResponse
      */
     public function listCompliancePacks($request)
     {
@@ -6283,22 +7514,27 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of delivery channels.
-     *  *
-     * @param ListConfigDeliveryChannelsRequest $request ListConfigDeliveryChannelsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries a list of delivery channels.
      *
-     * @return ListConfigDeliveryChannelsResponse ListConfigDeliveryChannelsResponse
+     * @param request - ListConfigDeliveryChannelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListConfigDeliveryChannelsResponse
+     *
+     * @param ListConfigDeliveryChannelsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListConfigDeliveryChannelsResponse
      */
     public function listConfigDeliveryChannelsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deliveryChannelIds)) {
-            $query['DeliveryChannelIds'] = $request->deliveryChannelIds;
+        if (null !== $request->deliveryChannelIds) {
+            @$query['DeliveryChannelIds'] = $request->deliveryChannelIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListConfigDeliveryChannels',
@@ -6316,11 +7552,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of delivery channels.
-     *  *
-     * @param ListConfigDeliveryChannelsRequest $request ListConfigDeliveryChannelsRequest
+     * Queries a list of delivery channels.
      *
-     * @return ListConfigDeliveryChannelsResponse ListConfigDeliveryChannelsResponse
+     * @param request - ListConfigDeliveryChannelsRequest
+     * @returns ListConfigDeliveryChannelsResponse
+     *
+     * @param ListConfigDeliveryChannelsRequest $request
+     *
+     * @return ListConfigDeliveryChannelsResponse
      */
     public function listConfigDeliveryChannels($request)
     {
@@ -6330,21 +7569,26 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources based on a rule.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation result of resources based on a rule whose ID is `cr-cac56457e0d900d3****`. The returned result indicates that the `i-hp3e4kvhzqn2s11t****` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Elastic Compute Service (ECS) instance.
-     *  *
-     * @param ListConfigRuleEvaluationResultsRequest $request ListConfigRuleEvaluationResultsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance evaluation results of resources based on a rule.
      *
-     * @return ListConfigRuleEvaluationResultsResponse ListConfigRuleEvaluationResultsResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation result of resources based on a rule whose ID is `cr-cac56457e0d900d3****`. The returned result indicates that the `i-hp3e4kvhzqn2s11t****` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Elastic Compute Service (ECS) instance.
+     *
+     * @param request - ListConfigRuleEvaluationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListConfigRuleEvaluationResultsResponse
+     *
+     * @param ListConfigRuleEvaluationResultsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListConfigRuleEvaluationResultsResponse
      */
     public function listConfigRuleEvaluationResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListConfigRuleEvaluationResults',
@@ -6362,13 +7606,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources based on a rule.
-     *  *
-     * @description This topic provides an example on how to query the compliance evaluation result of resources based on a rule whose ID is `cr-cac56457e0d900d3****`. The returned result indicates that the `i-hp3e4kvhzqn2s11t****` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Elastic Compute Service (ECS) instance.
-     *  *
-     * @param ListConfigRuleEvaluationResultsRequest $request ListConfigRuleEvaluationResultsRequest
+     * Queries the compliance evaluation results of resources based on a rule.
      *
-     * @return ListConfigRuleEvaluationResultsResponse ListConfigRuleEvaluationResultsResponse
+     * @remarks
+     * This topic provides an example on how to query the compliance evaluation result of resources based on a rule whose ID is `cr-cac56457e0d900d3****`. The returned result indicates that the `i-hp3e4kvhzqn2s11t****` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Elastic Compute Service (ECS) instance.
+     *
+     * @param request - ListConfigRuleEvaluationResultsRequest
+     * @returns ListConfigRuleEvaluationResultsResponse
+     *
+     * @param ListConfigRuleEvaluationResultsRequest $request
+     *
+     * @return ListConfigRuleEvaluationResultsResponse
      */
     public function listConfigRuleEvaluationResults($request)
     {
@@ -6378,11 +7626,15 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics of compliance evaluation results of the current Alibaba Cloud account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics of compliance evaluation results of the current Alibaba Cloud account.
      *
-     * @return ListConfigRuleEvaluationStatisticsResponse ListConfigRuleEvaluationStatisticsResponse
+     * @param request - ListConfigRuleEvaluationStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListConfigRuleEvaluationStatisticsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListConfigRuleEvaluationStatisticsResponse
      */
     public function listConfigRuleEvaluationStatisticsWithOptions($runtime)
     {
@@ -6403,9 +7655,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics of compliance evaluation results of the current Alibaba Cloud account.
-     *  *
-     * @return ListConfigRuleEvaluationStatisticsResponse ListConfigRuleEvaluationStatisticsResponse
+     * Queries the statistics of compliance evaluation results of the current Alibaba Cloud account.
+     *
+     * @returns ListConfigRuleEvaluationStatisticsResponse
+     *
+     * @return ListConfigRuleEvaluationStatisticsResponse
      */
     public function listConfigRuleEvaluationStatistics()
     {
@@ -6415,56 +7669,72 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the rules of the current account.
-     *  *
-     * @description This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
-     *  *
-     * @param ListConfigRulesRequest $tmpReq  ListConfigRulesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the rules of the current account.
      *
-     * @return ListConfigRulesResponse ListConfigRulesResponse
+     * @remarks
+     * This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
+     *
+     * @param tmpReq - ListConfigRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListConfigRulesResponse
+     *
+     * @param ListConfigRulesRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListConfigRulesResponse
      */
     public function listConfigRulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListConfigRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->complianceType)) {
-            $query['ComplianceType'] = $request->complianceType;
+
+        if (null !== $request->complianceType) {
+            @$query['ComplianceType'] = $request->complianceType;
         }
-        if (!Utils::isUnset($request->configRuleName)) {
-            $query['ConfigRuleName'] = $request->configRuleName;
+
+        if (null !== $request->configRuleName) {
+            @$query['ConfigRuleName'] = $request->configRuleName;
         }
-        if (!Utils::isUnset($request->configRuleState)) {
-            $query['ConfigRuleState'] = $request->configRuleState;
+
+        if (null !== $request->configRuleState) {
+            @$query['ConfigRuleState'] = $request->configRuleState;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $query['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListConfigRules',
@@ -6482,13 +7752,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the rules of the current account.
-     *  *
-     * @description This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
-     *  *
-     * @param ListConfigRulesRequest $request ListConfigRulesRequest
+     * Queries the rules of the current account.
      *
-     * @return ListConfigRulesResponse ListConfigRulesResponse
+     * @remarks
+     * This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
+     *
+     * @param request - ListConfigRulesRequest
+     * @returns ListConfigRulesResponse
+     *
+     * @param ListConfigRulesRequest $request
+     *
+     * @return ListConfigRulesResponse
      */
     public function listConfigRules($request)
     {
@@ -6498,48 +7772,62 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of resources aggregated across regions within an Alibaba Cloud account.
-     *  *
-     * @description This topic provides an example on how to call the ListDiscoveredResources operation to query the resources in the current Alibaba Cloud account. The returned result indicates that a total of eight resources exist in the account.
-     *  *
-     * @param ListDiscoveredResourcesRequest $request ListDiscoveredResourcesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Obtains a list of resources aggregated across regions within an Alibaba Cloud account.
      *
-     * @return ListDiscoveredResourcesResponse ListDiscoveredResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the ListDiscoveredResources operation to query the resources in the current Alibaba Cloud account. The returned result indicates that a total of eight resources exist in the account.
+     *
+     * @param request - ListDiscoveredResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDiscoveredResourcesResponse
+     *
+     * @param ListDiscoveredResourcesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDiscoveredResourcesResponse
      */
     public function listDiscoveredResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endUpdateTimestamp)) {
-            $query['EndUpdateTimestamp'] = $request->endUpdateTimestamp;
+        if (null !== $request->endUpdateTimestamp) {
+            @$query['EndUpdateTimestamp'] = $request->endUpdateTimestamp;
         }
-        if (!Utils::isUnset($request->excludeResourceTypes)) {
-            $query['ExcludeResourceTypes'] = $request->excludeResourceTypes;
+
+        if (null !== $request->excludeResourceTypes) {
+            @$query['ExcludeResourceTypes'] = $request->excludeResourceTypes;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regions)) {
-            $query['Regions'] = $request->regions;
+
+        if (null !== $request->regions) {
+            @$query['Regions'] = $request->regions;
         }
-        if (!Utils::isUnset($request->resourceDeleted)) {
-            $query['ResourceDeleted'] = $request->resourceDeleted;
+
+        if (null !== $request->resourceDeleted) {
+            @$query['ResourceDeleted'] = $request->resourceDeleted;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
-        if (!Utils::isUnset($request->startUpdateTimestamp)) {
-            $query['StartUpdateTimestamp'] = $request->startUpdateTimestamp;
+
+        if (null !== $request->startUpdateTimestamp) {
+            @$query['StartUpdateTimestamp'] = $request->startUpdateTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDiscoveredResources',
@@ -6557,13 +7845,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of resources aggregated across regions within an Alibaba Cloud account.
-     *  *
-     * @description This topic provides an example on how to call the ListDiscoveredResources operation to query the resources in the current Alibaba Cloud account. The returned result indicates that a total of eight resources exist in the account.
-     *  *
-     * @param ListDiscoveredResourcesRequest $request ListDiscoveredResourcesRequest
+     * Obtains a list of resources aggregated across regions within an Alibaba Cloud account.
      *
-     * @return ListDiscoveredResourcesResponse ListDiscoveredResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the ListDiscoveredResources operation to query the resources in the current Alibaba Cloud account. The returned result indicates that a total of eight resources exist in the account.
+     *
+     * @param request - ListDiscoveredResourcesRequest
+     * @returns ListDiscoveredResourcesResponse
+     *
+     * @param ListDiscoveredResourcesRequest $request
+     *
+     * @return ListDiscoveredResourcesResponse
      */
     public function listDiscoveredResources($request)
     {
@@ -6573,13 +7865,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of cloud services that are integrated with Cloud Config and the status of each cloud service.
-     *  *
-     * @description This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries a list of cloud services that are integrated with Cloud Config and the status of each cloud service.
      *
-     * @return ListIntegratedServiceResponse ListIntegratedServiceResponse
+     * @remarks
+     * This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
+     *
+     * @param request - ListIntegratedServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIntegratedServiceResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListIntegratedServiceResponse
      */
     public function listIntegratedServiceWithOptions($runtime)
     {
@@ -6600,11 +7897,13 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of cloud services that are integrated with Cloud Config and the status of each cloud service.
-     *  *
-     * @description This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
-     *  *
-     * @return ListIntegratedServiceResponse ListIntegratedServiceResponse
+     * Queries a list of cloud services that are integrated with Cloud Config and the status of each cloud service.
+     *
+     * @remarks
+     * This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
+     * @returns ListIntegratedServiceResponse
+     *
+     * @return ListIntegratedServiceResponse
      */
     public function listIntegratedService()
     {
@@ -6614,39 +7913,49 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of managed rules supported by Cloud Config.
-     *  *
-     * @description ### [](#)Background information
+     * Queries a list of managed rules supported by Cloud Config.
+     *
+     * @remarks
+     * ### [](#)Background information
      * For more information about how to define, execute, and integrate a managed rule, see [Definition and execution of rules](https://help.aliyun.com/document_detail/128273.html).
      * ### [](#)Description
      * This topic provides an example on how to query all managed rules whose keyword is `CDN`. The response shows that 21 managed rules exist.
-     *  *
-     * @param ListManagedRulesRequest $request ListManagedRulesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListManagedRulesResponse ListManagedRulesResponse
+     * @param request - ListManagedRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListManagedRulesResponse
+     *
+     * @param ListManagedRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListManagedRulesResponse
      */
     public function listManagedRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $query['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListManagedRules',
@@ -6664,16 +7973,20 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of managed rules supported by Cloud Config.
-     *  *
-     * @description ### [](#)Background information
+     * Queries a list of managed rules supported by Cloud Config.
+     *
+     * @remarks
+     * ### [](#)Background information
      * For more information about how to define, execute, and integrate a managed rule, see [Definition and execution of rules](https://help.aliyun.com/document_detail/128273.html).
      * ### [](#)Description
      * This topic provides an example on how to query all managed rules whose keyword is `CDN`. The response shows that 21 managed rules exist.
-     *  *
-     * @param ListManagedRulesRequest $request ListManagedRulesRequest
      *
-     * @return ListManagedRulesResponse ListManagedRulesResponse
+     * @param request - ListManagedRulesRequest
+     * @returns ListManagedRulesResponse
+     *
+     * @param ListManagedRulesRequest $request
+     *
+     * @return ListManagedRulesResponse
      */
     public function listManagedRules($request)
     {
@@ -6683,36 +7996,45 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of evaluation rules supported by Cloud Config.
-     *  *
-     * @description For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
-     * After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
-     *  *
-     * @param ListPreManagedRulesRequest $tmpReq  ListPreManagedRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of evaluation rules supported by Cloud Config.
      *
-     * @return ListPreManagedRulesResponse ListPreManagedRulesResponse
+     * @remarks
+     * For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
+     * After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
+     *
+     * @param tmpReq - ListPreManagedRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPreManagedRulesResponse
+     *
+     * @param ListPreManagedRulesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListPreManagedRulesResponse
      */
     public function listPreManagedRulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListPreManagedRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceTypes)) {
-            $request->resourceTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypes, 'ResourceTypes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceTypes) {
+            $request->resourceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypes, 'ResourceTypes', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceTypesShrink)) {
-            $body['ResourceTypes'] = $request->resourceTypesShrink;
+
+        if (null !== $request->resourceTypesShrink) {
+            @$body['ResourceTypes'] = $request->resourceTypesShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListPreManagedRules',
@@ -6730,14 +8052,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of evaluation rules supported by Cloud Config.
-     *  *
-     * @description For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
-     * After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
-     *  *
-     * @param ListPreManagedRulesRequest $request ListPreManagedRulesRequest
+     * Queries a list of evaluation rules supported by Cloud Config.
      *
-     * @return ListPreManagedRulesResponse ListPreManagedRulesResponse
+     * @remarks
+     * For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
+     * After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
+     *
+     * @param request - ListPreManagedRulesRequest
+     * @returns ListPreManagedRulesResponse
+     *
+     * @param ListPreManagedRulesRequest $request
+     *
+     * @return ListPreManagedRulesResponse
      */
     public function listPreManagedRules($request)
     {
@@ -6747,33 +8073,42 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remediation records of a rule.
-     *  *
-     * @description This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
-     *  *
-     * @param ListRemediationExecutionsRequest $request ListRemediationExecutionsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the remediation records of a rule.
      *
-     * @return ListRemediationExecutionsResponse ListRemediationExecutionsResponse
+     * @remarks
+     * This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
+     *
+     * @param request - ListRemediationExecutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRemediationExecutionsResponse
+     *
+     * @param ListRemediationExecutionsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListRemediationExecutionsResponse
      */
     public function listRemediationExecutionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->executionStatus)) {
-            $query['ExecutionStatus'] = $request->executionStatus;
+
+        if (null !== $request->executionStatus) {
+            @$query['ExecutionStatus'] = $request->executionStatus;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRemediationExecutions',
@@ -6791,13 +8126,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remediation records of a rule.
-     *  *
-     * @description This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
-     *  *
-     * @param ListRemediationExecutionsRequest $request ListRemediationExecutionsRequest
+     * Queries the remediation records of a rule.
      *
-     * @return ListRemediationExecutionsResponse ListRemediationExecutionsResponse
+     * @remarks
+     * This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
+     *
+     * @param request - ListRemediationExecutionsRequest
+     * @returns ListRemediationExecutionsResponse
+     *
+     * @param ListRemediationExecutionsRequest $request
+     *
+     * @return ListRemediationExecutionsResponse
      */
     public function listRemediationExecutions($request)
     {
@@ -6807,33 +8146,42 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of remediation templates for a managed rule.
-     *  *
-     * @description In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
-     *  *
-     * @param ListRemediationTemplatesRequest $request ListRemediationTemplatesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries a list of remediation templates for a managed rule.
      *
-     * @return ListRemediationTemplatesResponse ListRemediationTemplatesResponse
+     * @remarks
+     * In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
+     *
+     * @param request - ListRemediationTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRemediationTemplatesResponse
+     *
+     * @param ListRemediationTemplatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListRemediationTemplatesResponse
      */
     public function listRemediationTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->managedRuleIdentifier)) {
-            $query['ManagedRuleIdentifier'] = $request->managedRuleIdentifier;
+        if (null !== $request->managedRuleIdentifier) {
+            @$query['ManagedRuleIdentifier'] = $request->managedRuleIdentifier;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->remediationType)) {
-            $query['RemediationType'] = $request->remediationType;
+
+        if (null !== $request->remediationType) {
+            @$query['RemediationType'] = $request->remediationType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRemediationTemplates',
@@ -6851,13 +8199,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of remediation templates for a managed rule.
-     *  *
-     * @description In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
-     *  *
-     * @param ListRemediationTemplatesRequest $request ListRemediationTemplatesRequest
+     * Queries a list of remediation templates for a managed rule.
      *
-     * @return ListRemediationTemplatesResponse ListRemediationTemplatesResponse
+     * @remarks
+     * In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
+     *
+     * @param request - ListRemediationTemplatesRequest
+     * @returns ListRemediationTemplatesResponse
+     *
+     * @param ListRemediationTemplatesRequest $request
+     *
+     * @return ListRemediationTemplatesResponse
      */
     public function listRemediationTemplates($request)
     {
@@ -6867,30 +8219,38 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the execution of remediation templates.
-     *  *
-     * @description This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
-     *  *
-     * @param ListRemediationsRequest $request ListRemediationsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the execution of remediation templates.
      *
-     * @return ListRemediationsResponse ListRemediationsResponse
+     * @remarks
+     * This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
+     *
+     * @param request - ListRemediationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRemediationsResponse
+     *
+     * @param ListRemediationsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListRemediationsResponse
      */
     public function listRemediationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configRuleIds)) {
-            $query['ConfigRuleIds'] = $request->configRuleIds;
+        if (null !== $request->configRuleIds) {
+            @$query['ConfigRuleIds'] = $request->configRuleIds;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRemediations',
@@ -6908,13 +8268,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the execution of remediation templates.
-     *  *
-     * @description This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
-     *  *
-     * @param ListRemediationsRequest $request ListRemediationsRequest
+     * Queries the information about the execution of remediation templates.
      *
-     * @return ListRemediationsResponse ListRemediationsResponse
+     * @remarks
+     * This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
+     *
+     * @param request - ListRemediationsRequest
+     * @returns ListRemediationsResponse
+     *
+     * @param ListRemediationsRequest $request
+     *
+     * @return ListRemediationsResponse
      */
     public function listRemediations($request)
     {
@@ -6924,39 +8288,50 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources.
-     *  *
-     * @description In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
-     *  *
-     * @param ListResourceEvaluationResultsRequest $request ListResourceEvaluationResultsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance evaluation results of resources.
      *
-     * @return ListResourceEvaluationResultsResponse ListResourceEvaluationResultsResponse
+     * @remarks
+     * In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
+     *
+     * @param request - ListResourceEvaluationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourceEvaluationResultsResponse
+     *
+     * @param ListResourceEvaluationResultsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListResourceEvaluationResultsResponse
      */
     public function listResourceEvaluationResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->complianceType)) {
-            $query['ComplianceType'] = $request->complianceType;
+        if (null !== $request->complianceType) {
+            @$query['ComplianceType'] = $request->complianceType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResourceEvaluationResults',
@@ -6974,13 +8349,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance evaluation results of resources.
-     *  *
-     * @description In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
-     *  *
-     * @param ListResourceEvaluationResultsRequest $request ListResourceEvaluationResultsRequest
+     * Queries the compliance evaluation results of resources.
      *
-     * @return ListResourceEvaluationResultsResponse ListResourceEvaluationResultsResponse
+     * @remarks
+     * In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
+     *
+     * @param request - ListResourceEvaluationResultsRequest
+     * @returns ListResourceEvaluationResultsResponse
+     *
+     * @param ListResourceEvaluationResultsRequest $request
+     *
+     * @return ListResourceEvaluationResultsResponse
      */
     public function listResourceEvaluationResults($request)
     {
@@ -6990,46 +8369,59 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of resources that associate with a specific resource.
-     *  *
-     * @description For information about the Alibaba Cloud services and resource types supported by Cloud Config, see [Alibaba Cloud services and resource types supported by Cloud Config](https://help.aliyun.com/document_detail/127411.html).
-     * This topic provides an example on how to query the information about the disks that are attached to an Elastic Compute Service (ECS) instance named `i-j6cajg9yrfoh4sas****` that is created by the current Alibaba Cloud account in the China (Shanghai) region.
-     *  *
-     * @param ListResourceRelationsRequest $request ListResourceRelationsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries a list of resources that associate with a specific resource.
      *
-     * @return ListResourceRelationsResponse ListResourceRelationsResponse
+     * @remarks
+     * For information about the Alibaba Cloud services and resource types supported by Cloud Config, see [Alibaba Cloud services and resource types supported by Cloud Config](https://help.aliyun.com/document_detail/127411.html).
+     * This topic provides an example on how to query the information about the disks that are attached to an Elastic Compute Service (ECS) instance named `i-j6cajg9yrfoh4sas****` that is created by the current Alibaba Cloud account in the China (Shanghai) region.
+     *
+     * @param request - ListResourceRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourceRelationsResponse
+     *
+     * @param ListResourceRelationsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListResourceRelationsResponse
      */
     public function listResourceRelationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->relationType)) {
-            $query['RelationType'] = $request->relationType;
+
+        if (null !== $request->relationType) {
+            @$query['RelationType'] = $request->relationType;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->targetResourceId)) {
-            $query['TargetResourceId'] = $request->targetResourceId;
+
+        if (null !== $request->targetResourceId) {
+            @$query['TargetResourceId'] = $request->targetResourceId;
         }
-        if (!Utils::isUnset($request->targetResourceType)) {
-            $query['TargetResourceType'] = $request->targetResourceType;
+
+        if (null !== $request->targetResourceType) {
+            @$query['TargetResourceType'] = $request->targetResourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResourceRelations',
@@ -7047,14 +8439,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of resources that associate with a specific resource.
-     *  *
-     * @description For information about the Alibaba Cloud services and resource types supported by Cloud Config, see [Alibaba Cloud services and resource types supported by Cloud Config](https://help.aliyun.com/document_detail/127411.html).
-     * This topic provides an example on how to query the information about the disks that are attached to an Elastic Compute Service (ECS) instance named `i-j6cajg9yrfoh4sas****` that is created by the current Alibaba Cloud account in the China (Shanghai) region.
-     *  *
-     * @param ListResourceRelationsRequest $request ListResourceRelationsRequest
+     * Queries a list of resources that associate with a specific resource.
      *
-     * @return ListResourceRelationsResponse ListResourceRelationsResponse
+     * @remarks
+     * For information about the Alibaba Cloud services and resource types supported by Cloud Config, see [Alibaba Cloud services and resource types supported by Cloud Config](https://help.aliyun.com/document_detail/127411.html).
+     * This topic provides an example on how to query the information about the disks that are attached to an Elastic Compute Service (ECS) instance named `i-j6cajg9yrfoh4sas****` that is created by the current Alibaba Cloud account in the China (Shanghai) region.
+     *
+     * @param request - ListResourceRelationsRequest
+     * @returns ListResourceRelationsResponse
+     *
+     * @param ListResourceRelationsRequest $request
+     *
+     * @return ListResourceRelationsResponse
      */
     public function listResourceRelations($request)
     {
@@ -7064,28 +8460,34 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains resources based on the fields in the resource properties by using a SELECT statement.
-     *  *
-     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema).
+     * Obtains resources based on the fields in the resource properties by using a SELECT statement.
+     *
+     * @remarks
+     * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema).
      * >
      * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
      * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
      * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` within the current account by using the advanced search feature.
-     *  *
-     * @param ListResourcesByAdvancedSearchRequest $request ListResourcesByAdvancedSearchRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourcesByAdvancedSearchResponse ListResourcesByAdvancedSearchResponse
+     * @param request - ListResourcesByAdvancedSearchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourcesByAdvancedSearchResponse
+     *
+     * @param ListResourcesByAdvancedSearchRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListResourcesByAdvancedSearchResponse
      */
     public function listResourcesByAdvancedSearchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sql)) {
-            $query['Sql'] = $request->sql;
+        if (null !== $request->sql) {
+            @$query['Sql'] = $request->sql;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResourcesByAdvancedSearch',
@@ -7103,17 +8505,21 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Obtains resources based on the fields in the resource properties by using a SELECT statement.
-     *  *
-     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema).
+     * Obtains resources based on the fields in the resource properties by using a SELECT statement.
+     *
+     * @remarks
+     * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema).
      * >
      * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
      * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
      * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` within the current account by using the advanced search feature.
-     *  *
-     * @param ListResourcesByAdvancedSearchRequest $request ListResourcesByAdvancedSearchRequest
      *
-     * @return ListResourcesByAdvancedSearchResponse ListResourcesByAdvancedSearchResponse
+     * @param request - ListResourcesByAdvancedSearchRequest
+     * @returns ListResourcesByAdvancedSearchResponse
+     *
+     * @param ListResourcesByAdvancedSearchRequest $request
+     *
+     * @return ListResourcesByAdvancedSearchResponse
      */
     public function listResourcesByAdvancedSearch($request)
     {
@@ -7123,27 +8529,34 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the cloud services and resource types that are supported by Cloud Config.
-     *  *
-     * @description This topic provides an example on how to query the Alibaba Cloud services and resource types supported by a Cloud Config.
-     *  *
-     * @param ListSupportedProductsRequest $request ListSupportedProductsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the cloud services and resource types that are supported by Cloud Config.
      *
-     * @return ListSupportedProductsResponse ListSupportedProductsResponse
+     * @remarks
+     * This topic provides an example on how to query the Alibaba Cloud services and resource types supported by a Cloud Config.
+     *
+     * @param request - ListSupportedProductsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSupportedProductsResponse
+     *
+     * @param ListSupportedProductsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListSupportedProductsResponse
      */
     public function listSupportedProductsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSupportedProducts',
@@ -7161,13 +8574,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries the cloud services and resource types that are supported by Cloud Config.
-     *  *
-     * @description This topic provides an example on how to query the Alibaba Cloud services and resource types supported by a Cloud Config.
-     *  *
-     * @param ListSupportedProductsRequest $request ListSupportedProductsRequest
+     * Queries the cloud services and resource types that are supported by Cloud Config.
      *
-     * @return ListSupportedProductsResponse ListSupportedProductsResponse
+     * @remarks
+     * This topic provides an example on how to query the Alibaba Cloud services and resource types supported by a Cloud Config.
+     *
+     * @param request - ListSupportedProductsRequest
+     * @returns ListSupportedProductsResponse
+     *
+     * @param ListSupportedProductsRequest $request
+     *
+     * @return ListSupportedProductsResponse
      */
     public function listSupportedProducts($request)
     {
@@ -7177,39 +8594,49 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags that are added to specified resources.
-     *  *
-     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries tags that are added to specified resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param tmpReq - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTagResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $body['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$body['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -7227,11 +8654,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags that are added to specified resources.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries tags that are added to specified resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -7241,30 +8671,38 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Submits the evaluation results of a rule from Function Compute.
-     *  *
-     * @description For more information about the definition, use scenarios, and execution of custom function rules, see [Definition and execution of custom function rules](https://help.aliyun.com/document_detail/127405.html).
-     *  *
-     * @param PutEvaluationsRequest $request PutEvaluationsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Submits the evaluation results of a rule from Function Compute.
      *
-     * @return PutEvaluationsResponse PutEvaluationsResponse
+     * @remarks
+     * For more information about the definition, use scenarios, and execution of custom function rules, see [Definition and execution of custom function rules](https://help.aliyun.com/document_detail/127405.html).
+     *
+     * @param request - PutEvaluationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PutEvaluationsResponse
+     *
+     * @param PutEvaluationsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PutEvaluationsResponse
      */
     public function putEvaluationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->deleteMode)) {
-            $body['DeleteMode'] = $request->deleteMode;
+        if (null !== $request->deleteMode) {
+            @$body['DeleteMode'] = $request->deleteMode;
         }
-        if (!Utils::isUnset($request->evaluations)) {
-            $body['Evaluations'] = $request->evaluations;
+
+        if (null !== $request->evaluations) {
+            @$body['Evaluations'] = $request->evaluations;
         }
-        if (!Utils::isUnset($request->resultToken)) {
-            $body['ResultToken'] = $request->resultToken;
+
+        if (null !== $request->resultToken) {
+            @$body['ResultToken'] = $request->resultToken;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PutEvaluations',
@@ -7282,13 +8720,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Submits the evaluation results of a rule from Function Compute.
-     *  *
-     * @description For more information about the definition, use scenarios, and execution of custom function rules, see [Definition and execution of custom function rules](https://help.aliyun.com/document_detail/127405.html).
-     *  *
-     * @param PutEvaluationsRequest $request PutEvaluationsRequest
+     * Submits the evaluation results of a rule from Function Compute.
      *
-     * @return PutEvaluationsResponse PutEvaluationsResponse
+     * @remarks
+     * For more information about the definition, use scenarios, and execution of custom function rules, see [Definition and execution of custom function rules](https://help.aliyun.com/document_detail/127405.html).
+     *
+     * @param request - PutEvaluationsRequest
+     * @returns PutEvaluationsResponse
+     *
+     * @param PutEvaluationsRequest $request
+     *
+     * @return PutEvaluationsResponse
      */
     public function putEvaluations($request)
     {
@@ -7298,38 +8740,47 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule in an account group are resumed.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule in an account group are resumed.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * One or more non-compliant resources that are evaluated by a rule are ignored. For more information, see [IgnoreAggregateEvaluationResults](https://help.aliyun.com/document_detail/607054.html).
      * ### [](#)Description
      * This topic provides an example on how to re-evaluate the non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule of the `120886317861****` member in the `ca-5b6c626622af008f****` group account. The ID of the region in which the resource resides is `cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
-     *  *
-     * @param RevertAggregateEvaluationResultsRequest $tmpReq  RevertAggregateEvaluationResultsRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevertAggregateEvaluationResultsResponse RevertAggregateEvaluationResultsResponse
+     * @param tmpReq - RevertAggregateEvaluationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevertAggregateEvaluationResultsResponse
+     *
+     * @param RevertAggregateEvaluationResultsRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RevertAggregateEvaluationResultsResponse
      */
     public function revertAggregateEvaluationResultsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RevertAggregateEvaluationResultsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resources)) {
-            $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resources) {
+            $request->resourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $body['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$body['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->resourcesShrink)) {
-            $body['Resources'] = $request->resourcesShrink;
+
+        if (null !== $request->resourcesShrink) {
+            @$body['Resources'] = $request->resourcesShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RevertAggregateEvaluationResults',
@@ -7347,16 +8798,20 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule in an account group are resumed.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule in an account group are resumed.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * One or more non-compliant resources that are evaluated by a rule are ignored. For more information, see [IgnoreAggregateEvaluationResults](https://help.aliyun.com/document_detail/607054.html).
      * ### [](#)Description
      * This topic provides an example on how to re-evaluate the non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule of the `120886317861****` member in the `ca-5b6c626622af008f****` group account. The ID of the region in which the resource resides is `cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
-     *  *
-     * @param RevertAggregateEvaluationResultsRequest $request RevertAggregateEvaluationResultsRequest
      *
-     * @return RevertAggregateEvaluationResultsResponse RevertAggregateEvaluationResultsResponse
+     * @param request - RevertAggregateEvaluationResultsRequest
+     * @returns RevertAggregateEvaluationResultsResponse
+     *
+     * @param RevertAggregateEvaluationResultsRequest $request
+     *
+     * @return RevertAggregateEvaluationResultsResponse
      */
     public function revertAggregateEvaluationResults($request)
     {
@@ -7366,35 +8821,43 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule are resumed.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule are resumed.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * One or more non-compliant resources that are evaluated by a rule are ignored. For more information, see [IgnoreEvaluationResults](https://help.aliyun.com/document_detail/606990.html).
      * ### [](#)Description
      * This topic provides an example on how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is`cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
-     *  *
-     * @param RevertEvaluationResultsRequest $tmpReq  RevertEvaluationResultsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevertEvaluationResultsResponse RevertEvaluationResultsResponse
+     * @param tmpReq - RevertEvaluationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevertEvaluationResultsResponse
+     *
+     * @param RevertEvaluationResultsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RevertEvaluationResultsResponse
      */
     public function revertEvaluationResultsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RevertEvaluationResultsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resources)) {
-            $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resources) {
+            $request->resourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configRuleId)) {
-            $body['ConfigRuleId'] = $request->configRuleId;
+        if (null !== $request->configRuleId) {
+            @$body['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->resourcesShrink)) {
-            $body['Resources'] = $request->resourcesShrink;
+
+        if (null !== $request->resourcesShrink) {
+            @$body['Resources'] = $request->resourcesShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RevertEvaluationResults',
@@ -7412,16 +8875,20 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule are resumed.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Re-evaluates resources that are evaluated based on a rule after the evaluation results on some resources of an ignored rule are resumed.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * One or more non-compliant resources that are evaluated by a rule are ignored. For more information, see [IgnoreEvaluationResults](https://help.aliyun.com/document_detail/606990.html).
      * ### [](#)Description
      * This topic provides an example on how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is`cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
-     *  *
-     * @param RevertEvaluationResultsRequest $request RevertEvaluationResultsRequest
      *
-     * @return RevertEvaluationResultsResponse RevertEvaluationResultsResponse
+     * @param request - RevertEvaluationResultsRequest
+     * @returns RevertEvaluationResultsResponse
+     *
+     * @param RevertEvaluationResultsRequest $request
+     *
+     * @return RevertEvaluationResultsResponse
      */
     public function revertEvaluationResults($request)
     {
@@ -7431,34 +8898,43 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package in a specific account group.
-     *  *
-     * @description > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](https://help.aliyun.com/document_detail/265979.html).
-     * The sample request in this topic shows how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
-     *  *
-     * @param StartAggregateConfigRuleEvaluationRequest $request StartAggregateConfigRuleEvaluationRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package in a specific account group.
      *
-     * @return StartAggregateConfigRuleEvaluationResponse StartAggregateConfigRuleEvaluationResponse
+     * @remarks
+     * > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](https://help.aliyun.com/document_detail/265979.html).
+     * The sample request in this topic shows how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
+     *
+     * @param request - StartAggregateConfigRuleEvaluationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartAggregateConfigRuleEvaluationResponse
+     *
+     * @param StartAggregateConfigRuleEvaluationRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return StartAggregateConfigRuleEvaluationResponse
      */
     public function startAggregateConfigRuleEvaluationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->revertEvaluation)) {
-            $query['RevertEvaluation'] = $request->revertEvaluation;
+
+        if (null !== $request->revertEvaluation) {
+            @$query['RevertEvaluation'] = $request->revertEvaluation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartAggregateConfigRuleEvaluation',
@@ -7476,14 +8952,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package in a specific account group.
-     *  *
-     * @description > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](https://help.aliyun.com/document_detail/265979.html).
-     * The sample request in this topic shows how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
-     *  *
-     * @param StartAggregateConfigRuleEvaluationRequest $request StartAggregateConfigRuleEvaluationRequest
+     * Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package in a specific account group.
      *
-     * @return StartAggregateConfigRuleEvaluationResponse StartAggregateConfigRuleEvaluationResponse
+     * @remarks
+     * > After you call this operation, the compliance evaluation is performed only once. To query the compliance evaluation results returned by the rule, call the ListAggregateConfigRuleEvaluationResults operation. For more information, see [ListAggregateConfigRuleEvaluationResults](https://help.aliyun.com/document_detail/265979.html).
+     * The sample request in this topic shows how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
+     *
+     * @param request - StartAggregateConfigRuleEvaluationRequest
+     * @returns StartAggregateConfigRuleEvaluationResponse
+     *
+     * @param StartAggregateConfigRuleEvaluationRequest $request
+     *
+     * @return StartAggregateConfigRuleEvaluationResponse
      */
     public function startAggregateConfigRuleEvaluation($request)
     {
@@ -7493,30 +8973,38 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Performs a remediation operation by using a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
-     *  *
-     * @param StartAggregateRemediationRequest $request StartAggregateRemediationRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Performs a remediation operation by using a rule in an account group.
      *
-     * @return StartAggregateRemediationResponse StartAggregateRemediationResponse
+     * @remarks
+     * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
+     *
+     * @param request - StartAggregateRemediationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartAggregateRemediationResponse
+     *
+     * @param StartAggregateRemediationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return StartAggregateRemediationResponse
      */
     public function startAggregateRemediationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->resourceAccountId)) {
-            $query['ResourceAccountId'] = $request->resourceAccountId;
+
+        if (null !== $request->resourceAccountId) {
+            @$query['ResourceAccountId'] = $request->resourceAccountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartAggregateRemediation',
@@ -7534,13 +9022,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Performs a remediation operation by using a rule in an account group.
-     *  *
-     * @description This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
-     *  *
-     * @param StartAggregateRemediationRequest $request StartAggregateRemediationRequest
+     * Performs a remediation operation by using a rule in an account group.
      *
-     * @return StartAggregateRemediationResponse StartAggregateRemediationResponse
+     * @remarks
+     * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
+     *
+     * @param request - StartAggregateRemediationRequest
+     * @returns StartAggregateRemediationResponse
+     *
+     * @param StartAggregateRemediationRequest $request
+     *
+     * @return StartAggregateRemediationResponse
      */
     public function startAggregateRemediation($request)
     {
@@ -7550,30 +9042,38 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package.
-     *  *
-     * @description In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
-     *  *
-     * @param StartConfigRuleEvaluationRequest $request StartConfigRuleEvaluationRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package.
      *
-     * @return StartConfigRuleEvaluationResponse StartConfigRuleEvaluationResponse
+     * @remarks
+     * In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
+     *
+     * @param request - StartConfigRuleEvaluationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartConfigRuleEvaluationResponse
+     *
+     * @param StartConfigRuleEvaluationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return StartConfigRuleEvaluationResponse
      */
     public function startConfigRuleEvaluationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $query['CompliancePackId'] = $request->compliancePackId;
+        if (null !== $request->compliancePackId) {
+            @$query['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->revertEvaluation)) {
-            $query['RevertEvaluation'] = $request->revertEvaluation;
+
+        if (null !== $request->revertEvaluation) {
+            @$query['RevertEvaluation'] = $request->revertEvaluation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartConfigRuleEvaluation',
@@ -7591,13 +9091,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package.
-     *  *
-     * @description In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
-     *  *
-     * @param StartConfigRuleEvaluationRequest $request StartConfigRuleEvaluationRequest
+     * Re-evaluates the compliance of resources based on a rule or based on all rules in a compliance package.
      *
-     * @return StartConfigRuleEvaluationResponse StartConfigRuleEvaluationResponse
+     * @remarks
+     * In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
+     *
+     * @param request - StartConfigRuleEvaluationRequest
+     * @returns StartConfigRuleEvaluationResponse
+     *
+     * @param StartConfigRuleEvaluationRequest $request
+     *
+     * @return StartConfigRuleEvaluationResponse
      */
     public function startConfigRuleEvaluation($request)
     {
@@ -7607,13 +9111,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Enables Cloud Config to monitor the resources of your Alibaba Cloud account.
-     *  *
-     * @description This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Enables Cloud Config to monitor the resources of your Alibaba Cloud account.
      *
-     * @return StartConfigurationRecorderResponse StartConfigurationRecorderResponse
+     * @remarks
+     * This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
+     *
+     * @param request - StartConfigurationRecorderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartConfigurationRecorderResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartConfigurationRecorderResponse
      */
     public function startConfigurationRecorderWithOptions($runtime)
     {
@@ -7634,11 +9143,13 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Enables Cloud Config to monitor the resources of your Alibaba Cloud account.
-     *  *
-     * @description This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
-     *  *
-     * @return StartConfigurationRecorderResponse StartConfigurationRecorderResponse
+     * Enables Cloud Config to monitor the resources of your Alibaba Cloud account.
+     *
+     * @remarks
+     * This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
+     * @returns StartConfigurationRecorderResponse
+     *
+     * @return StartConfigurationRecorderResponse
      */
     public function startConfigurationRecorder()
     {
@@ -7648,24 +9159,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Performs a remediation operation by using a rule.
-     *  *
-     * @description This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
-     *  *
-     * @param StartRemediationRequest $request StartRemediationRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Performs a remediation operation by using a rule.
      *
-     * @return StartRemediationResponse StartRemediationResponse
+     * @remarks
+     * This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
+     *
+     * @param request - StartRemediationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartRemediationResponse
+     *
+     * @param StartRemediationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StartRemediationResponse
      */
     public function startRemediationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configRuleId)) {
-            $query['ConfigRuleId'] = $request->configRuleId;
+        if (null !== $request->configRuleId) {
+            @$query['ConfigRuleId'] = $request->configRuleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartRemediation',
@@ -7683,13 +9200,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Performs a remediation operation by using a rule.
-     *  *
-     * @description This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
-     *  *
-     * @param StartRemediationRequest $request StartRemediationRequest
+     * Performs a remediation operation by using a rule.
      *
-     * @return StartRemediationResponse StartRemediationResponse
+     * @remarks
+     * This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
+     *
+     * @param request - StartRemediationRequest
+     * @returns StartRemediationResponse
+     *
+     * @param StartRemediationRequest $request
+     *
+     * @return StartRemediationResponse
      */
     public function startRemediation($request)
     {
@@ -7699,13 +9220,18 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deactivates Cloud Config.
-     *  *
-     * @description >  After you deactivate Cloud Config, the resource configurations, created rules, and compliance evaluation results that are stored in Cloud Config are automatically cleared and cannot be restored. Proceed with caution.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Deactivates Cloud Config.
      *
-     * @return StopConfigurationRecorderResponse StopConfigurationRecorderResponse
+     * @remarks
+     * >  After you deactivate Cloud Config, the resource configurations, created rules, and compliance evaluation results that are stored in Cloud Config are automatically cleared and cannot be restored. Proceed with caution.
+     *
+     * @param request - StopConfigurationRecorderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopConfigurationRecorderResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopConfigurationRecorderResponse
      */
     public function stopConfigurationRecorderWithOptions($runtime)
     {
@@ -7726,11 +9252,13 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Deactivates Cloud Config.
-     *  *
-     * @description >  After you deactivate Cloud Config, the resource configurations, created rules, and compliance evaluation results that are stored in Cloud Config are automatically cleared and cannot be restored. Proceed with caution.
-     *  *
-     * @return StopConfigurationRecorderResponse StopConfigurationRecorderResponse
+     * Deactivates Cloud Config.
+     *
+     * @remarks
+     * >  After you deactivate Cloud Config, the resource configurations, created rules, and compliance evaluation results that are stored in Cloud Config are automatically cleared and cannot be restored. Proceed with caution.
+     * @returns StopConfigurationRecorderResponse
+     *
+     * @return StopConfigurationRecorderResponse
      */
     public function stopConfigurationRecorder()
     {
@@ -7740,36 +9268,45 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $tmpReq  TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param tmpReq - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TagResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $body['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$body['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -7787,11 +9324,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -7801,34 +9341,43 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from specified resources.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from specified resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->all)) {
-            $body['All'] = $request->all;
+        if (null !== $request->all) {
+            @$body['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $body['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$body['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -7846,11 +9395,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from specified resources.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from specified resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -7860,79 +9412,103 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a compliance package in an account group.
-     *  *
-     * @description This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter in the rule template of the compliance package `cp-fdc8626622af00f9****` in the account group `ca-f632626622af0079****` to `20`.
-     *  *
-     * @param UpdateAggregateCompliancePackRequest $tmpReq  UpdateAggregateCompliancePackRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a compliance package in an account group.
      *
-     * @return UpdateAggregateCompliancePackResponse UpdateAggregateCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter in the rule template of the compliance package `cp-fdc8626622af00f9****` in the account group `ca-f632626622af0079****` to `20`.
+     *
+     * @param tmpReq - UpdateAggregateCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAggregateCompliancePackResponse
+     *
+     * @param UpdateAggregateCompliancePackRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateAggregateCompliancePackResponse
      */
     public function updateAggregateCompliancePackWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAggregateCompliancePackShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configRules)) {
-            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configRules) {
+            $request->configRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $body['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$body['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->compliancePackName)) {
-            $body['CompliancePackName'] = $request->compliancePackName;
+
+        if (null !== $request->compliancePackName) {
+            @$body['CompliancePackName'] = $request->compliancePackName;
         }
-        if (!Utils::isUnset($request->configRulesShrink)) {
-            $body['ConfigRules'] = $request->configRulesShrink;
+
+        if (null !== $request->configRulesShrink) {
+            @$body['ConfigRules'] = $request->configRulesShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
-            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+
+        if (null !== $request->excludeRegionIdsScope) {
+            @$body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
-            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceIdsScope)) {
-            $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->excludeTagsScope)) {
-            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
+        if (null !== $request->excludeTagsScope) {
+            @$bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
-        if (!Utils::isUnset($request->regionIdsScope)) {
-            $body['RegionIdsScope'] = $request->regionIdsScope;
+
+        if (null !== $request->regionIdsScope) {
+            @$body['RegionIdsScope'] = $request->regionIdsScope;
         }
-        if (!Utils::isUnset($request->resourceGroupIdsScope)) {
-            $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->resourceIdsScope)) {
-            $body['ResourceIdsScope'] = $request->resourceIdsScope;
+
+        if (null !== $request->resourceIdsScope) {
+            @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $body['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->tagKeyScope)) {
-            $body['TagKeyScope'] = $request->tagKeyScope;
+
+        if (null !== $request->tagKeyScope) {
+            @$body['TagKeyScope'] = $request->tagKeyScope;
         }
-        if (!Utils::isUnset($request->tagValueScope)) {
-            $body['TagValueScope'] = $request->tagValueScope;
+
+        if (null !== $request->tagValueScope) {
+            @$body['TagValueScope'] = $request->tagValueScope;
         }
-        if (!Utils::isUnset($request->tagsScope)) {
-            $bodyFlat['TagsScope'] = $request->tagsScope;
+
+        if (null !== $request->tagsScope) {
+            @$bodyFlat['TagsScope'] = $request->tagsScope;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAggregateCompliancePack',
@@ -7950,13 +9526,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a compliance package in an account group.
-     *  *
-     * @description This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter in the rule template of the compliance package `cp-fdc8626622af00f9****` in the account group `ca-f632626622af0079****` to `20`.
-     *  *
-     * @param UpdateAggregateCompliancePackRequest $request UpdateAggregateCompliancePackRequest
+     * Modifies the configurations of a compliance package in an account group.
      *
-     * @return UpdateAggregateCompliancePackResponse UpdateAggregateCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter in the rule template of the compliance package `cp-fdc8626622af00f9****` in the account group `ca-f632626622af0079****` to `20`.
+     *
+     * @param request - UpdateAggregateCompliancePackRequest
+     * @returns UpdateAggregateCompliancePackResponse
+     *
+     * @param UpdateAggregateCompliancePackRequest $request
+     *
+     * @return UpdateAggregateCompliancePackResponse
      */
     public function updateAggregateCompliancePack($request)
     {
@@ -7966,63 +9546,82 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a delivery channel in an account group.
-     *  *
-     * @description This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
-     *  *
-     * @param UpdateAggregateConfigDeliveryChannelRequest $request UpdateAggregateConfigDeliveryChannelRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Modifies a delivery channel in an account group.
      *
-     * @return UpdateAggregateConfigDeliveryChannelResponse UpdateAggregateConfigDeliveryChannelResponse
+     * @remarks
+     * This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
+     *
+     * @param request - UpdateAggregateConfigDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAggregateConfigDeliveryChannelResponse
+     *
+     * @param UpdateAggregateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return UpdateAggregateConfigDeliveryChannelResponse
      */
     public function updateAggregateConfigDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $query['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$query['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliantSnapshot)) {
-            $query['CompliantSnapshot'] = $request->compliantSnapshot;
+
+        if (null !== $request->compliantSnapshot) {
+            @$query['CompliantSnapshot'] = $request->compliantSnapshot;
         }
-        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
-            $query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+
+        if (null !== $request->configurationItemChangeNotification) {
+            @$query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
         }
-        if (!Utils::isUnset($request->configurationSnapshot)) {
-            $query['ConfigurationSnapshot'] = $request->configurationSnapshot;
+
+        if (null !== $request->configurationSnapshot) {
+            @$query['ConfigurationSnapshot'] = $request->configurationSnapshot;
         }
-        if (!Utils::isUnset($request->deliveryChannelCondition)) {
-            $query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+
+        if (null !== $request->deliveryChannelCondition) {
+            @$query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
         }
-        if (!Utils::isUnset($request->deliveryChannelId)) {
-            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
         }
-        if (!Utils::isUnset($request->deliveryChannelName)) {
-            $query['DeliveryChannelName'] = $request->deliveryChannelName;
+
+        if (null !== $request->deliveryChannelName) {
+            @$query['DeliveryChannelName'] = $request->deliveryChannelName;
         }
-        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
-            $query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+
+        if (null !== $request->deliveryChannelTargetArn) {
+            @$query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
         }
-        if (!Utils::isUnset($request->deliverySnapshotTime)) {
-            $query['DeliverySnapshotTime'] = $request->deliverySnapshotTime;
+
+        if (null !== $request->deliverySnapshotTime) {
+            @$query['DeliverySnapshotTime'] = $request->deliverySnapshotTime;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->nonCompliantNotification)) {
-            $query['NonCompliantNotification'] = $request->nonCompliantNotification;
+
+        if (null !== $request->nonCompliantNotification) {
+            @$query['NonCompliantNotification'] = $request->nonCompliantNotification;
         }
-        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
-            $query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+
+        if (null !== $request->oversizedDataOSSTargetArn) {
+            @$query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAggregateConfigDeliveryChannel',
@@ -8040,13 +9639,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a delivery channel in an account group.
-     *  *
-     * @description This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
-     *  *
-     * @param UpdateAggregateConfigDeliveryChannelRequest $request UpdateAggregateConfigDeliveryChannelRequest
+     * Modifies a delivery channel in an account group.
      *
-     * @return UpdateAggregateConfigDeliveryChannelResponse UpdateAggregateConfigDeliveryChannelResponse
+     * @remarks
+     * This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
+     *
+     * @param request - UpdateAggregateConfigDeliveryChannelRequest
+     * @returns UpdateAggregateConfigDeliveryChannelResponse
+     *
+     * @param UpdateAggregateConfigDeliveryChannelRequest $request
+     *
+     * @return UpdateAggregateConfigDeliveryChannelResponse
      */
     public function updateAggregateConfigDeliveryChannel($request)
     {
@@ -8056,106 +9659,139 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description, input parameters, and risk level of a rule in a specific account group.
-     *  *
-     * @description This topic provides an example on how to change the risk level of the rule `cr-4e3d626622af0080****` in an account group `ca-a4e5626622af0079****` to `3`, which indicates low risk level.
-     *  *
-     * @param UpdateAggregateConfigRuleRequest $tmpReq  UpdateAggregateConfigRuleRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Modifies the description, input parameters, and risk level of a rule in a specific account group.
      *
-     * @return UpdateAggregateConfigRuleResponse UpdateAggregateConfigRuleResponse
+     * @remarks
+     * This topic provides an example on how to change the risk level of the rule `cr-4e3d626622af0080****` in an account group `ca-a4e5626622af0079****` to `3`, which indicates low risk level.
+     *
+     * @param tmpReq - UpdateAggregateConfigRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAggregateConfigRuleResponse
+     *
+     * @param UpdateAggregateConfigRuleRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateAggregateConfigRuleResponse
      */
     public function updateAggregateConfigRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAggregateConfigRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->inputParameters)) {
-            $request->inputParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inputParameters) {
+            $request->inputParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
-            $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
+
+        if (null !== $tmpReq->resourceTypesScope) {
+            $request->resourceTypesScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->accountIdsScope)) {
-            $body['AccountIdsScope'] = $request->accountIdsScope;
+        if (null !== $request->accountIdsScope) {
+            @$body['AccountIdsScope'] = $request->accountIdsScope;
         }
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $body['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$body['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->configRuleName)) {
-            $body['ConfigRuleName'] = $request->configRuleName;
+
+        if (null !== $request->configRuleName) {
+            @$body['ConfigRuleName'] = $request->configRuleName;
         }
-        if (!Utils::isUnset($request->configRuleTriggerTypes)) {
-            $body['ConfigRuleTriggerTypes'] = $request->configRuleTriggerTypes;
+
+        if (null !== $request->configRuleTriggerTypes) {
+            @$body['ConfigRuleTriggerTypes'] = $request->configRuleTriggerTypes;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->excludeAccountIdsScope)) {
-            $body['ExcludeAccountIdsScope'] = $request->excludeAccountIdsScope;
+
+        if (null !== $request->excludeAccountIdsScope) {
+            @$body['ExcludeAccountIdsScope'] = $request->excludeAccountIdsScope;
         }
-        if (!Utils::isUnset($request->excludeFolderIdsScope)) {
-            $body['ExcludeFolderIdsScope'] = $request->excludeFolderIdsScope;
+
+        if (null !== $request->excludeFolderIdsScope) {
+            @$body['ExcludeFolderIdsScope'] = $request->excludeFolderIdsScope;
         }
-        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
-            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+
+        if (null !== $request->excludeRegionIdsScope) {
+            @$body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
-            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceIdsScope)) {
-            $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->excludeTagsScope)) {
-            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
+        if (null !== $request->excludeTagsScope) {
+            @$bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
-        if (!Utils::isUnset($request->folderIdsScope)) {
-            $body['FolderIdsScope'] = $request->folderIdsScope;
+
+        if (null !== $request->folderIdsScope) {
+            @$body['FolderIdsScope'] = $request->folderIdsScope;
         }
-        if (!Utils::isUnset($request->inputParametersShrink)) {
-            $body['InputParameters'] = $request->inputParametersShrink;
+
+        if (null !== $request->inputParametersShrink) {
+            @$body['InputParameters'] = $request->inputParametersShrink;
         }
-        if (!Utils::isUnset($request->maximumExecutionFrequency)) {
-            $body['MaximumExecutionFrequency'] = $request->maximumExecutionFrequency;
+
+        if (null !== $request->maximumExecutionFrequency) {
+            @$body['MaximumExecutionFrequency'] = $request->maximumExecutionFrequency;
         }
-        if (!Utils::isUnset($request->regionIdsScope)) {
-            $body['RegionIdsScope'] = $request->regionIdsScope;
+
+        if (null !== $request->regionIdsScope) {
+            @$body['RegionIdsScope'] = $request->regionIdsScope;
         }
-        if (!Utils::isUnset($request->resourceGroupIdsScope)) {
-            $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->resourceIdsScope)) {
-            $body['ResourceIdsScope'] = $request->resourceIdsScope;
+
+        if (null !== $request->resourceIdsScope) {
+            @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
-        if (!Utils::isUnset($request->resourceTypesScopeShrink)) {
-            $body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
+
+        if (null !== $request->resourceTypesScopeShrink) {
+            @$body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $body['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->tagKeyLogicScope)) {
-            $body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
+
+        if (null !== $request->tagKeyLogicScope) {
+            @$body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
         }
-        if (!Utils::isUnset($request->tagKeyScope)) {
-            $body['TagKeyScope'] = $request->tagKeyScope;
+
+        if (null !== $request->tagKeyScope) {
+            @$body['TagKeyScope'] = $request->tagKeyScope;
         }
-        if (!Utils::isUnset($request->tagValueScope)) {
-            $body['TagValueScope'] = $request->tagValueScope;
+
+        if (null !== $request->tagValueScope) {
+            @$body['TagValueScope'] = $request->tagValueScope;
         }
-        if (!Utils::isUnset($request->tagsScope)) {
-            $bodyFlat['TagsScope'] = $request->tagsScope;
+
+        if (null !== $request->tagsScope) {
+            @$bodyFlat['TagsScope'] = $request->tagsScope;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAggregateConfigRule',
@@ -8173,13 +9809,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description, input parameters, and risk level of a rule in a specific account group.
-     *  *
-     * @description This topic provides an example on how to change the risk level of the rule `cr-4e3d626622af0080****` in an account group `ca-a4e5626622af0079****` to `3`, which indicates low risk level.
-     *  *
-     * @param UpdateAggregateConfigRuleRequest $request UpdateAggregateConfigRuleRequest
+     * Modifies the description, input parameters, and risk level of a rule in a specific account group.
      *
-     * @return UpdateAggregateConfigRuleResponse UpdateAggregateConfigRuleResponse
+     * @remarks
+     * This topic provides an example on how to change the risk level of the rule `cr-4e3d626622af0080****` in an account group `ca-a4e5626622af0079****` to `3`, which indicates low risk level.
+     *
+     * @param request - UpdateAggregateConfigRuleRequest
+     * @returns UpdateAggregateConfigRuleResponse
+     *
+     * @param UpdateAggregateConfigRuleRequest $request
+     *
+     * @return UpdateAggregateConfigRuleResponse
      */
     public function updateAggregateConfigRule($request)
     {
@@ -8189,42 +9829,54 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a remediation template for a rule in an account group.
-     *  *
-     * @description This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting for a rule in the `ca-6b4a626622af0012****` account group to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
-     *  *
-     * @param UpdateAggregateRemediationRequest $request UpdateAggregateRemediationRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Modifies a remediation template for a rule in an account group.
      *
-     * @return UpdateAggregateRemediationResponse UpdateAggregateRemediationResponse
+     * @remarks
+     * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting for a rule in the `ca-6b4a626622af0012****` account group to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
+     *
+     * @param request - UpdateAggregateRemediationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAggregateRemediationResponse
+     *
+     * @param UpdateAggregateRemediationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateAggregateRemediationResponse
      */
     public function updateAggregateRemediationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->invokeType)) {
-            $body['InvokeType'] = $request->invokeType;
+
+        if (null !== $request->invokeType) {
+            @$body['InvokeType'] = $request->invokeType;
         }
-        if (!Utils::isUnset($request->params)) {
-            $body['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$body['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->remediationId)) {
-            $body['RemediationId'] = $request->remediationId;
+
+        if (null !== $request->remediationId) {
+            @$body['RemediationId'] = $request->remediationId;
         }
-        if (!Utils::isUnset($request->remediationTemplateId)) {
-            $body['RemediationTemplateId'] = $request->remediationTemplateId;
+
+        if (null !== $request->remediationTemplateId) {
+            @$body['RemediationTemplateId'] = $request->remediationTemplateId;
         }
-        if (!Utils::isUnset($request->remediationType)) {
-            $body['RemediationType'] = $request->remediationType;
+
+        if (null !== $request->remediationType) {
+            @$body['RemediationType'] = $request->remediationType;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAggregateRemediation',
@@ -8242,13 +9894,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a remediation template for a rule in an account group.
-     *  *
-     * @description This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting for a rule in the `ca-6b4a626622af0012****` account group to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
-     *  *
-     * @param UpdateAggregateRemediationRequest $request UpdateAggregateRemediationRequest
+     * Modifies a remediation template for a rule in an account group.
      *
-     * @return UpdateAggregateRemediationResponse UpdateAggregateRemediationResponse
+     * @remarks
+     * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting for a rule in the `ca-6b4a626622af0012****` account group to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
+     *
+     * @param request - UpdateAggregateRemediationRequest
+     * @returns UpdateAggregateRemediationResponse
+     *
+     * @param UpdateAggregateRemediationRequest $request
+     *
+     * @return UpdateAggregateRemediationResponse
      */
     public function updateAggregateRemediation($request)
     {
@@ -8258,41 +9914,52 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary The management account or delegated administrator account of a resource directory can be used to modify the name and description of an account group. The management account or delegated administrator account can also be used to add or remove members from the account group.
-     *  *
-     * @description This topic provides an example on how to add a member to the account group `ca-dacf86d8314e00eb****`. The member ID is `173808452267****`, the member name is `Tony`, and the member belongs to the resource directory `ResourceDirectory`.
-     *  *
-     * @param UpdateAggregatorRequest $tmpReq  UpdateAggregatorRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * The management account or delegated administrator account of a resource directory can be used to modify the name and description of an account group. The management account or delegated administrator account can also be used to add or remove members from the account group.
      *
-     * @return UpdateAggregatorResponse UpdateAggregatorResponse
+     * @remarks
+     * This topic provides an example on how to add a member to the account group `ca-dacf86d8314e00eb****`. The member ID is `173808452267****`, the member name is `Tony`, and the member belongs to the resource directory `ResourceDirectory`.
+     *
+     * @param tmpReq - UpdateAggregatorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAggregatorResponse
+     *
+     * @param UpdateAggregatorRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateAggregatorResponse
      */
     public function updateAggregatorWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAggregatorShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aggregatorAccounts)) {
-            $request->aggregatorAccountsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aggregatorAccounts) {
+            $request->aggregatorAccountsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aggregatorAccountsShrink)) {
-            $body['AggregatorAccounts'] = $request->aggregatorAccountsShrink;
+        if (null !== $request->aggregatorAccountsShrink) {
+            @$body['AggregatorAccounts'] = $request->aggregatorAccountsShrink;
         }
-        if (!Utils::isUnset($request->aggregatorId)) {
-            $body['AggregatorId'] = $request->aggregatorId;
+
+        if (null !== $request->aggregatorId) {
+            @$body['AggregatorId'] = $request->aggregatorId;
         }
-        if (!Utils::isUnset($request->aggregatorName)) {
-            $body['AggregatorName'] = $request->aggregatorName;
+
+        if (null !== $request->aggregatorName) {
+            @$body['AggregatorName'] = $request->aggregatorName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAggregator',
@@ -8310,13 +9977,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary The management account or delegated administrator account of a resource directory can be used to modify the name and description of an account group. The management account or delegated administrator account can also be used to add or remove members from the account group.
-     *  *
-     * @description This topic provides an example on how to add a member to the account group `ca-dacf86d8314e00eb****`. The member ID is `173808452267****`, the member name is `Tony`, and the member belongs to the resource directory `ResourceDirectory`.
-     *  *
-     * @param UpdateAggregatorRequest $request UpdateAggregatorRequest
+     * The management account or delegated administrator account of a resource directory can be used to modify the name and description of an account group. The management account or delegated administrator account can also be used to add or remove members from the account group.
      *
-     * @return UpdateAggregatorResponse UpdateAggregatorResponse
+     * @remarks
+     * This topic provides an example on how to add a member to the account group `ca-dacf86d8314e00eb****`. The member ID is `173808452267****`, the member name is `Tony`, and the member belongs to the resource directory `ResourceDirectory`.
+     *
+     * @param request - UpdateAggregatorRequest
+     * @returns UpdateAggregatorResponse
+     *
+     * @param UpdateAggregatorRequest $request
+     *
+     * @return UpdateAggregatorResponse
      */
     public function updateAggregator($request)
     {
@@ -8326,76 +9997,99 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a specific compliance package in the current account.
-     *  *
-     * @description This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter of a rule in the compliance package `cp-a8a8626622af0082****` to `20`.
-     *  *
-     * @param UpdateCompliancePackRequest $tmpReq  UpdateCompliancePackRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a specific compliance package in the current account.
      *
-     * @return UpdateCompliancePackResponse UpdateCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter of a rule in the compliance package `cp-a8a8626622af0082****` to `20`.
+     *
+     * @param tmpReq - UpdateCompliancePackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCompliancePackResponse
+     *
+     * @param UpdateCompliancePackRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateCompliancePackResponse
      */
     public function updateCompliancePackWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateCompliancePackShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configRules)) {
-            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configRules) {
+            $request->configRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliancePackId)) {
-            $body['CompliancePackId'] = $request->compliancePackId;
+
+        if (null !== $request->compliancePackId) {
+            @$body['CompliancePackId'] = $request->compliancePackId;
         }
-        if (!Utils::isUnset($request->compliancePackName)) {
-            $body['CompliancePackName'] = $request->compliancePackName;
+
+        if (null !== $request->compliancePackName) {
+            @$body['CompliancePackName'] = $request->compliancePackName;
         }
-        if (!Utils::isUnset($request->configRulesShrink)) {
-            $body['ConfigRules'] = $request->configRulesShrink;
+
+        if (null !== $request->configRulesShrink) {
+            @$body['ConfigRules'] = $request->configRulesShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
-            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+
+        if (null !== $request->excludeRegionIdsScope) {
+            @$body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
-            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceIdsScope)) {
-            $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->excludeTagsScope)) {
-            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
+        if (null !== $request->excludeTagsScope) {
+            @$bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
-        if (!Utils::isUnset($request->regionIdsScope)) {
-            $body['RegionIdsScope'] = $request->regionIdsScope;
+
+        if (null !== $request->regionIdsScope) {
+            @$body['RegionIdsScope'] = $request->regionIdsScope;
         }
-        if (!Utils::isUnset($request->resourceGroupIdsScope)) {
-            $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->resourceIdsScope)) {
-            $body['ResourceIdsScope'] = $request->resourceIdsScope;
+
+        if (null !== $request->resourceIdsScope) {
+            @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $body['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->tagKeyScope)) {
-            $body['TagKeyScope'] = $request->tagKeyScope;
+
+        if (null !== $request->tagKeyScope) {
+            @$body['TagKeyScope'] = $request->tagKeyScope;
         }
-        if (!Utils::isUnset($request->tagValueScope)) {
-            $body['TagValueScope'] = $request->tagValueScope;
+
+        if (null !== $request->tagValueScope) {
+            @$body['TagValueScope'] = $request->tagValueScope;
         }
-        if (!Utils::isUnset($request->tagsScope)) {
-            $bodyFlat['TagsScope'] = $request->tagsScope;
+
+        if (null !== $request->tagsScope) {
+            @$bodyFlat['TagsScope'] = $request->tagsScope;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCompliancePack',
@@ -8413,13 +10107,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a specific compliance package in the current account.
-     *  *
-     * @description This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter of a rule in the compliance package `cp-a8a8626622af0082****` to `20`.
-     *  *
-     * @param UpdateCompliancePackRequest $request UpdateCompliancePackRequest
+     * Modifies the configurations of a specific compliance package in the current account.
      *
-     * @return UpdateCompliancePackResponse UpdateCompliancePackResponse
+     * @remarks
+     * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter of a rule in the compliance package `cp-a8a8626622af0082****` to `20`.
+     *
+     * @param request - UpdateCompliancePackRequest
+     * @returns UpdateCompliancePackResponse
+     *
+     * @param UpdateCompliancePackRequest $request
+     *
+     * @return UpdateCompliancePackResponse
      */
     public function updateCompliancePack($request)
     {
@@ -8429,60 +10127,78 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a delivery channel by using the current account.
-     *  *
-     * @description In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
-     *  *
-     * @param UpdateConfigDeliveryChannelRequest $request UpdateConfigDeliveryChannelRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Modifies a delivery channel by using the current account.
      *
-     * @return UpdateConfigDeliveryChannelResponse UpdateConfigDeliveryChannelResponse
+     * @remarks
+     * In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
+     *
+     * @param request - UpdateConfigDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateConfigDeliveryChannelResponse
+     *
+     * @param UpdateConfigDeliveryChannelRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateConfigDeliveryChannelResponse
      */
     public function updateConfigDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->compliantSnapshot)) {
-            $query['CompliantSnapshot'] = $request->compliantSnapshot;
+
+        if (null !== $request->compliantSnapshot) {
+            @$query['CompliantSnapshot'] = $request->compliantSnapshot;
         }
-        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
-            $query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+
+        if (null !== $request->configurationItemChangeNotification) {
+            @$query['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
         }
-        if (!Utils::isUnset($request->configurationSnapshot)) {
-            $query['ConfigurationSnapshot'] = $request->configurationSnapshot;
+
+        if (null !== $request->configurationSnapshot) {
+            @$query['ConfigurationSnapshot'] = $request->configurationSnapshot;
         }
-        if (!Utils::isUnset($request->deliveryChannelCondition)) {
-            $query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+
+        if (null !== $request->deliveryChannelCondition) {
+            @$query['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
         }
-        if (!Utils::isUnset($request->deliveryChannelId)) {
-            $query['DeliveryChannelId'] = $request->deliveryChannelId;
+
+        if (null !== $request->deliveryChannelId) {
+            @$query['DeliveryChannelId'] = $request->deliveryChannelId;
         }
-        if (!Utils::isUnset($request->deliveryChannelName)) {
-            $query['DeliveryChannelName'] = $request->deliveryChannelName;
+
+        if (null !== $request->deliveryChannelName) {
+            @$query['DeliveryChannelName'] = $request->deliveryChannelName;
         }
-        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
-            $query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+
+        if (null !== $request->deliveryChannelTargetArn) {
+            @$query['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
         }
-        if (!Utils::isUnset($request->deliverySnapshotTime)) {
-            $query['DeliverySnapshotTime'] = $request->deliverySnapshotTime;
+
+        if (null !== $request->deliverySnapshotTime) {
+            @$query['DeliverySnapshotTime'] = $request->deliverySnapshotTime;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->nonCompliantNotification)) {
-            $query['NonCompliantNotification'] = $request->nonCompliantNotification;
+
+        if (null !== $request->nonCompliantNotification) {
+            @$query['NonCompliantNotification'] = $request->nonCompliantNotification;
         }
-        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
-            $query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+
+        if (null !== $request->oversizedDataOSSTargetArn) {
+            @$query['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateConfigDeliveryChannel',
@@ -8500,13 +10216,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a delivery channel by using the current account.
-     *  *
-     * @description In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
-     *  *
-     * @param UpdateConfigDeliveryChannelRequest $request UpdateConfigDeliveryChannelRequest
+     * Modifies a delivery channel by using the current account.
      *
-     * @return UpdateConfigDeliveryChannelResponse UpdateConfigDeliveryChannelResponse
+     * @remarks
+     * In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
+     *
+     * @param request - UpdateConfigDeliveryChannelRequest
+     * @returns UpdateConfigDeliveryChannelResponse
+     *
+     * @param UpdateConfigDeliveryChannelRequest $request
+     *
+     * @return UpdateConfigDeliveryChannelResponse
      */
     public function updateConfigDeliveryChannel($request)
     {
@@ -8516,102 +10236,133 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description, input parameters, and risk level of a rule.
-     *  *
-     * @description This topic provides an example on how to change the risk level of the rule `cr-a260626622af0005****` to `3`, which indicates low risk level.
-     *  *
-     * @param UpdateConfigRuleRequest $tmpReq  UpdateConfigRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies the description, input parameters, and risk level of a rule.
      *
-     * @return UpdateConfigRuleResponse UpdateConfigRuleResponse
+     * @remarks
+     * This topic provides an example on how to change the risk level of the rule `cr-a260626622af0005****` to `3`, which indicates low risk level.
+     *
+     * @param tmpReq - UpdateConfigRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateConfigRuleResponse
+     *
+     * @param UpdateConfigRuleRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateConfigRuleResponse
      */
     public function updateConfigRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateConfigRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->inputParameters)) {
-            $request->inputParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inputParameters) {
+            $request->inputParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
-            $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
+
+        if (null !== $tmpReq->resourceTypesScope) {
+            $request->resourceTypesScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configRuleId)) {
-            $body['ConfigRuleId'] = $request->configRuleId;
+
+        if (null !== $request->configRuleId) {
+            @$body['ConfigRuleId'] = $request->configRuleId;
         }
-        if (!Utils::isUnset($request->configRuleName)) {
-            $body['ConfigRuleName'] = $request->configRuleName;
+
+        if (null !== $request->configRuleName) {
+            @$body['ConfigRuleName'] = $request->configRuleName;
         }
-        if (!Utils::isUnset($request->configRuleTriggerTypes)) {
-            $body['ConfigRuleTriggerTypes'] = $request->configRuleTriggerTypes;
+
+        if (null !== $request->configRuleTriggerTypes) {
+            @$body['ConfigRuleTriggerTypes'] = $request->configRuleTriggerTypes;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->excludeRegionIdsScope)) {
-            $body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+
+        if (null !== $request->excludeRegionIdsScope) {
+            @$body['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceGroupIdsScope)) {
-            $body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$body['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->excludeResourceIdsScope)) {
-            $body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$body['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->excludeTagsScope)) {
-            $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
+        if (null !== $request->excludeTagsScope) {
+            @$bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
-        if (!Utils::isUnset($request->extendContent)) {
-            $body['ExtendContent'] = $request->extendContent;
+
+        if (null !== $request->extendContent) {
+            @$body['ExtendContent'] = $request->extendContent;
         }
-        if (!Utils::isUnset($request->inputParametersShrink)) {
-            $body['InputParameters'] = $request->inputParametersShrink;
+
+        if (null !== $request->inputParametersShrink) {
+            @$body['InputParameters'] = $request->inputParametersShrink;
         }
-        if (!Utils::isUnset($request->maximumExecutionFrequency)) {
-            $body['MaximumExecutionFrequency'] = $request->maximumExecutionFrequency;
+
+        if (null !== $request->maximumExecutionFrequency) {
+            @$body['MaximumExecutionFrequency'] = $request->maximumExecutionFrequency;
         }
-        if (!Utils::isUnset($request->regionIdsScope)) {
-            $body['RegionIdsScope'] = $request->regionIdsScope;
+
+        if (null !== $request->regionIdsScope) {
+            @$body['RegionIdsScope'] = $request->regionIdsScope;
         }
-        if (!Utils::isUnset($request->resourceGroupIdsScope)) {
-            $body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$body['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
         }
-        if (!Utils::isUnset($request->resourceIdsScope)) {
-            $body['ResourceIdsScope'] = $request->resourceIdsScope;
+
+        if (null !== $request->resourceIdsScope) {
+            @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
-        if (!Utils::isUnset($request->resourceTypesScopeShrink)) {
-            $body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
+
+        if (null !== $request->resourceTypesScopeShrink) {
+            @$body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
         }
-        if (!Utils::isUnset($request->riskLevel)) {
-            $body['RiskLevel'] = $request->riskLevel;
+
+        if (null !== $request->riskLevel) {
+            @$body['RiskLevel'] = $request->riskLevel;
         }
-        if (!Utils::isUnset($request->tagKeyLogicScope)) {
-            $body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
+
+        if (null !== $request->tagKeyLogicScope) {
+            @$body['TagKeyLogicScope'] = $request->tagKeyLogicScope;
         }
-        if (!Utils::isUnset($request->tagKeyScope)) {
-            $body['TagKeyScope'] = $request->tagKeyScope;
+
+        if (null !== $request->tagKeyScope) {
+            @$body['TagKeyScope'] = $request->tagKeyScope;
         }
-        if (!Utils::isUnset($request->tagValueScope)) {
-            $body['TagValueScope'] = $request->tagValueScope;
+
+        if (null !== $request->tagValueScope) {
+            @$body['TagValueScope'] = $request->tagValueScope;
         }
-        if (!Utils::isUnset($request->tagsScope)) {
-            $bodyFlat['TagsScope'] = $request->tagsScope;
+
+        if (null !== $request->tagsScope) {
+            @$bodyFlat['TagsScope'] = $request->tagsScope;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateConfigRule',
@@ -8629,13 +10380,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description, input parameters, and risk level of a rule.
-     *  *
-     * @description This topic provides an example on how to change the risk level of the rule `cr-a260626622af0005****` to `3`, which indicates low risk level.
-     *  *
-     * @param UpdateConfigRuleRequest $request UpdateConfigRuleRequest
+     * Modifies the description, input parameters, and risk level of a rule.
      *
-     * @return UpdateConfigRuleResponse UpdateConfigRuleResponse
+     * @remarks
+     * This topic provides an example on how to change the risk level of the rule `cr-a260626622af0005****` to `3`, which indicates low risk level.
+     *
+     * @param request - UpdateConfigRuleRequest
+     * @returns UpdateConfigRuleResponse
+     *
+     * @param UpdateConfigRuleRequest $request
+     *
+     * @return UpdateConfigRuleResponse
      */
     public function updateConfigRule($request)
     {
@@ -8645,24 +10400,30 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the resource monitoring scope of the current account.
-     *  *
-     * @description This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
-     *  *
-     * @param UpdateConfigurationRecorderRequest $request UpdateConfigurationRecorderRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Modifies the resource monitoring scope of the current account.
      *
-     * @return UpdateConfigurationRecorderResponse UpdateConfigurationRecorderResponse
+     * @remarks
+     * This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
+     *
+     * @param request - UpdateConfigurationRecorderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateConfigurationRecorderResponse
+     *
+     * @param UpdateConfigurationRecorderRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateConfigurationRecorderResponse
      */
     public function updateConfigurationRecorderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $body['ResourceTypes'] = $request->resourceTypes;
+        if (null !== $request->resourceTypes) {
+            @$body['ResourceTypes'] = $request->resourceTypes;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateConfigurationRecorder',
@@ -8680,13 +10441,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the resource monitoring scope of the current account.
-     *  *
-     * @description This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
-     *  *
-     * @param UpdateConfigurationRecorderRequest $request UpdateConfigurationRecorderRequest
+     * Modifies the resource monitoring scope of the current account.
      *
-     * @return UpdateConfigurationRecorderResponse UpdateConfigurationRecorderResponse
+     * @remarks
+     * This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
+     *
+     * @param request - UpdateConfigurationRecorderRequest
+     * @returns UpdateConfigurationRecorderResponse
+     *
+     * @param UpdateConfigurationRecorderRequest $request
+     *
+     * @return UpdateConfigurationRecorderResponse
      */
     public function updateConfigurationRecorder($request)
     {
@@ -8695,62 +10460,79 @@ class Config extends OpenApiClient
         return $this->updateConfigurationRecorderWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Modifies a delivery channel.
+     *
+     * @remarks
+     * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
+     *
      * @deprecated openAPI UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead
-     *  *
-     * @summary Modifies a delivery channel.
-     *  *
-     * @description This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
-     *  *
-     * Deprecated
      *
-     * @param UpdateDeliveryChannelRequest $request UpdateDeliveryChannelRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateDeliveryChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDeliveryChannelResponse
      *
-     * @return UpdateDeliveryChannelResponse UpdateDeliveryChannelResponse
+     * @param UpdateDeliveryChannelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDeliveryChannelResponse
      */
     public function updateDeliveryChannelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->configurationItemChangeNotification)) {
-            $body['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
+
+        if (null !== $request->configurationItemChangeNotification) {
+            @$body['ConfigurationItemChangeNotification'] = $request->configurationItemChangeNotification;
         }
-        if (!Utils::isUnset($request->configurationSnapshot)) {
-            $body['ConfigurationSnapshot'] = $request->configurationSnapshot;
+
+        if (null !== $request->configurationSnapshot) {
+            @$body['ConfigurationSnapshot'] = $request->configurationSnapshot;
         }
-        if (!Utils::isUnset($request->deliveryChannelAssumeRoleArn)) {
-            $body['DeliveryChannelAssumeRoleArn'] = $request->deliveryChannelAssumeRoleArn;
+
+        if (null !== $request->deliveryChannelAssumeRoleArn) {
+            @$body['DeliveryChannelAssumeRoleArn'] = $request->deliveryChannelAssumeRoleArn;
         }
-        if (!Utils::isUnset($request->deliveryChannelCondition)) {
-            $body['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
+
+        if (null !== $request->deliveryChannelCondition) {
+            @$body['DeliveryChannelCondition'] = $request->deliveryChannelCondition;
         }
-        if (!Utils::isUnset($request->deliveryChannelId)) {
-            $body['DeliveryChannelId'] = $request->deliveryChannelId;
+
+        if (null !== $request->deliveryChannelId) {
+            @$body['DeliveryChannelId'] = $request->deliveryChannelId;
         }
-        if (!Utils::isUnset($request->deliveryChannelName)) {
-            $body['DeliveryChannelName'] = $request->deliveryChannelName;
+
+        if (null !== $request->deliveryChannelName) {
+            @$body['DeliveryChannelName'] = $request->deliveryChannelName;
         }
-        if (!Utils::isUnset($request->deliveryChannelTargetArn)) {
-            $body['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
+
+        if (null !== $request->deliveryChannelTargetArn) {
+            @$body['DeliveryChannelTargetArn'] = $request->deliveryChannelTargetArn;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->nonCompliantNotification)) {
-            $body['NonCompliantNotification'] = $request->nonCompliantNotification;
+
+        if (null !== $request->nonCompliantNotification) {
+            @$body['NonCompliantNotification'] = $request->nonCompliantNotification;
         }
-        if (!Utils::isUnset($request->oversizedDataOSSTargetArn)) {
-            $body['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
+
+        if (null !== $request->oversizedDataOSSTargetArn) {
+            @$body['OversizedDataOSSTargetArn'] = $request->oversizedDataOSSTargetArn;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDeliveryChannel',
@@ -8767,18 +10549,22 @@ class Config extends OpenApiClient
         return UpdateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Modifies a delivery channel.
+     *
+     * @remarks
+     * This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
+     *
      * @deprecated openAPI UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead
-     *  *
-     * @summary Modifies a delivery channel.
-     *  *
-     * @description This topic provides an example on how to change the status of the delivery channel whose ID is `cdc-8e45ff4e06a3a8****` to 0, which indicates that the delivery channel is disabled. After the delivery channel is disabled, Cloud Config retains the last delivery configuration and stops resource data delivery.
-     *  *
-     * Deprecated
      *
-     * @param UpdateDeliveryChannelRequest $request UpdateDeliveryChannelRequest
+     * @param request - UpdateDeliveryChannelRequest
+     * @returns UpdateDeliveryChannelResponse
      *
-     * @return UpdateDeliveryChannelResponse UpdateDeliveryChannelResponse
+     * @param UpdateDeliveryChannelRequest $request
+     *
+     * @return UpdateDeliveryChannelResponse
      */
     public function updateDeliveryChannel($request)
     {
@@ -8788,31 +10574,39 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the integration of a cloud service.
-     *  *
-     * @param UpdateIntegratedServiceStatusRequest $request UpdateIntegratedServiceStatusRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the integration of a cloud service.
      *
-     * @return UpdateIntegratedServiceStatusResponse UpdateIntegratedServiceStatusResponse
+     * @param request - UpdateIntegratedServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateIntegratedServiceStatusResponse
+     *
+     * @param UpdateIntegratedServiceStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateIntegratedServiceStatusResponse
      */
     public function updateIntegratedServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aggregatorDeliveryDataType)) {
-            $body['AggregatorDeliveryDataType'] = $request->aggregatorDeliveryDataType;
+        if (null !== $request->aggregatorDeliveryDataType) {
+            @$body['AggregatorDeliveryDataType'] = $request->aggregatorDeliveryDataType;
         }
-        if (!Utils::isUnset($request->integratedTypes)) {
-            $body['IntegratedTypes'] = $request->integratedTypes;
+
+        if (null !== $request->integratedTypes) {
+            @$body['IntegratedTypes'] = $request->integratedTypes;
         }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
+
+        if (null !== $request->serviceCode) {
+            @$body['ServiceCode'] = $request->serviceCode;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateIntegratedServiceStatus',
@@ -8830,11 +10624,14 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the integration of a cloud service.
-     *  *
-     * @param UpdateIntegratedServiceStatusRequest $request UpdateIntegratedServiceStatusRequest
+     * Enables or disables the integration of a cloud service.
      *
-     * @return UpdateIntegratedServiceStatusResponse UpdateIntegratedServiceStatusResponse
+     * @param request - UpdateIntegratedServiceStatusRequest
+     * @returns UpdateIntegratedServiceStatusResponse
+     *
+     * @param UpdateIntegratedServiceStatusRequest $request
+     *
+     * @return UpdateIntegratedServiceStatusResponse
      */
     public function updateIntegratedServiceStatus($request)
     {
@@ -8844,42 +10641,54 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Updates a remediation template for a rule.
-     *  *
-     * @description This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
-     *  *
-     * @param UpdateRemediationRequest $request UpdateRemediationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Updates a remediation template for a rule.
      *
-     * @return UpdateRemediationResponse UpdateRemediationResponse
+     * @remarks
+     * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
+     *
+     * @param request - UpdateRemediationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRemediationResponse
+     *
+     * @param UpdateRemediationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateRemediationResponse
      */
     public function updateRemediationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->invokeType)) {
-            $body['InvokeType'] = $request->invokeType;
+
+        if (null !== $request->invokeType) {
+            @$body['InvokeType'] = $request->invokeType;
         }
-        if (!Utils::isUnset($request->params)) {
-            $body['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$body['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->remediationId)) {
-            $body['RemediationId'] = $request->remediationId;
+
+        if (null !== $request->remediationId) {
+            @$body['RemediationId'] = $request->remediationId;
         }
-        if (!Utils::isUnset($request->remediationTemplateId)) {
-            $body['RemediationTemplateId'] = $request->remediationTemplateId;
+
+        if (null !== $request->remediationTemplateId) {
+            @$body['RemediationTemplateId'] = $request->remediationTemplateId;
         }
-        if (!Utils::isUnset($request->remediationType)) {
-            $body['RemediationType'] = $request->remediationType;
+
+        if (null !== $request->remediationType) {
+            @$body['RemediationType'] = $request->remediationType;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRemediation',
@@ -8897,13 +10706,17 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Updates a remediation template for a rule.
-     *  *
-     * @description This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
-     *  *
-     * @param UpdateRemediationRequest $request UpdateRemediationRequest
+     * Updates a remediation template for a rule.
      *
-     * @return UpdateRemediationResponse UpdateRemediationResponse
+     * @remarks
+     * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
+     *
+     * @param request - UpdateRemediationRequest
+     * @returns UpdateRemediationResponse
+     *
+     * @param UpdateRemediationRequest $request
+     *
+     * @return UpdateRemediationResponse
      */
     public function updateRemediation($request)
     {

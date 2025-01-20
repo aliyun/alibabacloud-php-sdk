@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetSupportedResourceRelationConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceRelationConfigList extends Model
 {
     /**
-     * @description The type of the relationship between the resource and the object. Valid values:
-     *
-     *   IsContained: The object is included as part of the resource.
-     *   IsAttachedTo: The object is added to the resource.
-     *   IsAssociatedIn: The object is associated with the resource.
-     *   Contains: The actual value contains the expected value.
-     *
-     * @example IsAttachedTo
-     *
      * @var string
      */
     public $relationType;
-
     /**
-     * @description The resource type.
-     *
-     * @example ACS::ECS::Disk
-     *
      * @var string
      */
     public $targetResourceType;
@@ -37,14 +23,16 @@ class resourceRelationConfigList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->relationType) {
             $res['RelationType'] = $this->relationType;
         }
+
         if (null !== $this->targetResourceType) {
             $res['TargetResourceType'] = $this->targetResourceType;
         }
@@ -52,17 +40,18 @@ class resourceRelationConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceRelationConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RelationType'])) {
             $model->relationType = $map['RelationType'];
         }
+
         if (isset($map['TargetResourceType'])) {
             $model->targetResourceType = $map['TargetResourceType'];
         }

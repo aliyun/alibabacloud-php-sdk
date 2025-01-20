@@ -4,100 +4,48 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesResponseBody\managedRules;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesResponseBody\managedRules\managedRuleList\scope;
-use AlibabaCloud\Tea\Model;
 
 class managedRuleList extends Model
 {
     /**
-     * @description The name of the managed rule.
-     *
-     * @example test-rule-name
-     *
      * @var string
      */
     public $configRuleName;
-
     /**
-     * @description The description of the managed rule.
-     *
-     * @example The description of the test rule.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The URL of the topic that describes how the managed rule remediates the incompliant configurations.
-     *
-     * @example https://example.aliyundoc.com
-     *
      * @var string
      */
     public $helpUrls;
-
     /**
-     * @description The unique identifier of the managed rule.
-     *
-     * @example cdn-domain-https-enabled
-     *
      * @var string
      */
     public $identifier;
-
     /**
-     * @description The classification description of the managed rule.
-     *
      * @var string[]
      */
     public $labels;
-
     /**
-     * @description The ID of the remediation template.
-     *
-     * @example ACS-CDN-SetDomainServerCertificate
-     *
      * @var string
      */
     public $remediationTemplateIdentifier;
-
     /**
-     * @description The name of the remediation template.
-     *
-     * @example Configure encryption rules for OSS buckets
-     *
      * @var string
      */
     public $remediationTemplateName;
-
     /**
-     * @description The risk level of the resources that do not comply with the rule. Valid values:
-     *
-     *   1: high
-     *   2: medium
-     *   3: low
-     *
-     * @example 1
-     *
      * @var int
      */
     public $riskLevel;
-
     /**
-     * @description The effective scope of the managed rule.
-     *
      * @var scope
      */
     public $scope;
-
     /**
-     * @description Indicates whether precheck is supported. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $supportPreviewManagedRule;
@@ -116,38 +64,60 @@ class managedRuleList extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (null !== $this->scope) {
+            $this->scope->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleName) {
             $res['ConfigRuleName'] = $this->configRuleName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->helpUrls) {
             $res['HelpUrls'] = $this->helpUrls;
         }
+
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1            = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->remediationTemplateIdentifier) {
             $res['RemediationTemplateIdentifier'] = $this->remediationTemplateIdentifier;
         }
+
         if (null !== $this->remediationTemplateName) {
             $res['RemediationTemplateName'] = $this->remediationTemplateName;
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
+
         if (null !== $this->scope) {
-            $res['Scope'] = null !== $this->scope ? $this->scope->toMap() : null;
+            $res['Scope'] = null !== $this->scope ? $this->scope->toArray($noStream) : $this->scope;
         }
+
         if (null !== $this->supportPreviewManagedRule) {
             $res['SupportPreviewManagedRule'] = $this->supportPreviewManagedRule;
         }
@@ -155,43 +125,56 @@ class managedRuleList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return managedRuleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['HelpUrls'])) {
             $model->helpUrls = $map['HelpUrls'];
         }
+
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
-                $model->labels = $map['Labels'];
+                $model->labels = [];
+                $n1            = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RemediationTemplateIdentifier'])) {
             $model->remediationTemplateIdentifier = $map['RemediationTemplateIdentifier'];
         }
+
         if (isset($map['RemediationTemplateName'])) {
             $model->remediationTemplateName = $map['RemediationTemplateName'];
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
+
         if (isset($map['Scope'])) {
             $model->scope = scope::fromMap($map['Scope']);
         }
+
         if (isset($map['SupportPreviewManagedRule'])) {
             $model->supportPreviewManagedRule = $map['SupportPreviewManagedRule'];
         }

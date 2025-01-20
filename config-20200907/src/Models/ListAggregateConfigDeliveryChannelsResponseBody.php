@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigDeliveryChannelsResponseBody\deliveryChannels;
-use AlibabaCloud\Tea\Model;
 
 class ListAggregateConfigDeliveryChannelsResponseBody extends Model
 {
     /**
-     * @description The information about the delivery channels.
-     *
      * @var deliveryChannels[]
      */
     public $deliveryChannels;
-
     /**
-     * @description The request ID.
-     *
-     * @example DC300244-FCE3-5061-8214-C27ECB668487
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListAggregateConfigDeliveryChannelsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->deliveryChannels)) {
+            Model::validateArray($this->deliveryChannels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliveryChannels) {
-            $res['DeliveryChannels'] = [];
-            if (null !== $this->deliveryChannels && \is_array($this->deliveryChannels)) {
-                $n = 0;
-                foreach ($this->deliveryChannels as $item) {
-                    $res['DeliveryChannels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deliveryChannels)) {
+                $res['DeliveryChannels'] = [];
+                $n1                      = 0;
+                foreach ($this->deliveryChannels as $item1) {
+                    $res['DeliveryChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListAggregateConfigDeliveryChannelsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAggregateConfigDeliveryChannelsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeliveryChannels'])) {
             if (!empty($map['DeliveryChannels'])) {
                 $model->deliveryChannels = [];
-                $n                       = 0;
-                foreach ($map['DeliveryChannels'] as $item) {
-                    $model->deliveryChannels[$n++] = null !== $item ? deliveryChannels::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['DeliveryChannels'] as $item1) {
+                    $model->deliveryChannels[$n1++] = deliveryChannels::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

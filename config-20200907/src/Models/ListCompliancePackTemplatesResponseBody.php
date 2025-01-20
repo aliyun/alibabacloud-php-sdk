@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponseBody\compliancePackTemplatesResult;
-use AlibabaCloud\Tea\Model;
 
 class ListCompliancePackTemplatesResponseBody extends Model
 {
     /**
-     * @description The information about the compliance package templates returned.
-     *
      * @var compliancePackTemplatesResult
      */
     public $compliancePackTemplatesResult;
-
     /**
-     * @description The request ID.
-     *
-     * @example D67FC82F-25AE-4268-A94C-3348340748F9
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListCompliancePackTemplatesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->compliancePackTemplatesResult) {
+            $this->compliancePackTemplatesResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compliancePackTemplatesResult) {
-            $res['CompliancePackTemplatesResult'] = null !== $this->compliancePackTemplatesResult ? $this->compliancePackTemplatesResult->toMap() : null;
+            $res['CompliancePackTemplatesResult'] = null !== $this->compliancePackTemplatesResult ? $this->compliancePackTemplatesResult->toArray($noStream) : $this->compliancePackTemplatesResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListCompliancePackTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCompliancePackTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompliancePackTemplatesResult'])) {
             $model->compliancePackTemplatesResult = compliancePackTemplatesResult::fromMap($map['CompliancePackTemplatesResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

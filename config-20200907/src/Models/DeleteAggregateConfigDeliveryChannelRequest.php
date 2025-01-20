@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAggregateConfigDeliveryChannelRequest extends Model
 {
     /**
-     * @description The ID of the account group.
-     *
-     * This parameter is required.
-     * @example ca-23c6626622af0041****
-     *
      * @var string
      */
     public $aggregatorId;
-
     /**
-     * @description The ID of the delivery channel.
-     *
-     * This parameter is required.
-     * @example cdc-38c3013b46c9002c****
-     *
      * @var string
      */
     public $deliveryChannelId;
@@ -34,14 +23,16 @@ class DeleteAggregateConfigDeliveryChannelRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
         }
+
         if (null !== $this->deliveryChannelId) {
             $res['DeliveryChannelId'] = $this->deliveryChannelId;
         }
@@ -49,17 +40,18 @@ class DeleteAggregateConfigDeliveryChannelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAggregateConfigDeliveryChannelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
         }
+
         if (isset($map['DeliveryChannelId'])) {
             $model->deliveryChannelId = $map['DeliveryChannelId'];
         }

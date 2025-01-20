@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDiscoveredResourceRequest extends Model
 {
     /**
-     * @description Specifies whether to query the compliance results of the resource. Valid values:
-     *
-     *   0 (default): does not query the compliance results of the resource.
-     *   1: queries the compliance results of the resource.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $complianceOption;
-
     /**
-     * @description The ID of the region in which the resource resides.
-     *
-     * For more information about how to query the region ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/411702.html).
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
-
     /**
-     * @description The resource ID.
-     *
-     * This parameter is required.
-     * @example new-bucket
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The type of the resource.
-     *
-     * This parameter is required.
-     * @example ACS::OSS::Bucket
-     *
      * @var string
      */
     public $resourceType;
@@ -58,20 +33,24 @@ class GetDiscoveredResourceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->complianceOption) {
             $res['ComplianceOption'] = $this->complianceOption;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -79,23 +58,26 @@ class GetDiscoveredResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDiscoveredResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComplianceOption'])) {
             $model->complianceOption = $map['ComplianceOption'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationTimelineResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationTimelineResponseBody\resourceConfigurationTimeline\configurationList;
-use AlibabaCloud\Tea\Model;
 
 class resourceConfigurationTimeline extends Model
 {
     /**
-     * @description The configuration changes on the configuration timeline.
-     *
      * @var configurationList[]
      */
     public $configurationList;
-
     /**
-     * @description The maximum number of entries returned for a single request.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example IWBjqMYSy0is7zSMGu16****
-     *
      * @var string
      */
     public $nextToken;
@@ -41,23 +29,29 @@ class resourceConfigurationTimeline extends Model
 
     public function validate()
     {
+        if (\is_array($this->configurationList)) {
+            Model::validateArray($this->configurationList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configurationList) {
-            $res['ConfigurationList'] = [];
-            if (null !== $this->configurationList && \is_array($this->configurationList)) {
-                $n = 0;
-                foreach ($this->configurationList as $item) {
-                    $res['ConfigurationList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configurationList)) {
+                $res['ConfigurationList'] = [];
+                $n1                       = 0;
+                foreach ($this->configurationList as $item1) {
+                    $res['ConfigurationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -65,26 +59,28 @@ class resourceConfigurationTimeline extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceConfigurationTimeline
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigurationList'])) {
             if (!empty($map['ConfigurationList'])) {
                 $model->configurationList = [];
-                $n                        = 0;
-                foreach ($map['ConfigurationList'] as $item) {
-                    $model->configurationList[$n++] = null !== $item ? configurationList::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['ConfigurationList'] as $item1) {
+                    $model->configurationList[$n1++] = configurationList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

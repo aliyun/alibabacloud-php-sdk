@@ -4,37 +4,19 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleSummaryByRiskLevelResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configRuleSummaries extends Model
 {
     /**
-     * @description The number of rules against which specific resources are evaluated as compliant.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $compliantCount;
-
     /**
-     * @description The number of rules against which specific resources are evaluated as non-compliant.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $nonCompliantCount;
-
     /**
-     * @description The risk level of the resources that are not compliant with the rules. Valid values:
-     *
-     *   1: high risk level.
-     *   2: medium risk level.
-     *   3: low risk level.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $riskLevel;
@@ -46,17 +28,20 @@ class configRuleSummaries extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compliantCount) {
             $res['CompliantCount'] = $this->compliantCount;
         }
+
         if (null !== $this->nonCompliantCount) {
             $res['NonCompliantCount'] = $this->nonCompliantCount;
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -64,20 +49,22 @@ class configRuleSummaries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configRuleSummaries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompliantCount'])) {
             $model->compliantCount = $map['CompliantCount'];
         }
+
         if (isset($map['NonCompliantCount'])) {
             $model->nonCompliantCount = $map['NonCompliantCount'];
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceTimelineResponseBody\resourceComplianceTimeline;
-use AlibabaCloud\Tea\Model;
 
 class GetAggregateResourceComplianceTimelineResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 8D53A78F-1EB8-4264-A554-72F07E34FAE6
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the compliance timeline.
-     *
      * @var resourceComplianceTimeline
      */
     public $resourceComplianceTimeline;
@@ -31,32 +24,38 @@ class GetAggregateResourceComplianceTimelineResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->resourceComplianceTimeline) {
+            $this->resourceComplianceTimeline->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceComplianceTimeline) {
-            $res['ResourceComplianceTimeline'] = null !== $this->resourceComplianceTimeline ? $this->resourceComplianceTimeline->toMap() : null;
+            $res['ResourceComplianceTimeline'] = null !== $this->resourceComplianceTimeline ? $this->resourceComplianceTimeline->toArray($noStream) : $this->resourceComplianceTimeline;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAggregateResourceComplianceTimelineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceComplianceTimeline'])) {
             $model->resourceComplianceTimeline = resourceComplianceTimeline::fromMap($map['ResourceComplianceTimeline']);
         }

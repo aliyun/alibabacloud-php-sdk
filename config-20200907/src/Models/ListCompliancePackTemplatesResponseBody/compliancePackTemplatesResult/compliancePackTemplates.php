@@ -4,72 +4,36 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponseBody\compliancePackTemplatesResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponseBody\compliancePackTemplatesResult\compliancePackTemplates\configRules;
-use AlibabaCloud\Tea\Model;
 
 class compliancePackTemplates extends Model
 {
     /**
-     * @description The ID of the compliance package template.
-     *
-     * @example ct-d254ff4e06a300cf****
-     *
      * @var string
      */
     public $compliancePackTemplateId;
-
     /**
-     * @description The name of the compliance package template.
-     *
-     * @example BestPracticesForResourceStability
-     *
      * @var string
      */
     public $compliancePackTemplateName;
-
     /**
-     * @description The default rules in the compliance package.
-     *
      * @var configRules[]
      */
     public $configRules;
-
     /**
-     * @description The description of the compliance package.
-     *
-     * @example example-description
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The tag of the compliance package.
-     *
-     * @example tagKey-1
-     *
      * @var string
      */
     public $labels;
-
     /**
-     * @description The time when the compliance package was last updated.
-     *
-     * @example 1663408308
-     *
      * @var int
      */
     public $lastUpdate;
-
     /**
-     * @description The risk level of the managed rule in the compliance package. Valid values:
-     *
-     *   1: high
-     *   2: medium
-     *   3: low
-     *
-     * @example 1
-     *
      * @var int
      */
     public $riskLevel;
@@ -85,35 +49,45 @@ class compliancePackTemplates extends Model
 
     public function validate()
     {
+        if (\is_array($this->configRules)) {
+            Model::validateArray($this->configRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compliancePackTemplateId) {
             $res['CompliancePackTemplateId'] = $this->compliancePackTemplateId;
         }
+
         if (null !== $this->compliancePackTemplateName) {
             $res['CompliancePackTemplateName'] = $this->compliancePackTemplateName;
         }
+
         if (null !== $this->configRules) {
-            $res['ConfigRules'] = [];
-            if (null !== $this->configRules && \is_array($this->configRules)) {
-                $n = 0;
-                foreach ($this->configRules as $item) {
-                    $res['ConfigRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configRules)) {
+                $res['ConfigRules'] = [];
+                $n1                 = 0;
+                foreach ($this->configRules as $item1) {
+                    $res['ConfigRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
+
         if (null !== $this->lastUpdate) {
             $res['LastUpdate'] = $this->lastUpdate;
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -121,38 +95,44 @@ class compliancePackTemplates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return compliancePackTemplates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompliancePackTemplateId'])) {
             $model->compliancePackTemplateId = $map['CompliancePackTemplateId'];
         }
+
         if (isset($map['CompliancePackTemplateName'])) {
             $model->compliancePackTemplateName = $map['CompliancePackTemplateName'];
         }
+
         if (isset($map['ConfigRules'])) {
             if (!empty($map['ConfigRules'])) {
                 $model->configRules = [];
-                $n                  = 0;
-                foreach ($map['ConfigRules'] as $item) {
-                    $model->configRules[$n++] = null !== $item ? configRules::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['ConfigRules'] as $item1) {
+                    $model->configRules[$n1++] = configRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
+
         if (isset($map['LastUpdate'])) {
             $model->lastUpdate = $map['LastUpdate'];
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }

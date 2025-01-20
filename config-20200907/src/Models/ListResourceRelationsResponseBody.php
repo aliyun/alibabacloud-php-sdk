@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceRelationsResponseBody\resourceRelations;
-use AlibabaCloud\Tea\Model;
 
 class ListResourceRelationsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 6525F8DE-5A8B-5AD3-A241-BBF5A259E5B2
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The result of the relationship.
-     *
      * @var resourceRelations
      */
     public $resourceRelations;
@@ -31,32 +24,38 @@ class ListResourceRelationsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->resourceRelations) {
+            $this->resourceRelations->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceRelations) {
-            $res['ResourceRelations'] = null !== $this->resourceRelations ? $this->resourceRelations->toMap() : null;
+            $res['ResourceRelations'] = null !== $this->resourceRelations ? $this->resourceRelations->toArray($noStream) : $this->resourceRelations;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceRelationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceRelations'])) {
             $model->resourceRelations = resourceRelations::fromMap($map['ResourceRelations']);
         }

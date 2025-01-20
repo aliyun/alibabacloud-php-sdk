@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveConfigRulesResponseBody\operateRuleResult;
-use AlibabaCloud\Tea\Model;
 
 class DeactiveConfigRulesResponseBody extends Model
 {
     /**
-     * @description The results of the operations that are performed to disable the specified rules.
-     *
      * @var operateRuleResult
      */
     public $operateRuleResult;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 54FA74D9-45D4-4CA5-9BE1-97F6EA19AF5B
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DeactiveConfigRulesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->operateRuleResult) {
+            $this->operateRuleResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operateRuleResult) {
-            $res['OperateRuleResult'] = null !== $this->operateRuleResult ? $this->operateRuleResult->toMap() : null;
+            $res['OperateRuleResult'] = null !== $this->operateRuleResult ? $this->operateRuleResult->toArray($noStream) : $this->operateRuleResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DeactiveConfigRulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeactiveConfigRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperateRuleResult'])) {
             $model->operateRuleResult = operateRuleResult::fromMap($map['OperateRuleResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

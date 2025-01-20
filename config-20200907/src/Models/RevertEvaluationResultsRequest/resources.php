@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\RevertEvaluationResultsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resources extends Model
 {
     /**
-     * @description The ID of the region in which the resource resides.
-     *
-     * This parameter is required.
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
-
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
-     *
-     * This parameter is required.
-     * @example 100931896542****
-     *
      * @var int
      */
     public $resourceAccountId;
-
     /**
-     * @description The resource ID.
-     *
-     * This parameter is required.
-     * @example lb-hp3a3b4ztyfm2plgm****
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The resource type.
-     *
-     * This parameter is required.
-     * @example ACS::SLB::LoadBalancer
-     *
      * @var string
      */
     public $resourceType;
@@ -56,20 +33,24 @@ class resources extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->resourceAccountId) {
             $res['ResourceAccountId'] = $this->resourceAccountId;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -77,23 +58,26 @@ class resources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['ResourceAccountId'])) {
             $model->resourceAccountId = $map['ResourceAccountId'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

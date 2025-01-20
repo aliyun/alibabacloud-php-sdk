@@ -4,50 +4,23 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIntegratedServiceStatusResponseBody extends Model
 {
     /**
-     * @description The type of the event that is integrated across accounts. Valid values:
-     *
-     *   NonCompliantNotification: non-compliance event
-     *
-     * @example NonCompliantNotification
-     *
      * @var string
      */
     public $aggregatorDeliveryDataType;
-
     /**
-     * @description Indicates whether the product has been integrated. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $data;
-
     /**
-     * @description The types of the integrated events. Separate multiple event types with commas (,). Valid values:
-     *
-     *   ConfigurationItemChangeNotification: resource change event
-     *   NonCompliantNotification: non-compliance event
-     *
-     * @example NonCompliantNotification
-     *
      * @var string
      */
     public $integratedTypes;
-
     /**
-     * @description The request ID.
-     *
-     * @example 2E396C84-8D50-5F95-97FA-C0367181BA8A
-     *
      * @var string
      */
     public $requestId;
@@ -60,20 +33,24 @@ class GetIntegratedServiceStatusResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregatorDeliveryDataType) {
             $res['AggregatorDeliveryDataType'] = $this->aggregatorDeliveryDataType;
         }
+
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->integratedTypes) {
             $res['IntegratedTypes'] = $this->integratedTypes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -81,23 +58,26 @@ class GetIntegratedServiceStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIntegratedServiceStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregatorDeliveryDataType'])) {
             $model->aggregatorDeliveryDataType = $map['AggregatorDeliveryDataType'];
         }
+
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['IntegratedTypes'])) {
             $model->integratedTypes = $map['IntegratedTypes'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

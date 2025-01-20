@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRulesReportResponseBody\configRulesReport;
-use AlibabaCloud\Tea\Model;
 
 class GetConfigRulesReportResponseBody extends Model
 {
     /**
-     * @description The information about the compliance evaluation report.
-     *
      * @var configRulesReport
      */
     public $configRulesReport;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetConfigRulesReportResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->configRulesReport) {
+            $this->configRulesReport->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRulesReport) {
-            $res['ConfigRulesReport'] = null !== $this->configRulesReport ? $this->configRulesReport->toMap() : null;
+            $res['ConfigRulesReport'] = null !== $this->configRulesReport ? $this->configRulesReport->toArray($noStream) : $this->configRulesReport;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetConfigRulesReportResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConfigRulesReportResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRulesReport'])) {
             $model->configRulesReport = configRulesReport::fromMap($map['ConfigRulesReport']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

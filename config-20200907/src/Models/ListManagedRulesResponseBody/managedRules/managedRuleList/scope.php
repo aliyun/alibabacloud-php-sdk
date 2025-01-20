@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesResponseBody\managedRules\managedRuleList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scope extends Model
 {
     /**
-     * @description The types of resources to which the managed rule applies.
-     *
      * @var string[]
      */
     public $complianceResourceTypes;
@@ -20,29 +18,43 @@ class scope extends Model
 
     public function validate()
     {
+        if (\is_array($this->complianceResourceTypes)) {
+            Model::validateArray($this->complianceResourceTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->complianceResourceTypes) {
-            $res['ComplianceResourceTypes'] = $this->complianceResourceTypes;
+            if (\is_array($this->complianceResourceTypes)) {
+                $res['ComplianceResourceTypes'] = [];
+                $n1                             = 0;
+                foreach ($this->complianceResourceTypes as $item1) {
+                    $res['ComplianceResourceTypes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scope
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComplianceResourceTypes'])) {
             if (!empty($map['ComplianceResourceTypes'])) {
-                $model->complianceResourceTypes = $map['ComplianceResourceTypes'];
+                $model->complianceResourceTypes = [];
+                $n1                             = 0;
+                foreach ($map['ComplianceResourceTypes'] as $item1) {
+                    $model->complianceResourceTypes[$n1++] = $item1;
+                }
             }
         }
 

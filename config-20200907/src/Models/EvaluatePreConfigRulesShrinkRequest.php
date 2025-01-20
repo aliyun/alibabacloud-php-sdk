@@ -4,65 +4,69 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EvaluatePreConfigRulesShrinkRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the managed rule. Valid values:
-     *
-     *   true: enables the managed rule.
-     *   false: does not enable the managed rule. This is the default value.
-     *
-     * >  After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
-     * @example false
-     *
      * @var bool
      */
     public $enableManagedRules;
-
     /**
-     * @description The resources that you want to evaluate.
-     *
-     * This parameter is required.
      * @var string
      */
     public $resourceEvaluateItemsShrink;
+    /**
+     * @var string
+     */
+    public $resourceTypeFormat;
     protected $_name = [
         'enableManagedRules'          => 'EnableManagedRules',
         'resourceEvaluateItemsShrink' => 'ResourceEvaluateItems',
+        'resourceTypeFormat'          => 'ResourceTypeFormat',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableManagedRules) {
             $res['EnableManagedRules'] = $this->enableManagedRules;
         }
+
         if (null !== $this->resourceEvaluateItemsShrink) {
             $res['ResourceEvaluateItems'] = $this->resourceEvaluateItemsShrink;
+        }
+
+        if (null !== $this->resourceTypeFormat) {
+            $res['ResourceTypeFormat'] = $this->resourceTypeFormat;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EvaluatePreConfigRulesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableManagedRules'])) {
             $model->enableManagedRules = $map['EnableManagedRules'];
         }
+
         if (isset($map['ResourceEvaluateItems'])) {
             $model->resourceEvaluateItemsShrink = $map['ResourceEvaluateItems'];
+        }
+
+        if (isset($map['ResourceTypeFormat'])) {
+            $model->resourceTypeFormat = $map['ResourceTypeFormat'];
         }
 
         return $model;

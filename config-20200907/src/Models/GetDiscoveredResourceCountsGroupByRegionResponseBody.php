@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByRegionResponseBody\discoveredResourceCountsSummary;
-use AlibabaCloud\Tea\Model;
 
 class GetDiscoveredResourceCountsGroupByRegionResponseBody extends Model
 {
     /**
-     * @description The statistics on the resources.
-     *
      * @var discoveredResourceCountsSummary[]
      */
     public $discoveredResourceCountsSummary;
-
     /**
-     * @description The request ID.
-     *
-     * @example 399BD94C-D20C-4D27-88D4-89E8D75C0595
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class GetDiscoveredResourceCountsGroupByRegionResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->discoveredResourceCountsSummary)) {
+            Model::validateArray($this->discoveredResourceCountsSummary);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->discoveredResourceCountsSummary) {
-            $res['DiscoveredResourceCountsSummary'] = [];
-            if (null !== $this->discoveredResourceCountsSummary && \is_array($this->discoveredResourceCountsSummary)) {
-                $n = 0;
-                foreach ($this->discoveredResourceCountsSummary as $item) {
-                    $res['DiscoveredResourceCountsSummary'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->discoveredResourceCountsSummary)) {
+                $res['DiscoveredResourceCountsSummary'] = [];
+                $n1                                     = 0;
+                foreach ($this->discoveredResourceCountsSummary as $item1) {
+                    $res['DiscoveredResourceCountsSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class GetDiscoveredResourceCountsGroupByRegionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDiscoveredResourceCountsGroupByRegionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiscoveredResourceCountsSummary'])) {
             if (!empty($map['DiscoveredResourceCountsSummary'])) {
                 $model->discoveredResourceCountsSummary = [];
-                $n                                      = 0;
-                foreach ($map['DiscoveredResourceCountsSummary'] as $item) {
-                    $model->discoveredResourceCountsSummary[$n++] = null !== $item ? discoveredResourceCountsSummary::fromMap($item) : $item;
+                $n1                                     = 0;
+                foreach ($map['DiscoveredResourceCountsSummary'] as $item1) {
+                    $model->discoveredResourceCountsSummary[$n1++] = discoveredResourceCountsSummary::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

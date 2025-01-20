@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleComplianceByPackResponseBody\configRuleComplianceResult;
-use AlibabaCloud\Tea\Model;
 
 class GetConfigRuleComplianceByPackResponseBody extends Model
 {
     /**
-     * @description The information about the compliance evaluation results returned.
-     *
      * @var configRuleComplianceResult
      */
     public $configRuleComplianceResult;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetConfigRuleComplianceByPackResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->configRuleComplianceResult) {
+            $this->configRuleComplianceResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleComplianceResult) {
-            $res['ConfigRuleComplianceResult'] = null !== $this->configRuleComplianceResult ? $this->configRuleComplianceResult->toMap() : null;
+            $res['ConfigRuleComplianceResult'] = null !== $this->configRuleComplianceResult ? $this->configRuleComplianceResult->toArray($noStream) : $this->configRuleComplianceResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetConfigRuleComplianceByPackResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConfigRuleComplianceByPackResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleComplianceResult'])) {
             $model->configRuleComplianceResult = configRuleComplianceResult::fromMap($map['ConfigRuleComplianceResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

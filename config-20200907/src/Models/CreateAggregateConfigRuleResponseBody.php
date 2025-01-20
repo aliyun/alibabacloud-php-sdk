@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAggregateConfigRuleResponseBody extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * @example cr-4e3d626622af0080****
-     *
      * @var string
      */
     public $configRuleId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 5895065A-196C-4254-8AD8-14EFC31EEF50
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateAggregateConfigRuleResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateAggregateConfigRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAggregateConfigRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,96 +4,49 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetManagedRuleResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetManagedRuleResponseBody\managedRule\scope;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetManagedRuleResponseBody\managedRule\sourceDetails;
-use AlibabaCloud\Tea\Model;
 
 class managedRule extends Model
 {
     /**
-     * @description The details of the required input parameters for the managed rule.
-     *
-     * @example {}
-     *
      * @var mixed[]
      */
     public $compulsoryInputParameterDetails;
-
     /**
-     * @description The name of the managed rule.
-     *
-     * @example cdn-domain-https-enabled
-     *
      * @var string
      */
     public $configRuleName;
-
     /**
-     * @description The description of the managed rule.
-     *
-     * @example If HTTPS encryption is enabled for the CDN domain name, the configuration is considered compliant.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The URL of the topic that provides guidance on remediation for the managed rule.
-     *
-     * @example https://example.aliyundoc.com
-     *
      * @var string
      */
     public $helpUrls;
-
     /**
-     * @description The identifier of the managed rule.
-     *
-     * @example cdn-domain-https-enabled
-     *
      * @var string
      */
     public $identifier;
-
     /**
-     * @description The tags of the managed rule.
-     *
      * @var string[]
      */
     public $labels;
-
     /**
-     * @description The details of the optional input parameters for the managed rule.
-     *
-     * @example {}
-     *
      * @var mixed[]
      */
     public $optionalInputParameterDetails;
-
     /**
-     * @description The risk level of the managed rule. Valid values:
-     *
-     *   1: high
-     *   2: medium
-     *   3: low
-     *
-     * @example 1
-     *
      * @var int
      */
     public $riskLevel;
-
     /**
-     * @description The effective scope of the managed rule.
-     *
      * @var scope
      */
     public $scope;
-
     /**
-     * @description The information about the trigger type of the managed rule.
-     *
      * @var sourceDetails[]
      */
     public $sourceDetails;
@@ -112,44 +65,85 @@ class managedRule extends Model
 
     public function validate()
     {
+        if (\is_array($this->compulsoryInputParameterDetails)) {
+            Model::validateArray($this->compulsoryInputParameterDetails);
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (\is_array($this->optionalInputParameterDetails)) {
+            Model::validateArray($this->optionalInputParameterDetails);
+        }
+        if (null !== $this->scope) {
+            $this->scope->validate();
+        }
+        if (\is_array($this->sourceDetails)) {
+            Model::validateArray($this->sourceDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compulsoryInputParameterDetails) {
-            $res['CompulsoryInputParameterDetails'] = $this->compulsoryInputParameterDetails;
+            if (\is_array($this->compulsoryInputParameterDetails)) {
+                $res['CompulsoryInputParameterDetails'] = [];
+                foreach ($this->compulsoryInputParameterDetails as $key1 => $value1) {
+                    $res['CompulsoryInputParameterDetails'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->configRuleName) {
             $res['ConfigRuleName'] = $this->configRuleName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->helpUrls) {
             $res['HelpUrls'] = $this->helpUrls;
         }
+
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1            = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->optionalInputParameterDetails) {
-            $res['OptionalInputParameterDetails'] = $this->optionalInputParameterDetails;
+            if (\is_array($this->optionalInputParameterDetails)) {
+                $res['OptionalInputParameterDetails'] = [];
+                foreach ($this->optionalInputParameterDetails as $key1 => $value1) {
+                    $res['OptionalInputParameterDetails'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
+
         if (null !== $this->scope) {
-            $res['Scope'] = null !== $this->scope ? $this->scope->toMap() : null;
+            $res['Scope'] = null !== $this->scope ? $this->scope->toArray($noStream) : $this->scope;
         }
+
         if (null !== $this->sourceDetails) {
-            $res['SourceDetails'] = [];
-            if (null !== $this->sourceDetails && \is_array($this->sourceDetails)) {
-                $n = 0;
-                foreach ($this->sourceDetails as $item) {
-                    $res['SourceDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sourceDetails)) {
+                $res['SourceDetails'] = [];
+                $n1                   = 0;
+                foreach ($this->sourceDetails as $item1) {
+                    $res['SourceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -157,49 +151,72 @@ class managedRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return managedRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompulsoryInputParameterDetails'])) {
-            $model->compulsoryInputParameterDetails = $map['CompulsoryInputParameterDetails'];
+            if (!empty($map['CompulsoryInputParameterDetails'])) {
+                $model->compulsoryInputParameterDetails = [];
+                foreach ($map['CompulsoryInputParameterDetails'] as $key1 => $value1) {
+                    $model->compulsoryInputParameterDetails[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['HelpUrls'])) {
             $model->helpUrls = $map['HelpUrls'];
         }
+
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
-                $model->labels = $map['Labels'];
+                $model->labels = [];
+                $n1            = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OptionalInputParameterDetails'])) {
-            $model->optionalInputParameterDetails = $map['OptionalInputParameterDetails'];
+            if (!empty($map['OptionalInputParameterDetails'])) {
+                $model->optionalInputParameterDetails = [];
+                foreach ($map['OptionalInputParameterDetails'] as $key1 => $value1) {
+                    $model->optionalInputParameterDetails[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
+
         if (isset($map['Scope'])) {
             $model->scope = scope::fromMap($map['Scope']);
         }
+
         if (isset($map['SourceDetails'])) {
             if (!empty($map['SourceDetails'])) {
                 $model->sourceDetails = [];
-                $n                    = 0;
-                foreach ($map['SourceDetails'] as $item) {
-                    $model->sourceDetails[$n++] = null !== $item ? sourceDetails::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['SourceDetails'] as $item1) {
+                    $model->sourceDetails[$n1++] = sourceDetails::fromMap($item1);
                 }
             }
         }

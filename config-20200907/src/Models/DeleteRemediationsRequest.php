@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRemediationsRequest extends Model
 {
     /**
-     * @description The ID of the remediation template. Separate multiple remediation template IDs with commas (,).
-     *
-     * This parameter is required.
-     * @example crr-909ba2d4716700eb****
-     *
      * @var string
      */
     public $remediationIds;
@@ -23,9 +18,10 @@ class DeleteRemediationsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remediationIds) {
@@ -35,11 +31,11 @@ class DeleteRemediationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRemediationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

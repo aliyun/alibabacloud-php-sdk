@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateConfigurationRecorderRequest extends Model
 {
     /**
-     * @description The resource types. Separate multiple resource types with commas (,).
-     *
-     * This parameter is required.
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $resourceTypes;
@@ -23,9 +18,10 @@ class UpdateConfigurationRecorderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceTypes) {
@@ -35,11 +31,11 @@ class UpdateConfigurationRecorderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateConfigurationRecorderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

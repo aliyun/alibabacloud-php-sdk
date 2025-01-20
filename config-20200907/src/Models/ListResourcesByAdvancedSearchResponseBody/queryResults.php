@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListResourcesByAdvancedSearchResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourcesByAdvancedSearchResponseBody\queryResults\queryResultList;
-use AlibabaCloud\Tea\Model;
 
 class queryResults extends Model
 {
     /**
-     * @description The queried resources. A maximum of 1,000 data records can be returned. To view more data, use the download URL of the resource file.
-     *
      * @var queryResultList
      */
     public $queryResultList;
@@ -21,23 +19,27 @@ class queryResults extends Model
 
     public function validate()
     {
+        if (null !== $this->queryResultList) {
+            $this->queryResultList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queryResultList) {
-            $res['QueryResultList'] = null !== $this->queryResultList ? $this->queryResultList->toMap() : null;
+            $res['QueryResultList'] = null !== $this->queryResultList ? $this->queryResultList->toArray($noStream) : $this->queryResultList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

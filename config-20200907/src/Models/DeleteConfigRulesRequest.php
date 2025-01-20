@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteConfigRulesRequest extends Model
 {
     /**
-     * @description The rule IDs. Separate multiple rule IDs with commas (,).
-     *
-     * This parameter is required.
-     * @example cr-9908626622af0035****
-     *
      * @var string
      */
     public $configRuleIds;
@@ -23,9 +18,10 @@ class DeleteConfigRulesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleIds) {
@@ -35,11 +31,11 @@ class DeleteConfigRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteConfigRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

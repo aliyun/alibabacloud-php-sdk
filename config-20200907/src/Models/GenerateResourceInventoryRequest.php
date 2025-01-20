@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateResourceInventoryRequest extends Model
 {
     /**
-     * @description The region IDs of the resources. Separate multiple region IDs with commas (,).
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regions;
-
     /**
-     * @description Indicates whether the resource is deleted. Valid values:
-     *
-     *   1 (default): The resource is retained.
-     *   0: The resource is deleted.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $resourceDeleted;
-
     /**
-     * @description The resource types. Separate multiple resource types with commas (,).
-     *
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $resourceTypes;
@@ -45,17 +28,20 @@ class GenerateResourceInventoryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regions) {
             $res['Regions'] = $this->regions;
         }
+
         if (null !== $this->resourceDeleted) {
             $res['ResourceDeleted'] = $this->resourceDeleted;
         }
+
         if (null !== $this->resourceTypes) {
             $res['ResourceTypes'] = $this->resourceTypes;
         }
@@ -63,20 +49,22 @@ class GenerateResourceInventoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateResourceInventoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Regions'])) {
             $model->regions = $map['Regions'];
         }
+
         if (isset($map['ResourceDeleted'])) {
             $model->resourceDeleted = $map['ResourceDeleted'];
         }
+
         if (isset($map['ResourceTypes'])) {
             $model->resourceTypes = $map['ResourceTypes'];
         }

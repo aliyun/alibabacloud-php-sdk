@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateConfigRulesReportResponseBody extends Model
 {
     /**
-     * @description The ID of the compliance evaluation report.
-     *
-     * @example crp-88176457e0d900c9****
-     *
      * @var string
      */
     public $reportId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class GenerateConfigRulesReportResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class GenerateConfigRulesReportResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateConfigRulesReportResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

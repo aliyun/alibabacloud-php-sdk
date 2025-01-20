@@ -4,94 +4,44 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponseBody\compliancePackTemplatesResult\compliancePackTemplates;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponseBody\compliancePackTemplatesResult\compliancePackTemplates\configRules\configRuleParameters;
-use AlibabaCloud\Tea\Model;
 
 class configRules extends Model
 {
     /**
-     * @description The input parameter of the managed rule.
-     *
      * @var configRuleParameters[]
      */
     public $configRuleParameters;
-
     /**
-     * @description The description of the regulation. This parameter is available only for regulation compliance packages.
-     *
-     * @example No classic networks exist.
-     *
      * @var string
      */
     public $controlDescription;
-
     /**
-     * @description The regulation ID.
-     *
-     * >  This parameter is available only for regulation compliance packages.
-     * @example 3.1
-     *
      * @var string
      */
     public $controlId;
-
     /**
-     * @description Indicates whether the rules are enabled together with the compliance package. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $defaultEnable;
-
     /**
-     * @description The description of the rule.
-     *
-     * @example If the expiration time of the SLB certificate is later than the specified number of days after the check time, the configuration is considered compliant. Default value: 90 days.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The identifier of the managed rule.
-     *
-     * @example slb-servercertificate-expired-check
-     *
      * @var string
      */
     public $managedRuleIdentifier;
-
     /**
-     * @description The name of the managed rule.
-     *
-     * @example slb-servercertificate-expired-check
-     *
      * @var string
      */
     public $managedRuleName;
-
     /**
-     * @description The types of the resources evaluated based on the rule.
-     *
-     * @example ACS::SLB::ServerCertificate
-     *
      * @var string
      */
     public $resourceTypesScope;
-
     /**
-     * @description The risk level of the managed rule. Valid values:
-     *
-     *   1: high
-     *   2: medium
-     *   3: low
-     *
-     * @example 1
-     *
      * @var int
      */
     public $riskLevel;
@@ -109,41 +59,53 @@ class configRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->configRuleParameters)) {
+            Model::validateArray($this->configRuleParameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleParameters) {
-            $res['ConfigRuleParameters'] = [];
-            if (null !== $this->configRuleParameters && \is_array($this->configRuleParameters)) {
-                $n = 0;
-                foreach ($this->configRuleParameters as $item) {
-                    $res['ConfigRuleParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configRuleParameters)) {
+                $res['ConfigRuleParameters'] = [];
+                $n1                          = 0;
+                foreach ($this->configRuleParameters as $item1) {
+                    $res['ConfigRuleParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->controlDescription) {
             $res['ControlDescription'] = $this->controlDescription;
         }
+
         if (null !== $this->controlId) {
             $res['ControlId'] = $this->controlId;
         }
+
         if (null !== $this->defaultEnable) {
             $res['DefaultEnable'] = $this->defaultEnable;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->managedRuleIdentifier) {
             $res['ManagedRuleIdentifier'] = $this->managedRuleIdentifier;
         }
+
         if (null !== $this->managedRuleName) {
             $res['ManagedRuleName'] = $this->managedRuleName;
         }
+
         if (null !== $this->resourceTypesScope) {
             $res['ResourceTypesScope'] = $this->resourceTypesScope;
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -151,44 +113,52 @@ class configRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleParameters'])) {
             if (!empty($map['ConfigRuleParameters'])) {
                 $model->configRuleParameters = [];
-                $n                           = 0;
-                foreach ($map['ConfigRuleParameters'] as $item) {
-                    $model->configRuleParameters[$n++] = null !== $item ? configRuleParameters::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['ConfigRuleParameters'] as $item1) {
+                    $model->configRuleParameters[$n1++] = configRuleParameters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ControlDescription'])) {
             $model->controlDescription = $map['ControlDescription'];
         }
+
         if (isset($map['ControlId'])) {
             $model->controlId = $map['ControlId'];
         }
+
         if (isset($map['DefaultEnable'])) {
             $model->defaultEnable = $map['DefaultEnable'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ManagedRuleIdentifier'])) {
             $model->managedRuleIdentifier = $map['ManagedRuleIdentifier'];
         }
+
         if (isset($map['ManagedRuleName'])) {
             $model->managedRuleName = $map['ManagedRuleName'];
         }
+
         if (isset($map['ResourceTypesScope'])) {
             $model->resourceTypesScope = $map['ResourceTypesScope'];
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }

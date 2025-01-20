@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationTemplatesResponseBody\remediationTemplates;
-use AlibabaCloud\Tea\Model;
 
 class ListRemediationTemplatesResponseBody extends Model
 {
     /**
-     * @description The page number. Pages start from page 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Valid values: 1 to 100.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The queried remediation templates.
-     *
      * @var remediationTemplates[]
      */
     public $remediationTemplates;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example FC2C4750-7024-499C-A69F-763543D1CBE3
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of remediation templates.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $totalCount;
@@ -61,29 +39,37 @@ class ListRemediationTemplatesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->remediationTemplates)) {
+            Model::validateArray($this->remediationTemplates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->remediationTemplates) {
-            $res['RemediationTemplates'] = [];
-            if (null !== $this->remediationTemplates && \is_array($this->remediationTemplates)) {
-                $n = 0;
-                foreach ($this->remediationTemplates as $item) {
-                    $res['RemediationTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->remediationTemplates)) {
+                $res['RemediationTemplates'] = [];
+                $n1                          = 0;
+                foreach ($this->remediationTemplates as $item1) {
+                    $res['RemediationTemplates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,32 +77,36 @@ class ListRemediationTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRemediationTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RemediationTemplates'])) {
             if (!empty($map['RemediationTemplates'])) {
                 $model->remediationTemplates = [];
-                $n                           = 0;
-                foreach ($map['RemediationTemplates'] as $item) {
-                    $model->remediationTemplates[$n++] = null !== $item ? remediationTemplates::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['RemediationTemplates'] as $item1) {
+                    $model->remediationTemplates[$n1++] = remediationTemplates::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

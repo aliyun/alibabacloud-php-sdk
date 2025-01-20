@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule;
-use AlibabaCloud\Tea\Model;
 
 class GetAggregateConfigRuleResponseBody extends Model
 {
     /**
-     * @description The rules.
-     *
      * @var configRule
      */
     public $configRule;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 811234F4-C3AB-4D15-B90B-F55016D1B5AA
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetAggregateConfigRuleResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->configRule) {
+            $this->configRule->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRule) {
-            $res['ConfigRule'] = null !== $this->configRule ? $this->configRule->toMap() : null;
+            $res['ConfigRule'] = null !== $this->configRule ? $this->configRule->toArray($noStream) : $this->configRule;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetAggregateConfigRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAggregateConfigRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRule'])) {
             $model->configRule = configRule::fromMap($map['ConfigRule']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

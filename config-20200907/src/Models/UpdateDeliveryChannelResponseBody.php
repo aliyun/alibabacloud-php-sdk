@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDeliveryChannelResponseBody extends Model
 {
     /**
-     * @description The ID of the delivery channel.
-     *
-     * @example cdc-8e45ff4e06a3a8****
-     *
      * @var string
      */
     public $deliveryChannelId;
-
     /**
-     * @description The request ID.
-     *
-     * @example A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class UpdateDeliveryChannelResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliveryChannelId) {
             $res['DeliveryChannelId'] = $this->deliveryChannelId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class UpdateDeliveryChannelResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDeliveryChannelResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeliveryChannelId'])) {
             $model->deliveryChannelId = $map['DeliveryChannelId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

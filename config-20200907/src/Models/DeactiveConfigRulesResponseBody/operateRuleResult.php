@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\DeactiveConfigRulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveConfigRulesResponseBody\operateRuleResult\operateRuleItemList;
-use AlibabaCloud\Tea\Model;
 
 class operateRuleResult extends Model
 {
     /**
-     * @description The operations that are performed to disable the rule.
-     *
      * @var operateRuleItemList[]
      */
     public $operateRuleItemList;
@@ -21,17 +19,21 @@ class operateRuleResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->operateRuleItemList)) {
+            Model::validateArray($this->operateRuleItemList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operateRuleItemList) {
-            $res['OperateRuleItemList'] = [];
-            if (null !== $this->operateRuleItemList && \is_array($this->operateRuleItemList)) {
-                $n = 0;
-                foreach ($this->operateRuleItemList as $item) {
-                    $res['OperateRuleItemList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operateRuleItemList)) {
+                $res['OperateRuleItemList'] = [];
+                $n1                         = 0;
+                foreach ($this->operateRuleItemList as $item1) {
+                    $res['OperateRuleItemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class operateRuleResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operateRuleResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperateRuleItemList'])) {
             if (!empty($map['OperateRuleItemList'])) {
                 $model->operateRuleItemList = [];
-                $n                          = 0;
-                foreach ($map['OperateRuleItemList'] as $item) {
-                    $model->operateRuleItemList[$n++] = null !== $item ? operateRuleItemList::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['OperateRuleItemList'] as $item1) {
+                    $model->operateRuleItemList[$n1++] = operateRuleItemList::fromMap($item1);
                 }
             }
         }

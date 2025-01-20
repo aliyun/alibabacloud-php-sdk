@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IgnoreEvaluationResultsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1840CBF2-0B0B-59F2-9E84-07B38267A279
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class IgnoreEvaluationResultsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class IgnoreEvaluationResultsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IgnoreEvaluationResultsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetDiscoveredResourceCountsGroupByResourceTypeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class discoveredResourceCountsSummary extends Model
 {
     /**
-     * @description The resource type by which the statistics are collected.
-     *
-     * > We recommend that you use the `ResourceType` parameter.
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @description The total number of resources.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $resourceCount;
-
     /**
-     * @description The resource type by which the statistics are collected.
-     *
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $resourceType;
@@ -43,17 +28,20 @@ class discoveredResourceCountsSummary extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->resourceCount) {
             $res['ResourceCount'] = $this->resourceCount;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -61,20 +49,22 @@ class discoveredResourceCountsSummary extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return discoveredResourceCountsSummary
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['ResourceCount'])) {
             $model->resourceCount = $map['ResourceCount'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsResponseBody\evaluationResults\evaluationResultList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsResponseBody\evaluationResults\evaluationResultList\evaluationResultIdentifier\evaluationResultQualifier;
-use AlibabaCloud\Tea\Model;
 
 class evaluationResultIdentifier extends Model
 {
     /**
-     * @description The information about the evaluated resource returned in the compliance evaluation result.
-     *
      * @var evaluationResultQualifier
      */
     public $evaluationResultQualifier;
-
     /**
-     * @description The timestamp when the compliance evaluation was performed. Unit: milliseconds.
-     *
-     * @example 1624932227157
-     *
      * @var int
      */
     public $orderingTimestamp;
@@ -31,14 +24,19 @@ class evaluationResultIdentifier extends Model
 
     public function validate()
     {
+        if (null !== $this->evaluationResultQualifier) {
+            $this->evaluationResultQualifier->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->evaluationResultQualifier) {
-            $res['EvaluationResultQualifier'] = null !== $this->evaluationResultQualifier ? $this->evaluationResultQualifier->toMap() : null;
+            $res['EvaluationResultQualifier'] = null !== $this->evaluationResultQualifier ? $this->evaluationResultQualifier->toArray($noStream) : $this->evaluationResultQualifier;
         }
+
         if (null !== $this->orderingTimestamp) {
             $res['OrderingTimestamp'] = $this->orderingTimestamp;
         }
@@ -46,17 +44,18 @@ class evaluationResultIdentifier extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return evaluationResultIdentifier
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EvaluationResultQualifier'])) {
             $model->evaluationResultQualifier = evaluationResultQualifier::fromMap($map['EvaluationResultQualifier']);
         }
+
         if (isset($map['OrderingTimestamp'])) {
             $model->orderingTimestamp = $map['OrderingTimestamp'];
         }

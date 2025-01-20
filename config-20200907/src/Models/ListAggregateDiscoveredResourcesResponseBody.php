@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateDiscoveredResourcesResponseBody\discoveredResourceProfiles;
-use AlibabaCloud\Tea\Model;
 
 class ListAggregateDiscoveredResourcesResponseBody extends Model
 {
     /**
-     * @description The queried resources.
-     *
      * @var discoveredResourceProfiles
      */
     public $discoveredResourceProfiles;
-
     /**
-     * @description The request ID.
-     *
-     * @example C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListAggregateDiscoveredResourcesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->discoveredResourceProfiles) {
+            $this->discoveredResourceProfiles->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->discoveredResourceProfiles) {
-            $res['DiscoveredResourceProfiles'] = null !== $this->discoveredResourceProfiles ? $this->discoveredResourceProfiles->toMap() : null;
+            $res['DiscoveredResourceProfiles'] = null !== $this->discoveredResourceProfiles ? $this->discoveredResourceProfiles->toArray($noStream) : $this->discoveredResourceProfiles;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListAggregateDiscoveredResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAggregateDiscoveredResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiscoveredResourceProfiles'])) {
             $model->discoveredResourceProfiles = discoveredResourceProfiles::fromMap($map['DiscoveredResourceProfiles']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

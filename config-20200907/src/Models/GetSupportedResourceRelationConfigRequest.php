@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSupportedResourceRelationConfigRequest extends Model
 {
     /**
-     * @description The resource type.
-     *
-     * This parameter is required.
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $resourceType;
@@ -23,9 +18,10 @@ class GetSupportedResourceRelationConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceType) {
@@ -35,11 +31,11 @@ class GetSupportedResourceRelationConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSupportedResourceRelationConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

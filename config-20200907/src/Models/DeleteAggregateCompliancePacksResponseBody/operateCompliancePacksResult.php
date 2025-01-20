@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateCompliancePacksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateCompliancePacksResponseBody\operateCompliancePacksResult\operateCompliancePacks;
-use AlibabaCloud\Tea\Model;
 
 class operateCompliancePacksResult extends Model
 {
     /**
-     * @description An array that contains the deleted compliance packages.
-     *
      * @var operateCompliancePacks[]
      */
     public $operateCompliancePacks;
@@ -21,17 +19,21 @@ class operateCompliancePacksResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->operateCompliancePacks)) {
+            Model::validateArray($this->operateCompliancePacks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operateCompliancePacks) {
-            $res['OperateCompliancePacks'] = [];
-            if (null !== $this->operateCompliancePacks && \is_array($this->operateCompliancePacks)) {
-                $n = 0;
-                foreach ($this->operateCompliancePacks as $item) {
-                    $res['OperateCompliancePacks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operateCompliancePacks)) {
+                $res['OperateCompliancePacks'] = [];
+                $n1                            = 0;
+                foreach ($this->operateCompliancePacks as $item1) {
+                    $res['OperateCompliancePacks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class operateCompliancePacksResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operateCompliancePacksResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperateCompliancePacks'])) {
             if (!empty($map['OperateCompliancePacks'])) {
                 $model->operateCompliancePacks = [];
-                $n                             = 0;
-                foreach ($map['OperateCompliancePacks'] as $item) {
-                    $model->operateCompliancePacks[$n++] = null !== $item ? operateCompliancePacks::fromMap($item) : $item;
+                $n1                            = 0;
+                foreach ($map['OperateCompliancePacks'] as $item1) {
+                    $model->operateCompliancePacks[$n1++] = operateCompliancePacks::fromMap($item1);
                 }
             }
         }

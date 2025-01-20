@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDiscoveredResourceCountsGroupByRegionRequest extends Model
 {
     /**
-     * @description The resource type.
-     *
-     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $resourceType;
@@ -23,9 +18,10 @@ class GetDiscoveredResourceCountsGroupByRegionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceType) {
@@ -35,11 +31,11 @@ class GetDiscoveredResourceCountsGroupByRegionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDiscoveredResourceCountsGroupByRegionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

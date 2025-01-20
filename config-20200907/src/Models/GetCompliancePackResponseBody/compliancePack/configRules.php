@@ -4,72 +4,36 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackResponseBody\compliancePack;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackResponseBody\compliancePack\configRules\configRuleParameters;
-use AlibabaCloud\Tea\Model;
 
 class configRules extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * @example cr-a260626622af0005****
-     *
      * @var string
      */
     public $configRuleId;
-
     /**
-     * @description The rule name.
-     *
-     * @example eip-bandwidth-limit
-     *
      * @var string
      */
     public $configRuleName;
-
     /**
-     * @description The input parameters of the rule.
-     *
      * @var configRuleParameters[]
      */
     public $configRuleParameters;
-
     /**
-     * @description The rule description.
-     *
-     * @example example-description
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The identifier of the managed rule.
-     *
-     * @example eip-bandwidth-limit
-     *
      * @var string
      */
     public $managedRuleIdentifier;
-
     /**
-     * @description The type of the resource evaluated based on the rule. Separate multiple resource types with commas (,).
-     *
-     * @example ACS::EIP::EipAddress
-     *
      * @var string
      */
     public $resourceTypesScope;
-
     /**
-     * @description The risk level of the resources that do not comply with the rule. Valid values:
-     *
-     *   1: high
-     *   2: medium
-     *   3: low
-     *
-     * @example 1
-     *
      * @var int
      */
     public $riskLevel;
@@ -85,35 +49,45 @@ class configRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->configRuleParameters)) {
+            Model::validateArray($this->configRuleParameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
+
         if (null !== $this->configRuleName) {
             $res['ConfigRuleName'] = $this->configRuleName;
         }
+
         if (null !== $this->configRuleParameters) {
-            $res['ConfigRuleParameters'] = [];
-            if (null !== $this->configRuleParameters && \is_array($this->configRuleParameters)) {
-                $n = 0;
-                foreach ($this->configRuleParameters as $item) {
-                    $res['ConfigRuleParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configRuleParameters)) {
+                $res['ConfigRuleParameters'] = [];
+                $n1                          = 0;
+                foreach ($this->configRuleParameters as $item1) {
+                    $res['ConfigRuleParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->managedRuleIdentifier) {
             $res['ManagedRuleIdentifier'] = $this->managedRuleIdentifier;
         }
+
         if (null !== $this->resourceTypesScope) {
             $res['ResourceTypesScope'] = $this->resourceTypesScope;
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -121,38 +95,44 @@ class configRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
+
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
         }
+
         if (isset($map['ConfigRuleParameters'])) {
             if (!empty($map['ConfigRuleParameters'])) {
                 $model->configRuleParameters = [];
-                $n                           = 0;
-                foreach ($map['ConfigRuleParameters'] as $item) {
-                    $model->configRuleParameters[$n++] = null !== $item ? configRuleParameters::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['ConfigRuleParameters'] as $item1) {
+                    $model->configRuleParameters[$n1++] = configRuleParameters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ManagedRuleIdentifier'])) {
             $model->managedRuleIdentifier = $map['ManagedRuleIdentifier'];
         }
+
         if (isset($map['ResourceTypesScope'])) {
             $model->resourceTypesScope = $map['ResourceTypesScope'];
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }

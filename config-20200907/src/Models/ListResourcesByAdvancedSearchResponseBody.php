@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourcesByAdvancedSearchResponseBody\queryResults;
-use AlibabaCloud\Tea\Model;
 
 class ListResourcesByAdvancedSearchResponseBody extends Model
 {
     /**
-     * @description The query result.
-     *
      * @var queryResults
      */
     public $queryResults;
-
     /**
-     * @description The request ID.
-     *
-     * @example D241DEBF-67A2-56AF-88CF-57BF78F0A850
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListResourcesByAdvancedSearchResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->queryResults) {
+            $this->queryResults->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queryResults) {
-            $res['QueryResults'] = null !== $this->queryResults ? $this->queryResults->toMap() : null;
+            $res['QueryResults'] = null !== $this->queryResults ? $this->queryResults->toArray($noStream) : $this->queryResults;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListResourcesByAdvancedSearchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourcesByAdvancedSearchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QueryResults'])) {
             $model->queryResults = queryResults::fromMap($map['QueryResults']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

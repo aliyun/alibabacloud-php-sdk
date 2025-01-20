@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationStatisticsResponseBody\evaluationResults;
-use AlibabaCloud\Tea\Model;
 
 class ListAggregateConfigRuleEvaluationStatisticsResponseBody extends Model
 {
     /**
-     * @description The statistics of compliance evaluation results.
-     *
      * @var evaluationResults[]
      */
     public $evaluationResults;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9EFA436B-FC6F-513B-9DB8-C96E6CEBE5E0
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListAggregateConfigRuleEvaluationStatisticsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->evaluationResults)) {
+            Model::validateArray($this->evaluationResults);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->evaluationResults) {
-            $res['EvaluationResults'] = [];
-            if (null !== $this->evaluationResults && \is_array($this->evaluationResults)) {
-                $n = 0;
-                foreach ($this->evaluationResults as $item) {
-                    $res['EvaluationResults'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->evaluationResults)) {
+                $res['EvaluationResults'] = [];
+                $n1                       = 0;
+                foreach ($this->evaluationResults as $item1) {
+                    $res['EvaluationResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListAggregateConfigRuleEvaluationStatisticsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAggregateConfigRuleEvaluationStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EvaluationResults'])) {
             if (!empty($map['EvaluationResults'])) {
                 $model->evaluationResults = [];
-                $n                        = 0;
-                foreach ($map['EvaluationResults'] as $item) {
-                    $model->evaluationResults[$n++] = null !== $item ? evaluationResults::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['EvaluationResults'] as $item1) {
+                    $model->evaluationResults[$n1++] = evaluationResults::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

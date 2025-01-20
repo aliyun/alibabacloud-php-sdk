@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSupportedProductsRequest extends Model
 {
     /**
-     * @description The maximum number of entries to return in a request.
-     *
-     * Valid values: 1 to 500. Default value: 200.
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-     *
-     * @example D3AjqMNSy0ls7zBNCf3a****
-     *
      * @var string
      */
     public $nextToken;
@@ -33,14 +23,16 @@ class ListSupportedProductsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -48,17 +40,18 @@ class ListSupportedProductsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSupportedProductsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

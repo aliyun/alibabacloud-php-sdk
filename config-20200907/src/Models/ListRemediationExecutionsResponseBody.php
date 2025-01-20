@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationExecutionsResponseBody\remediationExecutionData;
-use AlibabaCloud\Tea\Model;
 
 class ListRemediationExecutionsResponseBody extends Model
 {
     /**
-     * @description The queried remediation records.
-     *
      * @var remediationExecutionData
      */
     public $remediationExecutionData;
-
     /**
-     * @description The request ID.
-     *
-     * @example 13E67493-3165-529A-A961-BE9E4B11BA11
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListRemediationExecutionsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->remediationExecutionData) {
+            $this->remediationExecutionData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remediationExecutionData) {
-            $res['RemediationExecutionData'] = null !== $this->remediationExecutionData ? $this->remediationExecutionData->toMap() : null;
+            $res['RemediationExecutionData'] = null !== $this->remediationExecutionData ? $this->remediationExecutionData->toArray($noStream) : $this->remediationExecutionData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListRemediationExecutionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRemediationExecutionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RemediationExecutionData'])) {
             $model->remediationExecutionData = remediationExecutionData::fromMap($map['RemediationExecutionData']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

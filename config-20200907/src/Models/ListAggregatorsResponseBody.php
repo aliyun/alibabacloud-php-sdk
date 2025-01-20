@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsResponseBody\aggregatorsResult;
-use AlibabaCloud\Tea\Model;
 
 class ListAggregatorsResponseBody extends Model
 {
     /**
-     * @description The account groups.
-     *
      * @var aggregatorsResult
      */
     public $aggregatorsResult;
-
     /**
-     * @description The request ID.
-     *
-     * @example 20C8526D-12C5-4336-BC72-EBD5D1BA732F
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListAggregatorsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->aggregatorsResult) {
+            $this->aggregatorsResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregatorsResult) {
-            $res['AggregatorsResult'] = null !== $this->aggregatorsResult ? $this->aggregatorsResult->toMap() : null;
+            $res['AggregatorsResult'] = null !== $this->aggregatorsResult ? $this->aggregatorsResult->toArray($noStream) : $this->aggregatorsResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListAggregatorsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAggregatorsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregatorsResult'])) {
             $model->aggregatorsResult = aggregatorsResult::fromMap($map['AggregatorsResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAggregateConfigRuleEvaluationStatisticsRequest extends Model
 {
     /**
-     * @description The ID of the account group.
-     *
-     * This parameter is required.
-     * @example ca-edd3626622af00b3****
-     *
      * @var string
      */
     public $aggregatorId;
@@ -23,9 +18,10 @@ class ListAggregateConfigRuleEvaluationStatisticsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregatorId) {
@@ -35,11 +31,11 @@ class ListAggregateConfigRuleEvaluationStatisticsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAggregateConfigRuleEvaluationStatisticsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

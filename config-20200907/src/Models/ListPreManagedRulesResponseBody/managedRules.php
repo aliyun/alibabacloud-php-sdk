@@ -4,69 +4,35 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListPreManagedRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class managedRules extends Model
 {
     /**
-     * @description The details of the required input parameters of the rule.
-     *
-     * @example {}
-     *
      * @var mixed[]
      */
     public $compulsoryInputParameterDetails;
-
     /**
-     * @description The name of the rule.
-     *
-     * @example ram-user-ak-used-expired-check
-     *
      * @var string
      */
     public $configRuleName;
-
     /**
-     * @description The description of the rule.
-     *
-     * @example Example description
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The URL of the topic that describes how the evaluation rule remediates the incompliant configurations.
-     *
-     * @example https://example.aliyundoc.com
-     *
      * @var string
      */
     public $helpUrls;
-
     /**
-     * @description The identifier of the rule.
-     *
-     * @example ecs-instance-deletion-protection-enabled
-     *
      * @var string
      */
     public $identifier;
-
     /**
-     * @description The details of the optional input parameters of the rule.
-     *
-     * @example {}
-     *
      * @var mixed[]
      */
     public $optionalInputParameterDetails;
-
     /**
-     * @description The type of resource.
-     *
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $resourceType;
@@ -82,29 +48,52 @@ class managedRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->compulsoryInputParameterDetails)) {
+            Model::validateArray($this->compulsoryInputParameterDetails);
+        }
+        if (\is_array($this->optionalInputParameterDetails)) {
+            Model::validateArray($this->optionalInputParameterDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compulsoryInputParameterDetails) {
-            $res['CompulsoryInputParameterDetails'] = $this->compulsoryInputParameterDetails;
+            if (\is_array($this->compulsoryInputParameterDetails)) {
+                $res['CompulsoryInputParameterDetails'] = [];
+                foreach ($this->compulsoryInputParameterDetails as $key1 => $value1) {
+                    $res['CompulsoryInputParameterDetails'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->configRuleName) {
             $res['ConfigRuleName'] = $this->configRuleName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->helpUrls) {
             $res['HelpUrls'] = $this->helpUrls;
         }
+
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
+
         if (null !== $this->optionalInputParameterDetails) {
-            $res['OptionalInputParameterDetails'] = $this->optionalInputParameterDetails;
+            if (\is_array($this->optionalInputParameterDetails)) {
+                $res['OptionalInputParameterDetails'] = [];
+                foreach ($this->optionalInputParameterDetails as $key1 => $value1) {
+                    $res['OptionalInputParameterDetails'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -112,32 +101,48 @@ class managedRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return managedRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompulsoryInputParameterDetails'])) {
-            $model->compulsoryInputParameterDetails = $map['CompulsoryInputParameterDetails'];
+            if (!empty($map['CompulsoryInputParameterDetails'])) {
+                $model->compulsoryInputParameterDetails = [];
+                foreach ($map['CompulsoryInputParameterDetails'] as $key1 => $value1) {
+                    $model->compulsoryInputParameterDetails[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['HelpUrls'])) {
             $model->helpUrls = $map['HelpUrls'];
         }
+
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
+
         if (isset($map['OptionalInputParameterDetails'])) {
-            $model->optionalInputParameterDetails = $map['OptionalInputParameterDetails'];
+            if (!empty($map['OptionalInputParameterDetails'])) {
+                $model->optionalInputParameterDetails = [];
+                foreach ($map['OptionalInputParameterDetails'] as $key1 => $value1) {
+                    $model->optionalInputParameterDetails[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

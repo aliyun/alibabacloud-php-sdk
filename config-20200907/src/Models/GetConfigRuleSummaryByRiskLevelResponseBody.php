@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleSummaryByRiskLevelResponseBody\configRuleSummaries;
-use AlibabaCloud\Tea\Model;
 
 class GetConfigRuleSummaryByRiskLevelResponseBody extends Model
 {
     /**
-     * @description The summary of compliance evaluation results by rule risk level.
-     *
      * @var configRuleSummaries[]
      */
     public $configRuleSummaries;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example A3CED98C-DE65-46AC-B2D2-04A4A9AB5B36
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class GetConfigRuleSummaryByRiskLevelResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->configRuleSummaries)) {
+            Model::validateArray($this->configRuleSummaries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleSummaries) {
-            $res['ConfigRuleSummaries'] = [];
-            if (null !== $this->configRuleSummaries && \is_array($this->configRuleSummaries)) {
-                $n = 0;
-                foreach ($this->configRuleSummaries as $item) {
-                    $res['ConfigRuleSummaries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configRuleSummaries)) {
+                $res['ConfigRuleSummaries'] = [];
+                $n1                         = 0;
+                foreach ($this->configRuleSummaries as $item1) {
+                    $res['ConfigRuleSummaries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class GetConfigRuleSummaryByRiskLevelResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConfigRuleSummaryByRiskLevelResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleSummaries'])) {
             if (!empty($map['ConfigRuleSummaries'])) {
                 $model->configRuleSummaries = [];
-                $n                          = 0;
-                foreach ($map['ConfigRuleSummaries'] as $item) {
-                    $model->configRuleSummaries[$n++] = null !== $item ? configRuleSummaries::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['ConfigRuleSummaries'] as $item1) {
+                    $model->configRuleSummaries[$n1++] = configRuleSummaries::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

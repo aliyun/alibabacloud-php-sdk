@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRemediationRequest extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * @example cr-3184626622af003****
-     *
      * @var string
      */
     public $configRuleId;
-
     /**
-     * @description The ID of the remediation configuration.
-     *
-     * @example crr-f381cf0c1c2f004e****
-     *
      * @var string
      */
     public $remediationId;
@@ -32,14 +23,16 @@ class DescribeRemediationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
+
         if (null !== $this->remediationId) {
             $res['RemediationId'] = $this->remediationId;
         }
@@ -47,17 +40,18 @@ class DescribeRemediationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRemediationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
+
         if (isset($map['RemediationId'])) {
             $model->remediationId = $map['RemediationId'];
         }

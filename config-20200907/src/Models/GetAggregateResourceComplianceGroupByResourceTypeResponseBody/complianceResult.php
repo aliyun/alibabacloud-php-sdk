@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceGroupByResourceTypeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceGroupByResourceTypeResponseBody\complianceResult\complianceResultList;
-use AlibabaCloud\Tea\Model;
 
 class complianceResult extends Model
 {
     /**
-     * @description The evaluation results grouped by resource type.
-     *
      * @var complianceResultList[]
      */
     public $complianceResultList;
@@ -21,17 +19,21 @@ class complianceResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->complianceResultList)) {
+            Model::validateArray($this->complianceResultList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->complianceResultList) {
-            $res['ComplianceResultList'] = [];
-            if (null !== $this->complianceResultList && \is_array($this->complianceResultList)) {
-                $n = 0;
-                foreach ($this->complianceResultList as $item) {
-                    $res['ComplianceResultList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->complianceResultList)) {
+                $res['ComplianceResultList'] = [];
+                $n1                          = 0;
+                foreach ($this->complianceResultList as $item1) {
+                    $res['ComplianceResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class complianceResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return complianceResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComplianceResultList'])) {
             if (!empty($map['ComplianceResultList'])) {
                 $model->complianceResultList = [];
-                $n                           = 0;
-                foreach ($map['ComplianceResultList'] as $item) {
-                    $model->complianceResultList[$n++] = null !== $item ? complianceResultList::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['ComplianceResultList'] as $item1) {
+                    $model->complianceResultList[$n1++] = complianceResultList::fromMap($item1);
                 }
             }
         }

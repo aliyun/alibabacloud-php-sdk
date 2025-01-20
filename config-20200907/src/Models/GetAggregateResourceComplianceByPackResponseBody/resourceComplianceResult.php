@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceComplianceByPackResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceComplianceResult extends Model
 {
     /**
-     * @description The ID of the compliance package.
-     *
-     * @example cp-fdc8626622af00f9****
-     *
      * @var string
      */
     public $compliancePackId;
-
     /**
-     * @description The number of non-compliant resources.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $nonCompliantCount;
-
     /**
-     * @description The total number of resources.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -42,17 +28,20 @@ class resourceComplianceResult extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
         }
+
         if (null !== $this->nonCompliantCount) {
             $res['NonCompliantCount'] = $this->nonCompliantCount;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -60,20 +49,22 @@ class resourceComplianceResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceComplianceResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
         }
+
         if (isset($map['NonCompliantCount'])) {
             $model->nonCompliantCount = $map['NonCompliantCount'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

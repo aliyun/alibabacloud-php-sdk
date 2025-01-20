@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAdvancedSearchFileResponseBody\resourceSearch;
-use AlibabaCloud\Tea\Model;
 
 class GetAdvancedSearchFileResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 9366FE45-3C83-54FB-8BB1-44176B200706
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the resource file.
-     *
      * @var resourceSearch
      */
     public $resourceSearch;
@@ -31,32 +24,38 @@ class GetAdvancedSearchFileResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->resourceSearch) {
+            $this->resourceSearch->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceSearch) {
-            $res['ResourceSearch'] = null !== $this->resourceSearch ? $this->resourceSearch->toMap() : null;
+            $res['ResourceSearch'] = null !== $this->resourceSearch ? $this->resourceSearch->toArray($noStream) : $this->resourceSearch;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAdvancedSearchFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceSearch'])) {
             $model->resourceSearch = resourceSearch::fromMap($map['ResourceSearch']);
         }

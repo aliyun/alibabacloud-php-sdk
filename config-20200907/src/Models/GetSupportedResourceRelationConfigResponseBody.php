@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetSupportedResourceRelationConfigResponseBody\resourceRelationConfigList;
-use AlibabaCloud\Tea\Model;
 
 class GetSupportedResourceRelationConfigResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 409D022F-394C-5AAB-A74A-2F1DC9F6375E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array that contains the relationships.
-     *
      * @var resourceRelationConfigList[]
      */
     public $resourceRelationConfigList;
@@ -31,20 +24,25 @@ class GetSupportedResourceRelationConfigResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceRelationConfigList)) {
+            Model::validateArray($this->resourceRelationConfigList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceRelationConfigList) {
-            $res['ResourceRelationConfigList'] = [];
-            if (null !== $this->resourceRelationConfigList && \is_array($this->resourceRelationConfigList)) {
-                $n = 0;
-                foreach ($this->resourceRelationConfigList as $item) {
-                    $res['ResourceRelationConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceRelationConfigList)) {
+                $res['ResourceRelationConfigList'] = [];
+                $n1                                = 0;
+                foreach ($this->resourceRelationConfigList as $item1) {
+                    $res['ResourceRelationConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class GetSupportedResourceRelationConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSupportedResourceRelationConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceRelationConfigList'])) {
             if (!empty($map['ResourceRelationConfigList'])) {
                 $model->resourceRelationConfigList = [];
-                $n                                 = 0;
-                foreach ($map['ResourceRelationConfigList'] as $item) {
-                    $model->resourceRelationConfigList[$n++] = null !== $item ? resourceRelationConfigList::fromMap($item) : $item;
+                $n1                                = 0;
+                foreach ($map['ResourceRelationConfigList'] as $item1) {
+                    $model->resourceRelationConfigList[$n1++] = resourceRelationConfigList::fromMap($item1);
                 }
             }
         }

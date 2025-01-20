@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceEvaluationResultsResponseBody\evaluationResults;
-use AlibabaCloud\Tea\Model;
 
 class ListAggregateResourceEvaluationResultsResponseBody extends Model
 {
     /**
-     * @description The information about the compliance evaluation results returned.
-     *
      * @var evaluationResults
      */
     public $evaluationResults;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 25C89DDB-BB79-487D-88C3-4A561F21EFC4
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListAggregateResourceEvaluationResultsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->evaluationResults) {
+            $this->evaluationResults->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->evaluationResults) {
-            $res['EvaluationResults'] = null !== $this->evaluationResults ? $this->evaluationResults->toMap() : null;
+            $res['EvaluationResults'] = null !== $this->evaluationResults ? $this->evaluationResults->toArray($noStream) : $this->evaluationResults;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListAggregateResourceEvaluationResultsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAggregateResourceEvaluationResultsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EvaluationResults'])) {
             $model->evaluationResults = evaluationResults::fromMap($map['EvaluationResults']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

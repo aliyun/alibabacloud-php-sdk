@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListIntegratedServiceResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListIntegratedServiceResponseBody extends Model
 {
     /**
-     * @description The information about the cloud service that can be integrated.
-     *
      * @var data[]
      */
     public $data;
-
     /**
-     * @description The request ID.
-     *
-     * @example 86DB52A5-0C25-505A-96D5-9BAE1EFA00B9
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListIntegratedServiceResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                $n1          = 0;
+                foreach ($this->data as $item1) {
+                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListIntegratedServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIntegratedServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Data'] as $item1) {
+                    $model->data[$n1++] = data::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,20 +4,14 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetConfigRuleShrinkRequest extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * This parameter is required.
-     * @example cr-7f7d626622af0041****
-     *
      * @var string
      */
     public $configRuleId;
-
     /**
      * @var string
      */
@@ -29,14 +23,16 @@ class GetConfigRuleShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
+
         if (null !== $this->tagShrink) {
             $res['Tag'] = $this->tagShrink;
         }
@@ -44,17 +40,18 @@ class GetConfigRuleShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConfigRuleShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
+
         if (isset($map['Tag'])) {
             $model->tagShrink = $map['Tag'];
         }

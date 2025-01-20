@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCompliancePackReportRequest extends Model
 {
     /**
-     * @description The ID of the compliance package.
-     *
-     * This parameter is required.
-     * @example cp-fdc8626622af00f9****
-     *
      * @var string
      */
     public $compliancePackId;
@@ -23,9 +18,10 @@ class GetCompliancePackReportRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compliancePackId) {
@@ -35,11 +31,11 @@ class GetCompliancePackReportRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCompliancePackReportRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

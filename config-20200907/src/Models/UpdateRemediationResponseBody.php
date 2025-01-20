@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateRemediationResponseBody extends Model
 {
     /**
-     * @description The ID of the remediation setting.
-     *
-     * @example crr-7c2ba2d0236700a3****
-     *
      * @var string
      */
     public $remediationId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class UpdateRemediationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remediationId) {
             $res['RemediationId'] = $this->remediationId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class UpdateRemediationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateRemediationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RemediationId'])) {
             $model->remediationId = $map['RemediationId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

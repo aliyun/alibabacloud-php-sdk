@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\DeleteCompliancePacksResponseBody\operateCompliancePacksResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class operateCompliancePacks extends Model
 {
     /**
-     * @description The ID of the compliance package.
-     *
-     * @example cp-541e626622af0087****
-     *
      * @var string
      */
     public $compliancePackId;
-
     /**
-     * @description The error code returned.
-     *
-     *   If the compliance package is deleted, no error code is returned.
-     *   If the compliance package fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
-     *
-     * @example CompliancePackAlreadyPending
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -48,17 +28,20 @@ class operateCompliancePacks extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -66,20 +49,22 @@ class operateCompliancePacks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operateCompliancePacks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

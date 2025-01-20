@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceCountsGroupByResourceTypeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class discoveredResourceCountsSummary extends Model
 {
     /**
-     * @description This parameter is expired. The resource type by which statistics are collected.
-     *
-     * @example ACS::RAM::Role
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @description The total number of resources in the region.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $resourceCount;
-
     /**
-     * @description The resource type by which statistics are collected.
-     *
-     * @example ACS::RAM::Role
-     *
      * @var string
      */
     public $resourceType;
@@ -42,17 +28,20 @@ class discoveredResourceCountsSummary extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->resourceCount) {
             $res['ResourceCount'] = $this->resourceCount;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -60,20 +49,22 @@ class discoveredResourceCountsSummary extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return discoveredResourceCountsSummary
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['ResourceCount'])) {
             $model->resourceCount = $map['ResourceCount'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TagResourcesShrinkRequest extends Model
 {
     /**
-     * @description The region ID of the tags.
-     *
-     * This parameter is required.
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The resource IDs. You can add tags to up to 50 resources.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
-
     /**
-     * @description The resource type. Valid values:
-     *
-     *   `ACS::Config::Rule`
-     *   `ACS::Config::AggregateConfigRule`
-     *   `ACS::Config::Aggregator`
-     *   `ACS::Config::CompliancePack`
-     *   `ACS::Config::AggregateCompliancePack`
-     *
-     * This parameter is required.
-     * @example ACS::Config::Rule
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description The tag value of the resource.
-     *
-     * This parameter is required.
      * @var string
      */
     public $tagShrink;
@@ -58,20 +33,33 @@ class TagResourcesShrinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1                = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagShrink) {
             $res['Tag'] = $this->tagShrink;
         }
@@ -79,25 +67,32 @@ class TagResourcesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TagResourcesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
+                $model->resourceId = [];
+                $n1                = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Tag'])) {
             $model->tagShrink = $map['Tag'];
         }

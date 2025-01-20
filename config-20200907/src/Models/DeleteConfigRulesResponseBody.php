@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteConfigRulesResponseBody\operateRuleResult;
-use AlibabaCloud\Tea\Model;
 
 class DeleteConfigRulesResponseBody extends Model
 {
     /**
-     * @description The results of the delete operations.
-     *
      * @var operateRuleResult
      */
     public $operateRuleResult;
-
     /**
-     * @description The request ID.
-     *
-     * @example 6721BBD3-F2A6-5349-9051-EE0111036D3F
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DeleteConfigRulesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->operateRuleResult) {
+            $this->operateRuleResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operateRuleResult) {
-            $res['OperateRuleResult'] = null !== $this->operateRuleResult ? $this->operateRuleResult->toMap() : null;
+            $res['OperateRuleResult'] = null !== $this->operateRuleResult ? $this->operateRuleResult->toArray($noStream) : $this->operateRuleResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DeleteConfigRulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteConfigRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperateRuleResult'])) {
             $model->operateRuleResult = operateRuleResult::fromMap($map['OperateRuleResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

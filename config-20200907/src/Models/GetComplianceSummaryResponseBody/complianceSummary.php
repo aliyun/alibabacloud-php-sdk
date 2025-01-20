@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetComplianceSummaryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetComplianceSummaryResponseBody\complianceSummary\complianceSummaryByConfigRule;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetComplianceSummaryResponseBody\complianceSummary\complianceSummaryByResource;
-use AlibabaCloud\Tea\Model;
 
 class complianceSummary extends Model
 {
     /**
-     * @description The summary of compliance statistics from the rule dimension.
-     *
      * @var complianceSummaryByConfigRule
      */
     public $complianceSummaryByConfigRule;
-
     /**
-     * @description The summary of compliance statistics from the resource dimension.
-     *
      * @var complianceSummaryByResource
      */
     public $complianceSummaryByResource;
@@ -30,32 +25,41 @@ class complianceSummary extends Model
 
     public function validate()
     {
+        if (null !== $this->complianceSummaryByConfigRule) {
+            $this->complianceSummaryByConfigRule->validate();
+        }
+        if (null !== $this->complianceSummaryByResource) {
+            $this->complianceSummaryByResource->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->complianceSummaryByConfigRule) {
-            $res['ComplianceSummaryByConfigRule'] = null !== $this->complianceSummaryByConfigRule ? $this->complianceSummaryByConfigRule->toMap() : null;
+            $res['ComplianceSummaryByConfigRule'] = null !== $this->complianceSummaryByConfigRule ? $this->complianceSummaryByConfigRule->toArray($noStream) : $this->complianceSummaryByConfigRule;
         }
+
         if (null !== $this->complianceSummaryByResource) {
-            $res['ComplianceSummaryByResource'] = null !== $this->complianceSummaryByResource ? $this->complianceSummaryByResource->toMap() : null;
+            $res['ComplianceSummaryByResource'] = null !== $this->complianceSummaryByResource ? $this->complianceSummaryByResource->toArray($noStream) : $this->complianceSummaryByResource;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return complianceSummary
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComplianceSummaryByConfigRule'])) {
             $model->complianceSummaryByConfigRule = complianceSummaryByConfigRule::fromMap($map['ComplianceSummaryByConfigRule']);
         }
+
         if (isset($map['ComplianceSummaryByResource'])) {
             $model->complianceSummaryByResource = complianceSummaryByResource::fromMap($map['ComplianceSummaryByResource']);
         }

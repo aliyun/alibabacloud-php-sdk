@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourceComplianceGroupByRegionRequest extends Model
 {
     /**
-     * @description The rule IDs. Separate multiple rule IDs with commas (,).
-     *
-     * @example cr-2541626622af0000****
-     *
      * @var string
      */
     public $configRuleIds;
@@ -22,9 +18,10 @@ class GetResourceComplianceGroupByRegionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleIds) {
@@ -34,11 +31,11 @@ class GetResourceComplianceGroupByRegionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceComplianceGroupByRegionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

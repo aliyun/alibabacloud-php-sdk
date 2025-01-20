@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceRelationsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceRelationsResponseBody\resourceRelations\resourceRelationList;
-use AlibabaCloud\Tea\Model;
 
 class resourceRelations extends Model
 {
     /**
-     * @description The maximum number of entries returned on each page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The token that was used to initiate the next request.
-     *
-     * @example AcBjqMYSy0is7zSMGu16****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description An array that contains the relationships.
-     *
      * @var resourceRelationList[]
      */
     public $resourceRelationList;
@@ -41,23 +29,29 @@ class resourceRelations extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceRelationList)) {
+            Model::validateArray($this->resourceRelationList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->resourceRelationList) {
-            $res['ResourceRelationList'] = [];
-            if (null !== $this->resourceRelationList && \is_array($this->resourceRelationList)) {
-                $n = 0;
-                foreach ($this->resourceRelationList as $item) {
-                    $res['ResourceRelationList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceRelationList)) {
+                $res['ResourceRelationList'] = [];
+                $n1                          = 0;
+                foreach ($this->resourceRelationList as $item1) {
+                    $res['ResourceRelationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +59,28 @@ class resourceRelations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceRelations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ResourceRelationList'])) {
             if (!empty($map['ResourceRelationList'])) {
                 $model->resourceRelationList = [];
-                $n                           = 0;
-                foreach ($map['ResourceRelationList'] as $item) {
-                    $model->resourceRelationList[$n++] = null !== $item ? resourceRelationList::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['ResourceRelationList'] as $item1) {
+                    $model->resourceRelationList[$n1++] = resourceRelationList::fromMap($item1);
                 }
             }
         }

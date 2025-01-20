@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsResponseBody\remediations;
-use AlibabaCloud\Tea\Model;
 
 class ListAggregateRemediationsResponseBody extends Model
 {
     /**
-     * @description An array that contains remediation templates.
-     *
      * @var remediations[]
      */
     public $remediations;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0146963A-20C0-4E75-B93A-7D622B5FD7C8
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListAggregateRemediationsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->remediations)) {
+            Model::validateArray($this->remediations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remediations) {
-            $res['Remediations'] = [];
-            if (null !== $this->remediations && \is_array($this->remediations)) {
-                $n = 0;
-                foreach ($this->remediations as $item) {
-                    $res['Remediations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->remediations)) {
+                $res['Remediations'] = [];
+                $n1                  = 0;
+                foreach ($this->remediations as $item1) {
+                    $res['Remediations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListAggregateRemediationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAggregateRemediationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Remediations'])) {
             if (!empty($map['Remediations'])) {
                 $model->remediations = [];
-                $n                   = 0;
-                foreach ($map['Remediations'] as $item) {
-                    $model->remediations[$n++] = null !== $item ? remediations::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['Remediations'] as $item1) {
+                    $model->remediations[$n1++] = remediations::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

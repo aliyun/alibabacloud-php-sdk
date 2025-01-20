@@ -4,57 +4,27 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListManagedRulesRequest extends Model
 {
     /**
-     * @description The keyword of the managed rule.
-     *
-     * @example CDN
-     *
      * @var string
      */
     public $keyword;
-
     /**
-     * @description The page number of the page to return.
-     *
-     * Pages start from page 1. Default value: 1
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The type of the resources to be evaluated based on the rule.
-     *
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $resourceTypes;
-
     /**
-     * @description The risk level of the managed rule. Valid values:
-     *
-     *   1: high
-     *   2: medium
-     *   3: low
-     *
-     * @example 1
-     *
      * @var int
      */
     public $riskLevel;
@@ -68,23 +38,28 @@ class ListManagedRulesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceTypes) {
             $res['ResourceTypes'] = $this->resourceTypes;
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -92,26 +67,30 @@ class ListManagedRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListManagedRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceTypes'])) {
             $model->resourceTypes = $map['ResourceTypes'];
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }

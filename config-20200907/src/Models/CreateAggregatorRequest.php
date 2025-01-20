@@ -4,70 +4,32 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregatorRequest\aggregatorAccounts;
-use AlibabaCloud\Tea\Model;
 
 class CreateAggregatorRequest extends Model
 {
     /**
-     * @description The information about the member accounts in the account group. Example:
-     *
-     * [{
-     * "accountId": 171322098523****,
-     * }, {
-     * "accountId": 100532098349****,
-     * >  If `AggregatorType` is set to `RD` or `FOLDER`, this parameter can be left empty, which indicates that all accounts in the resource directory are added to the global account group.
      * @var aggregatorAccounts[]
      */
     public $aggregatorAccounts;
-
     /**
-     * @description The name of the account group.
-     *
-     * This parameter is required.
-     * @example Test_Group
-     *
      * @var string
      */
     public $aggregatorName;
-
     /**
-     * @description The type of the account group. Valid values:
-     *
-     *   RD: global account group.
-     *   FOLDER: account group of the folder.
-     *   CUSTOM (default): custom account group.
-     *
-     * @example CUSTOM
-     *
      * @var string
      */
     public $aggregatorType;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The description of the account group.
-     *
-     * This parameter is required.
-     * @example Aggregator description.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the folder to which the account group is attached. You must specify this parameter if `AggregatorType` is set to `FOLDER`.
-     *
-     * @example fd-brHdgv****
-     *
      * @var string
      */
     public $folderId;
@@ -82,32 +44,41 @@ class CreateAggregatorRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->aggregatorAccounts)) {
+            Model::validateArray($this->aggregatorAccounts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregatorAccounts) {
-            $res['AggregatorAccounts'] = [];
-            if (null !== $this->aggregatorAccounts && \is_array($this->aggregatorAccounts)) {
-                $n = 0;
-                foreach ($this->aggregatorAccounts as $item) {
-                    $res['AggregatorAccounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aggregatorAccounts)) {
+                $res['AggregatorAccounts'] = [];
+                $n1                        = 0;
+                foreach ($this->aggregatorAccounts as $item1) {
+                    $res['AggregatorAccounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->aggregatorName) {
             $res['AggregatorName'] = $this->aggregatorName;
         }
+
         if (null !== $this->aggregatorType) {
             $res['AggregatorType'] = $this->aggregatorType;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
@@ -115,35 +86,40 @@ class CreateAggregatorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAggregatorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregatorAccounts'])) {
             if (!empty($map['AggregatorAccounts'])) {
                 $model->aggregatorAccounts = [];
-                $n                         = 0;
-                foreach ($map['AggregatorAccounts'] as $item) {
-                    $model->aggregatorAccounts[$n++] = null !== $item ? aggregatorAccounts::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['AggregatorAccounts'] as $item1) {
+                    $model->aggregatorAccounts[$n1++] = aggregatorAccounts::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['AggregatorName'])) {
             $model->aggregatorName = $map['AggregatorName'];
         }
+
         if (isset($map['AggregatorType'])) {
             $model->aggregatorType = $map['AggregatorType'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }

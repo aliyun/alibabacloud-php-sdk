@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetRemediationTemplateResponseBody\remediationTemplates;
-use AlibabaCloud\Tea\Model;
 
 class GetRemediationTemplateResponseBody extends Model
 {
     /**
-     * @description The information about the automatic remediation template.
-     *
      * @var remediationTemplates[]
      */
     public $remediationTemplates;
-
     /**
-     * @description The request ID.
-     *
-     * @example E232FC35-BD40-51E3-B2EB-09416A234939
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class GetRemediationTemplateResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->remediationTemplates)) {
+            Model::validateArray($this->remediationTemplates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remediationTemplates) {
-            $res['RemediationTemplates'] = [];
-            if (null !== $this->remediationTemplates && \is_array($this->remediationTemplates)) {
-                $n = 0;
-                foreach ($this->remediationTemplates as $item) {
-                    $res['RemediationTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->remediationTemplates)) {
+                $res['RemediationTemplates'] = [];
+                $n1                          = 0;
+                foreach ($this->remediationTemplates as $item1) {
+                    $res['RemediationTemplates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class GetRemediationTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRemediationTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RemediationTemplates'])) {
             if (!empty($map['RemediationTemplates'])) {
                 $model->remediationTemplates = [];
-                $n                           = 0;
-                foreach ($map['RemediationTemplates'] as $item) {
-                    $model->remediationTemplates[$n++] = null !== $item ? remediationTemplates::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['RemediationTemplates'] as $item1) {
+                    $model->remediationTemplates[$n1++] = remediationTemplates::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

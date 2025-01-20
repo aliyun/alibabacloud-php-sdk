@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesResponseBody\configRules\configRuleList;
-use AlibabaCloud\Tea\Model;
 
 class configRules extends Model
 {
     /**
-     * @description The details of the rule.
-     *
      * @var configRuleList[]
      */
     public $configRuleList;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The total number of rules.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class configRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->configRuleList)) {
+            Model::validateArray($this->configRuleList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configRuleList) {
-            $res['ConfigRuleList'] = [];
-            if (null !== $this->configRuleList && \is_array($this->configRuleList)) {
-                $n = 0;
-                foreach ($this->configRuleList as $item) {
-                    $res['ConfigRuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configRuleList)) {
+                $res['ConfigRuleList'] = [];
+                $n1                    = 0;
+                foreach ($this->configRuleList as $item1) {
+                    $res['ConfigRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class configRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigRuleList'])) {
             if (!empty($map['ConfigRuleList'])) {
                 $model->configRuleList = [];
-                $n                     = 0;
-                foreach ($map['ConfigRuleList'] as $item) {
-                    $model->configRuleList[$n++] = null !== $item ? configRuleList::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ConfigRuleList'] as $item1) {
+                    $model->configRuleList[$n1++] = configRuleList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

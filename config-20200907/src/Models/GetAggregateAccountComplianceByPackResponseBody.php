@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateAccountComplianceByPackResponseBody\accountComplianceResult;
-use AlibabaCloud\Tea\Model;
 
 class GetAggregateAccountComplianceByPackResponseBody extends Model
 {
     /**
-     * @description The compliance evaluation results of member accounts for which the compliance package takes effect in an account group.
-     *
      * @var accountComplianceResult
      */
     public $accountComplianceResult;
-
     /**
-     * @description The request ID.
-     *
-     * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetAggregateAccountComplianceByPackResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->accountComplianceResult) {
+            $this->accountComplianceResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountComplianceResult) {
-            $res['AccountComplianceResult'] = null !== $this->accountComplianceResult ? $this->accountComplianceResult->toMap() : null;
+            $res['AccountComplianceResult'] = null !== $this->accountComplianceResult ? $this->accountComplianceResult->toArray($noStream) : $this->accountComplianceResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetAggregateAccountComplianceByPackResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAggregateAccountComplianceByPackResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountComplianceResult'])) {
             $model->accountComplianceResult = accountComplianceResult::fromMap($map['AccountComplianceResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

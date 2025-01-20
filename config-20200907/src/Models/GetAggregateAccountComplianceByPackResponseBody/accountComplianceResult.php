@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateAccountComplianceByPackResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateAccountComplianceByPackResponseBody\accountComplianceResult\accountCompliances;
-use AlibabaCloud\Tea\Model;
 
 class accountComplianceResult extends Model
 {
     /**
-     * @description The compliance evaluation result of member accounts.
-     *
      * @var accountCompliances[]
      */
     public $accountCompliances;
-
     /**
-     * @description The ID of the compliance package.
-     *
-     * @example cp-541e626622af0087****
-     *
      * @var string
      */
     public $compliancePackId;
-
     /**
-     * @description The number of non-compliant member accounts.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $nonCompliantCount;
-
     /**
-     * @description The total number of member accounts.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class accountComplianceResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->accountCompliances)) {
+            Model::validateArray($this->accountCompliances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountCompliances) {
-            $res['AccountCompliances'] = [];
-            if (null !== $this->accountCompliances && \is_array($this->accountCompliances)) {
-                $n = 0;
-                foreach ($this->accountCompliances as $item) {
-                    $res['AccountCompliances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accountCompliances)) {
+                $res['AccountCompliances'] = [];
+                $n1                        = 0;
+                foreach ($this->accountCompliances as $item1) {
+                    $res['AccountCompliances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
         }
+
         if (null !== $this->nonCompliantCount) {
             $res['NonCompliantCount'] = $this->nonCompliantCount;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class accountComplianceResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accountComplianceResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountCompliances'])) {
             if (!empty($map['AccountCompliances'])) {
                 $model->accountCompliances = [];
-                $n                         = 0;
-                foreach ($map['AccountCompliances'] as $item) {
-                    $model->accountCompliances[$n++] = null !== $item ? accountCompliances::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['AccountCompliances'] as $item1) {
+                    $model->accountCompliances[$n1++] = accountCompliances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
         }
+
         if (isset($map['NonCompliantCount'])) {
             $model->nonCompliantCount = $map['NonCompliantCount'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

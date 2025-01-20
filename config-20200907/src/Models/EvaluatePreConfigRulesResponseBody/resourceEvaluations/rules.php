@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\EvaluatePreConfigRulesResponseBody\resourceEvaluations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rules extends Model
 {
     /**
-     * @description The reason why the resource was evaluated as incompliant.
-     *
-     * @example {\\"configuration\\":\\"false\\",\\"desiredValue\\":\\"True\\",\\"operator\\":\\"StringEquals\\",\\"property\\":\\"$.DeletionProtection\\"}
-     *
      * @var string
      */
     public $annotation;
-
     /**
-     * @description The compliance type of the resource that was evaluated by using the evaluation rule. Valid values:
-     *
-     *   COMPLIANT: The resource was evaluated as compliant.
-     *   NON_COMPLIANT: The resource was evaluated as incompliant.
-     *   NOT_APPLICABLE: The evaluation rule does not apply to the resource.
-     *
-     * @example NON_COMPLIANT
-     *
      * @var string
      */
     public $complianceType;
-
     /**
-     * @description The URL of the topic that describes how the managed rule remediates the incompliant configurations.
-     *
-     * @example https://example.aliyundoc.com
-     *
      * @var string
      */
     public $helpUrl;
-
     /**
-     * @description The identifier of the evaluation rule.
-     *
-     * @example ecs-instance-deletion-protection-enabled
-     *
      * @var string
      */
     public $identifier;
@@ -56,20 +33,24 @@ class rules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->annotation) {
             $res['Annotation'] = $this->annotation;
         }
+
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
         }
+
         if (null !== $this->helpUrl) {
             $res['HelpUrl'] = $this->helpUrl;
         }
+
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
@@ -77,23 +58,26 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Annotation'])) {
             $model->annotation = $map['Annotation'];
         }
+
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
         }
+
         if (isset($map['HelpUrl'])) {
             $model->helpUrl = $map['HelpUrl'];
         }
+
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }

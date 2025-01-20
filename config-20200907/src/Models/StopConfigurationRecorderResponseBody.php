@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopConfigurationRecorderResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example AB2E892E-8A43-5B0F-8FE3-B53ADA53CB2D
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $stopConfigurationRecorderResult;
@@ -35,14 +23,16 @@ class StopConfigurationRecorderResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->stopConfigurationRecorderResult) {
             $res['StopConfigurationRecorderResult'] = $this->stopConfigurationRecorderResult;
         }
@@ -50,17 +40,18 @@ class StopConfigurationRecorderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopConfigurationRecorderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StopConfigurationRecorderResult'])) {
             $model->stopConfigurationRecorderResult = $map['StopConfigurationRecorderResult'];
         }

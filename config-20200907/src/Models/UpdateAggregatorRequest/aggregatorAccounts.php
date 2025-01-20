@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aggregatorAccounts extends Model
 {
     /**
-     * @description The ID of the member.
-     *
-     * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
-     * @example 173808452267****
-     *
      * @var int
      */
     public $accountId;
-
     /**
-     * @description The display name of the member.
-     *
-     * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
-     * @example Tony
-     *
      * @var string
      */
     public $accountName;
-
     /**
-     * @description The resource directory to which the member belongs. Valid value: ResourceDirectory. ResourceDirectory indicates that the member belongs to a resource directory.
-     *
-     * >  If you want to update the member list, you must configure both the `AccountId` and `AccountType` parameters.
-     * @example ResourceDirectory
-     *
      * @var string
      */
     public $accountType;
@@ -45,17 +28,20 @@ class aggregatorAccounts extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
@@ -63,20 +49,22 @@ class aggregatorAccounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aggregatorAccounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }

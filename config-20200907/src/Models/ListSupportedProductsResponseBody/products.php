@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListSupportedProductsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListSupportedProductsResponseBody\products\resourceTypeList;
-use AlibabaCloud\Tea\Model;
 
 class products extends Model
 {
     /**
-     * @description The English name of the Alibaba Cloud service.
-     *
-     * @example Elastic Compute Service
-     *
      * @var string
      */
     public $productNameEn;
-
     /**
-     * @description The Chinese name of the Alibaba Cloud service.
-     *
-     * @example 云服务器ECS
-     *
      * @var string
      */
     public $productNameZh;
-
     /**
-     * @description The resource types that are supported by Cloud Config.
-     *
      * @var resourceTypeList[]
      */
     public $resourceTypeList;
@@ -41,23 +29,29 @@ class products extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceTypeList)) {
+            Model::validateArray($this->resourceTypeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productNameEn) {
             $res['ProductNameEn'] = $this->productNameEn;
         }
+
         if (null !== $this->productNameZh) {
             $res['ProductNameZh'] = $this->productNameZh;
         }
+
         if (null !== $this->resourceTypeList) {
-            $res['ResourceTypeList'] = [];
-            if (null !== $this->resourceTypeList && \is_array($this->resourceTypeList)) {
-                $n = 0;
-                foreach ($this->resourceTypeList as $item) {
-                    $res['ResourceTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceTypeList)) {
+                $res['ResourceTypeList'] = [];
+                $n1                      = 0;
+                foreach ($this->resourceTypeList as $item1) {
+                    $res['ResourceTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +59,28 @@ class products extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return products
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductNameEn'])) {
             $model->productNameEn = $map['ProductNameEn'];
         }
+
         if (isset($map['ProductNameZh'])) {
             $model->productNameZh = $map['ProductNameZh'];
         }
+
         if (isset($map['ResourceTypeList'])) {
             if (!empty($map['ResourceTypeList'])) {
                 $model->resourceTypeList = [];
-                $n                       = 0;
-                foreach ($map['ResourceTypeList'] as $item) {
-                    $model->resourceTypeList[$n++] = null !== $item ? resourceTypeList::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['ResourceTypeList'] as $item1) {
+                    $model->resourceTypeList[$n1++] = resourceTypeList::fromMap($item1);
                 }
             }
         }
