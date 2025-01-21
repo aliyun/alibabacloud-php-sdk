@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cas\V20200630\Models\GetCAInstanceStatusResponseBody\instanceStatusList;
-use AlibabaCloud\Tea\Model;
 
 class GetCAInstanceStatusResponseBody extends Model
 {
     /**
-     * @description An array that consists of the status information about the private CA instance.
-     *
      * @var instanceStatusList[]
      */
     public $instanceStatusList;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 25589516-2A56-5159-AB88-4A1D9824E183
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class GetCAInstanceStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceStatusList)) {
+            Model::validateArray($this->instanceStatusList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceStatusList) {
-            $res['InstanceStatusList'] = [];
-            if (null !== $this->instanceStatusList && \is_array($this->instanceStatusList)) {
-                $n = 0;
-                foreach ($this->instanceStatusList as $item) {
-                    $res['InstanceStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceStatusList)) {
+                $res['InstanceStatusList'] = [];
+                $n1                        = 0;
+                foreach ($this->instanceStatusList as $item1) {
+                    $res['InstanceStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class GetCAInstanceStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCAInstanceStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceStatusList'])) {
             if (!empty($map['InstanceStatusList'])) {
                 $model->instanceStatusList = [];
-                $n                         = 0;
-                foreach ($map['InstanceStatusList'] as $item) {
-                    $model->instanceStatusList[$n++] = null !== $item ? instanceStatusList::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['InstanceStatusList'] as $item1) {
+                    $model->instanceStatusList[$n1++] = instanceStatusList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

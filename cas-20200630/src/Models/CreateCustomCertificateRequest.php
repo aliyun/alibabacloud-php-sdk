@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest\apiPassthrough;
-use AlibabaCloud\Tea\Model;
 
 class CreateCustomCertificateRequest extends Model
 {
@@ -13,28 +13,22 @@ class CreateCustomCertificateRequest extends Model
      * @var apiPassthrough
      */
     public $apiPassthrough;
-
     /**
-     * @example -----BEGIN CERTIFICATE REQUEST-----
-     * -----END CERTIFICATE REQUEST-----
      * @var string
      */
     public $csr;
-
     /**
-     * @example 0
-     *
+     * @var int
+     */
+    public $enableCrl;
+    /**
      * @var int
      */
     public $immediately;
-
     /**
-     * @example 1ed4068c-6f1b-6deb-8e32-3f8439a851cb
-     *
      * @var string
      */
     public $parentIdentifier;
-
     /**
      * @var string
      */
@@ -42,6 +36,7 @@ class CreateCustomCertificateRequest extends Model
     protected $_name = [
         'apiPassthrough'   => 'ApiPassthrough',
         'csr'              => 'Csr',
+        'enableCrl'        => 'EnableCrl',
         'immediately'      => 'Immediately',
         'parentIdentifier' => 'ParentIdentifier',
         'validity'         => 'Validity',
@@ -49,23 +44,35 @@ class CreateCustomCertificateRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->apiPassthrough) {
+            $this->apiPassthrough->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiPassthrough) {
-            $res['ApiPassthrough'] = null !== $this->apiPassthrough ? $this->apiPassthrough->toMap() : null;
+            $res['ApiPassthrough'] = null !== $this->apiPassthrough ? $this->apiPassthrough->toArray($noStream) : $this->apiPassthrough;
         }
+
         if (null !== $this->csr) {
             $res['Csr'] = $this->csr;
         }
+
+        if (null !== $this->enableCrl) {
+            $res['EnableCrl'] = $this->enableCrl;
+        }
+
         if (null !== $this->immediately) {
             $res['Immediately'] = $this->immediately;
         }
+
         if (null !== $this->parentIdentifier) {
             $res['ParentIdentifier'] = $this->parentIdentifier;
         }
+
         if (null !== $this->validity) {
             $res['Validity'] = $this->validity;
         }
@@ -73,26 +80,34 @@ class CreateCustomCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCustomCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiPassthrough'])) {
             $model->apiPassthrough = apiPassthrough::fromMap($map['ApiPassthrough']);
         }
+
         if (isset($map['Csr'])) {
             $model->csr = $map['Csr'];
         }
+
+        if (isset($map['EnableCrl'])) {
+            $model->enableCrl = $map['EnableCrl'];
+        }
+
         if (isset($map['Immediately'])) {
             $model->immediately = $map['Immediately'];
         }
+
         if (isset($map['ParentIdentifier'])) {
             $model->parentIdentifier = $map['ParentIdentifier'];
         }
+
         if (isset($map['Validity'])) {
             $model->validity = $map['Validity'];
         }

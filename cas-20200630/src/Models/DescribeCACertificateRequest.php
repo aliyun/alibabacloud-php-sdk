@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCACertificateRequest extends Model
 {
     /**
-     * @description The unique identifier of the CA certificate that you want to query.
-     *
-     * >  You can call the [DescribeCACertificateList](~~328095~~) operation to query the unique identifiers of all CA certificates.
-     * @example 160ae6bb538d538c70c01f81dcf2****
-     *
      * @var string
      */
     public $identifier;
@@ -23,9 +18,10 @@ class DescribeCACertificateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifier) {
@@ -35,11 +31,11 @@ class DescribeCACertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCACertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

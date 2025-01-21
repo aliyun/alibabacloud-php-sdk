@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeClientCertificateRequest extends Model
 {
     /**
-     * @description The unique identifier of the client certificate or the server certificate that you want to query.
-     *
-     * >  You can call the [ListClientCertificate](~~330884~~) operation to query the unique identifiers of all client certificates and server certificates.
-     * @example d3b95700998e47afc4d95f886579****
-     *
      * @var string
      */
     public $identifier;
@@ -23,9 +18,10 @@ class DescribeClientCertificateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifier) {
@@ -35,11 +31,11 @@ class DescribeClientCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClientCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

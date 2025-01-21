@@ -2,23 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest\apiPassthrough\extensions;
+namespace AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest\apiPassthrough\subject;
 
 use AlibabaCloud\Dara\Model;
 
-class subjectAlternativeNames extends Model
+class customAttributes extends Model
 {
     /**
      * @var string
      */
-    public $type;
+    public $objectIdentifier;
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'type'  => 'Type',
-        'value' => 'Value',
+        'objectIdentifier' => 'ObjectIdentifier',
+        'value'            => 'Value',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class subjectAlternativeNames extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->objectIdentifier) {
+            $res['ObjectIdentifier'] = $this->objectIdentifier;
         }
 
         if (null !== $this->value) {
@@ -48,8 +48,8 @@ class subjectAlternativeNames extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ObjectIdentifier'])) {
+            $model->objectIdentifier = $map['ObjectIdentifier'];
         }
 
         if (isset($map['Value'])) {
