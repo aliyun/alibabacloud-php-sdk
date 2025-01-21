@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddServiceSharedAccountsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example E2815213-EA4F-5759-8EA1-56DD051BB3FD
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AddServiceSharedAccountsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AddServiceSharedAccountsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddServiceSharedAccountsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

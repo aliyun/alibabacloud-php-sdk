@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity\marketplaceMetadata;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class meteringEntityExtraInfos extends Model
 {
     /**
-     * @description The ID of the billable item.
-     *
-     * @example cmgjxxxxxxxx-NetworkOut-2
-     *
      * @var string
      */
     public $entityId;
-
     /**
-     * @description The metric name.
-     *
-     * @example NetworkLantency
-     *
      * @var string
      */
     public $metricName;
-
     /**
-     * @description The custom prometheus statement.
-     *
-     * @example avg_over_time(count(kube_pod_info{namespace=\\"default\\"})[1h:1m])
-     *
      * @var string
      */
     public $promql;
-
     /**
-     * @description The metric.
-     *
-     * @example AvgPod
-     *
      * @var string
      */
     public $type;
@@ -52,20 +33,24 @@ class meteringEntityExtraInfos extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->promql) {
             $res['Promql'] = $this->promql;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -73,23 +58,26 @@ class meteringEntityExtraInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return meteringEntityExtraInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['Promql'])) {
             $model->promql = $map['Promql'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

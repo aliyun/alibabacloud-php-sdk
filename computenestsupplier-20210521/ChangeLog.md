@@ -1,3 +1,7 @@
+2025-01-21 Version: 5.2.0
+- Support API ListServiceInstanceDeployDetails.
+
+
 2025-01-09 Version: 5.1.1
 - Update API GetArtifact: update response param.
 - Update API UpdateArtifact: add param PermissionType.

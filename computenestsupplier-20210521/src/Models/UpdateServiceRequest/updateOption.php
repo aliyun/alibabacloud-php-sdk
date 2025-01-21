@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class updateOption extends Model
 {
     /**
-     * @description Whether to update artifact.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $updateArtifact;
-
     /**
-     * @description Update from. Valid values:
-     *
-     * - PARAMETERS
-     * @example PARAMETERS
-     *
      * @var string
      */
     public $updateFrom;
@@ -33,14 +23,16 @@ class updateOption extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->updateArtifact) {
             $res['UpdateArtifact'] = $this->updateArtifact;
         }
+
         if (null !== $this->updateFrom) {
             $res['UpdateFrom'] = $this->updateFrom;
         }
@@ -48,17 +40,18 @@ class updateOption extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return updateOption
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UpdateArtifact'])) {
             $model->updateArtifact = $map['UpdateArtifact'];
         }
+
         if (isset($map['UpdateFrom'])) {
             $model->updateFrom = $map['UpdateFrom'];
         }

@@ -4,54 +4,27 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositoriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class repositories extends Model
 {
     /**
-     * @description The time when the image was created.
-     *
-     * @example 2021-05-20T00:00:00Z
-     *
      * @var string
      */
     public $createTime;
-
     /**
-     * @description The time when the image was modified.
-     *
-     * @example 2021-05-20T00:00:00Z
-     *
      * @var string
      */
     public $modifiedTime;
-
     /**
-     * @description The image repo ID.
-     *
-     * @example crr-3gqhkza0wbxxxxxx
-     *
      * @var string
      */
     public $repoId;
-
     /**
-     * @description The image repo name.
-     *
-     * @example wordpress
-     *
      * @var string
      */
     public $repoName;
-
     /**
-     * @description The type of the repository. Valid values:
-     *
-     *   `Private`: a private repository
-     *   `Public`: a public repository
-     *
-     * @example Private
-     *
      * @var string
      */
     public $repoType;
@@ -65,23 +38,28 @@ class repositories extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
+
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
+
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
         }
+
         if (null !== $this->repoType) {
             $res['RepoType'] = $this->repoType;
         }
@@ -89,26 +67,30 @@ class repositories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return repositories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
+
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }
+
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
         }
+
         if (isset($map['RepoType'])) {
             $model->repoType = $map['RepoType'];
         }

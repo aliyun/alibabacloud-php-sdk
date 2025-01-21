@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class meteringEntities extends Model
 {
     /**
-     * @description The ID of the billable item.
-     *
-     * @example cmgjxxxxxxxx-NetworkOut
-     *
      * @var string
      */
     public $entityId;
-
     /**
-     * @description The name of the billable item.
-     *
-     * @example spring-boot-demo
-     *
      * @var string
      */
     public $name;
@@ -32,14 +23,16 @@ class meteringEntities extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,17 +40,18 @@ class meteringEntities extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return meteringEntities
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

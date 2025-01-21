@@ -4,40 +4,25 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsResponseBody\availableResources;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsResponseBody\credentials;
-use AlibabaCloud\Tea\Model;
 
 class GetArtifactRepositoryCredentialsResponseBody extends Model
 {
     /**
-     * @description The information about the resources that can be uploaded.
-     *
      * @var availableResources[]
      */
     public $availableResources;
-
     /**
-     * @description The credentials.
-     *
      * @var credentials
      */
     public $credentials;
-
     /**
-     * @description The time when the credentials expired.
-     *
-     * @example 1526549792000
-     *
      * @var string
      */
     public $expireDate;
-
     /**
-     * @description The request ID.
-     *
-     * @example 94E89857-B994-44B6-9C4F-DBD200E9XXXX
-     *
      * @var string
      */
     public $requestId;
@@ -50,26 +35,36 @@ class GetArtifactRepositoryCredentialsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableResources)) {
+            Model::validateArray($this->availableResources);
+        }
+        if (null !== $this->credentials) {
+            $this->credentials->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableResources) {
-            $res['AvailableResources'] = [];
-            if (null !== $this->availableResources && \is_array($this->availableResources)) {
-                $n = 0;
-                foreach ($this->availableResources as $item) {
-                    $res['AvailableResources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->availableResources)) {
+                $res['AvailableResources'] = [];
+                $n1                        = 0;
+                foreach ($this->availableResources as $item1) {
+                    $res['AvailableResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->credentials) {
-            $res['Credentials'] = null !== $this->credentials ? $this->credentials->toMap() : null;
+            $res['Credentials'] = null !== $this->credentials ? $this->credentials->toArray($noStream) : $this->credentials;
         }
+
         if (null !== $this->expireDate) {
             $res['ExpireDate'] = $this->expireDate;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -77,29 +72,32 @@ class GetArtifactRepositoryCredentialsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetArtifactRepositoryCredentialsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableResources'])) {
             if (!empty($map['AvailableResources'])) {
                 $model->availableResources = [];
-                $n                         = 0;
-                foreach ($map['AvailableResources'] as $item) {
-                    $model->availableResources[$n++] = null !== $item ? availableResources::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['AvailableResources'] as $item1) {
+                    $model->availableResources[$n1++] = availableResources::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Credentials'])) {
             $model->credentials = credentials::fromMap($map['Credentials']);
         }
+
         if (isset($map['ExpireDate'])) {
             $model->expireDate = $map['ExpireDate'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

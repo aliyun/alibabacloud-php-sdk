@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseArtifactRequest extends Model
 {
     /**
-     * @description The ID of the artifact.
-     *
-     * This parameter is required.
-     * @example artifact-9feded91880e4c78xxxx
-     *
      * @var string
      */
     public $artifactId;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-     * @example 788E7CP0EN9D51P
-     *
      * @var string
      */
     public $clientToken;
@@ -34,14 +23,16 @@ class ReleaseArtifactRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -49,17 +40,18 @@ class ReleaseArtifactRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseArtifactRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

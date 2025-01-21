@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTagValuesResponseBody extends Model
 {
     /**
-     * @description A pagination token.
-     *
-     * @example AAAAAVz7BQqj2xtiNSC3d3RAD38=
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0631D623-D917-1C2D-ACD6-5B3B19XXXXXX
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information of the tag values.
-     *
      * @var string[]
      */
     public $values;
@@ -40,41 +28,59 @@ class ListTagValuesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = $this->values;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1            = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagValuesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = $map['Values'];
+                $model->values = [];
+                $n1            = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1++] = $item1;
+                }
             }
         }
 

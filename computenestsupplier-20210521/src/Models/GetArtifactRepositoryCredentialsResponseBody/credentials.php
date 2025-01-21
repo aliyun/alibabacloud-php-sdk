@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class credentials extends Model
 {
     /**
-     * @description The AccessKey ID.
-     *
-     * @example STS.xxx
-     *
      * @var string
      */
     public $accessKeyId;
-
     /**
-     * @description The AccessKey secret.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $accessKeySecret;
-
     /**
-     * @description The password.
-     *
-     * @example eyJ0aW1lIjoiMTUyNjU0OTc5:0705733****
-     *
      * @var string
      */
     public $password;
-
     /**
-     * @description The Security Token Service (STS) token.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $securityToken;
-
     /**
-     * @description The username.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $username;
@@ -62,23 +38,28 @@ class credentials extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessKeyId) {
             $res['AccessKeyId'] = $this->accessKeyId;
         }
+
         if (null !== $this->accessKeySecret) {
             $res['AccessKeySecret'] = $this->accessKeySecret;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -86,26 +67,30 @@ class credentials extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return credentials
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessKeyId'])) {
             $model->accessKeyId = $map['AccessKeyId'];
         }
+
         if (isset($map['AccessKeySecret'])) {
             $model->accessKeySecret = $map['AccessKeySecret'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

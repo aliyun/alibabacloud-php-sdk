@@ -4,37 +4,19 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyServiceInstanceResourcesRequest extends Model
 {
     /**
-     * @description The imported resources.
-     *
-     * @example {
-     * }
      * @var string
      */
     public $resources;
-
     /**
-     * @description The ID of the service instance.
-     *
-     * This parameter is required.
-     * @example si-d8a0cc2a1ee04dce****
-     *
      * @var string
      */
     public $serviceInstanceId;
-
     /**
-     * @description The type of operation performed on the service instance resource. Valid values:
-     *
-     *   Import: The resource is imported.
-     *   UnImport: The resource import is canceled.
-     *
-     * @example Import
-     *
      * @var string
      */
     public $serviceInstanceResourcesAction;
@@ -46,17 +28,20 @@ class ModifyServiceInstanceResourcesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
         }
+
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
+
         if (null !== $this->serviceInstanceResourcesAction) {
             $res['ServiceInstanceResourcesAction'] = $this->serviceInstanceResourcesAction;
         }
@@ -64,20 +49,22 @@ class ModifyServiceInstanceResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyServiceInstanceResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
         }
+
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }
+
         if (isset($map['ServiceInstanceResourcesAction'])) {
             $model->serviceInstanceResourcesAction = $map['ServiceInstanceResourcesAction'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceProvisionsResponseBody\serviceProvisions;
-use AlibabaCloud\Tea\Model;
 
 class GetServiceProvisionsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example DB1FA13E-1087-5654-84D5-58A0ACAD1B18
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the cloud services.
-     *
      * @var serviceProvisions[]
      */
     public $serviceProvisions;
@@ -31,20 +24,25 @@ class GetServiceProvisionsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->serviceProvisions)) {
+            Model::validateArray($this->serviceProvisions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceProvisions) {
-            $res['ServiceProvisions'] = [];
-            if (null !== $this->serviceProvisions && \is_array($this->serviceProvisions)) {
-                $n = 0;
-                foreach ($this->serviceProvisions as $item) {
-                    $res['ServiceProvisions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceProvisions)) {
+                $res['ServiceProvisions'] = [];
+                $n1                       = 0;
+                foreach ($this->serviceProvisions as $item1) {
+                    $res['ServiceProvisions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class GetServiceProvisionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetServiceProvisionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServiceProvisions'])) {
             if (!empty($map['ServiceProvisions'])) {
                 $model->serviceProvisions = [];
-                $n                        = 0;
-                foreach ($map['ServiceProvisions'] as $item) {
-                    $model->serviceProvisions[$n++] = null !== $item ? serviceProvisions::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['ServiceProvisions'] as $item1) {
+                    $model->serviceProvisions[$n1++] = serviceProvisions::fromMap($item1);
                 }
             }
         }
