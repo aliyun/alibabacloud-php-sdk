@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue extends Model
 {
     /**
-     * @description Indicates whether the configuration is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
@@ -22,9 +18,10 @@ class DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue extend
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
@@ -34,11 +31,11 @@ class DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue extend
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataBonreeSDKConfigModuleConfigVersionConfigsValueCustomConfigValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

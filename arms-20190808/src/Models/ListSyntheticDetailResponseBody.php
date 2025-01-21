@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListSyntheticDetailResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListSyntheticDetailResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned. The status code 200 indicates that the request was successful.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
-
     /**
-     * @description The returned struct.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The error message returned.
-     *
-     * @example null
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description Id of the request
-     *
-     * @example 70675725-8F11-4817-8106-CFE0AD71****
-     *
      * @var string
      */
     public $requestId;
@@ -51,20 +34,27 @@ class ListSyntheticDetailResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,23 +62,26 @@ class ListSyntheticDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSyntheticDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

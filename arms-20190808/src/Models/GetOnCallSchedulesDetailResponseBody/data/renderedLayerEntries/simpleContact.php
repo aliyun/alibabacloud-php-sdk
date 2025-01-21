@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetOnCallSchedulesDetailResponseBody\data\renderedLayerEntries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class simpleContact extends Model
 {
     /**
-     * @description The ID of the scheduled user.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the scheduled user.
-     *
-     * @example Employee 1
-     *
      * @var string
      */
     public $name;
@@ -32,14 +23,16 @@ class simpleContact extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,17 +40,18 @@ class simpleContact extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return simpleContact
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

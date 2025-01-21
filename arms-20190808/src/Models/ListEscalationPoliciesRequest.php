@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListEscalationPoliciesRequest extends Model
 {
     /**
-     * @description The name of the escalation policy.
-     *
-     * @example prod escalation policy
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The number of the page to return.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $page;
-
     /**
-     * @description The number of entries to return on each page.
-     *
-     * This parameter is required.
-     * @example 20
-     *
      * @var int
      */
     public $size;
@@ -44,17 +28,20 @@ class ListEscalationPoliciesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -62,20 +49,22 @@ class ListEscalationPoliciesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEscalationPoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

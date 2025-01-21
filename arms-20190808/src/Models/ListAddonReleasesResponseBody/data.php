@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListAddonReleasesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAddonReleasesResponseBody\data\releases;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The queried add-ons.
-     *
      * @var releases[]
      */
     public $releases;
-
     /**
-     * @description The total number of entries.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $total;
@@ -31,20 +24,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->releases)) {
+            Model::validateArray($this->releases);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->releases) {
-            $res['Releases'] = [];
-            if (null !== $this->releases && \is_array($this->releases)) {
-                $n = 0;
-                foreach ($this->releases as $item) {
-                    $res['Releases'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->releases)) {
+                $res['Releases'] = [];
+                $n1              = 0;
+                foreach ($this->releases as $item1) {
+                    $res['Releases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -52,23 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Releases'])) {
             if (!empty($map['Releases'])) {
                 $model->releases = [];
-                $n               = 0;
-                foreach ($map['Releases'] as $item) {
-                    $model->releases[$n++] = null !== $item ? releases::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Releases'] as $item1) {
+                    $model->releases[$n1++] = releases::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

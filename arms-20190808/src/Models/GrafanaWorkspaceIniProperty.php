@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GrafanaWorkspaceIniProperty extends Model
 {
@@ -12,27 +12,22 @@ class GrafanaWorkspaceIniProperty extends Model
      * @var string
      */
     public $defaultValue;
-
     /**
      * @var string
      */
     public $description;
-
     /**
      * @var string
      */
     public $example;
-
     /**
      * @var string
      */
     public $key;
-
     /**
      * @var bool
      */
     public $secret;
-
     /**
      * @var string
      */
@@ -48,26 +43,32 @@ class GrafanaWorkspaceIniProperty extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultValue) {
             $res['defaultValue'] = $this->defaultValue;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->example) {
             $res['example'] = $this->example;
         }
+
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->secret) {
             $res['secret'] = $this->secret;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -75,29 +76,34 @@ class GrafanaWorkspaceIniProperty extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GrafanaWorkspaceIniProperty
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['defaultValue'])) {
             $model->defaultValue = $map['defaultValue'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['example'])) {
             $model->example = $map['example'];
         }
+
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['secret'])) {
             $model->secret = $map['secret'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

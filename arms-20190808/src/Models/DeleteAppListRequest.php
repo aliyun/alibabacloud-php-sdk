@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAppListRequest extends Model
 {
     /**
-     * @description The PIDs of the applications monitored by ARMS Application Monitoring.
-     *
      * @var string[]
      */
     public $pids;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -30,14 +23,25 @@ class DeleteAppListRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->pids)) {
+            Model::validateArray($this->pids);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pids) {
-            $res['Pids'] = $this->pids;
+            if (\is_array($this->pids)) {
+                $res['Pids'] = [];
+                $n1          = 0;
+                foreach ($this->pids as $item1) {
+                    $res['Pids'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -45,19 +49,24 @@ class DeleteAppListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAppListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Pids'])) {
             if (!empty($map['Pids'])) {
-                $model->pids = $map['Pids'];
+                $model->pids = [];
+                $n1          = 0;
+                foreach ($map['Pids'] as $item1) {
+                    $model->pids[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

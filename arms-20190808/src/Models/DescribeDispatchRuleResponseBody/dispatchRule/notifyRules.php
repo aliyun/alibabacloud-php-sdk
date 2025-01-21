@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleResponseBody\dispatchRule;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleResponseBody\dispatchRule\notifyRules\notifyObjects;
-use AlibabaCloud\Tea\Model;
 
 class notifyRules extends Model
 {
     /**
-     * @description The notification method Array.
-     *
      * @var string[]
      */
     public $notifyChannels;
-
     /**
-     * @description The collection of alert contacts.
-     *
      * @var notifyObjects[]
      */
     public $notifyObjects;
@@ -29,20 +24,34 @@ class notifyRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->notifyChannels)) {
+            Model::validateArray($this->notifyChannels);
+        }
+        if (\is_array($this->notifyObjects)) {
+            Model::validateArray($this->notifyObjects);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->notifyChannels) {
-            $res['NotifyChannels'] = $this->notifyChannels;
+            if (\is_array($this->notifyChannels)) {
+                $res['NotifyChannels'] = [];
+                $n1                    = 0;
+                foreach ($this->notifyChannels as $item1) {
+                    $res['NotifyChannels'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->notifyObjects) {
-            $res['NotifyObjects'] = [];
-            if (null !== $this->notifyObjects && \is_array($this->notifyObjects)) {
-                $n = 0;
-                foreach ($this->notifyObjects as $item) {
-                    $res['NotifyObjects'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->notifyObjects)) {
+                $res['NotifyObjects'] = [];
+                $n1                   = 0;
+                foreach ($this->notifyObjects as $item1) {
+                    $res['NotifyObjects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,25 +59,30 @@ class notifyRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifyRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NotifyChannels'])) {
             if (!empty($map['NotifyChannels'])) {
-                $model->notifyChannels = $map['NotifyChannels'];
+                $model->notifyChannels = [];
+                $n1                    = 0;
+                foreach ($map['NotifyChannels'] as $item1) {
+                    $model->notifyChannels[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['NotifyObjects'])) {
             if (!empty($map['NotifyObjects'])) {
                 $model->notifyObjects = [];
-                $n                    = 0;
-                foreach ($map['NotifyObjects'] as $item) {
-                    $model->notifyObjects[$n++] = null !== $item ? notifyObjects::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['NotifyObjects'] as $item1) {
+                    $model->notifyObjects[$n1++] = notifyObjects::fromMap($item1);
                 }
             }
         }

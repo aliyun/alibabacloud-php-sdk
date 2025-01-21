@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusAlertRuleResponseBody\prometheusAlertRule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class labels extends Model
 {
     /**
-     * @example severity
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example critical
-     *
      * @var string
      */
     public $value;
@@ -28,14 +23,16 @@ class labels extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -43,17 +40,18 @@ class labels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return labels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

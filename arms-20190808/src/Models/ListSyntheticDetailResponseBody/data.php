@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListSyntheticDetailResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The list of results.
-     *
      * @var mixed[][]
      */
     public $items;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
-
     /**
-     * @description The number of entries returned on each page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description A reserved field.
-     *
-     * @example null
-     *
      * @var int
      */
     public $taskCreateTime;
-
     /**
-     * @description The total number of entries.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $total;
@@ -60,23 +38,42 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->items) {
-            $res['Items'] = $this->items;
+            if (\is_array($this->items)) {
+                $res['Items'] = [];
+                $n1           = 0;
+                foreach ($this->items as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Items'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Items'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->taskCreateTime) {
             $res['TaskCreateTime'] = $this->taskCreateTime;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -84,28 +81,41 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
-                $model->items = $map['Items'];
+                $model->items = [];
+                $n1           = 0;
+                foreach ($map['Items'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->items[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->items[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TaskCreateTime'])) {
             $model->taskCreateTime = $map['TaskCreateTime'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

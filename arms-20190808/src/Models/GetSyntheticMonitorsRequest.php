@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticMonitorsRequest\filter;
-use AlibabaCloud\Tea\Model;
 
 class GetSyntheticMonitorsRequest extends Model
 {
     /**
-     * @description The query conditions.
-     *
-     * This parameter is required.
      * @var filter
      */
     public $filter;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -32,14 +24,19 @@ class GetSyntheticMonitorsRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->filter) {
+            $this->filter->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filter) {
-            $res['Filter'] = null !== $this->filter ? $this->filter->toMap() : null;
+            $res['Filter'] = null !== $this->filter ? $this->filter->toArray($noStream) : $this->filter;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,17 +44,18 @@ class GetSyntheticMonitorsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSyntheticMonitorsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filter'])) {
             $model->filter = filter::fromMap($map['Filter']);
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsResponseBody\data\addons\environments;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dependencies extends Model
 {
     /**
-     * @description The cluster type.
-     *
      * @var string[]
      */
     public $clusterTypes;
-
     /**
-     * @description The feature that can be installed in the environment.
-     *
      * @var bool[]
      */
     public $features;
-
     /**
-     * @description The services.
-     *
      * @var string[]
      */
     public $services;
@@ -36,43 +28,87 @@ class dependencies extends Model
 
     public function validate()
     {
+        if (\is_array($this->clusterTypes)) {
+            Model::validateArray($this->clusterTypes);
+        }
+        if (\is_array($this->features)) {
+            Model::validateArray($this->features);
+        }
+        if (\is_array($this->services)) {
+            Model::validateArray($this->services);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterTypes) {
-            $res['ClusterTypes'] = $this->clusterTypes;
+            if (\is_array($this->clusterTypes)) {
+                $res['ClusterTypes'] = [];
+                $n1                  = 0;
+                foreach ($this->clusterTypes as $item1) {
+                    $res['ClusterTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->features) {
-            $res['Features'] = $this->features;
+            if (\is_array($this->features)) {
+                $res['Features'] = [];
+                foreach ($this->features as $key1 => $value1) {
+                    $res['Features'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->services) {
-            $res['Services'] = $this->services;
+            if (\is_array($this->services)) {
+                $res['Services'] = [];
+                $n1              = 0;
+                foreach ($this->services as $item1) {
+                    $res['Services'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dependencies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterTypes'])) {
             if (!empty($map['ClusterTypes'])) {
-                $model->clusterTypes = $map['ClusterTypes'];
+                $model->clusterTypes = [];
+                $n1                  = 0;
+                foreach ($map['ClusterTypes'] as $item1) {
+                    $model->clusterTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Features'])) {
-            $model->features = $map['Features'];
+            if (!empty($map['Features'])) {
+                $model->features = [];
+                foreach ($map['Features'] as $key1 => $value1) {
+                    $model->features[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Services'])) {
             if (!empty($map['Services'])) {
-                $model->services = $map['Services'];
+                $model->services = [];
+                $n1              = 0;
+                foreach ($map['Services'] as $item1) {
+                    $model->services[$n1++] = $item1;
+                }
             }
         }
 

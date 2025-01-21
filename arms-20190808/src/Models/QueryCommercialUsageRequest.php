@@ -4,117 +4,48 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryCommercialUsageRequest\advancedFilters;
-use AlibabaCloud\Tea\Model;
 
 class QueryCommercialUsageRequest extends Model
 {
     /**
-     * @description The filter conditions.
-     *
      * @var advancedFilters[]
      */
     public $advancedFilters;
-
     /**
-     * @description The dimensions of the metric that you want to query. Valid values:
-     *
-     *   dataType: data type
-     *   productType: product type
-     *   instanceId: instance ID
-     *   instanceName: instance name
-     *   instanceType: instance type
-     *
      * @var string[]
      */
     public $dimensions;
-
     /**
-     * @description The end of the time range to query. Unit: milliseconds.
-     *
-     * This parameter is required.
-     * @example 1699286400000
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description The time interval between data slices. Unit: seconds. Minimum value: 3600.
-     *
-     * Valid values:
-     *
-     *   3600: hours
-     *   86400: days
-     *
-     * @example 3600
-     *
      * @var int
      */
     public $intervalInSec;
-
     /**
-     * @description The measures of the metric that you want to query.
-     *
      * @var string[]
      */
     public $measures;
-
     /**
-     * @description The name of the metric. Valid value: USAGEFEE.STAT.
-     *
-     * This parameter is required.
-     * @example USAGEFEE.STAT
-     *
      * @var string
      */
     public $metric;
-
     /**
-     * @description The order in which data is sorted. Valid value:
-     *
-     *   `ASC`: ascending order
-     *   `DESC`: descending order
-     *
-     * @example ASC
-     *
      * @var string
      */
     public $order;
-
     /**
-     * @description The dimension by which data is sorted.
-     *
-     * Valid value:
-     *
-     *   dataType
-     *
-     * <!-- -->
-     * @example dataType
-     *
      * @var string
      */
     public $orderBy;
-
     /**
-     * @description The data type. Valid values:
-     *
-     *   instantQuery: non-time series
-     *   timeSeriesQuery: time series
-     *
-     * This parameter is required.
-     * @example instantQuery
-     *
      * @var string
      */
     public $queryType;
-
     /**
-     * @description The start of the time range to query. Unit: milliseconds.
-     *
-     * This parameter is required.
-     * @example 1699200000000
-     *
      * @var int
      */
     public $startTime;
@@ -133,44 +64,75 @@ class QueryCommercialUsageRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->advancedFilters)) {
+            Model::validateArray($this->advancedFilters);
+        }
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
+        if (\is_array($this->measures)) {
+            Model::validateArray($this->measures);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->advancedFilters) {
-            $res['AdvancedFilters'] = [];
-            if (null !== $this->advancedFilters && \is_array($this->advancedFilters)) {
-                $n = 0;
-                foreach ($this->advancedFilters as $item) {
-                    $res['AdvancedFilters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->advancedFilters)) {
+                $res['AdvancedFilters'] = [];
+                $n1                     = 0;
+                foreach ($this->advancedFilters as $item1) {
+                    $res['AdvancedFilters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->dimensions) {
-            $res['Dimensions'] = $this->dimensions;
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                $n1                = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['Dimensions'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->intervalInSec) {
             $res['IntervalInSec'] = $this->intervalInSec;
         }
+
         if (null !== $this->measures) {
-            $res['Measures'] = $this->measures;
+            if (\is_array($this->measures)) {
+                $res['Measures'] = [];
+                $n1              = 0;
+                foreach ($this->measures as $item1) {
+                    $res['Measures'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->metric) {
             $res['Metric'] = $this->metric;
         }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
+
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -178,51 +140,68 @@ class QueryCommercialUsageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCommercialUsageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdvancedFilters'])) {
             if (!empty($map['AdvancedFilters'])) {
                 $model->advancedFilters = [];
-                $n                      = 0;
-                foreach ($map['AdvancedFilters'] as $item) {
-                    $model->advancedFilters[$n++] = null !== $item ? advancedFilters::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['AdvancedFilters'] as $item1) {
+                    $model->advancedFilters[$n1++] = advancedFilters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
-                $model->dimensions = $map['Dimensions'];
+                $model->dimensions = [];
+                $n1                = 0;
+                foreach ($map['Dimensions'] as $item1) {
+                    $model->dimensions[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['IntervalInSec'])) {
             $model->intervalInSec = $map['IntervalInSec'];
         }
+
         if (isset($map['Measures'])) {
             if (!empty($map['Measures'])) {
-                $model->measures = $map['Measures'];
+                $model->measures = [];
+                $n1              = 0;
+                foreach ($map['Measures'] as $item1) {
+                    $model->measures[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Metric'])) {
             $model->metric = $map['Metric'];
         }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
+
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

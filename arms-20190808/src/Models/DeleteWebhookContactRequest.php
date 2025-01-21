@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteWebhookContactRequest extends Model
 {
     /**
-     * @description The ID of the webhook alert contact.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $webhookId;
@@ -23,9 +18,10 @@ class DeleteWebhookContactRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->webhookId) {
@@ -35,11 +31,11 @@ class DeleteWebhookContactRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteWebhookContactRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

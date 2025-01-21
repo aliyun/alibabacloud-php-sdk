@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeDispatchRuleResponseBody\dispatchRule\notifyRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notifyObjects extends Model
 {
     /**
-     * @description The name of the contact or contact group.
-     *
-     * @example JohnDoe
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The ID of the contact or contact group.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $notifyObjectId;
-
     /**
-     * @description The type of the alert contact. Valid values:
-     *
-     * - `CONTACT_GROUP`: contact group
-     * @example CONTACT
-     *
      * @var string
      */
     public $notifyType;
@@ -43,17 +28,20 @@ class notifyObjects extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->notifyObjectId) {
             $res['NotifyObjectId'] = $this->notifyObjectId;
         }
+
         if (null !== $this->notifyType) {
             $res['NotifyType'] = $this->notifyType;
         }
@@ -61,20 +49,22 @@ class notifyObjects extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifyObjects
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NotifyObjectId'])) {
             $model->notifyObjectId = $map['NotifyObjectId'];
         }
+
         if (isset($map['NotifyType'])) {
             $model->notifyType = $map['NotifyType'];
         }

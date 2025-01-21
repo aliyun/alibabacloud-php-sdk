@@ -4,65 +4,35 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\SearchTracesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class traceInfos extends Model
 {
     /**
-     * @description The amount of time consumed by the trace. Unit: milliseconds.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $duration;
-
     /**
-     * @description The name of the traced span.
-     *
-     * @example get***
-     *
      * @var string
      */
     public $operationName;
-
     /**
-     * @description The IP address of the host where the application resides.
-     *
-     * @example ``172.20.**.**``
-     *
      * @var string
      */
     public $serviceIp;
-
     /**
-     * @description The name of the application.
-     *
-     * @example arms-k8s-demo-subcomponent
-     *
      * @var string
      */
     public $serviceName;
-
     /**
      * @var string
      */
     public $spanID;
-
     /**
-     * @description The timestamp.
-     *
-     * @example 1595174436993
-     *
      * @var int
      */
     public $timestamp;
-
     /**
-     * @description The trace ID.
-     *
-     * @example ac1400a115951744369937024d****
-     *
      * @var string
      */
     public $traceID;
@@ -78,29 +48,36 @@ class traceInfos extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->operationName) {
             $res['OperationName'] = $this->operationName;
         }
+
         if (null !== $this->serviceIp) {
             $res['ServiceIp'] = $this->serviceIp;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->spanID) {
             $res['SpanID'] = $this->spanID;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->traceID) {
             $res['TraceID'] = $this->traceID;
         }
@@ -108,32 +85,38 @@ class traceInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return traceInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['OperationName'])) {
             $model->operationName = $map['OperationName'];
         }
+
         if (isset($map['ServiceIp'])) {
             $model->serviceIp = $map['ServiceIp'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['SpanID'])) {
             $model->spanID = $map['SpanID'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
+
         if (isset($map['TraceID'])) {
             $model->traceID = $map['TraceID'];
         }

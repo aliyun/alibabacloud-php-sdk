@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\protocol\requestContent\body;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class formdata extends Model
 {
     /**
-     * @description The key of the **form-data**.
-     *
-     * @example appId
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The value of the form-data.
-     *
-     * @example 3425
-     *
      * @var string
      */
     public $value;
@@ -32,14 +23,16 @@ class formdata extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +40,18 @@ class formdata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return formdata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

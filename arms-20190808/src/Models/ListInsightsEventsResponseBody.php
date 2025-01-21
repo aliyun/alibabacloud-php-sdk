@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListInsightsEventsResponseBody\insightsEvents;
-use AlibabaCloud\Tea\Model;
 
 class ListInsightsEventsResponseBody extends Model
 {
     /**
-     * @description The details of the event.
-     *
      * @var insightsEvents[]
      */
     public $insightsEvents;
-
     /**
-     * @description The request ID.
-     *
-     * @example 6F1174DC-6085-5353-AAE7-D4ADCD******
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListInsightsEventsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->insightsEvents)) {
+            Model::validateArray($this->insightsEvents);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->insightsEvents) {
-            $res['InsightsEvents'] = [];
-            if (null !== $this->insightsEvents && \is_array($this->insightsEvents)) {
-                $n = 0;
-                foreach ($this->insightsEvents as $item) {
-                    $res['InsightsEvents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->insightsEvents)) {
+                $res['InsightsEvents'] = [];
+                $n1                    = 0;
+                foreach ($this->insightsEvents as $item1) {
+                    $res['InsightsEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListInsightsEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInsightsEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InsightsEvents'])) {
             if (!empty($map['InsightsEvents'])) {
                 $model->insightsEvents = [];
-                $n                     = 0;
-                foreach ($map['InsightsEvents'] as $item) {
-                    $model->insightsEvents[$n++] = null !== $item ? insightsEvents::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['InsightsEvents'] as $item1) {
+                    $model->insightsEvents[$n1++] = insightsEvents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

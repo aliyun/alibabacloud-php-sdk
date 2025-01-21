@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GrafanaWorkspaceUserOrg extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $orgId;
-
     /**
-     * @example main org
-     *
      * @var string
      */
     public $orgName;
-
     /**
-     * @example admin
-     *
      * @var string
      */
     public $role;
@@ -36,17 +28,20 @@ class GrafanaWorkspaceUserOrg extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orgId) {
             $res['orgId'] = $this->orgId;
         }
+
         if (null !== $this->orgName) {
             $res['orgName'] = $this->orgName;
         }
+
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
@@ -54,20 +49,22 @@ class GrafanaWorkspaceUserOrg extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GrafanaWorkspaceUserOrg
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['orgId'])) {
             $model->orgId = $map['orgId'];
         }
+
         if (isset($map['orgName'])) {
             $model->orgName = $map['orgName'];
         }
+
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }

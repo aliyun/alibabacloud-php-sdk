@@ -4,55 +4,27 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePrometheusMonitoringStatusRequest extends Model
 {
     /**
-     * @description The ID of the Prometheus instance.
-     *
-     * This parameter is required.
-     * @example cc7a37ee31aea4ed1a059eff8034b****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The name of the monitoring configuration.
-     *
-     * This parameter is required.
-     * @example customJob1
-     *
      * @var string
      */
     public $monitoringName;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The status of the monitoring configuration. Valid values: run and stop. The status of Probe cannot be modified.
-     *
-     * This parameter is required.
-     * @example run
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @description The type of the monitoring configuration.
-     * This parameter is required.
-     * @example customJob
-     *
      * @var string
      */
     public $type;
@@ -66,23 +38,28 @@ class UpdatePrometheusMonitoringStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->monitoringName) {
             $res['MonitoringName'] = $this->monitoringName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -90,26 +67,30 @@ class UpdatePrometheusMonitoringStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePrometheusMonitoringStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['MonitoringName'])) {
             $model->monitoringName = $map['MonitoringName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

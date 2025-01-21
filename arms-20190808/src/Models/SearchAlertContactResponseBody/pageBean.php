@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\SearchAlertContactResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SearchAlertContactResponseBody\pageBean\contacts;
-use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
     /**
-     * @description The information about the alert contacts.
-     *
      * @var contacts[]
      */
     public $contacts;
-
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The total number of returned entries.
-     *
-     * @example 23
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class pageBean extends Model
 
     public function validate()
     {
+        if (\is_array($this->contacts)) {
+            Model::validateArray($this->contacts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contacts) {
-            $res['Contacts'] = [];
-            if (null !== $this->contacts && \is_array($this->contacts)) {
-                $n = 0;
-                foreach ($this->contacts as $item) {
-                    $res['Contacts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contacts)) {
+                $res['Contacts'] = [];
+                $n1              = 0;
+                foreach ($this->contacts as $item1) {
+                    $res['Contacts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class pageBean extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageBean
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contacts'])) {
             if (!empty($map['Contacts'])) {
                 $model->contacts = [];
-                $n               = 0;
-                foreach ($map['Contacts'] as $item) {
-                    $model->contacts[$n++] = null !== $item ? contacts::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Contacts'] as $item1) {
+                    $model->contacts[$n1++] = contacts::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

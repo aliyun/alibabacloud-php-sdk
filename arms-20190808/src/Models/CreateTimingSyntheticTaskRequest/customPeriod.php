@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customPeriod extends Model
 {
     /**
-     * @description The custom host settings.
-     *
-     * This parameter is required.
-     * @example 22
-     *
      * @var int
      */
     public $endHour;
-
     /**
-     * @description The list of hosts.
-     *
-     * This parameter is required.
-     * @example 8
-     *
      * @var int
      */
     public $startHour;
@@ -34,14 +23,16 @@ class customPeriod extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endHour) {
             $res['EndHour'] = $this->endHour;
         }
+
         if (null !== $this->startHour) {
             $res['StartHour'] = $this->startHour;
         }
@@ -49,17 +40,18 @@ class customPeriod extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customPeriod
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndHour'])) {
             $model->endHour = $map['EndHour'];
         }
+
         if (isset($map['StartHour'])) {
             $model->startHour = $map['StartHour'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateWebhookContactResponseBody\webhookContact;
-use AlibabaCloud\Tea\Model;
 
 class CreateOrUpdateWebhookContactResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 16AF921B-8187-489F-9913-43C808B4****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The returned webhook alert contact.
-     *
      * @var webhookContact
      */
     public $webhookContact;
@@ -31,32 +24,38 @@ class CreateOrUpdateWebhookContactResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->webhookContact) {
+            $this->webhookContact->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->webhookContact) {
-            $res['WebhookContact'] = null !== $this->webhookContact ? $this->webhookContact->toMap() : null;
+            $res['WebhookContact'] = null !== $this->webhookContact ? $this->webhookContact->toArray($noStream) : $this->webhookContact;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOrUpdateWebhookContactResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WebhookContact'])) {
             $model->webhookContact = webhookContact::fromMap($map['WebhookContact']);
         }

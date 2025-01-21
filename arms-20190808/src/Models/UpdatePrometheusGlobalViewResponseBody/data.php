@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusGlobalViewResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusGlobalViewResponseBody\data\failedInstances;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The data sources that failed to be updated.
-     *
      * @var failedInstances[]
      */
     public $failedInstances;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -34,20 +24,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->failedInstances)) {
+            Model::validateArray($this->failedInstances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedInstances) {
-            $res['FailedInstances'] = [];
-            if (null !== $this->failedInstances && \is_array($this->failedInstances)) {
-                $n = 0;
-                foreach ($this->failedInstances as $item) {
-                    $res['FailedInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failedInstances)) {
+                $res['FailedInstances'] = [];
+                $n1                     = 0;
+                foreach ($this->failedInstances as $item1) {
+                    $res['FailedInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -55,23 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedInstances'])) {
             if (!empty($map['FailedInstances'])) {
                 $model->failedInstances = [];
-                $n                      = 0;
-                foreach ($map['FailedInstances'] as $item) {
-                    $model->failedInstances[$n++] = null !== $item ? failedInstances::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['FailedInstances'] as $item1) {
+                    $model->failedInstances[$n1++] = failedInstances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

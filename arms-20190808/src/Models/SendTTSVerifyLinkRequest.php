@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendTTSVerifyLinkRequest extends Model
 {
     /**
-     * @description The ID of the alert contact.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $contactId;
-
     /**
-     * @description The mobile number of the alert contact.
-     *
-     * This parameter is required.
-     * @example 1381111****
-     *
      * @var string
      */
     public $phone;
@@ -34,14 +23,16 @@ class SendTTSVerifyLinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
@@ -49,17 +40,18 @@ class SendTTSVerifyLinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendTTSVerifyLinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }

@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteGrafanaWorkspaceRequest extends Model
 {
     /**
-     * @description The ID of the workspace.
-     *
-     * This parameter is required.
-     * @example grafana-rnglkcdrntlhk0****
-     *
      * @var string
      */
     public $grafanaWorkspaceId;
-
     /**
-     * @description The region ID. Default value: cn-hangzhou.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -34,14 +23,16 @@ class DeleteGrafanaWorkspaceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->grafanaWorkspaceId) {
             $res['GrafanaWorkspaceId'] = $this->grafanaWorkspaceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,17 +40,18 @@ class DeleteGrafanaWorkspaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteGrafanaWorkspaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GrafanaWorkspaceId'])) {
             $model->grafanaWorkspaceId = $map['GrafanaWorkspaceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

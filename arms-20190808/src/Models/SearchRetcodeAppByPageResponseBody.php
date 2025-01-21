@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SearchRetcodeAppByPageResponseBody\pageBean;
-use AlibabaCloud\Tea\Model;
 
 class SearchRetcodeAppByPageResponseBody extends Model
 {
     /**
-     * @description The returned page information.
-     *
      * @var pageBean
      */
     public $pageBean;
-
     /**
-     * @description The request ID.
-     *
-     * @example 626037F5-FDEB-45B0-804C-B3C92797A64E
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class SearchRetcodeAppByPageResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->pageBean) {
+            $this->pageBean->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageBean) {
-            $res['PageBean'] = null !== $this->pageBean ? $this->pageBean->toMap() : null;
+            $res['PageBean'] = null !== $this->pageBean ? $this->pageBean->toArray($noStream) : $this->pageBean;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class SearchRetcodeAppByPageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchRetcodeAppByPageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageBean'])) {
             $model->pageBean = pageBean::fromMap($map['PageBean']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

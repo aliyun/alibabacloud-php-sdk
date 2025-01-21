@@ -4,63 +4,39 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumAppsRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class GetRumAppsRequest extends Model
 {
     /**
-     * @description The group to which the application belongs.
-     *
-     * @example default
-     *
      * @var string
      */
     public $appGroup;
-
     /**
-     * @description The application ID.
-     *
-     * @example b590lhguqs@28f515462******
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The name of the application. You can specify only one application name in each request.
-     *
-     * @example test-app
-     *
      * @var string
      */
     public $appName;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmxyexli2****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The tags.
-     *
      * @var tags[]
      */
     public $tags;
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'appGroup'        => 'AppGroup',
         'appId'           => 'AppId',
@@ -68,74 +44,97 @@ class GetRumAppsRequest extends Model
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tags'            => 'Tags',
+        'workspace'       => 'Workspace',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appGroup) {
             $res['AppGroup'] = $this->appGroup;
         }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->workspace) {
+            $res['Workspace'] = $this->workspace;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRumAppsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppGroup'])) {
             $model->appGroup = $map['AppGroup'];
         }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['Workspace'])) {
+            $model->workspace = $map['Workspace'];
         }
 
         return $model;

@@ -1,3 +1,13 @@
+2025-01-21 Version: 8.0.1
+- Update API CreateRumApp: add param Workspace.
+- Update API GetRumAppInfo: add param Workspace.
+- Update API GetRumApps: add param Workspace.
+- Update API GetRumDataForPage: add param Workspace.
+- Update API InstallManagedPrometheus: update param ClusterType.
+- Update API ListAddonReleases: update response param.
+- Update API UninstallManagedPrometheus: update param ClusterType.
+
+
 2025-01-08 Version: 8.0.0
 - Update API CreateOrUpdateAlertRule: update response param.
 - Update API DoInsightsAction: add param RegionId.

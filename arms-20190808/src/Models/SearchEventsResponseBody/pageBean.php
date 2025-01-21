@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\SearchEventsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SearchEventsResponseBody\pageBean\event;
-use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
     /**
-     * @description The information about the alert events.
-     *
      * @var event[]
      */
     public $event;
-
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class pageBean extends Model
 
     public function validate()
     {
+        if (\is_array($this->event)) {
+            Model::validateArray($this->event);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->event) {
-            $res['Event'] = [];
-            if (null !== $this->event && \is_array($this->event)) {
-                $n = 0;
-                foreach ($this->event as $item) {
-                    $res['Event'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->event)) {
+                $res['Event'] = [];
+                $n1           = 0;
+                foreach ($this->event as $item1) {
+                    $res['Event'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class pageBean extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageBean
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Event'])) {
             if (!empty($map['Event'])) {
                 $model->event = [];
-                $n            = 0;
-                foreach ($map['Event'] as $item) {
-                    $model->event[$n++] = null !== $item ? event::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Event'] as $item1) {
+                    $model->event[$n1++] = event::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,34 +4,21 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\protocol;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\protocol\requestContent\body;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\protocol\requestContent\header;
-use AlibabaCloud\Tea\Model;
 
 class requestContent extends Model
 {
     /**
-     * @description The content of the request body.
-     *
      * @var body
      */
     public $body;
-
     /**
-     * @description The request header.
-     *
      * @var header[]
      */
     public $header;
-
     /**
-     * @description The request method. Valid values:
-     *
-     *   POST
-     *   GET
-     *
-     * @example POST
-     *
      * @var string
      */
     public $method;
@@ -43,23 +30,32 @@ class requestContent extends Model
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        if (\is_array($this->header)) {
+            Model::validateArray($this->header);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['Body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['Body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
+
         if (null !== $this->header) {
-            $res['Header'] = [];
-            if (null !== $this->header && \is_array($this->header)) {
-                $n = 0;
-                foreach ($this->header as $item) {
-                    $res['Header'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->header)) {
+                $res['Header'] = [];
+                $n1            = 0;
+                foreach ($this->header as $item1) {
+                    $res['Header'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
@@ -67,26 +63,28 @@ class requestContent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return requestContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = body::fromMap($map['Body']);
         }
+
         if (isset($map['Header'])) {
             if (!empty($map['Header'])) {
                 $model->header = [];
-                $n             = 0;
-                foreach ($map['Header'] as $item) {
-                    $model->header[$n++] = null !== $item ? header::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Header'] as $item1) {
+                    $model->header[$n1++] = header::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppRequest\deleteReason;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reasonIds extends Model
 {
     /**
-     * @description The ID of the reason for deletion.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description A description of the reason for removal.
-     *
-     * @example The function is not perfect, and the root cause of the problem cannot be located.
-     *
      * @var string
      */
     public $name;
@@ -32,14 +23,16 @@ class reasonIds extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,17 +40,18 @@ class reasonIds extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reasonIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

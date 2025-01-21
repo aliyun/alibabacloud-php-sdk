@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetRumExceptionStackResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class threadInfoList extends Model
 {
@@ -12,7 +12,6 @@ class threadInfoList extends Model
      * @var string
      */
     public $threadDetail;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class threadInfoList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->threadDetail) {
             $res['ThreadDetail'] = $this->threadDetail;
         }
+
         if (null !== $this->threadTag) {
             $res['ThreadTag'] = $this->threadTag;
         }
@@ -39,17 +40,18 @@ class threadInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return threadInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ThreadDetail'])) {
             $model->threadDetail = $map['ThreadDetail'];
         }
+
         if (isset($map['ThreadTag'])) {
             $model->threadTag = $map['ThreadTag'];
         }

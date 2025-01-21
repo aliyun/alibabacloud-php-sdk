@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvCustomJobsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scrapeConfigs extends Model
 {
     /**
-     * @description The name of the job.
-     *
-     * @example custom-sd-demo
-     *
      * @var string
      */
     public $jobName;
-
     /**
-     * @description The path of the metric.
-     *
-     * @example /metrics
-     *
      * @var string
      */
     public $metricsPath;
-
     /**
-     * @description The service discovery methods.
-     *
      * @var string[]
      */
     public $scrapeDiscoverys;
-
     /**
-     * @description The capture interval.
-     *
-     * @example 30s
-     *
      * @var string
      */
     public $scrapeInterval;
@@ -50,20 +33,33 @@ class scrapeConfigs extends Model
 
     public function validate()
     {
+        if (\is_array($this->scrapeDiscoverys)) {
+            Model::validateArray($this->scrapeDiscoverys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
+
         if (null !== $this->metricsPath) {
             $res['MetricsPath'] = $this->metricsPath;
         }
+
         if (null !== $this->scrapeDiscoverys) {
-            $res['ScrapeDiscoverys'] = $this->scrapeDiscoverys;
+            if (\is_array($this->scrapeDiscoverys)) {
+                $res['ScrapeDiscoverys'] = [];
+                $n1                      = 0;
+                foreach ($this->scrapeDiscoverys as $item1) {
+                    $res['ScrapeDiscoverys'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->scrapeInterval) {
             $res['ScrapeInterval'] = $this->scrapeInterval;
         }
@@ -71,25 +67,32 @@ class scrapeConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scrapeConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
+
         if (isset($map['MetricsPath'])) {
             $model->metricsPath = $map['MetricsPath'];
         }
+
         if (isset($map['ScrapeDiscoverys'])) {
             if (!empty($map['ScrapeDiscoverys'])) {
-                $model->scrapeDiscoverys = $map['ScrapeDiscoverys'];
+                $model->scrapeDiscoverys = [];
+                $n1                      = 0;
+                foreach ($map['ScrapeDiscoverys'] as $item1) {
+                    $model->scrapeDiscoverys[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ScrapeInterval'])) {
             $model->scrapeInterval = $map['ScrapeInterval'];
         }

@@ -4,41 +4,18 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DoInsightsActionRequest extends Model
 {
     /**
-     * @description The query parameters. Different module types correspond to different query parameters.
-     *
-     *   QueryTopo
-     *
-     * }
-     *
-     *   QueryTopoRed
-     *
-     * This parameter is required.
-     * @example - QueryTopo
-     *
-     *
-     * }
      * @var string
      */
     public $data;
-
     /**
-     * @description The module type. Valid values:
-     *
-     *   QueryTopo: queries the topology.
-     *   QueryTopoRed: queries the red topology metrics, such as the number of requests, response time, and number of errors.
-     *
-     * This parameter is required.
-     * @example QueryTopo
-     *
      * @var string
      */
     public $module;
-
     /**
      * @var string
      */
@@ -51,17 +28,20 @@ class DoInsightsActionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->module) {
             $res['Module'] = $this->module;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -69,20 +49,22 @@ class DoInsightsActionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DoInsightsActionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Module'])) {
             $model->module = $map['Module'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

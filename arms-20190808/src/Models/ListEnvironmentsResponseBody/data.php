@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentsResponseBody\data\environments;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The queried environments.
-     *
      * @var environments[]
      */
     public $environments;
-
     /**
-     * @description The total number of returned entries.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $total;
@@ -31,20 +24,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->environments)) {
+            Model::validateArray($this->environments);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->environments) {
-            $res['Environments'] = [];
-            if (null !== $this->environments && \is_array($this->environments)) {
-                $n = 0;
-                foreach ($this->environments as $item) {
-                    $res['Environments'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->environments)) {
+                $res['Environments'] = [];
+                $n1                  = 0;
+                foreach ($this->environments as $item1) {
+                    $res['Environments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -52,23 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Environments'])) {
             if (!empty($map['Environments'])) {
                 $model->environments = [];
-                $n                   = 0;
-                foreach ($map['Environments'] as $item) {
-                    $model->environments[$n++] = null !== $item ? environments::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['Environments'] as $item1) {
+                    $model->environments[$n1++] = environments::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

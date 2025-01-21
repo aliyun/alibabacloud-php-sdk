@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GrafanaWorkspaceVpcRegion extends Model
 {
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @example 华北2（北京）
-     *
      * @var string
      */
     public $regionName;
@@ -28,14 +23,16 @@ class GrafanaWorkspaceVpcRegion extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->regionName) {
             $res['regionName'] = $this->regionName;
         }
@@ -43,17 +40,18 @@ class GrafanaWorkspaceVpcRegion extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GrafanaWorkspaceVpcRegion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['regionName'])) {
             $model->regionName = $map['regionName'];
         }

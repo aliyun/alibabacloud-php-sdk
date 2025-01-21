@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddAliClusterIdsToPrometheusGlobalViewRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddAliClusterIdsToPrometheusGlobalViewResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddGrafanaRequest;
@@ -523,11 +522,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpgradeEnvironmentFeatureRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpgradeEnvironmentFeatureResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UploadRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UploadResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class ARMS extends OpenApiClient
 {
@@ -588,42 +586,51 @@ class ARMS extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds data sources to a global aggregation instance in Prometheus Service.
-     *  *
-     * @param AddAliClusterIdsToPrometheusGlobalViewRequest $request AddAliClusterIdsToPrometheusGlobalViewRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Adds data sources to a global aggregation instance in Prometheus Service.
      *
-     * @return AddAliClusterIdsToPrometheusGlobalViewResponse AddAliClusterIdsToPrometheusGlobalViewResponse
+     * @param request - AddAliClusterIdsToPrometheusGlobalViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddAliClusterIdsToPrometheusGlobalViewResponse
+     *
+     * @param AddAliClusterIdsToPrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return AddAliClusterIdsToPrometheusGlobalViewResponse
      */
     public function addAliClusterIdsToPrometheusGlobalViewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterIds)) {
-            $query['ClusterIds'] = $request->clusterIds;
+        if (null !== $request->clusterIds) {
+            @$query['ClusterIds'] = $request->clusterIds;
         }
-        if (!Utils::isUnset($request->globalViewClusterId)) {
-            $query['GlobalViewClusterId'] = $request->globalViewClusterId;
+
+        if (null !== $request->globalViewClusterId) {
+            @$query['GlobalViewClusterId'] = $request->globalViewClusterId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddAliClusterIdsToPrometheusGlobalView',
@@ -636,16 +643,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddAliClusterIdsToPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddAliClusterIdsToPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddAliClusterIdsToPrometheusGlobalViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds data sources to a global aggregation instance in Prometheus Service.
-     *  *
-     * @param AddAliClusterIdsToPrometheusGlobalViewRequest $request AddAliClusterIdsToPrometheusGlobalViewRequest
+     * Adds data sources to a global aggregation instance in Prometheus Service.
      *
-     * @return AddAliClusterIdsToPrometheusGlobalViewResponse AddAliClusterIdsToPrometheusGlobalViewResponse
+     * @param request - AddAliClusterIdsToPrometheusGlobalViewRequest
+     * @returns AddAliClusterIdsToPrometheusGlobalViewResponse
+     *
+     * @param AddAliClusterIdsToPrometheusGlobalViewRequest $request
+     *
+     * @return AddAliClusterIdsToPrometheusGlobalViewResponse
      */
     public function addAliClusterIdsToPrometheusGlobalView($request)
     {
@@ -655,28 +668,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Integrates the dashboard of Prometheus Service.
-     *  *
-     * @param AddGrafanaRequest $request AddGrafanaRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Integrates the dashboard of Prometheus Service.
      *
-     * @return AddGrafanaResponse AddGrafanaResponse
+     * @param request - AddGrafanaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddGrafanaResponse
+     *
+     * @param AddGrafanaRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AddGrafanaResponse
      */
     public function addGrafanaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->integration)) {
-            $query['Integration'] = $request->integration;
+
+        if (null !== $request->integration) {
+            @$query['Integration'] = $request->integration;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddGrafana',
@@ -689,16 +709,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddGrafanaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddGrafanaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddGrafanaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Integrates the dashboard of Prometheus Service.
-     *  *
-     * @param AddGrafanaRequest $request AddGrafanaRequest
+     * Integrates the dashboard of Prometheus Service.
      *
-     * @return AddGrafanaResponse AddGrafanaResponse
+     * @param request - AddGrafanaRequest
+     * @returns AddGrafanaResponse
+     *
+     * @param AddGrafanaRequest $request
+     *
+     * @return AddGrafanaResponse
      */
     public function addGrafana($request)
     {
@@ -707,33 +733,40 @@ class ARMS extends OpenApiClient
         return $this->addGrafanaWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Integrates the dashboard and collection rules of Prometheus Service.
+     *
      * @deprecated openAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead
-     *  *
-     * @summary Integrates the dashboard and collection rules of Prometheus Service.
-     *  *
-     * Deprecated
      *
-     * @param AddIntegrationRequest $request AddIntegrationRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - AddIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddIntegrationResponse
      *
-     * @return AddIntegrationResponse AddIntegrationResponse
+     * @param AddIntegrationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddIntegrationResponse
      */
     public function addIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->integration)) {
-            $query['Integration'] = $request->integration;
+
+        if (null !== $request->integration) {
+            @$query['Integration'] = $request->integration;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddIntegration',
@@ -746,20 +779,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Integrates the dashboard and collection rules of Prometheus Service.
+     *
      * @deprecated openAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead
-     *  *
-     * @summary Integrates the dashboard and collection rules of Prometheus Service.
-     *  *
-     * Deprecated
      *
-     * @param AddIntegrationRequest $request AddIntegrationRequest
+     * @param request - AddIntegrationRequest
+     * @returns AddIntegrationResponse
      *
-     * @return AddIntegrationResponse AddIntegrationResponse
+     * @param AddIntegrationRequest $request
+     *
+     * @return AddIntegrationResponse
      */
     public function addIntegration($request)
     {
@@ -769,34 +808,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Adds a global aggregation instance in Prometheus Service.
-     *  *
-     * @param AddPrometheusGlobalViewRequest $request AddPrometheusGlobalViewRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Adds a global aggregation instance in Prometheus Service.
      *
-     * @return AddPrometheusGlobalViewResponse AddPrometheusGlobalViewResponse
+     * @param request - AddPrometheusGlobalViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddPrometheusGlobalViewResponse
+     *
+     * @param AddPrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddPrometheusGlobalViewResponse
      */
     public function addPrometheusGlobalViewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusters)) {
-            $query['Clusters'] = $request->clusters;
+        if (null !== $request->clusters) {
+            @$query['Clusters'] = $request->clusters;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddPrometheusGlobalView',
@@ -809,16 +857,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddPrometheusGlobalViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a global aggregation instance in Prometheus Service.
-     *  *
-     * @param AddPrometheusGlobalViewRequest $request AddPrometheusGlobalViewRequest
+     * Adds a global aggregation instance in Prometheus Service.
      *
-     * @return AddPrometheusGlobalViewResponse AddPrometheusGlobalViewResponse
+     * @param request - AddPrometheusGlobalViewRequest
+     * @returns AddPrometheusGlobalViewResponse
+     *
+     * @param AddPrometheusGlobalViewRequest $request
+     *
+     * @return AddPrometheusGlobalViewResponse
      */
     public function addPrometheusGlobalView($request)
     {
@@ -828,31 +882,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a global aggregation instance in Prometheus Service.
-     *  *
-     * @param AddPrometheusGlobalViewByAliClusterIdsRequest $request AddPrometheusGlobalViewByAliClusterIdsRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Creates a global aggregation instance in Prometheus Service.
      *
-     * @return AddPrometheusGlobalViewByAliClusterIdsResponse AddPrometheusGlobalViewByAliClusterIdsResponse
+     * @param request - AddPrometheusGlobalViewByAliClusterIdsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddPrometheusGlobalViewByAliClusterIdsResponse
+     *
+     * @param AddPrometheusGlobalViewByAliClusterIdsRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return AddPrometheusGlobalViewByAliClusterIdsResponse
      */
     public function addPrometheusGlobalViewByAliClusterIdsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterIds)) {
-            $query['ClusterIds'] = $request->clusterIds;
+        if (null !== $request->clusterIds) {
+            @$query['ClusterIds'] = $request->clusterIds;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddPrometheusGlobalViewByAliClusterIds',
@@ -865,16 +927,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddPrometheusGlobalViewByAliClusterIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddPrometheusGlobalViewByAliClusterIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddPrometheusGlobalViewByAliClusterIdsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a global aggregation instance in Prometheus Service.
-     *  *
-     * @param AddPrometheusGlobalViewByAliClusterIdsRequest $request AddPrometheusGlobalViewByAliClusterIdsRequest
+     * Creates a global aggregation instance in Prometheus Service.
      *
-     * @return AddPrometheusGlobalViewByAliClusterIdsResponse AddPrometheusGlobalViewByAliClusterIdsResponse
+     * @param request - AddPrometheusGlobalViewByAliClusterIdsRequest
+     * @returns AddPrometheusGlobalViewByAliClusterIdsResponse
+     *
+     * @param AddPrometheusGlobalViewByAliClusterIdsRequest $request
+     *
+     * @return AddPrometheusGlobalViewByAliClusterIdsResponse
      */
     public function addPrometheusGlobalViewByAliClusterIds($request)
     {
@@ -883,33 +951,40 @@ class ARMS extends OpenApiClient
         return $this->addPrometheusGlobalViewByAliClusterIdsWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Creates a Prometheus instance for Remote Write.
+     *
      * @deprecated openAPI AddPrometheusInstance is deprecated, please use ARMS::2019-08-08::CreatePrometheusInstance instead
-     *  *
-     * @summary Creates a Prometheus instance for Remote Write.
-     *  *
-     * Deprecated
      *
-     * @param AddPrometheusInstanceRequest $request AddPrometheusInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - AddPrometheusInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddPrometheusInstanceResponse
      *
-     * @return AddPrometheusInstanceResponse AddPrometheusInstanceResponse
+     * @param AddPrometheusInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddPrometheusInstanceResponse
      */
     public function addPrometheusInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddPrometheusInstance',
@@ -922,20 +997,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddPrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddPrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddPrometheusInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Creates a Prometheus instance for Remote Write.
+     *
      * @deprecated openAPI AddPrometheusInstance is deprecated, please use ARMS::2019-08-08::CreatePrometheusInstance instead
-     *  *
-     * @summary Creates a Prometheus instance for Remote Write.
-     *  *
-     * Deprecated
      *
-     * @param AddPrometheusInstanceRequest $request AddPrometheusInstanceRequest
+     * @param request - AddPrometheusInstanceRequest
+     * @returns AddPrometheusInstanceResponse
      *
-     * @return AddPrometheusInstanceResponse AddPrometheusInstanceResponse
+     * @param AddPrometheusInstanceRequest $request
+     *
+     * @return AddPrometheusInstanceResponse
      */
     public function addPrometheusInstance($request)
     {
@@ -945,31 +1026,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param AddPrometheusIntegrationRequest $request AddPrometheusIntegrationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
      *
-     * @return AddPrometheusIntegrationResponse AddPrometheusIntegrationResponse
+     * @param request - AddPrometheusIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddPrometheusIntegrationResponse
+     *
+     * @param AddPrometheusIntegrationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddPrometheusIntegrationResponse
      */
     public function addPrometheusIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->integrationType)) {
-            $query['IntegrationType'] = $request->integrationType;
+
+        if (null !== $request->integrationType) {
+            @$query['IntegrationType'] = $request->integrationType;
         }
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddPrometheusIntegration',
@@ -982,16 +1071,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddPrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddPrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddPrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param AddPrometheusIntegrationRequest $request AddPrometheusIntegrationRequest
+     * Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
      *
-     * @return AddPrometheusIntegrationResponse AddPrometheusIntegrationResponse
+     * @param request - AddPrometheusIntegrationRequest
+     * @returns AddPrometheusIntegrationResponse
+     *
+     * @param AddPrometheusIntegrationRequest $request
+     *
+     * @return AddPrometheusIntegrationResponse
      */
     public function addPrometheusIntegration($request)
     {
@@ -1001,28 +1096,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates a recording rule of Managed Service for Prometheus.
-     *  *
-     * @param AddRecordingRuleRequest $request AddRecordingRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates or updates a recording rule of Managed Service for Prometheus.
      *
-     * @return AddRecordingRuleResponse AddRecordingRuleResponse
+     * @param request - AddRecordingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddRecordingRuleResponse
+     *
+     * @param AddRecordingRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddRecordingRuleResponse
      */
     public function addRecordingRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->ruleYaml)) {
-            $query['RuleYaml'] = $request->ruleYaml;
+
+        if (null !== $request->ruleYaml) {
+            @$query['RuleYaml'] = $request->ruleYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddRecordingRule',
@@ -1035,16 +1137,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddRecordingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddRecordingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddRecordingRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or updates a recording rule of Managed Service for Prometheus.
-     *  *
-     * @param AddRecordingRuleRequest $request AddRecordingRuleRequest
+     * Creates or updates a recording rule of Managed Service for Prometheus.
      *
-     * @return AddRecordingRuleResponse AddRecordingRuleResponse
+     * @param request - AddRecordingRuleRequest
+     * @returns AddRecordingRuleResponse
+     *
+     * @param AddRecordingRuleRequest $request
+     *
+     * @return AddRecordingRuleResponse
      */
     public function addRecordingRule($request)
     {
@@ -1054,37 +1162,47 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Attaches the workspace ID and workspace name tags to the Prometheus instance corresponding to a Flink workspace.
-     *  *
-     * @param AddTagToFlinkClusterRequest $request AddTagToFlinkClusterRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Attaches the workspace ID and workspace name tags to the Prometheus instance corresponding to a Flink workspace.
      *
-     * @return AddTagToFlinkClusterResponse AddTagToFlinkClusterResponse
+     * @param request - AddTagToFlinkClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddTagToFlinkClusterResponse
+     *
+     * @param AddTagToFlinkClusterRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddTagToFlinkClusterResponse
      */
     public function addTagToFlinkClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->flinkWorkSpaceId)) {
-            $query['FlinkWorkSpaceId'] = $request->flinkWorkSpaceId;
+
+        if (null !== $request->flinkWorkSpaceId) {
+            @$query['FlinkWorkSpaceId'] = $request->flinkWorkSpaceId;
         }
-        if (!Utils::isUnset($request->flinkWorkSpaceName)) {
-            $query['FlinkWorkSpaceName'] = $request->flinkWorkSpaceName;
+
+        if (null !== $request->flinkWorkSpaceName) {
+            @$query['FlinkWorkSpaceName'] = $request->flinkWorkSpaceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->targetUserId)) {
-            $query['TargetUserId'] = $request->targetUserId;
+
+        if (null !== $request->targetUserId) {
+            @$query['TargetUserId'] = $request->targetUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddTagToFlinkCluster',
@@ -1097,16 +1215,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddTagToFlinkClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddTagToFlinkClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddTagToFlinkClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Attaches the workspace ID and workspace name tags to the Prometheus instance corresponding to a Flink workspace.
-     *  *
-     * @param AddTagToFlinkClusterRequest $request AddTagToFlinkClusterRequest
+     * Attaches the workspace ID and workspace name tags to the Prometheus instance corresponding to a Flink workspace.
      *
-     * @return AddTagToFlinkClusterResponse AddTagToFlinkClusterResponse
+     * @param request - AddTagToFlinkClusterRequest
+     * @returns AddTagToFlinkClusterResponse
+     *
+     * @param AddTagToFlinkClusterRequest $request
+     *
+     * @return AddTagToFlinkClusterResponse
      */
     public function addTagToFlinkCluster($request)
     {
@@ -1116,31 +1240,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Adds a data source to a global aggregation instance.
-     *  *
-     * @param AppendInstancesToPrometheusGlobalViewRequest $request AppendInstancesToPrometheusGlobalViewRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Adds a data source to a global aggregation instance.
      *
-     * @return AppendInstancesToPrometheusGlobalViewResponse AppendInstancesToPrometheusGlobalViewResponse
+     * @param request - AppendInstancesToPrometheusGlobalViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AppendInstancesToPrometheusGlobalViewResponse
+     *
+     * @param AppendInstancesToPrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return AppendInstancesToPrometheusGlobalViewResponse
      */
     public function appendInstancesToPrometheusGlobalViewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusters)) {
-            $query['Clusters'] = $request->clusters;
+        if (null !== $request->clusters) {
+            @$query['Clusters'] = $request->clusters;
         }
-        if (!Utils::isUnset($request->globalViewClusterId)) {
-            $query['GlobalViewClusterId'] = $request->globalViewClusterId;
+
+        if (null !== $request->globalViewClusterId) {
+            @$query['GlobalViewClusterId'] = $request->globalViewClusterId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AppendInstancesToPrometheusGlobalView',
@@ -1153,16 +1285,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AppendInstancesToPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AppendInstancesToPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AppendInstancesToPrometheusGlobalViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a data source to a global aggregation instance.
-     *  *
-     * @param AppendInstancesToPrometheusGlobalViewRequest $request AppendInstancesToPrometheusGlobalViewRequest
+     * Adds a data source to a global aggregation instance.
      *
-     * @return AppendInstancesToPrometheusGlobalViewResponse AppendInstancesToPrometheusGlobalViewResponse
+     * @param request - AppendInstancesToPrometheusGlobalViewRequest
+     * @returns AppendInstancesToPrometheusGlobalViewResponse
+     *
+     * @param AppendInstancesToPrometheusGlobalViewRequest $request
+     *
+     * @return AppendInstancesToPrometheusGlobalViewResponse
      */
     public function appendInstancesToPrometheusGlobalView($request)
     {
@@ -1172,55 +1310,71 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ApplyScenarioRequest $tmpReq  ApplyScenarioRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - ApplyScenarioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApplyScenarioResponse
      *
-     * @return ApplyScenarioResponse ApplyScenarioResponse
+     * @param ApplyScenarioRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ApplyScenarioResponse
      */
     public function applyScenarioWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ApplyScenarioShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->config)) {
-            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->config) {
+            $request->configShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->configShrink)) {
-            $query['Config'] = $request->configShrink;
+
+        if (null !== $request->configShrink) {
+            @$query['Config'] = $request->configShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->scenario)) {
-            $query['Scenario'] = $request->scenario;
+
+        if (null !== $request->scenario) {
+            @$query['Scenario'] = $request->scenario;
         }
-        if (!Utils::isUnset($request->sign)) {
-            $query['Sign'] = $request->sign;
+
+        if (null !== $request->sign) {
+            @$query['Sign'] = $request->sign;
         }
-        if (!Utils::isUnset($request->snDump)) {
-            $query['SnDump'] = $request->snDump;
+
+        if (null !== $request->snDump) {
+            @$query['SnDump'] = $request->snDump;
         }
-        if (!Utils::isUnset($request->snForce)) {
-            $query['SnForce'] = $request->snForce;
+
+        if (null !== $request->snForce) {
+            @$query['SnForce'] = $request->snForce;
         }
-        if (!Utils::isUnset($request->snStat)) {
-            $query['SnStat'] = $request->snStat;
+
+        if (null !== $request->snStat) {
+            @$query['SnStat'] = $request->snStat;
         }
-        if (!Utils::isUnset($request->snTransfer)) {
-            $query['SnTransfer'] = $request->snTransfer;
+
+        if (null !== $request->snTransfer) {
+            @$query['SnTransfer'] = $request->snTransfer;
         }
-        if (!Utils::isUnset($request->updateOption)) {
-            $query['UpdateOption'] = $request->updateOption;
+
+        if (null !== $request->updateOption) {
+            @$query['UpdateOption'] = $request->updateOption;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ApplyScenario',
@@ -1233,14 +1387,20 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ApplyScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyScenarioResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ApplyScenarioRequest $request ApplyScenarioRequest
+     * @param request - ApplyScenarioRequest
+     * @returns ApplyScenarioResponse
      *
-     * @return ApplyScenarioResponse ApplyScenarioResponse
+     * @param ApplyScenarioRequest $request
+     *
+     * @return ApplyScenarioResponse
      */
     public function applyScenario($request)
     {
@@ -1250,31 +1410,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Binds a Grafana workspace to a Prometheus instance.
-     *  *
-     * @param BindPrometheusGrafanaInstanceRequest $request BindPrometheusGrafanaInstanceRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Binds a Grafana workspace to a Prometheus instance.
      *
-     * @return BindPrometheusGrafanaInstanceResponse BindPrometheusGrafanaInstanceResponse
+     * @param request - BindPrometheusGrafanaInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindPrometheusGrafanaInstanceResponse
+     *
+     * @param BindPrometheusGrafanaInstanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return BindPrometheusGrafanaInstanceResponse
      */
     public function bindPrometheusGrafanaInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->grafanaInstanceId)) {
-            $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
+
+        if (null !== $request->grafanaInstanceId) {
+            @$query['GrafanaInstanceId'] = $request->grafanaInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindPrometheusGrafanaInstance',
@@ -1287,16 +1455,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindPrometheusGrafanaInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindPrometheusGrafanaInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindPrometheusGrafanaInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Binds a Grafana workspace to a Prometheus instance.
-     *  *
-     * @param BindPrometheusGrafanaInstanceRequest $request BindPrometheusGrafanaInstanceRequest
+     * Binds a Grafana workspace to a Prometheus instance.
      *
-     * @return BindPrometheusGrafanaInstanceResponse BindPrometheusGrafanaInstanceResponse
+     * @param request - BindPrometheusGrafanaInstanceRequest
+     * @returns BindPrometheusGrafanaInstanceResponse
+     *
+     * @param BindPrometheusGrafanaInstanceRequest $request
+     *
+     * @return BindPrometheusGrafanaInstanceResponse
      */
     public function bindPrometheusGrafanaInstance($request)
     {
@@ -1306,31 +1480,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Blocks alert notifications in a time period.
-     *  *
-     * @param BlockAlarmNotificationRequest $request BlockAlarmNotificationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Blocks alert notifications in a time period.
      *
-     * @return BlockAlarmNotificationResponse BlockAlarmNotificationResponse
+     * @param request - BlockAlarmNotificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BlockAlarmNotificationResponse
+     *
+     * @param BlockAlarmNotificationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BlockAlarmNotificationResponse
      */
     public function blockAlarmNotificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alarmId)) {
-            $query['AlarmId'] = $request->alarmId;
+        if (null !== $request->alarmId) {
+            @$query['AlarmId'] = $request->alarmId;
         }
-        if (!Utils::isUnset($request->handlerId)) {
-            $query['HandlerId'] = $request->handlerId;
+
+        if (null !== $request->handlerId) {
+            @$query['HandlerId'] = $request->handlerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BlockAlarmNotification',
@@ -1343,16 +1525,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BlockAlarmNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BlockAlarmNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BlockAlarmNotificationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Blocks alert notifications in a time period.
-     *  *
-     * @param BlockAlarmNotificationRequest $request BlockAlarmNotificationRequest
+     * Blocks alert notifications in a time period.
      *
-     * @return BlockAlarmNotificationResponse BlockAlarmNotificationResponse
+     * @param request - BlockAlarmNotificationRequest
+     * @returns BlockAlarmNotificationResponse
+     *
+     * @param BlockAlarmNotificationRequest $request
+     *
+     * @return BlockAlarmNotificationResponse
      */
     public function blockAlarmNotification($request)
     {
@@ -1362,31 +1550,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the severity level of an alert.
-     *  *
-     * @param ChangeAlarmSeverityRequest $request ChangeAlarmSeverityRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the severity level of an alert.
      *
-     * @return ChangeAlarmSeverityResponse ChangeAlarmSeverityResponse
+     * @param request - ChangeAlarmSeverityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeAlarmSeverityResponse
+     *
+     * @param ChangeAlarmSeverityRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeAlarmSeverityResponse
      */
     public function changeAlarmSeverityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alarmId)) {
-            $query['AlarmId'] = $request->alarmId;
+        if (null !== $request->alarmId) {
+            @$query['AlarmId'] = $request->alarmId;
         }
-        if (!Utils::isUnset($request->handlerId)) {
-            $query['HandlerId'] = $request->handlerId;
+
+        if (null !== $request->handlerId) {
+            @$query['HandlerId'] = $request->handlerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->severity)) {
-            $query['Severity'] = $request->severity;
+
+        if (null !== $request->severity) {
+            @$query['Severity'] = $request->severity;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeAlarmSeverity',
@@ -1399,16 +1595,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeAlarmSeverityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeAlarmSeverityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeAlarmSeverityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the severity level of an alert.
-     *  *
-     * @param ChangeAlarmSeverityRequest $request ChangeAlarmSeverityRequest
+     * Modifies the severity level of an alert.
      *
-     * @return ChangeAlarmSeverityResponse ChangeAlarmSeverityResponse
+     * @param request - ChangeAlarmSeverityRequest
+     * @returns ChangeAlarmSeverityResponse
+     *
+     * @param ChangeAlarmSeverityRequest $request
+     *
+     * @return ChangeAlarmSeverityResponse
      */
     public function changeAlarmSeverity($request)
     {
@@ -1418,31 +1620,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Moves a resource to a specific resource group.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Moves a resource to a specific resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeResourceGroup',
@@ -1455,16 +1665,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Moves a resource to a specific resource group.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Moves a resource to a specific resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -1474,21 +1690,26 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
-     *  *
-     * @description You can call this operation to check whether ARMS is available for commercial use in a region.
-     *  *
-     * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
      *
-     * @return CheckCommercialStatusResponse CheckCommercialStatusResponse
+     * @remarks
+     * You can call this operation to check whether ARMS is available for commercial use in a region.
+     *
+     * @param request - CheckCommercialStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckCommercialStatusResponse
+     *
+     * @param CheckCommercialStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckCommercialStatusResponse
      */
     public function checkCommercialStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckCommercialStatus',
@@ -1501,18 +1722,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckCommercialStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckCommercialStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckCommercialStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
-     *  *
-     * @description You can call this operation to check whether ARMS is available for commercial use in a region.
-     *  *
-     * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
+     * Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
      *
-     * @return CheckCommercialStatusResponse CheckCommercialStatusResponse
+     * @remarks
+     * You can call this operation to check whether ARMS is available for commercial use in a region.
+     *
+     * @param request - CheckCommercialStatusRequest
+     * @returns CheckCommercialStatusResponse
+     *
+     * @param CheckCommercialStatusRequest $request
+     *
+     * @return CheckCommercialStatusResponse
      */
     public function checkCommercialStatus($request)
     {
@@ -1522,25 +1750,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Checks the status of a service in the current cluster, such as whether the service is activated and whether the payment is overdue.
-     *  *
-     * @param CheckServiceStatusRequest $request CheckServiceStatusRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Checks the status of a service in the current cluster, such as whether the service is activated and whether the payment is overdue.
      *
-     * @return CheckServiceStatusResponse CheckServiceStatusResponse
+     * @param request - CheckServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckServiceStatusResponse
+     *
+     * @param CheckServiceStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckServiceStatusResponse
      */
     public function checkServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->svcCode)) {
-            $query['SvcCode'] = $request->svcCode;
+
+        if (null !== $request->svcCode) {
+            @$query['SvcCode'] = $request->svcCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckServiceStatus',
@@ -1553,16 +1787,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks the status of a service in the current cluster, such as whether the service is activated and whether the payment is overdue.
-     *  *
-     * @param CheckServiceStatusRequest $request CheckServiceStatusRequest
+     * Checks the status of a service in the current cluster, such as whether the service is activated and whether the payment is overdue.
      *
-     * @return CheckServiceStatusResponse CheckServiceStatusResponse
+     * @param request - CheckServiceStatusRequest
+     * @returns CheckServiceStatusResponse
+     *
+     * @param CheckServiceStatusRequest $request
+     *
+     * @return CheckServiceStatusResponse
      */
     public function checkServiceStatus($request)
     {
@@ -1572,28 +1812,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Claims an alert. This operation can be used together with escalation policies. When multiple handlers are involved in alert management, each handler can call this operation to claim alerts. After an alert is claimed, the alert enters the Being Processed state.
-     *  *
-     * @param ClaimAlarmRequest $request ClaimAlarmRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Claims an alert. This operation can be used together with escalation policies. When multiple handlers are involved in alert management, each handler can call this operation to claim alerts. After an alert is claimed, the alert enters the Being Processed state.
      *
-     * @return ClaimAlarmResponse ClaimAlarmResponse
+     * @param request - ClaimAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ClaimAlarmResponse
+     *
+     * @param ClaimAlarmRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ClaimAlarmResponse
      */
     public function claimAlarmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alarmId)) {
-            $query['AlarmId'] = $request->alarmId;
+        if (null !== $request->alarmId) {
+            @$query['AlarmId'] = $request->alarmId;
         }
-        if (!Utils::isUnset($request->handlerId)) {
-            $query['HandlerId'] = $request->handlerId;
+
+        if (null !== $request->handlerId) {
+            @$query['HandlerId'] = $request->handlerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ClaimAlarm',
@@ -1606,16 +1853,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ClaimAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ClaimAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ClaimAlarmResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Claims an alert. This operation can be used together with escalation policies. When multiple handlers are involved in alert management, each handler can call this operation to claim alerts. After an alert is claimed, the alert enters the Being Processed state.
-     *  *
-     * @param ClaimAlarmRequest $request ClaimAlarmRequest
+     * Claims an alert. This operation can be used together with escalation policies. When multiple handlers are involved in alert management, each handler can call this operation to claim alerts. After an alert is claimed, the alert enters the Being Processed state.
      *
-     * @return ClaimAlarmResponse ClaimAlarmResponse
+     * @param request - ClaimAlarmRequest
+     * @returns ClaimAlarmResponse
+     *
+     * @param ClaimAlarmRequest $request
+     *
+     * @return ClaimAlarmResponse
      */
     public function claimAlarm($request)
     {
@@ -1625,31 +1878,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Disables an alert. Make sure that the alert is resolved before you disable the alert. If an alert is not resolved, new alerts can be triggered even after the alert is disabled.
-     *  *
-     * @param CloseAlarmRequest $request CloseAlarmRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Disables an alert. Make sure that the alert is resolved before you disable the alert. If an alert is not resolved, new alerts can be triggered even after the alert is disabled.
      *
-     * @return CloseAlarmResponse CloseAlarmResponse
+     * @param request - CloseAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CloseAlarmResponse
+     *
+     * @param CloseAlarmRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CloseAlarmResponse
      */
     public function closeAlarmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alarmId)) {
-            $query['AlarmId'] = $request->alarmId;
+        if (null !== $request->alarmId) {
+            @$query['AlarmId'] = $request->alarmId;
         }
-        if (!Utils::isUnset($request->handlerId)) {
-            $query['HandlerId'] = $request->handlerId;
+
+        if (null !== $request->handlerId) {
+            @$query['HandlerId'] = $request->handlerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->solution)) {
-            $query['Solution'] = $request->solution;
+
+        if (null !== $request->solution) {
+            @$query['Solution'] = $request->solution;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CloseAlarm',
@@ -1662,16 +1923,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CloseAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CloseAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloseAlarmResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables an alert. Make sure that the alert is resolved before you disable the alert. If an alert is not resolved, new alerts can be triggered even after the alert is disabled.
-     *  *
-     * @param CloseAlarmRequest $request CloseAlarmRequest
+     * Disables an alert. Make sure that the alert is resolved before you disable the alert. If an alert is not resolved, new alerts can be triggered even after the alert is disabled.
      *
-     * @return CloseAlarmResponse CloseAlarmResponse
+     * @param request - CloseAlarmRequest
+     * @returns CloseAlarmResponse
+     *
+     * @param CloseAlarmRequest $request
+     *
+     * @return CloseAlarmResponse
      */
     public function closeAlarm($request)
     {
@@ -1681,33 +1948,41 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Turns on or off the main switch of an ARMS agent, or queries the status of the main switch.
-     *  *
-     * @description ****
-     *  *
-     * @param ConfigAppRequest $request ConfigAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Turns on or off the main switch of an ARMS agent, or queries the status of the main switch.
      *
-     * @return ConfigAppResponse ConfigAppResponse
+     * @remarks
+     *
+     * @param request - ConfigAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigAppResponse
+     *
+     * @param ConfigAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ConfigAppResponse
      */
     public function configAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIds)) {
-            $query['AppIds'] = $request->appIds;
+        if (null !== $request->appIds) {
+            @$query['AppIds'] = $request->appIds;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigApp',
@@ -1720,18 +1995,24 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Turns on or off the main switch of an ARMS agent, or queries the status of the main switch.
-     *  *
-     * @description ****
-     *  *
-     * @param ConfigAppRequest $request ConfigAppRequest
+     * Turns on or off the main switch of an ARMS agent, or queries the status of the main switch.
      *
-     * @return ConfigAppResponse ConfigAppResponse
+     * @remarks
+     *
+     * @param request - ConfigAppRequest
+     * @returns ConfigAppResponse
+     *
+     * @param ConfigAppRequest $request
+     *
+     * @return ConfigAppResponse
      */
     public function configApp($request)
     {
@@ -1741,42 +2022,54 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates an alert contact.
-     *  *
-     * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
-     *  *
-     * @param CreateAlertContactRequest $request CreateAlertContactRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates an alert contact.
      *
-     * @return CreateAlertContactResponse CreateAlertContactResponse
+     * @remarks
+     * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
+     *
+     * @param request - CreateAlertContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAlertContactResponse
+     *
+     * @param CreateAlertContactRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAlertContactResponse
      */
     public function createAlertContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->dingRobotWebhookUrl)) {
-            $query['DingRobotWebhookUrl'] = $request->dingRobotWebhookUrl;
+
+        if (null !== $request->dingRobotWebhookUrl) {
+            @$query['DingRobotWebhookUrl'] = $request->dingRobotWebhookUrl;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->phoneNum)) {
-            $query['PhoneNum'] = $request->phoneNum;
+
+        if (null !== $request->phoneNum) {
+            @$query['PhoneNum'] = $request->phoneNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->systemNoc)) {
-            $query['SystemNoc'] = $request->systemNoc;
+
+        if (null !== $request->systemNoc) {
+            @$query['SystemNoc'] = $request->systemNoc;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAlertContact',
@@ -1789,18 +2082,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAlertContactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an alert contact.
-     *  *
-     * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
-     *  *
-     * @param CreateAlertContactRequest $request CreateAlertContactRequest
+     * Creates an alert contact.
      *
-     * @return CreateAlertContactResponse CreateAlertContactResponse
+     * @remarks
+     * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
+     *
+     * @param request - CreateAlertContactRequest
+     * @returns CreateAlertContactResponse
+     *
+     * @param CreateAlertContactRequest $request
+     *
+     * @return CreateAlertContactResponse
      */
     public function createAlertContact($request)
     {
@@ -1810,30 +2110,38 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates an alert contact group.
-     *  *
-     * @description The current API operation is no longer maintained. Call the CreateOrUpdateContactGroup operation of the new Alert Management module to create or modify alert contact groups.
-     *  *
-     * @param CreateAlertContactGroupRequest $request CreateAlertContactGroupRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates an alert contact group.
      *
-     * @return CreateAlertContactGroupResponse CreateAlertContactGroupResponse
+     * @remarks
+     * The current API operation is no longer maintained. Call the CreateOrUpdateContactGroup operation of the new Alert Management module to create or modify alert contact groups.
+     *
+     * @param request - CreateAlertContactGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAlertContactGroupResponse
+     *
+     * @param CreateAlertContactGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAlertContactGroupResponse
      */
     public function createAlertContactGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupName)) {
-            $query['ContactGroupName'] = $request->contactGroupName;
+        if (null !== $request->contactGroupName) {
+            @$query['ContactGroupName'] = $request->contactGroupName;
         }
-        if (!Utils::isUnset($request->contactIds)) {
-            $query['ContactIds'] = $request->contactIds;
+
+        if (null !== $request->contactIds) {
+            @$query['ContactIds'] = $request->contactIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAlertContactGroup',
@@ -1846,18 +2154,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAlertContactGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an alert contact group.
-     *  *
-     * @description The current API operation is no longer maintained. Call the CreateOrUpdateContactGroup operation of the new Alert Management module to create or modify alert contact groups.
-     *  *
-     * @param CreateAlertContactGroupRequest $request CreateAlertContactGroupRequest
+     * Creates an alert contact group.
      *
-     * @return CreateAlertContactGroupResponse CreateAlertContactGroupResponse
+     * @remarks
+     * The current API operation is no longer maintained. Call the CreateOrUpdateContactGroup operation of the new Alert Management module to create or modify alert contact groups.
+     *
+     * @param request - CreateAlertContactGroupRequest
+     * @returns CreateAlertContactGroupResponse
+     *
+     * @param CreateAlertContactGroupRequest $request
+     *
+     * @return CreateAlertContactGroupResponse
      */
     public function createAlertContactGroup($request)
     {
@@ -1867,25 +2182,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a dispatch policy.
-     *  *
-     * @param CreateDispatchRuleRequest $request CreateDispatchRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a dispatch policy.
      *
-     * @return CreateDispatchRuleResponse CreateDispatchRuleResponse
+     * @param request - CreateDispatchRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDispatchRuleResponse
+     *
+     * @param CreateDispatchRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDispatchRuleResponse
      */
     public function createDispatchRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dispatchRule)) {
-            $query['DispatchRule'] = $request->dispatchRule;
+        if (null !== $request->dispatchRule) {
+            @$query['DispatchRule'] = $request->dispatchRule;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDispatchRule',
@@ -1898,16 +2219,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDispatchRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a dispatch policy.
-     *  *
-     * @param CreateDispatchRuleRequest $request CreateDispatchRuleRequest
+     * Creates a dispatch policy.
      *
-     * @return CreateDispatchRuleResponse CreateDispatchRuleResponse
+     * @param request - CreateDispatchRuleRequest
+     * @returns CreateDispatchRuleResponse
+     *
+     * @param CreateDispatchRuleRequest $request
+     *
+     * @return CreateDispatchRuleResponse
      */
     public function createDispatchRule($request)
     {
@@ -1917,36 +2244,45 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom job for an environment.
-     *  *
-     * @param CreateEnvCustomJobRequest $request CreateEnvCustomJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a custom job for an environment.
      *
-     * @return CreateEnvCustomJobResponse CreateEnvCustomJobResponse
+     * @param request - CreateEnvCustomJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateEnvCustomJobResponse
+     *
+     * @param CreateEnvCustomJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateEnvCustomJobResponse
      */
     public function createEnvCustomJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->customJobName)) {
-            $query['CustomJobName'] = $request->customJobName;
+
+        if (null !== $request->customJobName) {
+            @$query['CustomJobName'] = $request->customJobName;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configYaml)) {
-            $body['ConfigYaml'] = $request->configYaml;
+        if (null !== $request->configYaml) {
+            @$body['ConfigYaml'] = $request->configYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEnvCustomJob',
@@ -1959,16 +2295,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEnvCustomJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom job for an environment.
-     *  *
-     * @param CreateEnvCustomJobRequest $request CreateEnvCustomJobRequest
+     * Creates a custom job for an environment.
      *
-     * @return CreateEnvCustomJobResponse CreateEnvCustomJobResponse
+     * @param request - CreateEnvCustomJobRequest
+     * @returns CreateEnvCustomJobResponse
+     *
+     * @param CreateEnvCustomJobRequest $request
+     *
+     * @return CreateEnvCustomJobResponse
      */
     public function createEnvCustomJob($request)
     {
@@ -1978,36 +2320,45 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a PodMonitor for an environment.
-     *  *
-     * @param CreateEnvPodMonitorRequest $request CreateEnvPodMonitorRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a PodMonitor for an environment.
      *
-     * @return CreateEnvPodMonitorResponse CreateEnvPodMonitorResponse
+     * @param request - CreateEnvPodMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateEnvPodMonitorResponse
+     *
+     * @param CreateEnvPodMonitorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateEnvPodMonitorResponse
      */
     public function createEnvPodMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configYaml)) {
-            $body['ConfigYaml'] = $request->configYaml;
+        if (null !== $request->configYaml) {
+            @$body['ConfigYaml'] = $request->configYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEnvPodMonitor',
@@ -2020,16 +2371,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEnvPodMonitorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a PodMonitor for an environment.
-     *  *
-     * @param CreateEnvPodMonitorRequest $request CreateEnvPodMonitorRequest
+     * Creates a PodMonitor for an environment.
      *
-     * @return CreateEnvPodMonitorResponse CreateEnvPodMonitorResponse
+     * @param request - CreateEnvPodMonitorRequest
+     * @returns CreateEnvPodMonitorResponse
+     *
+     * @param CreateEnvPodMonitorRequest $request
+     *
+     * @return CreateEnvPodMonitorResponse
      */
     public function createEnvPodMonitor($request)
     {
@@ -2039,36 +2396,45 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a ServiceMonitor for an environment.
-     *  *
-     * @param CreateEnvServiceMonitorRequest $request CreateEnvServiceMonitorRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates a ServiceMonitor for an environment.
      *
-     * @return CreateEnvServiceMonitorResponse CreateEnvServiceMonitorResponse
+     * @param request - CreateEnvServiceMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateEnvServiceMonitorResponse
+     *
+     * @param CreateEnvServiceMonitorRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateEnvServiceMonitorResponse
      */
     public function createEnvServiceMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configYaml)) {
-            $body['ConfigYaml'] = $request->configYaml;
+        if (null !== $request->configYaml) {
+            @$body['ConfigYaml'] = $request->configYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEnvServiceMonitor',
@@ -2081,16 +2447,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEnvServiceMonitorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a ServiceMonitor for an environment.
-     *  *
-     * @param CreateEnvServiceMonitorRequest $request CreateEnvServiceMonitorRequest
+     * Creates a ServiceMonitor for an environment.
      *
-     * @return CreateEnvServiceMonitorResponse CreateEnvServiceMonitorResponse
+     * @param request - CreateEnvServiceMonitorRequest
+     * @returns CreateEnvServiceMonitorResponse
+     *
+     * @param CreateEnvServiceMonitorRequest $request
+     *
+     * @return CreateEnvServiceMonitorResponse
      */
     public function createEnvServiceMonitor($request)
     {
@@ -2100,58 +2472,75 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates an environment instance.
-     *  *
-     * @param CreateEnvironmentRequest $request CreateEnvironmentRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates an environment instance.
      *
-     * @return CreateEnvironmentResponse CreateEnvironmentResponse
+     * @param request - CreateEnvironmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateEnvironmentResponse
+     *
+     * @param CreateEnvironmentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateEnvironmentResponse
      */
     public function createEnvironmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->bindResourceId)) {
-            $query['BindResourceId'] = $request->bindResourceId;
+
+        if (null !== $request->bindResourceId) {
+            @$query['BindResourceId'] = $request->bindResourceId;
         }
-        if (!Utils::isUnset($request->environmentName)) {
-            $query['EnvironmentName'] = $request->environmentName;
+
+        if (null !== $request->environmentName) {
+            @$query['EnvironmentName'] = $request->environmentName;
         }
-        if (!Utils::isUnset($request->environmentSubType)) {
-            $query['EnvironmentSubType'] = $request->environmentSubType;
+
+        if (null !== $request->environmentSubType) {
+            @$query['EnvironmentSubType'] = $request->environmentSubType;
         }
-        if (!Utils::isUnset($request->environmentType)) {
-            $query['EnvironmentType'] = $request->environmentType;
+
+        if (null !== $request->environmentType) {
+            @$query['EnvironmentType'] = $request->environmentType;
         }
-        if (!Utils::isUnset($request->feePackage)) {
-            $query['FeePackage'] = $request->feePackage;
+
+        if (null !== $request->feePackage) {
+            @$query['FeePackage'] = $request->feePackage;
         }
-        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
-            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
         }
-        if (!Utils::isUnset($request->initEnvironment)) {
-            $query['InitEnvironment'] = $request->initEnvironment;
+
+        if (null !== $request->initEnvironment) {
+            @$query['InitEnvironment'] = $request->initEnvironment;
         }
-        if (!Utils::isUnset($request->managedType)) {
-            $query['ManagedType'] = $request->managedType;
+
+        if (null !== $request->managedType) {
+            @$query['ManagedType'] = $request->managedType;
         }
-        if (!Utils::isUnset($request->prometheusInstanceId)) {
-            $query['PrometheusInstanceId'] = $request->prometheusInstanceId;
+
+        if (null !== $request->prometheusInstanceId) {
+            @$query['PrometheusInstanceId'] = $request->prometheusInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateEnvironment',
@@ -2164,16 +2553,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an environment instance.
-     *  *
-     * @param CreateEnvironmentRequest $request CreateEnvironmentRequest
+     * Creates an environment instance.
      *
-     * @return CreateEnvironmentResponse CreateEnvironmentResponse
+     * @param request - CreateEnvironmentRequest
+     * @returns CreateEnvironmentResponse
+     *
+     * @param CreateEnvironmentRequest $request
+     *
+     * @return CreateEnvironmentResponse
      */
     public function createEnvironment($request)
     {
@@ -2183,72 +2578,92 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a workspace in Managed Service for Grafana.
-     *  *
-     * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
+     * Creates a workspace in Managed Service for Grafana.
+     *
+     * @remarks
+     * Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
      * >
      * *   To create workspaces, you must complete real-name verification.
      * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
      * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
-     *  *
-     * @param CreateGrafanaWorkspaceRequest $tmpReq  CreateGrafanaWorkspaceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGrafanaWorkspaceResponse CreateGrafanaWorkspaceResponse
+     * @param tmpReq - CreateGrafanaWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateGrafanaWorkspaceResponse
+     *
+     * @param CreateGrafanaWorkspaceRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateGrafanaWorkspaceResponse
      */
     public function createGrafanaWorkspaceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateGrafanaWorkspaceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountNumber)) {
-            $query['AccountNumber'] = $request->accountNumber;
+        if (null !== $request->accountNumber) {
+            @$query['AccountNumber'] = $request->accountNumber;
         }
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->customAccountNumber)) {
-            $query['CustomAccountNumber'] = $request->customAccountNumber;
+
+        if (null !== $request->customAccountNumber) {
+            @$query['CustomAccountNumber'] = $request->customAccountNumber;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->grafanaVersion)) {
-            $query['GrafanaVersion'] = $request->grafanaVersion;
+
+        if (null !== $request->grafanaVersion) {
+            @$query['GrafanaVersion'] = $request->grafanaVersion;
         }
-        if (!Utils::isUnset($request->grafanaWorkspaceEdition)) {
-            $query['GrafanaWorkspaceEdition'] = $request->grafanaWorkspaceEdition;
+
+        if (null !== $request->grafanaWorkspaceEdition) {
+            @$query['GrafanaWorkspaceEdition'] = $request->grafanaWorkspaceEdition;
         }
-        if (!Utils::isUnset($request->grafanaWorkspaceName)) {
-            $query['GrafanaWorkspaceName'] = $request->grafanaWorkspaceName;
+
+        if (null !== $request->grafanaWorkspaceName) {
+            @$query['GrafanaWorkspaceName'] = $request->grafanaWorkspaceName;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $query['PricingCycle'] = $request->pricingCycle;
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateGrafanaWorkspace',
@@ -2261,22 +2676,29 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateGrafanaWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a workspace in Managed Service for Grafana.
-     *  *
-     * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
+     * Creates a workspace in Managed Service for Grafana.
+     *
+     * @remarks
+     * Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
      * >
      * *   To create workspaces, you must complete real-name verification.
      * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
      * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
-     *  *
-     * @param CreateGrafanaWorkspaceRequest $request CreateGrafanaWorkspaceRequest
      *
-     * @return CreateGrafanaWorkspaceResponse CreateGrafanaWorkspaceResponse
+     * @param request - CreateGrafanaWorkspaceRequest
+     * @returns CreateGrafanaWorkspaceResponse
+     *
+     * @param CreateGrafanaWorkspaceRequest $request
+     *
+     * @return CreateGrafanaWorkspaceResponse
      */
     public function createGrafanaWorkspace($request)
     {
@@ -2286,39 +2708,49 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates an alert integration.
-     *  *
-     * @param CreateIntegrationRequest $request CreateIntegrationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates an alert integration.
      *
-     * @return CreateIntegrationResponse CreateIntegrationResponse
+     * @param request - CreateIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateIntegrationResponse
+     *
+     * @param CreateIntegrationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateIntegrationResponse
      */
     public function createIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->autoRecover)) {
-            $body['AutoRecover'] = $request->autoRecover;
+        if (null !== $request->autoRecover) {
+            @$body['AutoRecover'] = $request->autoRecover;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->integrationName)) {
-            $body['IntegrationName'] = $request->integrationName;
+
+        if (null !== $request->integrationName) {
+            @$body['IntegrationName'] = $request->integrationName;
         }
-        if (!Utils::isUnset($request->integrationProductType)) {
-            $body['IntegrationProductType'] = $request->integrationProductType;
+
+        if (null !== $request->integrationProductType) {
+            @$body['IntegrationProductType'] = $request->integrationProductType;
         }
-        if (!Utils::isUnset($request->recoverTime)) {
-            $body['RecoverTime'] = $request->recoverTime;
+
+        if (null !== $request->recoverTime) {
+            @$body['RecoverTime'] = $request->recoverTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateIntegration',
@@ -2331,16 +2763,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an alert integration.
-     *  *
-     * @param CreateIntegrationRequest $request CreateIntegrationRequest
+     * Creates an alert integration.
      *
-     * @return CreateIntegrationResponse CreateIntegrationResponse
+     * @param request - CreateIntegrationRequest
+     * @returns CreateIntegrationResponse
+     *
+     * @param CreateIntegrationRequest $request
+     *
+     * @return CreateIntegrationResponse
      */
     public function createIntegration($request)
     {
@@ -2350,106 +2788,139 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an alert rule.
-     *  *
-     * @param CreateOrUpdateAlertRuleRequest $request CreateOrUpdateAlertRuleRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies an alert rule.
      *
-     * @return CreateOrUpdateAlertRuleResponse CreateOrUpdateAlertRuleResponse
+     * @param request - CreateOrUpdateAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrUpdateAlertRuleResponse
+     *
+     * @param CreateOrUpdateAlertRuleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateOrUpdateAlertRuleResponse
      */
     public function createOrUpdateAlertRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alertCheckType)) {
-            $body['AlertCheckType'] = $request->alertCheckType;
+        if (null !== $request->alertCheckType) {
+            @$body['AlertCheckType'] = $request->alertCheckType;
         }
-        if (!Utils::isUnset($request->alertGroup)) {
-            $body['AlertGroup'] = $request->alertGroup;
+
+        if (null !== $request->alertGroup) {
+            @$body['AlertGroup'] = $request->alertGroup;
         }
-        if (!Utils::isUnset($request->alertId)) {
-            $body['AlertId'] = $request->alertId;
+
+        if (null !== $request->alertId) {
+            @$body['AlertId'] = $request->alertId;
         }
-        if (!Utils::isUnset($request->alertName)) {
-            $body['AlertName'] = $request->alertName;
+
+        if (null !== $request->alertName) {
+            @$body['AlertName'] = $request->alertName;
         }
-        if (!Utils::isUnset($request->alertPiplines)) {
-            $body['AlertPiplines'] = $request->alertPiplines;
+
+        if (null !== $request->alertPiplines) {
+            @$body['AlertPiplines'] = $request->alertPiplines;
         }
-        if (!Utils::isUnset($request->alertRuleContent)) {
-            $body['AlertRuleContent'] = $request->alertRuleContent;
+
+        if (null !== $request->alertRuleContent) {
+            @$body['AlertRuleContent'] = $request->alertRuleContent;
         }
-        if (!Utils::isUnset($request->alertStatus)) {
-            $body['AlertStatus'] = $request->alertStatus;
+
+        if (null !== $request->alertStatus) {
+            @$body['AlertStatus'] = $request->alertStatus;
         }
-        if (!Utils::isUnset($request->alertType)) {
-            $body['AlertType'] = $request->alertType;
+
+        if (null !== $request->alertType) {
+            @$body['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->annotations)) {
-            $body['Annotations'] = $request->annotations;
+
+        if (null !== $request->annotations) {
+            @$body['Annotations'] = $request->annotations;
         }
-        if (!Utils::isUnset($request->autoAddNewApplication)) {
-            $body['AutoAddNewApplication'] = $request->autoAddNewApplication;
+
+        if (null !== $request->autoAddNewApplication) {
+            @$body['AutoAddNewApplication'] = $request->autoAddNewApplication;
         }
-        if (!Utils::isUnset($request->autoAddTargetConfig)) {
-            $body['AutoAddTargetConfig'] = $request->autoAddTargetConfig;
+
+        if (null !== $request->autoAddTargetConfig) {
+            @$body['AutoAddTargetConfig'] = $request->autoAddTargetConfig;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dataConfig)) {
-            $body['DataConfig'] = $request->dataConfig;
+
+        if (null !== $request->dataConfig) {
+            @$body['DataConfig'] = $request->dataConfig;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $body['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$body['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->level)) {
-            $body['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$body['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->markTags)) {
-            $body['MarkTags'] = $request->markTags;
+
+        if (null !== $request->markTags) {
+            @$body['MarkTags'] = $request->markTags;
         }
-        if (!Utils::isUnset($request->message)) {
-            $body['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$body['Message'] = $request->message;
         }
-        if (!Utils::isUnset($request->metricsKey)) {
-            $body['MetricsKey'] = $request->metricsKey;
+
+        if (null !== $request->metricsKey) {
+            @$body['MetricsKey'] = $request->metricsKey;
         }
-        if (!Utils::isUnset($request->metricsType)) {
-            $body['MetricsType'] = $request->metricsType;
+
+        if (null !== $request->metricsType) {
+            @$body['MetricsType'] = $request->metricsType;
         }
-        if (!Utils::isUnset($request->notice)) {
-            $body['Notice'] = $request->notice;
+
+        if (null !== $request->notice) {
+            @$body['Notice'] = $request->notice;
         }
-        if (!Utils::isUnset($request->notifyMode)) {
-            $body['NotifyMode'] = $request->notifyMode;
+
+        if (null !== $request->notifyMode) {
+            @$body['NotifyMode'] = $request->notifyMode;
         }
-        if (!Utils::isUnset($request->notifyStrategy)) {
-            $body['NotifyStrategy'] = $request->notifyStrategy;
+
+        if (null !== $request->notifyStrategy) {
+            @$body['NotifyStrategy'] = $request->notifyStrategy;
         }
-        if (!Utils::isUnset($request->pids)) {
-            $body['Pids'] = $request->pids;
+
+        if (null !== $request->pids) {
+            @$body['Pids'] = $request->pids;
         }
-        if (!Utils::isUnset($request->product)) {
-            $body['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$body['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->promQL)) {
-            $body['PromQL'] = $request->promQL;
+
+        if (null !== $request->promQL) {
+            @$body['PromQL'] = $request->promQL;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateAlertRule',
@@ -2462,16 +2933,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrUpdateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrUpdateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrUpdateAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies an alert rule.
-     *  *
-     * @param CreateOrUpdateAlertRuleRequest $request CreateOrUpdateAlertRuleRequest
+     * Creates or modifies an alert rule.
      *
-     * @return CreateOrUpdateAlertRuleResponse CreateOrUpdateAlertRuleResponse
+     * @param request - CreateOrUpdateAlertRuleRequest
+     * @returns CreateOrUpdateAlertRuleResponse
+     *
+     * @param CreateOrUpdateAlertRuleRequest $request
+     *
+     * @return CreateOrUpdateAlertRuleResponse
      */
     public function createOrUpdateAlertRule($request)
     {
@@ -2481,48 +2958,61 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an alert contact.
-     *  *
-     * @param CreateOrUpdateContactRequest $request CreateOrUpdateContactRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies an alert contact.
      *
-     * @return CreateOrUpdateContactResponse CreateOrUpdateContactResponse
+     * @param request - CreateOrUpdateContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrUpdateContactResponse
+     *
+     * @param CreateOrUpdateContactRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateOrUpdateContactResponse
      */
     public function createOrUpdateContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dingRobotUrl)) {
-            $query['DingRobotUrl'] = $request->dingRobotUrl;
+        if (null !== $request->dingRobotUrl) {
+            @$query['DingRobotUrl'] = $request->dingRobotUrl;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->contactId)) {
-            $body['ContactId'] = $request->contactId;
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
         }
-        if (!Utils::isUnset($request->contactName)) {
-            $body['ContactName'] = $request->contactName;
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->corpUserId)) {
-            $body['CorpUserId'] = $request->corpUserId;
+
+        if (null !== $request->corpUserId) {
+            @$body['CorpUserId'] = $request->corpUserId;
         }
-        if (!Utils::isUnset($request->email)) {
-            $body['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$body['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->isEmailVerify)) {
-            $body['IsEmailVerify'] = $request->isEmailVerify;
+
+        if (null !== $request->isEmailVerify) {
+            @$body['IsEmailVerify'] = $request->isEmailVerify;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['Phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$body['Phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->reissueSendNotice)) {
-            $body['ReissueSendNotice'] = $request->reissueSendNotice;
+
+        if (null !== $request->reissueSendNotice) {
+            @$body['ReissueSendNotice'] = $request->reissueSendNotice;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateContact',
@@ -2535,16 +3025,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrUpdateContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrUpdateContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrUpdateContactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies an alert contact.
-     *  *
-     * @param CreateOrUpdateContactRequest $request CreateOrUpdateContactRequest
+     * Creates or modifies an alert contact.
      *
-     * @return CreateOrUpdateContactResponse CreateOrUpdateContactResponse
+     * @param request - CreateOrUpdateContactRequest
+     * @returns CreateOrUpdateContactResponse
+     *
+     * @param CreateOrUpdateContactRequest $request
+     *
+     * @return CreateOrUpdateContactResponse
      */
     public function createOrUpdateContact($request)
     {
@@ -2554,28 +3050,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an alert contact group.
-     *  *
-     * @param CreateOrUpdateContactGroupRequest $request CreateOrUpdateContactGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies an alert contact group.
      *
-     * @return CreateOrUpdateContactGroupResponse CreateOrUpdateContactGroupResponse
+     * @param request - CreateOrUpdateContactGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrUpdateContactGroupResponse
+     *
+     * @param CreateOrUpdateContactGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateOrUpdateContactGroupResponse
      */
     public function createOrUpdateContactGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->contactGroupId)) {
-            $body['ContactGroupId'] = $request->contactGroupId;
+        if (null !== $request->contactGroupId) {
+            @$body['ContactGroupId'] = $request->contactGroupId;
         }
-        if (!Utils::isUnset($request->contactGroupName)) {
-            $body['ContactGroupName'] = $request->contactGroupName;
+
+        if (null !== $request->contactGroupName) {
+            @$body['ContactGroupName'] = $request->contactGroupName;
         }
-        if (!Utils::isUnset($request->contactIds)) {
-            $body['ContactIds'] = $request->contactIds;
+
+        if (null !== $request->contactIds) {
+            @$body['ContactIds'] = $request->contactIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateContactGroup',
@@ -2588,16 +3091,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrUpdateContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrUpdateContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrUpdateContactGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies an alert contact group.
-     *  *
-     * @param CreateOrUpdateContactGroupRequest $request CreateOrUpdateContactGroupRequest
+     * Creates or modifies an alert contact group.
      *
-     * @return CreateOrUpdateContactGroupResponse CreateOrUpdateContactGroupResponse
+     * @param request - CreateOrUpdateContactGroupRequest
+     * @returns CreateOrUpdateContactGroupResponse
+     *
+     * @param CreateOrUpdateContactGroupRequest $request
+     *
+     * @return CreateOrUpdateContactGroupResponse
      */
     public function createOrUpdateContactGroup($request)
     {
@@ -2607,46 +3116,59 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an EventBridge integration.
-     *  *
-     * @param CreateOrUpdateEventBridgeIntegrationRequest $request CreateOrUpdateEventBridgeIntegrationRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies an EventBridge integration.
      *
-     * @return CreateOrUpdateEventBridgeIntegrationResponse CreateOrUpdateEventBridgeIntegrationResponse
+     * @param request - CreateOrUpdateEventBridgeIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrUpdateEventBridgeIntegrationResponse
+     *
+     * @param CreateOrUpdateEventBridgeIntegrationRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateOrUpdateEventBridgeIntegrationResponse
      */
     public function createOrUpdateEventBridgeIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessKey)) {
-            $body['AccessKey'] = $request->accessKey;
+        if (null !== $request->accessKey) {
+            @$body['AccessKey'] = $request->accessKey;
         }
-        if (!Utils::isUnset($request->accessSecret)) {
-            $body['AccessSecret'] = $request->accessSecret;
+
+        if (null !== $request->accessSecret) {
+            @$body['AccessSecret'] = $request->accessSecret;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->endpoint)) {
-            $body['Endpoint'] = $request->endpoint;
+
+        if (null !== $request->endpoint) {
+            @$body['Endpoint'] = $request->endpoint;
         }
-        if (!Utils::isUnset($request->eventBusName)) {
-            $body['EventBusName'] = $request->eventBusName;
+
+        if (null !== $request->eventBusName) {
+            @$body['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->eventBusRegionId)) {
-            $body['EventBusRegionId'] = $request->eventBusRegionId;
+
+        if (null !== $request->eventBusRegionId) {
+            @$body['EventBusRegionId'] = $request->eventBusRegionId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateEventBridgeIntegration',
@@ -2659,16 +3181,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrUpdateEventBridgeIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrUpdateEventBridgeIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrUpdateEventBridgeIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies an EventBridge integration.
-     *  *
-     * @param CreateOrUpdateEventBridgeIntegrationRequest $request CreateOrUpdateEventBridgeIntegrationRequest
+     * Creates or modifies an EventBridge integration.
      *
-     * @return CreateOrUpdateEventBridgeIntegrationResponse CreateOrUpdateEventBridgeIntegrationResponse
+     * @param request - CreateOrUpdateEventBridgeIntegrationRequest
+     * @returns CreateOrUpdateEventBridgeIntegrationResponse
+     *
+     * @param CreateOrUpdateEventBridgeIntegrationRequest $request
+     *
+     * @return CreateOrUpdateEventBridgeIntegrationResponse
      */
     public function createOrUpdateEventBridgeIntegration($request)
     {
@@ -2678,49 +3206,63 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates an IM chatbot.
-     *  *
-     * @param CreateOrUpdateIMRobotRequest $request CreateOrUpdateIMRobotRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates or updates an IM chatbot.
      *
-     * @return CreateOrUpdateIMRobotResponse CreateOrUpdateIMRobotResponse
+     * @param request - CreateOrUpdateIMRobotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrUpdateIMRobotResponse
+     *
+     * @param CreateOrUpdateIMRobotRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateOrUpdateIMRobotResponse
      */
     public function createOrUpdateIMRobotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cardTemplate)) {
-            $body['CardTemplate'] = $request->cardTemplate;
+        if (null !== $request->cardTemplate) {
+            @$body['CardTemplate'] = $request->cardTemplate;
         }
-        if (!Utils::isUnset($request->dailyNoc)) {
-            $body['DailyNoc'] = $request->dailyNoc;
+
+        if (null !== $request->dailyNoc) {
+            @$body['DailyNoc'] = $request->dailyNoc;
         }
-        if (!Utils::isUnset($request->dailyNocTime)) {
-            $body['DailyNocTime'] = $request->dailyNocTime;
+
+        if (null !== $request->dailyNocTime) {
+            @$body['DailyNocTime'] = $request->dailyNocTime;
         }
-        if (!Utils::isUnset($request->dingSignKey)) {
-            $body['DingSignKey'] = $request->dingSignKey;
+
+        if (null !== $request->dingSignKey) {
+            @$body['DingSignKey'] = $request->dingSignKey;
         }
-        if (!Utils::isUnset($request->enableOutgoing)) {
-            $body['EnableOutgoing'] = $request->enableOutgoing;
+
+        if (null !== $request->enableOutgoing) {
+            @$body['EnableOutgoing'] = $request->enableOutgoing;
         }
-        if (!Utils::isUnset($request->robotAddress)) {
-            $body['RobotAddress'] = $request->robotAddress;
+
+        if (null !== $request->robotAddress) {
+            @$body['RobotAddress'] = $request->robotAddress;
         }
-        if (!Utils::isUnset($request->robotId)) {
-            $body['RobotId'] = $request->robotId;
+
+        if (null !== $request->robotId) {
+            @$body['RobotId'] = $request->robotId;
         }
-        if (!Utils::isUnset($request->robotName)) {
-            $body['RobotName'] = $request->robotName;
+
+        if (null !== $request->robotName) {
+            @$body['RobotName'] = $request->robotName;
         }
-        if (!Utils::isUnset($request->token)) {
-            $body['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$body['Token'] = $request->token;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateIMRobot',
@@ -2733,16 +3275,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrUpdateIMRobotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrUpdateIMRobotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrUpdateIMRobotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or updates an IM chatbot.
-     *  *
-     * @param CreateOrUpdateIMRobotRequest $request CreateOrUpdateIMRobotRequest
+     * Creates or updates an IM chatbot.
      *
-     * @return CreateOrUpdateIMRobotResponse CreateOrUpdateIMRobotResponse
+     * @param request - CreateOrUpdateIMRobotRequest
+     * @returns CreateOrUpdateIMRobotResponse
+     *
+     * @param CreateOrUpdateIMRobotRequest $request
+     *
+     * @return CreateOrUpdateIMRobotResponse
      */
     public function createOrUpdateIMRobot($request)
     {
@@ -2752,61 +3300,79 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies a notification policy.
-     *  *
-     * @param CreateOrUpdateNotificationPolicyRequest $request CreateOrUpdateNotificationPolicyRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies a notification policy.
      *
-     * @return CreateOrUpdateNotificationPolicyResponse CreateOrUpdateNotificationPolicyResponse
+     * @param request - CreateOrUpdateNotificationPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrUpdateNotificationPolicyResponse
+     *
+     * @param CreateOrUpdateNotificationPolicyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateOrUpdateNotificationPolicyResponse
      */
     public function createOrUpdateNotificationPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->directedMode)) {
-            $body['DirectedMode'] = $request->directedMode;
+        if (null !== $request->directedMode) {
+            @$body['DirectedMode'] = $request->directedMode;
         }
-        if (!Utils::isUnset($request->escalationPolicyId)) {
-            $body['EscalationPolicyId'] = $request->escalationPolicyId;
+
+        if (null !== $request->escalationPolicyId) {
+            @$body['EscalationPolicyId'] = $request->escalationPolicyId;
         }
-        if (!Utils::isUnset($request->groupRule)) {
-            $body['GroupRule'] = $request->groupRule;
+
+        if (null !== $request->groupRule) {
+            @$body['GroupRule'] = $request->groupRule;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->integrationId)) {
-            $body['IntegrationId'] = $request->integrationId;
+
+        if (null !== $request->integrationId) {
+            @$body['IntegrationId'] = $request->integrationId;
         }
-        if (!Utils::isUnset($request->matchingRules)) {
-            $body['MatchingRules'] = $request->matchingRules;
+
+        if (null !== $request->matchingRules) {
+            @$body['MatchingRules'] = $request->matchingRules;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->notifyRule)) {
-            $body['NotifyRule'] = $request->notifyRule;
+
+        if (null !== $request->notifyRule) {
+            @$body['NotifyRule'] = $request->notifyRule;
         }
-        if (!Utils::isUnset($request->notifyTemplate)) {
-            $body['NotifyTemplate'] = $request->notifyTemplate;
+
+        if (null !== $request->notifyTemplate) {
+            @$body['NotifyTemplate'] = $request->notifyTemplate;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->repeat)) {
-            $body['Repeat'] = $request->repeat;
+
+        if (null !== $request->repeat) {
+            @$body['Repeat'] = $request->repeat;
         }
-        if (!Utils::isUnset($request->repeatInterval)) {
-            $body['RepeatInterval'] = $request->repeatInterval;
+
+        if (null !== $request->repeatInterval) {
+            @$body['RepeatInterval'] = $request->repeatInterval;
         }
-        if (!Utils::isUnset($request->sendRecoverMessage)) {
-            $body['SendRecoverMessage'] = $request->sendRecoverMessage;
+
+        if (null !== $request->sendRecoverMessage) {
+            @$body['SendRecoverMessage'] = $request->sendRecoverMessage;
         }
-        if (!Utils::isUnset($request->state)) {
-            $body['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$body['State'] = $request->state;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateNotificationPolicy',
@@ -2819,16 +3385,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrUpdateNotificationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrUpdateNotificationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrUpdateNotificationPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies a notification policy.
-     *  *
-     * @param CreateOrUpdateNotificationPolicyRequest $request CreateOrUpdateNotificationPolicyRequest
+     * Creates or modifies a notification policy.
      *
-     * @return CreateOrUpdateNotificationPolicyResponse CreateOrUpdateNotificationPolicyResponse
+     * @param request - CreateOrUpdateNotificationPolicyRequest
+     * @returns CreateOrUpdateNotificationPolicyResponse
+     *
+     * @param CreateOrUpdateNotificationPolicyRequest $request
+     *
+     * @return CreateOrUpdateNotificationPolicyResponse
      */
     public function createOrUpdateNotificationPolicy($request)
     {
@@ -2838,45 +3410,57 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies a silence policy.
-     *  *
-     * @param CreateOrUpdateSilencePolicyRequest $request CreateOrUpdateSilencePolicyRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies a silence policy.
      *
-     * @return CreateOrUpdateSilencePolicyResponse CreateOrUpdateSilencePolicyResponse
+     * @param request - CreateOrUpdateSilencePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrUpdateSilencePolicyResponse
+     *
+     * @param CreateOrUpdateSilencePolicyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateOrUpdateSilencePolicyResponse
      */
     public function createOrUpdateSilencePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->effectiveTimeType)) {
-            $query['EffectiveTimeType'] = $request->effectiveTimeType;
+        if (null !== $request->effectiveTimeType) {
+            @$query['EffectiveTimeType'] = $request->effectiveTimeType;
         }
-        if (!Utils::isUnset($request->timePeriod)) {
-            $query['TimePeriod'] = $request->timePeriod;
+
+        if (null !== $request->timePeriod) {
+            @$query['TimePeriod'] = $request->timePeriod;
         }
-        if (!Utils::isUnset($request->timeSlots)) {
-            $query['TimeSlots'] = $request->timeSlots;
+
+        if (null !== $request->timeSlots) {
+            @$query['TimeSlots'] = $request->timeSlots;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->matchingRules)) {
-            $body['MatchingRules'] = $request->matchingRules;
+
+        if (null !== $request->matchingRules) {
+            @$body['MatchingRules'] = $request->matchingRules;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->state)) {
-            $body['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$body['State'] = $request->state;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateSilencePolicy',
@@ -2889,16 +3473,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrUpdateSilencePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrUpdateSilencePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrUpdateSilencePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies a silence policy.
-     *  *
-     * @param CreateOrUpdateSilencePolicyRequest $request CreateOrUpdateSilencePolicyRequest
+     * Creates or modifies a silence policy.
      *
-     * @return CreateOrUpdateSilencePolicyResponse CreateOrUpdateSilencePolicyResponse
+     * @param request - CreateOrUpdateSilencePolicyRequest
+     * @returns CreateOrUpdateSilencePolicyResponse
+     *
+     * @param CreateOrUpdateSilencePolicyRequest $request
+     *
+     * @return CreateOrUpdateSilencePolicyResponse
      */
     public function createOrUpdateSilencePolicy($request)
     {
@@ -2908,43 +3498,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies a webhook alert contact.
-     *  *
-     * @param CreateOrUpdateWebhookContactRequest $request CreateOrUpdateWebhookContactRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies a webhook alert contact.
      *
-     * @return CreateOrUpdateWebhookContactResponse CreateOrUpdateWebhookContactResponse
+     * @param request - CreateOrUpdateWebhookContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrUpdateWebhookContactResponse
+     *
+     * @param CreateOrUpdateWebhookContactRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateOrUpdateWebhookContactResponse
      */
     public function createOrUpdateWebhookContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bizHeaders)) {
-            $body['BizHeaders'] = $request->bizHeaders;
+        if (null !== $request->bizHeaders) {
+            @$body['BizHeaders'] = $request->bizHeaders;
         }
-        if (!Utils::isUnset($request->bizParams)) {
-            $body['BizParams'] = $request->bizParams;
+
+        if (null !== $request->bizParams) {
+            @$body['BizParams'] = $request->bizParams;
         }
-        if (!Utils::isUnset($request->body)) {
-            $body['Body'] = $request->body;
+
+        if (null !== $request->body) {
+            @$body['Body'] = $request->body;
         }
-        if (!Utils::isUnset($request->method)) {
-            $body['Method'] = $request->method;
+
+        if (null !== $request->method) {
+            @$body['Method'] = $request->method;
         }
-        if (!Utils::isUnset($request->recoverBody)) {
-            $body['RecoverBody'] = $request->recoverBody;
+
+        if (null !== $request->recoverBody) {
+            @$body['RecoverBody'] = $request->recoverBody;
         }
-        if (!Utils::isUnset($request->url)) {
-            $body['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$body['Url'] = $request->url;
         }
-        if (!Utils::isUnset($request->webhookId)) {
-            $body['WebhookId'] = $request->webhookId;
+
+        if (null !== $request->webhookId) {
+            @$body['WebhookId'] = $request->webhookId;
         }
-        if (!Utils::isUnset($request->webhookName)) {
-            $body['WebhookName'] = $request->webhookName;
+
+        if (null !== $request->webhookName) {
+            @$body['WebhookName'] = $request->webhookName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateWebhookContact',
@@ -2957,16 +3559,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrUpdateWebhookContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrUpdateWebhookContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrUpdateWebhookContactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies a webhook alert contact.
-     *  *
-     * @param CreateOrUpdateWebhookContactRequest $request CreateOrUpdateWebhookContactRequest
+     * Creates or modifies a webhook alert contact.
      *
-     * @return CreateOrUpdateWebhookContactResponse CreateOrUpdateWebhookContactResponse
+     * @param request - CreateOrUpdateWebhookContactRequest
+     * @returns CreateOrUpdateWebhookContactResponse
+     *
+     * @param CreateOrUpdateWebhookContactRequest $request
+     *
+     * @return CreateOrUpdateWebhookContactResponse
      */
     public function createOrUpdateWebhookContact($request)
     {
@@ -2976,55 +3584,71 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates an alert rule.
-     *  *
-     * @param CreatePrometheusAlertRuleRequest $request CreatePrometheusAlertRuleRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Creates an alert rule.
      *
-     * @return CreatePrometheusAlertRuleResponse CreatePrometheusAlertRuleResponse
+     * @param request - CreatePrometheusAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePrometheusAlertRuleResponse
+     *
+     * @param CreatePrometheusAlertRuleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreatePrometheusAlertRuleResponse
      */
     public function createPrometheusAlertRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertName)) {
-            $query['AlertName'] = $request->alertName;
+        if (null !== $request->alertName) {
+            @$query['AlertName'] = $request->alertName;
         }
-        if (!Utils::isUnset($request->annotations)) {
-            $query['Annotations'] = $request->annotations;
+
+        if (null !== $request->annotations) {
+            @$query['Annotations'] = $request->annotations;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dispatchRuleId)) {
-            $query['DispatchRuleId'] = $request->dispatchRuleId;
+
+        if (null !== $request->dispatchRuleId) {
+            @$query['DispatchRuleId'] = $request->dispatchRuleId;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['Expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['Expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $query['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
-        if (!Utils::isUnset($request->notifyType)) {
-            $query['NotifyType'] = $request->notifyType;
+
+        if (null !== $request->notifyType) {
+            @$query['NotifyType'] = $request->notifyType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePrometheusAlertRule',
@@ -3037,16 +3661,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePrometheusAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePrometheusAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePrometheusAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an alert rule.
-     *  *
-     * @param CreatePrometheusAlertRuleRequest $request CreatePrometheusAlertRuleRequest
+     * Creates an alert rule.
      *
-     * @return CreatePrometheusAlertRuleResponse CreatePrometheusAlertRuleResponse
+     * @param request - CreatePrometheusAlertRuleRequest
+     * @returns CreatePrometheusAlertRuleResponse
+     *
+     * @param CreatePrometheusAlertRuleRequest $request
+     *
+     * @return CreatePrometheusAlertRuleResponse
      */
     public function createPrometheusAlertRule($request)
     {
@@ -3056,64 +3686,83 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Prometheus instance.
-     *  *
-     * @param CreatePrometheusInstanceRequest $request CreatePrometheusInstanceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates a Prometheus instance.
      *
-     * @return CreatePrometheusInstanceResponse CreatePrometheusInstanceResponse
+     * @param request - CreatePrometheusInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePrometheusInstanceResponse
+     *
+     * @param CreatePrometheusInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreatePrometheusInstanceResponse
      */
     public function createPrometheusInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allSubClustersSuccess)) {
-            $query['AllSubClustersSuccess'] = $request->allSubClustersSuccess;
+        if (null !== $request->allSubClustersSuccess) {
+            @$query['AllSubClustersSuccess'] = $request->allSubClustersSuccess;
         }
-        if (!Utils::isUnset($request->archiveDuration)) {
-            $query['ArchiveDuration'] = $request->archiveDuration;
+
+        if (null !== $request->archiveDuration) {
+            @$query['ArchiveDuration'] = $request->archiveDuration;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
+
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->grafanaInstanceId)) {
-            $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
+
+        if (null !== $request->grafanaInstanceId) {
+            @$query['GrafanaInstanceId'] = $request->grafanaInstanceId;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['PaymentType'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->subClustersJson)) {
-            $query['SubClustersJson'] = $request->subClustersJson;
+
+        if (null !== $request->subClustersJson) {
+            @$query['SubClustersJson'] = $request->subClustersJson;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePrometheusInstance',
@@ -3126,16 +3775,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePrometheusInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Prometheus instance.
-     *  *
-     * @param CreatePrometheusInstanceRequest $request CreatePrometheusInstanceRequest
+     * Creates a Prometheus instance.
      *
-     * @return CreatePrometheusInstanceResponse CreatePrometheusInstanceResponse
+     * @param request - CreatePrometheusInstanceRequest
+     * @returns CreatePrometheusInstanceResponse
+     *
+     * @param CreatePrometheusInstanceRequest $request
+     *
+     * @return CreatePrometheusInstanceResponse
      */
     public function createPrometheusInstance($request)
     {
@@ -3145,36 +3800,45 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a monitoring configuration for a Prometheus instance.
-     *  *
-     * @param CreatePrometheusMonitoringRequest $request CreatePrometheusMonitoringRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates a monitoring configuration for a Prometheus instance.
      *
-     * @return CreatePrometheusMonitoringResponse CreatePrometheusMonitoringResponse
+     * @param request - CreatePrometheusMonitoringRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePrometheusMonitoringResponse
+     *
+     * @param CreatePrometheusMonitoringRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreatePrometheusMonitoringResponse
      */
     public function createPrometheusMonitoringWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configYaml)) {
-            $body['ConfigYaml'] = $request->configYaml;
+        if (null !== $request->configYaml) {
+            @$body['ConfigYaml'] = $request->configYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreatePrometheusMonitoring',
@@ -3187,16 +3851,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePrometheusMonitoringResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a monitoring configuration for a Prometheus instance.
-     *  *
-     * @param CreatePrometheusMonitoringRequest $request CreatePrometheusMonitoringRequest
+     * Creates a monitoring configuration for a Prometheus instance.
      *
-     * @return CreatePrometheusMonitoringResponse CreatePrometheusMonitoringResponse
+     * @param request - CreatePrometheusMonitoringRequest
+     * @returns CreatePrometheusMonitoringResponse
+     *
+     * @param CreatePrometheusMonitoringRequest $request
+     *
+     * @return CreatePrometheusMonitoringResponse
      */
     public function createPrometheusMonitoring($request)
     {
@@ -3206,34 +3876,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Browser Monitoring task for an application.
-     *  *
-     * @param CreateRetcodeAppRequest $request CreateRetcodeAppRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a Browser Monitoring task for an application.
      *
-     * @return CreateRetcodeAppResponse CreateRetcodeAppResponse
+     * @param request - CreateRetcodeAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRetcodeAppResponse
+     *
+     * @param CreateRetcodeAppRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateRetcodeAppResponse
      */
     public function createRetcodeAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->retcodeAppName)) {
-            $query['RetcodeAppName'] = $request->retcodeAppName;
+
+        if (null !== $request->retcodeAppName) {
+            @$query['RetcodeAppName'] = $request->retcodeAppName;
         }
-        if (!Utils::isUnset($request->retcodeAppType)) {
-            $query['RetcodeAppType'] = $request->retcodeAppType;
+
+        if (null !== $request->retcodeAppType) {
+            @$query['RetcodeAppType'] = $request->retcodeAppType;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRetcodeApp',
@@ -3246,16 +3925,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRetcodeAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRetcodeAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRetcodeAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Browser Monitoring task for an application.
-     *  *
-     * @param CreateRetcodeAppRequest $request CreateRetcodeAppRequest
+     * Creates a Browser Monitoring task for an application.
      *
-     * @return CreateRetcodeAppResponse CreateRetcodeAppResponse
+     * @param request - CreateRetcodeAppRequest
+     * @returns CreateRetcodeAppResponse
+     *
+     * @param CreateRetcodeAppRequest $request
+     *
+     * @return CreateRetcodeAppResponse
      */
     public function createRetcodeApp($request)
     {
@@ -3265,57 +3950,77 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Create a Real User Monitoring (RUM) application.
-     *  *
-     * @param CreateRumAppRequest $tmpReq  CreateRumAppRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Create a Real User Monitoring (RUM) application.
      *
-     * @return CreateRumAppResponse CreateRumAppResponse
+     * @param tmpReq - CreateRumAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRumAppResponse
+     *
+     * @param CreateRumAppRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateRumAppResponse
      */
     public function createRumAppWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateRumAppShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appGroup)) {
-            $query['AppGroup'] = $request->appGroup;
+        if (null !== $request->appGroup) {
+            @$query['AppGroup'] = $request->appGroup;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->nickName)) {
-            $query['NickName'] = $request->nickName;
+
+        if (null !== $request->nickName) {
+            @$query['NickName'] = $request->nickName;
         }
-        if (!Utils::isUnset($request->packageName)) {
-            $query['PackageName'] = $request->packageName;
+
+        if (null !== $request->packageName) {
+            @$query['PackageName'] = $request->packageName;
         }
-        if (!Utils::isUnset($request->realRegionId)) {
-            $query['RealRegionId'] = $request->realRegionId;
+
+        if (null !== $request->realRegionId) {
+            @$query['RealRegionId'] = $request->realRegionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->siteType)) {
-            $query['SiteType'] = $request->siteType;
+
+        if (null !== $request->siteType) {
+            @$query['SiteType'] = $request->siteType;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRumApp',
@@ -3328,16 +4033,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRumAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRumAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRumAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Create a Real User Monitoring (RUM) application.
-     *  *
-     * @param CreateRumAppRequest $request CreateRumAppRequest
+     * Create a Real User Monitoring (RUM) application.
      *
-     * @return CreateRumAppResponse CreateRumAppResponse
+     * @param request - CreateRumAppRequest
+     * @returns CreateRumAppResponse
+     *
+     * @param CreateRumAppRequest $request
+     *
+     * @return CreateRumAppResponse
      */
     public function createRumApp($request)
     {
@@ -3347,45 +4058,58 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
-     *  *
-     * @description This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
-     *  *
-     * @param CreateRumUploadFileUrlRequest $request CreateRumUploadFileUrlRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
      *
-     * @return CreateRumUploadFileUrlResponse CreateRumUploadFileUrlResponse
+     * @remarks
+     * This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
+     *
+     * @param request - CreateRumUploadFileUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRumUploadFileUrlResponse
+     *
+     * @param CreateRumUploadFileUrlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateRumUploadFileUrlResponse
      */
     public function createRumUploadFileUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $query['ContentType'] = $request->contentType;
+
+        if (null !== $request->contentType) {
+            @$query['ContentType'] = $request->contentType;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sourcemapType)) {
-            $query['SourcemapType'] = $request->sourcemapType;
+
+        if (null !== $request->sourcemapType) {
+            @$query['SourcemapType'] = $request->sourcemapType;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRumUploadFileUrl',
@@ -3398,18 +4122,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRumUploadFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRumUploadFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRumUploadFileUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
-     *  *
-     * @description This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
-     *  *
-     * @param CreateRumUploadFileUrlRequest $request CreateRumUploadFileUrlRequest
+     * Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
      *
-     * @return CreateRumUploadFileUrlResponse CreateRumUploadFileUrlResponse
+     * @remarks
+     * This operation returns a URL. You can upload files to the URL. For more information, see [Upload local files with signed URLs](https://help.aliyun.com/document_detail/2579659.html).
+     *
+     * @param request - CreateRumUploadFileUrlRequest
+     * @returns CreateRumUploadFileUrlResponse
+     *
+     * @param CreateRumUploadFileUrlRequest $request
+     *
+     * @return CreateRumUploadFileUrlResponse
      */
     public function createRumUploadFileUrl($request)
     {
@@ -3419,87 +4150,113 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates a synthetic monitoring task.
-     *  *
-     * @param CreateSyntheticTaskRequest $tmpReq  CreateSyntheticTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates or updates a synthetic monitoring task.
      *
-     * @return CreateSyntheticTaskResponse CreateSyntheticTaskResponse
+     * @param tmpReq - CreateSyntheticTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSyntheticTaskResponse
+     *
+     * @param CreateSyntheticTaskRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSyntheticTaskResponse
      */
     public function createSyntheticTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateSyntheticTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->commonParam)) {
-            $request->commonParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commonParam, 'CommonParam', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->commonParam) {
+            $request->commonParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commonParam, 'CommonParam', 'json');
         }
-        if (!Utils::isUnset($tmpReq->download)) {
-            $request->downloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->download, 'Download', 'json');
+
+        if (null !== $tmpReq->download) {
+            $request->downloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->download, 'Download', 'json');
         }
-        if (!Utils::isUnset($tmpReq->extendInterval)) {
-            $request->extendIntervalShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extendInterval, 'ExtendInterval', 'json');
+
+        if (null !== $tmpReq->extendInterval) {
+            $request->extendIntervalShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extendInterval, 'ExtendInterval', 'json');
         }
-        if (!Utils::isUnset($tmpReq->monitorList)) {
-            $request->monitorListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitorList, 'MonitorList', 'json');
+
+        if (null !== $tmpReq->monitorList) {
+            $request->monitorListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->monitorList, 'MonitorList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->navigation)) {
-            $request->navigationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->navigation, 'Navigation', 'json');
+
+        if (null !== $tmpReq->navigation) {
+            $request->navigationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->navigation, 'Navigation', 'json');
         }
-        if (!Utils::isUnset($tmpReq->net)) {
-            $request->netShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->net, 'Net', 'json');
+
+        if (null !== $tmpReq->net) {
+            $request->netShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->net, 'Net', 'json');
         }
-        if (!Utils::isUnset($tmpReq->protocol)) {
-            $request->protocolShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->protocol, 'Protocol', 'json');
+
+        if (null !== $tmpReq->protocol) {
+            $request->protocolShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->protocol, 'Protocol', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->commonParamShrink)) {
-            $query['CommonParam'] = $request->commonParamShrink;
+        if (null !== $request->commonParamShrink) {
+            @$query['CommonParam'] = $request->commonParamShrink;
         }
-        if (!Utils::isUnset($request->downloadShrink)) {
-            $query['Download'] = $request->downloadShrink;
+
+        if (null !== $request->downloadShrink) {
+            @$query['Download'] = $request->downloadShrink;
         }
-        if (!Utils::isUnset($request->extendIntervalShrink)) {
-            $query['ExtendInterval'] = $request->extendIntervalShrink;
+
+        if (null !== $request->extendIntervalShrink) {
+            @$query['ExtendInterval'] = $request->extendIntervalShrink;
         }
-        if (!Utils::isUnset($request->intervalTime)) {
-            $query['IntervalTime'] = $request->intervalTime;
+
+        if (null !== $request->intervalTime) {
+            @$query['IntervalTime'] = $request->intervalTime;
         }
-        if (!Utils::isUnset($request->intervalType)) {
-            $query['IntervalType'] = $request->intervalType;
+
+        if (null !== $request->intervalType) {
+            @$query['IntervalType'] = $request->intervalType;
         }
-        if (!Utils::isUnset($request->ipType)) {
-            $query['IpType'] = $request->ipType;
+
+        if (null !== $request->ipType) {
+            @$query['IpType'] = $request->ipType;
         }
-        if (!Utils::isUnset($request->monitorListShrink)) {
-            $query['MonitorList'] = $request->monitorListShrink;
+
+        if (null !== $request->monitorListShrink) {
+            @$query['MonitorList'] = $request->monitorListShrink;
         }
-        if (!Utils::isUnset($request->navigationShrink)) {
-            $query['Navigation'] = $request->navigationShrink;
+
+        if (null !== $request->navigationShrink) {
+            @$query['Navigation'] = $request->navigationShrink;
         }
-        if (!Utils::isUnset($request->netShrink)) {
-            $query['Net'] = $request->netShrink;
+
+        if (null !== $request->netShrink) {
+            @$query['Net'] = $request->netShrink;
         }
-        if (!Utils::isUnset($request->protocolShrink)) {
-            $query['Protocol'] = $request->protocolShrink;
+
+        if (null !== $request->protocolShrink) {
+            @$query['Protocol'] = $request->protocolShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->updateTask)) {
-            $query['UpdateTask'] = $request->updateTask;
+
+        if (null !== $request->updateTask) {
+            @$query['UpdateTask'] = $request->updateTask;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSyntheticTask',
@@ -3512,16 +4269,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSyntheticTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or updates a synthetic monitoring task.
-     *  *
-     * @param CreateSyntheticTaskRequest $request CreateSyntheticTaskRequest
+     * Creates or updates a synthetic monitoring task.
      *
-     * @return CreateSyntheticTaskResponse CreateSyntheticTaskResponse
+     * @param request - CreateSyntheticTaskRequest
+     * @returns CreateSyntheticTaskResponse
+     *
+     * @param CreateSyntheticTaskRequest $request
+     *
+     * @return CreateSyntheticTaskResponse
      */
     public function createSyntheticTask($request)
     {
@@ -3531,75 +4294,97 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scheduled synthetic test task.
-     *  *
-     * @param CreateTimingSyntheticTaskRequest $tmpReq  CreateTimingSyntheticTaskRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Creates a scheduled synthetic test task.
      *
-     * @return CreateTimingSyntheticTaskResponse CreateTimingSyntheticTaskResponse
+     * @param tmpReq - CreateTimingSyntheticTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTimingSyntheticTaskResponse
+     *
+     * @param CreateTimingSyntheticTaskRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateTimingSyntheticTaskResponse
      */
     public function createTimingSyntheticTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateTimingSyntheticTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->availableAssertions)) {
-            $request->availableAssertionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->availableAssertions, 'AvailableAssertions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->availableAssertions) {
+            $request->availableAssertionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->availableAssertions, 'AvailableAssertions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->commonSetting)) {
-            $request->commonSettingShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commonSetting, 'CommonSetting', 'json');
+
+        if (null !== $tmpReq->commonSetting) {
+            $request->commonSettingShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commonSetting, 'CommonSetting', 'json');
         }
-        if (!Utils::isUnset($tmpReq->customPeriod)) {
-            $request->customPeriodShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customPeriod, 'CustomPeriod', 'json');
+
+        if (null !== $tmpReq->customPeriod) {
+            $request->customPeriodShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customPeriod, 'CustomPeriod', 'json');
         }
-        if (!Utils::isUnset($tmpReq->monitorConf)) {
-            $request->monitorConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitorConf, 'MonitorConf', 'json');
+
+        if (null !== $tmpReq->monitorConf) {
+            $request->monitorConfShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->monitorConf, 'MonitorConf', 'json');
         }
-        if (!Utils::isUnset($tmpReq->monitors)) {
-            $request->monitorsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitors, 'Monitors', 'json');
+
+        if (null !== $tmpReq->monitors) {
+            $request->monitorsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->monitors, 'Monitors', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->availableAssertionsShrink)) {
-            $query['AvailableAssertions'] = $request->availableAssertionsShrink;
+        if (null !== $request->availableAssertionsShrink) {
+            @$query['AvailableAssertions'] = $request->availableAssertionsShrink;
         }
-        if (!Utils::isUnset($request->commonSettingShrink)) {
-            $query['CommonSetting'] = $request->commonSettingShrink;
+
+        if (null !== $request->commonSettingShrink) {
+            @$query['CommonSetting'] = $request->commonSettingShrink;
         }
-        if (!Utils::isUnset($request->customPeriodShrink)) {
-            $query['CustomPeriod'] = $request->customPeriodShrink;
+
+        if (null !== $request->customPeriodShrink) {
+            @$query['CustomPeriod'] = $request->customPeriodShrink;
         }
-        if (!Utils::isUnset($request->frequency)) {
-            $query['Frequency'] = $request->frequency;
+
+        if (null !== $request->frequency) {
+            @$query['Frequency'] = $request->frequency;
         }
-        if (!Utils::isUnset($request->monitorCategory)) {
-            $query['MonitorCategory'] = $request->monitorCategory;
+
+        if (null !== $request->monitorCategory) {
+            @$query['MonitorCategory'] = $request->monitorCategory;
         }
-        if (!Utils::isUnset($request->monitorConfShrink)) {
-            $query['MonitorConf'] = $request->monitorConfShrink;
+
+        if (null !== $request->monitorConfShrink) {
+            @$query['MonitorConf'] = $request->monitorConfShrink;
         }
-        if (!Utils::isUnset($request->monitorsShrink)) {
-            $query['Monitors'] = $request->monitorsShrink;
+
+        if (null !== $request->monitorsShrink) {
+            @$query['Monitors'] = $request->monitorsShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateTimingSyntheticTask',
@@ -3612,16 +4397,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTimingSyntheticTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a scheduled synthetic test task.
-     *  *
-     * @param CreateTimingSyntheticTaskRequest $request CreateTimingSyntheticTaskRequest
+     * Creates a scheduled synthetic test task.
      *
-     * @return CreateTimingSyntheticTaskResponse CreateTimingSyntheticTaskResponse
+     * @param request - CreateTimingSyntheticTaskRequest
+     * @returns CreateTimingSyntheticTaskResponse
+     *
+     * @param CreateTimingSyntheticTaskRequest $request
+     *
+     * @return CreateTimingSyntheticTaskResponse
      */
     public function createTimingSyntheticTask($request)
     {
@@ -3631,43 +4422,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Adds a contact for webhook alerts.
-     *  *
-     * @param CreateWebhookRequest $request CreateWebhookRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Adds a contact for webhook alerts.
      *
-     * @return CreateWebhookResponse CreateWebhookResponse
+     * @param request - CreateWebhookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWebhookResponse
+     *
+     * @param CreateWebhookRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateWebhookResponse
      */
     public function createWebhookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->body)) {
-            $query['Body'] = $request->body;
+        if (null !== $request->body) {
+            @$query['Body'] = $request->body;
         }
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->httpHeaders)) {
-            $query['HttpHeaders'] = $request->httpHeaders;
+
+        if (null !== $request->httpHeaders) {
+            @$query['HttpHeaders'] = $request->httpHeaders;
         }
-        if (!Utils::isUnset($request->httpParams)) {
-            $query['HttpParams'] = $request->httpParams;
+
+        if (null !== $request->httpParams) {
+            @$query['HttpParams'] = $request->httpParams;
         }
-        if (!Utils::isUnset($request->method)) {
-            $query['Method'] = $request->method;
+
+        if (null !== $request->method) {
+            @$query['Method'] = $request->method;
         }
-        if (!Utils::isUnset($request->recoverBody)) {
-            $query['RecoverBody'] = $request->recoverBody;
+
+        if (null !== $request->recoverBody) {
+            @$query['RecoverBody'] = $request->recoverBody;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateWebhook',
@@ -3680,16 +4483,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWebhookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a contact for webhook alerts.
-     *  *
-     * @param CreateWebhookRequest $request CreateWebhookRequest
+     * Adds a contact for webhook alerts.
      *
-     * @return CreateWebhookResponse CreateWebhookResponse
+     * @param request - CreateWebhookRequest
+     * @returns CreateWebhookResponse
+     *
+     * @param CreateWebhookRequest $request
+     *
+     * @return CreateWebhookResponse
      */
     public function createWebhook($request)
     {
@@ -3699,25 +4508,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Disables an authentication token.
-     *  *
-     * @param DelAuthTokenRequest $request DelAuthTokenRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Disables an authentication token.
      *
-     * @return DelAuthTokenResponse DelAuthTokenResponse
+     * @param request - DelAuthTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DelAuthTokenResponse
+     *
+     * @param DelAuthTokenRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DelAuthTokenResponse
      */
     public function delAuthTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DelAuthToken',
@@ -3730,16 +4545,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DelAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DelAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DelAuthTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables an authentication token.
-     *  *
-     * @param DelAuthTokenRequest $request DelAuthTokenRequest
+     * Disables an authentication token.
      *
-     * @return DelAuthTokenResponse DelAuthTokenResponse
+     * @param request - DelAuthTokenRequest
+     * @returns DelAuthTokenResponse
+     *
+     * @param DelAuthTokenRequest $request
+     *
+     * @return DelAuthTokenResponse
      */
     public function delAuthToken($request)
     {
@@ -3749,34 +4570,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Delete AddonRelease data by AddonRelease name.
-     *  *
-     * @param DeleteAddonReleaseRequest $request DeleteAddonReleaseRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Delete AddonRelease data by AddonRelease name.
      *
-     * @return DeleteAddonReleaseResponse DeleteAddonReleaseResponse
+     * @param request - DeleteAddonReleaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAddonReleaseResponse
+     *
+     * @param DeleteAddonReleaseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAddonReleaseResponse
      */
     public function deleteAddonReleaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonName)) {
-            $query['AddonName'] = $request->addonName;
+        if (null !== $request->addonName) {
+            @$query['AddonName'] = $request->addonName;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->releaseName)) {
-            $query['ReleaseName'] = $request->releaseName;
+
+        if (null !== $request->releaseName) {
+            @$query['ReleaseName'] = $request->releaseName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAddonRelease',
@@ -3789,16 +4619,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAddonReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAddonReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAddonReleaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Delete AddonRelease data by AddonRelease name.
-     *  *
-     * @param DeleteAddonReleaseRequest $request DeleteAddonReleaseRequest
+     * Delete AddonRelease data by AddonRelease name.
      *
-     * @return DeleteAddonReleaseResponse DeleteAddonReleaseResponse
+     * @param request - DeleteAddonReleaseRequest
+     * @returns DeleteAddonReleaseResponse
+     *
+     * @param DeleteAddonReleaseRequest $request
+     *
+     * @return DeleteAddonReleaseResponse
      */
     public function deleteAddonRelease($request)
     {
@@ -3808,27 +4644,33 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an DeleteAlertContact contact.
-     *  *
-     * @description ********
-     *  *
-     * @param DeleteAlertContactRequest $request DeleteAlertContactRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes an DeleteAlertContact contact.
      *
-     * @return DeleteAlertContactResponse DeleteAlertContactResponse
+     * @remarks
+     *
+     * @param request - DeleteAlertContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAlertContactResponse
+     *
+     * @param DeleteAlertContactRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAlertContactResponse
      */
     public function deleteAlertContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactId)) {
-            $query['ContactId'] = $request->contactId;
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAlertContact',
@@ -3841,18 +4683,24 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAlertContactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an DeleteAlertContact contact.
-     *  *
-     * @description ********
-     *  *
-     * @param DeleteAlertContactRequest $request DeleteAlertContactRequest
+     * Deletes an DeleteAlertContact contact.
      *
-     * @return DeleteAlertContactResponse DeleteAlertContactResponse
+     * @remarks
+     *
+     * @param request - DeleteAlertContactRequest
+     * @returns DeleteAlertContactResponse
+     *
+     * @param DeleteAlertContactRequest $request
+     *
+     * @return DeleteAlertContactResponse
      */
     public function deleteAlertContact($request)
     {
@@ -3862,25 +4710,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an DeleteAlertContactGroup contact group.
-     *  *
-     * @param DeleteAlertContactGroupRequest $request DeleteAlertContactGroupRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes an DeleteAlertContactGroup contact group.
      *
-     * @return DeleteAlertContactGroupResponse DeleteAlertContactGroupResponse
+     * @param request - DeleteAlertContactGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAlertContactGroupResponse
+     *
+     * @param DeleteAlertContactGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAlertContactGroupResponse
      */
     public function deleteAlertContactGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupId)) {
-            $query['ContactGroupId'] = $request->contactGroupId;
+        if (null !== $request->contactGroupId) {
+            @$query['ContactGroupId'] = $request->contactGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAlertContactGroup',
@@ -3893,16 +4747,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAlertContactGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an DeleteAlertContactGroup contact group.
-     *  *
-     * @param DeleteAlertContactGroupRequest $request DeleteAlertContactGroupRequest
+     * Deletes an DeleteAlertContactGroup contact group.
      *
-     * @return DeleteAlertContactGroupResponse DeleteAlertContactGroupResponse
+     * @param request - DeleteAlertContactGroupRequest
+     * @returns DeleteAlertContactGroupResponse
+     *
+     * @param DeleteAlertContactGroupRequest $request
+     *
+     * @return DeleteAlertContactGroupResponse
      */
     public function deleteAlertContactGroup($request)
     {
@@ -3912,22 +4772,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an alert rule.
-     *  *
-     * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes an alert rule.
      *
-     * @return DeleteAlertRuleResponse DeleteAlertRuleResponse
+     * @param request - DeleteAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAlertRuleResponse
+     *
+     * @param DeleteAlertRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAlertRuleResponse
      */
     public function deleteAlertRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertId)) {
-            $query['AlertId'] = $request->alertId;
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAlertRule',
@@ -3940,16 +4805,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert rule.
-     *  *
-     * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
+     * Deletes an alert rule.
      *
-     * @return DeleteAlertRuleResponse DeleteAlertRuleResponse
+     * @param request - DeleteAlertRuleRequest
+     * @returns DeleteAlertRuleResponse
+     *
+     * @param DeleteAlertRuleRequest $request
+     *
+     * @return DeleteAlertRuleResponse
      */
     public function deleteAlertRule($request)
     {
@@ -3959,27 +4830,34 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes alert rules.
-     *  *
-     * @description The current operation is no longer maintained. Call the DeleteAlertRule operation of Alert Management (New) to delete alert rules.
-     *  *
-     * @param DeleteAlertRulesRequest $request DeleteAlertRulesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes alert rules.
      *
-     * @return DeleteAlertRulesResponse DeleteAlertRulesResponse
+     * @remarks
+     * The current operation is no longer maintained. Call the DeleteAlertRule operation of Alert Management (New) to delete alert rules.
+     *
+     * @param request - DeleteAlertRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAlertRulesResponse
+     *
+     * @param DeleteAlertRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteAlertRulesResponse
      */
     public function deleteAlertRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertIds)) {
-            $query['AlertIds'] = $request->alertIds;
+        if (null !== $request->alertIds) {
+            @$query['AlertIds'] = $request->alertIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAlertRules',
@@ -3992,18 +4870,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAlertRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes alert rules.
-     *  *
-     * @description The current operation is no longer maintained. Call the DeleteAlertRule operation of Alert Management (New) to delete alert rules.
-     *  *
-     * @param DeleteAlertRulesRequest $request DeleteAlertRulesRequest
+     * Deletes alert rules.
      *
-     * @return DeleteAlertRulesResponse DeleteAlertRulesResponse
+     * @remarks
+     * The current operation is no longer maintained. Call the DeleteAlertRule operation of Alert Management (New) to delete alert rules.
+     *
+     * @param request - DeleteAlertRulesRequest
+     * @returns DeleteAlertRulesResponse
+     *
+     * @param DeleteAlertRulesRequest $request
+     *
+     * @return DeleteAlertRulesResponse
      */
     public function deleteAlertRules($request)
     {
@@ -4013,25 +4898,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes multiple applications at a time based on the process IDs (PIDs).
-     *  *
-     * @param DeleteAppListRequest $request DeleteAppListRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes multiple applications at a time based on the process IDs (PIDs).
      *
-     * @return DeleteAppListResponse DeleteAppListResponse
+     * @param request - DeleteAppListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAppListResponse
+     *
+     * @param DeleteAppListRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAppListResponse
      */
     public function deleteAppListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pids)) {
-            $query['Pids'] = $request->pids;
+        if (null !== $request->pids) {
+            @$query['Pids'] = $request->pids;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAppList',
@@ -4044,16 +4935,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAppListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAppListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAppListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes multiple applications at a time based on the process IDs (PIDs).
-     *  *
-     * @param DeleteAppListRequest $request DeleteAppListRequest
+     * Deletes multiple applications at a time based on the process IDs (PIDs).
      *
-     * @return DeleteAppListResponse DeleteAppListResponse
+     * @param request - DeleteAppListRequest
+     * @returns DeleteAppListResponse
+     *
+     * @param DeleteAppListRequest $request
+     *
+     * @return DeleteAppListResponse
      */
     public function deleteAppList($request)
     {
@@ -4062,30 +4959,36 @@ class ARMS extends OpenApiClient
         return $this->deleteAppListWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Releases a Prometheus instance for Alibaba Cloud services.
+     *
      * @deprecated openAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
-     *  *
-     * @summary Releases a Prometheus instance for Alibaba Cloud services.
-     *  *
-     * Deprecated
      *
-     * @param DeleteCmsExporterRequest $request DeleteCmsExporterRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteCmsExporterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCmsExporterResponse
      *
-     * @return DeleteCmsExporterResponse DeleteCmsExporterResponse
+     * @param DeleteCmsExporterRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteCmsExporterResponse
      */
     public function deleteCmsExporterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCmsExporter',
@@ -4098,20 +5001,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCmsExporterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCmsExporterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCmsExporterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Releases a Prometheus instance for Alibaba Cloud services.
+     *
      * @deprecated openAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
-     *  *
-     * @summary Releases a Prometheus instance for Alibaba Cloud services.
-     *  *
-     * Deprecated
      *
-     * @param DeleteCmsExporterRequest $request DeleteCmsExporterRequest
+     * @param request - DeleteCmsExporterRequest
+     * @returns DeleteCmsExporterResponse
      *
-     * @return DeleteCmsExporterResponse DeleteCmsExporterResponse
+     * @param DeleteCmsExporterRequest $request
+     *
+     * @return DeleteCmsExporterResponse
      */
     public function deleteCmsExporter($request)
     {
@@ -4121,22 +5030,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes alert contacts.
-     *  *
-     * @param DeleteContactRequest $request DeleteContactRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes alert contacts.
      *
-     * @return DeleteContactResponse DeleteContactResponse
+     * @param request - DeleteContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteContactResponse
+     *
+     * @param DeleteContactRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteContactResponse
      */
     public function deleteContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactId)) {
-            $query['ContactId'] = $request->contactId;
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteContact',
@@ -4149,16 +5063,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteContactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes alert contacts.
-     *  *
-     * @param DeleteContactRequest $request DeleteContactRequest
+     * Deletes alert contacts.
      *
-     * @return DeleteContactResponse DeleteContactResponse
+     * @param request - DeleteContactRequest
+     * @returns DeleteContactResponse
+     *
+     * @param DeleteContactRequest $request
+     *
+     * @return DeleteContactResponse
      */
     public function deleteContact($request)
     {
@@ -4168,22 +5088,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an alert contact group.
-     *  *
-     * @param DeleteContactGroupRequest $request DeleteContactGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes an alert contact group.
      *
-     * @return DeleteContactGroupResponse DeleteContactGroupResponse
+     * @param request - DeleteContactGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteContactGroupResponse
+     *
+     * @param DeleteContactGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteContactGroupResponse
      */
     public function deleteContactGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupId)) {
-            $query['ContactGroupId'] = $request->contactGroupId;
+        if (null !== $request->contactGroupId) {
+            @$query['ContactGroupId'] = $request->contactGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteContactGroup',
@@ -4196,16 +5121,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteContactGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert contact group.
-     *  *
-     * @param DeleteContactGroupRequest $request DeleteContactGroupRequest
+     * Deletes an alert contact group.
      *
-     * @return DeleteContactGroupResponse DeleteContactGroupResponse
+     * @param request - DeleteContactGroupRequest
+     * @returns DeleteContactGroupResponse
+     *
+     * @param DeleteContactGroupRequest $request
+     *
+     * @return DeleteContactGroupResponse
      */
     public function deleteContactGroup($request)
     {
@@ -4215,25 +5146,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the dispatch policy of a specified ID.
-     *  *
-     * @param DeleteDispatchRuleRequest $request DeleteDispatchRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes the dispatch policy of a specified ID.
      *
-     * @return DeleteDispatchRuleResponse DeleteDispatchRuleResponse
+     * @param request - DeleteDispatchRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDispatchRuleResponse
+     *
+     * @param DeleteDispatchRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDispatchRuleResponse
      */
     public function deleteDispatchRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDispatchRule',
@@ -4246,16 +5183,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDispatchRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the dispatch policy of a specified ID.
-     *  *
-     * @param DeleteDispatchRuleRequest $request DeleteDispatchRuleRequest
+     * Deletes the dispatch policy of a specified ID.
      *
-     * @return DeleteDispatchRuleResponse DeleteDispatchRuleResponse
+     * @param request - DeleteDispatchRuleRequest
+     * @returns DeleteDispatchRuleResponse
+     *
+     * @param DeleteDispatchRuleRequest $request
+     *
+     * @return DeleteDispatchRuleResponse
      */
     public function deleteDispatchRule($request)
     {
@@ -4265,28 +5208,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom job for an environment.
-     *  *
-     * @param DeleteEnvCustomJobRequest $request DeleteEnvCustomJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom job for an environment.
      *
-     * @return DeleteEnvCustomJobResponse DeleteEnvCustomJobResponse
+     * @param request - DeleteEnvCustomJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEnvCustomJobResponse
+     *
+     * @param DeleteEnvCustomJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteEnvCustomJobResponse
      */
     public function deleteEnvCustomJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customJobName)) {
-            $query['CustomJobName'] = $request->customJobName;
+        if (null !== $request->customJobName) {
+            @$query['CustomJobName'] = $request->customJobName;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEnvCustomJob',
@@ -4299,16 +5249,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEnvCustomJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom job for an environment.
-     *  *
-     * @param DeleteEnvCustomJobRequest $request DeleteEnvCustomJobRequest
+     * Deletes a custom job for an environment.
      *
-     * @return DeleteEnvCustomJobResponse DeleteEnvCustomJobResponse
+     * @param request - DeleteEnvCustomJobRequest
+     * @returns DeleteEnvCustomJobResponse
+     *
+     * @param DeleteEnvCustomJobRequest $request
+     *
+     * @return DeleteEnvCustomJobResponse
      */
     public function deleteEnvCustomJob($request)
     {
@@ -4318,31 +5274,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the PodMonitor of an environment.
-     *  *
-     * @param DeleteEnvPodMonitorRequest $request DeleteEnvPodMonitorRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes the PodMonitor of an environment.
      *
-     * @return DeleteEnvPodMonitorResponse DeleteEnvPodMonitorResponse
+     * @param request - DeleteEnvPodMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEnvPodMonitorResponse
+     *
+     * @param DeleteEnvPodMonitorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteEnvPodMonitorResponse
      */
     public function deleteEnvPodMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->podMonitorName)) {
-            $query['PodMonitorName'] = $request->podMonitorName;
+
+        if (null !== $request->podMonitorName) {
+            @$query['PodMonitorName'] = $request->podMonitorName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEnvPodMonitor',
@@ -4355,16 +5319,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEnvPodMonitorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the PodMonitor of an environment.
-     *  *
-     * @param DeleteEnvPodMonitorRequest $request DeleteEnvPodMonitorRequest
+     * Deletes the PodMonitor of an environment.
      *
-     * @return DeleteEnvPodMonitorResponse DeleteEnvPodMonitorResponse
+     * @param request - DeleteEnvPodMonitorRequest
+     * @returns DeleteEnvPodMonitorResponse
+     *
+     * @param DeleteEnvPodMonitorRequest $request
+     *
+     * @return DeleteEnvPodMonitorResponse
      */
     public function deleteEnvPodMonitor($request)
     {
@@ -4374,31 +5344,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the ServiceMonitor of an environment.
-     *  *
-     * @param DeleteEnvServiceMonitorRequest $request DeleteEnvServiceMonitorRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes the ServiceMonitor of an environment.
      *
-     * @return DeleteEnvServiceMonitorResponse DeleteEnvServiceMonitorResponse
+     * @param request - DeleteEnvServiceMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEnvServiceMonitorResponse
+     *
+     * @param DeleteEnvServiceMonitorRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteEnvServiceMonitorResponse
      */
     public function deleteEnvServiceMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceMonitorName)) {
-            $query['ServiceMonitorName'] = $request->serviceMonitorName;
+
+        if (null !== $request->serviceMonitorName) {
+            @$query['ServiceMonitorName'] = $request->serviceMonitorName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEnvServiceMonitor',
@@ -4411,16 +5389,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEnvServiceMonitorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the ServiceMonitor of an environment.
-     *  *
-     * @param DeleteEnvServiceMonitorRequest $request DeleteEnvServiceMonitorRequest
+     * Deletes the ServiceMonitor of an environment.
      *
-     * @return DeleteEnvServiceMonitorResponse DeleteEnvServiceMonitorResponse
+     * @param request - DeleteEnvServiceMonitorRequest
+     * @returns DeleteEnvServiceMonitorResponse
+     *
+     * @param DeleteEnvServiceMonitorRequest $request
+     *
+     * @return DeleteEnvServiceMonitorResponse
      */
     public function deleteEnvServiceMonitor($request)
     {
@@ -4430,28 +5414,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an environment instance.
-     *  *
-     * @param DeleteEnvironmentRequest $request DeleteEnvironmentRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes an environment instance.
      *
-     * @return DeleteEnvironmentResponse DeleteEnvironmentResponse
+     * @param request - DeleteEnvironmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEnvironmentResponse
+     *
+     * @param DeleteEnvironmentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteEnvironmentResponse
      */
     public function deleteEnvironmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deletePromInstance)) {
-            $query['DeletePromInstance'] = $request->deletePromInstance;
+        if (null !== $request->deletePromInstance) {
+            @$query['DeletePromInstance'] = $request->deletePromInstance;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEnvironment',
@@ -4464,16 +5455,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an environment instance.
-     *  *
-     * @param DeleteEnvironmentRequest $request DeleteEnvironmentRequest
+     * Deletes an environment instance.
      *
-     * @return DeleteEnvironmentResponse DeleteEnvironmentResponse
+     * @param request - DeleteEnvironmentRequest
+     * @returns DeleteEnvironmentResponse
+     *
+     * @param DeleteEnvironmentRequest $request
+     *
+     * @return DeleteEnvironmentResponse
      */
     public function deleteEnvironment($request)
     {
@@ -4483,28 +5480,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a feature.
-     *  *
-     * @param DeleteEnvironmentFeatureRequest $request DeleteEnvironmentFeatureRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes a feature.
      *
-     * @return DeleteEnvironmentFeatureResponse DeleteEnvironmentFeatureResponse
+     * @param request - DeleteEnvironmentFeatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEnvironmentFeatureResponse
+     *
+     * @param DeleteEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteEnvironmentFeatureResponse
      */
     public function deleteEnvironmentFeatureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->featureName)) {
-            $query['FeatureName'] = $request->featureName;
+
+        if (null !== $request->featureName) {
+            @$query['FeatureName'] = $request->featureName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEnvironmentFeature',
@@ -4517,16 +5521,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEnvironmentFeatureResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a feature.
-     *  *
-     * @param DeleteEnvironmentFeatureRequest $request DeleteEnvironmentFeatureRequest
+     * Deletes a feature.
      *
-     * @return DeleteEnvironmentFeatureResponse DeleteEnvironmentFeatureResponse
+     * @param request - DeleteEnvironmentFeatureRequest
+     * @returns DeleteEnvironmentFeatureResponse
+     *
+     * @param DeleteEnvironmentFeatureRequest $request
+     *
+     * @return DeleteEnvironmentFeatureResponse
      */
     public function deleteEnvironmentFeature($request)
     {
@@ -4536,22 +5546,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an EventBridge integration.
-     *  *
-     * @param DeleteEventBridgeIntegrationRequest $request DeleteEventBridgeIntegrationRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Deletes an EventBridge integration.
      *
-     * @return DeleteEventBridgeIntegrationResponse DeleteEventBridgeIntegrationResponse
+     * @param request - DeleteEventBridgeIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEventBridgeIntegrationResponse
+     *
+     * @param DeleteEventBridgeIntegrationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteEventBridgeIntegrationResponse
      */
     public function deleteEventBridgeIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteEventBridgeIntegration',
@@ -4564,16 +5579,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEventBridgeIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEventBridgeIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEventBridgeIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an EventBridge integration.
-     *  *
-     * @param DeleteEventBridgeIntegrationRequest $request DeleteEventBridgeIntegrationRequest
+     * Deletes an EventBridge integration.
      *
-     * @return DeleteEventBridgeIntegrationResponse DeleteEventBridgeIntegrationResponse
+     * @param request - DeleteEventBridgeIntegrationRequest
+     * @returns DeleteEventBridgeIntegrationResponse
+     *
+     * @param DeleteEventBridgeIntegrationRequest $request
+     *
+     * @return DeleteEventBridgeIntegrationResponse
      */
     public function deleteEventBridgeIntegration($request)
     {
@@ -4583,30 +5604,37 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes Grafana dashboard resources from a cluster monitored by Prometheus Service.
-     *  *
-     * @param DeleteGrafanaResourceRequest $request DeleteGrafanaResourceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes Grafana dashboard resources from a cluster monitored by Prometheus Service.
      *
-     * @return DeleteGrafanaResourceResponse DeleteGrafanaResourceResponse
+     * @param request - DeleteGrafanaResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteGrafanaResourceResponse
+     *
+     * @param DeleteGrafanaResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteGrafanaResourceResponse
      */
     public function deleteGrafanaResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $body['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$body['ClusterName'] = $request->clusterName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteGrafanaResource',
@@ -4619,16 +5647,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteGrafanaResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteGrafanaResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteGrafanaResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes Grafana dashboard resources from a cluster monitored by Prometheus Service.
-     *  *
-     * @param DeleteGrafanaResourceRequest $request DeleteGrafanaResourceRequest
+     * Deletes Grafana dashboard resources from a cluster monitored by Prometheus Service.
      *
-     * @return DeleteGrafanaResourceResponse DeleteGrafanaResourceResponse
+     * @param request - DeleteGrafanaResourceRequest
+     * @returns DeleteGrafanaResourceResponse
+     *
+     * @param DeleteGrafanaResourceRequest $request
+     *
+     * @return DeleteGrafanaResourceResponse
      */
     public function deleteGrafanaResource($request)
     {
@@ -4638,28 +5672,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Managed Service for Prometheus workspace.
-     *  *
-     * @description *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
-     * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
-     *  *
-     * @param DeleteGrafanaWorkspaceRequest $request DeleteGrafanaWorkspaceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Deletes a Managed Service for Prometheus workspace.
      *
-     * @return DeleteGrafanaWorkspaceResponse DeleteGrafanaWorkspaceResponse
+     * @remarks
+     *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
+     * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
+     *
+     * @param request - DeleteGrafanaWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteGrafanaWorkspaceResponse
+     *
+     * @param DeleteGrafanaWorkspaceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteGrafanaWorkspaceResponse
      */
     public function deleteGrafanaWorkspaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
-            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteGrafanaWorkspace',
@@ -4672,19 +5713,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteGrafanaWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Managed Service for Prometheus workspace.
-     *  *
-     * @description *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
-     * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
-     *  *
-     * @param DeleteGrafanaWorkspaceRequest $request DeleteGrafanaWorkspaceRequest
+     * Deletes a Managed Service for Prometheus workspace.
      *
-     * @return DeleteGrafanaWorkspaceResponse DeleteGrafanaWorkspaceResponse
+     * @remarks
+     *   You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
+     * *   You cannot delete workspaces in Managed Service for Prometheus Developer Edition, Pro Edition, and Advanced Edition. You can go to the [User Center](https://usercenter2.aliyun.com/refund/refund) to unsubscribe from workspaces.
+     *
+     * @param request - DeleteGrafanaWorkspaceRequest
+     * @returns DeleteGrafanaWorkspaceResponse
+     *
+     * @param DeleteGrafanaWorkspaceRequest $request
+     *
+     * @return DeleteGrafanaWorkspaceResponse
      */
     public function deleteGrafanaWorkspace($request)
     {
@@ -4694,22 +5742,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an instant messaging (IM) chatbot.
-     *  *
-     * @param DeleteIMRobotRequest $request DeleteIMRobotRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes an instant messaging (IM) chatbot.
      *
-     * @return DeleteIMRobotResponse DeleteIMRobotResponse
+     * @param request - DeleteIMRobotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIMRobotResponse
+     *
+     * @param DeleteIMRobotRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteIMRobotResponse
      */
     public function deleteIMRobotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->robotId)) {
-            $query['RobotId'] = $request->robotId;
+        if (null !== $request->robotId) {
+            @$query['RobotId'] = $request->robotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIMRobot',
@@ -4722,16 +5775,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIMRobotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIMRobotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIMRobotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an instant messaging (IM) chatbot.
-     *  *
-     * @param DeleteIMRobotRequest $request DeleteIMRobotRequest
+     * Deletes an instant messaging (IM) chatbot.
      *
-     * @return DeleteIMRobotResponse DeleteIMRobotResponse
+     * @param request - DeleteIMRobotRequest
+     * @returns DeleteIMRobotResponse
+     *
+     * @param DeleteIMRobotRequest $request
+     *
+     * @return DeleteIMRobotResponse
      */
     public function deleteIMRobot($request)
     {
@@ -4740,33 +5799,40 @@ class ARMS extends OpenApiClient
         return $this->deleteIMRobotWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Deletes collection rules from an integration.
+     *
      * @deprecated openAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
-     *  *
-     * @summary Deletes collection rules from an integration.
-     *  *
-     * Deprecated
      *
-     * @param DeleteIntegrationRequest $request DeleteIntegrationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIntegrationResponse
      *
-     * @return DeleteIntegrationResponse DeleteIntegrationResponse
+     * @param DeleteIntegrationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteIntegrationResponse
      */
     public function deleteIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->integration)) {
-            $query['Integration'] = $request->integration;
+
+        if (null !== $request->integration) {
+            @$query['Integration'] = $request->integration;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIntegration',
@@ -4779,20 +5845,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Deletes collection rules from an integration.
+     *
      * @deprecated openAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
-     *  *
-     * @summary Deletes collection rules from an integration.
-     *  *
-     * Deprecated
      *
-     * @param DeleteIntegrationRequest $request DeleteIntegrationRequest
+     * @param request - DeleteIntegrationRequest
+     * @returns DeleteIntegrationResponse
      *
-     * @return DeleteIntegrationResponse DeleteIntegrationResponse
+     * @param DeleteIntegrationRequest $request
+     *
+     * @return DeleteIntegrationResponse
      */
     public function deleteIntegration($request)
     {
@@ -4802,19 +5874,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an alert integration.
-     *  *
-     * @param DeleteIntegrationsRequest $request DeleteIntegrationsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes an alert integration.
      *
-     * @return DeleteIntegrationsResponse DeleteIntegrationsResponse
+     * @param request - DeleteIntegrationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIntegrationsResponse
+     *
+     * @param DeleteIntegrationsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteIntegrationsResponse
      */
     public function deleteIntegrationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIntegrations',
@@ -4827,16 +5903,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIntegrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIntegrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIntegrationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert integration.
-     *  *
-     * @param DeleteIntegrationsRequest $request DeleteIntegrationsRequest
+     * Deletes an alert integration.
      *
-     * @return DeleteIntegrationsResponse DeleteIntegrationsResponse
+     * @param request - DeleteIntegrationsRequest
+     * @returns DeleteIntegrationsResponse
+     *
+     * @param DeleteIntegrationsRequest $request
+     *
+     * @return DeleteIntegrationsResponse
      */
     public function deleteIntegrations($request)
     {
@@ -4846,22 +5928,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a notification policy based on its ID.
-     *  *
-     * @param DeleteNotificationPolicyRequest $request DeleteNotificationPolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes a notification policy based on its ID.
      *
-     * @return DeleteNotificationPolicyResponse DeleteNotificationPolicyResponse
+     * @param request - DeleteNotificationPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteNotificationPolicyResponse
+     *
+     * @param DeleteNotificationPolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteNotificationPolicyResponse
      */
     public function deleteNotificationPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteNotificationPolicy',
@@ -4874,16 +5961,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteNotificationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteNotificationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNotificationPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a notification policy based on its ID.
-     *  *
-     * @param DeleteNotificationPolicyRequest $request DeleteNotificationPolicyRequest
+     * Deletes a notification policy based on its ID.
      *
-     * @return DeleteNotificationPolicyResponse DeleteNotificationPolicyResponse
+     * @param request - DeleteNotificationPolicyRequest
+     * @returns DeleteNotificationPolicyResponse
+     *
+     * @param DeleteNotificationPolicyRequest $request
+     *
+     * @return DeleteNotificationPolicyResponse
      */
     public function deleteNotificationPolicy($request)
     {
@@ -4893,25 +5986,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an alert rule of Prometheus Service.
-     *  *
-     * @param DeletePrometheusAlertRuleRequest $request DeletePrometheusAlertRuleRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Deletes an alert rule of Prometheus Service.
      *
-     * @return DeletePrometheusAlertRuleResponse DeletePrometheusAlertRuleResponse
+     * @param request - DeletePrometheusAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePrometheusAlertRuleResponse
+     *
+     * @param DeletePrometheusAlertRuleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeletePrometheusAlertRuleResponse
      */
     public function deletePrometheusAlertRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertId)) {
-            $query['AlertId'] = $request->alertId;
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePrometheusAlertRule',
@@ -4924,16 +6023,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePrometheusAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePrometheusAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePrometheusAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert rule of Prometheus Service.
-     *  *
-     * @param DeletePrometheusAlertRuleRequest $request DeletePrometheusAlertRuleRequest
+     * Deletes an alert rule of Prometheus Service.
      *
-     * @return DeletePrometheusAlertRuleResponse DeletePrometheusAlertRuleResponse
+     * @param request - DeletePrometheusAlertRuleRequest
+     * @returns DeletePrometheusAlertRuleResponse
+     *
+     * @param DeletePrometheusAlertRuleRequest $request
+     *
+     * @return DeletePrometheusAlertRuleResponse
      */
     public function deletePrometheusAlertRule($request)
     {
@@ -4943,25 +6048,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a global aggregation instance from Prometheus Service.
-     *  *
-     * @param DeletePrometheusGlobalViewRequest $request DeletePrometheusGlobalViewRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes a global aggregation instance from Prometheus Service.
      *
-     * @return DeletePrometheusGlobalViewResponse DeletePrometheusGlobalViewResponse
+     * @param request - DeletePrometheusGlobalViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePrometheusGlobalViewResponse
+     *
+     * @param DeletePrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeletePrometheusGlobalViewResponse
      */
     public function deletePrometheusGlobalViewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->globalViewClusterId)) {
-            $query['GlobalViewClusterId'] = $request->globalViewClusterId;
+        if (null !== $request->globalViewClusterId) {
+            @$query['GlobalViewClusterId'] = $request->globalViewClusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePrometheusGlobalView',
@@ -4974,16 +6085,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePrometheusGlobalViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a global aggregation instance from Prometheus Service.
-     *  *
-     * @param DeletePrometheusGlobalViewRequest $request DeletePrometheusGlobalViewRequest
+     * Deletes a global aggregation instance from Prometheus Service.
      *
-     * @return DeletePrometheusGlobalViewResponse DeletePrometheusGlobalViewResponse
+     * @param request - DeletePrometheusGlobalViewRequest
+     * @returns DeletePrometheusGlobalViewResponse
+     *
+     * @param DeletePrometheusGlobalViewRequest $request
+     *
+     * @return DeletePrometheusGlobalViewResponse
      */
     public function deletePrometheusGlobalView($request)
     {
@@ -4993,31 +6110,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param DeletePrometheusIntegrationRequest $request DeletePrometheusIntegrationRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
      *
-     * @return DeletePrometheusIntegrationResponse DeletePrometheusIntegrationResponse
+     * @param request - DeletePrometheusIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePrometheusIntegrationResponse
+     *
+     * @param DeletePrometheusIntegrationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeletePrometheusIntegrationResponse
      */
     public function deletePrometheusIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->integrationType)) {
-            $query['IntegrationType'] = $request->integrationType;
+
+        if (null !== $request->integrationType) {
+            @$query['IntegrationType'] = $request->integrationType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePrometheusIntegration',
@@ -5030,16 +6155,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param DeletePrometheusIntegrationRequest $request DeletePrometheusIntegrationRequest
+     * Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
      *
-     * @return DeletePrometheusIntegrationResponse DeletePrometheusIntegrationResponse
+     * @param request - DeletePrometheusIntegrationRequest
+     * @returns DeletePrometheusIntegrationResponse
+     *
+     * @param DeletePrometheusIntegrationRequest $request
+     *
+     * @return DeletePrometheusIntegrationResponse
      */
     public function deletePrometheusIntegration($request)
     {
@@ -5049,31 +6180,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param DeletePrometheusMonitoringRequest $request DeletePrometheusMonitoringRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes the monitoring configuration of a Prometheus instance.
      *
-     * @return DeletePrometheusMonitoringResponse DeletePrometheusMonitoringResponse
+     * @param request - DeletePrometheusMonitoringRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePrometheusMonitoringResponse
+     *
+     * @param DeletePrometheusMonitoringRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeletePrometheusMonitoringResponse
      */
     public function deletePrometheusMonitoringWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->monitoringName)) {
-            $query['MonitoringName'] = $request->monitoringName;
+
+        if (null !== $request->monitoringName) {
+            @$query['MonitoringName'] = $request->monitoringName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePrometheusMonitoring',
@@ -5086,16 +6225,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePrometheusMonitoringResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param DeletePrometheusMonitoringRequest $request DeletePrometheusMonitoringRequest
+     * Deletes the monitoring configuration of a Prometheus instance.
      *
-     * @return DeletePrometheusMonitoringResponse DeletePrometheusMonitoringResponse
+     * @param request - DeletePrometheusMonitoringRequest
+     * @returns DeletePrometheusMonitoringResponse
+     *
+     * @param DeletePrometheusMonitoringRequest $request
+     *
+     * @return DeletePrometheusMonitoringResponse
      */
     public function deletePrometheusMonitoring($request)
     {
@@ -5105,31 +6250,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Browser Monitoring task.
-     *  *
-     * @param DeleteRetcodeAppRequest $request DeleteRetcodeAppRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a Browser Monitoring task.
      *
-     * @return DeleteRetcodeAppResponse DeleteRetcodeAppResponse
+     * @param request - DeleteRetcodeAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRetcodeAppResponse
+     *
+     * @param DeleteRetcodeAppRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteRetcodeAppResponse
      */
     public function deleteRetcodeAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteRetcodeApp',
@@ -5142,16 +6295,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRetcodeAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRetcodeAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRetcodeAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Browser Monitoring task.
-     *  *
-     * @param DeleteRetcodeAppRequest $request DeleteRetcodeAppRequest
+     * Deletes a Browser Monitoring task.
      *
-     * @return DeleteRetcodeAppResponse DeleteRetcodeAppResponse
+     * @param request - DeleteRetcodeAppRequest
+     * @returns DeleteRetcodeAppResponse
+     *
+     * @param DeleteRetcodeAppRequest $request
+     *
+     * @return DeleteRetcodeAppResponse
      */
     public function deleteRetcodeApp($request)
     {
@@ -5161,31 +6320,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a RUM application.
-     *  *
-     * @param DeleteRumAppRequest $request DeleteRumAppRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes a RUM application.
      *
-     * @return DeleteRumAppResponse DeleteRumAppResponse
+     * @param request - DeleteRumAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRumAppResponse
+     *
+     * @param DeleteRumAppRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteRumAppResponse
      */
     public function deleteRumAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appGroup)) {
-            $query['AppGroup'] = $request->appGroup;
+        if (null !== $request->appGroup) {
+            @$query['AppGroup'] = $request->appGroup;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->realRegionId)) {
-            $query['RealRegionId'] = $request->realRegionId;
+
+        if (null !== $request->realRegionId) {
+            @$query['RealRegionId'] = $request->realRegionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteRumApp',
@@ -5198,16 +6365,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRumAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRumAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRumAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a RUM application.
-     *  *
-     * @param DeleteRumAppRequest $request DeleteRumAppRequest
+     * Deletes a RUM application.
      *
-     * @return DeleteRumAppResponse DeleteRumAppResponse
+     * @param request - DeleteRumAppRequest
+     * @returns DeleteRumAppResponse
+     *
+     * @param DeleteRumAppRequest $request
+     *
+     * @return DeleteRumAppResponse
      */
     public function deleteRumApp($request)
     {
@@ -5217,39 +6390,50 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a file such as a symbol table or SourceMap.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param DeleteRumUploadFileRequest $request DeleteRumUploadFileRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a file such as a symbol table or SourceMap.
      *
-     * @return DeleteRumUploadFileResponse DeleteRumUploadFileResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - DeleteRumUploadFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRumUploadFileResponse
+     *
+     * @param DeleteRumUploadFileRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteRumUploadFileResponse
      */
     public function deleteRumUploadFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->batchItems)) {
-            $query['BatchItems'] = $request->batchItems;
+        if (null !== $request->batchItems) {
+            @$query['BatchItems'] = $request->batchItems;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteRumUploadFile',
@@ -5262,18 +6446,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRumUploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRumUploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRumUploadFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a file such as a symbol table or SourceMap.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param DeleteRumUploadFileRequest $request DeleteRumUploadFileRequest
+     * Deletes a file such as a symbol table or SourceMap.
      *
-     * @return DeleteRumUploadFileResponse DeleteRumUploadFileResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - DeleteRumUploadFileRequest
+     * @returns DeleteRumUploadFileResponse
+     *
+     * @param DeleteRumUploadFileRequest $request
+     *
+     * @return DeleteRumUploadFileResponse
      */
     public function deleteRumUploadFile($request)
     {
@@ -5283,23 +6474,29 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteScenarioRequest $request DeleteScenarioRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteScenarioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteScenarioResponse
      *
-     * @return DeleteScenarioResponse DeleteScenarioResponse
+     * @param DeleteScenarioRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteScenarioResponse
      */
     public function deleteScenarioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->scenarioId)) {
-            $query['ScenarioId'] = $request->scenarioId;
+
+        if (null !== $request->scenarioId) {
+            @$query['ScenarioId'] = $request->scenarioId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteScenario',
@@ -5312,14 +6509,20 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteScenarioResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteScenarioRequest $request DeleteScenarioRequest
+     * @param request - DeleteScenarioRequest
+     * @returns DeleteScenarioResponse
      *
-     * @return DeleteScenarioResponse DeleteScenarioResponse
+     * @param DeleteScenarioRequest $request
+     *
+     * @return DeleteScenarioResponse
      */
     public function deleteScenario($request)
     {
@@ -5329,22 +6532,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the silence policy.
-     *  *
-     * @param DeleteSilencePolicyRequest $request DeleteSilencePolicyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * The ID of the silence policy.
      *
-     * @return DeleteSilencePolicyResponse DeleteSilencePolicyResponse
+     * @param request - DeleteSilencePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSilencePolicyResponse
+     *
+     * @param DeleteSilencePolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteSilencePolicyResponse
      */
     public function deleteSilencePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSilencePolicy',
@@ -5357,16 +6565,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSilencePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSilencePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSilencePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary The ID of the silence policy.
-     *  *
-     * @param DeleteSilencePolicyRequest $request DeleteSilencePolicyRequest
+     * The ID of the silence policy.
      *
-     * @return DeleteSilencePolicyResponse DeleteSilencePolicyResponse
+     * @param request - DeleteSilencePolicyRequest
+     * @returns DeleteSilencePolicyResponse
+     *
+     * @param DeleteSilencePolicyRequest $request
+     *
+     * @return DeleteSilencePolicyResponse
      */
     public function deleteSilencePolicy($request)
     {
@@ -5376,33 +6590,41 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the SourceMap files uploaded in Browser Monitoring.
-     *  *
-     * @param DeleteSourceMapRequest $tmpReq  DeleteSourceMapRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes the SourceMap files uploaded in Browser Monitoring.
      *
-     * @return DeleteSourceMapResponse DeleteSourceMapResponse
+     * @param tmpReq - DeleteSourceMapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSourceMapResponse
+     *
+     * @param DeleteSourceMapRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteSourceMapResponse
      */
     public function deleteSourceMapWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteSourceMapShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fidList)) {
-            $request->fidListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fidList, 'FidList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fidList) {
+            $request->fidListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fidList, 'FidList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->fidListShrink)) {
-            $query['FidList'] = $request->fidListShrink;
+        if (null !== $request->fidListShrink) {
+            @$query['FidList'] = $request->fidListShrink;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSourceMap',
@@ -5415,16 +6637,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSourceMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSourceMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSourceMapResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the SourceMap files uploaded in Browser Monitoring.
-     *  *
-     * @param DeleteSourceMapRequest $request DeleteSourceMapRequest
+     * Deletes the SourceMap files uploaded in Browser Monitoring.
      *
-     * @return DeleteSourceMapResponse DeleteSourceMapResponse
+     * @param request - DeleteSourceMapRequest
+     * @returns DeleteSourceMapResponse
+     *
+     * @param DeleteSourceMapRequest $request
+     *
+     * @return DeleteSourceMapResponse
      */
     public function deleteSourceMap($request)
     {
@@ -5434,25 +6662,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes scheduled synthetic monitoring tasks.
-     *  *
-     * @param DeleteSyntheticTaskRequest $request DeleteSyntheticTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes scheduled synthetic monitoring tasks.
      *
-     * @return DeleteSyntheticTaskResponse DeleteSyntheticTaskResponse
+     * @param request - DeleteSyntheticTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSyntheticTaskResponse
+     *
+     * @param DeleteSyntheticTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteSyntheticTaskResponse
      */
     public function deleteSyntheticTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskIds)) {
-            $query['TaskIds'] = $request->taskIds;
+
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSyntheticTask',
@@ -5465,16 +6699,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSyntheticTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes scheduled synthetic monitoring tasks.
-     *  *
-     * @param DeleteSyntheticTaskRequest $request DeleteSyntheticTaskRequest
+     * Deletes scheduled synthetic monitoring tasks.
      *
-     * @return DeleteSyntheticTaskResponse DeleteSyntheticTaskResponse
+     * @param request - DeleteSyntheticTaskRequest
+     * @returns DeleteSyntheticTaskResponse
+     *
+     * @param DeleteSyntheticTaskRequest $request
+     *
+     * @return DeleteSyntheticTaskResponse
      */
     public function deleteSyntheticTask($request)
     {
@@ -5484,28 +6724,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scheduled synthetic monitoring task.
-     *  *
-     * @param DeleteTimingSyntheticTaskRequest $request DeleteTimingSyntheticTaskRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Deletes a scheduled synthetic monitoring task.
      *
-     * @return DeleteTimingSyntheticTaskResponse DeleteTimingSyntheticTaskResponse
+     * @param request - DeleteTimingSyntheticTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTimingSyntheticTaskResponse
+     *
+     * @param DeleteTimingSyntheticTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteTimingSyntheticTaskResponse
      */
     public function deleteTimingSyntheticTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTimingSyntheticTask',
@@ -5518,16 +6765,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTimingSyntheticTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a scheduled synthetic monitoring task.
-     *  *
-     * @param DeleteTimingSyntheticTaskRequest $request DeleteTimingSyntheticTaskRequest
+     * Deletes a scheduled synthetic monitoring task.
      *
-     * @return DeleteTimingSyntheticTaskResponse DeleteTimingSyntheticTaskResponse
+     * @param request - DeleteTimingSyntheticTaskRequest
+     * @returns DeleteTimingSyntheticTaskResponse
+     *
+     * @param DeleteTimingSyntheticTaskRequest $request
+     *
+     * @return DeleteTimingSyntheticTaskResponse
      */
     public function deleteTimingSyntheticTask($request)
     {
@@ -5537,39 +6790,49 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an application based on a specified process identifier (PID) and application type.
-     *  *
-     * @param DeleteTraceAppRequest $tmpReq  DeleteTraceAppRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes an application based on a specified process identifier (PID) and application type.
      *
-     * @return DeleteTraceAppResponse DeleteTraceAppResponse
+     * @param tmpReq - DeleteTraceAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTraceAppResponse
+     *
+     * @param DeleteTraceAppRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTraceAppResponse
      */
     public function deleteTraceAppWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteTraceAppShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deleteReason)) {
-            $request->deleteReasonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteReason, 'DeleteReason', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteReason) {
+            $request->deleteReasonShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteReason, 'DeleteReason', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->deleteReasonShrink)) {
-            $query['DeleteReason'] = $request->deleteReasonShrink;
+
+        if (null !== $request->deleteReasonShrink) {
+            @$query['DeleteReason'] = $request->deleteReasonShrink;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTraceApp',
@@ -5582,16 +6845,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTraceAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTraceAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTraceAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an application based on a specified process identifier (PID) and application type.
-     *  *
-     * @param DeleteTraceAppRequest $request DeleteTraceAppRequest
+     * Deletes an application based on a specified process identifier (PID) and application type.
      *
-     * @return DeleteTraceAppResponse DeleteTraceAppResponse
+     * @param request - DeleteTraceAppRequest
+     * @returns DeleteTraceAppResponse
+     *
+     * @param DeleteTraceAppRequest $request
+     *
+     * @return DeleteTraceAppResponse
      */
     public function deleteTraceApp($request)
     {
@@ -5601,22 +6870,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a webhook alert contact.
-     *  *
-     * @param DeleteWebhookContactRequest $request DeleteWebhookContactRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes a webhook alert contact.
      *
-     * @return DeleteWebhookContactResponse DeleteWebhookContactResponse
+     * @param request - DeleteWebhookContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWebhookContactResponse
+     *
+     * @param DeleteWebhookContactRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteWebhookContactResponse
      */
     public function deleteWebhookContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->webhookId)) {
-            $query['WebhookId'] = $request->webhookId;
+        if (null !== $request->webhookId) {
+            @$query['WebhookId'] = $request->webhookId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWebhookContact',
@@ -5629,16 +6903,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWebhookContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWebhookContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWebhookContactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a webhook alert contact.
-     *  *
-     * @param DeleteWebhookContactRequest $request DeleteWebhookContactRequest
+     * Deletes a webhook alert contact.
      *
-     * @return DeleteWebhookContactResponse DeleteWebhookContactResponse
+     * @param request - DeleteWebhookContactRequest
+     * @returns DeleteWebhookContactResponse
+     *
+     * @param DeleteWebhookContactRequest $request
+     *
+     * @return DeleteWebhookContactResponse
      */
     public function deleteWebhookContact($request)
     {
@@ -5648,34 +6928,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the metric details of a component.
-     *  *
-     * @param DescribeAddonMetricsRequest $request DescribeAddonMetricsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the metric details of a component.
      *
-     * @return DescribeAddonMetricsResponse DescribeAddonMetricsResponse
+     * @param request - DescribeAddonMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAddonMetricsResponse
+     *
+     * @param DescribeAddonMetricsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAddonMetricsResponse
      */
     public function describeAddonMetricsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonVersion)) {
-            $query['AddonVersion'] = $request->addonVersion;
+        if (null !== $request->addonVersion) {
+            @$query['AddonVersion'] = $request->addonVersion;
         }
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->environmentType)) {
-            $query['EnvironmentType'] = $request->environmentType;
+
+        if (null !== $request->environmentType) {
+            @$query['EnvironmentType'] = $request->environmentType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAddonMetrics',
@@ -5688,16 +6977,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAddonMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAddonMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAddonMetricsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the metric details of a component.
-     *  *
-     * @param DescribeAddonMetricsRequest $request DescribeAddonMetricsRequest
+     * Queries the metric details of a component.
      *
-     * @return DescribeAddonMetricsResponse DescribeAddonMetricsResponse
+     * @param request - DescribeAddonMetricsRequest
+     * @returns DescribeAddonMetricsResponse
+     *
+     * @param DescribeAddonMetricsRequest $request
+     *
+     * @return DescribeAddonMetricsResponse
      */
     public function describeAddonMetrics($request)
     {
@@ -5707,28 +7002,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the release information of an add-on by name.
-     *  *
-     * @param DescribeAddonReleaseRequest $request DescribeAddonReleaseRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the release information of an add-on by name.
      *
-     * @return DescribeAddonReleaseResponse DescribeAddonReleaseResponse
+     * @param request - DescribeAddonReleaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAddonReleaseResponse
+     *
+     * @param DescribeAddonReleaseRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAddonReleaseResponse
      */
     public function describeAddonReleaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->releaseName)) {
-            $query['ReleaseName'] = $request->releaseName;
+
+        if (null !== $request->releaseName) {
+            @$query['ReleaseName'] = $request->releaseName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAddonRelease',
@@ -5741,16 +7043,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAddonReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAddonReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAddonReleaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the release information of an add-on by name.
-     *  *
-     * @param DescribeAddonReleaseRequest $request DescribeAddonReleaseRequest
+     * Queries the release information of an add-on by name.
      *
-     * @return DescribeAddonReleaseResponse DescribeAddonReleaseResponse
+     * @param request - DescribeAddonReleaseRequest
+     * @returns DescribeAddonReleaseResponse
+     *
+     * @param DescribeAddonReleaseRequest $request
+     *
+     * @return DescribeAddonReleaseResponse
      */
     public function describeAddonRelease($request)
     {
@@ -5760,37 +7068,47 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries an alert contact group.
-     *  *
-     * @param DescribeContactGroupsRequest $request DescribeContactGroupsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries an alert contact group.
      *
-     * @return DescribeContactGroupsResponse DescribeContactGroupsResponse
+     * @param request - DescribeContactGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeContactGroupsResponse
+     *
+     * @param DescribeContactGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeContactGroupsResponse
      */
     public function describeContactGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupName)) {
-            $query['ContactGroupName'] = $request->contactGroupName;
+        if (null !== $request->contactGroupName) {
+            @$query['ContactGroupName'] = $request->contactGroupName;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->isDetail)) {
-            $query['IsDetail'] = $request->isDetail;
+
+        if (null !== $request->isDetail) {
+            @$query['IsDetail'] = $request->isDetail;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeContactGroups',
@@ -5803,16 +7121,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeContactGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeContactGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeContactGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries an alert contact group.
-     *  *
-     * @param DescribeContactGroupsRequest $request DescribeContactGroupsRequest
+     * Queries an alert contact group.
      *
-     * @return DescribeContactGroupsResponse DescribeContactGroupsResponse
+     * @param request - DescribeContactGroupsRequest
+     * @returns DescribeContactGroupsResponse
+     *
+     * @param DescribeContactGroupsRequest $request
+     *
+     * @return DescribeContactGroupsResponse
      */
     public function describeContactGroups($request)
     {
@@ -5822,43 +7146,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert contacts.
-     *  *
-     * @param DescribeContactsRequest $request DescribeContactsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries alert contacts.
      *
-     * @return DescribeContactsResponse DescribeContactsResponse
+     * @param request - DescribeContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeContactsResponse
+     *
+     * @param DescribeContactsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeContactsResponse
      */
     public function describeContactsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactIds)) {
-            $query['ContactIds'] = $request->contactIds;
+        if (null !== $request->contactIds) {
+            @$query['ContactIds'] = $request->contactIds;
         }
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $query['Phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeContacts',
@@ -5871,16 +7207,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeContactsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert contacts.
-     *  *
-     * @param DescribeContactsRequest $request DescribeContactsRequest
+     * Queries alert contacts.
      *
-     * @return DescribeContactsResponse DescribeContactsResponse
+     * @param request - DescribeContactsRequest
+     * @returns DescribeContactsResponse
+     *
+     * @param DescribeContactsRequest $request
+     *
+     * @return DescribeContactsResponse
      */
     public function describeContacts($request)
     {
@@ -5890,25 +7232,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a dispatch policy.
-     *  *
-     * @param DescribeDispatchRuleRequest $request DescribeDispatchRuleRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a dispatch policy.
      *
-     * @return DescribeDispatchRuleResponse DescribeDispatchRuleResponse
+     * @param request - DescribeDispatchRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDispatchRuleResponse
+     *
+     * @param DescribeDispatchRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDispatchRuleResponse
      */
     public function describeDispatchRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDispatchRule',
@@ -5921,16 +7269,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDispatchRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a dispatch policy.
-     *  *
-     * @param DescribeDispatchRuleRequest $request DescribeDispatchRuleRequest
+     * Queries the information about a dispatch policy.
      *
-     * @return DescribeDispatchRuleResponse DescribeDispatchRuleResponse
+     * @param request - DescribeDispatchRuleRequest
+     * @returns DescribeDispatchRuleResponse
+     *
+     * @param DescribeDispatchRuleRequest $request
+     *
+     * @return DescribeDispatchRuleResponse
      */
     public function describeDispatchRule($request)
     {
@@ -5940,31 +7294,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a custom job for an environment.
-     *  *
-     * @param DescribeEnvCustomJobRequest $request DescribeEnvCustomJobRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a custom job for an environment.
      *
-     * @return DescribeEnvCustomJobResponse DescribeEnvCustomJobResponse
+     * @param request - DescribeEnvCustomJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEnvCustomJobResponse
+     *
+     * @param DescribeEnvCustomJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeEnvCustomJobResponse
      */
     public function describeEnvCustomJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customJobName)) {
-            $query['CustomJobName'] = $request->customJobName;
+        if (null !== $request->customJobName) {
+            @$query['CustomJobName'] = $request->customJobName;
         }
-        if (!Utils::isUnset($request->encryptYaml)) {
-            $query['EncryptYaml'] = $request->encryptYaml;
+
+        if (null !== $request->encryptYaml) {
+            @$query['EncryptYaml'] = $request->encryptYaml;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEnvCustomJob',
@@ -5977,16 +7339,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEnvCustomJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a custom job for an environment.
-     *  *
-     * @param DescribeEnvCustomJobRequest $request DescribeEnvCustomJobRequest
+     * Queries the details of a custom job for an environment.
      *
-     * @return DescribeEnvCustomJobResponse DescribeEnvCustomJobResponse
+     * @param request - DescribeEnvCustomJobRequest
+     * @returns DescribeEnvCustomJobResponse
+     *
+     * @param DescribeEnvCustomJobRequest $request
+     *
+     * @return DescribeEnvCustomJobResponse
      */
     public function describeEnvCustomJob($request)
     {
@@ -5996,31 +7364,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the PodMonitor details of an environment.
-     *  *
-     * @param DescribeEnvPodMonitorRequest $request DescribeEnvPodMonitorRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the PodMonitor details of an environment.
      *
-     * @return DescribeEnvPodMonitorResponse DescribeEnvPodMonitorResponse
+     * @param request - DescribeEnvPodMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEnvPodMonitorResponse
+     *
+     * @param DescribeEnvPodMonitorRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeEnvPodMonitorResponse
      */
     public function describeEnvPodMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->podMonitorName)) {
-            $query['PodMonitorName'] = $request->podMonitorName;
+
+        if (null !== $request->podMonitorName) {
+            @$query['PodMonitorName'] = $request->podMonitorName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEnvPodMonitor',
@@ -6033,16 +7409,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEnvPodMonitorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the PodMonitor details of an environment.
-     *  *
-     * @param DescribeEnvPodMonitorRequest $request DescribeEnvPodMonitorRequest
+     * Queries the PodMonitor details of an environment.
      *
-     * @return DescribeEnvPodMonitorResponse DescribeEnvPodMonitorResponse
+     * @param request - DescribeEnvPodMonitorRequest
+     * @returns DescribeEnvPodMonitorResponse
+     *
+     * @param DescribeEnvPodMonitorRequest $request
+     *
+     * @return DescribeEnvPodMonitorResponse
      */
     public function describeEnvPodMonitor($request)
     {
@@ -6052,31 +7434,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the ServiceMonitor details of an environment.
-     *  *
-     * @param DescribeEnvServiceMonitorRequest $request DescribeEnvServiceMonitorRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the ServiceMonitor details of an environment.
      *
-     * @return DescribeEnvServiceMonitorResponse DescribeEnvServiceMonitorResponse
+     * @param request - DescribeEnvServiceMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEnvServiceMonitorResponse
+     *
+     * @param DescribeEnvServiceMonitorRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeEnvServiceMonitorResponse
      */
     public function describeEnvServiceMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceMonitorName)) {
-            $query['ServiceMonitorName'] = $request->serviceMonitorName;
+
+        if (null !== $request->serviceMonitorName) {
+            @$query['ServiceMonitorName'] = $request->serviceMonitorName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEnvServiceMonitor',
@@ -6089,16 +7479,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEnvServiceMonitorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the ServiceMonitor details of an environment.
-     *  *
-     * @param DescribeEnvServiceMonitorRequest $request DescribeEnvServiceMonitorRequest
+     * Queries the ServiceMonitor details of an environment.
      *
-     * @return DescribeEnvServiceMonitorResponse DescribeEnvServiceMonitorResponse
+     * @param request - DescribeEnvServiceMonitorRequest
+     * @returns DescribeEnvServiceMonitorResponse
+     *
+     * @param DescribeEnvServiceMonitorRequest $request
+     *
+     * @return DescribeEnvServiceMonitorResponse
      */
     public function describeEnvServiceMonitor($request)
     {
@@ -6108,25 +7504,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an environment.
-     *  *
-     * @param DescribeEnvironmentRequest $request DescribeEnvironmentRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an environment.
      *
-     * @return DescribeEnvironmentResponse DescribeEnvironmentResponse
+     * @param request - DescribeEnvironmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEnvironmentResponse
+     *
+     * @param DescribeEnvironmentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeEnvironmentResponse
      */
     public function describeEnvironmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEnvironment',
@@ -6139,16 +7541,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an environment.
-     *  *
-     * @param DescribeEnvironmentRequest $request DescribeEnvironmentRequest
+     * Queries the details of an environment.
      *
-     * @return DescribeEnvironmentResponse DescribeEnvironmentResponse
+     * @param request - DescribeEnvironmentRequest
+     * @returns DescribeEnvironmentResponse
+     *
+     * @param DescribeEnvironmentRequest $request
+     *
+     * @return DescribeEnvironmentResponse
      */
     public function describeEnvironment($request)
     {
@@ -6158,31 +7566,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a feature.
-     *  *
-     * @param DescribeEnvironmentFeatureRequest $request DescribeEnvironmentFeatureRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a feature.
      *
-     * @return DescribeEnvironmentFeatureResponse DescribeEnvironmentFeatureResponse
+     * @param request - DescribeEnvironmentFeatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEnvironmentFeatureResponse
+     *
+     * @param DescribeEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeEnvironmentFeatureResponse
      */
     public function describeEnvironmentFeatureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->featureName)) {
-            $query['FeatureName'] = $request->featureName;
+
+        if (null !== $request->featureName) {
+            @$query['FeatureName'] = $request->featureName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEnvironmentFeature',
@@ -6195,16 +7611,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEnvironmentFeatureResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a feature.
-     *  *
-     * @param DescribeEnvironmentFeatureRequest $request DescribeEnvironmentFeatureRequest
+     * Queries the details of a feature.
      *
-     * @return DescribeEnvironmentFeatureResponse DescribeEnvironmentFeatureResponse
+     * @param request - DescribeEnvironmentFeatureRequest
+     * @returns DescribeEnvironmentFeatureResponse
+     *
+     * @param DescribeEnvironmentFeatureRequest $request
+     *
+     * @return DescribeEnvironmentFeatureResponse
      */
     public function describeEnvironmentFeature($request)
     {
@@ -6214,31 +7636,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries instant messaging (IM) chatbots.
-     *  *
-     * @param DescribeIMRobotsRequest $request DescribeIMRobotsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries instant messaging (IM) chatbots.
      *
-     * @return DescribeIMRobotsResponse DescribeIMRobotsResponse
+     * @param request - DescribeIMRobotsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeIMRobotsResponse
+     *
+     * @param DescribeIMRobotsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeIMRobotsResponse
      */
     public function describeIMRobotsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->robotIds)) {
-            $query['RobotIds'] = $request->robotIds;
+
+        if (null !== $request->robotIds) {
+            @$query['RobotIds'] = $request->robotIds;
         }
-        if (!Utils::isUnset($request->robotName)) {
-            $query['RobotName'] = $request->robotName;
+
+        if (null !== $request->robotName) {
+            @$query['RobotName'] = $request->robotName;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeIMRobots',
@@ -6251,16 +7681,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeIMRobotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeIMRobotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeIMRobotsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries instant messaging (IM) chatbots.
-     *  *
-     * @param DescribeIMRobotsRequest $request DescribeIMRobotsRequest
+     * Queries instant messaging (IM) chatbots.
      *
-     * @return DescribeIMRobotsResponse DescribeIMRobotsResponse
+     * @param request - DescribeIMRobotsRequest
+     * @returns DescribeIMRobotsResponse
+     *
+     * @param DescribeIMRobotsRequest $request
+     *
+     * @return DescribeIMRobotsResponse
      */
     public function describeIMRobots($request)
     {
@@ -6270,25 +7706,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about an alert rule for a Prometheus instance.
-     *  *
-     * @param DescribePrometheusAlertRuleRequest $request DescribePrometheusAlertRuleRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the details about an alert rule for a Prometheus instance.
      *
-     * @return DescribePrometheusAlertRuleResponse DescribePrometheusAlertRuleResponse
+     * @param request - DescribePrometheusAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePrometheusAlertRuleResponse
+     *
+     * @param DescribePrometheusAlertRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribePrometheusAlertRuleResponse
      */
     public function describePrometheusAlertRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertId)) {
-            $query['AlertId'] = $request->alertId;
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePrometheusAlertRule',
@@ -6301,16 +7743,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePrometheusAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePrometheusAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePrometheusAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about an alert rule for a Prometheus instance.
-     *  *
-     * @param DescribePrometheusAlertRuleRequest $request DescribePrometheusAlertRuleRequest
+     * Queries the details about an alert rule for a Prometheus instance.
      *
-     * @return DescribePrometheusAlertRuleResponse DescribePrometheusAlertRuleResponse
+     * @param request - DescribePrometheusAlertRuleRequest
+     * @returns DescribePrometheusAlertRuleResponse
+     *
+     * @param DescribePrometheusAlertRuleRequest $request
+     *
+     * @return DescribePrometheusAlertRuleResponse
      */
     public function describePrometheusAlertRule($request)
     {
@@ -6320,22 +7768,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the license key.
-     *  *
-     * @param DescribeTraceLicenseKeyRequest $request DescribeTraceLicenseKeyRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the license key.
      *
-     * @return DescribeTraceLicenseKeyResponse DescribeTraceLicenseKeyResponse
+     * @param request - DescribeTraceLicenseKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTraceLicenseKeyResponse
+     *
+     * @param DescribeTraceLicenseKeyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeTraceLicenseKeyResponse
      */
     public function describeTraceLicenseKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTraceLicenseKey',
@@ -6348,16 +7801,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTraceLicenseKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTraceLicenseKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTraceLicenseKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the license key.
-     *  *
-     * @param DescribeTraceLicenseKeyRequest $request DescribeTraceLicenseKeyRequest
+     * Queries the license key.
      *
-     * @return DescribeTraceLicenseKeyResponse DescribeTraceLicenseKeyResponse
+     * @param request - DescribeTraceLicenseKeyRequest
+     * @returns DescribeTraceLicenseKeyResponse
+     *
+     * @param DescribeTraceLicenseKeyRequest $request
+     *
+     * @return DescribeTraceLicenseKeyResponse
      */
     public function describeTraceLicenseKey($request)
     {
@@ -6367,19 +7826,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of webhook alert contacts.
-     *  *
-     * @param DescribeWebhookContactsRequest $request DescribeWebhookContactsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the list of webhook alert contacts.
      *
-     * @return DescribeWebhookContactsResponse DescribeWebhookContactsResponse
+     * @param request - DescribeWebhookContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebhookContactsResponse
+     *
+     * @param DescribeWebhookContactsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeWebhookContactsResponse
      */
     public function describeWebhookContactsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebhookContacts',
@@ -6392,16 +7855,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebhookContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebhookContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebhookContactsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of webhook alert contacts.
-     *  *
-     * @param DescribeWebhookContactsRequest $request DescribeWebhookContactsRequest
+     * Queries the list of webhook alert contacts.
      *
-     * @return DescribeWebhookContactsResponse DescribeWebhookContactsResponse
+     * @param request - DescribeWebhookContactsRequest
+     * @returns DescribeWebhookContactsResponse
+     *
+     * @param DescribeWebhookContactsRequest $request
+     *
+     * @return DescribeWebhookContactsResponse
      */
     public function describeWebhookContacts($request)
     {
@@ -6411,30 +7880,37 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Performs the corresponding operation based on the specified module type.
-     *  *
-     * @param DoInsightsActionRequest $request DoInsightsActionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Performs the corresponding operation based on the specified module type.
      *
-     * @return DoInsightsActionResponse DoInsightsActionResponse
+     * @param request - DoInsightsActionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DoInsightsActionResponse
+     *
+     * @param DoInsightsActionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DoInsightsActionResponse
      */
     public function doInsightsActionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->data)) {
-            $body['Data'] = $request->data;
+        if (null !== $request->data) {
+            @$body['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->module)) {
-            $body['Module'] = $request->module;
+
+        if (null !== $request->module) {
+            @$body['Module'] = $request->module;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DoInsightsAction',
@@ -6447,16 +7923,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DoInsightsActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DoInsightsActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DoInsightsActionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Performs the corresponding operation based on the specified module type.
-     *  *
-     * @param DoInsightsActionRequest $request DoInsightsActionRequest
+     * Performs the corresponding operation based on the specified module type.
      *
-     * @return DoInsightsActionResponse DoInsightsActionResponse
+     * @param request - DoInsightsActionRequest
+     * @returns DoInsightsActionResponse
+     *
+     * @param DoInsightsActionRequest $request
+     *
+     * @return DoInsightsActionResponse
      */
     public function doInsightsAction($request)
     {
@@ -6466,28 +7948,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Enables a discarded metric.
-     *  *
-     * @param EnableMetricRequest $request EnableMetricRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Enables a discarded metric.
      *
-     * @return EnableMetricResponse EnableMetricResponse
+     * @param request - EnableMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableMetricResponse
+     *
+     * @param EnableMetricRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EnableMetricResponse
      */
     public function enableMetricWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dropMetric)) {
-            $query['DropMetric'] = $request->dropMetric;
+
+        if (null !== $request->dropMetric) {
+            @$query['DropMetric'] = $request->dropMetric;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableMetric',
@@ -6500,16 +7989,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableMetricResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables a discarded metric.
-     *  *
-     * @param EnableMetricRequest $request EnableMetricRequest
+     * Enables a discarded metric.
      *
-     * @return EnableMetricResponse EnableMetricResponse
+     * @param request - EnableMetricRequest
+     * @returns EnableMetricResponse
+     *
+     * @param EnableMetricRequest $request
+     *
+     * @return EnableMetricResponse
      */
     public function enableMetric($request)
     {
@@ -6519,19 +8014,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
-     *  *
-     * @param GetAgentDownloadUrlRequest $request GetAgentDownloadUrlRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
      *
-     * @return GetAgentDownloadUrlResponse GetAgentDownloadUrlResponse
+     * @param request - GetAgentDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAgentDownloadUrlResponse
+     *
+     * @param GetAgentDownloadUrlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAgentDownloadUrlResponse
      */
     public function getAgentDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAgentDownloadUrl',
@@ -6544,16 +8043,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAgentDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAgentDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAgentDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
-     *  *
-     * @param GetAgentDownloadUrlRequest $request GetAgentDownloadUrlRequest
+     * Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
      *
-     * @return GetAgentDownloadUrlResponse GetAgentDownloadUrlResponse
+     * @param request - GetAgentDownloadUrlRequest
+     * @returns GetAgentDownloadUrlResponse
+     *
+     * @param GetAgentDownloadUrlRequest $request
+     *
+     * @return GetAgentDownloadUrlResponse
      */
     public function getAgentDownloadUrl($request)
     {
@@ -6563,28 +8068,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
-     *  *
-     * @param GetAgentDownloadUrlV2Request $request GetAgentDownloadUrlV2Request
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
      *
-     * @return GetAgentDownloadUrlV2Response GetAgentDownloadUrlV2Response
+     * @param request - GetAgentDownloadUrlV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAgentDownloadUrlV2Response
+     *
+     * @param GetAgentDownloadUrlV2Request $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAgentDownloadUrlV2Response
      */
     public function getAgentDownloadUrlV2WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentType)) {
-            $query['AgentType'] = $request->agentType;
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
         }
-        if (!Utils::isUnset($request->archType)) {
-            $query['ArchType'] = $request->archType;
+
+        if (null !== $request->archType) {
+            @$query['ArchType'] = $request->archType;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAgentDownloadUrlV2',
@@ -6597,16 +8109,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAgentDownloadUrlV2Response::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAgentDownloadUrlV2Response::fromMap($this->callApi($params, $req, $runtime));
+        return GetAgentDownloadUrlV2Response::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
-     *  *
-     * @param GetAgentDownloadUrlV2Request $request GetAgentDownloadUrlV2Request
+     * Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
      *
-     * @return GetAgentDownloadUrlV2Response GetAgentDownloadUrlV2Response
+     * @param request - GetAgentDownloadUrlV2Request
+     * @returns GetAgentDownloadUrlV2Response
+     *
+     * @param GetAgentDownloadUrlV2Request $request
+     *
+     * @return GetAgentDownloadUrlV2Response
      */
     public function getAgentDownloadUrlV2($request)
     {
@@ -6616,49 +8134,63 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert rules.
-     *  *
-     * @param GetAlertRulesRequest $request GetAlertRulesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries alert rules.
      *
-     * @return GetAlertRulesResponse GetAlertRulesResponse
+     * @param request - GetAlertRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAlertRulesResponse
+     *
+     * @param GetAlertRulesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAlertRulesResponse
      */
     public function getAlertRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertIds)) {
-            $query['AlertIds'] = $request->alertIds;
+        if (null !== $request->alertIds) {
+            @$query['AlertIds'] = $request->alertIds;
         }
-        if (!Utils::isUnset($request->alertNames)) {
-            $query['AlertNames'] = $request->alertNames;
+
+        if (null !== $request->alertNames) {
+            @$query['AlertNames'] = $request->alertNames;
         }
-        if (!Utils::isUnset($request->alertStatus)) {
-            $query['AlertStatus'] = $request->alertStatus;
+
+        if (null !== $request->alertStatus) {
+            @$query['AlertStatus'] = $request->alertStatus;
         }
-        if (!Utils::isUnset($request->alertType)) {
-            $query['AlertType'] = $request->alertType;
+
+        if (null !== $request->alertType) {
+            @$query['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAlertRules',
@@ -6671,16 +8203,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAlertRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert rules.
-     *  *
-     * @param GetAlertRulesRequest $request GetAlertRulesRequest
+     * Queries alert rules.
      *
-     * @return GetAlertRulesResponse GetAlertRulesResponse
+     * @param request - GetAlertRulesRequest
+     * @returns GetAlertRulesResponse
+     *
+     * @param GetAlertRulesRequest $request
+     *
+     * @return GetAlertRulesResponse
      */
     public function getAlertRules($request)
     {
@@ -6690,40 +8228,51 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the API operations of application monitoring by page.
-     *  *
-     * @param GetAppApiByPageRequest $request GetAppApiByPageRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the API operations of application monitoring by page.
      *
-     * @return GetAppApiByPageResponse GetAppApiByPageResponse
+     * @param request - GetAppApiByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAppApiByPageResponse
+     *
+     * @param GetAppApiByPageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAppApiByPageResponse
      */
     public function getAppApiByPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->intervalMills)) {
-            $query['IntervalMills'] = $request->intervalMills;
+
+        if (null !== $request->intervalMills) {
+            @$query['IntervalMills'] = $request->intervalMills;
         }
-        if (!Utils::isUnset($request->PId)) {
-            $query['PId'] = $request->PId;
+
+        if (null !== $request->PId) {
+            @$query['PId'] = $request->PId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAppApiByPage',
@@ -6736,16 +8285,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAppApiByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAppApiByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAppApiByPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the API operations of application monitoring by page.
-     *  *
-     * @param GetAppApiByPageRequest $request GetAppApiByPageRequest
+     * Queries the API operations of application monitoring by page.
      *
-     * @return GetAppApiByPageResponse GetAppApiByPageResponse
+     * @param request - GetAppApiByPageRequest
+     * @returns GetAppApiByPageResponse
+     *
+     * @param GetAppApiByPageRequest $request
+     *
+     * @return GetAppApiByPageResponse
      */
     public function getAppApiByPage($request)
     {
@@ -6755,19 +8310,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtain the JVM configuration information of each instance of the application
-     *  *
-     * @param GetAppJVMConfigRequest $request GetAppJVMConfigRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Obtain the JVM configuration information of each instance of the application.
      *
-     * @return GetAppJVMConfigResponse GetAppJVMConfigResponse
+     * @param request - GetAppJVMConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAppJVMConfigResponse
+     *
+     * @param GetAppJVMConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAppJVMConfigResponse
      */
     public function getAppJVMConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAppJVMConfig',
@@ -6780,16 +8339,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAppJVMConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAppJVMConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAppJVMConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtain the JVM configuration information of each instance of the application
-     *  *
-     * @param GetAppJVMConfigRequest $request GetAppJVMConfigRequest
+     * Obtain the JVM configuration information of each instance of the application.
      *
-     * @return GetAppJVMConfigResponse GetAppJVMConfigResponse
+     * @param request - GetAppJVMConfigRequest
+     * @returns GetAppJVMConfigResponse
+     *
+     * @param GetAppJVMConfigRequest $request
+     *
+     * @return GetAppJVMConfigResponse
      */
     public function getAppJVMConfig($request)
     {
@@ -6799,25 +8364,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains an authentication token. When you connect a Container Service for Kubernetes (ACK) cluster to Prometheus Service over the Internet, you must use a token for authentication.
-     *  *
-     * @param GetAuthTokenRequest $request GetAuthTokenRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Obtains an authentication token. When you connect a Container Service for Kubernetes (ACK) cluster to Prometheus Service over the Internet, you must use a token for authentication.
      *
-     * @return GetAuthTokenResponse GetAuthTokenResponse
+     * @param request - GetAuthTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAuthTokenResponse
+     *
+     * @param GetAuthTokenRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAuthTokenResponse
      */
     public function getAuthTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAuthToken',
@@ -6830,16 +8401,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAuthTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains an authentication token. When you connect a Container Service for Kubernetes (ACK) cluster to Prometheus Service over the Internet, you must use a token for authentication.
-     *  *
-     * @param GetAuthTokenRequest $request GetAuthTokenRequest
+     * Obtains an authentication token. When you connect a Container Service for Kubernetes (ACK) cluster to Prometheus Service over the Internet, you must use a token for authentication.
      *
-     * @return GetAuthTokenResponse GetAuthTokenResponse
+     * @param request - GetAuthTokenRequest
+     * @returns GetAuthTokenResponse
+     *
+     * @param GetAuthTokenRequest $request
+     *
+     * @return GetAuthTokenResponse
      */
     public function getAuthToken($request)
     {
@@ -6848,30 +8425,36 @@ class ARMS extends OpenApiClient
         return $this->getAuthTokenWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Queries the read and write URLs of a CloudMonitor instance, such as Pushgateway and Grafana URLs.
+     *
      * @deprecated openAPI GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead
-     *  *
-     * @summary Queries the read and write URLs of a CloudMonitor instance, such as Pushgateway and Grafana URLs.
-     *  *
-     * Deprecated
      *
-     * @param GetCloudClusterAllUrlRequest $request GetCloudClusterAllUrlRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GetCloudClusterAllUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCloudClusterAllUrlResponse
      *
-     * @return GetCloudClusterAllUrlResponse GetCloudClusterAllUrlResponse
+     * @param GetCloudClusterAllUrlRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetCloudClusterAllUrlResponse
      */
     public function getCloudClusterAllUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCloudClusterAllUrl',
@@ -6884,20 +8467,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCloudClusterAllUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCloudClusterAllUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCloudClusterAllUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Queries the read and write URLs of a CloudMonitor instance, such as Pushgateway and Grafana URLs.
+     *
      * @deprecated openAPI GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead
-     *  *
-     * @summary Queries the read and write URLs of a CloudMonitor instance, such as Pushgateway and Grafana URLs.
-     *  *
-     * Deprecated
      *
-     * @param GetCloudClusterAllUrlRequest $request GetCloudClusterAllUrlRequest
+     * @param request - GetCloudClusterAllUrlRequest
+     * @returns GetCloudClusterAllUrlResponse
      *
-     * @return GetCloudClusterAllUrlResponse GetCloudClusterAllUrlResponse
+     * @param GetCloudClusterAllUrlRequest $request
+     *
+     * @return GetCloudClusterAllUrlResponse
      */
     public function getCloudClusterAllUrl($request)
     {
@@ -6906,30 +8495,36 @@ class ARMS extends OpenApiClient
         return $this->getCloudClusterAllUrlWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
+     *
      * @deprecated openAPI GetClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetPrometheusInstance instead
-     *  *
-     * @summary Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
-     *  *
-     * Deprecated
      *
-     * @param GetClusterAllUrlRequest $request GetClusterAllUrlRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - GetClusterAllUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetClusterAllUrlResponse
      *
-     * @return GetClusterAllUrlResponse GetClusterAllUrlResponse
+     * @param GetClusterAllUrlRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetClusterAllUrlResponse
      */
     public function getClusterAllUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetClusterAllUrl',
@@ -6942,20 +8537,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetClusterAllUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClusterAllUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClusterAllUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
+     *
      * @deprecated openAPI GetClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetPrometheusInstance instead
-     *  *
-     * @summary Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
-     *  *
-     * Deprecated
      *
-     * @param GetClusterAllUrlRequest $request GetClusterAllUrlRequest
+     * @param request - GetClusterAllUrlRequest
+     * @returns GetClusterAllUrlResponse
      *
-     * @return GetClusterAllUrlResponse GetClusterAllUrlResponse
+     * @param GetClusterAllUrlRequest $request
+     *
+     * @return GetClusterAllUrlResponse
      */
     public function getClusterAllUrl($request)
     {
@@ -6965,25 +8566,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether the current account has activated the commercial edition of a service.
-     *  *
-     * @param GetCommercialStatusRequest $request GetCommercialStatusRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries whether the current account has activated the commercial edition of a service.
      *
-     * @return GetCommercialStatusResponse GetCommercialStatusResponse
+     * @param request - GetCommercialStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCommercialStatusResponse
+     *
+     * @param GetCommercialStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCommercialStatusResponse
      */
     public function getCommercialStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $query['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCommercialStatus',
@@ -6996,16 +8603,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCommercialStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCommercialStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCommercialStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether the current account has activated the commercial edition of a service.
-     *  *
-     * @param GetCommercialStatusRequest $request GetCommercialStatusRequest
+     * Queries whether the current account has activated the commercial edition of a service.
      *
-     * @return GetCommercialStatusResponse GetCommercialStatusResponse
+     * @param request - GetCommercialStatusRequest
+     * @returns GetCommercialStatusResponse
+     *
+     * @param GetCommercialStatusRequest $request
+     *
+     * @return GetCommercialStatusResponse
      */
     public function getCommercialStatus($request)
     {
@@ -7015,31 +8628,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Enables the Explore feature of Grafana.
-     *  *
-     * @param GetExploreUrlRequest $request GetExploreUrlRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Enables the Explore feature of Grafana.
      *
-     * @return GetExploreUrlResponse GetExploreUrlResponse
+     * @param request - GetExploreUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetExploreUrlResponse
+     *
+     * @param GetExploreUrlRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetExploreUrlResponse
      */
     public function getExploreUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['Expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['Expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetExploreUrl',
@@ -7052,16 +8673,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetExploreUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetExploreUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetExploreUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the Explore feature of Grafana.
-     *  *
-     * @param GetExploreUrlRequest $request GetExploreUrlRequest
+     * Enables the Explore feature of Grafana.
      *
-     * @return GetExploreUrlResponse GetExploreUrlResponse
+     * @param request - GetExploreUrlRequest
+     * @returns GetExploreUrlResponse
+     *
+     * @param GetExploreUrlRequest $request
+     *
+     * @return GetExploreUrlResponse
      */
     public function getExploreUrl($request)
     {
@@ -7071,30 +8698,38 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a Grafana workspace.
-     *  *
-     * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
-     *  *
-     * @param GetGrafanaWorkspaceRequest $request GetGrafanaWorkspaceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a Grafana workspace.
      *
-     * @return GetGrafanaWorkspaceResponse GetGrafanaWorkspaceResponse
+     * @remarks
+     * Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
+     *
+     * @param request - GetGrafanaWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGrafanaWorkspaceResponse
+     *
+     * @param GetGrafanaWorkspaceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetGrafanaWorkspaceResponse
      */
     public function getGrafanaWorkspaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
-            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetGrafanaWorkspace',
@@ -7107,18 +8742,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGrafanaWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a Grafana workspace.
-     *  *
-     * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
-     *  *
-     * @param GetGrafanaWorkspaceRequest $request GetGrafanaWorkspaceRequest
+     * Queries the information about a Grafana workspace.
      *
-     * @return GetGrafanaWorkspaceResponse GetGrafanaWorkspaceResponse
+     * @remarks
+     * Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
+     *
+     * @param request - GetGrafanaWorkspaceRequest
+     * @returns GetGrafanaWorkspaceResponse
+     *
+     * @param GetGrafanaWorkspaceRequest $request
+     *
+     * @return GetGrafanaWorkspaceResponse
      */
     public function getGrafanaWorkspace($request)
     {
@@ -7127,33 +8769,40 @@ class ARMS extends OpenApiClient
         return $this->getGrafanaWorkspaceWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Queries the integration state of the dashboards and collection rules of Application Real-Time Monitoring Service (ARMS) Prometheus.
+     *
      * @deprecated openAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead
-     *  *
-     * @summary Queries the integration state of the dashboards and collection rules of Application Real-Time Monitoring Service (ARMS) Prometheus.
-     *  *
-     * Deprecated
      *
-     * @param GetIntegrationStateRequest $request GetIntegrationStateRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - GetIntegrationStateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetIntegrationStateResponse
      *
-     * @return GetIntegrationStateResponse GetIntegrationStateResponse
+     * @param GetIntegrationStateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetIntegrationStateResponse
      */
     public function getIntegrationStateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->integration)) {
-            $query['Integration'] = $request->integration;
+
+        if (null !== $request->integration) {
+            @$query['Integration'] = $request->integration;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetIntegrationState',
@@ -7166,20 +8815,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetIntegrationStateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIntegrationStateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIntegrationStateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Queries the integration state of the dashboards and collection rules of Application Real-Time Monitoring Service (ARMS) Prometheus.
+     *
      * @deprecated openAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead
-     *  *
-     * @summary Queries the integration state of the dashboards and collection rules of Application Real-Time Monitoring Service (ARMS) Prometheus.
-     *  *
-     * Deprecated
      *
-     * @param GetIntegrationStateRequest $request GetIntegrationStateRequest
+     * @param request - GetIntegrationStateRequest
+     * @returns GetIntegrationStateResponse
      *
-     * @return GetIntegrationStateResponse GetIntegrationStateResponse
+     * @param GetIntegrationStateRequest $request
+     *
+     * @return GetIntegrationStateResponse
      */
     public function getIntegrationState($request)
     {
@@ -7188,39 +8843,48 @@ class ARMS extends OpenApiClient
         return $this->getIntegrationStateWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
+     *
      * @deprecated OpenAPI GetManagedPrometheusStatus is deprecated
-     *  *
-     * @summary Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
-     *  *
-     * Deprecated
      *
-     * @param GetManagedPrometheusStatusRequest $request GetManagedPrometheusStatusRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - GetManagedPrometheusStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetManagedPrometheusStatusResponse
      *
-     * @return GetManagedPrometheusStatusResponse GetManagedPrometheusStatusResponse
+     * @param GetManagedPrometheusStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetManagedPrometheusStatusResponse
      */
     public function getManagedPrometheusStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
+
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetManagedPrometheusStatus',
@@ -7233,20 +8897,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetManagedPrometheusStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetManagedPrometheusStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetManagedPrometheusStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
+     *
      * @deprecated OpenAPI GetManagedPrometheusStatus is deprecated
-     *  *
-     * @summary Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
-     *  *
-     * Deprecated
      *
-     * @param GetManagedPrometheusStatusRequest $request GetManagedPrometheusStatusRequest
+     * @param request - GetManagedPrometheusStatusRequest
+     * @returns GetManagedPrometheusStatusResponse
      *
-     * @return GetManagedPrometheusStatusResponse GetManagedPrometheusStatusResponse
+     * @param GetManagedPrometheusStatusRequest $request
+     *
+     * @return GetManagedPrometheusStatusResponse
      */
     public function getManagedPrometheusStatus($request)
     {
@@ -7256,31 +8926,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more traces.
-     *  *
-     * @param GetMultipleTraceRequest $request GetMultipleTraceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the details of one or more traces.
      *
-     * @return GetMultipleTraceResponse GetMultipleTraceResponse
+     * @param request - GetMultipleTraceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMultipleTraceResponse
+     *
+     * @param GetMultipleTraceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMultipleTraceResponse
      */
     public function getMultipleTraceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->traceIDs)) {
-            $query['TraceIDs'] = $request->traceIDs;
+
+        if (null !== $request->traceIDs) {
+            @$query['TraceIDs'] = $request->traceIDs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMultipleTrace',
@@ -7293,16 +8971,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMultipleTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMultipleTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMultipleTraceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of one or more traces.
-     *  *
-     * @param GetMultipleTraceRequest $request GetMultipleTraceRequest
+     * Queries the details of one or more traces.
      *
-     * @return GetMultipleTraceResponse GetMultipleTraceResponse
+     * @param request - GetMultipleTraceRequest
+     * @returns GetMultipleTraceResponse
+     *
+     * @param GetMultipleTraceRequest $request
+     *
+     * @return GetMultipleTraceResponse
      */
     public function getMultipleTrace($request)
     {
@@ -7312,19 +8996,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a scheduling policy.
-     *  *
-     * @param GetOnCallSchedulesDetailRequest $request GetOnCallSchedulesDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a scheduling policy.
      *
-     * @return GetOnCallSchedulesDetailResponse GetOnCallSchedulesDetailResponse
+     * @param request - GetOnCallSchedulesDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOnCallSchedulesDetailResponse
+     *
+     * @param GetOnCallSchedulesDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetOnCallSchedulesDetailResponse
      */
     public function getOnCallSchedulesDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOnCallSchedulesDetail',
@@ -7337,16 +9025,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOnCallSchedulesDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOnCallSchedulesDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOnCallSchedulesDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a scheduling policy.
-     *  *
-     * @param GetOnCallSchedulesDetailRequest $request GetOnCallSchedulesDetailRequest
+     * Queries the information about a scheduling policy.
      *
-     * @return GetOnCallSchedulesDetailResponse GetOnCallSchedulesDetailResponse
+     * @param request - GetOnCallSchedulesDetailRequest
+     * @returns GetOnCallSchedulesDetailResponse
+     *
+     * @param GetOnCallSchedulesDetailRequest $request
+     *
+     * @return GetOnCallSchedulesDetailResponse
      */
     public function getOnCallSchedulesDetail($request)
     {
@@ -7356,24 +9050,30 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the token required for integrating Prometheus Service.
-     *  *
-     * @description None.
-     *  *
-     * @param GetPrometheusApiTokenRequest $request GetPrometheusApiTokenRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the token required for integrating Prometheus Service.
      *
-     * @return GetPrometheusApiTokenResponse GetPrometheusApiTokenResponse
+     * @remarks
+     * None.
+     *
+     * @param request - GetPrometheusApiTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPrometheusApiTokenResponse
+     *
+     * @param GetPrometheusApiTokenRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetPrometheusApiTokenResponse
      */
     public function getPrometheusApiTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPrometheusApiToken',
@@ -7386,18 +9086,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPrometheusApiTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPrometheusApiTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPrometheusApiTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the token required for integrating Prometheus Service.
-     *  *
-     * @description None.
-     *  *
-     * @param GetPrometheusApiTokenRequest $request GetPrometheusApiTokenRequest
+     * Queries the token required for integrating Prometheus Service.
      *
-     * @return GetPrometheusApiTokenResponse GetPrometheusApiTokenResponse
+     * @remarks
+     * None.
+     *
+     * @param request - GetPrometheusApiTokenRequest
+     * @returns GetPrometheusApiTokenResponse
+     *
+     * @param GetPrometheusApiTokenRequest $request
+     *
+     * @return GetPrometheusApiTokenResponse
      */
     public function getPrometheusApiToken($request)
     {
@@ -7407,25 +9114,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a global aggregation instance.
-     *  *
-     * @param GetPrometheusGlobalViewRequest $request GetPrometheusGlobalViewRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a global aggregation instance.
      *
-     * @return GetPrometheusGlobalViewResponse GetPrometheusGlobalViewResponse
+     * @param request - GetPrometheusGlobalViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPrometheusGlobalViewResponse
+     *
+     * @param GetPrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetPrometheusGlobalViewResponse
      */
     public function getPrometheusGlobalViewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->globalViewClusterId)) {
-            $query['GlobalViewClusterId'] = $request->globalViewClusterId;
+        if (null !== $request->globalViewClusterId) {
+            @$query['GlobalViewClusterId'] = $request->globalViewClusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPrometheusGlobalView',
@@ -7438,16 +9151,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPrometheusGlobalViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a global aggregation instance.
-     *  *
-     * @param GetPrometheusGlobalViewRequest $request GetPrometheusGlobalViewRequest
+     * Queries the information about a global aggregation instance.
      *
-     * @return GetPrometheusGlobalViewResponse GetPrometheusGlobalViewResponse
+     * @param request - GetPrometheusGlobalViewRequest
+     * @returns GetPrometheusGlobalViewResponse
+     *
+     * @param GetPrometheusGlobalViewRequest $request
+     *
+     * @return GetPrometheusGlobalViewResponse
      */
     public function getPrometheusGlobalView($request)
     {
@@ -7457,25 +9176,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a Prometheus instance.
-     *  *
-     * @param GetPrometheusInstanceRequest $request GetPrometheusInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a Prometheus instance.
      *
-     * @return GetPrometheusInstanceResponse GetPrometheusInstanceResponse
+     * @param request - GetPrometheusInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPrometheusInstanceResponse
+     *
+     * @param GetPrometheusInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetPrometheusInstanceResponse
      */
     public function getPrometheusInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPrometheusInstance',
@@ -7488,16 +9213,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPrometheusInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a Prometheus instance.
-     *  *
-     * @param GetPrometheusInstanceRequest $request GetPrometheusInstanceRequest
+     * Queries the information about a Prometheus instance.
      *
-     * @return GetPrometheusInstanceResponse GetPrometheusInstanceResponse
+     * @param request - GetPrometheusInstanceRequest
+     * @returns GetPrometheusInstanceResponse
+     *
+     * @param GetPrometheusInstanceRequest $request
+     *
+     * @return GetPrometheusInstanceResponse
      */
     public function getPrometheusInstance($request)
     {
@@ -7507,31 +9238,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param GetPrometheusIntegrationRequest $request GetPrometheusIntegrationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
      *
-     * @return GetPrometheusIntegrationResponse GetPrometheusIntegrationResponse
+     * @param request - GetPrometheusIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPrometheusIntegrationResponse
+     *
+     * @param GetPrometheusIntegrationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetPrometheusIntegrationResponse
      */
     public function getPrometheusIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->integrationType)) {
-            $query['IntegrationType'] = $request->integrationType;
+
+        if (null !== $request->integrationType) {
+            @$query['IntegrationType'] = $request->integrationType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPrometheusIntegration',
@@ -7544,16 +9283,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param GetPrometheusIntegrationRequest $request GetPrometheusIntegrationRequest
+     * Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
      *
-     * @return GetPrometheusIntegrationResponse GetPrometheusIntegrationResponse
+     * @param request - GetPrometheusIntegrationRequest
+     * @returns GetPrometheusIntegrationResponse
+     *
+     * @param GetPrometheusIntegrationRequest $request
+     *
+     * @return GetPrometheusIntegrationResponse
      */
     public function getPrometheusIntegration($request)
     {
@@ -7563,31 +9308,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param GetPrometheusMonitoringRequest $request GetPrometheusMonitoringRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the monitoring configuration of a Prometheus instance.
      *
-     * @return GetPrometheusMonitoringResponse GetPrometheusMonitoringResponse
+     * @param request - GetPrometheusMonitoringRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPrometheusMonitoringResponse
+     *
+     * @param GetPrometheusMonitoringRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetPrometheusMonitoringResponse
      */
     public function getPrometheusMonitoringWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->monitoringName)) {
-            $query['MonitoringName'] = $request->monitoringName;
+
+        if (null !== $request->monitoringName) {
+            @$query['MonitoringName'] = $request->monitoringName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPrometheusMonitoring',
@@ -7600,16 +9353,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPrometheusMonitoringResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param GetPrometheusMonitoringRequest $request GetPrometheusMonitoringRequest
+     * Queries the monitoring configuration of a Prometheus instance.
      *
-     * @return GetPrometheusMonitoringResponse GetPrometheusMonitoringResponse
+     * @param request - GetPrometheusMonitoringRequest
+     * @returns GetPrometheusMonitoringResponse
+     *
+     * @param GetPrometheusMonitoringRequest $request
+     *
+     * @return GetPrometheusMonitoringResponse
      */
     public function getPrometheusMonitoring($request)
     {
@@ -7619,25 +9378,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the recording rule of a cluster.
-     *  *
-     * @param GetRecordingRuleRequest $request GetRecordingRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Obtains the recording rule of a cluster.
      *
-     * @return GetRecordingRuleResponse GetRecordingRuleResponse
+     * @param request - GetRecordingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRecordingRuleResponse
+     *
+     * @param GetRecordingRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetRecordingRuleResponse
      */
     public function getRecordingRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRecordingRule',
@@ -7650,16 +9415,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRecordingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRecordingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRecordingRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the recording rule of a cluster.
-     *  *
-     * @param GetRecordingRuleRequest $request GetRecordingRuleRequest
+     * Obtains the recording rule of a cluster.
      *
-     * @return GetRecordingRuleResponse GetRecordingRuleResponse
+     * @param request - GetRecordingRuleRequest
+     * @returns GetRecordingRuleResponse
+     *
+     * @param GetRecordingRuleRequest $request
+     *
+     * @return GetRecordingRuleResponse
      */
     public function getRecordingRule($request)
     {
@@ -7669,19 +9440,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the objects of a Browser Monitoring application by process identifier (PID).
-     *  *
-     * @param GetRetcodeAppByPidRequest $request GetRetcodeAppByPidRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the objects of a Browser Monitoring application by process identifier (PID).
      *
-     * @return GetRetcodeAppByPidResponse GetRetcodeAppByPidResponse
+     * @param request - GetRetcodeAppByPidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRetcodeAppByPidResponse
+     *
+     * @param GetRetcodeAppByPidRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetRetcodeAppByPidResponse
      */
     public function getRetcodeAppByPidWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRetcodeAppByPid',
@@ -7694,16 +9469,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRetcodeAppByPidResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRetcodeAppByPidResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRetcodeAppByPidResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the objects of a Browser Monitoring application by process identifier (PID).
-     *  *
-     * @param GetRetcodeAppByPidRequest $request GetRetcodeAppByPidRequest
+     * Queries the objects of a Browser Monitoring application by process identifier (PID).
      *
-     * @return GetRetcodeAppByPidResponse GetRetcodeAppByPidResponse
+     * @param request - GetRetcodeAppByPidRequest
+     * @returns GetRetcodeAppByPidResponse
+     *
+     * @param GetRetcodeAppByPidRequest $request
+     *
+     * @return GetRetcodeAppByPidResponse
      */
     public function getRetcodeAppByPid($request)
     {
@@ -7713,34 +9494,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Browser Monitoring data based on a query statement of Log Service.
-     *  *
-     * @param GetRetcodeDataByQueryRequest $request GetRetcodeDataByQueryRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the Browser Monitoring data based on a query statement of Log Service.
      *
-     * @return GetRetcodeDataByQueryResponse GetRetcodeDataByQueryResponse
+     * @param request - GetRetcodeDataByQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRetcodeDataByQueryResponse
+     *
+     * @param GetRetcodeDataByQueryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetRetcodeDataByQueryResponse
      */
     public function getRetcodeDataByQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->from)) {
-            $query['From'] = $request->from;
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->to)) {
-            $query['To'] = $request->to;
+
+        if (null !== $request->to) {
+            @$query['To'] = $request->to;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRetcodeDataByQuery',
@@ -7753,16 +9543,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRetcodeDataByQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRetcodeDataByQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRetcodeDataByQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Browser Monitoring data based on a query statement of Log Service.
-     *  *
-     * @param GetRetcodeDataByQueryRequest $request GetRetcodeDataByQueryRequest
+     * Queries the Browser Monitoring data based on a query statement of Log Service.
      *
-     * @return GetRetcodeDataByQueryResponse GetRetcodeDataByQueryResponse
+     * @param request - GetRetcodeDataByQueryRequest
+     * @returns GetRetcodeDataByQueryResponse
+     *
+     * @param GetRetcodeDataByQueryRequest $request
+     *
+     * @return GetRetcodeDataByQueryResponse
      */
     public function getRetcodeDataByQuery($request)
     {
@@ -7772,25 +9568,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Log Service project and Logstore that correspond to an application of browser monitoring.
-     *  *
-     * @param GetRetcodeLogstoreRequest $request GetRetcodeLogstoreRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the Log Service project and Logstore that correspond to an application of browser monitoring.
      *
-     * @return GetRetcodeLogstoreResponse GetRetcodeLogstoreResponse
+     * @param request - GetRetcodeLogstoreRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRetcodeLogstoreResponse
+     *
+     * @param GetRetcodeLogstoreRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetRetcodeLogstoreResponse
      */
     public function getRetcodeLogstoreWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRetcodeLogstore',
@@ -7803,16 +9605,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRetcodeLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRetcodeLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRetcodeLogstoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Log Service project and Logstore that correspond to an application of browser monitoring.
-     *  *
-     * @param GetRetcodeLogstoreRequest $request GetRetcodeLogstoreRequest
+     * Queries the Log Service project and Logstore that correspond to an application of browser monitoring.
      *
-     * @return GetRetcodeLogstoreResponse GetRetcodeLogstoreResponse
+     * @param request - GetRetcodeLogstoreRequest
+     * @returns GetRetcodeLogstoreResponse
+     *
+     * @param GetRetcodeLogstoreRequest $request
+     *
+     * @return GetRetcodeLogstoreResponse
      */
     public function getRetcodeLogstore($request)
     {
@@ -7822,22 +9630,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the logon-free URL of a Browser Monitoring application.
-     *  *
-     * @param GetRetcodeShareUrlRequest $request GetRetcodeShareUrlRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the logon-free URL of a Browser Monitoring application.
      *
-     * @return GetRetcodeShareUrlResponse GetRetcodeShareUrlResponse
+     * @param request - GetRetcodeShareUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRetcodeShareUrlResponse
+     *
+     * @param GetRetcodeShareUrlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetRetcodeShareUrlResponse
      */
     public function getRetcodeShareUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRetcodeShareUrl',
@@ -7850,16 +9663,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRetcodeShareUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRetcodeShareUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRetcodeShareUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the logon-free URL of a Browser Monitoring application.
-     *  *
-     * @param GetRetcodeShareUrlRequest $request GetRetcodeShareUrlRequest
+     * Queries the logon-free URL of a Browser Monitoring application.
      *
-     * @return GetRetcodeShareUrlResponse GetRetcodeShareUrlResponse
+     * @param request - GetRetcodeShareUrlRequest
+     * @returns GetRetcodeShareUrlResponse
+     *
+     * @param GetRetcodeShareUrlRequest $request
+     *
+     * @return GetRetcodeShareUrlResponse
      */
     public function getRetcodeShareUrl($request)
     {
@@ -7869,30 +9688,42 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a Real User Monitoring (RUM) application.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumAppInfoRequest $request GetRumAppInfoRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a Real User Monitoring (RUM) application.
      *
-     * @return GetRumAppInfoResponse GetRumAppInfoResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - GetRumAppInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRumAppInfoResponse
+     *
+     * @param GetRumAppInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetRumAppInfoResponse
      */
     public function getRumAppInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appGroup)) {
-            $query['AppGroup'] = $request->appGroup;
+        if (null !== $request->appGroup) {
+            @$query['AppGroup'] = $request->appGroup;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRumAppInfo',
@@ -7905,18 +9736,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRumAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRumAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRumAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a Real User Monitoring (RUM) application.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumAppInfoRequest $request GetRumAppInfoRequest
+     * Queries the information about a Real User Monitoring (RUM) application.
      *
-     * @return GetRumAppInfoResponse GetRumAppInfoResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - GetRumAppInfoRequest
+     * @returns GetRumAppInfoResponse
+     *
+     * @param GetRumAppInfoRequest $request
+     *
+     * @return GetRumAppInfoResponse
      */
     public function getRumAppInfo($request)
     {
@@ -7926,44 +9764,60 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of Real User Monitoring (RUM) applications.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumAppsRequest $tmpReq  GetRumAppsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries a list of Real User Monitoring (RUM) applications.
      *
-     * @return GetRumAppsResponse GetRumAppsResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param tmpReq - GetRumAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRumAppsResponse
+     *
+     * @param GetRumAppsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetRumAppsResponse
      */
     public function getRumAppsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetRumAppsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appGroup)) {
-            $query['AppGroup'] = $request->appGroup;
+        if (null !== $request->appGroup) {
+            @$query['AppGroup'] = $request->appGroup;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRumApps',
@@ -7976,18 +9830,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRumAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRumAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRumAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of Real User Monitoring (RUM) applications.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumAppsRequest $request GetRumAppsRequest
+     * Queries a list of Real User Monitoring (RUM) applications.
      *
-     * @return GetRumAppsResponse GetRumAppsResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - GetRumAppsRequest
+     * @returns GetRumAppsResponse
+     *
+     * @param GetRumAppsRequest $request
+     *
+     * @return GetRumAppsResponse
      */
     public function getRumApps($request)
     {
@@ -7997,45 +9858,62 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries Real User Monitoring (RUM) data by page.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumDataForPageRequest $request GetRumDataForPageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries Real User Monitoring (RUM) data by page.
      *
-     * @return GetRumDataForPageResponse GetRumDataForPageResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - GetRumDataForPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRumDataForPageResponse
+     *
+     * @param GetRumDataForPageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRumDataForPageResponse
      */
     public function getRumDataForPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appGroup)) {
-            $query['AppGroup'] = $request->appGroup;
+        if (null !== $request->appGroup) {
+            @$query['AppGroup'] = $request->appGroup;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRumDataForPage',
@@ -8048,18 +9926,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRumDataForPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRumDataForPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRumDataForPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Real User Monitoring (RUM) data by page.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumDataForPageRequest $request GetRumDataForPageRequest
+     * Queries Real User Monitoring (RUM) data by page.
      *
-     * @return GetRumDataForPageResponse GetRumDataForPageResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - GetRumDataForPageRequest
+     * @returns GetRumDataForPageResponse
+     *
+     * @param GetRumDataForPageRequest $request
+     *
+     * @return GetRumDataForPageResponse
      */
     public function getRumDataForPage($request)
     {
@@ -8069,42 +9954,54 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the exception stack information of a Real User Monitoring (RUM) application.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumExceptionStackRequest $request GetRumExceptionStackRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the exception stack information of a Real User Monitoring (RUM) application.
      *
-     * @return GetRumExceptionStackResponse GetRumExceptionStackResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - GetRumExceptionStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRumExceptionStackResponse
+     *
+     * @param GetRumExceptionStackRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetRumExceptionStackResponse
      */
     public function getRumExceptionStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->exceptionBinaryImages)) {
-            $query['ExceptionBinaryImages'] = $request->exceptionBinaryImages;
+        if (null !== $request->exceptionBinaryImages) {
+            @$query['ExceptionBinaryImages'] = $request->exceptionBinaryImages;
         }
-        if (!Utils::isUnset($request->exceptionStack)) {
-            $query['ExceptionStack'] = $request->exceptionStack;
+
+        if (null !== $request->exceptionStack) {
+            @$query['ExceptionStack'] = $request->exceptionStack;
         }
-        if (!Utils::isUnset($request->exceptionThreadId)) {
-            $query['ExceptionThreadId'] = $request->exceptionThreadId;
+
+        if (null !== $request->exceptionThreadId) {
+            @$query['ExceptionThreadId'] = $request->exceptionThreadId;
         }
-        if (!Utils::isUnset($request->extraInfo)) {
-            $query['ExtraInfo'] = $request->extraInfo;
+
+        if (null !== $request->extraInfo) {
+            @$query['ExtraInfo'] = $request->extraInfo;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sourcemapType)) {
-            $query['SourcemapType'] = $request->sourcemapType;
+
+        if (null !== $request->sourcemapType) {
+            @$query['SourcemapType'] = $request->sourcemapType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRumExceptionStack',
@@ -8117,18 +10014,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRumExceptionStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRumExceptionStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRumExceptionStackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the exception stack information of a Real User Monitoring (RUM) application.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumExceptionStackRequest $request GetRumExceptionStackRequest
+     * Queries the exception stack information of a Real User Monitoring (RUM) application.
      *
-     * @return GetRumExceptionStackResponse GetRumExceptionStackResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - GetRumExceptionStackRequest
+     * @returns GetRumExceptionStackResponse
+     *
+     * @param GetRumExceptionStackRequest $request
+     *
+     * @return GetRumExceptionStackResponse
      */
     public function getRumExceptionStack($request)
     {
@@ -8138,29 +10042,36 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the observability capacity unit (OCU) usage data of Real User Monitoring (RUM).
-     *  *
-     * @description You can query the usage data for the current day at any time. You can query the usage data for the previous day only after 8:00 today.
-     *  *
-     * @param GetRumOcuStatisticDataRequest $tmpReq  GetRumOcuStatisticDataRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the observability capacity unit (OCU) usage data of Real User Monitoring (RUM).
      *
-     * @return GetRumOcuStatisticDataResponse GetRumOcuStatisticDataResponse
+     * @remarks
+     * You can query the usage data for the current day at any time. You can query the usage data for the previous day only after 8:00 today.
+     *
+     * @param tmpReq - GetRumOcuStatisticDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRumOcuStatisticDataResponse
+     *
+     * @param GetRumOcuStatisticDataRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetRumOcuStatisticDataResponse
      */
     public function getRumOcuStatisticDataWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetRumOcuStatisticDataShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filter)) {
-            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
         }
-        if (!Utils::isUnset($tmpReq->group)) {
-            $request->groupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->group, 'Group', 'json');
+
+        if (null !== $tmpReq->group) {
+            $request->groupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->group, 'Group', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRumOcuStatisticData',
@@ -8173,18 +10084,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRumOcuStatisticDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRumOcuStatisticDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRumOcuStatisticDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the observability capacity unit (OCU) usage data of Real User Monitoring (RUM).
-     *  *
-     * @description You can query the usage data for the current day at any time. You can query the usage data for the previous day only after 8:00 today.
-     *  *
-     * @param GetRumOcuStatisticDataRequest $request GetRumOcuStatisticDataRequest
+     * Queries the observability capacity unit (OCU) usage data of Real User Monitoring (RUM).
      *
-     * @return GetRumOcuStatisticDataResponse GetRumOcuStatisticDataResponse
+     * @remarks
+     * You can query the usage data for the current day at any time. You can query the usage data for the previous day only after 8:00 today.
+     *
+     * @param request - GetRumOcuStatisticDataRequest
+     * @returns GetRumOcuStatisticDataResponse
+     *
+     * @param GetRumOcuStatisticDataRequest $request
+     *
+     * @return GetRumOcuStatisticDataResponse
      */
     public function getRumOcuStatisticData($request)
     {
@@ -8194,33 +10112,42 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumUploadFilesRequest $request GetRumUploadFilesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
      *
-     * @return GetRumUploadFilesResponse GetRumUploadFilesResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - GetRumUploadFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRumUploadFilesResponse
+     *
+     * @param GetRumUploadFilesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRumUploadFilesResponse
      */
     public function getRumUploadFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRumUploadFiles',
@@ -8233,18 +10160,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRumUploadFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRumUploadFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRumUploadFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param GetRumUploadFilesRequest $request GetRumUploadFilesRequest
+     * Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
      *
-     * @return GetRumUploadFilesResponse GetRumUploadFilesResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - GetRumUploadFilesRequest
+     * @returns GetRumUploadFilesResponse
+     *
+     * @param GetRumUploadFilesRequest $request
+     *
+     * @return GetRumUploadFilesResponse
      */
     public function getRumUploadFiles($request)
     {
@@ -8254,37 +10188,47 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the details of the SourceMap file uploaded in Browser Monitoring.
-     *  *
-     * @param GetSourceMapInfoRequest $request GetSourceMapInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Obtains the details of the SourceMap file uploaded in Browser Monitoring.
      *
-     * @return GetSourceMapInfoResponse GetSourceMapInfoResponse
+     * @param request - GetSourceMapInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSourceMapInfoResponse
+     *
+     * @param GetSourceMapInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSourceMapInfoResponse
      */
     public function getSourceMapInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ascendingSequence)) {
-            $query['AscendingSequence'] = $request->ascendingSequence;
+        if (null !== $request->ascendingSequence) {
+            @$query['AscendingSequence'] = $request->ascendingSequence;
         }
-        if (!Utils::isUnset($request->edition)) {
-            $query['Edition'] = $request->edition;
+
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
         }
-        if (!Utils::isUnset($request->ID)) {
-            $query['ID'] = $request->ID;
+
+        if (null !== $request->ID) {
+            @$query['ID'] = $request->ID;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->orderField)) {
-            $query['OrderField'] = $request->orderField;
+
+        if (null !== $request->orderField) {
+            @$query['OrderField'] = $request->orderField;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSourceMapInfo',
@@ -8297,16 +10241,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSourceMapInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSourceMapInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSourceMapInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of the SourceMap file uploaded in Browser Monitoring.
-     *  *
-     * @param GetSourceMapInfoRequest $request GetSourceMapInfoRequest
+     * Obtains the details of the SourceMap file uploaded in Browser Monitoring.
      *
-     * @return GetSourceMapInfoResponse GetSourceMapInfoResponse
+     * @param request - GetSourceMapInfoRequest
+     * @returns GetSourceMapInfoResponse
+     *
+     * @param GetSourceMapInfoRequest $request
+     *
+     * @return GetSourceMapInfoResponse
      */
     public function getSourceMapInfo($request)
     {
@@ -8316,40 +10266,51 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of a method stack.
-     *  *
-     * @param GetStackRequest $request GetStackRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the information of a method stack.
      *
-     * @return GetStackResponse GetStackResponse
+     * @param request - GetStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStackResponse
+     *
+     * @param GetStackRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetStackResponse
      */
     public function getStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->rpcID)) {
-            $query['RpcID'] = $request->rpcID;
+
+        if (null !== $request->rpcID) {
+            @$query['RpcID'] = $request->rpcID;
         }
-        if (!Utils::isUnset($request->spanID)) {
-            $query['SpanID'] = $request->spanID;
+
+        if (null !== $request->spanID) {
+            @$query['SpanID'] = $request->spanID;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->traceID)) {
-            $query['TraceID'] = $request->traceID;
+
+        if (null !== $request->traceID) {
+            @$query['TraceID'] = $request->traceID;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStack',
@@ -8362,16 +10323,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of a method stack.
-     *  *
-     * @param GetStackRequest $request GetStackRequest
+     * Queries the information of a method stack.
      *
-     * @return GetStackResponse GetStackResponse
+     * @param request - GetStackRequest
+     * @returns GetStackResponse
+     *
+     * @param GetStackRequest $request
+     *
+     * @return GetStackResponse
      */
     public function getStack($request)
     {
@@ -8381,24 +10348,29 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains detection points.
-     *  *
-     * @param GetSyntheticMonitorsRequest $tmpReq  GetSyntheticMonitorsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Obtains detection points.
      *
-     * @return GetSyntheticMonitorsResponse GetSyntheticMonitorsResponse
+     * @param tmpReq - GetSyntheticMonitorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSyntheticMonitorsResponse
+     *
+     * @param GetSyntheticMonitorsRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSyntheticMonitorsResponse
      */
     public function getSyntheticMonitorsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSyntheticMonitorsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filter)) {
-            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSyntheticMonitors',
@@ -8411,16 +10383,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSyntheticMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSyntheticMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSyntheticMonitorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains detection points.
-     *  *
-     * @param GetSyntheticMonitorsRequest $request GetSyntheticMonitorsRequest
+     * Obtains detection points.
      *
-     * @return GetSyntheticMonitorsResponse GetSyntheticMonitorsResponse
+     * @param request - GetSyntheticMonitorsRequest
+     * @returns GetSyntheticMonitorsResponse
+     *
+     * @param GetSyntheticMonitorsRequest $request
+     *
+     * @return GetSyntheticMonitorsResponse
      */
     public function getSyntheticMonitors($request)
     {
@@ -8430,25 +10408,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a scheduled synthetic monitoring task.
-     *  *
-     * @param GetSyntheticTaskDetailRequest $request GetSyntheticTaskDetailRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a scheduled synthetic monitoring task.
      *
-     * @return GetSyntheticTaskDetailResponse GetSyntheticTaskDetailResponse
+     * @param request - GetSyntheticTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSyntheticTaskDetailResponse
+     *
+     * @param GetSyntheticTaskDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetSyntheticTaskDetailResponse
      */
     public function getSyntheticTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSyntheticTaskDetail',
@@ -8461,16 +10445,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSyntheticTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSyntheticTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSyntheticTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a scheduled synthetic monitoring task.
-     *  *
-     * @param GetSyntheticTaskDetailRequest $request GetSyntheticTaskDetailRequest
+     * Queries the details of a scheduled synthetic monitoring task.
      *
-     * @return GetSyntheticTaskDetailResponse GetSyntheticTaskDetailResponse
+     * @param request - GetSyntheticTaskDetailRequest
+     * @returns GetSyntheticTaskDetailResponse
+     *
+     * @param GetSyntheticTaskDetailRequest $request
+     *
+     * @return GetSyntheticTaskDetailResponse
      */
     public function getSyntheticTaskDetail($request)
     {
@@ -8480,46 +10470,59 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of scheduled synthetic monitoring tasks.
-     *  *
-     * @param GetSyntheticTaskListRequest $request GetSyntheticTaskListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a list of scheduled synthetic monitoring tasks.
      *
-     * @return GetSyntheticTaskListResponse GetSyntheticTaskListResponse
+     * @param request - GetSyntheticTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSyntheticTaskListResponse
+     *
+     * @param GetSyntheticTaskListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSyntheticTaskListResponse
      */
     public function getSyntheticTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $query['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$query['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSyntheticTaskList',
@@ -8532,16 +10535,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSyntheticTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSyntheticTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSyntheticTaskListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of scheduled synthetic monitoring tasks.
-     *  *
-     * @param GetSyntheticTaskListRequest $request GetSyntheticTaskListRequest
+     * Queries a list of scheduled synthetic monitoring tasks.
      *
-     * @return GetSyntheticTaskListResponse GetSyntheticTaskListResponse
+     * @param request - GetSyntheticTaskListRequest
+     * @returns GetSyntheticTaskListResponse
+     *
+     * @param GetSyntheticTaskListRequest $request
+     *
+     * @return GetSyntheticTaskListResponse
      */
     public function getSyntheticTaskList($request)
     {
@@ -8551,22 +10560,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the information about synthetic monitoring points.
-     *  *
-     * @param GetSyntheticTaskMonitorsRequest $request GetSyntheticTaskMonitorsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Obtains the information about synthetic monitoring points.
      *
-     * @return GetSyntheticTaskMonitorsResponse GetSyntheticTaskMonitorsResponse
+     * @param request - GetSyntheticTaskMonitorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSyntheticTaskMonitorsResponse
+     *
+     * @param GetSyntheticTaskMonitorsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetSyntheticTaskMonitorsResponse
      */
     public function getSyntheticTaskMonitorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSyntheticTaskMonitors',
@@ -8579,16 +10593,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSyntheticTaskMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSyntheticTaskMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSyntheticTaskMonitorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the information about synthetic monitoring points.
-     *  *
-     * @param GetSyntheticTaskMonitorsRequest $request GetSyntheticTaskMonitorsRequest
+     * Obtains the information about synthetic monitoring points.
      *
-     * @return GetSyntheticTaskMonitorsResponse GetSyntheticTaskMonitorsResponse
+     * @param request - GetSyntheticTaskMonitorsRequest
+     * @returns GetSyntheticTaskMonitorsResponse
+     *
+     * @param GetSyntheticTaskMonitorsRequest $request
+     *
+     * @return GetSyntheticTaskMonitorsResponse
      */
     public function getSyntheticTaskMonitors($request)
     {
@@ -8598,19 +10618,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the details of a synthetic monitoring task.
-     *  *
-     * @param GetTimingSyntheticTaskRequest $request GetTimingSyntheticTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Obtains the details of a synthetic monitoring task.
      *
-     * @return GetTimingSyntheticTaskResponse GetTimingSyntheticTaskResponse
+     * @param request - GetTimingSyntheticTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTimingSyntheticTaskResponse
+     *
+     * @param GetTimingSyntheticTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetTimingSyntheticTaskResponse
      */
     public function getTimingSyntheticTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTimingSyntheticTask',
@@ -8623,16 +10647,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTimingSyntheticTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of a synthetic monitoring task.
-     *  *
-     * @param GetTimingSyntheticTaskRequest $request GetTimingSyntheticTaskRequest
+     * Obtains the details of a synthetic monitoring task.
      *
-     * @return GetTimingSyntheticTaskResponse GetTimingSyntheticTaskResponse
+     * @param request - GetTimingSyntheticTaskRequest
+     * @returns GetTimingSyntheticTaskResponse
+     *
+     * @param GetTimingSyntheticTaskRequest $request
+     *
+     * @return GetTimingSyntheticTaskResponse
      */
     public function getTimingSyntheticTask($request)
     {
@@ -8642,33 +10672,42 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a trace.
-     *  *
-     * @description > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
-     *  *
-     * @param GetTraceRequest $request GetTraceRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a trace.
      *
-     * @return GetTraceResponse GetTraceResponse
+     * @remarks
+     * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+     *
+     * @param request - GetTraceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTraceResponse
+     *
+     * @param GetTraceRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTraceResponse
      */
     public function getTraceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->traceID)) {
-            $query['TraceID'] = $request->traceID;
+
+        if (null !== $request->traceID) {
+            @$query['TraceID'] = $request->traceID;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTrace',
@@ -8681,18 +10720,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTraceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a trace.
-     *  *
-     * @description > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
-     *  *
-     * @param GetTraceRequest $request GetTraceRequest
+     * Queries the details of a trace.
      *
-     * @return GetTraceResponse GetTraceResponse
+     * @remarks
+     * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+     *
+     * @param request - GetTraceRequest
+     * @returns GetTraceResponse
+     *
+     * @param GetTraceRequest $request
+     *
+     * @return GetTraceResponse
      */
     public function getTrace($request)
     {
@@ -8702,28 +10748,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an application monitoring task.
-     *  *
-     * @param GetTraceAppRequest $request GetTraceAppRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an application monitoring task.
      *
-     * @return GetTraceAppResponse GetTraceAppResponse
+     * @param request - GetTraceAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTraceAppResponse
+     *
+     * @param GetTraceAppRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetTraceAppResponse
      */
     public function getTraceAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTraceApp',
@@ -8736,16 +10789,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTraceAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTraceAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTraceAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an application monitoring task.
-     *  *
-     * @param GetTraceAppRequest $request GetTraceAppRequest
+     * Queries the details of an application monitoring task.
      *
-     * @return GetTraceAppResponse GetTraceAppResponse
+     * @param request - GetTraceAppRequest
+     * @returns GetTraceAppResponse
+     *
+     * @param GetTraceAppRequest $request
+     *
+     * @return GetTraceAppResponse
      */
     public function getTraceApp($request)
     {
@@ -8755,22 +10814,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches. This operation is applicable only to applications that are monitored by Application Monitoring. It is not applicable to applications that are monitored by Managed Service for OpenTelemetry.
-     *  *
-     * @param GetTraceAppConfigRequest $request GetTraceAppConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches. This operation is applicable only to applications that are monitored by Application Monitoring. It is not applicable to applications that are monitored by Managed Service for OpenTelemetry.
      *
-     * @return GetTraceAppConfigResponse GetTraceAppConfigResponse
+     * @param request - GetTraceAppConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTraceAppConfigResponse
+     *
+     * @param GetTraceAppConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetTraceAppConfigResponse
      */
     public function getTraceAppConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTraceAppConfig',
@@ -8783,16 +10847,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTraceAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTraceAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTraceAppConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches. This operation is applicable only to applications that are monitored by Application Monitoring. It is not applicable to applications that are monitored by Managed Service for OpenTelemetry.
-     *  *
-     * @param GetTraceAppConfigRequest $request GetTraceAppConfigRequest
+     * Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches. This operation is applicable only to applications that are monitored by Application Monitoring. It is not applicable to applications that are monitored by Managed Service for OpenTelemetry.
      *
-     * @return GetTraceAppConfigResponse GetTraceAppConfigResponse
+     * @param request - GetTraceAppConfigRequest
+     * @returns GetTraceAppConfigResponse
+     *
+     * @param GetTraceAppConfigRequest $request
+     *
+     * @return GetTraceAppConfigResponse
      */
     public function getTraceAppConfig($request)
     {
@@ -8802,42 +10872,54 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates an alert rule based on an alert template.
-     *  *
-     * @description >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
-     *  *
-     * @param ImportAppAlertRulesRequest $request ImportAppAlertRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates an alert rule based on an alert template.
      *
-     * @return ImportAppAlertRulesResponse ImportAppAlertRulesResponse
+     * @remarks
+     * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
+     *
+     * @param request - ImportAppAlertRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ImportAppAlertRulesResponse
+     *
+     * @param ImportAppAlertRulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ImportAppAlertRulesResponse
      */
     public function importAppAlertRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupIds)) {
-            $query['ContactGroupIds'] = $request->contactGroupIds;
+        if (null !== $request->contactGroupIds) {
+            @$query['ContactGroupIds'] = $request->contactGroupIds;
         }
-        if (!Utils::isUnset($request->isAutoStart)) {
-            $query['IsAutoStart'] = $request->isAutoStart;
+
+        if (null !== $request->isAutoStart) {
+            @$query['IsAutoStart'] = $request->isAutoStart;
         }
-        if (!Utils::isUnset($request->pids)) {
-            $query['Pids'] = $request->pids;
+
+        if (null !== $request->pids) {
+            @$query['Pids'] = $request->pids;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->templageAlertConfig)) {
-            $query['TemplageAlertConfig'] = $request->templageAlertConfig;
+
+        if (null !== $request->templageAlertConfig) {
+            @$query['TemplageAlertConfig'] = $request->templageAlertConfig;
         }
-        if (!Utils::isUnset($request->templateAlertId)) {
-            $query['TemplateAlertId'] = $request->templateAlertId;
+
+        if (null !== $request->templateAlertId) {
+            @$query['TemplateAlertId'] = $request->templateAlertId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ImportAppAlertRules',
@@ -8850,18 +10932,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ImportAppAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ImportAppAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportAppAlertRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an alert rule based on an alert template.
-     *  *
-     * @description >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
-     *  *
-     * @param ImportAppAlertRulesRequest $request ImportAppAlertRulesRequest
+     * Creates an alert rule based on an alert template.
      *
-     * @return ImportAppAlertRulesResponse ImportAppAlertRulesResponse
+     * @remarks
+     * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
+     *
+     * @param request - ImportAppAlertRulesRequest
+     * @returns ImportAppAlertRulesResponse
+     *
+     * @param ImportAppAlertRulesRequest $request
+     *
+     * @return ImportAppAlertRulesResponse
      */
     public function importAppAlertRules($request)
     {
@@ -8871,34 +10960,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Initializes an environment instance.
-     *  *
-     * @param InitEnvironmentRequest $request InitEnvironmentRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Initializes an environment instance.
      *
-     * @return InitEnvironmentResponse InitEnvironmentResponse
+     * @param request - InitEnvironmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InitEnvironmentResponse
+     *
+     * @param InitEnvironmentRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return InitEnvironmentResponse
      */
     public function initEnvironmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->createAuthToken)) {
-            $query['CreateAuthToken'] = $request->createAuthToken;
+
+        if (null !== $request->createAuthToken) {
+            @$query['CreateAuthToken'] = $request->createAuthToken;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->managedType)) {
-            $query['ManagedType'] = $request->managedType;
+
+        if (null !== $request->managedType) {
+            @$query['ManagedType'] = $request->managedType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InitEnvironment',
@@ -8911,16 +11009,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InitEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InitEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InitEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Initializes an environment instance.
-     *  *
-     * @param InitEnvironmentRequest $request InitEnvironmentRequest
+     * Initializes an environment instance.
      *
-     * @return InitEnvironmentResponse InitEnvironmentResponse
+     * @param request - InitEnvironmentRequest
+     * @returns InitEnvironmentResponse
+     *
+     * @param InitEnvironmentRequest $request
+     *
+     * @return InitEnvironmentResponse
      */
     public function initEnvironment($request)
     {
@@ -8930,43 +11034,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Installs an add-on.
-     *  *
-     * @param InstallAddonRequest $request InstallAddonRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Installs an add-on.
      *
-     * @return InstallAddonResponse InstallAddonResponse
+     * @param request - InstallAddonRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InstallAddonResponse
+     *
+     * @param InstallAddonRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InstallAddonResponse
      */
     public function installAddonWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonVersion)) {
-            $query['AddonVersion'] = $request->addonVersion;
+        if (null !== $request->addonVersion) {
+            @$query['AddonVersion'] = $request->addonVersion;
         }
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->releaseName)) {
-            $query['ReleaseName'] = $request->releaseName;
+
+        if (null !== $request->releaseName) {
+            @$query['ReleaseName'] = $request->releaseName;
         }
-        if (!Utils::isUnset($request->values)) {
-            $query['Values'] = $request->values;
+
+        if (null !== $request->values) {
+            @$query['Values'] = $request->values;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallAddon',
@@ -8979,16 +11095,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InstallAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InstallAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallAddonResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Installs an add-on.
-     *  *
-     * @param InstallAddonRequest $request InstallAddonRequest
+     * Installs an add-on.
      *
-     * @return InstallAddonResponse InstallAddonResponse
+     * @param request - InstallAddonRequest
+     * @returns InstallAddonResponse
+     *
+     * @param InstallAddonRequest $request
+     *
+     * @return InstallAddonResponse
      */
     public function installAddon($request)
     {
@@ -8997,39 +11119,48 @@ class ARMS extends OpenApiClient
         return $this->installAddonWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Installs the cms-exporter collector.
+     *
      * @deprecated openAPI InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead
-     *  *
-     * @summary Installs the cms-exporter collector.
-     *  *
-     * Deprecated
      *
-     * @param InstallCmsExporterRequest $request InstallCmsExporterRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - InstallCmsExporterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InstallCmsExporterResponse
      *
-     * @return InstallCmsExporterResponse InstallCmsExporterResponse
+     * @param InstallCmsExporterRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return InstallCmsExporterResponse
      */
     public function installCmsExporterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->cmsArgs)) {
-            $query['CmsArgs'] = $request->cmsArgs;
+
+        if (null !== $request->cmsArgs) {
+            @$query['CmsArgs'] = $request->cmsArgs;
         }
-        if (!Utils::isUnset($request->directArgs)) {
-            $query['DirectArgs'] = $request->directArgs;
+
+        if (null !== $request->directArgs) {
+            @$query['DirectArgs'] = $request->directArgs;
         }
-        if (!Utils::isUnset($request->enableTag)) {
-            $query['EnableTag'] = $request->enableTag;
+
+        if (null !== $request->enableTag) {
+            @$query['EnableTag'] = $request->enableTag;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallCmsExporter',
@@ -9042,20 +11173,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InstallCmsExporterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InstallCmsExporterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallCmsExporterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Installs the cms-exporter collector.
+     *
      * @deprecated openAPI InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead
-     *  *
-     * @summary Installs the cms-exporter collector.
-     *  *
-     * Deprecated
      *
-     * @param InstallCmsExporterRequest $request InstallCmsExporterRequest
+     * @param request - InstallCmsExporterRequest
+     * @returns InstallCmsExporterResponse
      *
-     * @return InstallCmsExporterResponse InstallCmsExporterResponse
+     * @param InstallCmsExporterRequest $request
+     *
+     * @return InstallCmsExporterResponse
      */
     public function installCmsExporter($request)
     {
@@ -9065,40 +11202,51 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Installs a feature.
-     *  *
-     * @param InstallEnvironmentFeatureRequest $request InstallEnvironmentFeatureRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Installs a feature.
      *
-     * @return InstallEnvironmentFeatureResponse InstallEnvironmentFeatureResponse
+     * @param request - InstallEnvironmentFeatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InstallEnvironmentFeatureResponse
+     *
+     * @param InstallEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return InstallEnvironmentFeatureResponse
      */
     public function installEnvironmentFeatureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->featureName)) {
-            $query['FeatureName'] = $request->featureName;
+
+        if (null !== $request->featureName) {
+            @$query['FeatureName'] = $request->featureName;
         }
-        if (!Utils::isUnset($request->featureVersion)) {
-            $query['FeatureVersion'] = $request->featureVersion;
+
+        if (null !== $request->featureVersion) {
+            @$query['FeatureVersion'] = $request->featureVersion;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallEnvironmentFeature',
@@ -9111,16 +11259,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InstallEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InstallEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallEnvironmentFeatureResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Installs a feature.
-     *  *
-     * @param InstallEnvironmentFeatureRequest $request InstallEnvironmentFeatureRequest
+     * Installs a feature.
      *
-     * @return InstallEnvironmentFeatureResponse InstallEnvironmentFeatureResponse
+     * @param request - InstallEnvironmentFeatureRequest
+     * @returns InstallEnvironmentFeatureResponse
+     *
+     * @param InstallEnvironmentFeatureRequest $request
+     *
+     * @return InstallEnvironmentFeatureResponse
      */
     public function installEnvironmentFeature($request)
     {
@@ -9129,56 +11283,71 @@ class ARMS extends OpenApiClient
         return $this->installEnvironmentFeatureWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
+     *
+     * @remarks
+     * You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
+     *
      * @deprecated OpenAPI InstallManagedPrometheus is deprecated
-     *  *
-     * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
-     *  *
-     * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
-     *  *
-     * Deprecated
      *
-     * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - InstallManagedPrometheusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InstallManagedPrometheusResponse
      *
-     * @return InstallManagedPrometheusResponse InstallManagedPrometheusResponse
+     * @param InstallManagedPrometheusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return InstallManagedPrometheusResponse
      */
     public function installManagedPrometheusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
+
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->grafanaInstanceId)) {
-            $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
+
+        if (null !== $request->grafanaInstanceId) {
+            @$query['GrafanaInstanceId'] = $request->grafanaInstanceId;
         }
-        if (!Utils::isUnset($request->kubeConfig)) {
-            $query['KubeConfig'] = $request->kubeConfig;
+
+        if (null !== $request->kubeConfig) {
+            @$query['KubeConfig'] = $request->kubeConfig;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallManagedPrometheus',
@@ -9191,22 +11360,29 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InstallManagedPrometheusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InstallManagedPrometheusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallManagedPrometheusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
+     *
+     * @remarks
+     * You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
+     *
      * @deprecated OpenAPI InstallManagedPrometheus is deprecated
-     *  *
-     * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
-     *  *
-     * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
-     *  *
-     * Deprecated
      *
-     * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
+     * @param request - InstallManagedPrometheusRequest
+     * @returns InstallManagedPrometheusResponse
      *
-     * @return InstallManagedPrometheusResponse InstallManagedPrometheusResponse
+     * @param InstallManagedPrometheusRequest $request
+     *
+     * @return InstallManagedPrometheusResponse
      */
     public function installManagedPrometheus($request)
     {
@@ -9216,31 +11392,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alerts that have been triggered.
-     *  *
-     * @param ListActivatedAlertsRequest $request ListActivatedAlertsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the alerts that have been triggered.
      *
-     * @return ListActivatedAlertsResponse ListActivatedAlertsResponse
+     * @param request - ListActivatedAlertsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListActivatedAlertsResponse
+     *
+     * @param ListActivatedAlertsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListActivatedAlertsResponse
      */
     public function listActivatedAlertsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListActivatedAlerts',
@@ -9253,16 +11437,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListActivatedAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListActivatedAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListActivatedAlertsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alerts that have been triggered.
-     *  *
-     * @param ListActivatedAlertsRequest $request ListActivatedAlertsRequest
+     * Queries the alerts that have been triggered.
      *
-     * @return ListActivatedAlertsResponse ListActivatedAlertsResponse
+     * @param request - ListActivatedAlertsRequest
+     * @returns ListActivatedAlertsResponse
+     *
+     * @param ListActivatedAlertsRequest $request
+     *
+     * @return ListActivatedAlertsResponse
      */
     public function listActivatedAlerts($request)
     {
@@ -9272,28 +11462,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the add-ons installed in an environment.
-     *  *
-     * @param ListAddonReleasesRequest $request ListAddonReleasesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the add-ons installed in an environment.
      *
-     * @return ListAddonReleasesResponse ListAddonReleasesResponse
+     * @param request - ListAddonReleasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAddonReleasesResponse
+     *
+     * @param ListAddonReleasesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAddonReleasesResponse
      */
     public function listAddonReleasesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonName)) {
-            $query['AddonName'] = $request->addonName;
+        if (null !== $request->addonName) {
+            @$query['AddonName'] = $request->addonName;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAddonReleases',
@@ -9306,16 +11503,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAddonReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAddonReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAddonReleasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the add-ons installed in an environment.
-     *  *
-     * @param ListAddonReleasesRequest $request ListAddonReleasesRequest
+     * Queries the add-ons installed in an environment.
      *
-     * @return ListAddonReleasesResponse ListAddonReleasesResponse
+     * @param request - ListAddonReleasesRequest
+     * @returns ListAddonReleasesResponse
+     *
+     * @param ListAddonReleasesRequest $request
+     *
+     * @return ListAddonReleasesResponse
      */
     public function listAddonReleases($request)
     {
@@ -9325,34 +11528,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary List of access center products.
-     *  *
-     * @param ListAddonsRequest $request ListAddonsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * List of access center products.
      *
-     * @return ListAddonsResponse ListAddonsResponse
+     * @param request - ListAddonsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAddonsResponse
+     *
+     * @param ListAddonsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAddonsResponse
      */
     public function listAddonsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->regexp)) {
-            $query['Regexp'] = $request->regexp;
+
+        if (null !== $request->regexp) {
+            @$query['Regexp'] = $request->regexp;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['Search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['Search'] = $request->search;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAddons',
@@ -9365,16 +11577,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAddonsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary List of access center products.
-     *  *
-     * @param ListAddonsRequest $request ListAddonsRequest
+     * List of access center products.
      *
-     * @return ListAddonsResponse ListAddonsResponse
+     * @param request - ListAddonsRequest
+     * @returns ListAddonsResponse
+     *
+     * @param ListAddonsRequest $request
+     *
+     * @return ListAddonsResponse
      */
     public function listAddons($request)
     {
@@ -9384,43 +11602,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries historical alert events.
-     *  *
-     * @param ListAlertEventsRequest $request ListAlertEventsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries historical alert events.
      *
-     * @return ListAlertEventsResponse ListAlertEventsResponse
+     * @param request - ListAlertEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAlertEventsResponse
+     *
+     * @param ListAlertEventsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAlertEventsResponse
      */
     public function listAlertEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertName)) {
-            $query['AlertName'] = $request->alertName;
+        if (null !== $request->alertName) {
+            @$query['AlertName'] = $request->alertName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->matchingConditions)) {
-            $query['MatchingConditions'] = $request->matchingConditions;
+
+        if (null !== $request->matchingConditions) {
+            @$query['MatchingConditions'] = $request->matchingConditions;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->showNotificationPolicies)) {
-            $query['ShowNotificationPolicies'] = $request->showNotificationPolicies;
+
+        if (null !== $request->showNotificationPolicies) {
+            @$query['ShowNotificationPolicies'] = $request->showNotificationPolicies;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAlertEvents',
@@ -9433,16 +11663,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAlertEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAlertEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAlertEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries historical alert events.
-     *  *
-     * @param ListAlertEventsRequest $request ListAlertEventsRequest
+     * Queries historical alert events.
      *
-     * @return ListAlertEventsResponse ListAlertEventsResponse
+     * @param request - ListAlertEventsRequest
+     * @returns ListAlertEventsResponse
+     *
+     * @param ListAlertEventsRequest $request
+     *
+     * @return ListAlertEventsResponse
      */
     public function listAlertEvents($request)
     {
@@ -9452,58 +11688,75 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alert sending history.
-     *  *
-     * @param ListAlertsRequest $request ListAlertsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the alert sending history.
      *
-     * @return ListAlertsResponse ListAlertsResponse
+     * @param request - ListAlertsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAlertsResponse
+     *
+     * @param ListAlertsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAlertsResponse
      */
     public function listAlertsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertName)) {
-            $query['AlertName'] = $request->alertName;
+        if (null !== $request->alertName) {
+            @$query['AlertName'] = $request->alertName;
         }
-        if (!Utils::isUnset($request->dispatchRuleId)) {
-            $query['DispatchRuleId'] = $request->dispatchRuleId;
+
+        if (null !== $request->dispatchRuleId) {
+            @$query['DispatchRuleId'] = $request->dispatchRuleId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->integrationType)) {
-            $query['IntegrationType'] = $request->integrationType;
+
+        if (null !== $request->integrationType) {
+            @$query['IntegrationType'] = $request->integrationType;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->severity)) {
-            $query['Severity'] = $request->severity;
+
+        if (null !== $request->severity) {
+            @$query['Severity'] = $request->severity;
         }
-        if (!Utils::isUnset($request->showActivities)) {
-            $query['ShowActivities'] = $request->showActivities;
+
+        if (null !== $request->showActivities) {
+            @$query['ShowActivities'] = $request->showActivities;
         }
-        if (!Utils::isUnset($request->showEvents)) {
-            $query['ShowEvents'] = $request->showEvents;
+
+        if (null !== $request->showEvents) {
+            @$query['ShowEvents'] = $request->showEvents;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAlerts',
@@ -9516,16 +11769,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAlertsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alert sending history.
-     *  *
-     * @param ListAlertsRequest $request ListAlertsRequest
+     * Queries the alert sending history.
      *
-     * @return ListAlertsResponse ListAlertsResponse
+     * @param request - ListAlertsRequest
+     * @returns ListAlertsResponse
+     *
+     * @param ListAlertsRequest $request
+     *
+     * @return ListAlertsResponse
      */
     public function listAlerts($request)
     {
@@ -9535,22 +11794,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries all Grafana dashboards in a specified region.
-     *  *
-     * @param ListClusterFromGrafanaRequest $request ListClusterFromGrafanaRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries all Grafana dashboards in a specified region.
      *
-     * @return ListClusterFromGrafanaResponse ListClusterFromGrafanaResponse
+     * @param request - ListClusterFromGrafanaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListClusterFromGrafanaResponse
+     *
+     * @param ListClusterFromGrafanaRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListClusterFromGrafanaResponse
      */
     public function listClusterFromGrafanaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListClusterFromGrafana',
@@ -9563,16 +11827,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListClusterFromGrafanaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClusterFromGrafanaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClusterFromGrafanaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all Grafana dashboards in a specified region.
-     *  *
-     * @param ListClusterFromGrafanaRequest $request ListClusterFromGrafanaRequest
+     * Queries all Grafana dashboards in a specified region.
      *
-     * @return ListClusterFromGrafanaResponse ListClusterFromGrafanaResponse
+     * @param request - ListClusterFromGrafanaRequest
+     * @returns ListClusterFromGrafanaResponse
+     *
+     * @param ListClusterFromGrafanaRequest $request
+     *
+     * @return ListClusterFromGrafanaResponse
      */
     public function listClusterFromGrafana($request)
     {
@@ -9581,33 +11851,40 @@ class ARMS extends OpenApiClient
         return $this->listClusterFromGrafanaWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * 查询Cms安装信息.
+     *
      * @deprecated openAPI ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead
-     *  *
-     * @summary 查询Cms安装信息
-     *  *
-     * Deprecated
      *
-     * @param ListCmsInstancesRequest $request ListCmsInstancesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ListCmsInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCmsInstancesResponse
      *
-     * @return ListCmsInstancesResponse ListCmsInstancesResponse
+     * @param ListCmsInstancesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListCmsInstancesResponse
      */
     public function listCmsInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->typeFilter)) {
-            $query['TypeFilter'] = $request->typeFilter;
+
+        if (null !== $request->typeFilter) {
+            @$query['TypeFilter'] = $request->typeFilter;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCmsInstances',
@@ -9620,20 +11897,26 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCmsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCmsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCmsInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * 查询Cms安装信息.
+     *
      * @deprecated openAPI ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead
-     *  *
-     * @summary 查询Cms安装信息
-     *  *
-     * Deprecated
      *
-     * @param ListCmsInstancesRequest $request ListCmsInstancesRequest
+     * @param request - ListCmsInstancesRequest
+     * @returns ListCmsInstancesResponse
      *
-     * @return ListCmsInstancesResponse ListCmsInstancesResponse
+     * @param ListCmsInstancesRequest $request
+     *
+     * @return ListCmsInstancesResponse
      */
     public function listCmsInstances($request)
     {
@@ -9643,45 +11926,58 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Grafana dashboards of a Container Service for Kubernetes (ACK) cluster.
-     *  *
-     * @description None.
-     *  *
-     * @param ListDashboardsRequest $request ListDashboardsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the Grafana dashboards of a Container Service for Kubernetes (ACK) cluster.
      *
-     * @return ListDashboardsResponse ListDashboardsResponse
+     * @remarks
+     * None.
+     *
+     * @param request - ListDashboardsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDashboardsResponse
+     *
+     * @param ListDashboardsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListDashboardsResponse
      */
     public function listDashboardsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
+
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->dashboardName)) {
-            $query['DashboardName'] = $request->dashboardName;
+
+        if (null !== $request->dashboardName) {
+            @$query['DashboardName'] = $request->dashboardName;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->recreateSwitch)) {
-            $query['RecreateSwitch'] = $request->recreateSwitch;
+
+        if (null !== $request->recreateSwitch) {
+            @$query['RecreateSwitch'] = $request->recreateSwitch;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDashboards',
@@ -9694,18 +11990,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDashboardsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDashboardsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDashboardsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Grafana dashboards of a Container Service for Kubernetes (ACK) cluster.
-     *  *
-     * @description None.
-     *  *
-     * @param ListDashboardsRequest $request ListDashboardsRequest
+     * Queries the Grafana dashboards of a Container Service for Kubernetes (ACK) cluster.
      *
-     * @return ListDashboardsResponse ListDashboardsResponse
+     * @remarks
+     * None.
+     *
+     * @param request - ListDashboardsRequest
+     * @returns ListDashboardsResponse
+     *
+     * @param ListDashboardsRequest $request
+     *
+     * @return ListDashboardsResponse
      */
     public function listDashboards($request)
     {
@@ -9715,46 +12018,59 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Uses Loki data sources and other data sources to create a dashboard in Prometheus Service.
-     *  *
-     * @param ListDashboardsByNameRequest $request ListDashboardsByNameRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Uses Loki data sources and other data sources to create a dashboard in Prometheus Service.
      *
-     * @return ListDashboardsByNameResponse ListDashboardsByNameResponse
+     * @param request - ListDashboardsByNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDashboardsByNameResponse
+     *
+     * @param ListDashboardsByNameRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDashboardsByNameResponse
      */
     public function listDashboardsByNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
+
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->dashBoardName)) {
-            $query['DashBoardName'] = $request->dashBoardName;
+
+        if (null !== $request->dashBoardName) {
+            @$query['DashBoardName'] = $request->dashBoardName;
         }
-        if (!Utils::isUnset($request->dashBoardVersion)) {
-            $query['DashBoardVersion'] = $request->dashBoardVersion;
+
+        if (null !== $request->dashBoardVersion) {
+            @$query['DashBoardVersion'] = $request->dashBoardVersion;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $query['DataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$query['DataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->onlyQuery)) {
-            $query['OnlyQuery'] = $request->onlyQuery;
+
+        if (null !== $request->onlyQuery) {
+            @$query['OnlyQuery'] = $request->onlyQuery;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDashboardsByName',
@@ -9767,16 +12083,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDashboardsByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDashboardsByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDashboardsByNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Uses Loki data sources and other data sources to create a dashboard in Prometheus Service.
-     *  *
-     * @param ListDashboardsByNameRequest $request ListDashboardsByNameRequest
+     * Uses Loki data sources and other data sources to create a dashboard in Prometheus Service.
      *
-     * @return ListDashboardsByNameResponse ListDashboardsByNameResponse
+     * @param request - ListDashboardsByNameRequest
+     * @returns ListDashboardsByNameResponse
+     *
+     * @param ListDashboardsByNameRequest $request
+     *
+     * @return ListDashboardsByNameResponse
      */
     public function listDashboardsByName($request)
     {
@@ -9786,30 +12108,38 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries notification policies.
-     *  *
-     * @description The current API operation is no longer maintained. To query the notification policy information, call the ListNotificationPolicies operation instead.
-     *  *
-     * @param ListDispatchRuleRequest $request ListDispatchRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries notification policies.
      *
-     * @return ListDispatchRuleResponse ListDispatchRuleResponse
+     * @remarks
+     * The current API operation is no longer maintained. To query the notification policy information, call the ListNotificationPolicies operation instead.
+     *
+     * @param request - ListDispatchRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDispatchRuleResponse
+     *
+     * @param ListDispatchRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDispatchRuleResponse
      */
     public function listDispatchRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->system)) {
-            $query['System'] = $request->system;
+
+        if (null !== $request->system) {
+            @$query['System'] = $request->system;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDispatchRule',
@@ -9822,18 +12152,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDispatchRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries notification policies.
-     *  *
-     * @description The current API operation is no longer maintained. To query the notification policy information, call the ListNotificationPolicies operation instead.
-     *  *
-     * @param ListDispatchRuleRequest $request ListDispatchRuleRequest
+     * Queries notification policies.
      *
-     * @return ListDispatchRuleResponse ListDispatchRuleResponse
+     * @remarks
+     * The current API operation is no longer maintained. To query the notification policy information, call the ListNotificationPolicies operation instead.
+     *
+     * @param request - ListDispatchRuleRequest
+     * @returns ListDispatchRuleResponse
+     *
+     * @param ListDispatchRuleRequest $request
+     *
+     * @return ListDispatchRuleResponse
      */
     public function listDispatchRule($request)
     {
@@ -9843,28 +12180,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the custom jobs of an environment.
-     *  *
-     * @param ListEnvCustomJobsRequest $request ListEnvCustomJobsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the custom jobs of an environment.
      *
-     * @return ListEnvCustomJobsResponse ListEnvCustomJobsResponse
+     * @param request - ListEnvCustomJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvCustomJobsResponse
+     *
+     * @param ListEnvCustomJobsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListEnvCustomJobsResponse
      */
     public function listEnvCustomJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->encryptYaml)) {
-            $query['EncryptYaml'] = $request->encryptYaml;
+        if (null !== $request->encryptYaml) {
+            @$query['EncryptYaml'] = $request->encryptYaml;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvCustomJobs',
@@ -9877,16 +12221,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvCustomJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvCustomJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvCustomJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the custom jobs of an environment.
-     *  *
-     * @param ListEnvCustomJobsRequest $request ListEnvCustomJobsRequest
+     * Queries the custom jobs of an environment.
      *
-     * @return ListEnvCustomJobsResponse ListEnvCustomJobsResponse
+     * @param request - ListEnvCustomJobsRequest
+     * @returns ListEnvCustomJobsResponse
+     *
+     * @param ListEnvCustomJobsRequest $request
+     *
+     * @return ListEnvCustomJobsResponse
      */
     public function listEnvCustomJobs($request)
     {
@@ -9896,25 +12246,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the PodMonitors of an environment.
-     *  *
-     * @param ListEnvPodMonitorsRequest $request ListEnvPodMonitorsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the PodMonitors of an environment.
      *
-     * @return ListEnvPodMonitorsResponse ListEnvPodMonitorsResponse
+     * @param request - ListEnvPodMonitorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvPodMonitorsResponse
+     *
+     * @param ListEnvPodMonitorsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListEnvPodMonitorsResponse
      */
     public function listEnvPodMonitorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvPodMonitors',
@@ -9927,16 +12283,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvPodMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvPodMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvPodMonitorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the PodMonitors of an environment.
-     *  *
-     * @param ListEnvPodMonitorsRequest $request ListEnvPodMonitorsRequest
+     * Queries the PodMonitors of an environment.
      *
-     * @return ListEnvPodMonitorsResponse ListEnvPodMonitorsResponse
+     * @param request - ListEnvPodMonitorsRequest
+     * @returns ListEnvPodMonitorsResponse
+     *
+     * @param ListEnvPodMonitorsRequest $request
+     *
+     * @return ListEnvPodMonitorsResponse
      */
     public function listEnvPodMonitors($request)
     {
@@ -9946,25 +12308,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the ServiceMonitors of an environment.
-     *  *
-     * @param ListEnvServiceMonitorsRequest $request ListEnvServiceMonitorsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the ServiceMonitors of an environment.
      *
-     * @return ListEnvServiceMonitorsResponse ListEnvServiceMonitorsResponse
+     * @param request - ListEnvServiceMonitorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvServiceMonitorsResponse
+     *
+     * @param ListEnvServiceMonitorsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListEnvServiceMonitorsResponse
      */
     public function listEnvServiceMonitorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvServiceMonitors',
@@ -9977,16 +12345,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvServiceMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvServiceMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvServiceMonitorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the ServiceMonitors of an environment.
-     *  *
-     * @param ListEnvServiceMonitorsRequest $request ListEnvServiceMonitorsRequest
+     * Queries the ServiceMonitors of an environment.
      *
-     * @return ListEnvServiceMonitorsResponse ListEnvServiceMonitorsResponse
+     * @param request - ListEnvServiceMonitorsRequest
+     * @returns ListEnvServiceMonitorsResponse
+     *
+     * @param ListEnvServiceMonitorsRequest $request
+     *
+     * @return ListEnvServiceMonitorsResponse
      */
     public function listEnvServiceMonitors($request)
     {
@@ -9996,25 +12370,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 环境addon列表
-     *  *
-     * @param ListEnvironmentAddonsRequest $request ListEnvironmentAddonsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 环境addon列表.
      *
-     * @return ListEnvironmentAddonsResponse ListEnvironmentAddonsResponse
+     * @param request - ListEnvironmentAddonsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvironmentAddonsResponse
+     *
+     * @param ListEnvironmentAddonsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListEnvironmentAddonsResponse
      */
     public function listEnvironmentAddonsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvironmentAddons',
@@ -10027,16 +12407,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvironmentAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvironmentAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvironmentAddonsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 环境addon列表
-     *  *
-     * @param ListEnvironmentAddonsRequest $request ListEnvironmentAddonsRequest
+     * 环境addon列表.
      *
-     * @return ListEnvironmentAddonsResponse ListEnvironmentAddonsResponse
+     * @param request - ListEnvironmentAddonsRequest
+     * @returns ListEnvironmentAddonsResponse
+     *
+     * @param ListEnvironmentAddonsRequest $request
+     *
+     * @return ListEnvironmentAddonsResponse
      */
     public function listEnvironmentAddons($request)
     {
@@ -10046,31 +12432,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alert groups of an environment instance.
-     *  *
-     * @param ListEnvironmentAlertRulesRequest $request ListEnvironmentAlertRulesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the alert groups of an environment instance.
      *
-     * @return ListEnvironmentAlertRulesResponse ListEnvironmentAlertRulesResponse
+     * @param request - ListEnvironmentAlertRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvironmentAlertRulesResponse
+     *
+     * @param ListEnvironmentAlertRulesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListEnvironmentAlertRulesResponse
      */
     public function listEnvironmentAlertRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonName)) {
-            $query['AddonName'] = $request->addonName;
+        if (null !== $request->addonName) {
+            @$query['AddonName'] = $request->addonName;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvironmentAlertRules',
@@ -10083,16 +12477,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvironmentAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvironmentAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvironmentAlertRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alert groups of an environment instance.
-     *  *
-     * @param ListEnvironmentAlertRulesRequest $request ListEnvironmentAlertRulesRequest
+     * Queries the alert groups of an environment instance.
      *
-     * @return ListEnvironmentAlertRulesResponse ListEnvironmentAlertRulesResponse
+     * @param request - ListEnvironmentAlertRulesRequest
+     * @returns ListEnvironmentAlertRulesResponse
+     *
+     * @param ListEnvironmentAlertRulesRequest $request
+     *
+     * @return ListEnvironmentAlertRulesResponse
      */
     public function listEnvironmentAlertRules($request)
     {
@@ -10102,31 +12502,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a dashboard of an environment instance.
-     *  *
-     * @param ListEnvironmentDashboardsRequest $request ListEnvironmentDashboardsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries information about a dashboard of an environment instance.
      *
-     * @return ListEnvironmentDashboardsResponse ListEnvironmentDashboardsResponse
+     * @param request - ListEnvironmentDashboardsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvironmentDashboardsResponse
+     *
+     * @param ListEnvironmentDashboardsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListEnvironmentDashboardsResponse
      */
     public function listEnvironmentDashboardsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonName)) {
-            $query['AddonName'] = $request->addonName;
+        if (null !== $request->addonName) {
+            @$query['AddonName'] = $request->addonName;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $query['Scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvironmentDashboards',
@@ -10139,16 +12547,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvironmentDashboardsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvironmentDashboardsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvironmentDashboardsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about a dashboard of an environment instance.
-     *  *
-     * @param ListEnvironmentDashboardsRequest $request ListEnvironmentDashboardsRequest
+     * Queries information about a dashboard of an environment instance.
      *
-     * @return ListEnvironmentDashboardsResponse ListEnvironmentDashboardsResponse
+     * @param request - ListEnvironmentDashboardsRequest
+     * @returns ListEnvironmentDashboardsResponse
+     *
+     * @param ListEnvironmentDashboardsRequest $request
+     *
+     * @return ListEnvironmentDashboardsResponse
      */
     public function listEnvironmentDashboards($request)
     {
@@ -10158,28 +12572,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the features in an environment.
-     *  *
-     * @param ListEnvironmentFeaturesRequest $request ListEnvironmentFeaturesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the features in an environment.
      *
-     * @return ListEnvironmentFeaturesResponse ListEnvironmentFeaturesResponse
+     * @param request - ListEnvironmentFeaturesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvironmentFeaturesResponse
+     *
+     * @param ListEnvironmentFeaturesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListEnvironmentFeaturesResponse
      */
     public function listEnvironmentFeaturesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvironmentFeatures',
@@ -10192,16 +12613,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvironmentFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvironmentFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvironmentFeaturesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the features in an environment.
-     *  *
-     * @param ListEnvironmentFeaturesRequest $request ListEnvironmentFeaturesRequest
+     * Queries the features in an environment.
      *
-     * @return ListEnvironmentFeaturesResponse ListEnvironmentFeaturesResponse
+     * @param request - ListEnvironmentFeaturesRequest
+     * @returns ListEnvironmentFeaturesResponse
+     *
+     * @param ListEnvironmentFeaturesRequest $request
+     *
+     * @return ListEnvironmentFeaturesResponse
      */
     public function listEnvironmentFeatures($request)
     {
@@ -10211,39 +12638,49 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Kubernetes resources of an environment.
-     *  *
-     * @param ListEnvironmentKubeResourcesRequest $tmpReq  ListEnvironmentKubeResourcesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the Kubernetes resources of an environment.
      *
-     * @return ListEnvironmentKubeResourcesResponse ListEnvironmentKubeResourcesResponse
+     * @param tmpReq - ListEnvironmentKubeResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvironmentKubeResourcesResponse
+     *
+     * @param ListEnvironmentKubeResourcesRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListEnvironmentKubeResourcesResponse
      */
     public function listEnvironmentKubeResourcesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListEnvironmentKubeResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->labelSelectors)) {
-            $request->labelSelectorsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labelSelectors, 'LabelSelectors', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labelSelectors) {
+            $request->labelSelectorsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelSelectors, 'LabelSelectors', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->kind)) {
-            $query['Kind'] = $request->kind;
+
+        if (null !== $request->kind) {
+            @$query['Kind'] = $request->kind;
         }
-        if (!Utils::isUnset($request->labelSelectorsShrink)) {
-            $query['LabelSelectors'] = $request->labelSelectorsShrink;
+
+        if (null !== $request->labelSelectorsShrink) {
+            @$query['LabelSelectors'] = $request->labelSelectorsShrink;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvironmentKubeResources',
@@ -10256,16 +12693,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvironmentKubeResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvironmentKubeResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvironmentKubeResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Kubernetes resources of an environment.
-     *  *
-     * @param ListEnvironmentKubeResourcesRequest $request ListEnvironmentKubeResourcesRequest
+     * Queries the Kubernetes resources of an environment.
      *
-     * @return ListEnvironmentKubeResourcesResponse ListEnvironmentKubeResourcesResponse
+     * @param request - ListEnvironmentKubeResourcesRequest
+     * @returns ListEnvironmentKubeResourcesResponse
+     *
+     * @param ListEnvironmentKubeResourcesRequest $request
+     *
+     * @return ListEnvironmentKubeResourcesResponse
      */
     public function listEnvironmentKubeResources($request)
     {
@@ -10275,28 +12718,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the targets of an environment.
-     *  *
-     * @param ListEnvironmentMetricTargetsRequest $request ListEnvironmentMetricTargetsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the targets of an environment.
      *
-     * @return ListEnvironmentMetricTargetsResponse ListEnvironmentMetricTargetsResponse
+     * @param request - ListEnvironmentMetricTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvironmentMetricTargetsResponse
+     *
+     * @param ListEnvironmentMetricTargetsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListEnvironmentMetricTargetsResponse
      */
     public function listEnvironmentMetricTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->jobName)) {
-            $query['JobName'] = $request->jobName;
+
+        if (null !== $request->jobName) {
+            @$query['JobName'] = $request->jobName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvironmentMetricTargets',
@@ -10309,16 +12759,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvironmentMetricTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvironmentMetricTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvironmentMetricTargetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the targets of an environment.
-     *  *
-     * @param ListEnvironmentMetricTargetsRequest $request ListEnvironmentMetricTargetsRequest
+     * Queries the targets of an environment.
      *
-     * @return ListEnvironmentMetricTargetsResponse ListEnvironmentMetricTargetsResponse
+     * @param request - ListEnvironmentMetricTargetsRequest
+     * @returns ListEnvironmentMetricTargetsResponse
+     *
+     * @param ListEnvironmentMetricTargetsRequest $request
+     *
+     * @return ListEnvironmentMetricTargetsResponse
      */
     public function listEnvironmentMetricTargets($request)
     {
@@ -10328,48 +12784,61 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries environments.
-     *  *
-     * @param ListEnvironmentsRequest $tmpReq  ListEnvironmentsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries environments.
      *
-     * @return ListEnvironmentsResponse ListEnvironmentsResponse
+     * @param tmpReq - ListEnvironmentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEnvironmentsResponse
+     *
+     * @param ListEnvironmentsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListEnvironmentsResponse
      */
     public function listEnvironmentsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListEnvironmentsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->addonName)) {
-            $query['AddonName'] = $request->addonName;
+        if (null !== $request->addonName) {
+            @$query['AddonName'] = $request->addonName;
         }
-        if (!Utils::isUnset($request->bindResourceId)) {
-            $query['BindResourceId'] = $request->bindResourceId;
+
+        if (null !== $request->bindResourceId) {
+            @$query['BindResourceId'] = $request->bindResourceId;
         }
-        if (!Utils::isUnset($request->environmentType)) {
-            $query['EnvironmentType'] = $request->environmentType;
+
+        if (null !== $request->environmentType) {
+            @$query['EnvironmentType'] = $request->environmentType;
         }
-        if (!Utils::isUnset($request->feePackage)) {
-            $query['FeePackage'] = $request->feePackage;
+
+        if (null !== $request->feePackage) {
+            @$query['FeePackage'] = $request->feePackage;
         }
-        if (!Utils::isUnset($request->filterRegionIds)) {
-            $query['FilterRegionIds'] = $request->filterRegionIds;
+
+        if (null !== $request->filterRegionIds) {
+            @$query['FilterRegionIds'] = $request->filterRegionIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEnvironments',
@@ -10382,16 +12851,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnvironmentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries environments.
-     *  *
-     * @param ListEnvironmentsRequest $request ListEnvironmentsRequest
+     * Queries environments.
      *
-     * @return ListEnvironmentsResponse ListEnvironmentsResponse
+     * @param request - ListEnvironmentsRequest
+     * @returns ListEnvironmentsResponse
+     *
+     * @param ListEnvironmentsRequest $request
+     *
+     * @return ListEnvironmentsResponse
      */
     public function listEnvironments($request)
     {
@@ -10401,19 +12876,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an escalation policy.
-     *  *
-     * @param ListEscalationPoliciesRequest $request ListEscalationPoliciesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an escalation policy.
      *
-     * @return ListEscalationPoliciesResponse ListEscalationPoliciesResponse
+     * @param request - ListEscalationPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEscalationPoliciesResponse
+     *
+     * @param ListEscalationPoliciesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListEscalationPoliciesResponse
      */
     public function listEscalationPoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEscalationPolicies',
@@ -10426,16 +12905,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEscalationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEscalationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEscalationPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an escalation policy.
-     *  *
-     * @param ListEscalationPoliciesRequest $request ListEscalationPoliciesRequest
+     * Queries the information about an escalation policy.
      *
-     * @return ListEscalationPoliciesResponse ListEscalationPoliciesResponse
+     * @param request - ListEscalationPoliciesRequest
+     * @returns ListEscalationPoliciesResponse
+     *
+     * @param ListEscalationPoliciesRequest $request
+     *
+     * @return ListEscalationPoliciesResponse
      */
     public function listEscalationPolicies($request)
     {
@@ -10445,19 +12930,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries an EventBridge integration.
-     *  *
-     * @param ListEventBridgeIntegrationsRequest $request ListEventBridgeIntegrationsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries an EventBridge integration.
      *
-     * @return ListEventBridgeIntegrationsResponse ListEventBridgeIntegrationsResponse
+     * @param request - ListEventBridgeIntegrationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEventBridgeIntegrationsResponse
+     *
+     * @param ListEventBridgeIntegrationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListEventBridgeIntegrationsResponse
      */
     public function listEventBridgeIntegrationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEventBridgeIntegrations',
@@ -10470,16 +12959,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEventBridgeIntegrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEventBridgeIntegrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEventBridgeIntegrationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries an EventBridge integration.
-     *  *
-     * @param ListEventBridgeIntegrationsRequest $request ListEventBridgeIntegrationsRequest
+     * Queries an EventBridge integration.
      *
-     * @return ListEventBridgeIntegrationsResponse ListEventBridgeIntegrationsResponse
+     * @param request - ListEventBridgeIntegrationsRequest
+     * @returns ListEventBridgeIntegrationsResponse
+     *
+     * @param ListEventBridgeIntegrationsRequest $request
+     *
+     * @return ListEventBridgeIntegrationsResponse
      */
     public function listEventBridgeIntegrations($request)
     {
@@ -10489,38 +12984,48 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtain Specified Workspace List
-     *  *
-     * @description >The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
-     *  *
-     * @param ListGrafanaWorkspaceRequest $tmpReq  ListGrafanaWorkspaceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Obtain Specified Workspace List.
      *
-     * @return ListGrafanaWorkspaceResponse ListGrafanaWorkspaceResponse
+     * @remarks
+     * >The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
+     *
+     * @param tmpReq - ListGrafanaWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListGrafanaWorkspaceResponse
+     *
+     * @param ListGrafanaWorkspaceRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListGrafanaWorkspaceResponse
      */
     public function listGrafanaWorkspaceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListGrafanaWorkspaceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListGrafanaWorkspace',
@@ -10533,18 +13038,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListGrafanaWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtain Specified Workspace List
-     *  *
-     * @description >The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
-     *  *
-     * @param ListGrafanaWorkspaceRequest $request ListGrafanaWorkspaceRequest
+     * Obtain Specified Workspace List.
      *
-     * @return ListGrafanaWorkspaceResponse ListGrafanaWorkspaceResponse
+     * @remarks
+     * >The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
+     *
+     * @param request - ListGrafanaWorkspaceRequest
+     * @returns ListGrafanaWorkspaceResponse
+     *
+     * @param ListGrafanaWorkspaceRequest $request
+     *
+     * @return ListGrafanaWorkspaceResponse
      */
     public function listGrafanaWorkspace($request)
     {
@@ -10554,34 +13066,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the abnormal Insights events within a specified period of time.
-     *  *
-     * @param ListInsightsEventsRequest $request ListInsightsEventsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the abnormal Insights events within a specified period of time.
      *
-     * @return ListInsightsEventsResponse ListInsightsEventsResponse
+     * @param request - ListInsightsEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInsightsEventsResponse
+     *
+     * @param ListInsightsEventsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInsightsEventsResponse
      */
     public function listInsightsEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->insightsTypes)) {
-            $query['InsightsTypes'] = $request->insightsTypes;
+
+        if (null !== $request->insightsTypes) {
+            @$query['InsightsTypes'] = $request->insightsTypes;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInsightsEvents',
@@ -10594,16 +13115,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInsightsEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInsightsEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInsightsEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the abnormal Insights events within a specified period of time.
-     *  *
-     * @param ListInsightsEventsRequest $request ListInsightsEventsRequest
+     * Queries the abnormal Insights events within a specified period of time.
      *
-     * @return ListInsightsEventsResponse ListInsightsEventsResponse
+     * @param request - ListInsightsEventsRequest
+     * @returns ListInsightsEventsResponse
+     *
+     * @param ListInsightsEventsRequest $request
+     *
+     * @return ListInsightsEventsResponse
      */
     public function listInsightsEvents($request)
     {
@@ -10613,19 +13140,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Views a list of alert integrations.
-     *  *
-     * @param ListIntegrationRequest $request ListIntegrationRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Views a list of alert integrations.
      *
-     * @return ListIntegrationResponse ListIntegrationResponse
+     * @param request - ListIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIntegrationResponse
+     *
+     * @param ListIntegrationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListIntegrationResponse
      */
     public function listIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIntegration',
@@ -10638,16 +13169,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Views a list of alert integrations.
-     *  *
-     * @param ListIntegrationRequest $request ListIntegrationRequest
+     * Views a list of alert integrations.
      *
-     * @return ListIntegrationResponse ListIntegrationResponse
+     * @param request - ListIntegrationRequest
+     * @returns ListIntegrationResponse
+     *
+     * @param ListIntegrationRequest $request
+     *
+     * @return ListIntegrationResponse
      */
     public function listIntegration($request)
     {
@@ -10657,40 +13194,51 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries notification policies based on specified conditions.
-     *  *
-     * @param ListNotificationPoliciesRequest $request ListNotificationPoliciesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries notification policies based on specified conditions.
      *
-     * @return ListNotificationPoliciesResponse ListNotificationPoliciesResponse
+     * @param request - ListNotificationPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNotificationPoliciesResponse
+     *
+     * @param ListNotificationPoliciesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListNotificationPoliciesResponse
      */
     public function listNotificationPoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->directedMode)) {
-            $query['DirectedMode'] = $request->directedMode;
+        if (null !== $request->directedMode) {
+            @$query['DirectedMode'] = $request->directedMode;
         }
-        if (!Utils::isUnset($request->ids)) {
-            $query['Ids'] = $request->ids;
+
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->isDetail)) {
-            $query['IsDetail'] = $request->isDetail;
+
+        if (null !== $request->isDetail) {
+            @$query['IsDetail'] = $request->isDetail;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListNotificationPolicies',
@@ -10703,16 +13251,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNotificationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNotificationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNotificationPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries notification policies based on specified conditions.
-     *  *
-     * @param ListNotificationPoliciesRequest $request ListNotificationPoliciesRequest
+     * Queries notification policies based on specified conditions.
      *
-     * @return ListNotificationPoliciesResponse ListNotificationPoliciesResponse
+     * @param request - ListNotificationPoliciesRequest
+     * @returns ListNotificationPoliciesResponse
+     *
+     * @param ListNotificationPoliciesRequest $request
+     *
+     * @return ListNotificationPoliciesResponse
      */
     public function listNotificationPolicies($request)
     {
@@ -10722,19 +13276,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a scheduling policy.
-     *  *
-     * @param ListOnCallSchedulesRequest $request ListOnCallSchedulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a scheduling policy.
      *
-     * @return ListOnCallSchedulesResponse ListOnCallSchedulesResponse
+     * @param request - ListOnCallSchedulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOnCallSchedulesResponse
+     *
+     * @param ListOnCallSchedulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListOnCallSchedulesResponse
      */
     public function listOnCallSchedulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOnCallSchedules',
@@ -10747,16 +13305,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOnCallSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOnCallSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOnCallSchedulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a scheduling policy.
-     *  *
-     * @param ListOnCallSchedulesRequest $request ListOnCallSchedulesRequest
+     * Queries the information about a scheduling policy.
      *
-     * @return ListOnCallSchedulesResponse ListOnCallSchedulesResponse
+     * @param request - ListOnCallSchedulesRequest
+     * @returns ListOnCallSchedulesResponse
+     *
+     * @param ListOnCallSchedulesRequest $request
+     *
+     * @return ListOnCallSchedulesResponse
      */
     public function listOnCallSchedules($request)
     {
@@ -10766,40 +13330,51 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alert rules created for a Prometheus instance.
-     *  *
-     * @param ListPrometheusAlertRulesRequest $request ListPrometheusAlertRulesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the alert rules created for a Prometheus instance.
      *
-     * @return ListPrometheusAlertRulesResponse ListPrometheusAlertRulesResponse
+     * @param request - ListPrometheusAlertRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPrometheusAlertRulesResponse
+     *
+     * @param ListPrometheusAlertRulesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListPrometheusAlertRulesResponse
      */
     public function listPrometheusAlertRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->matchExpressions)) {
-            $query['MatchExpressions'] = $request->matchExpressions;
+
+        if (null !== $request->matchExpressions) {
+            @$query['MatchExpressions'] = $request->matchExpressions;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPrometheusAlertRules',
@@ -10812,16 +13387,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPrometheusAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPrometheusAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPrometheusAlertRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alert rules created for a Prometheus instance.
-     *  *
-     * @param ListPrometheusAlertRulesRequest $request ListPrometheusAlertRulesRequest
+     * Queries the alert rules created for a Prometheus instance.
      *
-     * @return ListPrometheusAlertRulesResponse ListPrometheusAlertRulesResponse
+     * @param request - ListPrometheusAlertRulesRequest
+     * @returns ListPrometheusAlertRulesResponse
+     *
+     * @param ListPrometheusAlertRulesRequest $request
+     *
+     * @return ListPrometheusAlertRulesResponse
      */
     public function listPrometheusAlertRules($request)
     {
@@ -10831,25 +13412,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alert templates of Prometheus Service.
-     *  *
-     * @param ListPrometheusAlertTemplatesRequest $request ListPrometheusAlertTemplatesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the alert templates of Prometheus Service.
      *
-     * @return ListPrometheusAlertTemplatesResponse ListPrometheusAlertTemplatesResponse
+     * @param request - ListPrometheusAlertTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPrometheusAlertTemplatesResponse
+     *
+     * @param ListPrometheusAlertTemplatesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListPrometheusAlertTemplatesResponse
      */
     public function listPrometheusAlertTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPrometheusAlertTemplates',
@@ -10862,16 +13449,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPrometheusAlertTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPrometheusAlertTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPrometheusAlertTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alert templates of Prometheus Service.
-     *  *
-     * @param ListPrometheusAlertTemplatesRequest $request ListPrometheusAlertTemplatesRequest
+     * Queries the alert templates of Prometheus Service.
      *
-     * @return ListPrometheusAlertTemplatesResponse ListPrometheusAlertTemplatesResponse
+     * @param request - ListPrometheusAlertTemplatesRequest
+     * @returns ListPrometheusAlertTemplatesResponse
+     *
+     * @param ListPrometheusAlertTemplatesRequest $request
+     *
+     * @return ListPrometheusAlertTemplatesResponse
      */
     public function listPrometheusAlertTemplates($request)
     {
@@ -10881,22 +13474,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a global aggregation instance in Prometheus Service and obtains the list of global aggregation instances.
-     *  *
-     * @param ListPrometheusGlobalViewRequest $request ListPrometheusGlobalViewRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates a global aggregation instance in Prometheus Service and obtains the list of global aggregation instances.
      *
-     * @return ListPrometheusGlobalViewResponse ListPrometheusGlobalViewResponse
+     * @param request - ListPrometheusGlobalViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPrometheusGlobalViewResponse
+     *
+     * @param ListPrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListPrometheusGlobalViewResponse
      */
     public function listPrometheusGlobalViewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPrometheusGlobalView',
@@ -10909,16 +13507,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPrometheusGlobalViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a global aggregation instance in Prometheus Service and obtains the list of global aggregation instances.
-     *  *
-     * @param ListPrometheusGlobalViewRequest $request ListPrometheusGlobalViewRequest
+     * Creates a global aggregation instance in Prometheus Service and obtains the list of global aggregation instances.
      *
-     * @return ListPrometheusGlobalViewResponse ListPrometheusGlobalViewResponse
+     * @param request - ListPrometheusGlobalViewRequest
+     * @returns ListPrometheusGlobalViewResponse
+     *
+     * @param ListPrometheusGlobalViewRequest $request
+     *
+     * @return ListPrometheusGlobalViewResponse
      */
     public function listPrometheusGlobalView($request)
     {
@@ -10928,28 +13532,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries Prometheus instances by tag and resource group.
-     *  *
-     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request ListPrometheusInstanceByTagAndResourceGroupIdRequest
-     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
+     * Queries Prometheus instances by tag and resource group.
      *
-     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse ListPrometheusInstanceByTagAndResourceGroupIdResponse
+     * @param request - ListPrometheusInstanceByTagAndResourceGroupIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPrometheusInstanceByTagAndResourceGroupIdResponse
+     *
+     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse
      */
     public function listPrometheusInstanceByTagAndResourceGroupIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPrometheusInstanceByTagAndResourceGroupId',
@@ -10962,16 +13573,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPrometheusInstanceByTagAndResourceGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPrometheusInstanceByTagAndResourceGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPrometheusInstanceByTagAndResourceGroupIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Prometheus instances by tag and resource group.
-     *  *
-     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request ListPrometheusInstanceByTagAndResourceGroupIdRequest
+     * Queries Prometheus instances by tag and resource group.
      *
-     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse ListPrometheusInstanceByTagAndResourceGroupIdResponse
+     * @param request - ListPrometheusInstanceByTagAndResourceGroupIdRequest
+     * @returns ListPrometheusInstanceByTagAndResourceGroupIdResponse
+     *
+     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request
+     *
+     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse
      */
     public function listPrometheusInstanceByTagAndResourceGroupId($request)
     {
@@ -10981,28 +13598,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains all Prometheus instances in a region.
-     *  *
-     * @param ListPrometheusInstancesRequest $request ListPrometheusInstancesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Obtains all Prometheus instances in a region.
      *
-     * @return ListPrometheusInstancesResponse ListPrometheusInstancesResponse
+     * @param request - ListPrometheusInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPrometheusInstancesResponse
+     *
+     * @param ListPrometheusInstancesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListPrometheusInstancesResponse
      */
     public function listPrometheusInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->showGlobalView)) {
-            $query['ShowGlobalView'] = $request->showGlobalView;
+
+        if (null !== $request->showGlobalView) {
+            @$query['ShowGlobalView'] = $request->showGlobalView;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPrometheusInstances',
@@ -11015,16 +13639,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPrometheusInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPrometheusInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPrometheusInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains all Prometheus instances in a region.
-     *  *
-     * @param ListPrometheusInstancesRequest $request ListPrometheusInstancesRequest
+     * Obtains all Prometheus instances in a region.
      *
-     * @return ListPrometheusInstancesResponse ListPrometheusInstancesResponse
+     * @param request - ListPrometheusInstancesRequest
+     * @returns ListPrometheusInstancesResponse
+     *
+     * @param ListPrometheusInstancesRequest $request
+     *
+     * @return ListPrometheusInstancesResponse
      */
     public function listPrometheusInstances($request)
     {
@@ -11034,28 +13664,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
-     *  *
-     * @param ListPrometheusIntegrationRequest $request ListPrometheusIntegrationRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
      *
-     * @return ListPrometheusIntegrationResponse ListPrometheusIntegrationResponse
+     * @param request - ListPrometheusIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPrometheusIntegrationResponse
+     *
+     * @param ListPrometheusIntegrationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListPrometheusIntegrationResponse
      */
     public function listPrometheusIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->integrationType)) {
-            $query['IntegrationType'] = $request->integrationType;
+
+        if (null !== $request->integrationType) {
+            @$query['IntegrationType'] = $request->integrationType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPrometheusIntegration',
@@ -11068,16 +13705,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
-     *  *
-     * @param ListPrometheusIntegrationRequest $request ListPrometheusIntegrationRequest
+     * Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
      *
-     * @return ListPrometheusIntegrationResponse ListPrometheusIntegrationResponse
+     * @param request - ListPrometheusIntegrationRequest
+     * @returns ListPrometheusIntegrationResponse
+     *
+     * @param ListPrometheusIntegrationRequest $request
+     *
+     * @return ListPrometheusIntegrationResponse
      */
     public function listPrometheusIntegration($request)
     {
@@ -11087,28 +13730,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param ListPrometheusMonitoringRequest $request ListPrometheusMonitoringRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the monitoring configuration of a Prometheus instance.
      *
-     * @return ListPrometheusMonitoringResponse ListPrometheusMonitoringResponse
+     * @param request - ListPrometheusMonitoringRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPrometheusMonitoringResponse
+     *
+     * @param ListPrometheusMonitoringRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListPrometheusMonitoringResponse
      */
     public function listPrometheusMonitoringWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPrometheusMonitoring',
@@ -11121,16 +13771,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPrometheusMonitoringResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param ListPrometheusMonitoringRequest $request ListPrometheusMonitoringRequest
+     * Queries the monitoring configuration of a Prometheus instance.
      *
-     * @return ListPrometheusMonitoringResponse ListPrometheusMonitoringResponse
+     * @param request - ListPrometheusMonitoringRequest
+     * @returns ListPrometheusMonitoringResponse
+     *
+     * @param ListPrometheusMonitoringRequest $request
+     *
+     * @return ListPrometheusMonitoringResponse
      */
     public function listPrometheusMonitoring($request)
     {
@@ -11140,30 +13796,37 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Browser Monitoring tasks in a region.
-     *  *
-     * @description ****
-     *  *
-     * @param ListRetcodeAppsRequest $request ListRetcodeAppsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the Browser Monitoring tasks in a region.
      *
-     * @return ListRetcodeAppsResponse ListRetcodeAppsResponse
+     * @remarks
+     *
+     * @param request - ListRetcodeAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRetcodeAppsResponse
+     *
+     * @param ListRetcodeAppsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListRetcodeAppsResponse
      */
     public function listRetcodeAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRetcodeApps',
@@ -11176,18 +13839,24 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRetcodeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRetcodeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRetcodeAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Browser Monitoring tasks in a region.
-     *  *
-     * @description ****
-     *  *
-     * @param ListRetcodeAppsRequest $request ListRetcodeAppsRequest
+     * Queries the Browser Monitoring tasks in a region.
      *
-     * @return ListRetcodeAppsResponse ListRetcodeAppsResponse
+     * @remarks
+     *
+     * @param request - ListRetcodeAppsRequest
+     * @returns ListRetcodeAppsResponse
+     *
+     * @param ListRetcodeAppsRequest $request
+     *
+     * @return ListRetcodeAppsResponse
      */
     public function listRetcodeApps($request)
     {
@@ -11197,32 +13866,41 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListScenarioRequest $request ListScenarioRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - ListScenarioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListScenarioResponse
      *
-     * @return ListScenarioResponse ListScenarioResponse
+     * @param ListScenarioRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListScenarioResponse
      */
     public function listScenarioWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->scenario)) {
-            $query['Scenario'] = $request->scenario;
+
+        if (null !== $request->scenario) {
+            @$query['Scenario'] = $request->scenario;
         }
-        if (!Utils::isUnset($request->sign)) {
-            $query['Sign'] = $request->sign;
+
+        if (null !== $request->sign) {
+            @$query['Sign'] = $request->sign;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListScenario',
@@ -11235,14 +13913,20 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScenarioResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListScenarioRequest $request ListScenarioRequest
+     * @param request - ListScenarioRequest
+     * @returns ListScenarioResponse
      *
-     * @return ListScenarioResponse ListScenarioResponse
+     * @param ListScenarioRequest $request
+     *
+     * @return ListScenarioResponse
      */
     public function listScenario($request)
     {
@@ -11252,34 +13936,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of a silence policy list.
-     *  *
-     * @param ListSilencePoliciesRequest $request ListSilencePoliciesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information of a silence policy list.
      *
-     * @return ListSilencePoliciesResponse ListSilencePoliciesResponse
+     * @param request - ListSilencePoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSilencePoliciesResponse
+     *
+     * @param ListSilencePoliciesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSilencePoliciesResponse
      */
     public function listSilencePoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isDetail)) {
-            $query['IsDetail'] = $request->isDetail;
+        if (null !== $request->isDetail) {
+            @$query['IsDetail'] = $request->isDetail;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSilencePolicies',
@@ -11292,16 +13985,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSilencePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSilencePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSilencePoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of a silence policy list.
-     *  *
-     * @param ListSilencePoliciesRequest $request ListSilencePoliciesRequest
+     * Queries the information of a silence policy list.
      *
-     * @return ListSilencePoliciesResponse ListSilencePoliciesResponse
+     * @param request - ListSilencePoliciesRequest
+     * @returns ListSilencePoliciesResponse
+     *
+     * @param ListSilencePoliciesRequest $request
+     *
+     * @return ListSilencePoliciesResponse
      */
     public function listSilencePolicies($request)
     {
@@ -11311,30 +14010,37 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the results of one or more synthetic tests.
-     *  *
-     * @param ListSyntheticDetailRequest $tmpReq  ListSyntheticDetailRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Obtains the results of one or more synthetic tests.
      *
-     * @return ListSyntheticDetailResponse ListSyntheticDetailResponse
+     * @param tmpReq - ListSyntheticDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSyntheticDetailResponse
+     *
+     * @param ListSyntheticDetailRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSyntheticDetailResponse
      */
     public function listSyntheticDetailWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListSyntheticDetailShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->advancedFilters)) {
-            $request->advancedFiltersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->advancedFilters, 'AdvancedFilters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->advancedFilters) {
+            $request->advancedFiltersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->advancedFilters, 'AdvancedFilters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->exactFilters)) {
-            $request->exactFiltersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->exactFilters, 'ExactFilters', 'json');
+
+        if (null !== $tmpReq->exactFilters) {
+            $request->exactFiltersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->exactFilters, 'ExactFilters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->filters)) {
-            $request->filtersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
+
+        if (null !== $tmpReq->filters) {
+            $request->filtersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSyntheticDetail',
@@ -11347,16 +14053,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSyntheticDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSyntheticDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSyntheticDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the results of one or more synthetic tests.
-     *  *
-     * @param ListSyntheticDetailRequest $request ListSyntheticDetailRequest
+     * Obtains the results of one or more synthetic tests.
      *
-     * @return ListSyntheticDetailResponse ListSyntheticDetailResponse
+     * @param request - ListSyntheticDetailRequest
+     * @returns ListSyntheticDetailResponse
+     *
+     * @param ListSyntheticDetailRequest $request
+     *
+     * @return ListSyntheticDetailResponse
      */
     public function listSyntheticDetail($request)
     {
@@ -11366,27 +14078,33 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries scheduled synthetic monitoring tasks.
-     *  *
-     * @param ListTimingSyntheticTasksRequest $tmpReq  ListTimingSyntheticTasksRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries scheduled synthetic monitoring tasks.
      *
-     * @return ListTimingSyntheticTasksResponse ListTimingSyntheticTasksResponse
+     * @param tmpReq - ListTimingSyntheticTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTimingSyntheticTasksResponse
+     *
+     * @param ListTimingSyntheticTasksRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListTimingSyntheticTasksResponse
      */
     public function listTimingSyntheticTasksWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTimingSyntheticTasksShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->search)) {
-            $request->searchShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->search, 'Search', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->search) {
+            $request->searchShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->search, 'Search', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTimingSyntheticTasks',
@@ -11399,16 +14117,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTimingSyntheticTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTimingSyntheticTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTimingSyntheticTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries scheduled synthetic monitoring tasks.
-     *  *
-     * @param ListTimingSyntheticTasksRequest $request ListTimingSyntheticTasksRequest
+     * Queries scheduled synthetic monitoring tasks.
      *
-     * @return ListTimingSyntheticTasksResponse ListTimingSyntheticTasksResponse
+     * @param request - ListTimingSyntheticTasksRequest
+     * @returns ListTimingSyntheticTasksResponse
+     *
+     * @param ListTimingSyntheticTasksRequest $request
+     *
+     * @return ListTimingSyntheticTasksResponse
      */
     public function listTimingSyntheticTasks($request)
     {
@@ -11418,34 +14142,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries all Application Monitoring tasks in a specified region.
-     *  *
-     * @param ListTraceAppsRequest $request ListTraceAppsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries all Application Monitoring tasks in a specified region.
      *
-     * @return ListTraceAppsResponse ListTraceAppsResponse
+     * @param request - ListTraceAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTraceAppsResponse
+     *
+     * @param ListTraceAppsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTraceAppsResponse
      */
     public function listTraceAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTraceApps',
@@ -11458,16 +14191,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTraceAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTraceAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTraceAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all Application Monitoring tasks in a specified region.
-     *  *
-     * @param ListTraceAppsRequest $request ListTraceAppsRequest
+     * Queries all Application Monitoring tasks in a specified region.
      *
-     * @return ListTraceAppsResponse ListTraceAppsResponse
+     * @param request - ListTraceAppsRequest
+     * @returns ListTraceAppsResponse
+     *
+     * @param ListTraceAppsRequest $request
+     *
+     * @return ListTraceAppsResponse
      */
     public function listTraceApps($request)
     {
@@ -11477,28 +14216,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the recording rule of a cluster monitored by Prometheus Service.
-     *  *
-     * @param ManageGetRecordingRuleRequest $request ManageGetRecordingRuleRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Obtains the recording rule of a cluster monitored by Prometheus Service.
      *
-     * @return ManageGetRecordingRuleResponse ManageGetRecordingRuleResponse
+     * @param request - ManageGetRecordingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ManageGetRecordingRuleResponse
+     *
+     * @param ManageGetRecordingRuleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ManageGetRecordingRuleResponse
      */
     public function manageGetRecordingRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->queryUserId)) {
-            $query['QueryUserId'] = $request->queryUserId;
+
+        if (null !== $request->queryUserId) {
+            @$query['QueryUserId'] = $request->queryUserId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ManageGetRecordingRule',
@@ -11511,16 +14257,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ManageGetRecordingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ManageGetRecordingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ManageGetRecordingRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the recording rule of a cluster monitored by Prometheus Service.
-     *  *
-     * @param ManageGetRecordingRuleRequest $request ManageGetRecordingRuleRequest
+     * Obtains the recording rule of a cluster monitored by Prometheus Service.
      *
-     * @return ManageGetRecordingRuleResponse ManageGetRecordingRuleResponse
+     * @param request - ManageGetRecordingRuleRequest
+     * @returns ManageGetRecordingRuleResponse
+     *
+     * @param ManageGetRecordingRuleRequest $request
+     *
+     * @return ManageGetRecordingRuleResponse
      */
     public function manageGetRecordingRule($request)
     {
@@ -11530,31 +14282,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Edits the recording rule of a cluster monitored by Prometheus Service.
-     *  *
-     * @param ManageRecordingRuleRequest $request ManageRecordingRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Edits the recording rule of a cluster monitored by Prometheus Service.
      *
-     * @return ManageRecordingRuleResponse ManageRecordingRuleResponse
+     * @param request - ManageRecordingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ManageRecordingRuleResponse
+     *
+     * @param ManageRecordingRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ManageRecordingRuleResponse
      */
     public function manageRecordingRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->queryUserId)) {
-            $query['QueryUserId'] = $request->queryUserId;
+
+        if (null !== $request->queryUserId) {
+            @$query['QueryUserId'] = $request->queryUserId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->ruleYaml)) {
-            $query['RuleYaml'] = $request->ruleYaml;
+
+        if (null !== $request->ruleYaml) {
+            @$query['RuleYaml'] = $request->ruleYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ManageRecordingRule',
@@ -11567,16 +14327,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ManageRecordingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ManageRecordingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ManageRecordingRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Edits the recording rule of a cluster monitored by Prometheus Service.
-     *  *
-     * @param ManageRecordingRuleRequest $request ManageRecordingRuleRequest
+     * Edits the recording rule of a cluster monitored by Prometheus Service.
      *
-     * @return ManageRecordingRuleResponse ManageRecordingRuleResponse
+     * @param request - ManageRecordingRuleRequest
+     * @returns ManageRecordingRuleResponse
+     *
+     * @param ManageRecordingRuleRequest $request
+     *
+     * @return ManageRecordingRuleResponse
      */
     public function manageRecordingRule($request)
     {
@@ -11586,22 +14352,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Activates the service-linked role AliyunServiceRoleForARMS for Application Real-Time Monitoring Service (ARMS).
-     *  *
-     * @param OpenArmsDefaultSLRRequest $request OpenArmsDefaultSLRRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Activates the service-linked role AliyunServiceRoleForARMS for Application Real-Time Monitoring Service (ARMS).
      *
-     * @return OpenArmsDefaultSLRResponse OpenArmsDefaultSLRResponse
+     * @param request - OpenArmsDefaultSLRRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OpenArmsDefaultSLRResponse
+     *
+     * @param OpenArmsDefaultSLRRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OpenArmsDefaultSLRResponse
      */
     public function openArmsDefaultSLRWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OpenArmsDefaultSLR',
@@ -11614,16 +14385,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OpenArmsDefaultSLRResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenArmsDefaultSLRResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenArmsDefaultSLRResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates the service-linked role AliyunServiceRoleForARMS for Application Real-Time Monitoring Service (ARMS).
-     *  *
-     * @param OpenArmsDefaultSLRRequest $request OpenArmsDefaultSLRRequest
+     * Activates the service-linked role AliyunServiceRoleForARMS for Application Real-Time Monitoring Service (ARMS).
      *
-     * @return OpenArmsDefaultSLRResponse OpenArmsDefaultSLRResponse
+     * @param request - OpenArmsDefaultSLRRequest
+     * @returns OpenArmsDefaultSLRResponse
+     *
+     * @param OpenArmsDefaultSLRRequest $request
+     *
+     * @return OpenArmsDefaultSLRResponse
      */
     public function openArmsDefaultSLR($request)
     {
@@ -11633,31 +14410,38 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Activates a specified pay-as-you-go sub-service of Application Real-Time Monitoring Service (ARMS).
-     *  *
-     * @description The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+     * Activates a specified pay-as-you-go sub-service of Application Real-Time Monitoring Service (ARMS).
+     *
+     * @remarks
+     * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
      * *   Application Monitoring: Basic Edition
      * *   Browser Monitoring: Basic Edition
      * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
      * *   Prometheus Service: Pro Edition
-     *  *
-     * @param OpenArmsServiceSecondVersionRequest $request OpenArmsServiceSecondVersionRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenArmsServiceSecondVersionResponse OpenArmsServiceSecondVersionResponse
+     * @param request - OpenArmsServiceSecondVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OpenArmsServiceSecondVersionResponse
+     *
+     * @param OpenArmsServiceSecondVersionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return OpenArmsServiceSecondVersionResponse
      */
     public function openArmsServiceSecondVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OpenArmsServiceSecondVersion',
@@ -11670,22 +14454,29 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OpenArmsServiceSecondVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenArmsServiceSecondVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenArmsServiceSecondVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates a specified pay-as-you-go sub-service of Application Real-Time Monitoring Service (ARMS).
-     *  *
-     * @description The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+     * Activates a specified pay-as-you-go sub-service of Application Real-Time Monitoring Service (ARMS).
+     *
+     * @remarks
+     * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
      * *   Application Monitoring: Basic Edition
      * *   Browser Monitoring: Basic Edition
      * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
      * *   Prometheus Service: Pro Edition
-     *  *
-     * @param OpenArmsServiceSecondVersionRequest $request OpenArmsServiceSecondVersionRequest
      *
-     * @return OpenArmsServiceSecondVersionResponse OpenArmsServiceSecondVersionResponse
+     * @param request - OpenArmsServiceSecondVersionRequest
+     * @returns OpenArmsServiceSecondVersionResponse
+     *
+     * @param OpenArmsServiceSecondVersionRequest $request
+     *
+     * @return OpenArmsServiceSecondVersionResponse
      */
     public function openArmsServiceSecondVersion($request)
     {
@@ -11695,34 +14486,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Activates a virtual cluster.
-     *  *
-     * @param OpenVClusterRequest $request OpenVClusterRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Activates a virtual cluster.
      *
-     * @return OpenVClusterResponse OpenVClusterResponse
+     * @param request - OpenVClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OpenVClusterResponse
+     *
+     * @param OpenVClusterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return OpenVClusterResponse
      */
     public function openVClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->recreateSwitch)) {
-            $query['RecreateSwitch'] = $request->recreateSwitch;
+
+        if (null !== $request->recreateSwitch) {
+            @$query['RecreateSwitch'] = $request->recreateSwitch;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OpenVCluster',
@@ -11735,16 +14535,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OpenVClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenVClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenVClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates a virtual cluster.
-     *  *
-     * @param OpenVClusterRequest $request OpenVClusterRequest
+     * Activates a virtual cluster.
      *
-     * @return OpenVClusterResponse OpenVClusterResponse
+     * @param request - OpenVClusterRequest
+     * @returns OpenVClusterResponse
+     *
+     * @param OpenVClusterRequest $request
+     *
+     * @return OpenVClusterResponse
      */
     public function openVCluster($request)
     {
@@ -11754,22 +14560,27 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Activates the service-linked role AliyunServiceRoleForXtrace for Tracing Analysis.
-     *  *
-     * @param OpenXtraceDefaultSLRRequest $request OpenXtraceDefaultSLRRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Activates the service-linked role AliyunServiceRoleForXtrace for Tracing Analysis.
      *
-     * @return OpenXtraceDefaultSLRResponse OpenXtraceDefaultSLRResponse
+     * @param request - OpenXtraceDefaultSLRRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OpenXtraceDefaultSLRResponse
+     *
+     * @param OpenXtraceDefaultSLRRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return OpenXtraceDefaultSLRResponse
      */
     public function openXtraceDefaultSLRWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OpenXtraceDefaultSLR',
@@ -11782,16 +14593,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OpenXtraceDefaultSLRResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenXtraceDefaultSLRResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenXtraceDefaultSLRResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates the service-linked role AliyunServiceRoleForXtrace for Tracing Analysis.
-     *  *
-     * @param OpenXtraceDefaultSLRRequest $request OpenXtraceDefaultSLRRequest
+     * Activates the service-linked role AliyunServiceRoleForXtrace for Tracing Analysis.
      *
-     * @return OpenXtraceDefaultSLRResponse OpenXtraceDefaultSLRResponse
+     * @param request - OpenXtraceDefaultSLRRequest
+     * @returns OpenXtraceDefaultSLRResponse
+     *
+     * @param OpenXtraceDefaultSLRRequest $request
+     *
+     * @return OpenXtraceDefaultSLRResponse
      */
     public function openXtraceDefaultSLR($request)
     {
@@ -11801,19 +14618,23 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
-     *  *
-     * @param QueryAppMetadataRequest $request QueryAppMetadataRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the encoding mapping content based on the metadata IDs and metadata type.
      *
-     * @return QueryAppMetadataResponse QueryAppMetadataResponse
+     * @param request - QueryAppMetadataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryAppMetadataResponse
+     *
+     * @param QueryAppMetadataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryAppMetadataResponse
      */
     public function queryAppMetadataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryAppMetadata',
@@ -11826,16 +14647,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryAppMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryAppMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryAppMetadataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
-     *  *
-     * @param QueryAppMetadataRequest $request QueryAppMetadataRequest
+     * Queries the encoding mapping content based on the metadata IDs and metadata type.
      *
-     * @return QueryAppMetadataResponse QueryAppMetadataResponse
+     * @param request - QueryAppMetadataRequest
+     * @returns QueryAppMetadataResponse
+     *
+     * @param QueryAppMetadataRequest $request
+     *
+     * @return QueryAppMetadataResponse
      */
     public function queryAppMetadata($request)
     {
@@ -11845,54 +14672,69 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 查询应用拓扑
-     *  *
-     * @param QueryAppTopologyRequest $tmpReq  QueryAppTopologyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询应用拓扑.
      *
-     * @return QueryAppTopologyResponse QueryAppTopologyResponse
+     * @param tmpReq - QueryAppTopologyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryAppTopologyResponse
+     *
+     * @param QueryAppTopologyRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryAppTopologyResponse
      */
     public function queryAppTopologyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryAppTopologyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filters)) {
-            $request->filtersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filters) {
+            $request->filtersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->db)) {
-            $query['Db'] = $request->db;
+
+        if (null !== $request->db) {
+            @$query['Db'] = $request->db;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->filtersShrink)) {
-            $query['Filters'] = $request->filtersShrink;
+
+        if (null !== $request->filtersShrink) {
+            @$query['Filters'] = $request->filtersShrink;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->rpc)) {
-            $query['Rpc'] = $request->rpc;
+
+        if (null !== $request->rpc) {
+            @$query['Rpc'] = $request->rpc;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryAppTopology',
@@ -11905,16 +14747,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryAppTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryAppTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryAppTopologyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询应用拓扑
-     *  *
-     * @param QueryAppTopologyRequest $request QueryAppTopologyRequest
+     * 查询应用拓扑.
      *
-     * @return QueryAppTopologyResponse QueryAppTopologyResponse
+     * @param request - QueryAppTopologyRequest
+     * @returns QueryAppTopologyResponse
+     *
+     * @param QueryAppTopologyRequest $request
+     *
+     * @return QueryAppTopologyResponse
      */
     public function queryAppTopology($request)
     {
@@ -11924,49 +14772,63 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the amount of data written to Application Monitoring, Managed Service for OpenTelemetry, Managed Service for Prometheus, and Real User Monitoring (RUM).
-     *  *
-     * @param QueryCommercialUsageRequest $request QueryCommercialUsageRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the amount of data written to Application Monitoring, Managed Service for OpenTelemetry, Managed Service for Prometheus, and Real User Monitoring (RUM).
      *
-     * @return QueryCommercialUsageResponse QueryCommercialUsageResponse
+     * @param request - QueryCommercialUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryCommercialUsageResponse
+     *
+     * @param QueryCommercialUsageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryCommercialUsageResponse
      */
     public function queryCommercialUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->advancedFilters)) {
-            $query['AdvancedFilters'] = $request->advancedFilters;
+        if (null !== $request->advancedFilters) {
+            @$query['AdvancedFilters'] = $request->advancedFilters;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->intervalInSec)) {
-            $query['IntervalInSec'] = $request->intervalInSec;
+
+        if (null !== $request->intervalInSec) {
+            @$query['IntervalInSec'] = $request->intervalInSec;
         }
-        if (!Utils::isUnset($request->measures)) {
-            $query['Measures'] = $request->measures;
+
+        if (null !== $request->measures) {
+            @$query['Measures'] = $request->measures;
         }
-        if (!Utils::isUnset($request->metric)) {
-            $query['Metric'] = $request->metric;
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->queryType)) {
-            $query['QueryType'] = $request->queryType;
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryCommercialUsage',
@@ -11979,16 +14841,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryCommercialUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryCommercialUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryCommercialUsageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the amount of data written to Application Monitoring, Managed Service for OpenTelemetry, Managed Service for Prometheus, and Real User Monitoring (RUM).
-     *  *
-     * @param QueryCommercialUsageRequest $request QueryCommercialUsageRequest
+     * Queries the amount of data written to Application Monitoring, Managed Service for OpenTelemetry, Managed Service for Prometheus, and Real User Monitoring (RUM).
      *
-     * @return QueryCommercialUsageResponse QueryCommercialUsageResponse
+     * @param request - QueryCommercialUsageRequest
+     * @returns QueryCommercialUsageResponse
+     *
+     * @param QueryCommercialUsageRequest $request
+     *
+     * @return QueryCommercialUsageResponse
      */
     public function queryCommercialUsage($request)
     {
@@ -11998,55 +14866,71 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries an Application Monitoring metric or a Browser Monitoring metric.
-     *  *
-     * @param QueryMetricByPageRequest $request QueryMetricByPageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries an Application Monitoring metric or a Browser Monitoring metric.
      *
-     * @return QueryMetricByPageResponse QueryMetricByPageResponse
+     * @param request - QueryMetricByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryMetricByPageResponse
+     *
+     * @param QueryMetricByPageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryMetricByPageResponse
      */
     public function queryMetricByPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->customFilters)) {
-            $query['CustomFilters'] = $request->customFilters;
+
+        if (null !== $request->customFilters) {
+            @$query['CustomFilters'] = $request->customFilters;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->intervalInSec)) {
-            $query['IntervalInSec'] = $request->intervalInSec;
+
+        if (null !== $request->intervalInSec) {
+            @$query['IntervalInSec'] = $request->intervalInSec;
         }
-        if (!Utils::isUnset($request->measures)) {
-            $query['Measures'] = $request->measures;
+
+        if (null !== $request->measures) {
+            @$query['Measures'] = $request->measures;
         }
-        if (!Utils::isUnset($request->metric)) {
-            $query['Metric'] = $request->metric;
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryMetricByPage',
@@ -12059,16 +14943,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryMetricByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryMetricByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryMetricByPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries an Application Monitoring metric or a Browser Monitoring metric.
-     *  *
-     * @param QueryMetricByPageRequest $request QueryMetricByPageRequest
+     * Queries an Application Monitoring metric or a Browser Monitoring metric.
      *
-     * @return QueryMetricByPageResponse QueryMetricByPageResponse
+     * @param request - QueryMetricByPageRequest
+     * @returns QueryMetricByPageResponse
+     *
+     * @param QueryMetricByPageRequest $request
+     *
+     * @return QueryMetricByPageResponse
      */
     public function queryMetricByPage($request)
     {
@@ -12078,25 +14968,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether the Prometheus agent is installed on a cluster.
-     *  *
-     * @param QueryPromInstallStatusRequest $request QueryPromInstallStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries whether the Prometheus agent is installed on a cluster.
      *
-     * @return QueryPromInstallStatusResponse QueryPromInstallStatusResponse
+     * @param request - QueryPromInstallStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryPromInstallStatusResponse
+     *
+     * @param QueryPromInstallStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryPromInstallStatusResponse
      */
     public function queryPromInstallStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryPromInstallStatus',
@@ -12109,16 +15005,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryPromInstallStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryPromInstallStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryPromInstallStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether the Prometheus agent is installed on a cluster.
-     *  *
-     * @param QueryPromInstallStatusRequest $request QueryPromInstallStatusRequest
+     * Queries whether the Prometheus agent is installed on a cluster.
      *
-     * @return QueryPromInstallStatusResponse QueryPromInstallStatusResponse
+     * @param request - QueryPromInstallStatusRequest
+     * @returns QueryPromInstallStatusResponse
+     *
+     * @param QueryPromInstallStatusRequest $request
+     *
+     * @return QueryPromInstallStatusResponse
      */
     public function queryPromInstallStatus($request)
     {
@@ -12128,43 +15030,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the metrics that are provided for different versions of a specified Enterprise Distributed Application Service (EDAS) or Kubernetes application.
-     *  *
-     * @param QueryReleaseMetricRequest $request QueryReleaseMetricRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the metrics that are provided for different versions of a specified Enterprise Distributed Application Service (EDAS) or Kubernetes application.
      *
-     * @return QueryReleaseMetricResponse QueryReleaseMetricResponse
+     * @param request - QueryReleaseMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryReleaseMetricResponse
+     *
+     * @param QueryReleaseMetricRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryReleaseMetricResponse
      */
     public function queryReleaseMetricWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeOrderId)) {
-            $query['ChangeOrderId'] = $request->changeOrderId;
+        if (null !== $request->changeOrderId) {
+            @$query['ChangeOrderId'] = $request->changeOrderId;
         }
-        if (!Utils::isUnset($request->createTime)) {
-            $query['CreateTime'] = $request->createTime;
+
+        if (null !== $request->createTime) {
+            @$query['CreateTime'] = $request->createTime;
         }
-        if (!Utils::isUnset($request->metricType)) {
-            $query['MetricType'] = $request->metricType;
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->proxyUserId)) {
-            $query['ProxyUserId'] = $request->proxyUserId;
+
+        if (null !== $request->proxyUserId) {
+            @$query['ProxyUserId'] = $request->proxyUserId;
         }
-        if (!Utils::isUnset($request->releaseEndTime)) {
-            $query['ReleaseEndTime'] = $request->releaseEndTime;
+
+        if (null !== $request->releaseEndTime) {
+            @$query['ReleaseEndTime'] = $request->releaseEndTime;
         }
-        if (!Utils::isUnset($request->releaseStartTime)) {
-            $query['ReleaseStartTime'] = $request->releaseStartTime;
+
+        if (null !== $request->releaseStartTime) {
+            @$query['ReleaseStartTime'] = $request->releaseStartTime;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryReleaseMetric',
@@ -12177,16 +15091,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryReleaseMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryReleaseMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryReleaseMetricResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the metrics that are provided for different versions of a specified Enterprise Distributed Application Service (EDAS) or Kubernetes application.
-     *  *
-     * @param QueryReleaseMetricRequest $request QueryReleaseMetricRequest
+     * Queries the metrics that are provided for different versions of a specified Enterprise Distributed Application Service (EDAS) or Kubernetes application.
      *
-     * @return QueryReleaseMetricResponse QueryReleaseMetricResponse
+     * @param request - QueryReleaseMetricRequest
+     * @returns QueryReleaseMetricResponse
+     *
+     * @param QueryReleaseMetricRequest $request
+     *
+     * @return QueryReleaseMetricResponse
      */
     public function queryReleaseMetric($request)
     {
@@ -12196,31 +15116,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Removes data sources from a global aggregation instance.
-     *  *
-     * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
+     * Removes data sources from a global aggregation instance.
      *
-     * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse RemoveAliClusterIdsFromPrometheusGlobalViewResponse
+     * @param request - RemoveAliClusterIdsFromPrometheusGlobalViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveAliClusterIdsFromPrometheusGlobalViewResponse
+     *
+     * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse
      */
     public function removeAliClusterIdsFromPrometheusGlobalViewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterIds)) {
-            $query['ClusterIds'] = $request->clusterIds;
+        if (null !== $request->clusterIds) {
+            @$query['ClusterIds'] = $request->clusterIds;
         }
-        if (!Utils::isUnset($request->globalViewClusterId)) {
-            $query['GlobalViewClusterId'] = $request->globalViewClusterId;
+
+        if (null !== $request->globalViewClusterId) {
+            @$query['GlobalViewClusterId'] = $request->globalViewClusterId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveAliClusterIdsFromPrometheusGlobalView',
@@ -12233,16 +15161,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveAliClusterIdsFromPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveAliClusterIdsFromPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveAliClusterIdsFromPrometheusGlobalViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes data sources from a global aggregation instance.
-     *  *
-     * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
+     * Removes data sources from a global aggregation instance.
      *
-     * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse RemoveAliClusterIdsFromPrometheusGlobalViewResponse
+     * @param request - RemoveAliClusterIdsFromPrometheusGlobalViewRequest
+     * @returns RemoveAliClusterIdsFromPrometheusGlobalViewResponse
+     *
+     * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request
+     *
+     * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse
      */
     public function removeAliClusterIdsFromPrometheusGlobalView($request)
     {
@@ -12252,31 +15186,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Removes custom data sources from a global aggregation instance in Prometheus Service.
-     *  *
-     * @param RemoveSourcesFromPrometheusGlobalViewRequest $request RemoveSourcesFromPrometheusGlobalViewRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Removes custom data sources from a global aggregation instance in Prometheus Service.
      *
-     * @return RemoveSourcesFromPrometheusGlobalViewResponse RemoveSourcesFromPrometheusGlobalViewResponse
+     * @param request - RemoveSourcesFromPrometheusGlobalViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveSourcesFromPrometheusGlobalViewResponse
+     *
+     * @param RemoveSourcesFromPrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return RemoveSourcesFromPrometheusGlobalViewResponse
      */
     public function removeSourcesFromPrometheusGlobalViewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->globalViewClusterId)) {
-            $query['GlobalViewClusterId'] = $request->globalViewClusterId;
+        if (null !== $request->globalViewClusterId) {
+            @$query['GlobalViewClusterId'] = $request->globalViewClusterId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sourceNames)) {
-            $query['SourceNames'] = $request->sourceNames;
+
+        if (null !== $request->sourceNames) {
+            @$query['SourceNames'] = $request->sourceNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveSourcesFromPrometheusGlobalView',
@@ -12289,16 +15231,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveSourcesFromPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveSourcesFromPrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveSourcesFromPrometheusGlobalViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes custom data sources from a global aggregation instance in Prometheus Service.
-     *  *
-     * @param RemoveSourcesFromPrometheusGlobalViewRequest $request RemoveSourcesFromPrometheusGlobalViewRequest
+     * Removes custom data sources from a global aggregation instance in Prometheus Service.
      *
-     * @return RemoveSourcesFromPrometheusGlobalViewResponse RemoveSourcesFromPrometheusGlobalViewResponse
+     * @param request - RemoveSourcesFromPrometheusGlobalViewRequest
+     * @returns RemoveSourcesFromPrometheusGlobalViewResponse
+     *
+     * @param RemoveSourcesFromPrometheusGlobalViewRequest $request
+     *
+     * @return RemoveSourcesFromPrometheusGlobalViewResponse
      */
     public function removeSourcesFromPrometheusGlobalView($request)
     {
@@ -12308,28 +15256,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Restarts a feature.
-     *  *
-     * @param RestartEnvironmentFeatureRequest $request RestartEnvironmentFeatureRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Restarts a feature.
      *
-     * @return RestartEnvironmentFeatureResponse RestartEnvironmentFeatureResponse
+     * @param request - RestartEnvironmentFeatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestartEnvironmentFeatureResponse
+     *
+     * @param RestartEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RestartEnvironmentFeatureResponse
      */
     public function restartEnvironmentFeatureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->featureName)) {
-            $query['FeatureName'] = $request->featureName;
+
+        if (null !== $request->featureName) {
+            @$query['FeatureName'] = $request->featureName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RestartEnvironmentFeature',
@@ -12342,16 +15297,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RestartEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartEnvironmentFeatureResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Restarts a feature.
-     *  *
-     * @param RestartEnvironmentFeatureRequest $request RestartEnvironmentFeatureRequest
+     * Restarts a feature.
      *
-     * @return RestartEnvironmentFeatureResponse RestartEnvironmentFeatureResponse
+     * @param request - RestartEnvironmentFeatureRequest
+     * @returns RestartEnvironmentFeatureResponse
+     *
+     * @param RestartEnvironmentFeatureRequest $request
+     *
+     * @return RestartEnvironmentFeatureResponse
      */
     public function restartEnvironmentFeature($request)
     {
@@ -12361,25 +15322,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the settings of Application Monitoring, such as trace sampling and agent switch settings.
-     *  *
-     * @param SaveTraceAppConfigRequest $request SaveTraceAppConfigRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the settings of Application Monitoring, such as trace sampling and agent switch settings.
      *
-     * @return SaveTraceAppConfigResponse SaveTraceAppConfigResponse
+     * @param request - SaveTraceAppConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SaveTraceAppConfigResponse
+     *
+     * @param SaveTraceAppConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SaveTraceAppConfigResponse
      */
     public function saveTraceAppConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->settings)) {
-            $query['Settings'] = $request->settings;
+
+        if (null !== $request->settings) {
+            @$query['Settings'] = $request->settings;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SaveTraceAppConfig',
@@ -12392,16 +15359,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SaveTraceAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SaveTraceAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SaveTraceAppConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the settings of Application Monitoring, such as trace sampling and agent switch settings.
-     *  *
-     * @param SaveTraceAppConfigRequest $request SaveTraceAppConfigRequest
+     * Modifies the settings of Application Monitoring, such as trace sampling and agent switch settings.
      *
-     * @return SaveTraceAppConfigResponse SaveTraceAppConfigResponse
+     * @param request - SaveTraceAppConfigRequest
+     * @returns SaveTraceAppConfigResponse
+     *
+     * @param SaveTraceAppConfigRequest $request
+     *
+     * @return SaveTraceAppConfigResponse
      */
     public function saveTraceAppConfig($request)
     {
@@ -12411,42 +15384,54 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert contacts.
-     *  *
-     * @description This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
-     *  *
-     * @param SearchAlertContactRequest $request SearchAlertContactRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries alert contacts.
      *
-     * @return SearchAlertContactResponse SearchAlertContactResponse
+     * @remarks
+     * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
+     *
+     * @param request - SearchAlertContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchAlertContactResponse
+     *
+     * @param SearchAlertContactRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SearchAlertContactResponse
      */
     public function searchAlertContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactIds)) {
-            $query['ContactIds'] = $request->contactIds;
+        if (null !== $request->contactIds) {
+            @$query['ContactIds'] = $request->contactIds;
         }
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $query['Phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchAlertContact',
@@ -12459,18 +15444,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchAlertContactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert contacts.
-     *  *
-     * @description This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
-     *  *
-     * @param SearchAlertContactRequest $request SearchAlertContactRequest
+     * Queries alert contacts.
      *
-     * @return SearchAlertContactResponse SearchAlertContactResponse
+     * @remarks
+     * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
+     *
+     * @param request - SearchAlertContactRequest
+     * @returns SearchAlertContactResponse
+     *
+     * @param SearchAlertContactRequest $request
+     *
+     * @return SearchAlertContactResponse
      */
     public function searchAlertContact($request)
     {
@@ -12480,39 +15472,50 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert contact groups.
-     *  *
-     * @description The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
-     *  *
-     * @param SearchAlertContactGroupRequest $request SearchAlertContactGroupRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries alert contact groups.
      *
-     * @return SearchAlertContactGroupResponse SearchAlertContactGroupResponse
+     * @remarks
+     * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
+     *
+     * @param request - SearchAlertContactGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchAlertContactGroupResponse
+     *
+     * @param SearchAlertContactGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SearchAlertContactGroupResponse
      */
     public function searchAlertContactGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupIds)) {
-            $query['ContactGroupIds'] = $request->contactGroupIds;
+        if (null !== $request->contactGroupIds) {
+            @$query['ContactGroupIds'] = $request->contactGroupIds;
         }
-        if (!Utils::isUnset($request->contactGroupName)) {
-            $query['ContactGroupName'] = $request->contactGroupName;
+
+        if (null !== $request->contactGroupName) {
+            @$query['ContactGroupName'] = $request->contactGroupName;
         }
-        if (!Utils::isUnset($request->contactId)) {
-            $query['ContactId'] = $request->contactId;
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
         }
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->isDetail)) {
-            $query['IsDetail'] = $request->isDetail;
+
+        if (null !== $request->isDetail) {
+            @$query['IsDetail'] = $request->isDetail;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchAlertContactGroup',
@@ -12525,18 +15528,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchAlertContactGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert contact groups.
-     *  *
-     * @description The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
-     *  *
-     * @param SearchAlertContactGroupRequest $request SearchAlertContactGroupRequest
+     * Queries alert contact groups.
      *
-     * @return SearchAlertContactGroupResponse SearchAlertContactGroupResponse
+     * @remarks
+     * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
+     *
+     * @param request - SearchAlertContactGroupRequest
+     * @returns SearchAlertContactGroupResponse
+     *
+     * @param SearchAlertContactGroupRequest $request
+     *
+     * @return SearchAlertContactGroupResponse
      */
     public function searchAlertContactGroup($request)
     {
@@ -12546,42 +15556,54 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alert records of an alert rule.
-     *  *
-     * @description This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
-     *  *
-     * @param SearchAlertHistoriesRequest $request SearchAlertHistoriesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the alert records of an alert rule.
      *
-     * @return SearchAlertHistoriesResponse SearchAlertHistoriesResponse
+     * @remarks
+     * This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
+     *
+     * @param request - SearchAlertHistoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchAlertHistoriesResponse
+     *
+     * @param SearchAlertHistoriesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchAlertHistoriesResponse
      */
     public function searchAlertHistoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertId)) {
-            $query['AlertId'] = $request->alertId;
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
         }
-        if (!Utils::isUnset($request->alertType)) {
-            $query['AlertType'] = $request->alertType;
+
+        if (null !== $request->alertType) {
+            @$query['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchAlertHistories',
@@ -12594,18 +15616,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchAlertHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchAlertHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchAlertHistoriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alert records of an alert rule.
-     *  *
-     * @description This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
-     *  *
-     * @param SearchAlertHistoriesRequest $request SearchAlertHistoriesRequest
+     * Queries the alert records of an alert rule.
      *
-     * @return SearchAlertHistoriesResponse SearchAlertHistoriesResponse
+     * @remarks
+     * This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
+     *
+     * @param request - SearchAlertHistoriesRequest
+     * @returns SearchAlertHistoriesResponse
+     *
+     * @param SearchAlertHistoriesRequest $request
+     *
+     * @return SearchAlertHistoriesResponse
      */
     public function searchAlertHistories($request)
     {
@@ -12615,54 +15644,70 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert rules.
-     *  *
-     * @description The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
-     *  *
-     * @param SearchAlertRulesRequest $request SearchAlertRulesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries alert rules.
      *
-     * @return SearchAlertRulesResponse SearchAlertRulesResponse
+     * @remarks
+     * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
+     *
+     * @param request - SearchAlertRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchAlertRulesResponse
+     *
+     * @param SearchAlertRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SearchAlertRulesResponse
      */
     public function searchAlertRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertRuleId)) {
-            $query['AlertRuleId'] = $request->alertRuleId;
+        if (null !== $request->alertRuleId) {
+            @$query['AlertRuleId'] = $request->alertRuleId;
         }
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->systemRegionId)) {
-            $query['SystemRegionId'] = $request->systemRegionId;
+
+        if (null !== $request->systemRegionId) {
+            @$query['SystemRegionId'] = $request->systemRegionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchAlertRules',
@@ -12675,18 +15720,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchAlertRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert rules.
-     *  *
-     * @description The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
-     *  *
-     * @param SearchAlertRulesRequest $request SearchAlertRulesRequest
+     * Queries alert rules.
      *
-     * @return SearchAlertRulesResponse SearchAlertRulesResponse
+     * @remarks
+     * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
+     *
+     * @param request - SearchAlertRulesRequest
+     * @returns SearchAlertRulesResponse
+     *
+     * @param SearchAlertRulesRequest $request
+     *
+     * @return SearchAlertRulesResponse
      */
     public function searchAlertRules($request)
     {
@@ -12696,51 +15748,66 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert event records.
-     *  *
-     * @description Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
-     *  *
-     * @param SearchEventsRequest $request SearchEventsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries alert event records.
      *
-     * @return SearchEventsResponse SearchEventsResponse
+     * @remarks
+     * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
+     *
+     * @param request - SearchEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchEventsResponse
+     *
+     * @param SearchEventsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SearchEventsResponse
      */
     public function searchEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertId)) {
-            $query['AlertId'] = $request->alertId;
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
         }
-        if (!Utils::isUnset($request->alertType)) {
-            $query['AlertType'] = $request->alertType;
+
+        if (null !== $request->alertType) {
+            @$query['AlertType'] = $request->alertType;
         }
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->isTrigger)) {
-            $query['IsTrigger'] = $request->isTrigger;
+
+        if (null !== $request->isTrigger) {
+            @$query['IsTrigger'] = $request->isTrigger;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchEvents',
@@ -12753,18 +15820,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert event records.
-     *  *
-     * @description Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
-     *  *
-     * @param SearchEventsRequest $request SearchEventsRequest
+     * Queries alert event records.
      *
-     * @return SearchEventsResponse SearchEventsResponse
+     * @remarks
+     * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
+     *
+     * @param request - SearchEventsRequest
+     * @returns SearchEventsResponse
+     *
+     * @param SearchEventsRequest $request
+     *
+     * @return SearchEventsResponse
      */
     public function searchEvents($request)
     {
@@ -12774,40 +15848,51 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries Browser Monitoring tasks by page.
-     *  *
-     * @param SearchRetcodeAppByPageRequest $request SearchRetcodeAppByPageRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries Browser Monitoring tasks by page.
      *
-     * @return SearchRetcodeAppByPageResponse SearchRetcodeAppByPageResponse
+     * @param request - SearchRetcodeAppByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchRetcodeAppByPageResponse
+     *
+     * @param SearchRetcodeAppByPageRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SearchRetcodeAppByPageResponse
      */
     public function searchRetcodeAppByPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->retcodeAppId)) {
-            $query['RetcodeAppId'] = $request->retcodeAppId;
+
+        if (null !== $request->retcodeAppId) {
+            @$query['RetcodeAppId'] = $request->retcodeAppId;
         }
-        if (!Utils::isUnset($request->retcodeAppName)) {
-            $query['RetcodeAppName'] = $request->retcodeAppName;
+
+        if (null !== $request->retcodeAppName) {
+            @$query['RetcodeAppName'] = $request->retcodeAppName;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchRetcodeAppByPage',
@@ -12820,16 +15905,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchRetcodeAppByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchRetcodeAppByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchRetcodeAppByPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Browser Monitoring tasks by page.
-     *  *
-     * @param SearchRetcodeAppByPageRequest $request SearchRetcodeAppByPageRequest
+     * Queries Browser Monitoring tasks by page.
      *
-     * @return SearchRetcodeAppByPageResponse SearchRetcodeAppByPageResponse
+     * @param request - SearchRetcodeAppByPageRequest
+     * @returns SearchRetcodeAppByPageResponse
+     *
+     * @param SearchRetcodeAppByPageRequest $request
+     *
+     * @return SearchRetcodeAppByPageResponse
      */
     public function searchRetcodeAppByPage($request)
     {
@@ -12839,28 +15930,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries Application Monitoring tasks by application name.
-     *  *
-     * @param SearchTraceAppByNameRequest $request SearchTraceAppByNameRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries Application Monitoring tasks by application name.
      *
-     * @return SearchTraceAppByNameResponse SearchTraceAppByNameResponse
+     * @param request - SearchTraceAppByNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchTraceAppByNameResponse
+     *
+     * @param SearchTraceAppByNameRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchTraceAppByNameResponse
      */
     public function searchTraceAppByNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->traceAppName)) {
-            $query['TraceAppName'] = $request->traceAppName;
+
+        if (null !== $request->traceAppName) {
+            @$query['TraceAppName'] = $request->traceAppName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchTraceAppByName',
@@ -12873,16 +15971,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchTraceAppByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchTraceAppByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchTraceAppByNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Application Monitoring tasks by application name.
-     *  *
-     * @param SearchTraceAppByNameRequest $request SearchTraceAppByNameRequest
+     * Queries Application Monitoring tasks by application name.
      *
-     * @return SearchTraceAppByNameResponse SearchTraceAppByNameResponse
+     * @param request - SearchTraceAppByNameRequest
+     * @returns SearchTraceAppByNameResponse
+     *
+     * @param SearchTraceAppByNameRequest $request
+     *
+     * @return SearchTraceAppByNameResponse
      */
     public function searchTraceAppByName($request)
     {
@@ -12892,37 +15996,47 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries application monitoring tasks by page.
-     *  *
-     * @param SearchTraceAppByPageRequest $request SearchTraceAppByPageRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries application monitoring tasks by page.
      *
-     * @return SearchTraceAppByPageResponse SearchTraceAppByPageResponse
+     * @param request - SearchTraceAppByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchTraceAppByPageResponse
+     *
+     * @param SearchTraceAppByPageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchTraceAppByPageResponse
      */
     public function searchTraceAppByPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->traceAppName)) {
-            $query['TraceAppName'] = $request->traceAppName;
+
+        if (null !== $request->traceAppName) {
+            @$query['TraceAppName'] = $request->traceAppName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchTraceAppByPage',
@@ -12935,16 +16049,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchTraceAppByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchTraceAppByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchTraceAppByPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries application monitoring tasks by page.
-     *  *
-     * @param SearchTraceAppByPageRequest $request SearchTraceAppByPageRequest
+     * Queries application monitoring tasks by page.
      *
-     * @return SearchTraceAppByPageResponse SearchTraceAppByPageResponse
+     * @param request - SearchTraceAppByPageRequest
+     * @returns SearchTraceAppByPageResponse
+     *
+     * @param SearchTraceAppByPageRequest $request
+     *
+     * @return SearchTraceAppByPageResponse
      */
     public function searchTraceAppByPage($request)
     {
@@ -12954,54 +16074,70 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries traces by time, application name, IP address, span name, and tag.
-     *  *
-     * @description > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](https://help.aliyun.com/document_detail/175866.html).
-     *  *
-     * @param SearchTracesRequest $request SearchTracesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries traces by time, application name, IP address, span name, and tag.
      *
-     * @return SearchTracesResponse SearchTracesResponse
+     * @remarks
+     * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](https://help.aliyun.com/document_detail/175866.html).
+     *
+     * @param request - SearchTracesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchTracesResponse
+     *
+     * @param SearchTracesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SearchTracesResponse
      */
     public function searchTracesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->exclusionFilters)) {
-            $query['ExclusionFilters'] = $request->exclusionFilters;
+
+        if (null !== $request->exclusionFilters) {
+            @$query['ExclusionFilters'] = $request->exclusionFilters;
         }
-        if (!Utils::isUnset($request->minDuration)) {
-            $query['MinDuration'] = $request->minDuration;
+
+        if (null !== $request->minDuration) {
+            @$query['MinDuration'] = $request->minDuration;
         }
-        if (!Utils::isUnset($request->operationName)) {
-            $query['OperationName'] = $request->operationName;
+
+        if (null !== $request->operationName) {
+            @$query['OperationName'] = $request->operationName;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->reverse)) {
-            $query['Reverse'] = $request->reverse;
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
         }
-        if (!Utils::isUnset($request->serviceIp)) {
-            $query['ServiceIp'] = $request->serviceIp;
+
+        if (null !== $request->serviceIp) {
+            @$query['ServiceIp'] = $request->serviceIp;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchTraces',
@@ -13014,18 +16150,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchTracesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchTracesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchTracesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries traces by time, application name, IP address, span name, and tag.
-     *  *
-     * @description > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](https://help.aliyun.com/document_detail/175866.html).
-     *  *
-     * @param SearchTracesRequest $request SearchTracesRequest
+     * Queries traces by time, application name, IP address, span name, and tag.
      *
-     * @return SearchTracesResponse SearchTracesResponse
+     * @remarks
+     * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](https://help.aliyun.com/document_detail/175866.html).
+     *
+     * @param request - SearchTracesRequest
+     * @returns SearchTracesResponse
+     *
+     * @param SearchTracesRequest $request
+     *
+     * @return SearchTracesResponse
      */
     public function searchTraces($request)
     {
@@ -13035,61 +16178,79 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Queries traces by page. You can query traces by time range, application name, IP address, span name, or tag.
-     *  *
-     * @param SearchTracesByPageRequest $request SearchTracesByPageRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries traces by page. You can query traces by time range, application name, IP address, span name, or tag.
      *
-     * @return SearchTracesByPageResponse SearchTracesByPageResponse
+     * @param request - SearchTracesByPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchTracesByPageResponse
+     *
+     * @param SearchTracesByPageRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SearchTracesByPageResponse
      */
     public function searchTracesByPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->exclusionFilters)) {
-            $query['ExclusionFilters'] = $request->exclusionFilters;
+
+        if (null !== $request->exclusionFilters) {
+            @$query['ExclusionFilters'] = $request->exclusionFilters;
         }
-        if (!Utils::isUnset($request->isError)) {
-            $query['IsError'] = $request->isError;
+
+        if (null !== $request->isError) {
+            @$query['IsError'] = $request->isError;
         }
-        if (!Utils::isUnset($request->minDuration)) {
-            $query['MinDuration'] = $request->minDuration;
+
+        if (null !== $request->minDuration) {
+            @$query['MinDuration'] = $request->minDuration;
         }
-        if (!Utils::isUnset($request->operationName)) {
-            $query['OperationName'] = $request->operationName;
+
+        if (null !== $request->operationName) {
+            @$query['OperationName'] = $request->operationName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->reverse)) {
-            $query['Reverse'] = $request->reverse;
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
         }
-        if (!Utils::isUnset($request->serviceIp)) {
-            $query['ServiceIp'] = $request->serviceIp;
+
+        if (null !== $request->serviceIp) {
+            @$query['ServiceIp'] = $request->serviceIp;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchTracesByPage',
@@ -13102,16 +16263,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchTracesByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchTracesByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchTracesByPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries traces by page. You can query traces by time range, application name, IP address, span name, or tag.
-     *  *
-     * @param SearchTracesByPageRequest $request SearchTracesByPageRequest
+     * Queries traces by page. You can query traces by time range, application name, IP address, span name, or tag.
      *
-     * @return SearchTracesByPageResponse SearchTracesByPageResponse
+     * @param request - SearchTracesByPageRequest
+     * @returns SearchTracesByPageResponse
+     *
+     * @param SearchTracesByPageRequest $request
+     *
+     * @return SearchTracesByPageResponse
      */
     public function searchTracesByPage($request)
     {
@@ -13121,27 +16288,34 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Sends a text message to an alert contact to verify the mobile number of the alert contact.
-     *  *
-     * @description After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
-     *  *
-     * @param SendTTSVerifyLinkRequest $request SendTTSVerifyLinkRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Sends a text message to an alert contact to verify the mobile number of the alert contact.
      *
-     * @return SendTTSVerifyLinkResponse SendTTSVerifyLinkResponse
+     * @remarks
+     * After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
+     *
+     * @param request - SendTTSVerifyLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendTTSVerifyLinkResponse
+     *
+     * @param SendTTSVerifyLinkRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SendTTSVerifyLinkResponse
      */
     public function sendTTSVerifyLinkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->contactId)) {
-            $body['ContactId'] = $request->contactId;
+        if (null !== $request->contactId) {
+            @$body['ContactId'] = $request->contactId;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['Phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$body['Phone'] = $request->phone;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendTTSVerifyLink',
@@ -13154,18 +16328,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendTTSVerifyLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendTTSVerifyLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendTTSVerifyLinkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Sends a text message to an alert contact to verify the mobile number of the alert contact.
-     *  *
-     * @description After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
-     *  *
-     * @param SendTTSVerifyLinkRequest $request SendTTSVerifyLinkRequest
+     * Sends a text message to an alert contact to verify the mobile number of the alert contact.
      *
-     * @return SendTTSVerifyLinkResponse SendTTSVerifyLinkResponse
+     * @remarks
+     * After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
+     *
+     * @param request - SendTTSVerifyLinkRequest
+     * @returns SendTTSVerifyLinkResponse
+     *
+     * @param SendTTSVerifyLinkRequest $request
+     *
+     * @return SendTTSVerifyLinkResponse
      */
     public function sendTTSVerifyLink($request)
     {
@@ -13175,28 +16356,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
-     *  *
-     * @param SetRetcodeShareStatusRequest $request SetRetcodeShareStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
      *
-     * @return SetRetcodeShareStatusResponse SetRetcodeShareStatusResponse
+     * @param request - SetRetcodeShareStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetRetcodeShareStatusResponse
+     *
+     * @param SetRetcodeShareStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetRetcodeShareStatusResponse
      */
     public function setRetcodeShareStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetRetcodeShareStatus',
@@ -13209,16 +16397,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetRetcodeShareStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetRetcodeShareStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetRetcodeShareStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
-     *  *
-     * @param SetRetcodeShareStatusRequest $request SetRetcodeShareStatusRequest
+     * Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
      *
-     * @return SetRetcodeShareStatusResponse SetRetcodeShareStatusResponse
+     * @param request - SetRetcodeShareStatusRequest
+     * @returns SetRetcodeShareStatusResponse
+     *
+     * @param SetRetcodeShareStatusRequest $request
+     *
+     * @return SetRetcodeShareStatusResponse
      */
     public function setRetcodeShareStatus($request)
     {
@@ -13228,23 +16422,29 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param StartAlertRequest $request StartAlertRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - StartAlertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartAlertResponse
      *
-     * @return StartAlertResponse StartAlertResponse
+     * @param StartAlertRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return StartAlertResponse
      */
     public function startAlertWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertId)) {
-            $query['AlertId'] = $request->alertId;
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartAlert',
@@ -13257,14 +16457,20 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartAlertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param StartAlertRequest $request StartAlertRequest
+     * @param request - StartAlertRequest
+     * @returns StartAlertResponse
      *
-     * @return StartAlertResponse StartAlertResponse
+     * @param StartAlertRequest $request
+     *
+     * @return StartAlertResponse
      */
     public function startAlert($request)
     {
@@ -13274,30 +16480,37 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Starts scheduled synthetic monitoring tasks.
-     *  *
-     * @param StartTimingSyntheticTaskRequest $tmpReq  StartTimingSyntheticTaskRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Starts scheduled synthetic monitoring tasks.
      *
-     * @return StartTimingSyntheticTaskResponse StartTimingSyntheticTaskResponse
+     * @param tmpReq - StartTimingSyntheticTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartTimingSyntheticTaskResponse
+     *
+     * @param StartTimingSyntheticTaskRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return StartTimingSyntheticTaskResponse
      */
     public function startTimingSyntheticTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new StartTimingSyntheticTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskIds)) {
-            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskIdsShrink)) {
-            $query['TaskIds'] = $request->taskIdsShrink;
+
+        if (null !== $request->taskIdsShrink) {
+            @$query['TaskIds'] = $request->taskIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartTimingSyntheticTask',
@@ -13310,16 +16523,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartTimingSyntheticTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts scheduled synthetic monitoring tasks.
-     *  *
-     * @param StartTimingSyntheticTaskRequest $request StartTimingSyntheticTaskRequest
+     * Starts scheduled synthetic monitoring tasks.
      *
-     * @return StartTimingSyntheticTaskResponse StartTimingSyntheticTaskResponse
+     * @param request - StartTimingSyntheticTaskRequest
+     * @returns StartTimingSyntheticTaskResponse
+     *
+     * @param StartTimingSyntheticTaskRequest $request
+     *
+     * @return StartTimingSyntheticTaskResponse
      */
     public function startTimingSyntheticTask($request)
     {
@@ -13329,25 +16548,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Call StartAlert to stop an alert rule.
-     *  *
-     * @param StopAlertRequest $request StopAlertRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Call StartAlert to stop an alert rule.
      *
-     * @return StopAlertResponse StopAlertResponse
+     * @param request - StopAlertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopAlertResponse
+     *
+     * @param StopAlertRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return StopAlertResponse
      */
     public function stopAlertWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertId)) {
-            $query['AlertId'] = $request->alertId;
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopAlert',
@@ -13360,16 +16585,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopAlertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Call StartAlert to stop an alert rule.
-     *  *
-     * @param StopAlertRequest $request StopAlertRequest
+     * Call StartAlert to stop an alert rule.
      *
-     * @return StopAlertResponse StopAlertResponse
+     * @param request - StopAlertRequest
+     * @returns StopAlertResponse
+     *
+     * @param StopAlertRequest $request
+     *
+     * @return StopAlertResponse
      */
     public function stopAlert($request)
     {
@@ -13379,30 +16610,37 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Stops scheduled synthetic monitoring tasks.
-     *  *
-     * @param StopTimingSyntheticTaskRequest $tmpReq  StopTimingSyntheticTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Stops scheduled synthetic monitoring tasks.
      *
-     * @return StopTimingSyntheticTaskResponse StopTimingSyntheticTaskResponse
+     * @param tmpReq - StopTimingSyntheticTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopTimingSyntheticTaskResponse
+     *
+     * @param StopTimingSyntheticTaskRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return StopTimingSyntheticTaskResponse
      */
     public function stopTimingSyntheticTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new StopTimingSyntheticTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskIds)) {
-            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskIdsShrink)) {
-            $query['TaskIds'] = $request->taskIdsShrink;
+
+        if (null !== $request->taskIdsShrink) {
+            @$query['TaskIds'] = $request->taskIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopTimingSyntheticTask',
@@ -13415,16 +16653,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopTimingSyntheticTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops scheduled synthetic monitoring tasks.
-     *  *
-     * @param StopTimingSyntheticTaskRequest $request StopTimingSyntheticTaskRequest
+     * Stops scheduled synthetic monitoring tasks.
      *
-     * @return StopTimingSyntheticTaskResponse StopTimingSyntheticTaskResponse
+     * @param request - StopTimingSyntheticTaskRequest
+     * @returns StopTimingSyntheticTaskResponse
+     *
+     * @param StopTimingSyntheticTaskRequest $request
+     *
+     * @return StopTimingSyntheticTaskResponse
      */
     public function stopTimingSyntheticTask($request)
     {
@@ -13434,25 +16678,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Starts or stops a scheduled synthetic monitoring task.
-     *  *
-     * @param SwitchSyntheticTaskStatusRequest $request SwitchSyntheticTaskStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Starts or stops a scheduled synthetic monitoring task.
      *
-     * @return SwitchSyntheticTaskStatusResponse SwitchSyntheticTaskStatusResponse
+     * @param request - SwitchSyntheticTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SwitchSyntheticTaskStatusResponse
+     *
+     * @param SwitchSyntheticTaskStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SwitchSyntheticTaskStatusResponse
      */
     public function switchSyntheticTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->switchStatus)) {
-            $query['SwitchStatus'] = $request->switchStatus;
+        if (null !== $request->switchStatus) {
+            @$query['SwitchStatus'] = $request->switchStatus;
         }
-        if (!Utils::isUnset($request->taskIds)) {
-            $query['TaskIds'] = $request->taskIds;
+
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SwitchSyntheticTaskStatus',
@@ -13465,16 +16715,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SwitchSyntheticTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SwitchSyntheticTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SwitchSyntheticTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts or stops a scheduled synthetic monitoring task.
-     *  *
-     * @param SwitchSyntheticTaskStatusRequest $request SwitchSyntheticTaskStatusRequest
+     * Starts or stops a scheduled synthetic monitoring task.
      *
-     * @return SwitchSyntheticTaskStatusResponse SwitchSyntheticTaskStatusResponse
+     * @param request - SwitchSyntheticTaskStatusRequest
+     * @returns SwitchSyntheticTaskStatusResponse
+     *
+     * @param SwitchSyntheticTaskStatusRequest $request
+     *
+     * @return SwitchSyntheticTaskStatusResponse
      */
     public function switchSyntheticTaskStatus($request)
     {
@@ -13484,28 +16740,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
-     *  *
-     * @param SyncRecordingRulesRequest $request SyncRecordingRulesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Synchronizes the aggregation rule of a cluster to other clusters in a region.
      *
-     * @return SyncRecordingRulesResponse SyncRecordingRulesResponse
+     * @param request - SyncRecordingRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SyncRecordingRulesResponse
+     *
+     * @param SyncRecordingRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SyncRecordingRulesResponse
      */
     public function syncRecordingRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->targetClusters)) {
-            $query['TargetClusters'] = $request->targetClusters;
+
+        if (null !== $request->targetClusters) {
+            @$query['TargetClusters'] = $request->targetClusters;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SyncRecordingRules',
@@ -13518,16 +16781,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SyncRecordingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SyncRecordingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SyncRecordingRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
-     *  *
-     * @param SyncRecordingRulesRequest $request SyncRecordingRulesRequest
+     * Synchronizes the aggregation rule of a cluster to other clusters in a region.
      *
-     * @return SyncRecordingRulesResponse SyncRecordingRulesResponse
+     * @param request - SyncRecordingRulesRequest
+     * @returns SyncRecordingRulesResponse
+     *
+     * @param SyncRecordingRulesRequest $request
+     *
+     * @return SyncRecordingRulesResponse
      */
     public function syncRecordingRules($request)
     {
@@ -13537,28 +16806,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to ARMS resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to ARMS resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -13571,16 +16847,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to ARMS resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to ARMS resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -13589,41 +16871,51 @@ class ARMS extends OpenApiClient
         return $this->tagResourcesWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Uninstalls a managed Prometheus agent for a serverless Kubernetes (ASK) cluster, Distributed Cloud Container Platform for Kubernetes (ACK One) cluster, or Elastic Compute Service (ECS) cluster.
+     *
+     * @remarks
+     * This operation is available only for ASK, ECS, and ACK One clusters. Before you call this operation, make sure that a managed Prometheus agent is installed for your cluster.
+     *
      * @deprecated OpenAPI UninstallManagedPrometheus is deprecated
-     *  *
-     * @summary Uninstalls a managed Prometheus agent for a serverless Kubernetes (ASK) cluster, Distributed Cloud Container Platform for Kubernetes (ACK One) cluster, or Elastic Compute Service (ECS) cluster.
-     *  *
-     * @description This operation is available only for ASK, ECS, and ACK One clusters. Before you call this operation, make sure that a managed Prometheus agent is installed for your cluster.
-     *  *
-     * Deprecated
      *
-     * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - UninstallManagedPrometheusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UninstallManagedPrometheusResponse
      *
-     * @return UninstallManagedPrometheusResponse UninstallManagedPrometheusResponse
+     * @param UninstallManagedPrometheusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UninstallManagedPrometheusResponse
      */
     public function uninstallManagedPrometheusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $query['ClusterType'] = $request->clusterType;
+
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UninstallManagedPrometheus',
@@ -13636,22 +16928,29 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UninstallManagedPrometheusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UninstallManagedPrometheusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UninstallManagedPrometheusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Uninstalls a managed Prometheus agent for a serverless Kubernetes (ASK) cluster, Distributed Cloud Container Platform for Kubernetes (ACK One) cluster, or Elastic Compute Service (ECS) cluster.
+     *
+     * @remarks
+     * This operation is available only for ASK, ECS, and ACK One clusters. Before you call this operation, make sure that a managed Prometheus agent is installed for your cluster.
+     *
      * @deprecated OpenAPI UninstallManagedPrometheus is deprecated
-     *  *
-     * @summary Uninstalls a managed Prometheus agent for a serverless Kubernetes (ASK) cluster, Distributed Cloud Container Platform for Kubernetes (ACK One) cluster, or Elastic Compute Service (ECS) cluster.
-     *  *
-     * @description This operation is available only for ASK, ECS, and ACK One clusters. Before you call this operation, make sure that a managed Prometheus agent is installed for your cluster.
-     *  *
-     * Deprecated
      *
-     * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
+     * @param request - UninstallManagedPrometheusRequest
+     * @returns UninstallManagedPrometheusResponse
      *
-     * @return UninstallManagedPrometheusResponse UninstallManagedPrometheusResponse
+     * @param UninstallManagedPrometheusRequest $request
+     *
+     * @return UninstallManagedPrometheusResponse
      */
     public function uninstallManagedPrometheus($request)
     {
@@ -13661,28 +16960,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Releases a Prometheus instance.
-     *  *
-     * @param UninstallPromClusterRequest $request UninstallPromClusterRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Releases a Prometheus instance.
      *
-     * @return UninstallPromClusterResponse UninstallPromClusterResponse
+     * @param request - UninstallPromClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UninstallPromClusterResponse
+     *
+     * @param UninstallPromClusterRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UninstallPromClusterResponse
      */
     public function uninstallPromClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UninstallPromCluster',
@@ -13695,16 +17001,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UninstallPromClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UninstallPromClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UninstallPromClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases a Prometheus instance.
-     *  *
-     * @param UninstallPromClusterRequest $request UninstallPromClusterRequest
+     * Releases a Prometheus instance.
      *
-     * @return UninstallPromClusterResponse UninstallPromClusterResponse
+     * @param request - UninstallPromClusterRequest
+     * @returns UninstallPromClusterResponse
+     *
+     * @param UninstallPromClusterRequest $request
+     *
+     * @return UninstallPromClusterResponse
      */
     public function uninstallPromCluster($request)
     {
@@ -13714,34 +17026,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from ARMS resources.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from ARMS resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -13754,16 +17075,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from ARMS resources.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from ARMS resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -13773,42 +17100,54 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates an alert contact.
-     *  *
-     * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
-     *  *
-     * @param UpdateAlertContactRequest $request UpdateAlertContactRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Updates an alert contact.
      *
-     * @return UpdateAlertContactResponse UpdateAlertContactResponse
+     * @remarks
+     * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
+     *
+     * @param request - UpdateAlertContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAlertContactResponse
+     *
+     * @param UpdateAlertContactRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateAlertContactResponse
      */
     public function updateAlertContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactId)) {
-            $query['ContactId'] = $request->contactId;
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
         }
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->dingRobotWebhookUrl)) {
-            $query['DingRobotWebhookUrl'] = $request->dingRobotWebhookUrl;
+
+        if (null !== $request->dingRobotWebhookUrl) {
+            @$query['DingRobotWebhookUrl'] = $request->dingRobotWebhookUrl;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->phoneNum)) {
-            $query['PhoneNum'] = $request->phoneNum;
+
+        if (null !== $request->phoneNum) {
+            @$query['PhoneNum'] = $request->phoneNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->systemNoc)) {
-            $query['SystemNoc'] = $request->systemNoc;
+
+        if (null !== $request->systemNoc) {
+            @$query['SystemNoc'] = $request->systemNoc;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAlertContact',
@@ -13821,18 +17160,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAlertContactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates an alert contact.
-     *  *
-     * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
-     *  *
-     * @param UpdateAlertContactRequest $request UpdateAlertContactRequest
+     * Updates an alert contact.
      *
-     * @return UpdateAlertContactResponse UpdateAlertContactResponse
+     * @remarks
+     * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
+     *
+     * @param request - UpdateAlertContactRequest
+     * @returns UpdateAlertContactResponse
+     *
+     * @param UpdateAlertContactRequest $request
+     *
+     * @return UpdateAlertContactResponse
      */
     public function updateAlertContact($request)
     {
@@ -13842,31 +17188,39 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates UpdateAlertContactGroup alarm contact group.
-     *  *
-     * @param UpdateAlertContactGroupRequest $request UpdateAlertContactGroupRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Updates UpdateAlertContactGroup alarm contact group.
      *
-     * @return UpdateAlertContactGroupResponse UpdateAlertContactGroupResponse
+     * @param request - UpdateAlertContactGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAlertContactGroupResponse
+     *
+     * @param UpdateAlertContactGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAlertContactGroupResponse
      */
     public function updateAlertContactGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupId)) {
-            $query['ContactGroupId'] = $request->contactGroupId;
+        if (null !== $request->contactGroupId) {
+            @$query['ContactGroupId'] = $request->contactGroupId;
         }
-        if (!Utils::isUnset($request->contactGroupName)) {
-            $query['ContactGroupName'] = $request->contactGroupName;
+
+        if (null !== $request->contactGroupName) {
+            @$query['ContactGroupName'] = $request->contactGroupName;
         }
-        if (!Utils::isUnset($request->contactIds)) {
-            $query['ContactIds'] = $request->contactIds;
+
+        if (null !== $request->contactIds) {
+            @$query['ContactIds'] = $request->contactIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAlertContactGroup',
@@ -13879,16 +17233,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAlertContactGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates UpdateAlertContactGroup alarm contact group.
-     *  *
-     * @param UpdateAlertContactGroupRequest $request UpdateAlertContactGroupRequest
+     * Updates UpdateAlertContactGroup alarm contact group.
      *
-     * @return UpdateAlertContactGroupResponse UpdateAlertContactGroupResponse
+     * @param request - UpdateAlertContactGroupRequest
+     * @returns UpdateAlertContactGroupResponse
+     *
+     * @param UpdateAlertContactGroupRequest $request
+     *
+     * @return UpdateAlertContactGroupResponse
      */
     public function updateAlertContactGroup($request)
     {
@@ -13898,32 +17258,41 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertRuleRequest $request UpdateAlertRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAlertRuleResponse
      *
-     * @return UpdateAlertRuleResponse UpdateAlertRuleResponse
+     * @param UpdateAlertRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAlertRuleResponse
      */
     public function updateAlertRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertId)) {
-            $query['AlertId'] = $request->alertId;
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
         }
-        if (!Utils::isUnset($request->contactGroupIds)) {
-            $query['ContactGroupIds'] = $request->contactGroupIds;
+
+        if (null !== $request->contactGroupIds) {
+            @$query['ContactGroupIds'] = $request->contactGroupIds;
         }
-        if (!Utils::isUnset($request->isAutoStart)) {
-            $query['IsAutoStart'] = $request->isAutoStart;
+
+        if (null !== $request->isAutoStart) {
+            @$query['IsAutoStart'] = $request->isAutoStart;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templageAlertConfig)) {
-            $query['TemplageAlertConfig'] = $request->templageAlertConfig;
+
+        if (null !== $request->templageAlertConfig) {
+            @$query['TemplageAlertConfig'] = $request->templageAlertConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAlertRule',
@@ -13936,14 +17305,20 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateAlertRuleRequest $request UpdateAlertRuleRequest
+     * @param request - UpdateAlertRuleRequest
+     * @returns UpdateAlertRuleResponse
      *
-     * @return UpdateAlertRuleResponse UpdateAlertRuleResponse
+     * @param UpdateAlertRuleRequest $request
+     *
+     * @return UpdateAlertRuleResponse
      */
     public function updateAlertRule($request)
     {
@@ -13953,25 +17328,31 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a dispatch policy.
-     *  *
-     * @param UpdateDispatchRuleRequest $request UpdateDispatchRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies a dispatch policy.
      *
-     * @return UpdateDispatchRuleResponse UpdateDispatchRuleResponse
+     * @param request - UpdateDispatchRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDispatchRuleResponse
+     *
+     * @param UpdateDispatchRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateDispatchRuleResponse
      */
     public function updateDispatchRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dispatchRule)) {
-            $query['DispatchRule'] = $request->dispatchRule;
+        if (null !== $request->dispatchRule) {
+            @$query['DispatchRule'] = $request->dispatchRule;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDispatchRule',
@@ -13984,16 +17365,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDispatchRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDispatchRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a dispatch policy.
-     *  *
-     * @param UpdateDispatchRuleRequest $request UpdateDispatchRuleRequest
+     * Modifies a dispatch policy.
      *
-     * @return UpdateDispatchRuleResponse UpdateDispatchRuleResponse
+     * @param request - UpdateDispatchRuleRequest
+     * @returns UpdateDispatchRuleResponse
+     *
+     * @param UpdateDispatchRuleRequest $request
+     *
+     * @return UpdateDispatchRuleResponse
      */
     public function updateDispatchRule($request)
     {
@@ -14003,39 +17390,49 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates a custom job for an environment.
-     *  *
-     * @param UpdateEnvCustomJobRequest $request UpdateEnvCustomJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Updates a custom job for an environment.
      *
-     * @return UpdateEnvCustomJobResponse UpdateEnvCustomJobResponse
+     * @param request - UpdateEnvCustomJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateEnvCustomJobResponse
+     *
+     * @param UpdateEnvCustomJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateEnvCustomJobResponse
      */
     public function updateEnvCustomJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->customJobName)) {
-            $query['CustomJobName'] = $request->customJobName;
+
+        if (null !== $request->customJobName) {
+            @$query['CustomJobName'] = $request->customJobName;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configYaml)) {
-            $body['ConfigYaml'] = $request->configYaml;
+        if (null !== $request->configYaml) {
+            @$body['ConfigYaml'] = $request->configYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateEnvCustomJob',
@@ -14048,16 +17445,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEnvCustomJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEnvCustomJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a custom job for an environment.
-     *  *
-     * @param UpdateEnvCustomJobRequest $request UpdateEnvCustomJobRequest
+     * Updates a custom job for an environment.
      *
-     * @return UpdateEnvCustomJobResponse UpdateEnvCustomJobResponse
+     * @param request - UpdateEnvCustomJobRequest
+     * @returns UpdateEnvCustomJobResponse
+     *
+     * @param UpdateEnvCustomJobRequest $request
+     *
+     * @return UpdateEnvCustomJobResponse
      */
     public function updateEnvCustomJob($request)
     {
@@ -14067,42 +17470,53 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the PodMonitor of an environment.
-     *  *
-     * @param UpdateEnvPodMonitorRequest $request UpdateEnvPodMonitorRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Updates the PodMonitor of an environment.
      *
-     * @return UpdateEnvPodMonitorResponse UpdateEnvPodMonitorResponse
+     * @param request - UpdateEnvPodMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateEnvPodMonitorResponse
+     *
+     * @param UpdateEnvPodMonitorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateEnvPodMonitorResponse
      */
     public function updateEnvPodMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->podMonitorName)) {
-            $query['PodMonitorName'] = $request->podMonitorName;
+
+        if (null !== $request->podMonitorName) {
+            @$query['PodMonitorName'] = $request->podMonitorName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configYaml)) {
-            $body['ConfigYaml'] = $request->configYaml;
+        if (null !== $request->configYaml) {
+            @$body['ConfigYaml'] = $request->configYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateEnvPodMonitor',
@@ -14115,16 +17529,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEnvPodMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEnvPodMonitorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the PodMonitor of an environment.
-     *  *
-     * @param UpdateEnvPodMonitorRequest $request UpdateEnvPodMonitorRequest
+     * Updates the PodMonitor of an environment.
      *
-     * @return UpdateEnvPodMonitorResponse UpdateEnvPodMonitorResponse
+     * @param request - UpdateEnvPodMonitorRequest
+     * @returns UpdateEnvPodMonitorResponse
+     *
+     * @param UpdateEnvPodMonitorRequest $request
+     *
+     * @return UpdateEnvPodMonitorResponse
      */
     public function updateEnvPodMonitor($request)
     {
@@ -14134,42 +17554,53 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the ServiceMonitor of an environment.
-     *  *
-     * @param UpdateEnvServiceMonitorRequest $request UpdateEnvServiceMonitorRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Updates the ServiceMonitor of an environment.
      *
-     * @return UpdateEnvServiceMonitorResponse UpdateEnvServiceMonitorResponse
+     * @param request - UpdateEnvServiceMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateEnvServiceMonitorResponse
+     *
+     * @param UpdateEnvServiceMonitorRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateEnvServiceMonitorResponse
      */
     public function updateEnvServiceMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceMonitorName)) {
-            $query['ServiceMonitorName'] = $request->serviceMonitorName;
+
+        if (null !== $request->serviceMonitorName) {
+            @$query['ServiceMonitorName'] = $request->serviceMonitorName;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configYaml)) {
-            $body['ConfigYaml'] = $request->configYaml;
+        if (null !== $request->configYaml) {
+            @$body['ConfigYaml'] = $request->configYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateEnvServiceMonitor',
@@ -14182,16 +17613,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEnvServiceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEnvServiceMonitorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the ServiceMonitor of an environment.
-     *  *
-     * @param UpdateEnvServiceMonitorRequest $request UpdateEnvServiceMonitorRequest
+     * Updates the ServiceMonitor of an environment.
      *
-     * @return UpdateEnvServiceMonitorResponse UpdateEnvServiceMonitorResponse
+     * @param request - UpdateEnvServiceMonitorRequest
+     * @returns UpdateEnvServiceMonitorResponse
+     *
+     * @param UpdateEnvServiceMonitorRequest $request
+     *
+     * @return UpdateEnvServiceMonitorResponse
      */
     public function updateEnvServiceMonitor($request)
     {
@@ -14201,34 +17638,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configuration of an environment.
-     *  *
-     * @param UpdateEnvironmentRequest $request UpdateEnvironmentRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Updates the configuration of an environment.
      *
-     * @return UpdateEnvironmentResponse UpdateEnvironmentResponse
+     * @param request - UpdateEnvironmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateEnvironmentResponse
+     *
+     * @param UpdateEnvironmentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateEnvironmentResponse
      */
     public function updateEnvironmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->environmentName)) {
-            $query['EnvironmentName'] = $request->environmentName;
+
+        if (null !== $request->environmentName) {
+            @$query['EnvironmentName'] = $request->environmentName;
         }
-        if (!Utils::isUnset($request->feePackage)) {
-            $query['FeePackage'] = $request->feePackage;
+
+        if (null !== $request->feePackage) {
+            @$query['FeePackage'] = $request->feePackage;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateEnvironment',
@@ -14241,16 +17687,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the configuration of an environment.
-     *  *
-     * @param UpdateEnvironmentRequest $request UpdateEnvironmentRequest
+     * Updates the configuration of an environment.
      *
-     * @return UpdateEnvironmentResponse UpdateEnvironmentResponse
+     * @param request - UpdateEnvironmentRequest
+     * @returns UpdateEnvironmentResponse
+     *
+     * @param UpdateEnvironmentRequest $request
+     *
+     * @return UpdateEnvironmentResponse
      */
     public function updateEnvironment($request)
     {
@@ -14260,34 +17712,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a Grafana workspace.
-     *  *
-     * @param UpdateGrafanaWorkspaceRequest $request UpdateGrafanaWorkspaceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a Grafana workspace.
      *
-     * @return UpdateGrafanaWorkspaceResponse UpdateGrafanaWorkspaceResponse
+     * @param request - UpdateGrafanaWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateGrafanaWorkspaceResponse
+     *
+     * @param UpdateGrafanaWorkspaceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateGrafanaWorkspaceResponse
      */
     public function updateGrafanaWorkspaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
-            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
         }
-        if (!Utils::isUnset($request->grafanaWorkspaceName)) {
-            $query['GrafanaWorkspaceName'] = $request->grafanaWorkspaceName;
+
+        if (null !== $request->grafanaWorkspaceName) {
+            @$query['GrafanaWorkspaceName'] = $request->grafanaWorkspaceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateGrafanaWorkspace',
@@ -14300,16 +17761,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateGrafanaWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateGrafanaWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about a Grafana workspace.
-     *  *
-     * @param UpdateGrafanaWorkspaceRequest $request UpdateGrafanaWorkspaceRequest
+     * Updates the information about a Grafana workspace.
      *
-     * @return UpdateGrafanaWorkspaceResponse UpdateGrafanaWorkspaceResponse
+     * @param request - UpdateGrafanaWorkspaceRequest
+     * @returns UpdateGrafanaWorkspaceResponse
+     *
+     * @param UpdateGrafanaWorkspaceRequest $request
+     *
+     * @return UpdateGrafanaWorkspaceResponse
      */
     public function updateGrafanaWorkspace($request)
     {
@@ -14319,33 +17786,42 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the version of a Grafana workspace.
-     *  *
-     * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
-     *  *
-     * @param UpdateGrafanaWorkspaceVersionRequest $request UpdateGrafanaWorkspaceVersionRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Updates the version of a Grafana workspace.
      *
-     * @return UpdateGrafanaWorkspaceVersionResponse UpdateGrafanaWorkspaceVersionResponse
+     * @remarks
+     * Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
+     *
+     * @param request - UpdateGrafanaWorkspaceVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateGrafanaWorkspaceVersionResponse
+     *
+     * @param UpdateGrafanaWorkspaceVersionRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateGrafanaWorkspaceVersionResponse
      */
     public function updateGrafanaWorkspaceVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->grafanaVersion)) {
-            $query['GrafanaVersion'] = $request->grafanaVersion;
+
+        if (null !== $request->grafanaVersion) {
+            @$query['GrafanaVersion'] = $request->grafanaVersion;
         }
-        if (!Utils::isUnset($request->grafanaWorkspaceId)) {
-            $query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
+
+        if (null !== $request->grafanaWorkspaceId) {
+            @$query['GrafanaWorkspaceId'] = $request->grafanaWorkspaceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateGrafanaWorkspaceVersion',
@@ -14358,18 +17834,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateGrafanaWorkspaceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateGrafanaWorkspaceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateGrafanaWorkspaceVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the version of a Grafana workspace.
-     *  *
-     * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
-     *  *
-     * @param UpdateGrafanaWorkspaceVersionRequest $request UpdateGrafanaWorkspaceVersionRequest
+     * Updates the version of a Grafana workspace.
      *
-     * @return UpdateGrafanaWorkspaceVersionResponse UpdateGrafanaWorkspaceVersionResponse
+     * @remarks
+     * Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
+     *
+     * @param request - UpdateGrafanaWorkspaceVersionRequest
+     * @returns UpdateGrafanaWorkspaceVersionResponse
+     *
+     * @param UpdateGrafanaWorkspaceVersionRequest $request
+     *
+     * @return UpdateGrafanaWorkspaceVersionResponse
      */
     public function updateGrafanaWorkspaceVersion($request)
     {
@@ -14379,61 +17862,79 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about an integration.
-     *  *
-     * @param UpdateIntegrationRequest $request UpdateIntegrationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about an integration.
      *
-     * @return UpdateIntegrationResponse UpdateIntegrationResponse
+     * @param request - UpdateIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateIntegrationResponse
+     *
+     * @param UpdateIntegrationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateIntegrationResponse
      */
     public function updateIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoRecover)) {
-            $body['AutoRecover'] = $request->autoRecover;
+        if (null !== $request->autoRecover) {
+            @$body['AutoRecover'] = $request->autoRecover;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->duplicateKey)) {
-            $body['DuplicateKey'] = $request->duplicateKey;
+
+        if (null !== $request->duplicateKey) {
+            @$body['DuplicateKey'] = $request->duplicateKey;
         }
-        if (!Utils::isUnset($request->extendedFieldRedefineRules)) {
-            $body['ExtendedFieldRedefineRules'] = $request->extendedFieldRedefineRules;
+
+        if (null !== $request->extendedFieldRedefineRules) {
+            @$body['ExtendedFieldRedefineRules'] = $request->extendedFieldRedefineRules;
         }
-        if (!Utils::isUnset($request->fieldRedefineRules)) {
-            $body['FieldRedefineRules'] = $request->fieldRedefineRules;
+
+        if (null !== $request->fieldRedefineRules) {
+            @$body['FieldRedefineRules'] = $request->fieldRedefineRules;
         }
-        if (!Utils::isUnset($request->initiativeRecoverField)) {
-            $body['InitiativeRecoverField'] = $request->initiativeRecoverField;
+
+        if (null !== $request->initiativeRecoverField) {
+            @$body['InitiativeRecoverField'] = $request->initiativeRecoverField;
         }
-        if (!Utils::isUnset($request->initiativeRecoverValue)) {
-            $body['InitiativeRecoverValue'] = $request->initiativeRecoverValue;
+
+        if (null !== $request->initiativeRecoverValue) {
+            @$body['InitiativeRecoverValue'] = $request->initiativeRecoverValue;
         }
-        if (!Utils::isUnset($request->integrationId)) {
-            $body['IntegrationId'] = $request->integrationId;
+
+        if (null !== $request->integrationId) {
+            @$body['IntegrationId'] = $request->integrationId;
         }
-        if (!Utils::isUnset($request->integrationName)) {
-            $body['IntegrationName'] = $request->integrationName;
+
+        if (null !== $request->integrationName) {
+            @$body['IntegrationName'] = $request->integrationName;
         }
-        if (!Utils::isUnset($request->integrationProductType)) {
-            $body['IntegrationProductType'] = $request->integrationProductType;
+
+        if (null !== $request->integrationProductType) {
+            @$body['IntegrationProductType'] = $request->integrationProductType;
         }
-        if (!Utils::isUnset($request->liveness)) {
-            $body['Liveness'] = $request->liveness;
+
+        if (null !== $request->liveness) {
+            @$body['Liveness'] = $request->liveness;
         }
-        if (!Utils::isUnset($request->recoverTime)) {
-            $body['RecoverTime'] = $request->recoverTime;
+
+        if (null !== $request->recoverTime) {
+            @$body['RecoverTime'] = $request->recoverTime;
         }
-        if (!Utils::isUnset($request->stat)) {
-            $body['Stat'] = $request->stat;
+
+        if (null !== $request->stat) {
+            @$body['Stat'] = $request->stat;
         }
-        if (!Utils::isUnset($request->state)) {
-            $body['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$body['State'] = $request->state;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateIntegration',
@@ -14446,16 +17947,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about an integration.
-     *  *
-     * @param UpdateIntegrationRequest $request UpdateIntegrationRequest
+     * Modifies the information about an integration.
      *
-     * @return UpdateIntegrationResponse UpdateIntegrationResponse
+     * @param request - UpdateIntegrationRequest
+     * @returns UpdateIntegrationResponse
+     *
+     * @param UpdateIntegrationRequest $request
+     *
+     * @return UpdateIntegrationResponse
      */
     public function updateIntegration($request)
     {
@@ -14465,28 +17972,35 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the list of discarded metrics.
-     *  *
-     * @param UpdateMetricDropRequest $request UpdateMetricDropRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Updates the list of discarded metrics.
      *
-     * @return UpdateMetricDropResponse UpdateMetricDropResponse
+     * @param request - UpdateMetricDropRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMetricDropResponse
+     *
+     * @param UpdateMetricDropRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateMetricDropResponse
      */
     public function updateMetricDropWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->metricDrop)) {
-            $query['MetricDrop'] = $request->metricDrop;
+
+        if (null !== $request->metricDrop) {
+            @$query['MetricDrop'] = $request->metricDrop;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateMetricDrop',
@@ -14499,16 +18013,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMetricDropResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMetricDropResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMetricDropResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the list of discarded metrics.
-     *  *
-     * @param UpdateMetricDropRequest $request UpdateMetricDropRequest
+     * Updates the list of discarded metrics.
      *
-     * @return UpdateMetricDropResponse UpdateMetricDropResponse
+     * @param request - UpdateMetricDropRequest
+     * @returns UpdateMetricDropResponse
+     *
+     * @param UpdateMetricDropRequest $request
+     *
+     * @return UpdateMetricDropResponse
      */
     public function updateMetricDrop($request)
     {
@@ -14518,58 +18038,75 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新Prometheus告警规则
-     *  *
-     * @param UpdatePrometheusAlertRuleRequest $request UpdatePrometheusAlertRuleRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 更新Prometheus告警规则.
      *
-     * @return UpdatePrometheusAlertRuleResponse UpdatePrometheusAlertRuleResponse
+     * @param request - UpdatePrometheusAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePrometheusAlertRuleResponse
+     *
+     * @param UpdatePrometheusAlertRuleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdatePrometheusAlertRuleResponse
      */
     public function updatePrometheusAlertRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertId)) {
-            $query['AlertId'] = $request->alertId;
+        if (null !== $request->alertId) {
+            @$query['AlertId'] = $request->alertId;
         }
-        if (!Utils::isUnset($request->alertName)) {
-            $query['AlertName'] = $request->alertName;
+
+        if (null !== $request->alertName) {
+            @$query['AlertName'] = $request->alertName;
         }
-        if (!Utils::isUnset($request->annotations)) {
-            $query['Annotations'] = $request->annotations;
+
+        if (null !== $request->annotations) {
+            @$query['Annotations'] = $request->annotations;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dispatchRuleId)) {
-            $query['DispatchRuleId'] = $request->dispatchRuleId;
+
+        if (null !== $request->dispatchRuleId) {
+            @$query['DispatchRuleId'] = $request->dispatchRuleId;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['Expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['Expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $query['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
-        if (!Utils::isUnset($request->notifyType)) {
-            $query['NotifyType'] = $request->notifyType;
+
+        if (null !== $request->notifyType) {
+            @$query['NotifyType'] = $request->notifyType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePrometheusAlertRule',
@@ -14582,16 +18119,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePrometheusAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePrometheusAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePrometheusAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新Prometheus告警规则
-     *  *
-     * @param UpdatePrometheusAlertRuleRequest $request UpdatePrometheusAlertRuleRequest
+     * 更新Prometheus告警规则.
      *
-     * @return UpdatePrometheusAlertRuleResponse UpdatePrometheusAlertRuleResponse
+     * @param request - UpdatePrometheusAlertRuleRequest
+     * @returns UpdatePrometheusAlertRuleResponse
+     *
+     * @param UpdatePrometheusAlertRuleRequest $request
+     *
+     * @return UpdatePrometheusAlertRuleResponse
      */
     public function updatePrometheusAlertRule($request)
     {
@@ -14601,40 +18144,51 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the data sources of Prometheus instance for GlobalView.
-     *  *
-     * @param UpdatePrometheusGlobalViewRequest $request UpdatePrometheusGlobalViewRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Updates the data sources of Prometheus instance for GlobalView.
      *
-     * @return UpdatePrometheusGlobalViewResponse UpdatePrometheusGlobalViewResponse
+     * @param request - UpdatePrometheusGlobalViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePrometheusGlobalViewResponse
+     *
+     * @param UpdatePrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdatePrometheusGlobalViewResponse
      */
     public function updatePrometheusGlobalViewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allSubClustersSuccess)) {
-            $query['AllSubClustersSuccess'] = $request->allSubClustersSuccess;
+        if (null !== $request->allSubClustersSuccess) {
+            @$query['AllSubClustersSuccess'] = $request->allSubClustersSuccess;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->mostRegionId)) {
-            $query['MostRegionId'] = $request->mostRegionId;
+
+        if (null !== $request->mostRegionId) {
+            @$query['MostRegionId'] = $request->mostRegionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->subClustersJson)) {
-            $query['SubClustersJson'] = $request->subClustersJson;
+
+        if (null !== $request->subClustersJson) {
+            @$query['SubClustersJson'] = $request->subClustersJson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePrometheusGlobalView',
@@ -14647,16 +18201,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePrometheusGlobalViewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the data sources of Prometheus instance for GlobalView.
-     *  *
-     * @param UpdatePrometheusGlobalViewRequest $request UpdatePrometheusGlobalViewRequest
+     * Updates the data sources of Prometheus instance for GlobalView.
      *
-     * @return UpdatePrometheusGlobalViewResponse UpdatePrometheusGlobalViewResponse
+     * @param request - UpdatePrometheusGlobalViewRequest
+     * @returns UpdatePrometheusGlobalViewResponse
+     *
+     * @param UpdatePrometheusGlobalViewRequest $request
+     *
+     * @return UpdatePrometheusGlobalViewResponse
      */
     public function updatePrometheusGlobalView($request)
     {
@@ -14666,52 +18226,67 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a Prometheus instance.
-     *  *
-     * @param UpdatePrometheusInstanceRequest $request UpdatePrometheusInstanceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a Prometheus instance.
      *
-     * @return UpdatePrometheusInstanceResponse UpdatePrometheusInstanceResponse
+     * @param request - UpdatePrometheusInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePrometheusInstanceResponse
+     *
+     * @param UpdatePrometheusInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdatePrometheusInstanceResponse
      */
     public function updatePrometheusInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->archiveDuration)) {
-            $query['ArchiveDuration'] = $request->archiveDuration;
+        if (null !== $request->archiveDuration) {
+            @$query['ArchiveDuration'] = $request->archiveDuration;
         }
-        if (!Utils::isUnset($request->authFreeReadPolicy)) {
-            $query['AuthFreeReadPolicy'] = $request->authFreeReadPolicy;
+
+        if (null !== $request->authFreeReadPolicy) {
+            @$query['AuthFreeReadPolicy'] = $request->authFreeReadPolicy;
         }
-        if (!Utils::isUnset($request->authFreeWritePolicy)) {
-            $query['AuthFreeWritePolicy'] = $request->authFreeWritePolicy;
+
+        if (null !== $request->authFreeWritePolicy) {
+            @$query['AuthFreeWritePolicy'] = $request->authFreeWritePolicy;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->enableAuthFreeRead)) {
-            $query['EnableAuthFreeRead'] = $request->enableAuthFreeRead;
+
+        if (null !== $request->enableAuthFreeRead) {
+            @$query['EnableAuthFreeRead'] = $request->enableAuthFreeRead;
         }
-        if (!Utils::isUnset($request->enableAuthFreeWrite)) {
-            $query['EnableAuthFreeWrite'] = $request->enableAuthFreeWrite;
+
+        if (null !== $request->enableAuthFreeWrite) {
+            @$query['EnableAuthFreeWrite'] = $request->enableAuthFreeWrite;
         }
-        if (!Utils::isUnset($request->enableAuthToken)) {
-            $query['EnableAuthToken'] = $request->enableAuthToken;
+
+        if (null !== $request->enableAuthToken) {
+            @$query['EnableAuthToken'] = $request->enableAuthToken;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['PaymentType'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->storageDuration)) {
-            $query['StorageDuration'] = $request->storageDuration;
+
+        if (null !== $request->storageDuration) {
+            @$query['StorageDuration'] = $request->storageDuration;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePrometheusInstance',
@@ -14724,16 +18299,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePrometheusInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about a Prometheus instance.
-     *  *
-     * @param UpdatePrometheusInstanceRequest $request UpdatePrometheusInstanceRequest
+     * Updates the information about a Prometheus instance.
      *
-     * @return UpdatePrometheusInstanceResponse UpdatePrometheusInstanceResponse
+     * @param request - UpdatePrometheusInstanceRequest
+     * @returns UpdatePrometheusInstanceResponse
+     *
+     * @param UpdatePrometheusInstanceRequest $request
+     *
+     * @return UpdatePrometheusInstanceResponse
      */
     public function updatePrometheusInstance($request)
     {
@@ -14743,34 +18324,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param UpdatePrometheusIntegrationRequest $request UpdatePrometheusIntegrationRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
      *
-     * @return UpdatePrometheusIntegrationResponse UpdatePrometheusIntegrationResponse
+     * @param request - UpdatePrometheusIntegrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePrometheusIntegrationResponse
+     *
+     * @param UpdatePrometheusIntegrationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdatePrometheusIntegrationResponse
      */
     public function updatePrometheusIntegrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->integrationType)) {
-            $query['IntegrationType'] = $request->integrationType;
+
+        if (null !== $request->integrationType) {
+            @$query['IntegrationType'] = $request->integrationType;
         }
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePrometheusIntegration',
@@ -14783,16 +18373,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
-     *  *
-     * @param UpdatePrometheusIntegrationRequest $request UpdatePrometheusIntegrationRequest
+     * Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
      *
-     * @return UpdatePrometheusIntegrationResponse UpdatePrometheusIntegrationResponse
+     * @param request - UpdatePrometheusIntegrationRequest
+     * @returns UpdatePrometheusIntegrationResponse
+     *
+     * @param UpdatePrometheusIntegrationRequest $request
+     *
+     * @return UpdatePrometheusIntegrationResponse
      */
     public function updatePrometheusIntegration($request)
     {
@@ -14802,36 +18398,45 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param UpdatePrometheusMonitoringRequest $request UpdatePrometheusMonitoringRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Updates the monitoring configuration of a Prometheus instance.
      *
-     * @return UpdatePrometheusMonitoringResponse UpdatePrometheusMonitoringResponse
+     * @param request - UpdatePrometheusMonitoringRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePrometheusMonitoringResponse
+     *
+     * @param UpdatePrometheusMonitoringRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdatePrometheusMonitoringResponse
      */
     public function updatePrometheusMonitoringWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->monitoringName)) {
-            $query['MonitoringName'] = $request->monitoringName;
+
+        if (null !== $request->monitoringName) {
+            @$query['MonitoringName'] = $request->monitoringName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->configYaml)) {
-            $body['ConfigYaml'] = $request->configYaml;
+        if (null !== $request->configYaml) {
+            @$body['ConfigYaml'] = $request->configYaml;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdatePrometheusMonitoring',
@@ -14844,16 +18449,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePrometheusMonitoringResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param UpdatePrometheusMonitoringRequest $request UpdatePrometheusMonitoringRequest
+     * Updates the monitoring configuration of a Prometheus instance.
      *
-     * @return UpdatePrometheusMonitoringResponse UpdatePrometheusMonitoringResponse
+     * @param request - UpdatePrometheusMonitoringRequest
+     * @returns UpdatePrometheusMonitoringResponse
+     *
+     * @param UpdatePrometheusMonitoringRequest $request
+     *
+     * @return UpdatePrometheusMonitoringResponse
      */
     public function updatePrometheusMonitoring($request)
     {
@@ -14863,34 +18474,43 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the status of the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param UpdatePrometheusMonitoringStatusRequest $request UpdatePrometheusMonitoringStatusRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Updates the status of the monitoring configuration of a Prometheus instance.
      *
-     * @return UpdatePrometheusMonitoringStatusResponse UpdatePrometheusMonitoringStatusResponse
+     * @param request - UpdatePrometheusMonitoringStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePrometheusMonitoringStatusResponse
+     *
+     * @param UpdatePrometheusMonitoringStatusRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdatePrometheusMonitoringStatusResponse
      */
     public function updatePrometheusMonitoringStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->monitoringName)) {
-            $query['MonitoringName'] = $request->monitoringName;
+
+        if (null !== $request->monitoringName) {
+            @$query['MonitoringName'] = $request->monitoringName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePrometheusMonitoringStatus',
@@ -14903,16 +18523,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePrometheusMonitoringStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePrometheusMonitoringStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePrometheusMonitoringStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the status of the monitoring configuration of a Prometheus instance.
-     *  *
-     * @param UpdatePrometheusMonitoringStatusRequest $request UpdatePrometheusMonitoringStatusRequest
+     * Updates the status of the monitoring configuration of a Prometheus instance.
      *
-     * @return UpdatePrometheusMonitoringStatusResponse UpdatePrometheusMonitoringStatusResponse
+     * @param request - UpdatePrometheusMonitoringStatusRequest
+     * @returns UpdatePrometheusMonitoringStatusResponse
+     *
+     * @param UpdatePrometheusMonitoringStatusRequest $request
+     *
+     * @return UpdatePrometheusMonitoringStatusResponse
      */
     public function updatePrometheusMonitoringStatus($request)
     {
@@ -14922,57 +18548,74 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates a Real User Monitoring (RUM) application.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param UpdateRumAppRequest $request UpdateRumAppRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Updates a Real User Monitoring (RUM) application.
      *
-     * @return UpdateRumAppResponse UpdateRumAppResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - UpdateRumAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRumAppResponse
+     *
+     * @param UpdateRumAppRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateRumAppResponse
      */
     public function updateRumAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRestart)) {
-            $query['AutoRestart'] = $request->autoRestart;
+        if (null !== $request->autoRestart) {
+            @$query['AutoRestart'] = $request->autoRestart;
         }
-        if (!Utils::isUnset($request->backendServiceTraceRegion)) {
-            $query['BackendServiceTraceRegion'] = $request->backendServiceTraceRegion;
+
+        if (null !== $request->backendServiceTraceRegion) {
+            @$query['BackendServiceTraceRegion'] = $request->backendServiceTraceRegion;
         }
-        if (!Utils::isUnset($request->bonreeSDKConfigJson)) {
-            $query['BonreeSDKConfigJson'] = $request->bonreeSDKConfigJson;
+
+        if (null !== $request->bonreeSDKConfigJson) {
+            @$query['BonreeSDKConfigJson'] = $request->bonreeSDKConfigJson;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->isSubscribe)) {
-            $query['IsSubscribe'] = $request->isSubscribe;
+
+        if (null !== $request->isSubscribe) {
+            @$query['IsSubscribe'] = $request->isSubscribe;
         }
-        if (!Utils::isUnset($request->nickname)) {
-            $query['Nickname'] = $request->nickname;
+
+        if (null !== $request->nickname) {
+            @$query['Nickname'] = $request->nickname;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->realRegionId)) {
-            $query['RealRegionId'] = $request->realRegionId;
+
+        if (null !== $request->realRegionId) {
+            @$query['RealRegionId'] = $request->realRegionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->restart)) {
-            $query['Restart'] = $request->restart;
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
         }
-        if (!Utils::isUnset($request->serviceDomainOperationJson)) {
-            $query['ServiceDomainOperationJson'] = $request->serviceDomainOperationJson;
+
+        if (null !== $request->serviceDomainOperationJson) {
+            @$query['ServiceDomainOperationJson'] = $request->serviceDomainOperationJson;
         }
-        if (!Utils::isUnset($request->stop)) {
-            $query['Stop'] = $request->stop;
+
+        if (null !== $request->stop) {
+            @$query['Stop'] = $request->stop;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateRumApp',
@@ -14985,18 +18628,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRumAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRumAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRumAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a Real User Monitoring (RUM) application.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param UpdateRumAppRequest $request UpdateRumAppRequest
+     * Updates a Real User Monitoring (RUM) application.
      *
-     * @return UpdateRumAppResponse UpdateRumAppResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - UpdateRumAppRequest
+     * @returns UpdateRumAppResponse
+     *
+     * @param UpdateRumAppRequest $request
+     *
+     * @return UpdateRumAppResponse
      */
     public function updateRumApp($request)
     {
@@ -15006,42 +18656,54 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the status of a Real User Monitoring (RUM) file. You can call this operation after the RUM file is uploaded.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param UpdateRumFileStatusRequest $request UpdateRumFileStatusRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Updates the status of a Real User Monitoring (RUM) file. You can call this operation after the RUM file is uploaded.
      *
-     * @return UpdateRumFileStatusResponse UpdateRumFileStatusResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - UpdateRumFileStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRumFileStatusResponse
+     *
+     * @param UpdateRumFileStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateRumFileStatusResponse
      */
     public function updateRumFileStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateRumFileStatus',
@@ -15054,18 +18716,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRumFileStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRumFileStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRumFileStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the status of a Real User Monitoring (RUM) file. You can call this operation after the RUM file is uploaded.
-     *  *
-     * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
-     *  *
-     * @param UpdateRumFileStatusRequest $request UpdateRumFileStatusRequest
+     * Updates the status of a Real User Monitoring (RUM) file. You can call this operation after the RUM file is uploaded.
      *
-     * @return UpdateRumFileStatusResponse UpdateRumFileStatusResponse
+     * @remarks
+     * Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+     *
+     * @param request - UpdateRumFileStatusRequest
+     * @returns UpdateRumFileStatusResponse
+     *
+     * @param UpdateRumFileStatusRequest $request
+     *
+     * @return UpdateRumFileStatusResponse
      */
     public function updateRumFileStatus($request)
     {
@@ -15075,72 +18744,93 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 更新定时拨测任务
-     *  *
-     * @param UpdateTimingSyntheticTaskRequest $tmpReq  UpdateTimingSyntheticTaskRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 更新定时拨测任务
      *
-     * @return UpdateTimingSyntheticTaskResponse UpdateTimingSyntheticTaskResponse
+     * @param tmpReq - UpdateTimingSyntheticTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTimingSyntheticTaskResponse
+     *
+     * @param UpdateTimingSyntheticTaskRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateTimingSyntheticTaskResponse
      */
     public function updateTimingSyntheticTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTimingSyntheticTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->availableAssertions)) {
-            $request->availableAssertionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->availableAssertions, 'AvailableAssertions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->availableAssertions) {
+            $request->availableAssertionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->availableAssertions, 'AvailableAssertions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->commonSetting)) {
-            $request->commonSettingShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commonSetting, 'CommonSetting', 'json');
+
+        if (null !== $tmpReq->commonSetting) {
+            $request->commonSettingShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commonSetting, 'CommonSetting', 'json');
         }
-        if (!Utils::isUnset($tmpReq->customPeriod)) {
-            $request->customPeriodShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customPeriod, 'CustomPeriod', 'json');
+
+        if (null !== $tmpReq->customPeriod) {
+            $request->customPeriodShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customPeriod, 'CustomPeriod', 'json');
         }
-        if (!Utils::isUnset($tmpReq->monitorConf)) {
-            $request->monitorConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitorConf, 'MonitorConf', 'json');
+
+        if (null !== $tmpReq->monitorConf) {
+            $request->monitorConfShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->monitorConf, 'MonitorConf', 'json');
         }
-        if (!Utils::isUnset($tmpReq->monitors)) {
-            $request->monitorsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitors, 'Monitors', 'json');
+
+        if (null !== $tmpReq->monitors) {
+            $request->monitorsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->monitors, 'Monitors', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->availableAssertionsShrink)) {
-            $query['AvailableAssertions'] = $request->availableAssertionsShrink;
+        if (null !== $request->availableAssertionsShrink) {
+            @$query['AvailableAssertions'] = $request->availableAssertionsShrink;
         }
-        if (!Utils::isUnset($request->commonSettingShrink)) {
-            $query['CommonSetting'] = $request->commonSettingShrink;
+
+        if (null !== $request->commonSettingShrink) {
+            @$query['CommonSetting'] = $request->commonSettingShrink;
         }
-        if (!Utils::isUnset($request->customPeriodShrink)) {
-            $query['CustomPeriod'] = $request->customPeriodShrink;
+
+        if (null !== $request->customPeriodShrink) {
+            @$query['CustomPeriod'] = $request->customPeriodShrink;
         }
-        if (!Utils::isUnset($request->frequency)) {
-            $query['Frequency'] = $request->frequency;
+
+        if (null !== $request->frequency) {
+            @$query['Frequency'] = $request->frequency;
         }
-        if (!Utils::isUnset($request->monitorConfShrink)) {
-            $query['MonitorConf'] = $request->monitorConfShrink;
+
+        if (null !== $request->monitorConfShrink) {
+            @$query['MonitorConf'] = $request->monitorConfShrink;
         }
-        if (!Utils::isUnset($request->monitorsShrink)) {
-            $query['Monitors'] = $request->monitorsShrink;
+
+        if (null !== $request->monitorsShrink) {
+            @$query['Monitors'] = $request->monitorsShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTimingSyntheticTask',
@@ -15153,16 +18843,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTimingSyntheticTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新定时拨测任务
-     *  *
-     * @param UpdateTimingSyntheticTaskRequest $request UpdateTimingSyntheticTaskRequest
+     * 更新定时拨测任务
      *
-     * @return UpdateTimingSyntheticTaskResponse UpdateTimingSyntheticTaskResponse
+     * @param request - UpdateTimingSyntheticTaskRequest
+     * @returns UpdateTimingSyntheticTaskResponse
+     *
+     * @param UpdateTimingSyntheticTaskRequest $request
+     *
+     * @return UpdateTimingSyntheticTaskResponse
      */
     public function updateTimingSyntheticTask($request)
     {
@@ -15172,48 +18868,62 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about a webhook alert contact.
-     *  *
-     * @description This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
-     *  *
-     * @param UpdateWebhookRequest $request UpdateWebhookRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about a webhook alert contact.
      *
-     * @return UpdateWebhookResponse UpdateWebhookResponse
+     * @remarks
+     * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
+     *
+     * @param request - UpdateWebhookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWebhookResponse
+     *
+     * @param UpdateWebhookRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateWebhookResponse
      */
     public function updateWebhookWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->body)) {
-            $query['Body'] = $request->body;
+        if (null !== $request->body) {
+            @$query['Body'] = $request->body;
         }
-        if (!Utils::isUnset($request->contactId)) {
-            $query['ContactId'] = $request->contactId;
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
         }
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->httpHeaders)) {
-            $query['HttpHeaders'] = $request->httpHeaders;
+
+        if (null !== $request->httpHeaders) {
+            @$query['HttpHeaders'] = $request->httpHeaders;
         }
-        if (!Utils::isUnset($request->httpParams)) {
-            $query['HttpParams'] = $request->httpParams;
+
+        if (null !== $request->httpParams) {
+            @$query['HttpParams'] = $request->httpParams;
         }
-        if (!Utils::isUnset($request->method)) {
-            $query['Method'] = $request->method;
+
+        if (null !== $request->method) {
+            @$query['Method'] = $request->method;
         }
-        if (!Utils::isUnset($request->recoverBody)) {
-            $query['RecoverBody'] = $request->recoverBody;
+
+        if (null !== $request->recoverBody) {
+            @$query['RecoverBody'] = $request->recoverBody;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateWebhook',
@@ -15226,18 +18936,25 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWebhookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about a webhook alert contact.
-     *  *
-     * @description This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
-     *  *
-     * @param UpdateWebhookRequest $request UpdateWebhookRequest
+     * Modifies the information about a webhook alert contact.
      *
-     * @return UpdateWebhookResponse UpdateWebhookResponse
+     * @remarks
+     * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
+     *
+     * @param request - UpdateWebhookRequest
+     * @returns UpdateWebhookResponse
+     *
+     * @param UpdateWebhookRequest $request
+     *
+     * @return UpdateWebhookResponse
      */
     public function updateWebhook($request)
     {
@@ -15247,37 +18964,47 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the release information of an add-on.
-     *  *
-     * @param UpgradeAddonReleaseRequest $request UpgradeAddonReleaseRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Updates the release information of an add-on.
      *
-     * @return UpgradeAddonReleaseResponse UpgradeAddonReleaseResponse
+     * @param request - UpgradeAddonReleaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpgradeAddonReleaseResponse
+     *
+     * @param UpgradeAddonReleaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpgradeAddonReleaseResponse
      */
     public function upgradeAddonReleaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonVersion)) {
-            $query['AddonVersion'] = $request->addonVersion;
+        if (null !== $request->addonVersion) {
+            @$query['AddonVersion'] = $request->addonVersion;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->releaseName)) {
-            $query['ReleaseName'] = $request->releaseName;
+
+        if (null !== $request->releaseName) {
+            @$query['ReleaseName'] = $request->releaseName;
         }
-        if (!Utils::isUnset($request->values)) {
-            $query['Values'] = $request->values;
+
+        if (null !== $request->values) {
+            @$query['Values'] = $request->values;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeAddonRelease',
@@ -15290,16 +19017,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpgradeAddonReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpgradeAddonReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeAddonReleaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the release information of an add-on.
-     *  *
-     * @param UpgradeAddonReleaseRequest $request UpgradeAddonReleaseRequest
+     * Updates the release information of an add-on.
      *
-     * @return UpgradeAddonReleaseResponse UpgradeAddonReleaseResponse
+     * @param request - UpgradeAddonReleaseRequest
+     * @returns UpgradeAddonReleaseResponse
+     *
+     * @param UpgradeAddonReleaseRequest $request
+     *
+     * @return UpgradeAddonReleaseResponse
      */
     public function upgradeAddonRelease($request)
     {
@@ -15309,37 +19042,47 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Updates the feature information of an environment.
-     *  *
-     * @param UpgradeEnvironmentFeatureRequest $request UpgradeEnvironmentFeatureRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Updates the feature information of an environment.
      *
-     * @return UpgradeEnvironmentFeatureResponse UpgradeEnvironmentFeatureResponse
+     * @param request - UpgradeEnvironmentFeatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpgradeEnvironmentFeatureResponse
+     *
+     * @param UpgradeEnvironmentFeatureRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpgradeEnvironmentFeatureResponse
      */
     public function upgradeEnvironmentFeatureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunLang)) {
-            $query['AliyunLang'] = $request->aliyunLang;
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['EnvironmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['EnvironmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->featureName)) {
-            $query['FeatureName'] = $request->featureName;
+
+        if (null !== $request->featureName) {
+            @$query['FeatureName'] = $request->featureName;
         }
-        if (!Utils::isUnset($request->featureVersion)) {
-            $query['FeatureVersion'] = $request->featureVersion;
+
+        if (null !== $request->featureVersion) {
+            @$query['FeatureVersion'] = $request->featureVersion;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->values)) {
-            $query['Values'] = $request->values;
+
+        if (null !== $request->values) {
+            @$query['Values'] = $request->values;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeEnvironmentFeature',
@@ -15352,16 +19095,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpgradeEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpgradeEnvironmentFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeEnvironmentFeatureResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the feature information of an environment.
-     *  *
-     * @param UpgradeEnvironmentFeatureRequest $request UpgradeEnvironmentFeatureRequest
+     * Updates the feature information of an environment.
      *
-     * @return UpgradeEnvironmentFeatureResponse UpgradeEnvironmentFeatureResponse
+     * @param request - UpgradeEnvironmentFeatureRequest
+     * @returns UpgradeEnvironmentFeatureResponse
+     *
+     * @param UpgradeEnvironmentFeatureRequest $request
+     *
+     * @return UpgradeEnvironmentFeatureResponse
      */
     public function upgradeEnvironmentFeature($request)
     {
@@ -15371,39 +19120,49 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Uploads a SourceMap file to ARMS Browser Monitoring.
-     *  *
-     * @param UploadRequest  $request UploadRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Uploads a SourceMap file to ARMS Browser Monitoring.
      *
-     * @return UploadResponse UploadResponse
+     * @param request - UploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UploadResponse
+     *
+     * @param UploadRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return UploadResponse
      */
     public function uploadWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->edition)) {
-            $query['Edition'] = $request->edition;
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->pid)) {
-            $query['Pid'] = $request->pid;
+
+        if (null !== $request->pid) {
+            @$query['Pid'] = $request->pid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->file)) {
-            $body['File'] = $request->file;
+        if (null !== $request->file) {
+            @$body['File'] = $request->file;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'Upload',
@@ -15416,16 +19175,22 @@ class ARMS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UploadResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads a SourceMap file to ARMS Browser Monitoring.
-     *  *
-     * @param UploadRequest $request UploadRequest
+     * Uploads a SourceMap file to ARMS Browser Monitoring.
      *
-     * @return UploadResponse UploadResponse
+     * @param request - UploadRequest
+     * @returns UploadResponse
+     *
+     * @param UploadRequest $request
+     *
+     * @return UploadResponse
      */
     public function upload($request)
     {

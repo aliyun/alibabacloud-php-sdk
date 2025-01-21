@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSyntheticTaskRequest extends Model
 {
     /**
-     * @description The region ID. Default value: cn-hangzhou.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The task IDs.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $taskIds;
@@ -32,35 +23,51 @@ class DeleteSyntheticTaskRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->taskIds)) {
+            Model::validateArray($this->taskIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
+            if (\is_array($this->taskIds)) {
+                $res['TaskIds'] = [];
+                $n1             = 0;
+                foreach ($this->taskIds as $item1) {
+                    $res['TaskIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSyntheticTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TaskIds'])) {
             if (!empty($map['TaskIds'])) {
-                $model->taskIds = $map['TaskIds'];
+                $model->taskIds = [];
+                $n1             = 0;
+                foreach ($map['TaskIds'] as $item1) {
+                    $model->taskIds[$n1++] = $item1;
+                }
             }
         }
 

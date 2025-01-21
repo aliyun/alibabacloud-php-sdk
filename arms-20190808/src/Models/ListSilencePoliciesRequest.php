@@ -4,56 +4,27 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSilencePoliciesRequest extends Model
 {
     /**
-     * @description Specifies whether to query the details of a silence policy. Valid values:
-     *
-     *   `true`: Details of the silence policy are queried.
-     *   `false`: Details about notification policies are not queried.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isDetail;
-
     /**
-     * @description The name of the silence policy.
-     *
-     * @example silencepolicy_test
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The number of the page to return.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $page;
-
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The number of entries to return on each page.
-     *
-     * This parameter is required.
-     * @example 20
-     *
      * @var int
      */
     public $size;
@@ -67,23 +38,28 @@ class ListSilencePoliciesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isDetail) {
             $res['IsDetail'] = $this->isDetail;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -91,26 +67,30 @@ class ListSilencePoliciesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSilencePoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsDetail'])) {
             $model->isDetail = $map['IsDetail'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

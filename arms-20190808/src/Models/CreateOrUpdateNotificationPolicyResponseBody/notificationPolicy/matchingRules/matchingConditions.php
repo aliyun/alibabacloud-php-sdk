@@ -4,40 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateNotificationPolicyResponseBody\notificationPolicy\matchingRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class matchingConditions extends Model
 {
     /**
-     * @description The key of the matching condition.
-     *
-     * @example altertname
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The logical operator of the matching condition. Valid values:
-     *
-     *   `eq`: equal to
-     *   `neq`: not equal to
-     *   `in`: contains
-     *   `nin`: does not contain
-     *   `re`: regular expression match
-     *   `nre`: regular expression mismatch
-     *
-     * @example eq
-     *
      * @var string
      */
     public $operator;
-
     /**
-     * @description The value of the matching condition.
-     *
-     * @example test
-     *
      * @var string
      */
     public $value;
@@ -49,17 +28,20 @@ class matchingConditions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -67,20 +49,22 @@ class matchingConditions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return matchingConditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

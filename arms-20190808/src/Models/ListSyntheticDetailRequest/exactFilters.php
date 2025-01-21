@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListSyntheticDetailRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class exactFilters extends Model
 {
     /**
-     * @description A reserved field.
-     *
-     * @example null
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description A reserved field.
-     *
-     * @example null
-     *
      * @var string
      */
     public $opType;
-
     /**
-     * @description A reserved field.
-     *
-     * @example null
-     *
      * @var mixed
      */
     public $value;
@@ -42,17 +28,20 @@ class exactFilters extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->opType) {
             $res['OpType'] = $this->opType;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -60,20 +49,22 @@ class exactFilters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return exactFilters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['OpType'])) {
             $model->opType = $map['OpType'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

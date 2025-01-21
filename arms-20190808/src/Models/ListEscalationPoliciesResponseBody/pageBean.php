@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEscalationPoliciesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEscalationPoliciesResponseBody\pageBean\escalationPolicies;
-use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
     /**
-     * @description The list of escalation policies.
-     *
      * @var escalationPolicies[]
      */
     public $escalationPolicies;
-
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $size;
-
     /**
-     * @description The total number of returned entries.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
@@ -51,26 +34,33 @@ class pageBean extends Model
 
     public function validate()
     {
+        if (\is_array($this->escalationPolicies)) {
+            Model::validateArray($this->escalationPolicies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->escalationPolicies) {
-            $res['EscalationPolicies'] = [];
-            if (null !== $this->escalationPolicies && \is_array($this->escalationPolicies)) {
-                $n = 0;
-                foreach ($this->escalationPolicies as $item) {
-                    $res['EscalationPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->escalationPolicies)) {
+                $res['EscalationPolicies'] = [];
+                $n1                        = 0;
+                foreach ($this->escalationPolicies as $item1) {
+                    $res['EscalationPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -78,29 +68,32 @@ class pageBean extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageBean
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EscalationPolicies'])) {
             if (!empty($map['EscalationPolicies'])) {
                 $model->escalationPolicies = [];
-                $n                         = 0;
-                foreach ($map['EscalationPolicies'] as $item) {
-                    $model->escalationPolicies[$n++] = null !== $item ? escalationPolicies::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['EscalationPolicies'] as $item1) {
+                    $model->escalationPolicies[$n1++] = escalationPolicies::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

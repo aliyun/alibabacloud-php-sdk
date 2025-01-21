@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMetricDropRequest extends Model
 {
     /**
-     * @description The ID of the Prometheus instance.
-     *
-     * @example c3ca36c8e2693403d85c0d9f8bb1d7b6c
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The list of discarded metrics. Specify one metric name in each line.
-     *
-     * @example apiserver_request_duration_seconds_bucket
-     * container_tasks_state
      * @var string
      */
     public $metricDrop;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -42,17 +28,20 @@ class UpdateMetricDropRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->metricDrop) {
             $res['MetricDrop'] = $this->metricDrop;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -60,20 +49,22 @@ class UpdateMetricDropRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMetricDropRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['MetricDrop'])) {
             $model->metricDrop = $map['MetricDrop'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

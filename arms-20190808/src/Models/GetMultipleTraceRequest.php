@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMultipleTraceRequest extends Model
 {
     /**
-     * @description The time when the trace ends. The value is a timestamp. Unit: milliseconds.
-     *
-     * This parameter is required.
-     * @example 1663999380000
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The start time of the trace. The value is a timestamp. Unit: milliseconds.
-     *
-     * This parameter is required.
-     * @example 1657692507000
-     *
      * @var int
      */
     public $startTime;
-
     /**
-     * @description The trace IDs.
-     *
-     * This parameter is required.
-     * @example ac1400a115951745017447033d****
-     *
      * @var string[]
      */
     public $traceIDs;
@@ -56,47 +33,67 @@ class GetMultipleTraceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->traceIDs)) {
+            Model::validateArray($this->traceIDs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->traceIDs) {
-            $res['TraceIDs'] = $this->traceIDs;
+            if (\is_array($this->traceIDs)) {
+                $res['TraceIDs'] = [];
+                $n1              = 0;
+                foreach ($this->traceIDs as $item1) {
+                    $res['TraceIDs'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMultipleTraceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TraceIDs'])) {
             if (!empty($map['TraceIDs'])) {
-                $model->traceIDs = $map['TraceIDs'];
+                $model->traceIDs = [];
+                $n1              = 0;
+                foreach ($map['TraceIDs'] as $item1) {
+                    $model->traceIDs[$n1++] = $item1;
+                }
             }
         }
 

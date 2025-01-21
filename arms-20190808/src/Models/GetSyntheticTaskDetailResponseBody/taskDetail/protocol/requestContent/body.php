@@ -4,59 +4,29 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\protocol\requestContent;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\protocol\requestContent\body\formdata;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\protocol\requestContent\body\urlencoded;
-use AlibabaCloud\Tea\Model;
 
 class body extends Model
 {
     /**
-     * @description The data content. This parameter is returned when Mode is set to form-data.
-     *
      * @var formdata
      */
     public $formdata;
-
     /**
-     * @description The language used when Mode is set to raw. Valid values:
-     *
-     *   json
-     *   xml
-     *   javascript
-     *   html
-     *   text
-     *
-     * @example xml
-     *
      * @var string
      */
     public $language;
-
     /**
-     * @description The type of the content. Valid values:
-     *
-     *   form-data
-     *   x-www-form-urlencoded
-     *   raw
-     *
-     * @example form-data
-     *
      * @var string
      */
     public $mode;
-
     /**
-     * @description The data content. This parameter is returned when **Mode** is set to **raw**.
-     *
-     * @example content
-     *
      * @var string
      */
     public $raw;
-
     /**
-     * @description The URL of the body content.
-     *
      * @var urlencoded
      */
     public $urlencoded;
@@ -70,50 +40,65 @@ class body extends Model
 
     public function validate()
     {
+        if (null !== $this->formdata) {
+            $this->formdata->validate();
+        }
+        if (null !== $this->urlencoded) {
+            $this->urlencoded->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->formdata) {
-            $res['Formdata'] = null !== $this->formdata ? $this->formdata->toMap() : null;
+            $res['Formdata'] = null !== $this->formdata ? $this->formdata->toArray($noStream) : $this->formdata;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->raw) {
             $res['Raw'] = $this->raw;
         }
+
         if (null !== $this->urlencoded) {
-            $res['Urlencoded'] = null !== $this->urlencoded ? $this->urlencoded->toMap() : null;
+            $res['Urlencoded'] = null !== $this->urlencoded ? $this->urlencoded->toArray($noStream) : $this->urlencoded;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Formdata'])) {
             $model->formdata = formdata::fromMap($map['Formdata']);
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['Raw'])) {
             $model->raw = $map['Raw'];
         }
+
         if (isset($map['Urlencoded'])) {
             $model->urlencoded = urlencoded::fromMap($map['Urlencoded']);
         }

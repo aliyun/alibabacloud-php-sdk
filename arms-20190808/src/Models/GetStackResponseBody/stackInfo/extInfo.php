@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetStackResponseBody\stackInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extInfo extends Model
 {
     /**
-     * @description The content of the custom parameter.
-     *
-     * @example input=254275&amp;
-     *
      * @var string
      */
     public $info;
-
     /**
-     * @description The type of the custom parameter.
-     *
-     * @example 41
-     *
      * @var string
      */
     public $type;
@@ -32,14 +23,16 @@ class extInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->info) {
             $res['Info'] = $this->info;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -47,17 +40,18 @@ class extInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Info'])) {
             $model->info = $map['Info'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

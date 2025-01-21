@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SwitchSyntheticTaskStatusRequest extends Model
 {
     /**
-     * @description Specifies whether to start or stop the task. Valid values:
-     *
-     *   **0**: stops the task
-     *   **1**: starts the task
-     *
-     * @example 0
-     *
      * @var int
      */
     public $switchStatus;
-
     /**
-     * @description The task IDs. You can specify up to 30 task IDs at a time.
-     *
      * @var int[]
      */
     public $taskIds;
@@ -33,35 +23,51 @@ class SwitchSyntheticTaskStatusRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->taskIds)) {
+            Model::validateArray($this->taskIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->switchStatus) {
             $res['SwitchStatus'] = $this->switchStatus;
         }
+
         if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
+            if (\is_array($this->taskIds)) {
+                $res['TaskIds'] = [];
+                $n1             = 0;
+                foreach ($this->taskIds as $item1) {
+                    $res['TaskIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SwitchSyntheticTaskStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SwitchStatus'])) {
             $model->switchStatus = $map['SwitchStatus'];
         }
+
         if (isset($map['TaskIds'])) {
             if (!empty($map['TaskIds'])) {
-                $model->taskIds = $map['TaskIds'];
+                $model->taskIds = [];
+                $n1             = 0;
+                foreach ($map['TaskIds'] as $item1) {
+                    $model->taskIds[$n1++] = $item1;
+                }
             }
         }
 

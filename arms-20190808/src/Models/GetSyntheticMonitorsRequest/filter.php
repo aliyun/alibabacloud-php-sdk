@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticMonitorsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
     /**
-     * @description The type of the monitoring point. Valid values: 1: PC. 2: mobile device.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $monitorCategory;
-
     /**
-     * @description The network type. Valid values: 1: private network. 2: Internet.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $network;
-
     /**
-     * @description The type of the monitoring task. Valid values:
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $taskType;
@@ -45,17 +28,20 @@ class filter extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->monitorCategory) {
             $res['MonitorCategory'] = $this->monitorCategory;
         }
+
         if (null !== $this->network) {
             $res['Network'] = $this->network;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -63,20 +49,22 @@ class filter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MonitorCategory'])) {
             $model->monitorCategory = $map['MonitorCategory'];
         }
+
         if (isset($map['Network'])) {
             $model->network = $map['Network'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

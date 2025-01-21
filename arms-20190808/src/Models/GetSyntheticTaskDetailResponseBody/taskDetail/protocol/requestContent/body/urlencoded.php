@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\protocol\requestContent\body;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class urlencoded extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example appId
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The tag value.
-     *
-     * @example 11080
-     *
      * @var string
      */
     public $value;
@@ -32,14 +23,16 @@ class urlencoded extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +40,18 @@ class urlencoded extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return urlencoded
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

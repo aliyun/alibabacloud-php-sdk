@@ -4,117 +4,56 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\SearchTraceAppByPageResponseBody\pageBean;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SearchTraceAppByPageResponseBody\pageBean\traceApps\tags;
-use AlibabaCloud\Tea\Model;
 
 class traceApps extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $appId;
-
     /**
-     * @description The name of the application.
-     *
-     * @example test-app
-     *
      * @var string
      */
     public $appName;
-
     /**
-     * @description The timestamp generated when the task was created.
-     *
-     * @example 1531291867000
-     *
      * @var int
      */
     public $createTime;
-
     /**
-     * @description The aliases of the application.
-     *
      * @var string[]
      */
     public $labels;
-
     /**
-     * @description The process identifier (PID) of the application.
-     *
-     * @example atc889zkcf@d8deedfa9bf****
-     *
      * @var string
      */
     public $pid;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-acfmxyexli2****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description Indicates whether the application is displayed in the Application Real-Time Monitoring Service (ARMS) console. Valid values:
-     *
-     *   `true`: yes
-     *   `false`: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $show;
-
     /**
-     * @description A list of tags.
-     *
      * @var tags[]
      */
     public $tags;
-
     /**
-     * @description The type of the monitoring task. Valid values:
-     *
-     *   `TRACE`: Application Monitoring
-     *   `RETCODE`: Browser Monitoring
-     *
-     * @example TRACE
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The timestamp generated when the task information was updated.
-     *
-     * @example 1531291867000
-     *
      * @var int
      */
     public $updateTime;
-
     /**
-     * @description The user ID.
-     *
-     * @example 113197164949****
-     *
      * @var string
      */
     public $userId;
@@ -135,50 +74,74 @@ class traceApps extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
-        }
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->show) {
-            $res['Show'] = $this->show;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1            = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->show) {
+            $res['Show'] = $this->show;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -186,55 +149,70 @@ class traceApps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return traceApps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
-                $model->labels = $map['Labels'];
-            }
-        }
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Show'])) {
-            $model->show = $map['Show'];
-        }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $model->labels = [];
+                $n1            = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['Show'])) {
+            $model->show = $map['Show'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAlertContactGroupResponseBody extends Model
 {
     /**
-     * @description Indicates whether the call was successful.
-     *
-     *   `true`: The call was successful.
-     *   `false`: The call failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isSuccess;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example C21AB7CF-B7AF-410F-BD61-82D1567F****
-     *
      * @var string
      */
     public $requestId;
@@ -35,14 +23,16 @@ class DeleteAlertContactGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +40,18 @@ class DeleteAlertContactGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAlertContactGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

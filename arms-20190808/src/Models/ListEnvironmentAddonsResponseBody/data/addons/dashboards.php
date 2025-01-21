@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsResponseBody\data\addons;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dashboards extends Model
 {
     /**
-     * @description The description of the dashboard.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The name of the dashboard.
-     *
-     * @example mysql-overview
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The URL of the dashboard.
-     *
-     * @example http://xxxx
-     *
      * @var string
      */
     public $url;
@@ -40,17 +28,20 @@ class dashboards extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -58,20 +49,22 @@ class dashboards extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dashboards
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

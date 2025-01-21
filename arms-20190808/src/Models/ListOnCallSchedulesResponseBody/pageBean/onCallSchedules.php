@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListOnCallSchedulesResponseBody\pageBean;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class onCallSchedules extends Model
 {
     /**
-     * @description The description of the scheduling policy.
-     *
-     * @example Test scheduling policy
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the scheduling policy.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the scheduling policy.
-     *
-     * @example OnCallSchedule_test
-     *
      * @var string
      */
     public $name;
@@ -42,17 +28,20 @@ class onCallSchedules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -60,20 +49,22 @@ class onCallSchedules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return onCallSchedules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

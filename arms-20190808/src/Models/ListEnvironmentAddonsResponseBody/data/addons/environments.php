@@ -4,54 +4,33 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsResponseBody\data\addons;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsResponseBody\data\addons\environments\dependencies;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListEnvironmentAddonsResponseBody\data\addons\environments\policies;
-use AlibabaCloud\Tea\Model;
 
 class environments extends Model
 {
     /**
-     * @description The dependencies of the environment.
-     *
      * @var dependencies
      */
     public $dependencies;
-
     /**
-     * @description The description of the environment.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description Indicates whether the feature is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
-
     /**
-     * @description The tag of the environment.
-     *
      * @var string
      */
     public $label;
-
     /**
-     * @description The name of the environment.
-     *
-     * @example CS
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The control policies in the environment.
-     *
      * @var policies
      */
     public $policies;
@@ -66,56 +45,73 @@ class environments extends Model
 
     public function validate()
     {
+        if (null !== $this->dependencies) {
+            $this->dependencies->validate();
+        }
+        if (null !== $this->policies) {
+            $this->policies->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dependencies) {
-            $res['Dependencies'] = null !== $this->dependencies ? $this->dependencies->toMap() : null;
+            $res['Dependencies'] = null !== $this->dependencies ? $this->dependencies->toArray($noStream) : $this->dependencies;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->policies) {
-            $res['Policies'] = null !== $this->policies ? $this->policies->toMap() : null;
+            $res['Policies'] = null !== $this->policies ? $this->policies->toArray($noStream) : $this->policies;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return environments
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dependencies'])) {
             $model->dependencies = dependencies::fromMap($map['Dependencies']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Policies'])) {
             $model->policies = policies::fromMap($map['Policies']);
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SaveTraceAppConfigRequest\settings;
-use AlibabaCloud\Tea\Model;
 
 class SaveTraceAppConfigRequest extends Model
 {
     /**
-     * @description The process ID (PID) of the application.
-     *
-     * Log on to the ARMS console. In the left-side navigation pane, choose **Application Monitoring** > **Application List**. On the Application List page, click the name of an application. The URL in the address bar contains the PID of the application. The PID is indicated in the pid=xxx format. The PID is usually percent encoded as xxx%40xxx. You must modify this value to remove the percent encoding. For example, if the PID in the URL is xxx%4074xxx, you must replace %40 with an at sign (@) to obtain xxx@74xxx.
-     *
-     * This parameter is required.
-     * @example a2n80plglh@745eddxxx
-     *
      * @var string
      */
     public $pid;
-
     /**
-     * @description The settings of Application Monitoring.
-     *
      * @var settings[]
      */
     public $settings;
@@ -34,20 +24,25 @@ class SaveTraceAppConfigRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->settings)) {
+            Model::validateArray($this->settings);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
+
         if (null !== $this->settings) {
-            $res['Settings'] = [];
-            if (null !== $this->settings && \is_array($this->settings)) {
-                $n = 0;
-                foreach ($this->settings as $item) {
-                    $res['Settings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->settings)) {
+                $res['Settings'] = [];
+                $n1              = 0;
+                foreach ($this->settings as $item1) {
+                    $res['Settings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -55,23 +50,24 @@ class SaveTraceAppConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveTraceAppConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
+
         if (isset($map['Settings'])) {
             if (!empty($map['Settings'])) {
                 $model->settings = [];
-                $n               = 0;
-                foreach ($map['Settings'] as $item) {
-                    $model->settings[$n++] = null !== $item ? settings::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Settings'] as $item1) {
+                    $model->settings[$n1++] = settings::fromMap($item1);
                 }
             }
         }

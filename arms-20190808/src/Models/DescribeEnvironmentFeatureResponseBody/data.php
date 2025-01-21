@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentFeatureResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentFeatureResponseBody\data\feature;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeEnvironmentFeatureResponseBody\data\featureStatus;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The installation information about the feature.
-     *
      * @var feature
      */
     public $feature;
-
     /**
-     * @description The status of the feature.
-     *
      * @var featureStatus
      */
     public $featureStatus;
@@ -30,32 +25,41 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->feature) {
+            $this->feature->validate();
+        }
+        if (null !== $this->featureStatus) {
+            $this->featureStatus->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->feature) {
-            $res['Feature'] = null !== $this->feature ? $this->feature->toMap() : null;
+            $res['Feature'] = null !== $this->feature ? $this->feature->toArray($noStream) : $this->feature;
         }
+
         if (null !== $this->featureStatus) {
-            $res['FeatureStatus'] = null !== $this->featureStatus ? $this->featureStatus->toMap() : null;
+            $res['FeatureStatus'] = null !== $this->featureStatus ? $this->featureStatus->toArray($noStream) : $this->featureStatus;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Feature'])) {
             $model->feature = feature::fromMap($map['Feature']);
         }
+
         if (isset($map['FeatureStatus'])) {
             $model->featureStatus = featureStatus::fromMap($map['FeatureStatus']);
         }
