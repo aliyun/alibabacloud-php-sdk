@@ -4,67 +4,37 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceAutoScalerResponseBody\currentMetrics;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceAutoScalerResponseBody\scaleStrategies;
-use AlibabaCloud\Tea\Model;
 
 class DescribeServiceAutoScalerResponseBody extends Model
 {
     /**
-     * @description The additional information about the Autoscaler policy, such as the interval of triggering Autoscaler.
-     *
-     * @example {
-     * }
      * @var mixed[]
      */
     public $behavior;
-
     /**
-     * @description The metrics.
-     *
      * @var currentMetrics[]
      */
     public $currentMetrics;
-
     /**
-     * @description The maximum number of instances in the service.
-     *
-     * @example 8
-     *
      * @var int
      */
     public $maxReplica;
-
     /**
-     * @description The minimum number of instances in the service.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $minReplica;
-
     /**
-     * @description The request ID.
-     *
-     * @example 40325405-579C-4D82****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The auto scaling policies.
-     *
      * @var scaleStrategies[]
      */
     public $scaleStrategies;
-
     /**
-     * @description The service name.
-     *
-     * @example foo
-     *
      * @var string
      */
     public $serviceName;
@@ -80,41 +50,62 @@ class DescribeServiceAutoScalerResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->behavior)) {
+            Model::validateArray($this->behavior);
+        }
+        if (\is_array($this->currentMetrics)) {
+            Model::validateArray($this->currentMetrics);
+        }
+        if (\is_array($this->scaleStrategies)) {
+            Model::validateArray($this->scaleStrategies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->behavior) {
-            $res['Behavior'] = $this->behavior;
-        }
-        if (null !== $this->currentMetrics) {
-            $res['CurrentMetrics'] = [];
-            if (null !== $this->currentMetrics && \is_array($this->currentMetrics)) {
-                $n = 0;
-                foreach ($this->currentMetrics as $item) {
-                    $res['CurrentMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->behavior)) {
+                $res['Behavior'] = [];
+                foreach ($this->behavior as $key1 => $value1) {
+                    $res['Behavior'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->currentMetrics) {
+            if (\is_array($this->currentMetrics)) {
+                $res['CurrentMetrics'] = [];
+                $n1                    = 0;
+                foreach ($this->currentMetrics as $item1) {
+                    $res['CurrentMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->maxReplica) {
             $res['MaxReplica'] = $this->maxReplica;
         }
+
         if (null !== $this->minReplica) {
             $res['MinReplica'] = $this->minReplica;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scaleStrategies) {
-            $res['ScaleStrategies'] = [];
-            if (null !== $this->scaleStrategies && \is_array($this->scaleStrategies)) {
-                $n = 0;
-                foreach ($this->scaleStrategies as $item) {
-                    $res['ScaleStrategies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->scaleStrategies)) {
+                $res['ScaleStrategies'] = [];
+                $n1                     = 0;
+                foreach ($this->scaleStrategies as $item1) {
+                    $res['ScaleStrategies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -122,44 +113,55 @@ class DescribeServiceAutoScalerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServiceAutoScalerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Behavior'])) {
-            $model->behavior = $map['Behavior'];
+            if (!empty($map['Behavior'])) {
+                $model->behavior = [];
+                foreach ($map['Behavior'] as $key1 => $value1) {
+                    $model->behavior[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['CurrentMetrics'])) {
             if (!empty($map['CurrentMetrics'])) {
                 $model->currentMetrics = [];
-                $n                     = 0;
-                foreach ($map['CurrentMetrics'] as $item) {
-                    $model->currentMetrics[$n++] = null !== $item ? currentMetrics::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['CurrentMetrics'] as $item1) {
+                    $model->currentMetrics[$n1++] = currentMetrics::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxReplica'])) {
             $model->maxReplica = $map['MaxReplica'];
         }
+
         if (isset($map['MinReplica'])) {
             $model->minReplica = $map['MinReplica'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ScaleStrategies'])) {
             if (!empty($map['ScaleStrategies'])) {
                 $model->scaleStrategies = [];
-                $n                      = 0;
-                foreach ($map['ScaleStrategies'] as $item) {
-                    $model->scaleStrategies[$n++] = null !== $item ? scaleStrategies::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['ScaleStrategies'] as $item1) {
+                    $model->scaleStrategies[$n1++] = scaleStrategies::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }

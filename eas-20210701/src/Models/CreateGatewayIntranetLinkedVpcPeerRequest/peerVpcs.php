@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcPeerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class peerVpcs extends Model
 {
     /**
-     * @description The region where the VPC peer resides.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $region;
-
     /**
-     * @description The ID of the VPC peer. To obtain the VPC ID, see [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html).
-     *
-     * @example vpc-uf66uio7md****
-     *
      * @var string
      */
     public $vpcId;
@@ -32,14 +23,16 @@ class peerVpcs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -47,17 +40,18 @@ class peerVpcs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return peerVpcs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

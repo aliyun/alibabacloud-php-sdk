@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAclPolicyResponseBody extends Model
 {
     /**
-     * @description The private gateway ID.
-     *
-     * @example gw-1uhcqmsc7x22******
-     *
      * @var string
      */
     public $gatewayId;
-
     /**
-     * @description The returned message.
-     *
-     * @example Successfully delete acl policy for gateway
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The request ID.
-     *
-     * @example 40325405-579C-4D82****
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class DeleteAclPolicyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class DeleteAclPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAclPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

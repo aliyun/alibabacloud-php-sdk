@@ -4,15 +4,12 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DetachGatewayDomainRequest\customDomain;
-use AlibabaCloud\Tea\Model;
 
 class DetachGatewayDomainRequest extends Model
 {
     /**
-     * @description The custom domain name information.
-     *
-     * This parameter is required.
      * @var customDomain
      */
     public $customDomain;
@@ -22,23 +19,27 @@ class DetachGatewayDomainRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->customDomain) {
+            $this->customDomain->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customDomain) {
-            $res['CustomDomain'] = null !== $this->customDomain ? $this->customDomain->toMap() : null;
+            $res['CustomDomain'] = null !== $this->customDomain ? $this->customDomain->toArray($noStream) : $this->customDomain;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachGatewayDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

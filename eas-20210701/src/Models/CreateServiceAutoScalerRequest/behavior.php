@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceAutoScalerRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceAutoScalerRequest\behavior\onZero;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceAutoScalerRequest\behavior\scaleDown;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceAutoScalerRequest\behavior\scaleUp;
-use AlibabaCloud\Tea\Model;
 
 class behavior extends Model
 {
     /**
-     * @description The operation that reduces the number of instances to 0.
-     *
      * @var onZero
      */
     public $onZero;
-
     /**
-     * @description The scale-in operation.
-     *
      * @var scaleDown
      */
     public $scaleDown;
-
     /**
-     * @description The scale-out operation.
-     *
      * @var scaleUp
      */
     public $scaleUp;
@@ -39,38 +31,52 @@ class behavior extends Model
 
     public function validate()
     {
+        if (null !== $this->onZero) {
+            $this->onZero->validate();
+        }
+        if (null !== $this->scaleDown) {
+            $this->scaleDown->validate();
+        }
+        if (null !== $this->scaleUp) {
+            $this->scaleUp->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onZero) {
-            $res['onZero'] = null !== $this->onZero ? $this->onZero->toMap() : null;
+            $res['onZero'] = null !== $this->onZero ? $this->onZero->toArray($noStream) : $this->onZero;
         }
+
         if (null !== $this->scaleDown) {
-            $res['scaleDown'] = null !== $this->scaleDown ? $this->scaleDown->toMap() : null;
+            $res['scaleDown'] = null !== $this->scaleDown ? $this->scaleDown->toArray($noStream) : $this->scaleDown;
         }
+
         if (null !== $this->scaleUp) {
-            $res['scaleUp'] = null !== $this->scaleUp ? $this->scaleUp->toMap() : null;
+            $res['scaleUp'] = null !== $this->scaleUp ? $this->scaleUp->toArray($noStream) : $this->scaleUp;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return behavior
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['onZero'])) {
             $model->onZero = onZero::fromMap($map['onZero']);
         }
+
         if (isset($map['scaleDown'])) {
             $model->scaleDown = scaleDown::fromMap($map['scaleDown']);
         }
+
         if (isset($map['scaleUp'])) {
             $model->scaleUp = scaleUp::fromMap($map['scaleUp']);
         }

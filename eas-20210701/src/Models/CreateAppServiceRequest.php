@@ -4,95 +4,39 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAppServiceRequest extends Model
 {
     /**
-     * @description The quota ID.
-     *
-     * @example abcdef
-     *
      * @var string
      */
     public $quotaId;
-
     /**
-     * @description The workspace ID.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $workspaceId;
-
     /**
-     * @description The application service type.
-     *
-     * Valid values:
-     *
-     *   LLM
-     *
-     * This parameter is required.
-     * @example LLM
-     *
      * @var string
      */
     public $appType;
-
     /**
-     * @description The application version.
-     *
-     * @example v1
-     *
      * @var string
      */
     public $appVersion;
-
     /**
-     * @description The additional configurations that are required for service deployment.
-     *
      * @var mixed[]
      */
     public $config;
-
     /**
-     * @description The number of instances.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $replicas;
-
     /**
-     * @description The service name.
-     *
-     * This parameter is required.
-     * @example foo
-     *
      * @var string
      */
     public $serviceName;
-
     /**
-     * @description The service specifications. Valid values:
-     *
-     *   llama_7b_fp16
-     *   llama_7b_int8
-     *   llama_13b_fp16
-     *   llama_7b_int8
-     *   chatglm_6b_fp16
-     *   chatglm_6b_int8
-     *   chatglm2_6b_fp16
-     *   baichuan_7b_int8
-     *   baichuan_13b_fp16
-     *   baichuan_7b_fp16
-     *
-     * This parameter is required.
-     * @example llama_7b_fp16
-     *
      * @var string
      */
     public $serviceSpec;
@@ -109,32 +53,48 @@ class CreateAppServiceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->config)) {
+            Model::validateArray($this->config);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
+
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
+
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
         }
+
         if (null !== $this->config) {
-            $res['Config'] = $this->config;
+            if (\is_array($this->config)) {
+                $res['Config'] = [];
+                foreach ($this->config as $key1 => $value1) {
+                    $res['Config'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->serviceSpec) {
             $res['ServiceSpec'] = $this->serviceSpec;
         }
@@ -142,35 +102,47 @@ class CreateAppServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAppServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
+
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
+
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
         }
+
         if (isset($map['Config'])) {
-            $model->config = $map['Config'];
+            if (!empty($map['Config'])) {
+                $model->config = [];
+                foreach ($map['Config'] as $key1 => $value1) {
+                    $model->config[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['ServiceSpec'])) {
             $model->serviceSpec = $map['ServiceSpec'];
         }

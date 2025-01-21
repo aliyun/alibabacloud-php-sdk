@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateResourceResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 40325405-579C-4D82****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the resource group.
-     *
-     * @example eas-r-asdasdasd
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The name of the resource group.
-     *
-     * @example iot
-     *
      * @var string
      */
     public $resourceName;
@@ -42,17 +28,20 @@ class UpdateResourceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
@@ -60,20 +49,22 @@ class UpdateResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }

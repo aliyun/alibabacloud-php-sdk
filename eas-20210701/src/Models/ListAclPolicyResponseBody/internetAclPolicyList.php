@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponseBody\internetAclPolicyList\aclPolicyList;
-use AlibabaCloud\Tea\Model;
 
 class internetAclPolicyList extends Model
 {
     /**
-     * @description The whitelisted IP CIDR blocks in the VPC that can access the private gateway over the Internet.
-     *
      * @var aclPolicyList[]
      */
     public $aclPolicyList;
@@ -21,17 +19,21 @@ class internetAclPolicyList extends Model
 
     public function validate()
     {
+        if (\is_array($this->aclPolicyList)) {
+            Model::validateArray($this->aclPolicyList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclPolicyList) {
-            $res['AclPolicyList'] = [];
-            if (null !== $this->aclPolicyList && \is_array($this->aclPolicyList)) {
-                $n = 0;
-                foreach ($this->aclPolicyList as $item) {
-                    $res['AclPolicyList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aclPolicyList)) {
+                $res['AclPolicyList'] = [];
+                $n1                   = 0;
+                foreach ($this->aclPolicyList as $item1) {
+                    $res['AclPolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class internetAclPolicyList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return internetAclPolicyList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclPolicyList'])) {
             if (!empty($map['AclPolicyList'])) {
                 $model->aclPolicyList = [];
-                $n                    = 0;
-                foreach ($map['AclPolicyList'] as $item) {
-                    $model->aclPolicyList[$n++] = null !== $item ? aclPolicyList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['AclPolicyList'] as $item1) {
+                    $model->aclPolicyList[$n1++] = aclPolicyList::fromMap($item1);
                 }
             }
         }

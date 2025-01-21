@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcResponseBody\intranetLinkedVpcList;
-use AlibabaCloud\Tea\Model;
 
 class ListGatewayIntranetLinkedVpcResponseBody extends Model
 {
     /**
-     * @description The private gateway ID.
-     *
-     * @example gw-1uhcqmsc7x22******
-     *
      * @var string
      */
     public $gatewayId;
-
     /**
-     * @description The internal endpoints.
-     *
      * @var intranetLinkedVpcList[]
      */
     public $intranetLinkedVpcList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 40325405-579C-4D82****
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class ListGatewayIntranetLinkedVpcResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->intranetLinkedVpcList)) {
+            Model::validateArray($this->intranetLinkedVpcList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
+
         if (null !== $this->intranetLinkedVpcList) {
-            $res['IntranetLinkedVpcList'] = [];
-            if (null !== $this->intranetLinkedVpcList && \is_array($this->intranetLinkedVpcList)) {
-                $n = 0;
-                foreach ($this->intranetLinkedVpcList as $item) {
-                    $res['IntranetLinkedVpcList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->intranetLinkedVpcList)) {
+                $res['IntranetLinkedVpcList'] = [];
+                $n1                           = 0;
+                foreach ($this->intranetLinkedVpcList as $item1) {
+                    $res['IntranetLinkedVpcList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class ListGatewayIntranetLinkedVpcResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListGatewayIntranetLinkedVpcResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
+
         if (isset($map['IntranetLinkedVpcList'])) {
             if (!empty($map['IntranetLinkedVpcList'])) {
                 $model->intranetLinkedVpcList = [];
-                $n                            = 0;
-                foreach ($map['IntranetLinkedVpcList'] as $item) {
-                    $model->intranetLinkedVpcList[$n++] = null !== $item ? intranetLinkedVpcList::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['IntranetLinkedVpcList'] as $item1) {
+                    $model->intranetLinkedVpcList[$n1++] = intranetLinkedVpcList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

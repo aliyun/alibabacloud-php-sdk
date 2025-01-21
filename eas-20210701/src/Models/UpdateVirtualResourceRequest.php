@@ -4,48 +4,54 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateVirtualResourceRequest\resources;
-use AlibabaCloud\Tea\Model;
 
 class UpdateVirtualResourceRequest extends Model
 {
     /**
-     * @description The list of resources in the virtual resource group.
-     *
-     * >  If you specify this parameter, previous data are overwritten.
+     * @var bool
+     */
+    public $disableSpotProtectionPeriod;
+    /**
      * @var resources[]
      */
     public $resources;
-
     /**
-     * @description The new name for the virtual resource group.
-     *
-     * @example NewMyVirtualResource
-     *
      * @var string
      */
     public $virtualResourceName;
     protected $_name = [
-        'resources'           => 'Resources',
-        'virtualResourceName' => 'VirtualResourceName',
+        'disableSpotProtectionPeriod' => 'DisableSpotProtectionPeriod',
+        'resources'                   => 'Resources',
+        'virtualResourceName'         => 'VirtualResourceName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->disableSpotProtectionPeriod) {
+            $res['DisableSpotProtectionPeriod'] = $this->disableSpotProtectionPeriod;
+        }
+
         if (null !== $this->resources) {
-            $res['Resources'] = [];
-            if (null !== $this->resources && \is_array($this->resources)) {
-                $n = 0;
-                foreach ($this->resources as $item) {
-                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1               = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->virtualResourceName) {
             $res['VirtualResourceName'] = $this->virtualResourceName;
         }
@@ -53,23 +59,28 @@ class UpdateVirtualResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateVirtualResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisableSpotProtectionPeriod'])) {
+            $model->disableSpotProtectionPeriod = $map['DisableSpotProtectionPeriod'];
+        }
+
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n                = 0;
-                foreach ($map['Resources'] as $item) {
-                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1++] = resources::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['VirtualResourceName'])) {
             $model->virtualResourceName = $map['VirtualResourceName'];
         }

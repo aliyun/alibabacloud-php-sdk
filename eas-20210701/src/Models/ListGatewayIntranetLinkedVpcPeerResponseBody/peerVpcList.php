@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcPeerResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcPeerResponseBody\peerVpcList\peerVpcs;
-use AlibabaCloud\Tea\Model;
 
 class peerVpcList extends Model
 {
     /**
-     * @description The ID of the VPC peers.
-     *
      * @var peerVpcs[]
      */
     public $peerVpcs;
-
     /**
-     * @description The VPC ID.
-     *
-     * @example vpc-2zetuli9ws0qgjd******
-     *
      * @var string
      */
     public $vpcId;
@@ -31,20 +24,25 @@ class peerVpcList extends Model
 
     public function validate()
     {
+        if (\is_array($this->peerVpcs)) {
+            Model::validateArray($this->peerVpcs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->peerVpcs) {
-            $res['PeerVpcs'] = [];
-            if (null !== $this->peerVpcs && \is_array($this->peerVpcs)) {
-                $n = 0;
-                foreach ($this->peerVpcs as $item) {
-                    $res['PeerVpcs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->peerVpcs)) {
+                $res['PeerVpcs'] = [];
+                $n1              = 0;
+                foreach ($this->peerVpcs as $item1) {
+                    $res['PeerVpcs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -52,23 +50,24 @@ class peerVpcList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return peerVpcList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeerVpcs'])) {
             if (!empty($map['PeerVpcs'])) {
                 $model->peerVpcs = [];
-                $n               = 0;
-                foreach ($map['PeerVpcs'] as $item) {
-                    $model->peerVpcs[$n++] = null !== $item ? peerVpcs::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['PeerVpcs'] as $item1) {
+                    $model->peerVpcs[$n1++] = peerVpcs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

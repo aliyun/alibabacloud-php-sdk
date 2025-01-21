@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceCronScalerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scaleJobs extends Model
 {
     /**
-     * @description The name of the CronHPA job.
-     *
-     * @example scale-job-1
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
-     *
-     * This parameter is required.
-     * @example 0 18 * * * *
-     *
      * @var string
      */
     public $schedule;
-
     /**
-     * @description The number of instances that you want to configure for the CronHPA job.
-     *
-     * This parameter is required.
-     * @example 2
-     *
      * @var int
      */
     public $targetSize;
@@ -44,17 +28,20 @@ class scaleJobs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->schedule) {
             $res['Schedule'] = $this->schedule;
         }
+
         if (null !== $this->targetSize) {
             $res['TargetSize'] = $this->targetSize;
         }
@@ -62,20 +49,22 @@ class scaleJobs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scaleJobs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Schedule'])) {
             $model->schedule = $map['Schedule'];
         }
+
         if (isset($map['TargetSize'])) {
             $model->targetSize = $map['TargetSize'];
         }

@@ -4,113 +4,134 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListResourcesRequest extends Model
 {
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
+     * @var string
+     */
+    public $order;
+    /**
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Default value: 100.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the ID of the resource group.
-     *
-     * @example eas-r-h7lcw24dyqztwxxxxxx
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The name of the resource group. You can call the [CreateResource](https://help.aliyun.com/document_detail/412111.html) operation to query the name of the resource group.
-     *
-     * @example MyResource
-     *
      * @var string
      */
     public $resourceName;
-
     /**
-     * @description The type of the resource group. Valid values:
-     *
-     *   Dedicated: the dedicated resource group.
-     *   SelfManaged: the self-managed resource group.
-     *
-     * @example Dedicated
-     *
+     * @var string
+     */
+    public $resourceStatus;
+    /**
      * @var string
      */
     public $resourceType;
+    /**
+     * @var string
+     */
+    public $sort;
     protected $_name = [
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'resourceId'   => 'ResourceId',
-        'resourceName' => 'ResourceName',
-        'resourceType' => 'ResourceType',
+        'order'          => 'Order',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'resourceId'     => 'ResourceId',
+        'resourceName'   => 'ResourceName',
+        'resourceStatus' => 'ResourceStatus',
+        'resourceType'   => 'ResourceType',
+        'sort'           => 'Sort',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
+
+        if (null !== $this->resourceStatus) {
+            $res['ResourceStatus'] = $this->resourceStatus;
+        }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
+
+        if (isset($map['ResourceStatus'])) {
+            $model->resourceStatus = $map['ResourceStatus'];
+        }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
         }
 
         return $model;
