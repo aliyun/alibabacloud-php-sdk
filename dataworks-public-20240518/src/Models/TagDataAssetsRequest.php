@@ -4,51 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\TagDataAssetsRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class TagDataAssetsRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $autoTraceEnabled;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $dataAssetIds;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ACS::DataWorks::Task
-     *
      * @var string
      */
     public $dataAssetType;
-
     /**
-     * @example Prod
-     *
      * @var string
      */
     public $envType;
-
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var tags[]
      */
     public $tags;
@@ -63,32 +44,50 @@ class TagDataAssetsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataAssetIds)) {
+            Model::validateArray($this->dataAssetIds);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoTraceEnabled) {
             $res['AutoTraceEnabled'] = $this->autoTraceEnabled;
         }
+
         if (null !== $this->dataAssetIds) {
-            $res['DataAssetIds'] = $this->dataAssetIds;
+            if (\is_array($this->dataAssetIds)) {
+                $res['DataAssetIds'] = [];
+                $n1                  = 0;
+                foreach ($this->dataAssetIds as $item1) {
+                    $res['DataAssetIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->dataAssetType) {
             $res['DataAssetType'] = $this->dataAssetType;
         }
+
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -96,37 +95,46 @@ class TagDataAssetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TagDataAssetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoTraceEnabled'])) {
             $model->autoTraceEnabled = $map['AutoTraceEnabled'];
         }
+
         if (isset($map['DataAssetIds'])) {
             if (!empty($map['DataAssetIds'])) {
-                $model->dataAssetIds = $map['DataAssetIds'];
+                $model->dataAssetIds = [];
+                $n1                  = 0;
+                foreach ($map['DataAssetIds'] as $item1) {
+                    $model->dataAssetIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['DataAssetType'])) {
             $model->dataAssetType = $map['DataAssetType'];
         }
+
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupRequest;
@@ -13,6 +12,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResource
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleRequest;
@@ -67,6 +69,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagRequest;
@@ -106,6 +111,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskShrinkRequest;
@@ -113,8 +120,13 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResou
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskRequest;
@@ -159,6 +171,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesShrinkRequest;
@@ -237,12 +253,19 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskOperationLogsReque
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskOperationLogsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTasksResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTasksShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowDefinitionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowDefinitionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveNodeRequest;
@@ -277,11 +300,17 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SetSuccessTaskInstancesShr
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartWorkflowInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartWorkflowInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartWorkflowInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopWorkflowInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopWorkflowInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopWorkflowInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SuspendTaskInstancesShrinkRequest;
@@ -331,13 +360,18 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowDefinitionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dataworkspublic extends OpenApiClient
 {
@@ -388,36 +422,43 @@ class Dataworkspublic extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
-     *  *
-     * @param AbolishDeploymentRequest $request AbolishDeploymentRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
      *
-     * @return AbolishDeploymentResponse AbolishDeploymentResponse
+     * @param request - AbolishDeploymentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AbolishDeploymentResponse
+     *
+     * @param AbolishDeploymentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AbolishDeploymentResponse
      */
     public function abolishDeploymentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AbolishDeployment',
@@ -430,16 +471,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AbolishDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AbolishDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AbolishDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
-     *  *
-     * @param AbolishDeploymentRequest $request AbolishDeploymentRequest
+     * Terminates the process for deploying or undeploying an entity. The process is not deleted and can still be queried by calling query operations.
      *
-     * @return AbolishDeploymentResponse AbolishDeploymentResponse
+     * @param request - AbolishDeploymentRequest
+     * @returns AbolishDeploymentResponse
+     *
+     * @param AbolishDeploymentRequest $request
+     *
+     * @return AbolishDeploymentResponse
      */
     public function abolishDeployment($request)
     {
@@ -449,29 +496,36 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Associates a resource group with a workspace.
-     *  *
-     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * Associates a resource group with a workspace.
+     *
+     * @remarks
+     * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
      * 2.  Your account must be assigned one of the following roles of the desired workspace:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param AssociateProjectToResourceGroupRequest $request AssociateProjectToResourceGroupRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateProjectToResourceGroupResponse AssociateProjectToResourceGroupResponse
+     * @param request - AssociateProjectToResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssociateProjectToResourceGroupResponse
+     *
+     * @param AssociateProjectToResourceGroupRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return AssociateProjectToResourceGroupResponse
      */
     public function associateProjectToResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AssociateProjectToResourceGroup',
@@ -484,20 +538,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssociateProjectToResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssociateProjectToResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssociateProjectToResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates a resource group with a workspace.
-     *  *
-     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * Associates a resource group with a workspace.
+     *
+     * @remarks
+     * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
      * 2.  Your account must be assigned one of the following roles of the desired workspace:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param AssociateProjectToResourceGroupRequest $request AssociateProjectToResourceGroupRequest
      *
-     * @return AssociateProjectToResourceGroupResponse AssociateProjectToResourceGroupResponse
+     * @param request - AssociateProjectToResourceGroupRequest
+     * @returns AssociateProjectToResourceGroupResponse
+     *
+     * @param AssociateProjectToResourceGroupRequest $request
+     *
+     * @return AssociateProjectToResourceGroupResponse
      */
     public function associateProjectToResourceGroup($request)
     {
@@ -507,33 +568,41 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 把数据质量规则关联到数据质量校验任务上
-     *  *
-     * @param AttachDataQualityRulesToEvaluationTaskRequest $tmpReq  AttachDataQualityRulesToEvaluationTaskRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * 把数据质量规则关联到数据质量校验任务上.
      *
-     * @return AttachDataQualityRulesToEvaluationTaskResponse AttachDataQualityRulesToEvaluationTaskResponse
+     * @param tmpReq - AttachDataQualityRulesToEvaluationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachDataQualityRulesToEvaluationTaskResponse
+     *
+     * @param AttachDataQualityRulesToEvaluationTaskRequest $tmpReq
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return AttachDataQualityRulesToEvaluationTaskResponse
      */
     public function attachDataQualityRulesToEvaluationTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AttachDataQualityRulesToEvaluationTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dataQualityRuleIds)) {
-            $request->dataQualityRuleIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRuleIds, 'DataQualityRuleIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataQualityRuleIds) {
+            $request->dataQualityRuleIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRuleIds, 'DataQualityRuleIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dataQualityEvaluationTaskId)) {
-            $body['DataQualityEvaluationTaskId'] = $request->dataQualityEvaluationTaskId;
+        if (null !== $request->dataQualityEvaluationTaskId) {
+            @$body['DataQualityEvaluationTaskId'] = $request->dataQualityEvaluationTaskId;
         }
-        if (!Utils::isUnset($request->dataQualityRuleIdsShrink)) {
-            $body['DataQualityRuleIds'] = $request->dataQualityRuleIdsShrink;
+
+        if (null !== $request->dataQualityRuleIdsShrink) {
+            @$body['DataQualityRuleIds'] = $request->dataQualityRuleIdsShrink;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AttachDataQualityRulesToEvaluationTask',
@@ -546,16 +615,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachDataQualityRulesToEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachDataQualityRulesToEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachDataQualityRulesToEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 把数据质量规则关联到数据质量校验任务上
-     *  *
-     * @param AttachDataQualityRulesToEvaluationTaskRequest $request AttachDataQualityRulesToEvaluationTaskRequest
+     * 把数据质量规则关联到数据质量校验任务上.
      *
-     * @return AttachDataQualityRulesToEvaluationTaskResponse AttachDataQualityRulesToEvaluationTaskResponse
+     * @param request - AttachDataQualityRulesToEvaluationTaskRequest
+     * @returns AttachDataQualityRulesToEvaluationTaskResponse
+     *
+     * @param AttachDataQualityRulesToEvaluationTaskRequest $request
+     *
+     * @return AttachDataQualityRulesToEvaluationTaskResponse
      */
     public function attachDataQualityRulesToEvaluationTask($request)
     {
@@ -565,29 +640,100 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Clones an existing data source.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * @param tmpReq - BatchUpdateTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchUpdateTasksResponse
+     *
+     * @param BatchUpdateTasksRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BatchUpdateTasksResponse
+     */
+    public function batchUpdateTasksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchUpdateTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tasks) {
+            $request->tasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tasks, 'Tasks', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->tasksShrink) {
+            @$body['Tasks'] = $request->tasksShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUpdateTasks',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchUpdateTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return BatchUpdateTasksResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - BatchUpdateTasksRequest
+     * @returns BatchUpdateTasksResponse
+     *
+     * @param BatchUpdateTasksRequest $request
+     *
+     * @return BatchUpdateTasksResponse
+     */
+    public function batchUpdateTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchUpdateTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Clones an existing data source.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param CloneDataSourceRequest $request CloneDataSourceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloneDataSourceResponse CloneDataSourceResponse
+     * @param request - CloneDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CloneDataSourceResponse
+     *
+     * @param CloneDataSourceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CloneDataSourceResponse
      */
     public function cloneDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cloneDataSourceName)) {
-            $query['CloneDataSourceName'] = $request->cloneDataSourceName;
+        if (null !== $request->cloneDataSourceName) {
+            @$query['CloneDataSourceName'] = $request->cloneDataSourceName;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CloneDataSource',
@@ -600,20 +746,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CloneDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CloneDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloneDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Clones an existing data source.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Clones an existing data source.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param CloneDataSourceRequest $request CloneDataSourceRequest
      *
-     * @return CloneDataSourceResponse CloneDataSourceResponse
+     * @param request - CloneDataSourceRequest
+     * @returns CloneDataSourceResponse
+     *
+     * @param CloneDataSourceRequest $request
+     *
+     * @return CloneDataSourceResponse
      */
     public function cloneDataSource($request)
     {
@@ -623,42 +776,53 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom monitoring alert rule.
-     *  *
-     * @param CreateAlertRuleRequest $tmpReq  CreateAlertRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates a custom monitoring alert rule.
      *
-     * @return CreateAlertRuleResponse CreateAlertRuleResponse
+     * @param tmpReq - CreateAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAlertRuleResponse
+     *
+     * @param CreateAlertRuleRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAlertRuleResponse
      */
     public function createAlertRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAlertRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->triggerCondition)) {
-            $request->triggerConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerCondition, 'TriggerCondition', 'json');
+
+        if (null !== $tmpReq->triggerCondition) {
+            $request->triggerConditionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->triggerCondition, 'TriggerCondition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->triggerConditionShrink)) {
-            $query['TriggerCondition'] = $request->triggerConditionShrink;
+
+        if (null !== $request->triggerConditionShrink) {
+            @$query['TriggerCondition'] = $request->triggerConditionShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAlertRule',
@@ -671,16 +835,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom monitoring alert rule.
-     *  *
-     * @param CreateAlertRuleRequest $request CreateAlertRuleRequest
+     * Creates a custom monitoring alert rule.
      *
-     * @return CreateAlertRuleResponse CreateAlertRuleResponse
+     * @param request - CreateAlertRuleRequest
+     * @returns CreateAlertRuleResponse
+     *
+     * @param CreateAlertRuleRequest $request
+     *
+     * @return CreateAlertRuleResponse
      */
     public function createAlertRule($request)
     {
@@ -690,27 +860,33 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates an alert rule for a synchronization task.
-     *  *
-     * @param CreateDIAlarmRuleRequest $tmpReq  CreateDIAlarmRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates an alert rule for a synchronization task.
      *
-     * @return CreateDIAlarmRuleResponse CreateDIAlarmRuleResponse
+     * @param tmpReq - CreateDIAlarmRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDIAlarmRuleResponse
+     *
+     * @param CreateDIAlarmRuleRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDIAlarmRuleResponse
      */
     public function createDIAlarmRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDIAlarmRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->notificationSettings)) {
-            $request->notificationSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notificationSettings, 'NotificationSettings', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notificationSettings) {
+            $request->notificationSettingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notificationSettings, 'NotificationSettings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->triggerConditions)) {
-            $request->triggerConditionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerConditions, 'TriggerConditions', 'json');
+
+        if (null !== $tmpReq->triggerConditions) {
+            $request->triggerConditionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->triggerConditions, 'TriggerConditions', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDIAlarmRule',
@@ -723,16 +899,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDIAlarmRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an alert rule for a synchronization task.
-     *  *
-     * @param CreateDIAlarmRuleRequest $request CreateDIAlarmRuleRequest
+     * Creates an alert rule for a synchronization task.
      *
-     * @return CreateDIAlarmRuleResponse CreateDIAlarmRuleResponse
+     * @param request - CreateDIAlarmRuleRequest
+     * @returns CreateDIAlarmRuleResponse
+     *
+     * @param CreateDIAlarmRuleRequest $request
+     *
+     * @return CreateDIAlarmRuleResponse
      */
     public function createDIAlarmRule($request)
     {
@@ -742,41 +924,52 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a new-version synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param CreateDIJobRequest $tmpReq  CreateDIJobRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a new-version synchronization task.
      *
-     * @return CreateDIJobResponse CreateDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - CreateDIJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDIJobResponse
+     *
+     * @param CreateDIJobRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateDIJobResponse
      */
     public function createDIJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDIJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->destinationDataSourceSettings)) {
-            $request->destinationDataSourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destinationDataSourceSettings, 'DestinationDataSourceSettings', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->destinationDataSourceSettings) {
+            $request->destinationDataSourceSettingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->destinationDataSourceSettings, 'DestinationDataSourceSettings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->jobSettings)) {
-            $request->jobSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSettings, 'JobSettings', 'json');
+
+        if (null !== $tmpReq->jobSettings) {
+            $request->jobSettingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobSettings, 'JobSettings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceSettings)) {
-            $request->resourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSettings, 'ResourceSettings', 'json');
+
+        if (null !== $tmpReq->resourceSettings) {
+            $request->resourceSettingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSettings, 'ResourceSettings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceDataSourceSettings)) {
-            $request->sourceDataSourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceDataSourceSettings, 'SourceDataSourceSettings', 'json');
+
+        if (null !== $tmpReq->sourceDataSourceSettings) {
+            $request->sourceDataSourceSettingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceDataSourceSettings, 'SourceDataSourceSettings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tableMappings)) {
-            $request->tableMappingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableMappings, 'TableMappings', 'json');
+
+        if (null !== $tmpReq->tableMappings) {
+            $request->tableMappingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableMappings, 'TableMappings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->transformationRules)) {
-            $request->transformationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
+
+        if (null !== $tmpReq->transformationRules) {
+            $request->transformationRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDIJob',
@@ -789,18 +982,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDIJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a new-version synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param CreateDIJobRequest $request CreateDIJobRequest
+     * Creates a new-version synchronization task.
      *
-     * @return CreateDIJobResponse CreateDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - CreateDIJobRequest
+     * @returns CreateDIJobResponse
+     *
+     * @param CreateDIJobRequest $request
+     *
+     * @return CreateDIJobResponse
      */
     public function createDIJob($request)
     {
@@ -810,42 +1010,53 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建标签
-     *  *
-     * @param CreateDataAssetTagRequest $tmpReq  CreateDataAssetTagRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 创建标签.
      *
-     * @return CreateDataAssetTagResponse CreateDataAssetTagResponse
+     * @param tmpReq - CreateDataAssetTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataAssetTagResponse
+     *
+     * @param CreateDataAssetTagRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDataAssetTagResponse
      */
     public function createDataAssetTagWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataAssetTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->managers)) {
-            $request->managersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managers, 'Managers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->managers) {
+            $request->managersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->managers, 'Managers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->values)) {
-            $request->valuesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->values, 'Values', 'json');
+
+        if (null !== $tmpReq->values) {
+            $request->valuesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->values, 'Values', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->managersShrink)) {
-            $query['Managers'] = $request->managersShrink;
+
+        if (null !== $request->managersShrink) {
+            @$query['Managers'] = $request->managersShrink;
         }
-        if (!Utils::isUnset($request->valueType)) {
-            $query['ValueType'] = $request->valueType;
+
+        if (null !== $request->valueType) {
+            @$query['ValueType'] = $request->valueType;
         }
-        if (!Utils::isUnset($request->valuesShrink)) {
-            $query['Values'] = $request->valuesShrink;
+
+        if (null !== $request->valuesShrink) {
+            @$query['Values'] = $request->valuesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataAssetTag',
@@ -858,16 +1069,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataAssetTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建标签
-     *  *
-     * @param CreateDataAssetTagRequest $request CreateDataAssetTagRequest
+     * 创建标签.
      *
-     * @return CreateDataAssetTagResponse CreateDataAssetTagResponse
+     * @param request - CreateDataAssetTagRequest
+     * @returns CreateDataAssetTagResponse
+     *
+     * @param CreateDataAssetTagRequest $request
+     *
+     * @return CreateDataAssetTagResponse
      */
     public function createDataAssetTag($request)
     {
@@ -877,68 +1094,88 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a monitor in DataWorks Data Quality.
-     *  *
-     * @description This API operation is supported in all DataWorks editions.
-     *  *
-     * @param CreateDataQualityEvaluationTaskRequest $tmpReq  CreateDataQualityEvaluationTaskRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Creates a monitor in DataWorks Data Quality.
      *
-     * @return CreateDataQualityEvaluationTaskResponse CreateDataQualityEvaluationTaskResponse
+     * @remarks
+     * This API operation is supported in all DataWorks editions.
+     *
+     * @param tmpReq - CreateDataQualityEvaluationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataQualityEvaluationTaskResponse
+     *
+     * @param CreateDataQualityEvaluationTaskRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateDataQualityEvaluationTaskResponse
      */
     public function createDataQualityEvaluationTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataQualityEvaluationTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dataQualityRules)) {
-            $request->dataQualityRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRules, 'DataQualityRules', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataQualityRules) {
+            $request->dataQualityRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRules, 'DataQualityRules', 'json');
         }
-        if (!Utils::isUnset($tmpReq->hooks)) {
-            $request->hooksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hooks, 'Hooks', 'json');
+
+        if (null !== $tmpReq->hooks) {
+            $request->hooksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hooks, 'Hooks', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notifications)) {
-            $request->notificationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notifications, 'Notifications', 'json');
+
+        if (null !== $tmpReq->notifications) {
+            $request->notificationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notifications, 'Notifications', 'json');
         }
-        if (!Utils::isUnset($tmpReq->target)) {
-            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+
+        if (null !== $tmpReq->target) {
+            $request->targetShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
         }
-        if (!Utils::isUnset($tmpReq->trigger)) {
-            $request->triggerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+
+        if (null !== $tmpReq->trigger) {
+            $request->triggerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dataQualityRulesShrink)) {
-            $body['DataQualityRules'] = $request->dataQualityRulesShrink;
+        if (null !== $request->dataQualityRulesShrink) {
+            @$body['DataQualityRules'] = $request->dataQualityRulesShrink;
         }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $body['DataSourceId'] = $request->dataSourceId;
+
+        if (null !== $request->dataSourceId) {
+            @$body['DataSourceId'] = $request->dataSourceId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->hooksShrink)) {
-            $body['Hooks'] = $request->hooksShrink;
+
+        if (null !== $request->hooksShrink) {
+            @$body['Hooks'] = $request->hooksShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->notificationsShrink)) {
-            $body['Notifications'] = $request->notificationsShrink;
+
+        if (null !== $request->notificationsShrink) {
+            @$body['Notifications'] = $request->notificationsShrink;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->runtimeConf)) {
-            $body['RuntimeConf'] = $request->runtimeConf;
+
+        if (null !== $request->runtimeConf) {
+            @$body['RuntimeConf'] = $request->runtimeConf;
         }
-        if (!Utils::isUnset($request->targetShrink)) {
-            $body['Target'] = $request->targetShrink;
+
+        if (null !== $request->targetShrink) {
+            @$body['Target'] = $request->targetShrink;
         }
-        if (!Utils::isUnset($request->triggerShrink)) {
-            $body['Trigger'] = $request->triggerShrink;
+
+        if (null !== $request->triggerShrink) {
+            @$body['Trigger'] = $request->triggerShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataQualityEvaluationTask',
@@ -951,18 +1188,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataQualityEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a monitor in DataWorks Data Quality.
-     *  *
-     * @description This API operation is supported in all DataWorks editions.
-     *  *
-     * @param CreateDataQualityEvaluationTaskRequest $request CreateDataQualityEvaluationTaskRequest
+     * Creates a monitor in DataWorks Data Quality.
      *
-     * @return CreateDataQualityEvaluationTaskResponse CreateDataQualityEvaluationTaskResponse
+     * @remarks
+     * This API operation is supported in all DataWorks editions.
+     *
+     * @param request - CreateDataQualityEvaluationTaskRequest
+     * @returns CreateDataQualityEvaluationTaskResponse
+     *
+     * @param CreateDataQualityEvaluationTaskRequest $request
+     *
+     * @return CreateDataQualityEvaluationTaskResponse
      */
     public function createDataQualityEvaluationTask($request)
     {
@@ -972,36 +1216,45 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据质量校验任务实例
-     *  *
-     * @param CreateDataQualityEvaluationTaskInstanceRequest $tmpReq  CreateDataQualityEvaluationTaskInstanceRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     * 创建数据质量校验任务实例.
      *
-     * @return CreateDataQualityEvaluationTaskInstanceResponse CreateDataQualityEvaluationTaskInstanceResponse
+     * @param tmpReq - CreateDataQualityEvaluationTaskInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataQualityEvaluationTaskInstanceResponse
+     *
+     * @param CreateDataQualityEvaluationTaskInstanceRequest $tmpReq
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return CreateDataQualityEvaluationTaskInstanceResponse
      */
     public function createDataQualityEvaluationTaskInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataQualityEvaluationTaskInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->runtimeResource)) {
-            $request->runtimeResourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->runtimeResource) {
+            $request->runtimeResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dataQualityEvaluationTaskId)) {
-            $body['DataQualityEvaluationTaskId'] = $request->dataQualityEvaluationTaskId;
+        if (null !== $request->dataQualityEvaluationTaskId) {
+            @$body['DataQualityEvaluationTaskId'] = $request->dataQualityEvaluationTaskId;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $body['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$body['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->runtimeResourceShrink)) {
-            $body['RuntimeResource'] = $request->runtimeResourceShrink;
+
+        if (null !== $request->runtimeResourceShrink) {
+            @$body['RuntimeResource'] = $request->runtimeResourceShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataQualityEvaluationTaskInstance',
@@ -1014,16 +1267,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataQualityEvaluationTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建数据质量校验任务实例
-     *  *
-     * @param CreateDataQualityEvaluationTaskInstanceRequest $request CreateDataQualityEvaluationTaskInstanceRequest
+     * 创建数据质量校验任务实例.
      *
-     * @return CreateDataQualityEvaluationTaskInstanceResponse CreateDataQualityEvaluationTaskInstanceResponse
+     * @param request - CreateDataQualityEvaluationTaskInstanceRequest
+     * @returns CreateDataQualityEvaluationTaskInstanceResponse
+     *
+     * @param CreateDataQualityEvaluationTaskInstanceRequest $request
+     *
+     * @return CreateDataQualityEvaluationTaskInstanceResponse
      */
     public function createDataQualityEvaluationTaskInstance($request)
     {
@@ -1033,63 +1292,81 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a data quality monitoring rule.
-     *  *
-     * @param CreateDataQualityRuleRequest $tmpReq  CreateDataQualityRuleRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a data quality monitoring rule.
      *
-     * @return CreateDataQualityRuleResponse CreateDataQualityRuleResponse
+     * @param tmpReq - CreateDataQualityRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataQualityRuleResponse
+     *
+     * @param CreateDataQualityRuleRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDataQualityRuleResponse
      */
     public function createDataQualityRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataQualityRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->checkingConfig)) {
-            $request->checkingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkingConfig) {
+            $request->checkingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->errorHandlers)) {
-            $request->errorHandlersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->errorHandlers, 'ErrorHandlers', 'json');
+
+        if (null !== $tmpReq->errorHandlers) {
+            $request->errorHandlersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->errorHandlers, 'ErrorHandlers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->samplingConfig)) {
-            $request->samplingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
+
+        if (null !== $tmpReq->samplingConfig) {
+            $request->samplingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->target)) {
-            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+
+        if (null !== $tmpReq->target) {
+            $request->targetShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->checkingConfigShrink)) {
-            $body['CheckingConfig'] = $request->checkingConfigShrink;
+        if (null !== $request->checkingConfigShrink) {
+            @$body['CheckingConfig'] = $request->checkingConfigShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $body['Enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$body['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->errorHandlersShrink)) {
-            $body['ErrorHandlers'] = $request->errorHandlersShrink;
+
+        if (null !== $request->errorHandlersShrink) {
+            @$body['ErrorHandlers'] = $request->errorHandlersShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->samplingConfigShrink)) {
-            $body['SamplingConfig'] = $request->samplingConfigShrink;
+
+        if (null !== $request->samplingConfigShrink) {
+            @$body['SamplingConfig'] = $request->samplingConfigShrink;
         }
-        if (!Utils::isUnset($request->severity)) {
-            $body['Severity'] = $request->severity;
+
+        if (null !== $request->severity) {
+            @$body['Severity'] = $request->severity;
         }
-        if (!Utils::isUnset($request->targetShrink)) {
-            $body['Target'] = $request->targetShrink;
+
+        if (null !== $request->targetShrink) {
+            @$body['Target'] = $request->targetShrink;
         }
-        if (!Utils::isUnset($request->templateCode)) {
-            $body['TemplateCode'] = $request->templateCode;
+
+        if (null !== $request->templateCode) {
+            @$body['TemplateCode'] = $request->templateCode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataQualityRule',
@@ -1102,16 +1379,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a data quality monitoring rule.
-     *  *
-     * @param CreateDataQualityRuleRequest $request CreateDataQualityRuleRequest
+     * Creates a data quality monitoring rule.
      *
-     * @return CreateDataQualityRuleResponse CreateDataQualityRuleResponse
+     * @param request - CreateDataQualityRuleRequest
+     * @returns CreateDataQualityRuleResponse
+     *
+     * @param CreateDataQualityRuleRequest $request
+     *
+     * @return CreateDataQualityRuleResponse
      */
     public function createDataQualityRule($request)
     {
@@ -1121,45 +1404,57 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a data quality monitoring rule template.
-     *  *
-     * @param CreateDataQualityRuleTemplateRequest $tmpReq  CreateDataQualityRuleTemplateRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Creates a data quality monitoring rule template.
      *
-     * @return CreateDataQualityRuleTemplateResponse CreateDataQualityRuleTemplateResponse
+     * @param tmpReq - CreateDataQualityRuleTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataQualityRuleTemplateResponse
+     *
+     * @param CreateDataQualityRuleTemplateRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateDataQualityRuleTemplateResponse
      */
     public function createDataQualityRuleTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataQualityRuleTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->checkingConfig)) {
-            $request->checkingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkingConfig) {
+            $request->checkingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->samplingConfig)) {
-            $request->samplingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
+
+        if (null !== $tmpReq->samplingConfig) {
+            $request->samplingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->checkingConfigShrink)) {
-            $body['CheckingConfig'] = $request->checkingConfigShrink;
+        if (null !== $request->checkingConfigShrink) {
+            @$body['CheckingConfig'] = $request->checkingConfigShrink;
         }
-        if (!Utils::isUnset($request->directoryPath)) {
-            $body['DirectoryPath'] = $request->directoryPath;
+
+        if (null !== $request->directoryPath) {
+            @$body['DirectoryPath'] = $request->directoryPath;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->samplingConfigShrink)) {
-            $body['SamplingConfig'] = $request->samplingConfigShrink;
+
+        if (null !== $request->samplingConfigShrink) {
+            @$body['SamplingConfig'] = $request->samplingConfigShrink;
         }
-        if (!Utils::isUnset($request->visibleScope)) {
-            $body['VisibleScope'] = $request->visibleScope;
+
+        if (null !== $request->visibleScope) {
+            @$body['VisibleScope'] = $request->visibleScope;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDataQualityRuleTemplate',
@@ -1172,16 +1467,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataQualityRuleTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a data quality monitoring rule template.
-     *  *
-     * @param CreateDataQualityRuleTemplateRequest $request CreateDataQualityRuleTemplateRequest
+     * Creates a data quality monitoring rule template.
      *
-     * @return CreateDataQualityRuleTemplateResponse CreateDataQualityRuleTemplateResponse
+     * @param request - CreateDataQualityRuleTemplateRequest
+     * @returns CreateDataQualityRuleTemplateResponse
+     *
+     * @param CreateDataQualityRuleTemplateRequest $request
+     *
+     * @return CreateDataQualityRuleTemplateResponse
      */
     public function createDataQualityRuleTemplate($request)
     {
@@ -1191,41 +1492,52 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Adds a data source to the development environment or production environment of a workspace.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Adds a data source to the development environment or production environment of a workspace.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param CreateDataSourceRequest $request CreateDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param request - CreateDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataSourceResponse
+     *
+     * @param CreateDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionProperties)) {
-            $query['ConnectionProperties'] = $request->connectionProperties;
+        if (null !== $request->connectionProperties) {
+            @$query['ConnectionProperties'] = $request->connectionProperties;
         }
-        if (!Utils::isUnset($request->connectionPropertiesMode)) {
-            $query['ConnectionPropertiesMode'] = $request->connectionPropertiesMode;
+
+        if (null !== $request->connectionPropertiesMode) {
+            @$query['ConnectionPropertiesMode'] = $request->connectionPropertiesMode;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataSource',
@@ -1238,20 +1550,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a data source to the development environment or production environment of a workspace.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Adds a data source to the development environment or production environment of a workspace.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param CreateDataSourceRequest $request CreateDataSourceRequest
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param request - CreateDataSourceRequest
+     * @returns CreateDataSourceResponse
+     *
+     * @param CreateDataSourceRequest $request
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSource($request)
     {
@@ -1261,35 +1580,44 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a rule for sharing a data source to other workspaces or RAM users.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Creates a rule for sharing a data source to other workspaces or RAM users.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  If you want to share a data source from Workspace A to Workspace B, you must have the permissions to share the data source in both workspaces. You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
-     *  *
-     * @param CreateDataSourceSharedRuleRequest $request CreateDataSourceSharedRuleRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataSourceSharedRuleResponse CreateDataSourceSharedRuleResponse
+     * @param request - CreateDataSourceSharedRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataSourceSharedRuleResponse
+     *
+     * @param CreateDataSourceSharedRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateDataSourceSharedRuleResponse
      */
     public function createDataSourceSharedRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['DataSourceId'] = $request->dataSourceId;
+        if (null !== $request->dataSourceId) {
+            @$query['DataSourceId'] = $request->dataSourceId;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->sharedUser)) {
-            $query['SharedUser'] = $request->sharedUser;
+
+        if (null !== $request->sharedUser) {
+            @$query['SharedUser'] = $request->sharedUser;
         }
-        if (!Utils::isUnset($request->targetProjectId)) {
-            $query['TargetProjectId'] = $request->targetProjectId;
+
+        if (null !== $request->targetProjectId) {
+            @$query['TargetProjectId'] = $request->targetProjectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataSourceSharedRule',
@@ -1302,20 +1630,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataSourceSharedRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a rule for sharing a data source to other workspaces or RAM users.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Creates a rule for sharing a data source to other workspaces or RAM users.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  If you want to share a data source from Workspace A to Workspace B, you must have the permissions to share the data source in both workspaces. You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
-     *  *
-     * @param CreateDataSourceSharedRuleRequest $request CreateDataSourceSharedRuleRequest
      *
-     * @return CreateDataSourceSharedRuleResponse CreateDataSourceSharedRuleResponse
+     * @param request - CreateDataSourceSharedRuleRequest
+     * @returns CreateDataSourceSharedRuleResponse
+     *
+     * @param CreateDataSourceSharedRuleRequest $request
+     *
+     * @return CreateDataSourceSharedRuleResponse
      */
     public function createDataSourceSharedRule($request)
     {
@@ -1325,38 +1660,48 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a process for deploying or undeploying an entity in DataStudio.
-     *  *
-     * @description >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
-     *  *
-     * @param CreateDeploymentRequest $tmpReq  CreateDeploymentRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a process for deploying or undeploying an entity in DataStudio.
      *
-     * @return CreateDeploymentResponse CreateDeploymentResponse
+     * @remarks
+     * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+     *
+     * @param tmpReq - CreateDeploymentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDeploymentResponse
+     *
+     * @param CreateDeploymentRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDeploymentResponse
      */
     public function createDeploymentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDeploymentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->objectIds)) {
-            $request->objectIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->objectIds, 'ObjectIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectIds) {
+            $request->objectIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectIds, 'ObjectIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->objectIdsShrink)) {
-            $body['ObjectIds'] = $request->objectIdsShrink;
+
+        if (null !== $request->objectIdsShrink) {
+            @$body['ObjectIds'] = $request->objectIdsShrink;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDeployment',
@@ -1369,18 +1714,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a process for deploying or undeploying an entity in DataStudio.
-     *  *
-     * @description >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
-     *  *
-     * @param CreateDeploymentRequest $request CreateDeploymentRequest
+     * Creates a process for deploying or undeploying an entity in DataStudio.
      *
-     * @return CreateDeploymentResponse CreateDeploymentResponse
+     * @remarks
+     * >  You cannot use this API operation to create a process for multiple entities at a time. If you specify multiple entities in a request, the system creates a process only for the first entity.
+     *
+     * @param request - CreateDeploymentRequest
+     * @returns CreateDeploymentResponse
+     *
+     * @param CreateDeploymentRequest $request
+     *
+     * @return CreateDeploymentResponse
      */
     public function createDeployment($request)
     {
@@ -1390,27 +1742,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
-     *  *
-     * @description >  You cannot use this API operation to create multiple UDFs at a time. If you specify multiple UDFs by using FlowSpec, the system creates only the first specified UDF.
-     *  *
-     * @param CreateFunctionRequest $request CreateFunctionRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
      *
-     * @return CreateFunctionResponse CreateFunctionResponse
+     * @remarks
+     * >  You cannot use this API operation to create multiple UDFs at a time. If you specify multiple UDFs by using FlowSpec, the system creates only the first specified UDF.
+     *
+     * @param request - CreateFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFunctionResponse
+     *
+     * @param CreateFunctionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateFunctionResponse
      */
     public function createFunctionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateFunction',
@@ -1423,18 +1782,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
-     *  *
-     * @description >  You cannot use this API operation to create multiple UDFs at a time. If you specify multiple UDFs by using FlowSpec, the system creates only the first specified UDF.
-     *  *
-     * @param CreateFunctionRequest $request CreateFunctionRequest
+     * Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
      *
-     * @return CreateFunctionResponse CreateFunctionResponse
+     * @remarks
+     * >  You cannot use this API operation to create multiple UDFs at a time. If you specify multiple UDFs by using FlowSpec, the system creates only the first specified UDF.
+     *
+     * @param request - CreateFunctionRequest
+     * @returns CreateFunctionResponse
+     *
+     * @param CreateFunctionRequest $request
+     *
+     * @return CreateFunctionResponse
      */
     public function createFunction($request)
     {
@@ -1444,33 +1810,42 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a network and associates the network with a general resource group.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param CreateNetworkRequest $request CreateNetworkRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a network and associates the network with a general resource group.
      *
-     * @return CreateNetworkResponse CreateNetworkResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - CreateNetworkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateNetworkResponse
+     *
+     * @param CreateNetworkRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateNetworkResponse
      */
     public function createNetworkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vswitchId)) {
-            $body['VswitchId'] = $request->vswitchId;
+
+        if (null !== $request->vswitchId) {
+            @$body['VswitchId'] = $request->vswitchId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateNetwork',
@@ -1483,18 +1858,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNetworkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a network and associates the network with a general resource group.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param CreateNetworkRequest $request CreateNetworkRequest
+     * Creates a network and associates the network with a general resource group.
      *
-     * @return CreateNetworkResponse CreateNetworkResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - CreateNetworkRequest
+     * @returns CreateNetworkResponse
+     *
+     * @param CreateNetworkRequest $request
+     *
+     * @return CreateNetworkResponse
      */
     public function createNetwork($request)
     {
@@ -1504,33 +1886,42 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a node in DataStudio. The information about the node is described by using FlowSpec.
-     *  *
-     * @description >  You cannot use this API operation to create multiple nodes at a time. If you specify multiple nodes by using FlowSpec, the system creates only the first specified node.
-     *  *
-     * @param CreateNodeRequest $request CreateNodeRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a node in DataStudio. The information about the node is described by using FlowSpec.
      *
-     * @return CreateNodeResponse CreateNodeResponse
+     * @remarks
+     * >  You cannot use this API operation to create multiple nodes at a time. If you specify multiple nodes by using FlowSpec, the system creates only the first specified node.
+     *
+     * @param request - CreateNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateNodeResponse
+     *
+     * @param CreateNodeRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateNodeResponse
      */
     public function createNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->containerId)) {
-            $body['ContainerId'] = $request->containerId;
+        if (null !== $request->containerId) {
+            @$body['ContainerId'] = $request->containerId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->scene)) {
-            $body['Scene'] = $request->scene;
+
+        if (null !== $request->scene) {
+            @$body['Scene'] = $request->scene;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateNode',
@@ -1543,18 +1934,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a node in DataStudio. The information about the node is described by using FlowSpec.
-     *  *
-     * @description >  You cannot use this API operation to create multiple nodes at a time. If you specify multiple nodes by using FlowSpec, the system creates only the first specified node.
-     *  *
-     * @param CreateNodeRequest $request CreateNodeRequest
+     * Creates a node in DataStudio. The information about the node is described by using FlowSpec.
      *
-     * @return CreateNodeResponse CreateNodeResponse
+     * @remarks
+     * >  You cannot use this API operation to create multiple nodes at a time. If you specify multiple nodes by using FlowSpec, the system creates only the first specified node.
+     *
+     * @param request - CreateNodeRequest
+     * @returns CreateNodeResponse
+     *
+     * @param CreateNodeRequest $request
+     *
+     * @return CreateNodeResponse
      */
     public function createNode($request)
     {
@@ -1564,48 +1962,61 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a workspace.
-     *  *
-     * @param CreateProjectRequest $tmpReq  CreateProjectRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a workspace.
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param tmpReq - CreateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
      */
     public function createProjectWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateProjectShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aliyunResourceTags)) {
-            $request->aliyunResourceTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aliyunResourceTags) {
+            $request->aliyunResourceTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aliyunResourceGroupId)) {
-            $body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
+        if (null !== $request->aliyunResourceGroupId) {
+            @$body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
         }
-        if (!Utils::isUnset($request->aliyunResourceTagsShrink)) {
-            $body['AliyunResourceTags'] = $request->aliyunResourceTagsShrink;
+
+        if (null !== $request->aliyunResourceTagsShrink) {
+            @$body['AliyunResourceTags'] = $request->aliyunResourceTagsShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->devEnvironmentEnabled)) {
-            $body['DevEnvironmentEnabled'] = $request->devEnvironmentEnabled;
+
+        if (null !== $request->devEnvironmentEnabled) {
+            @$body['DevEnvironmentEnabled'] = $request->devEnvironmentEnabled;
         }
-        if (!Utils::isUnset($request->devRoleDisabled)) {
-            $body['DevRoleDisabled'] = $request->devRoleDisabled;
+
+        if (null !== $request->devRoleDisabled) {
+            @$body['DevRoleDisabled'] = $request->devRoleDisabled;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->paiTaskEnabled)) {
-            $body['PaiTaskEnabled'] = $request->paiTaskEnabled;
+
+        if (null !== $request->paiTaskEnabled) {
+            @$body['PaiTaskEnabled'] = $request->paiTaskEnabled;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateProject',
@@ -1618,16 +2029,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a workspace.
-     *  *
-     * @param CreateProjectRequest $request CreateProjectRequest
+     * Creates a workspace.
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param request - CreateProjectRequest
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
      */
     public function createProject($request)
     {
@@ -1637,35 +2054,44 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Adds a workspace member and assigns a workspace-level role to the member.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param CreateProjectMemberRequest $tmpReq  CreateProjectMemberRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Adds a workspace member and assigns a workspace-level role to the member.
      *
-     * @return CreateProjectMemberResponse CreateProjectMemberResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - CreateProjectMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProjectMemberResponse
+     *
+     * @param CreateProjectMemberRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateProjectMemberResponse
      */
     public function createProjectMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateProjectMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roleCodes)) {
-            $request->roleCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->roleCodes) {
+            $request->roleCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->roleCodesShrink)) {
-            $body['RoleCodes'] = $request->roleCodesShrink;
+
+        if (null !== $request->roleCodesShrink) {
+            @$body['RoleCodes'] = $request->roleCodesShrink;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateProjectMember',
@@ -1678,18 +2104,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProjectMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a workspace member and assigns a workspace-level role to the member.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param CreateProjectMemberRequest $request CreateProjectMemberRequest
+     * Adds a workspace member and assigns a workspace-level role to the member.
      *
-     * @return CreateProjectMemberResponse CreateProjectMemberResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - CreateProjectMemberRequest
+     * @returns CreateProjectMemberResponse
+     *
+     * @param CreateProjectMemberRequest $request
+     *
+     * @return CreateProjectMemberResponse
      */
     public function createProjectMember($request)
     {
@@ -1699,27 +2132,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
-     *  *
-     * @description >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
-     *  *
-     * @param CreateResourceRequest $request CreateResourceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @remarks
+     * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+     *
+     * @param request - CreateResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateResourceResponse
+     *
+     * @param CreateResourceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateResourceResponse
      */
     public function createResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateResource',
@@ -1732,18 +2172,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
-     *  *
-     * @description >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
-     *  *
-     * @param CreateResourceRequest $request CreateResourceRequest
+     * Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @remarks
+     * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+     *
+     * @param request - CreateResourceRequest
+     * @returns CreateResourceResponse
+     *
+     * @param CreateResourceRequest $request
+     *
+     * @return CreateResourceResponse
      */
     public function createResource($request)
     {
@@ -1753,63 +2200,81 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a serverless resource group.
-     *  *
-     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
-     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/document_detail/2680173.html) of serverless resource groups.
-     *  *
-     * @param CreateResourceGroupRequest $tmpReq  CreateResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a serverless resource group.
      *
-     * @return CreateResourceGroupResponse CreateResourceGroupResponse
+     * @remarks
+     * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/document_detail/2680173.html) of serverless resource groups.
+     *
+     * @param tmpReq - CreateResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateResourceGroupResponse
+     *
+     * @param CreateResourceGroupRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateResourceGroupResponse
      */
     public function createResourceGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateResourceGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aliyunResourceTags)) {
-            $request->aliyunResourceTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aliyunResourceTags) {
+            $request->aliyunResourceTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aliyunResourceGroupId)) {
-            $body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
+        if (null !== $request->aliyunResourceGroupId) {
+            @$body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
         }
-        if (!Utils::isUnset($request->aliyunResourceTagsShrink)) {
-            $body['AliyunResourceTags'] = $request->aliyunResourceTagsShrink;
+
+        if (null !== $request->aliyunResourceTagsShrink) {
+            @$body['AliyunResourceTags'] = $request->aliyunResourceTagsShrink;
         }
-        if (!Utils::isUnset($request->autoRenewEnabled)) {
-            $body['AutoRenewEnabled'] = $request->autoRenewEnabled;
+
+        if (null !== $request->autoRenewEnabled) {
+            @$body['AutoRenewEnabled'] = $request->autoRenewEnabled;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->paymentDuration)) {
-            $body['PaymentDuration'] = $request->paymentDuration;
+
+        if (null !== $request->paymentDuration) {
+            @$body['PaymentDuration'] = $request->paymentDuration;
         }
-        if (!Utils::isUnset($request->paymentDurationUnit)) {
-            $body['PaymentDurationUnit'] = $request->paymentDurationUnit;
+
+        if (null !== $request->paymentDurationUnit) {
+            @$body['PaymentDurationUnit'] = $request->paymentDurationUnit;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $body['PaymentType'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$body['PaymentType'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$body['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vswitchId)) {
-            $body['VswitchId'] = $request->vswitchId;
+
+        if (null !== $request->vswitchId) {
+            @$body['VswitchId'] = $request->vswitchId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateResourceGroup',
@@ -1822,19 +2287,26 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a serverless resource group.
-     *  *
-     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
-     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/document_detail/2680173.html) of serverless resource groups.
-     *  *
-     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
+     * Creates a serverless resource group.
      *
-     * @return CreateResourceGroupResponse CreateResourceGroupResponse
+     * @remarks
+     * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/document_detail/2680173.html) of serverless resource groups.
+     *
+     * @param request - CreateResourceGroupRequest
+     * @returns CreateResourceGroupResponse
+     *
+     * @param CreateResourceGroupRequest $request
+     *
+     * @return CreateResourceGroupResponse
      */
     public function createResourceGroup($request)
     {
@@ -1844,27 +2316,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a route for a network.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param CreateRouteRequest $request CreateRouteRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a route for a network.
      *
-     * @return CreateRouteResponse CreateRouteResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - CreateRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRouteResponse
+     *
+     * @param CreateRouteRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateRouteResponse
      */
     public function createRouteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->destinationCidr)) {
-            $body['DestinationCidr'] = $request->destinationCidr;
+        if (null !== $request->destinationCidr) {
+            @$body['DestinationCidr'] = $request->destinationCidr;
         }
-        if (!Utils::isUnset($request->networkId)) {
-            $body['NetworkId'] = $request->networkId;
+
+        if (null !== $request->networkId) {
+            @$body['NetworkId'] = $request->networkId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRoute',
@@ -1877,18 +2356,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRouteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a route for a network.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param CreateRouteRequest $request CreateRouteRequest
+     * Creates a route for a network.
      *
-     * @return CreateRouteResponse CreateRouteResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - CreateRouteRequest
+     * @returns CreateRouteResponse
+     *
+     * @param CreateRouteRequest $request
+     *
+     * @return CreateRouteResponse
      */
     public function createRoute($request)
     {
@@ -1898,27 +2384,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a workflow in a directory of DataStudio.
-     *  *
-     * @description > You cannot use this API operation to create multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system creates only the first specified workflow. Other specified workflows and the nodes in the workflows are ignored. You can call the CreateNode operation to create a node.
-     *  *
-     * @param CreateWorkflowDefinitionRequest $request CreateWorkflowDefinitionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates a workflow in a directory of DataStudio.
      *
-     * @return CreateWorkflowDefinitionResponse CreateWorkflowDefinitionResponse
+     * @remarks
+     * > You cannot use this API operation to create multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system creates only the first specified workflow. Other specified workflows and the nodes in the workflows are ignored. You can call the CreateNode operation to create a node.
+     *
+     * @param request - CreateWorkflowDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWorkflowDefinitionResponse
+     *
+     * @param CreateWorkflowDefinitionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateWorkflowDefinitionResponse
      */
     public function createWorkflowDefinitionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateWorkflowDefinition',
@@ -1931,18 +2424,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a workflow in a directory of DataStudio.
-     *  *
-     * @description > You cannot use this API operation to create multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system creates only the first specified workflow. Other specified workflows and the nodes in the workflows are ignored. You can call the CreateNode operation to create a node.
-     *  *
-     * @param CreateWorkflowDefinitionRequest $request CreateWorkflowDefinitionRequest
+     * Creates a workflow in a directory of DataStudio.
      *
-     * @return CreateWorkflowDefinitionResponse CreateWorkflowDefinitionResponse
+     * @remarks
+     * > You cannot use this API operation to create multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system creates only the first specified workflow. Other specified workflows and the nodes in the workflows are ignored. You can call the CreateNode operation to create a node.
+     *
+     * @param request - CreateWorkflowDefinitionRequest
+     * @returns CreateWorkflowDefinitionResponse
+     *
+     * @param CreateWorkflowDefinitionRequest $request
+     *
+     * @return CreateWorkflowDefinitionResponse
      */
     public function createWorkflowDefinition($request)
     {
@@ -1952,22 +2452,131 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom alert monitoring rule.
-     *  *
-     * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - CreateWorkflowInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWorkflowInstancesResponse
      *
-     * @return DeleteAlertRuleResponse DeleteAlertRuleResponse
+     * @param CreateWorkflowInstancesRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateWorkflowInstancesResponse
+     */
+    public function createWorkflowInstancesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateWorkflowInstancesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->defaultRunProperties) {
+            $request->defaultRunPropertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->defaultRunProperties, 'DefaultRunProperties', 'json');
+        }
+
+        if (null !== $tmpReq->periods) {
+            $request->periodsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->periods, 'Periods', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->autoStartEnabled) {
+            @$body['AutoStartEnabled'] = $request->autoStartEnabled;
+        }
+
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->defaultRunPropertiesShrink) {
+            @$body['DefaultRunProperties'] = $request->defaultRunPropertiesShrink;
+        }
+
+        if (null !== $request->envType) {
+            @$body['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->periodsShrink) {
+            @$body['Periods'] = $request->periodsShrink;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->taskParameters) {
+            @$body['TaskParameters'] = $request->taskParameters;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->workflowId) {
+            @$body['WorkflowId'] = $request->workflowId;
+        }
+
+        if (null !== $request->workflowParameters) {
+            @$body['WorkflowParameters'] = $request->workflowParameters;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWorkflowInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateWorkflowInstancesRequest
+     * @returns CreateWorkflowInstancesResponse
+     *
+     * @param CreateWorkflowInstancesRequest $request
+     *
+     * @return CreateWorkflowInstancesResponse
+     */
+    public function createWorkflowInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWorkflowInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a custom alert monitoring rule.
+     *
+     * @param request - DeleteAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAlertRuleResponse
+     *
+     * @param DeleteAlertRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAlertRuleResponse
      */
     public function deleteAlertRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteAlertRule',
@@ -1980,16 +2589,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom alert monitoring rule.
-     *  *
-     * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
+     * Deletes a custom alert monitoring rule.
      *
-     * @return DeleteAlertRuleResponse DeleteAlertRuleResponse
+     * @param request - DeleteAlertRuleRequest
+     * @returns DeleteAlertRuleResponse
+     *
+     * @param DeleteAlertRuleRequest $request
+     *
+     * @return DeleteAlertRuleResponse
      */
     public function deleteAlertRule($request)
     {
@@ -1999,19 +2614,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an alert rule configured for a synchronization task.
-     *  *
-     * @param DeleteDIAlarmRuleRequest $request DeleteDIAlarmRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes an alert rule configured for a synchronization task.
      *
-     * @return DeleteDIAlarmRuleResponse DeleteDIAlarmRuleResponse
+     * @param request - DeleteDIAlarmRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDIAlarmRuleResponse
+     *
+     * @param DeleteDIAlarmRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteDIAlarmRuleResponse
      */
     public function deleteDIAlarmRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDIAlarmRule',
@@ -2024,16 +2643,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDIAlarmRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert rule configured for a synchronization task.
-     *  *
-     * @param DeleteDIAlarmRuleRequest $request DeleteDIAlarmRuleRequest
+     * Deletes an alert rule configured for a synchronization task.
      *
-     * @return DeleteDIAlarmRuleResponse DeleteDIAlarmRuleResponse
+     * @param request - DeleteDIAlarmRuleRequest
+     * @returns DeleteDIAlarmRuleResponse
+     *
+     * @param DeleteDIAlarmRuleRequest $request
+     *
+     * @return DeleteDIAlarmRuleResponse
      */
     public function deleteDIAlarmRule($request)
     {
@@ -2043,21 +2668,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a new-version synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteDIJobRequest $request DeleteDIJobRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a new-version synchronization task.
      *
-     * @return DeleteDIJobResponse DeleteDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteDIJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDIJobResponse
+     *
+     * @param DeleteDIJobRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteDIJobResponse
      */
     public function deleteDIJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDIJob',
@@ -2070,18 +2700,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDIJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a new-version synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteDIJobRequest $request DeleteDIJobRequest
+     * Deletes a new-version synchronization task.
      *
-     * @return DeleteDIJobResponse DeleteDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteDIJobRequest
+     * @returns DeleteDIJobResponse
+     *
+     * @param DeleteDIJobRequest $request
+     *
+     * @return DeleteDIJobResponse
      */
     public function deleteDIJob($request)
     {
@@ -2091,30 +2728,37 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param DeleteDataAssetTagRequest $tmpReq  DeleteDataAssetTagRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 删除标签.
      *
-     * @return DeleteDataAssetTagResponse DeleteDataAssetTagResponse
+     * @param tmpReq - DeleteDataAssetTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataAssetTagResponse
+     *
+     * @param DeleteDataAssetTagRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDataAssetTagResponse
      */
     public function deleteDataAssetTagWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteDataAssetTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->values)) {
-            $request->valuesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->values, 'Values', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->values) {
+            $request->valuesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->values, 'Values', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->valuesShrink)) {
-            $query['Values'] = $request->valuesShrink;
+
+        if (null !== $request->valuesShrink) {
+            @$query['Values'] = $request->valuesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataAssetTag',
@@ -2127,16 +2771,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataAssetTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param DeleteDataAssetTagRequest $request DeleteDataAssetTagRequest
+     * 删除标签.
      *
-     * @return DeleteDataAssetTagResponse DeleteDataAssetTagResponse
+     * @param request - DeleteDataAssetTagRequest
+     * @returns DeleteDataAssetTagResponse
+     *
+     * @param DeleteDataAssetTagRequest $request
+     *
+     * @return DeleteDataAssetTagResponse
      */
     public function deleteDataAssetTag($request)
     {
@@ -2146,25 +2796,31 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据质量校验任务
-     *  *
-     * @param DeleteDataQualityEvaluationTaskRequest $request DeleteDataQualityEvaluationTaskRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 删除数据质量校验任务
      *
-     * @return DeleteDataQualityEvaluationTaskResponse DeleteDataQualityEvaluationTaskResponse
+     * @param request - DeleteDataQualityEvaluationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataQualityEvaluationTaskResponse
+     *
+     * @param DeleteDataQualityEvaluationTaskRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteDataQualityEvaluationTaskResponse
      */
     public function deleteDataQualityEvaluationTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataQualityEvaluationTask',
@@ -2177,16 +2833,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataQualityEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除数据质量校验任务
-     *  *
-     * @param DeleteDataQualityEvaluationTaskRequest $request DeleteDataQualityEvaluationTaskRequest
+     * 删除数据质量校验任务
      *
-     * @return DeleteDataQualityEvaluationTaskResponse DeleteDataQualityEvaluationTaskResponse
+     * @param request - DeleteDataQualityEvaluationTaskRequest
+     * @returns DeleteDataQualityEvaluationTaskResponse
+     *
+     * @param DeleteDataQualityEvaluationTaskRequest $request
+     *
+     * @return DeleteDataQualityEvaluationTaskResponse
      */
     public function deleteDataQualityEvaluationTask($request)
     {
@@ -2196,25 +2858,31 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a data quality monitoring rule.
-     *  *
-     * @param DeleteDataQualityRuleRequest $request DeleteDataQualityRuleRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a data quality monitoring rule.
      *
-     * @return DeleteDataQualityRuleResponse DeleteDataQualityRuleResponse
+     * @param request - DeleteDataQualityRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataQualityRuleResponse
+     *
+     * @param DeleteDataQualityRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDataQualityRuleResponse
      */
     public function deleteDataQualityRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataQualityRule',
@@ -2227,16 +2895,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a data quality monitoring rule.
-     *  *
-     * @param DeleteDataQualityRuleRequest $request DeleteDataQualityRuleRequest
+     * Deletes a data quality monitoring rule.
      *
-     * @return DeleteDataQualityRuleResponse DeleteDataQualityRuleResponse
+     * @param request - DeleteDataQualityRuleRequest
+     * @returns DeleteDataQualityRuleResponse
+     *
+     * @param DeleteDataQualityRuleRequest $request
+     *
+     * @return DeleteDataQualityRuleResponse
      */
     public function deleteDataQualityRule($request)
     {
@@ -2246,25 +2920,31 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a data quality monitoring rule template.
-     *  *
-     * @param DeleteDataQualityRuleTemplateRequest $request DeleteDataQualityRuleTemplateRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Deletes a data quality monitoring rule template.
      *
-     * @return DeleteDataQualityRuleTemplateResponse DeleteDataQualityRuleTemplateResponse
+     * @param request - DeleteDataQualityRuleTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataQualityRuleTemplateResponse
+     *
+     * @param DeleteDataQualityRuleTemplateRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteDataQualityRuleTemplateResponse
      */
     public function deleteDataQualityRuleTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataQualityRuleTemplate',
@@ -2277,16 +2957,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataQualityRuleTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a data quality monitoring rule template.
-     *  *
-     * @param DeleteDataQualityRuleTemplateRequest $request DeleteDataQualityRuleTemplateRequest
+     * Deletes a data quality monitoring rule template.
      *
-     * @return DeleteDataQualityRuleTemplateResponse DeleteDataQualityRuleTemplateResponse
+     * @param request - DeleteDataQualityRuleTemplateRequest
+     * @returns DeleteDataQualityRuleTemplateResponse
+     *
+     * @param DeleteDataQualityRuleTemplateRequest $request
+     *
+     * @return DeleteDataQualityRuleTemplateResponse
      */
     public function deleteDataQualityRuleTemplate($request)
     {
@@ -2296,23 +2982,28 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Removes a data source by ID.
-     *  *
-     * @description 1.  This API operation is available for all Dataworks editions.
+     * Removes a data source by ID.
+     *
+     * @remarks
+     * 1.  This API operation is available for all Dataworks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param request - DeleteDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataSource',
@@ -2325,20 +3016,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a data source by ID.
-     *  *
-     * @description 1.  This API operation is available for all Dataworks editions.
+     * Removes a data source by ID.
+     *
+     * @remarks
+     * 1.  This API operation is available for all Dataworks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param request - DeleteDataSourceRequest
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $request
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSource($request)
     {
@@ -2348,26 +3046,32 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a sharing rule of a data source by ID.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Deletes a sharing rule of a data source by ID.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  If you want to delete a sharing rule of a data source from Workspace A to Workspace B, you must have the permissions to share the data source in Workspace A or Workspace B. You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
-     *  *
-     * @param DeleteDataSourceSharedRuleRequest $request DeleteDataSourceSharedRuleRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataSourceSharedRuleResponse DeleteDataSourceSharedRuleResponse
+     * @param request - DeleteDataSourceSharedRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataSourceSharedRuleResponse
+     *
+     * @param DeleteDataSourceSharedRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteDataSourceSharedRuleResponse
      */
     public function deleteDataSourceSharedRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataSourceSharedRule',
@@ -2380,20 +3084,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataSourceSharedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataSourceSharedRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a sharing rule of a data source by ID.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Deletes a sharing rule of a data source by ID.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  If you want to delete a sharing rule of a data source from Workspace A to Workspace B, you must have the permissions to share the data source in Workspace A or Workspace B. You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
-     *  *
-     * @param DeleteDataSourceSharedRuleRequest $request DeleteDataSourceSharedRuleRequest
      *
-     * @return DeleteDataSourceSharedRuleResponse DeleteDataSourceSharedRuleResponse
+     * @param request - DeleteDataSourceSharedRuleRequest
+     * @returns DeleteDataSourceSharedRuleResponse
+     *
+     * @param DeleteDataSourceSharedRuleRequest $request
+     *
+     * @return DeleteDataSourceSharedRuleResponse
      */
     public function deleteDataSourceSharedRule($request)
     {
@@ -2403,27 +3114,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a user-defined function (UDF) in DataStudio.
-     *  *
-     * @description >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
-     *  *
-     * @param DeleteFunctionRequest $request DeleteFunctionRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a user-defined function (UDF) in DataStudio.
      *
-     * @return DeleteFunctionResponse DeleteFunctionResponse
+     * @remarks
+     * >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
+     *
+     * @param request - DeleteFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFunctionResponse
+     *
+     * @param DeleteFunctionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteFunctionResponse
      */
     public function deleteFunctionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteFunction',
@@ -2436,18 +3154,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a user-defined function (UDF) in DataStudio.
-     *  *
-     * @description >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
-     *  *
-     * @param DeleteFunctionRequest $request DeleteFunctionRequest
+     * Deletes a user-defined function (UDF) in DataStudio.
      *
-     * @return DeleteFunctionResponse DeleteFunctionResponse
+     * @remarks
+     * >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
+     *
+     * @param request - DeleteFunctionRequest
+     * @returns DeleteFunctionResponse
+     *
+     * @param DeleteFunctionRequest $request
+     *
+     * @return DeleteFunctionResponse
      */
     public function deleteFunction($request)
     {
@@ -2457,24 +3182,30 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates and deletes a network from a general resource group.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteNetworkRequest $request DeleteNetworkRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Disassociates and deletes a network from a general resource group.
      *
-     * @return DeleteNetworkResponse DeleteNetworkResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteNetworkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteNetworkResponse
+     *
+     * @param DeleteNetworkRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteNetworkResponse
      */
     public function deleteNetworkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteNetwork',
@@ -2487,18 +3218,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNetworkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates and deletes a network from a general resource group.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteNetworkRequest $request DeleteNetworkRequest
+     * Disassociates and deletes a network from a general resource group.
      *
-     * @return DeleteNetworkResponse DeleteNetworkResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteNetworkRequest
+     * @returns DeleteNetworkResponse
+     *
+     * @param DeleteNetworkRequest $request
+     *
+     * @return DeleteNetworkResponse
      */
     public function deleteNetwork($request)
     {
@@ -2508,27 +3246,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a node from DataStudio.
-     *  *
-     * @description >  A node that is deployed cannot be deleted. If you want to delete such a node, you must first undeploy the node.
-     *  *
-     * @param DeleteNodeRequest $request DeleteNodeRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a node from DataStudio.
      *
-     * @return DeleteNodeResponse DeleteNodeResponse
+     * @remarks
+     * >  A node that is deployed cannot be deleted. If you want to delete such a node, you must first undeploy the node.
+     *
+     * @param request - DeleteNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteNodeResponse
+     *
+     * @param DeleteNodeRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteNodeResponse
      */
     public function deleteNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteNode',
@@ -2541,18 +3286,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a node from DataStudio.
-     *  *
-     * @description >  A node that is deployed cannot be deleted. If you want to delete such a node, you must first undeploy the node.
-     *  *
-     * @param DeleteNodeRequest $request DeleteNodeRequest
+     * Deletes a node from DataStudio.
      *
-     * @return DeleteNodeResponse DeleteNodeResponse
+     * @remarks
+     * >  A node that is deployed cannot be deleted. If you want to delete such a node, you must first undeploy the node.
+     *
+     * @param request - DeleteNodeRequest
+     * @returns DeleteNodeResponse
+     *
+     * @param DeleteNodeRequest $request
+     *
+     * @return DeleteNodeResponse
      */
     public function deleteNode($request)
     {
@@ -2562,24 +3314,30 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a DataWorks workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteProjectRequest $request DeleteProjectRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a DataWorks workspace.
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
      */
     public function deleteProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteProject',
@@ -2592,18 +3350,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a DataWorks workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteProjectRequest $request DeleteProjectRequest
+     * Deletes a DataWorks workspace.
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteProjectRequest
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
      */
     public function deleteProject($request)
     {
@@ -2613,27 +3378,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Removes a workspace member and the workspace-level roles that are assigned to the member.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteProjectMemberRequest $request DeleteProjectMemberRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Removes a workspace member and the workspace-level roles that are assigned to the member.
      *
-     * @return DeleteProjectMemberResponse DeleteProjectMemberResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteProjectMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProjectMemberResponse
+     *
+     * @param DeleteProjectMemberRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteProjectMemberResponse
      */
     public function deleteProjectMemberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteProjectMember',
@@ -2646,18 +3418,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProjectMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a workspace member and the workspace-level roles that are assigned to the member.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteProjectMemberRequest $request DeleteProjectMemberRequest
+     * Removes a workspace member and the workspace-level roles that are assigned to the member.
      *
-     * @return DeleteProjectMemberResponse DeleteProjectMemberResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteProjectMemberRequest
+     * @returns DeleteProjectMemberResponse
+     *
+     * @param DeleteProjectMemberRequest $request
+     *
+     * @return DeleteProjectMemberResponse
      */
     public function deleteProjectMember($request)
     {
@@ -2667,27 +3446,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a file resource from DataStudio.
-     *  *
-     * @description >  A file resource that is deployed cannot be deleted. If you want to delete such a file resource, you must first undeploy the file resource.
-     *  *
-     * @param DeleteResourceRequest $request DeleteResourceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a file resource from DataStudio.
      *
-     * @return DeleteResourceResponse DeleteResourceResponse
+     * @remarks
+     * >  A file resource that is deployed cannot be deleted. If you want to delete such a file resource, you must first undeploy the file resource.
+     *
+     * @param request - DeleteResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteResourceResponse
+     *
+     * @param DeleteResourceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteResourceResponse
      */
     public function deleteResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteResource',
@@ -2700,18 +3486,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a file resource from DataStudio.
-     *  *
-     * @description >  A file resource that is deployed cannot be deleted. If you want to delete such a file resource, you must first undeploy the file resource.
-     *  *
-     * @param DeleteResourceRequest $request DeleteResourceRequest
+     * Deletes a file resource from DataStudio.
      *
-     * @return DeleteResourceResponse DeleteResourceResponse
+     * @remarks
+     * >  A file resource that is deployed cannot be deleted. If you want to delete such a file resource, you must first undeploy the file resource.
+     *
+     * @param request - DeleteResourceRequest
+     * @returns DeleteResourceResponse
+     *
+     * @param DeleteResourceRequest $request
+     *
+     * @return DeleteResourceResponse
      */
     public function deleteResource($request)
     {
@@ -2721,25 +3514,31 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a serverless resource group.
-     *  *
-     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
-     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/document_detail/2680173.html) of serverless resource groups.
-     *  *
-     * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a serverless resource group.
      *
-     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
+     * @remarks
+     * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/document_detail/2680173.html) of serverless resource groups.
+     *
+     * @param request - DeleteResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteResourceGroupResponse
+     *
+     * @param DeleteResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteResourceGroupResponse
      */
     public function deleteResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteResourceGroup',
@@ -2752,19 +3551,26 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a serverless resource group.
-     *  *
-     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
-     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/document_detail/2680173.html) of serverless resource groups.
-     *  *
-     * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
+     * Deletes a serverless resource group.
      *
-     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
+     * @remarks
+     * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/document_detail/2680173.html) of serverless resource groups.
+     *
+     * @param request - DeleteResourceGroupRequest
+     * @returns DeleteResourceGroupResponse
+     *
+     * @param DeleteResourceGroupRequest $request
+     *
+     * @return DeleteResourceGroupResponse
      */
     public function deleteResourceGroup($request)
     {
@@ -2774,24 +3580,30 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a route from a network resource.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteRouteRequest $request DeleteRouteRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a route from a network resource.
      *
-     * @return DeleteRouteResponse DeleteRouteResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRouteResponse
+     *
+     * @param DeleteRouteRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteRouteResponse
      */
     public function deleteRouteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRoute',
@@ -2804,18 +3616,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRouteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a route from a network resource.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteRouteRequest $request DeleteRouteRequest
+     * Deletes a route from a network resource.
      *
-     * @return DeleteRouteResponse DeleteRouteResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteRouteRequest
+     * @returns DeleteRouteResponse
+     *
+     * @param DeleteRouteRequest $request
+     *
+     * @return DeleteRouteResponse
      */
     public function deleteRoute($request)
     {
@@ -2825,27 +3644,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteTaskRequest $request DeleteTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a task.
      *
-     * @return DeleteTaskResponse DeleteTaskResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTaskResponse
+     *
+     * @param DeleteTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteTaskResponse
      */
     public function deleteTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectEnv)) {
-            $query['ProjectEnv'] = $request->projectEnv;
+
+        if (null !== $request->projectEnv) {
+            @$query['ProjectEnv'] = $request->projectEnv;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTask',
@@ -2858,18 +3684,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param DeleteTaskRequest $request DeleteTaskRequest
+     * Deletes a task.
      *
-     * @return DeleteTaskResponse DeleteTaskResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - DeleteTaskRequest
+     * @returns DeleteTaskResponse
+     *
+     * @param DeleteTaskRequest $request
+     *
+     * @return DeleteTaskResponse
      */
     public function deleteTask($request)
     {
@@ -2879,27 +3712,98 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a workflow from DataStudio.
-     *  *
-     * @description >  A workflow that is deployed cannot be deleted. If you want to delete such a workflow, you must first undeploy the workflow.
-     *  *
-     * @param DeleteWorkflowDefinitionRequest $request DeleteWorkflowDefinitionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteWorkflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWorkflowResponse
      *
-     * @return DeleteWorkflowDefinitionResponse DeleteWorkflowDefinitionResponse
+     * @param DeleteWorkflowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteWorkflowResponse
+     */
+    public function deleteWorkflowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $body = [];
+        if (null !== $request->clientUniqueCode) {
+            @$body['ClientUniqueCode'] = $request->clientUniqueCode;
+        }
+
+        if (null !== $request->envType) {
+            @$body['EnvType'] = $request->envType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWorkflow',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteWorkflowRequest
+     * @returns DeleteWorkflowResponse
+     *
+     * @param DeleteWorkflowRequest $request
+     *
+     * @return DeleteWorkflowResponse
+     */
+    public function deleteWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a workflow from DataStudio.
+     *
+     * @remarks
+     * >  A workflow that is deployed cannot be deleted. If you want to delete such a workflow, you must first undeploy the workflow.
+     *
+     * @param request - DeleteWorkflowDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWorkflowDefinitionResponse
+     *
+     * @param DeleteWorkflowDefinitionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteWorkflowDefinitionResponse
      */
     public function deleteWorkflowDefinitionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteWorkflowDefinition',
@@ -2912,18 +3816,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a workflow from DataStudio.
-     *  *
-     * @description >  A workflow that is deployed cannot be deleted. If you want to delete such a workflow, you must first undeploy the workflow.
-     *  *
-     * @param DeleteWorkflowDefinitionRequest $request DeleteWorkflowDefinitionRequest
+     * Deletes a workflow from DataStudio.
      *
-     * @return DeleteWorkflowDefinitionResponse DeleteWorkflowDefinitionResponse
+     * @remarks
+     * >  A workflow that is deployed cannot be deleted. If you want to delete such a workflow, you must first undeploy the workflow.
+     *
+     * @param request - DeleteWorkflowDefinitionRequest
+     * @returns DeleteWorkflowDefinitionResponse
+     *
+     * @param DeleteWorkflowDefinitionRequest $request
+     *
+     * @return DeleteWorkflowDefinitionResponse
      */
     public function deleteWorkflowDefinition($request)
     {
@@ -2933,33 +3844,41 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 取消数据质量规则和数据质量校验任务的关联
-     *  *
-     * @param DetachDataQualityRulesFromEvaluationTaskRequest $tmpReq  DetachDataQualityRulesFromEvaluationTaskRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * 取消数据质量规则和数据质量校验任务的关联.
      *
-     * @return DetachDataQualityRulesFromEvaluationTaskResponse DetachDataQualityRulesFromEvaluationTaskResponse
+     * @param tmpReq - DetachDataQualityRulesFromEvaluationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachDataQualityRulesFromEvaluationTaskResponse
+     *
+     * @param DetachDataQualityRulesFromEvaluationTaskRequest $tmpReq
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DetachDataQualityRulesFromEvaluationTaskResponse
      */
     public function detachDataQualityRulesFromEvaluationTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetachDataQualityRulesFromEvaluationTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dataQualityRuleIds)) {
-            $request->dataQualityRuleIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRuleIds, 'DataQualityRuleIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataQualityRuleIds) {
+            $request->dataQualityRuleIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRuleIds, 'DataQualityRuleIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dataQualityEvaluationTaskId)) {
-            $body['DataQualityEvaluationTaskId'] = $request->dataQualityEvaluationTaskId;
+        if (null !== $request->dataQualityEvaluationTaskId) {
+            @$body['DataQualityEvaluationTaskId'] = $request->dataQualityEvaluationTaskId;
         }
-        if (!Utils::isUnset($request->dataQualityRuleIdsShrink)) {
-            $body['DataQualityRuleIds'] = $request->dataQualityRuleIdsShrink;
+
+        if (null !== $request->dataQualityRuleIdsShrink) {
+            @$body['DataQualityRuleIds'] = $request->dataQualityRuleIdsShrink;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetachDataQualityRulesFromEvaluationTask',
@@ -2972,16 +3891,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachDataQualityRulesFromEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachDataQualityRulesFromEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachDataQualityRulesFromEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消数据质量规则和数据质量校验任务的关联
-     *  *
-     * @param DetachDataQualityRulesFromEvaluationTaskRequest $request DetachDataQualityRulesFromEvaluationTaskRequest
+     * 取消数据质量规则和数据质量校验任务的关联.
      *
-     * @return DetachDataQualityRulesFromEvaluationTaskResponse DetachDataQualityRulesFromEvaluationTaskResponse
+     * @param request - DetachDataQualityRulesFromEvaluationTaskRequest
+     * @returns DetachDataQualityRulesFromEvaluationTaskResponse
+     *
+     * @param DetachDataQualityRulesFromEvaluationTaskRequest $request
+     *
+     * @return DetachDataQualityRulesFromEvaluationTaskResponse
      */
     public function detachDataQualityRulesFromEvaluationTask($request)
     {
@@ -2991,29 +3916,36 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates a resource group from a workspace.
-     *  *
-     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * Disassociates a resource group from a workspace.
+     *
+     * @remarks
+     * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
      * 2.  Your account must be assigned one of the following roles of the desired workspace:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param DissociateProjectFromResourceGroupRequest $request DissociateProjectFromResourceGroupRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DissociateProjectFromResourceGroupResponse DissociateProjectFromResourceGroupResponse
+     * @param request - DissociateProjectFromResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DissociateProjectFromResourceGroupResponse
+     *
+     * @param DissociateProjectFromResourceGroupRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DissociateProjectFromResourceGroupResponse
      */
     public function dissociateProjectFromResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DissociateProjectFromResourceGroup',
@@ -3026,20 +3958,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DissociateProjectFromResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DissociateProjectFromResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DissociateProjectFromResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates a resource group from a workspace.
-     *  *
-     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * Disassociates a resource group from a workspace.
+     *
+     * @remarks
+     * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
      * 2.  Your account must be assigned one of the following roles of the desired workspace:
      * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param DissociateProjectFromResourceGroupRequest $request DissociateProjectFromResourceGroupRequest
      *
-     * @return DissociateProjectFromResourceGroupResponse DissociateProjectFromResourceGroupResponse
+     * @param request - DissociateProjectFromResourceGroupRequest
+     * @returns DissociateProjectFromResourceGroupResponse
+     *
+     * @param DissociateProjectFromResourceGroupRequest $request
+     *
+     * @return DissociateProjectFromResourceGroupResponse
      */
     public function dissociateProjectFromResourceGroup($request)
     {
@@ -3049,33 +3988,41 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Executes a stage in a process.
-     *  *
-     * @description >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
-     * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
-     *  *
-     * @param ExecDeploymentStageRequest $request ExecDeploymentStageRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Executes a stage in a process.
      *
-     * @return ExecDeploymentStageResponse ExecDeploymentStageResponse
+     * @remarks
+     * >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
+     * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
+     *
+     * @param request - ExecDeploymentStageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecDeploymentStageResponse
+     *
+     * @param ExecDeploymentStageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ExecDeploymentStageResponse
      */
     public function execDeploymentStageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExecDeploymentStage',
@@ -3088,19 +4035,26 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecDeploymentStageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecDeploymentStageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecDeploymentStageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Executes a stage in a process.
-     *  *
-     * @description >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
-     * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
-     *  *
-     * @param ExecDeploymentStageRequest $request ExecDeploymentStageRequest
+     * Executes a stage in a process.
      *
-     * @return ExecDeploymentStageResponse ExecDeploymentStageResponse
+     * @remarks
+     * >  The stages in a process are sequential. For more information, see the GetDeployment operation. Skipping or repeating a stage is not allowed.
+     * >  The execution of a stage is asynchronous. The response of this operation indicates only whether a stage is triggered but does not indicate whether the execution of the stage is successful. You can call the GetDeployment operation to check whether the execution is successful.
+     *
+     * @param request - ExecDeploymentStageRequest
+     * @returns ExecDeploymentStageResponse
+     *
+     * @param ExecDeploymentStageRequest $request
+     *
+     * @return ExecDeploymentStageResponse
      */
     public function execDeploymentStage($request)
     {
@@ -3110,19 +4064,103 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of custom alert monitoring rules.
-     *  *
-     * @param GetAlertRuleRequest $request GetAlertRuleRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - ExecuteAdhocWorkflowInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteAdhocWorkflowInstanceResponse
      *
-     * @return GetAlertRuleResponse GetAlertRuleResponse
+     * @param ExecuteAdhocWorkflowInstanceRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ExecuteAdhocWorkflowInstanceResponse
+     */
+    public function executeAdhocWorkflowInstanceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ExecuteAdhocWorkflowInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tasks) {
+            $request->tasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tasks, 'Tasks', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bizDate) {
+            @$body['BizDate'] = $request->bizDate;
+        }
+
+        if (null !== $request->envType) {
+            @$body['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->tasksShrink) {
+            @$body['Tasks'] = $request->tasksShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteAdhocWorkflowInstance',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteAdhocWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ExecuteAdhocWorkflowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ExecuteAdhocWorkflowInstanceRequest
+     * @returns ExecuteAdhocWorkflowInstanceResponse
+     *
+     * @param ExecuteAdhocWorkflowInstanceRequest $request
+     *
+     * @return ExecuteAdhocWorkflowInstanceResponse
+     */
+    public function executeAdhocWorkflowInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeAdhocWorkflowInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of custom alert monitoring rules.
+     *
+     * @param request - GetAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAlertRuleResponse
+     *
+     * @param GetAlertRuleRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAlertRuleResponse
      */
     public function getAlertRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAlertRule',
@@ -3135,16 +4173,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of custom alert monitoring rules.
-     *  *
-     * @param GetAlertRuleRequest $request GetAlertRuleRequest
+     * Queries a list of custom alert monitoring rules.
      *
-     * @return GetAlertRuleResponse GetAlertRuleResponse
+     * @param request - GetAlertRuleRequest
+     * @returns GetAlertRuleResponse
+     *
+     * @param GetAlertRuleRequest $request
+     *
+     * @return GetAlertRuleResponse
      */
     public function getAlertRule($request)
     {
@@ -3154,21 +4198,80 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetDIJobRequest $request GetDIJobRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 查询异步创建工作流实例的结果.
      *
-     * @return GetDIJobResponse GetDIJobResponse
+     * @param request - GetCreateWorkflowInstancesResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCreateWorkflowInstancesResultResponse
+     *
+     * @param GetCreateWorkflowInstancesResultRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetCreateWorkflowInstancesResultResponse
+     */
+    public function getCreateWorkflowInstancesResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCreateWorkflowInstancesResult',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCreateWorkflowInstancesResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetCreateWorkflowInstancesResultResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询异步创建工作流实例的结果.
+     *
+     * @param request - GetCreateWorkflowInstancesResultRequest
+     * @returns GetCreateWorkflowInstancesResultResponse
+     *
+     * @param GetCreateWorkflowInstancesResultRequest $request
+     *
+     * @return GetCreateWorkflowInstancesResultResponse
+     */
+    public function getCreateWorkflowInstancesResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCreateWorkflowInstancesResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information about a synchronization task.
+     *
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetDIJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDIJobResponse
+     *
+     * @param GetDIJobRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetDIJobResponse
      */
     public function getDIJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDIJob',
@@ -3181,18 +4284,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDIJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetDIJobRequest $request GetDIJobRequest
+     * Queries the information about a synchronization task.
      *
-     * @return GetDIJobResponse GetDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetDIJobRequest
+     * @returns GetDIJobResponse
+     *
+     * @param GetDIJobRequest $request
+     *
+     * @return GetDIJobResponse
      */
     public function getDIJob($request)
     {
@@ -3202,21 +4312,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Obtains logs generated for a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetDIJobLogRequest $request GetDIJobLogRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Obtains logs generated for a synchronization task.
      *
-     * @return GetDIJobLogResponse GetDIJobLogResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetDIJobLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDIJobLogResponse
+     *
+     * @param GetDIJobLogRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetDIJobLogResponse
      */
     public function getDIJobLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDIJobLog',
@@ -3229,18 +4344,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDIJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDIJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDIJobLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains logs generated for a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetDIJobLogRequest $request GetDIJobLogRequest
+     * Obtains logs generated for a synchronization task.
      *
-     * @return GetDIJobLogResponse GetDIJobLogResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetDIJobLogRequest
+     * @returns GetDIJobLogResponse
+     *
+     * @param GetDIJobLogRequest $request
+     *
+     * @return GetDIJobLogResponse
      */
     public function getDIJobLog($request)
     {
@@ -3250,19 +4372,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据质量校验任务详情
-     *  *
-     * @param GetDataQualityEvaluationTaskRequest $request GetDataQualityEvaluationTaskRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 查询数据质量校验任务详情.
      *
-     * @return GetDataQualityEvaluationTaskResponse GetDataQualityEvaluationTaskResponse
+     * @param request - GetDataQualityEvaluationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataQualityEvaluationTaskResponse
+     *
+     * @param GetDataQualityEvaluationTaskRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDataQualityEvaluationTaskResponse
      */
     public function getDataQualityEvaluationTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataQualityEvaluationTask',
@@ -3275,16 +4401,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataQualityEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询数据质量校验任务详情
-     *  *
-     * @param GetDataQualityEvaluationTaskRequest $request GetDataQualityEvaluationTaskRequest
+     * 查询数据质量校验任务详情.
      *
-     * @return GetDataQualityEvaluationTaskResponse GetDataQualityEvaluationTaskResponse
+     * @param request - GetDataQualityEvaluationTaskRequest
+     * @returns GetDataQualityEvaluationTaskResponse
+     *
+     * @param GetDataQualityEvaluationTaskRequest $request
+     *
+     * @return GetDataQualityEvaluationTaskResponse
      */
     public function getDataQualityEvaluationTask($request)
     {
@@ -3294,19 +4426,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据质量校验任务实例详情
-     *  *
-     * @param GetDataQualityEvaluationTaskInstanceRequest $request GetDataQualityEvaluationTaskInstanceRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * 获取数据质量校验任务实例详情.
      *
-     * @return GetDataQualityEvaluationTaskInstanceResponse GetDataQualityEvaluationTaskInstanceResponse
+     * @param request - GetDataQualityEvaluationTaskInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataQualityEvaluationTaskInstanceResponse
+     *
+     * @param GetDataQualityEvaluationTaskInstanceRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GetDataQualityEvaluationTaskInstanceResponse
      */
     public function getDataQualityEvaluationTaskInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataQualityEvaluationTaskInstance',
@@ -3319,16 +4455,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataQualityEvaluationTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据质量校验任务实例详情
-     *  *
-     * @param GetDataQualityEvaluationTaskInstanceRequest $request GetDataQualityEvaluationTaskInstanceRequest
+     * 获取数据质量校验任务实例详情.
      *
-     * @return GetDataQualityEvaluationTaskInstanceResponse GetDataQualityEvaluationTaskInstanceResponse
+     * @param request - GetDataQualityEvaluationTaskInstanceRequest
+     * @returns GetDataQualityEvaluationTaskInstanceResponse
+     *
+     * @param GetDataQualityEvaluationTaskInstanceRequest $request
+     *
+     * @return GetDataQualityEvaluationTaskInstanceResponse
      */
     public function getDataQualityEvaluationTaskInstance($request)
     {
@@ -3338,21 +4480,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询质量规则详情
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetDataQualityRuleRequest $request GetDataQualityRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询质量规则详情.
      *
-     * @return GetDataQualityRuleResponse GetDataQualityRuleResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetDataQualityRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataQualityRuleResponse
+     *
+     * @param GetDataQualityRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDataQualityRuleResponse
      */
     public function getDataQualityRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataQualityRule',
@@ -3365,18 +4512,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询质量规则详情
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetDataQualityRuleRequest $request GetDataQualityRuleRequest
+     * 查询质量规则详情.
      *
-     * @return GetDataQualityRuleResponse GetDataQualityRuleResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetDataQualityRuleRequest
+     * @returns GetDataQualityRuleResponse
+     *
+     * @param GetDataQualityRuleRequest $request
+     *
+     * @return GetDataQualityRuleResponse
      */
     public function getDataQualityRule($request)
     {
@@ -3386,21 +4540,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a data quality monitoring rule template.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetDataQualityRuleTemplateRequest $request GetDataQualityRuleTemplateRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a data quality monitoring rule template.
      *
-     * @return GetDataQualityRuleTemplateResponse GetDataQualityRuleTemplateResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetDataQualityRuleTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataQualityRuleTemplateResponse
+     *
+     * @param GetDataQualityRuleTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetDataQualityRuleTemplateResponse
      */
     public function getDataQualityRuleTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataQualityRuleTemplate',
@@ -3413,18 +4572,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataQualityRuleTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a data quality monitoring rule template.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetDataQualityRuleTemplateRequest $request GetDataQualityRuleTemplateRequest
+     * Queries the information about a data quality monitoring rule template.
      *
-     * @return GetDataQualityRuleTemplateResponse GetDataQualityRuleTemplateResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetDataQualityRuleTemplateRequest
+     * @returns GetDataQualityRuleTemplateResponse
+     *
+     * @param GetDataQualityRuleTemplateRequest $request
+     *
+     * @return GetDataQualityRuleTemplateResponse
      */
     public function getDataQualityRuleTemplate($request)
     {
@@ -3434,23 +4600,28 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a data source by ID.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Queries a data source by ID.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
-     *  *
-     * @param GetDataSourceRequest $request GetDataSourceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataSourceResponse GetDataSourceResponse
+     * @param request - GetDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataSourceResponse
+     *
+     * @param GetDataSourceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDataSourceResponse
      */
     public function getDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDataSource',
@@ -3463,20 +4634,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a data source by ID.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Queries a data source by ID.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
-     *  *
-     * @param GetDataSourceRequest $request GetDataSourceRequest
      *
-     * @return GetDataSourceResponse GetDataSourceResponse
+     * @param request - GetDataSourceRequest
+     * @returns GetDataSourceResponse
+     *
+     * @param GetDataSourceRequest $request
+     *
+     * @return GetDataSourceResponse
      */
     public function getDataSource($request)
     {
@@ -3486,19 +4664,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a process for deploying or undeploying an entity.
-     *  *
-     * @param GetDeploymentRequest $request GetDeploymentRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a process for deploying or undeploying an entity.
      *
-     * @return GetDeploymentResponse GetDeploymentResponse
+     * @param request - GetDeploymentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDeploymentResponse
+     *
+     * @param GetDeploymentRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDeploymentResponse
      */
     public function getDeploymentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDeployment',
@@ -3511,16 +4693,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a process for deploying or undeploying an entity.
-     *  *
-     * @param GetDeploymentRequest $request GetDeploymentRequest
+     * Queries the information about a process for deploying or undeploying an entity.
      *
-     * @return GetDeploymentResponse GetDeploymentResponse
+     * @param request - GetDeploymentRequest
+     * @returns GetDeploymentResponse
+     *
+     * @param GetDeploymentRequest $request
+     *
+     * @return GetDeploymentResponse
      */
     public function getDeployment($request)
     {
@@ -3530,19 +4718,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a user-defined function (UDF) in DataStudio.
-     *  *
-     * @param GetFunctionRequest $request GetFunctionRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a user-defined function (UDF) in DataStudio.
      *
-     * @return GetFunctionResponse GetFunctionResponse
+     * @param request - GetFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFunctionResponse
+     *
+     * @param GetFunctionRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetFunctionResponse
      */
     public function getFunctionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetFunction',
@@ -3555,16 +4747,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a user-defined function (UDF) in DataStudio.
-     *  *
-     * @param GetFunctionRequest $request GetFunctionRequest
+     * Queries the information about a user-defined function (UDF) in DataStudio.
      *
-     * @return GetFunctionResponse GetFunctionResponse
+     * @param request - GetFunctionRequest
+     * @returns GetFunctionResponse
+     *
+     * @param GetFunctionRequest $request
+     *
+     * @return GetFunctionResponse
      */
     public function getFunction($request)
     {
@@ -3574,19 +4772,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
-     *  *
-     * @param GetJobStatusRequest $request GetJobStatusRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
      *
-     * @return GetJobStatusResponse GetJobStatusResponse
+     * @param request - GetJobStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetJobStatusResponse
+     *
+     * @param GetJobStatusRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetJobStatusResponse
      */
     public function getJobStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetJobStatus',
@@ -3599,16 +4801,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
-     *  *
-     * @param GetJobStatusRequest $request GetJobStatusRequest
+     * Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
      *
-     * @return GetJobStatusResponse GetJobStatusResponse
+     * @param request - GetJobStatusRequest
+     * @returns GetJobStatusResponse
+     *
+     * @param GetJobStatusRequest $request
+     *
+     * @return GetJobStatusResponse
      */
     public function getJobStatus($request)
     {
@@ -3618,21 +4826,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a network resource.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetNetworkRequest $request GetNetworkRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a network resource.
      *
-     * @return GetNetworkResponse GetNetworkResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetNetworkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetNetworkResponse
+     *
+     * @param GetNetworkRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetNetworkResponse
      */
     public function getNetworkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetNetwork',
@@ -3645,18 +4858,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNetworkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a network resource.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetNetworkRequest $request GetNetworkRequest
+     * Queries the information about a network resource.
      *
-     * @return GetNetworkResponse GetNetworkResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetNetworkRequest
+     * @returns GetNetworkResponse
+     *
+     * @param GetNetworkRequest $request
+     *
+     * @return GetNetworkResponse
      */
     public function getNetwork($request)
     {
@@ -3666,19 +4886,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a node in DataStudio.
-     *  *
-     * @param GetNodeRequest $request GetNodeRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a node in DataStudio.
      *
-     * @return GetNodeResponse GetNodeResponse
+     * @param request - GetNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetNodeResponse
+     *
+     * @param GetNodeRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetNodeResponse
      */
     public function getNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetNode',
@@ -3691,16 +4915,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a node in DataStudio.
-     *  *
-     * @param GetNodeRequest $request GetNodeRequest
+     * Queries the information about a node in DataStudio.
      *
-     * @return GetNodeResponse GetNodeResponse
+     * @param request - GetNodeRequest
+     * @returns GetNodeResponse
+     *
+     * @param GetNodeRequest $request
+     *
+     * @return GetNodeResponse
      */
     public function getNode($request)
     {
@@ -3710,21 +4940,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a DataWorks workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetProjectRequest $request GetProjectRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a DataWorks workspace.
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProjectResponse
      */
     public function getProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProject',
@@ -3737,18 +4972,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a DataWorks workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetProjectRequest $request GetProjectRequest
+     * Queries the information about a DataWorks workspace.
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetProjectRequest
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     *
+     * @return GetProjectResponse
      */
     public function getProject($request)
     {
@@ -3758,27 +5000,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a member in a workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetProjectMemberRequest $request GetProjectMemberRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the details about a member in a workspace.
      *
-     * @return GetProjectMemberResponse GetProjectMemberResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetProjectMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProjectMemberResponse
+     *
+     * @param GetProjectMemberRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetProjectMemberResponse
      */
     public function getProjectMemberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetProjectMember',
@@ -3791,18 +5040,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProjectMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about a member in a workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetProjectMemberRequest $request GetProjectMemberRequest
+     * Queries the details about a member in a workspace.
      *
-     * @return GetProjectMemberResponse GetProjectMemberResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetProjectMemberRequest
+     * @returns GetProjectMemberResponse
+     *
+     * @param GetProjectMemberRequest $request
+     *
+     * @return GetProjectMemberResponse
      */
     public function getProjectMember($request)
     {
@@ -3812,27 +5068,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a role in a DataWorks workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetProjectRoleRequest $request GetProjectRoleRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a role in a DataWorks workspace.
      *
-     * @return GetProjectRoleResponse GetProjectRoleResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetProjectRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProjectRoleResponse
+     *
+     * @param GetProjectRoleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetProjectRoleResponse
      */
     public function getProjectRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProjectRole',
@@ -3845,18 +5108,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProjectRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProjectRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProjectRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a role in a DataWorks workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetProjectRoleRequest $request GetProjectRoleRequest
+     * Queries the information about a role in a DataWorks workspace.
      *
-     * @return GetProjectRoleResponse GetProjectRoleResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetProjectRoleRequest
+     * @returns GetProjectRoleResponse
+     *
+     * @param GetProjectRoleRequest $request
+     *
+     * @return GetProjectRoleResponse
      */
     public function getProjectRole($request)
     {
@@ -3866,19 +5136,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a file resource.
-     *  *
-     * @param GetResourceRequest $request GetResourceRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a file resource.
      *
-     * @return GetResourceResponse GetResourceResponse
+     * @param request - GetResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceResponse
+     *
+     * @param GetResourceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetResourceResponse
      */
     public function getResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResource',
@@ -3891,16 +5165,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a file resource.
-     *  *
-     * @param GetResourceRequest $request GetResourceRequest
+     * Queries the information about a file resource.
      *
-     * @return GetResourceResponse GetResourceResponse
+     * @param request - GetResourceRequest
+     * @returns GetResourceResponse
+     *
+     * @param GetResourceRequest $request
+     *
+     * @return GetResourceResponse
      */
     public function getResource($request)
     {
@@ -3910,21 +5190,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据id获取指定资源组。
-     *  *
-     * @description You can use this API operation only in DataWorks Basic Edition or an advanced edition.
-     *  *
-     * @param GetResourceGroupRequest $request GetResourceGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 根据id获取指定资源组。
      *
-     * @return GetResourceGroupResponse GetResourceGroupResponse
+     * @remarks
+     * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     *
+     * @param request - GetResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceGroupResponse
+     *
+     * @param GetResourceGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetResourceGroupResponse
      */
     public function getResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceGroup',
@@ -3937,18 +5222,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据id获取指定资源组。
-     *  *
-     * @description You can use this API operation only in DataWorks Basic Edition or an advanced edition.
-     *  *
-     * @param GetResourceGroupRequest $request GetResourceGroupRequest
+     * 根据id获取指定资源组。
      *
-     * @return GetResourceGroupResponse GetResourceGroupResponse
+     * @remarks
+     * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     *
+     * @param request - GetResourceGroupRequest
+     * @returns GetResourceGroupResponse
+     *
+     * @param GetResourceGroupRequest $request
+     *
+     * @return GetResourceGroupResponse
      */
     public function getResourceGroup($request)
     {
@@ -3958,21 +5250,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a route based on its ID.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetRouteRequest $request GetRouteRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a route based on its ID.
      *
-     * @return GetRouteResponse GetRouteResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRouteResponse
+     *
+     * @param GetRouteRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetRouteResponse
      */
     public function getRouteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRoute',
@@ -3985,18 +5282,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRouteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a route based on its ID.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetRouteRequest $request GetRouteRequest
+     * Queries the information about a route based on its ID.
      *
-     * @return GetRouteResponse GetRouteResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetRouteRequest
+     * @returns GetRouteResponse
+     *
+     * @param GetRouteRequest $request
+     *
+     * @return GetRouteResponse
      */
     public function getRoute($request)
     {
@@ -4006,19 +5310,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a task.
-     *  *
-     * @param GetTaskRequest $request GetTaskRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a task.
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @param request - GetTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTaskResponse
      */
     public function getTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTask',
@@ -4031,16 +5339,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a task.
-     *  *
-     * @param GetTaskRequest $request GetTaskRequest
+     * Queries the information about a task.
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @param request - GetTaskRequest
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     *
+     * @return GetTaskResponse
      */
     public function getTask($request)
     {
@@ -4050,21 +5364,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an instance.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetTaskInstanceRequest $request GetTaskInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an instance.
      *
-     * @return GetTaskInstanceResponse GetTaskInstanceResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetTaskInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTaskInstanceResponse
+     *
+     * @param GetTaskInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetTaskInstanceResponse
      */
     public function getTaskInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTaskInstance',
@@ -4077,18 +5396,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an instance.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetTaskInstanceRequest $request GetTaskInstanceRequest
+     * Queries the information about an instance.
      *
-     * @return GetTaskInstanceResponse GetTaskInstanceResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetTaskInstanceRequest
+     * @returns GetTaskInstanceResponse
+     *
+     * @param GetTaskInstanceRequest $request
+     *
+     * @return GetTaskInstanceResponse
      */
     public function getTaskInstance($request)
     {
@@ -4098,21 +5424,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the run log generated during a specific run of an instance.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetTaskInstanceLogRequest $request GetTaskInstanceLogRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the run log generated during a specific run of an instance.
      *
-     * @return GetTaskInstanceLogResponse GetTaskInstanceLogResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetTaskInstanceLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTaskInstanceLogResponse
+     *
+     * @param GetTaskInstanceLogRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTaskInstanceLogResponse
      */
     public function getTaskInstanceLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTaskInstanceLog',
@@ -4125,18 +5456,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTaskInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTaskInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTaskInstanceLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the run log generated during a specific run of an instance.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GetTaskInstanceLogRequest $request GetTaskInstanceLogRequest
+     * Queries the run log generated during a specific run of an instance.
      *
-     * @return GetTaskInstanceLogResponse GetTaskInstanceLogResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetTaskInstanceLogRequest
+     * @returns GetTaskInstanceLogResponse
+     *
+     * @param GetTaskInstanceLogRequest $request
+     *
+     * @return GetTaskInstanceLogResponse
      */
     public function getTaskInstanceLog($request)
     {
@@ -4146,19 +5484,73 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a workflow.
-     *  *
-     * @param GetWorkflowDefinitionRequest $request GetWorkflowDefinitionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GetWorkflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkflowResponse
      *
-     * @return GetWorkflowDefinitionResponse GetWorkflowDefinitionResponse
+     * @param GetWorkflowRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetWorkflowResponse
+     */
+    public function getWorkflowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorkflow',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetWorkflowRequest
+     * @returns GetWorkflowResponse
+     *
+     * @param GetWorkflowRequest $request
+     *
+     * @return GetWorkflowResponse
+     */
+    public function getWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information about a workflow.
+     *
+     * @param request - GetWorkflowDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkflowDefinitionResponse
+     *
+     * @param GetWorkflowDefinitionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetWorkflowDefinitionResponse
      */
     public function getWorkflowDefinitionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetWorkflowDefinition',
@@ -4171,16 +5563,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a workflow.
-     *  *
-     * @param GetWorkflowDefinitionRequest $request GetWorkflowDefinitionRequest
+     * Queries the information about a workflow.
      *
-     * @return GetWorkflowDefinitionResponse GetWorkflowDefinitionResponse
+     * @param request - GetWorkflowDefinitionRequest
+     * @returns GetWorkflowDefinitionResponse
+     *
+     * @param GetWorkflowDefinitionRequest $request
+     *
+     * @return GetWorkflowDefinitionResponse
      */
     public function getWorkflowDefinition($request)
     {
@@ -4190,35 +5588,104 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Assigns roles to members in a workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GrantMemberProjectRolesRequest $tmpReq  GrantMemberProjectRolesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a workflow instance.
      *
-     * @return GrantMemberProjectRolesResponse GrantMemberProjectRolesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetWorkflowInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkflowInstanceResponse
+     *
+     * @param GetWorkflowInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetWorkflowInstanceResponse
+     */
+    public function getWorkflowInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorkflowInstance',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetWorkflowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the information about a workflow instance.
+     *
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GetWorkflowInstanceRequest
+     * @returns GetWorkflowInstanceResponse
+     *
+     * @param GetWorkflowInstanceRequest $request
+     *
+     * @return GetWorkflowInstanceResponse
+     */
+    public function getWorkflowInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWorkflowInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Assigns roles to members in a workspace.
+     *
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - GrantMemberProjectRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GrantMemberProjectRolesResponse
+     *
+     * @param GrantMemberProjectRolesRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GrantMemberProjectRolesResponse
      */
     public function grantMemberProjectRolesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GrantMemberProjectRolesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roleCodes)) {
-            $request->roleCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->roleCodes) {
+            $request->roleCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->roleCodesShrink)) {
-            $body['RoleCodes'] = $request->roleCodesShrink;
+
+        if (null !== $request->roleCodesShrink) {
+            @$body['RoleCodes'] = $request->roleCodesShrink;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GrantMemberProjectRoles',
@@ -4231,18 +5698,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GrantMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GrantMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GrantMemberProjectRolesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Assigns roles to members in a workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param GrantMemberProjectRolesRequest $request GrantMemberProjectRolesRequest
+     * Assigns roles to members in a workspace.
      *
-     * @return GrantMemberProjectRolesResponse GrantMemberProjectRolesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - GrantMemberProjectRolesRequest
+     * @returns GrantMemberProjectRolesResponse
+     *
+     * @param GrantMemberProjectRolesRequest $request
+     *
+     * @return GrantMemberProjectRolesResponse
      */
     public function grantMemberProjectRoles($request)
     {
@@ -4252,28 +5726,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
-     *  *
-     * @description > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
-     * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
-     *  *
-     * @param ImportWorkflowDefinitionRequest $request ImportWorkflowDefinitionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
      *
-     * @return ImportWorkflowDefinitionResponse ImportWorkflowDefinitionResponse
+     * @remarks
+     * > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
+     * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
+     *
+     * @param request - ImportWorkflowDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ImportWorkflowDefinitionResponse
+     *
+     * @param ImportWorkflowDefinitionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ImportWorkflowDefinitionResponse
      */
     public function importWorkflowDefinitionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ImportWorkflowDefinition',
@@ -4286,19 +5767,26 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ImportWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ImportWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
-     *  *
-     * @description > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
-     * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
-     *  *
-     * @param ImportWorkflowDefinitionRequest $request ImportWorkflowDefinitionRequest
+     * Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
      *
-     * @return ImportWorkflowDefinitionResponse ImportWorkflowDefinitionResponse
+     * @remarks
+     * > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
+     * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
+     *
+     * @param request - ImportWorkflowDefinitionRequest
+     * @returns ImportWorkflowDefinitionResponse
+     *
+     * @param ImportWorkflowDefinitionRequest $request
+     *
+     * @return ImportWorkflowDefinitionResponse
      */
     public function importWorkflowDefinition($request)
     {
@@ -4308,48 +5796,61 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of custom monitoring alert rule by page.
-     *  *
-     * @param ListAlertRulesRequest $tmpReq  ListAlertRulesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries a list of custom monitoring alert rule by page.
      *
-     * @return ListAlertRulesResponse ListAlertRulesResponse
+     * @param tmpReq - ListAlertRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAlertRulesResponse
+     *
+     * @param ListAlertRulesRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAlertRulesResponse
      */
     public function listAlertRulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAlertRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskIds)) {
-            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->types)) {
-            $request->typesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'json');
+
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->receiver)) {
-            $query['Receiver'] = $request->receiver;
+
+        if (null !== $request->receiver) {
+            @$query['Receiver'] = $request->receiver;
         }
-        if (!Utils::isUnset($request->taskIdsShrink)) {
-            $query['TaskIds'] = $request->taskIdsShrink;
+
+        if (null !== $request->taskIdsShrink) {
+            @$query['TaskIds'] = $request->taskIdsShrink;
         }
-        if (!Utils::isUnset($request->typesShrink)) {
-            $query['Types'] = $request->typesShrink;
+
+        if (null !== $request->typesShrink) {
+            @$query['Types'] = $request->typesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAlertRules',
@@ -4362,16 +5863,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAlertRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of custom monitoring alert rule by page.
-     *  *
-     * @param ListAlertRulesRequest $request ListAlertRulesRequest
+     * Queries a list of custom monitoring alert rule by page.
      *
-     * @return ListAlertRulesResponse ListAlertRulesResponse
+     * @param request - ListAlertRulesRequest
+     * @returns ListAlertRulesResponse
+     *
+     * @param ListAlertRulesRequest $request
+     *
+     * @return ListAlertRulesResponse
      */
     public function listAlertRules($request)
     {
@@ -4381,19 +5888,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Views alert rules configured for a synchronization task.
-     *  *
-     * @param ListDIAlarmRulesRequest $request ListDIAlarmRulesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Views alert rules configured for a synchronization task.
      *
-     * @return ListDIAlarmRulesResponse ListDIAlarmRulesResponse
+     * @param request - ListDIAlarmRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDIAlarmRulesResponse
+     *
+     * @param ListDIAlarmRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDIAlarmRulesResponse
      */
     public function listDIAlarmRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDIAlarmRules',
@@ -4406,16 +5917,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDIAlarmRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDIAlarmRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDIAlarmRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Views alert rules configured for a synchronization task.
-     *  *
-     * @param ListDIAlarmRulesRequest $request ListDIAlarmRulesRequest
+     * Views alert rules configured for a synchronization task.
      *
-     * @return ListDIAlarmRulesResponse ListDIAlarmRulesResponse
+     * @param request - ListDIAlarmRulesRequest
+     * @returns ListDIAlarmRulesResponse
+     *
+     * @param ListDIAlarmRulesRequest $request
+     *
+     * @return ListDIAlarmRulesResponse
      */
     public function listDIAlarmRules($request)
     {
@@ -4425,21 +5942,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries events for a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDIJobEventsRequest $request ListDIJobEventsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries events for a synchronization task.
      *
-     * @return ListDIJobEventsResponse ListDIJobEventsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDIJobEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDIJobEventsResponse
+     *
+     * @param ListDIJobEventsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDIJobEventsResponse
      */
     public function listDIJobEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDIJobEvents',
@@ -4452,18 +5974,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDIJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDIJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDIJobEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries events for a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDIJobEventsRequest $request ListDIJobEventsRequest
+     * Queries events for a synchronization task.
      *
-     * @return ListDIJobEventsResponse ListDIJobEventsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDIJobEventsRequest
+     * @returns ListDIJobEventsResponse
+     *
+     * @param ListDIJobEventsRequest $request
+     *
+     * @return ListDIJobEventsResponse
      */
     public function listDIJobEvents($request)
     {
@@ -4473,26 +6002,32 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries metrics for a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDIJobMetricsRequest $tmpReq  ListDIJobMetricsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries metrics for a synchronization task.
      *
-     * @return ListDIJobMetricsResponse ListDIJobMetricsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - ListDIJobMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDIJobMetricsResponse
+     *
+     * @param ListDIJobMetricsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDIJobMetricsResponse
      */
     public function listDIJobMetricsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDIJobMetricsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->metricName)) {
-            $request->metricNameShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metricName, 'MetricName', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->metricName) {
+            $request->metricNameShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metricName, 'MetricName', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDIJobMetrics',
@@ -4505,18 +6040,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDIJobMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDIJobMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDIJobMetricsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries metrics for a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDIJobMetricsRequest $request ListDIJobMetricsRequest
+     * Queries metrics for a synchronization task.
      *
-     * @return ListDIJobMetricsResponse ListDIJobMetricsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDIJobMetricsRequest
+     * @returns ListDIJobMetricsResponse
+     *
+     * @param ListDIJobMetricsRequest $request
+     *
+     * @return ListDIJobMetricsResponse
      */
     public function listDIJobMetrics($request)
     {
@@ -4526,21 +6068,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the running information about a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDIJobRunDetailsRequest $request ListDIJobRunDetailsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the running information about a synchronization task.
      *
-     * @return ListDIJobRunDetailsResponse ListDIJobRunDetailsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDIJobRunDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDIJobRunDetailsResponse
+     *
+     * @param ListDIJobRunDetailsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDIJobRunDetailsResponse
      */
     public function listDIJobRunDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDIJobRunDetails',
@@ -4553,18 +6100,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDIJobRunDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDIJobRunDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDIJobRunDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the running information about a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDIJobRunDetailsRequest $request ListDIJobRunDetailsRequest
+     * Queries the running information about a synchronization task.
      *
-     * @return ListDIJobRunDetailsResponse ListDIJobRunDetailsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDIJobRunDetailsRequest
+     * @returns ListDIJobRunDetailsResponse
+     *
+     * @param ListDIJobRunDetailsRequest $request
+     *
+     * @return ListDIJobRunDetailsResponse
      */
     public function listDIJobRunDetails($request)
     {
@@ -4574,21 +6128,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of synchronization tasks.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDIJobsRequest $request ListDIJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries a list of synchronization tasks.
      *
-     * @return ListDIJobsResponse ListDIJobsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDIJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDIJobsResponse
+     *
+     * @param ListDIJobsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListDIJobsResponse
      */
     public function listDIJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDIJobs',
@@ -4601,18 +6160,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDIJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDIJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDIJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of synchronization tasks.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDIJobsRequest $request ListDIJobsRequest
+     * Queries a list of synchronization tasks.
      *
-     * @return ListDIJobsResponse ListDIJobsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDIJobsRequest
+     * @returns ListDIJobsResponse
+     *
+     * @param ListDIJobsRequest $request
+     *
+     * @return ListDIJobsResponse
      */
     public function listDIJobs($request)
     {
@@ -4622,19 +6188,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询标签列表
-     *  *
-     * @param ListDataAssetTagsRequest $request ListDataAssetTagsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询标签列表.
      *
-     * @return ListDataAssetTagsResponse ListDataAssetTagsResponse
+     * @param request - ListDataAssetTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataAssetTagsResponse
+     *
+     * @param ListDataAssetTagsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDataAssetTagsResponse
      */
     public function listDataAssetTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataAssetTags',
@@ -4647,16 +6217,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataAssetTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataAssetTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataAssetTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询标签列表
-     *  *
-     * @param ListDataAssetTagsRequest $request ListDataAssetTagsRequest
+     * 查询标签列表.
      *
-     * @return ListDataAssetTagsResponse ListDataAssetTagsResponse
+     * @param request - ListDataAssetTagsRequest
+     * @returns ListDataAssetTagsResponse
+     *
+     * @param ListDataAssetTagsRequest $request
+     *
+     * @return ListDataAssetTagsResponse
      */
     public function listDataAssetTags($request)
     {
@@ -4666,27 +6242,33 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary ListDataAssets
-     *  *
-     * @param ListDataAssetsRequest $tmpReq  ListDataAssetsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * ListDataAssets.
      *
-     * @return ListDataAssetsResponse ListDataAssetsResponse
+     * @param tmpReq - ListDataAssetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataAssetsResponse
+     *
+     * @param ListDataAssetsRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListDataAssetsResponse
      */
     public function listDataAssetsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataAssetsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dataAssetIds)) {
-            $request->dataAssetIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataAssetIds, 'DataAssetIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataAssetIds) {
+            $request->dataAssetIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataAssetIds, 'DataAssetIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataAssets',
@@ -4699,16 +6281,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataAssetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary ListDataAssets
-     *  *
-     * @param ListDataAssetsRequest $request ListDataAssetsRequest
+     * ListDataAssets.
      *
-     * @return ListDataAssetsResponse ListDataAssetsResponse
+     * @param request - ListDataAssetsRequest
+     * @returns ListDataAssetsResponse
+     *
+     * @param ListDataAssetsRequest $request
+     *
+     * @return ListDataAssetsResponse
      */
     public function listDataAssets($request)
     {
@@ -4718,21 +6306,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of instances generated by a data quality monitoring task by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDataQualityEvaluationTaskInstancesRequest $request ListDataQualityEvaluationTaskInstancesRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Queries a list of instances generated by a data quality monitoring task by page.
      *
-     * @return ListDataQualityEvaluationTaskInstancesResponse ListDataQualityEvaluationTaskInstancesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDataQualityEvaluationTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataQualityEvaluationTaskInstancesResponse
+     *
+     * @param ListDataQualityEvaluationTaskInstancesRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListDataQualityEvaluationTaskInstancesResponse
      */
     public function listDataQualityEvaluationTaskInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataQualityEvaluationTaskInstances',
@@ -4745,18 +6338,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataQualityEvaluationTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataQualityEvaluationTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataQualityEvaluationTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of instances generated by a data quality monitoring task by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDataQualityEvaluationTaskInstancesRequest $request ListDataQualityEvaluationTaskInstancesRequest
+     * Queries a list of instances generated by a data quality monitoring task by page.
      *
-     * @return ListDataQualityEvaluationTaskInstancesResponse ListDataQualityEvaluationTaskInstancesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDataQualityEvaluationTaskInstancesRequest
+     * @returns ListDataQualityEvaluationTaskInstancesResponse
+     *
+     * @param ListDataQualityEvaluationTaskInstancesRequest $request
+     *
+     * @return ListDataQualityEvaluationTaskInstancesResponse
      */
     public function listDataQualityEvaluationTaskInstances($request)
     {
@@ -4766,21 +6366,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of data quality monitoring tasks by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDataQualityEvaluationTasksRequest $request ListDataQualityEvaluationTasksRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries a list of data quality monitoring tasks by page.
      *
-     * @return ListDataQualityEvaluationTasksResponse ListDataQualityEvaluationTasksResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDataQualityEvaluationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataQualityEvaluationTasksResponse
+     *
+     * @param ListDataQualityEvaluationTasksRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListDataQualityEvaluationTasksResponse
      */
     public function listDataQualityEvaluationTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataQualityEvaluationTasks',
@@ -4793,18 +6398,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataQualityEvaluationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataQualityEvaluationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataQualityEvaluationTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of data quality monitoring tasks by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDataQualityEvaluationTasksRequest $request ListDataQualityEvaluationTasksRequest
+     * Queries a list of data quality monitoring tasks by page.
      *
-     * @return ListDataQualityEvaluationTasksResponse ListDataQualityEvaluationTasksResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDataQualityEvaluationTasksRequest
+     * @returns ListDataQualityEvaluationTasksResponse
+     *
+     * @param ListDataQualityEvaluationTasksRequest $request
+     *
+     * @return ListDataQualityEvaluationTasksResponse
      */
     public function listDataQualityEvaluationTasks($request)
     {
@@ -4814,19 +6426,24 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDataQualityResultsRequest $request ListDataQualityResultsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return ListDataQualityResultsResponse ListDataQualityResultsResponse
+     * @param request - ListDataQualityResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataQualityResultsResponse
+     *
+     * @param ListDataQualityResultsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDataQualityResultsResponse
      */
     public function listDataQualityResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataQualityResults',
@@ -4839,16 +6456,23 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataQualityResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataQualityResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataQualityResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDataQualityResultsRequest $request ListDataQualityResultsRequest
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return ListDataQualityResultsResponse ListDataQualityResultsResponse
+     * @param request - ListDataQualityResultsRequest
+     * @returns ListDataQualityResultsResponse
+     *
+     * @param ListDataQualityResultsRequest $request
+     *
+     * @return ListDataQualityResultsResponse
      */
     public function listDataQualityResults($request)
     {
@@ -4858,19 +6482,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询质量规则模版列表
-     *  *
-     * @param ListDataQualityRuleTemplatesRequest $request ListDataQualityRuleTemplatesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 查询质量规则模版列表.
      *
-     * @return ListDataQualityRuleTemplatesResponse ListDataQualityRuleTemplatesResponse
+     * @param request - ListDataQualityRuleTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataQualityRuleTemplatesResponse
+     *
+     * @param ListDataQualityRuleTemplatesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListDataQualityRuleTemplatesResponse
      */
     public function listDataQualityRuleTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataQualityRuleTemplates',
@@ -4883,16 +6511,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataQualityRuleTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataQualityRuleTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataQualityRuleTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询质量规则模版列表
-     *  *
-     * @param ListDataQualityRuleTemplatesRequest $request ListDataQualityRuleTemplatesRequest
+     * 查询质量规则模版列表.
      *
-     * @return ListDataQualityRuleTemplatesResponse ListDataQualityRuleTemplatesResponse
+     * @param request - ListDataQualityRuleTemplatesRequest
+     * @returns ListDataQualityRuleTemplatesResponse
+     *
+     * @param ListDataQualityRuleTemplatesRequest $request
+     *
+     * @return ListDataQualityRuleTemplatesResponse
      */
     public function listDataQualityRuleTemplates($request)
     {
@@ -4902,21 +6536,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of data quality monitoring rules by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDataQualityRulesRequest $request ListDataQualityRulesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a list of data quality monitoring rules by page.
      *
-     * @return ListDataQualityRulesResponse ListDataQualityRulesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDataQualityRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataQualityRulesResponse
+     *
+     * @param ListDataQualityRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDataQualityRulesResponse
      */
     public function listDataQualityRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataQualityRules',
@@ -4929,18 +6568,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataQualityRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of data quality monitoring rules by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDataQualityRulesRequest $request ListDataQualityRulesRequest
+     * Queries a list of data quality monitoring rules by page.
      *
-     * @return ListDataQualityRulesResponse ListDataQualityRulesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDataQualityRulesRequest
+     * @returns ListDataQualityRulesResponse
+     *
+     * @param ListDataQualityRulesRequest $request
+     *
+     * @return ListDataQualityRulesResponse
      */
     public function listDataQualityRules($request)
     {
@@ -4950,23 +6596,28 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of sharing rules of a data source.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Queries a list of sharing rules of a data source.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  If you want to query the sharing rules of a data source that is associated with Workspace A, you must have the permissions to share the data source in Workspace A. You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
-     *  *
-     * @param ListDataSourceSharedRulesRequest $request ListDataSourceSharedRulesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourceSharedRulesResponse ListDataSourceSharedRulesResponse
+     * @param request - ListDataSourceSharedRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataSourceSharedRulesResponse
+     *
+     * @param ListDataSourceSharedRulesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDataSourceSharedRulesResponse
      */
     public function listDataSourceSharedRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataSourceSharedRules',
@@ -4979,20 +6630,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataSourceSharedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataSourceSharedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataSourceSharedRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of sharing rules of a data source.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Queries a list of sharing rules of a data source.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  If you want to query the sharing rules of a data source that is associated with Workspace A, you must have the permissions to share the data source in Workspace A. You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
-     *  *
-     * @param ListDataSourceSharedRulesRequest $request ListDataSourceSharedRulesRequest
      *
-     * @return ListDataSourceSharedRulesResponse ListDataSourceSharedRulesResponse
+     * @param request - ListDataSourceSharedRulesRequest
+     * @returns ListDataSourceSharedRulesResponse
+     *
+     * @param ListDataSourceSharedRulesRequest $request
+     *
+     * @return ListDataSourceSharedRulesResponse
      */
     public function listDataSourceSharedRules($request)
     {
@@ -5002,28 +6660,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of data sources based on the business information of data sources.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Queries a list of data sources based on the business information of data sources.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
-     *  *
-     * @param ListDataSourcesRequest $tmpReq  ListDataSourcesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourcesResponse ListDataSourcesResponse
+     * @param tmpReq - ListDataSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataSourcesResponse
+     *
+     * @param ListDataSourcesRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDataSourcesResponse
      */
     public function listDataSourcesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataSourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->types)) {
-            $request->typesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDataSources',
@@ -5036,20 +6700,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataSourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of data sources based on the business information of data sources.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Queries a list of data sources based on the business information of data sources.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
-     *  *
-     * @param ListDataSourcesRequest $request ListDataSourcesRequest
      *
-     * @return ListDataSourcesResponse ListDataSourcesResponse
+     * @param request - ListDataSourcesRequest
+     * @returns ListDataSourcesResponse
+     *
+     * @param ListDataSourcesRequest $request
+     *
+     * @return ListDataSourcesResponse
      */
     public function listDataSources($request)
     {
@@ -5059,19 +6730,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
-     *  *
-     * @param ListDeploymentsRequest $request ListDeploymentsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
      *
-     * @return ListDeploymentsResponse ListDeploymentsResponse
+     * @param request - ListDeploymentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeploymentsResponse
+     *
+     * @param ListDeploymentsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDeploymentsResponse
      */
     public function listDeploymentsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeployments',
@@ -5084,16 +6759,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeploymentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
-     *  *
-     * @param ListDeploymentsRequest $request ListDeploymentsRequest
+     * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
      *
-     * @return ListDeploymentsResponse ListDeploymentsResponse
+     * @param request - ListDeploymentsRequest
+     * @returns ListDeploymentsResponse
+     *
+     * @param ListDeploymentsRequest $request
+     *
+     * @return ListDeploymentsResponse
      */
     public function listDeployments($request)
     {
@@ -5103,21 +6784,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of descendant instances of an instance by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDownstreamTaskInstancesRequest $request ListDownstreamTaskInstancesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries a list of descendant instances of an instance by page.
      *
-     * @return ListDownstreamTaskInstancesResponse ListDownstreamTaskInstancesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDownstreamTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDownstreamTaskInstancesResponse
+     *
+     * @param ListDownstreamTaskInstancesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListDownstreamTaskInstancesResponse
      */
     public function listDownstreamTaskInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDownstreamTaskInstances',
@@ -5130,18 +6816,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDownstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDownstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDownstreamTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of descendant instances of an instance by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListDownstreamTaskInstancesRequest $request ListDownstreamTaskInstancesRequest
+     * Queries a list of descendant instances of an instance by page.
      *
-     * @return ListDownstreamTaskInstancesResponse ListDownstreamTaskInstancesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListDownstreamTaskInstancesRequest
+     * @returns ListDownstreamTaskInstancesResponse
+     *
+     * @param ListDownstreamTaskInstancesRequest $request
+     *
+     * @return ListDownstreamTaskInstancesResponse
      */
     public function listDownstreamTaskInstances($request)
     {
@@ -5151,19 +6844,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of descendant tasks of a task by page.
-     *  *
-     * @param ListDownstreamTasksRequest $request ListDownstreamTasksRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of descendant tasks of a task by page.
      *
-     * @return ListDownstreamTasksResponse ListDownstreamTasksResponse
+     * @param request - ListDownstreamTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDownstreamTasksResponse
+     *
+     * @param ListDownstreamTasksRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDownstreamTasksResponse
      */
     public function listDownstreamTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDownstreamTasks',
@@ -5176,16 +6873,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDownstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDownstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDownstreamTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of descendant tasks of a task by page.
-     *  *
-     * @param ListDownstreamTasksRequest $request ListDownstreamTasksRequest
+     * Queries a list of descendant tasks of a task by page.
      *
-     * @return ListDownstreamTasksResponse ListDownstreamTasksResponse
+     * @param request - ListDownstreamTasksRequest
+     * @returns ListDownstreamTasksResponse
+     *
+     * @param ListDownstreamTasksRequest $request
+     *
+     * @return ListDownstreamTasksResponse
      */
     public function listDownstreamTasks($request)
     {
@@ -5195,19 +6898,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
-     *  *
-     * @param ListFunctionsRequest $request ListFunctionsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
      *
-     * @return ListFunctionsResponse ListFunctionsResponse
+     * @param request - ListFunctionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListFunctionsResponse
+     *
+     * @param ListFunctionsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListFunctionsResponse
      */
     public function listFunctionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListFunctions',
@@ -5220,16 +6927,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFunctionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
-     *  *
-     * @param ListFunctionsRequest $request ListFunctionsRequest
+     * Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
      *
-     * @return ListFunctionsResponse ListFunctionsResponse
+     * @param request - ListFunctionsRequest
+     * @returns ListFunctionsResponse
+     *
+     * @param ListFunctionsRequest $request
+     *
+     * @return ListFunctionsResponse
      */
     public function listFunctions($request)
     {
@@ -5239,21 +6952,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of network resources of a serverless resource group.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListNetworksRequest $request ListNetworksRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of network resources of a serverless resource group.
      *
-     * @return ListNetworksResponse ListNetworksResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListNetworksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNetworksResponse
+     *
+     * @param ListNetworksRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListNetworksResponse
      */
     public function listNetworksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListNetworks',
@@ -5266,18 +6984,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNetworksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNetworksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNetworksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of network resources of a serverless resource group.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListNetworksRequest $request ListNetworksRequest
+     * Queries a list of network resources of a serverless resource group.
      *
-     * @return ListNetworksResponse ListNetworksResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListNetworksRequest
+     * @returns ListNetworksResponse
+     *
+     * @param ListNetworksRequest $request
+     *
+     * @return ListNetworksResponse
      */
     public function listNetworks($request)
     {
@@ -5287,19 +7012,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of descendant nodes of a node in DataStudio.
-     *  *
-     * @param ListNodeDependenciesRequest $request ListNodeDependenciesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a list of descendant nodes of a node in DataStudio.
      *
-     * @return ListNodeDependenciesResponse ListNodeDependenciesResponse
+     * @param request - ListNodeDependenciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNodeDependenciesResponse
+     *
+     * @param ListNodeDependenciesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListNodeDependenciesResponse
      */
     public function listNodeDependenciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListNodeDependencies',
@@ -5312,16 +7041,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNodeDependenciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNodeDependenciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNodeDependenciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of descendant nodes of a node in DataStudio.
-     *  *
-     * @param ListNodeDependenciesRequest $request ListNodeDependenciesRequest
+     * Queries a list of descendant nodes of a node in DataStudio.
      *
-     * @return ListNodeDependenciesResponse ListNodeDependenciesResponse
+     * @param request - ListNodeDependenciesRequest
+     * @returns ListNodeDependenciesResponse
+     *
+     * @param ListNodeDependenciesRequest $request
+     *
+     * @return ListNodeDependenciesResponse
      */
     public function listNodeDependencies($request)
     {
@@ -5331,19 +7066,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of nodes in DataStudio. You can also specify filter conditions to query specific nodes.
-     *  *
-     * @param ListNodesRequest $request ListNodesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of nodes in DataStudio. You can also specify filter conditions to query specific nodes.
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param request - ListNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListNodesResponse
      */
     public function listNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListNodes',
@@ -5356,16 +7095,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNodesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of nodes in DataStudio. You can also specify filter conditions to query specific nodes.
-     *  *
-     * @param ListNodesRequest $request ListNodesRequest
+     * Queries a list of nodes in DataStudio. You can also specify filter conditions to query specific nodes.
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param request - ListNodesRequest
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $request
+     *
+     * @return ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -5375,44 +7120,56 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries details about members in a workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListProjectMembersRequest $tmpReq  ListProjectMembersRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries details about members in a workspace.
      *
-     * @return ListProjectMembersResponse ListProjectMembersResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - ListProjectMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProjectMembersResponse
+     *
+     * @param ListProjectMembersRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListProjectMembersResponse
      */
     public function listProjectMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListProjectMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roleCodes)) {
-            $request->roleCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->roleCodes) {
+            $request->roleCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userIds)) {
-            $request->userIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
+
+        if (null !== $tmpReq->userIds) {
+            $request->userIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->roleCodesShrink)) {
-            $body['RoleCodes'] = $request->roleCodesShrink;
+
+        if (null !== $request->roleCodesShrink) {
+            @$body['RoleCodes'] = $request->roleCodesShrink;
         }
-        if (!Utils::isUnset($request->userIdsShrink)) {
-            $body['UserIds'] = $request->userIdsShrink;
+
+        if (null !== $request->userIdsShrink) {
+            @$body['UserIds'] = $request->userIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListProjectMembers',
@@ -5425,18 +7182,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProjectMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries details about members in a workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListProjectMembersRequest $request ListProjectMembersRequest
+     * Queries details about members in a workspace.
      *
-     * @return ListProjectMembersResponse ListProjectMembersResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListProjectMembersRequest
+     * @returns ListProjectMembersResponse
+     *
+     * @param ListProjectMembersRequest $request
+     *
+     * @return ListProjectMembersResponse
      */
     public function listProjectMembers($request)
     {
@@ -5446,47 +7210,60 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about roles in a DataWorks workspace by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListProjectRolesRequest $tmpReq  ListProjectRolesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about roles in a DataWorks workspace by page.
      *
-     * @return ListProjectRolesResponse ListProjectRolesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - ListProjectRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProjectRolesResponse
+     *
+     * @param ListProjectRolesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListProjectRolesResponse
      */
     public function listProjectRolesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListProjectRolesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->codes)) {
-            $request->codesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->codes, 'Codes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->codes) {
+            $request->codesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->codes, 'Codes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->names)) {
-            $request->namesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->names, 'Names', 'json');
+
+        if (null !== $tmpReq->names) {
+            $request->namesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->names, 'Names', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->codesShrink)) {
-            $body['Codes'] = $request->codesShrink;
+        if (null !== $request->codesShrink) {
+            @$body['Codes'] = $request->codesShrink;
         }
-        if (!Utils::isUnset($request->namesShrink)) {
-            $body['Names'] = $request->namesShrink;
+
+        if (null !== $request->namesShrink) {
+            @$body['Names'] = $request->namesShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListProjectRoles',
@@ -5499,18 +7276,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProjectRolesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about roles in a DataWorks workspace by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListProjectRolesRequest $request ListProjectRolesRequest
+     * Queries the information about roles in a DataWorks workspace by page.
      *
-     * @return ListProjectRolesResponse ListProjectRolesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListProjectRolesRequest
+     * @returns ListProjectRolesResponse
+     *
+     * @param ListProjectRolesRequest $request
+     *
+     * @return ListProjectRolesResponse
      */
     public function listProjectRoles($request)
     {
@@ -5520,60 +7304,77 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of DataWorks workspaces of the tenant to which your account belongs.
-     *  *
-     * @param ListProjectsRequest $tmpReq  ListProjectsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of DataWorks workspaces of the tenant to which your account belongs.
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param tmpReq - ListProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
      */
     public function listProjectsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListProjectsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aliyunResourceTags)) {
-            $request->aliyunResourceTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aliyunResourceTags) {
+            $request->aliyunResourceTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
         }
-        if (!Utils::isUnset($tmpReq->ids)) {
-            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
-        if (!Utils::isUnset($tmpReq->names)) {
-            $request->namesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->names, 'Names', 'json');
+
+        if (null !== $tmpReq->names) {
+            $request->namesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->names, 'Names', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aliyunResourceGroupId)) {
-            $body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
+        if (null !== $request->aliyunResourceGroupId) {
+            @$body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
         }
-        if (!Utils::isUnset($request->aliyunResourceTagsShrink)) {
-            $body['AliyunResourceTags'] = $request->aliyunResourceTagsShrink;
+
+        if (null !== $request->aliyunResourceTagsShrink) {
+            @$body['AliyunResourceTags'] = $request->aliyunResourceTagsShrink;
         }
-        if (!Utils::isUnset($request->devEnvironmentEnabled)) {
-            $body['DevEnvironmentEnabled'] = $request->devEnvironmentEnabled;
+
+        if (null !== $request->devEnvironmentEnabled) {
+            @$body['DevEnvironmentEnabled'] = $request->devEnvironmentEnabled;
         }
-        if (!Utils::isUnset($request->devRoleDisabled)) {
-            $body['DevRoleDisabled'] = $request->devRoleDisabled;
+
+        if (null !== $request->devRoleDisabled) {
+            @$body['DevRoleDisabled'] = $request->devRoleDisabled;
         }
-        if (!Utils::isUnset($request->idsShrink)) {
-            $body['Ids'] = $request->idsShrink;
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
         }
-        if (!Utils::isUnset($request->namesShrink)) {
-            $body['Names'] = $request->namesShrink;
+
+        if (null !== $request->namesShrink) {
+            @$body['Names'] = $request->namesShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paiTaskEnabled)) {
-            $body['PaiTaskEnabled'] = $request->paiTaskEnabled;
+
+        if (null !== $request->paiTaskEnabled) {
+            @$body['PaiTaskEnabled'] = $request->paiTaskEnabled;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListProjects',
@@ -5586,16 +7387,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProjectsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of DataWorks workspaces of the tenant to which your account belongs.
-     *  *
-     * @param ListProjectsRequest $request ListProjectsRequest
+     * Queries a list of DataWorks workspaces of the tenant to which your account belongs.
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param request - ListProjectsRequest
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -5605,30 +7412,37 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of resource groups.
-     *  *
-     * @param ListResourceGroupsRequest $tmpReq  ListResourceGroupsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries a list of resource groups.
      *
-     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     * @param tmpReq - ListResourceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourceGroupsResponse
+     *
+     * @param ListResourceGroupsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListResourceGroupsResponse
      */
     public function listResourceGroupsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListResourceGroupsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aliyunResourceTags)) {
-            $request->aliyunResourceTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aliyunResourceTags) {
+            $request->aliyunResourceTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aliyunResourceTags, 'AliyunResourceTags', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceGroupTypes)) {
-            $request->resourceGroupTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceGroupTypes, 'ResourceGroupTypes', 'json');
+
+        if (null !== $tmpReq->resourceGroupTypes) {
+            $request->resourceGroupTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceGroupTypes, 'ResourceGroupTypes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->statuses)) {
-            $request->statusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+
+        if (null !== $tmpReq->statuses) {
+            $request->statusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResourceGroups',
@@ -5641,16 +7455,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of resource groups.
-     *  *
-     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
+     * Queries a list of resource groups.
      *
-     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     * @param request - ListResourceGroupsRequest
+     * @returns ListResourceGroupsResponse
+     *
+     * @param ListResourceGroupsRequest $request
+     *
+     * @return ListResourceGroupsResponse
      */
     public function listResourceGroups($request)
     {
@@ -5660,19 +7480,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of file resources in DataStudio. You can also specify filter conditions to query specific file resources.
-     *  *
-     * @param ListResourcesRequest $request ListResourcesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of file resources in DataStudio. You can also specify filter conditions to query specific file resources.
      *
-     * @return ListResourcesResponse ListResourcesResponse
+     * @param request - ListResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourcesResponse
+     *
+     * @param ListResourcesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListResourcesResponse
      */
     public function listResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResources',
@@ -5685,16 +7509,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of file resources in DataStudio. You can also specify filter conditions to query specific file resources.
-     *  *
-     * @param ListResourcesRequest $request ListResourcesRequest
+     * Queries a list of file resources in DataStudio. You can also specify filter conditions to query specific file resources.
      *
-     * @return ListResourcesResponse ListResourcesResponse
+     * @param request - ListResourcesRequest
+     * @returns ListResourcesResponse
+     *
+     * @param ListResourcesRequest $request
+     *
+     * @return ListResourcesResponse
      */
     public function listResources($request)
     {
@@ -5704,21 +7534,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取网络资源的路由列表。
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListRoutesRequest $request ListRoutesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取网络资源的路由列表。
      *
-     * @return ListRoutesResponse ListRoutesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListRoutesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRoutesResponse
+     *
+     * @param ListRoutesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListRoutesResponse
      */
     public function listRoutesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRoutes',
@@ -5731,18 +7566,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRoutesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取网络资源的路由列表。
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListRoutesRequest $request ListRoutesRequest
+     * 获取网络资源的路由列表。
      *
-     * @return ListRoutesResponse ListRoutesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListRoutesRequest
+     * @returns ListRoutesResponse
+     *
+     * @param ListRoutesRequest $request
+     *
+     * @return ListRoutesResponse
      */
     public function listRoutes($request)
     {
@@ -5752,22 +7594,27 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of operation logs of an instance by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     * You can call this operation to query only the operation logs generated within the previous 31 days.
-     *  *
-     * @param ListTaskInstanceOperationLogsRequest $request ListTaskInstanceOperationLogsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of operation logs of an instance by page.
      *
-     * @return ListTaskInstanceOperationLogsResponse ListTaskInstanceOperationLogsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     * You can call this operation to query only the operation logs generated within the previous 31 days.
+     *
+     * @param request - ListTaskInstanceOperationLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskInstanceOperationLogsResponse
+     *
+     * @param ListTaskInstanceOperationLogsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListTaskInstanceOperationLogsResponse
      */
     public function listTaskInstanceOperationLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskInstanceOperationLogs',
@@ -5780,19 +7627,26 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskInstanceOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskInstanceOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskInstanceOperationLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of operation logs of an instance by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     * You can call this operation to query only the operation logs generated within the previous 31 days.
-     *  *
-     * @param ListTaskInstanceOperationLogsRequest $request ListTaskInstanceOperationLogsRequest
+     * Queries a list of operation logs of an instance by page.
      *
-     * @return ListTaskInstanceOperationLogsResponse ListTaskInstanceOperationLogsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     * You can call this operation to query only the operation logs generated within the previous 31 days.
+     *
+     * @param request - ListTaskInstanceOperationLogsRequest
+     * @returns ListTaskInstanceOperationLogsResponse
+     *
+     * @param ListTaskInstanceOperationLogsRequest $request
+     *
+     * @return ListTaskInstanceOperationLogsResponse
      */
     public function listTaskInstanceOperationLogs($request)
     {
@@ -5802,86 +7656,112 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of instances. You can also specify filter conditions to query specific instances.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListTaskInstancesRequest $tmpReq  ListTaskInstancesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of instances. You can also specify filter conditions to query specific instances.
      *
-     * @return ListTaskInstancesResponse ListTaskInstancesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - ListTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskInstancesResponse
+     *
+     * @param ListTaskInstancesRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListTaskInstancesResponse
      */
     public function listTaskInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTaskInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ids)) {
-            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
-        if (!Utils::isUnset($tmpReq->taskIds)) {
-            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bizdate)) {
-            $body['Bizdate'] = $request->bizdate;
+        if (null !== $request->bizdate) {
+            @$body['Bizdate'] = $request->bizdate;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->idsShrink)) {
-            $body['Ids'] = $request->idsShrink;
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $body['Owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectEnv)) {
-            $body['ProjectEnv'] = $request->projectEnv;
+
+        if (null !== $request->projectEnv) {
+            @$body['ProjectEnv'] = $request->projectEnv;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->runtimeResource)) {
-            $body['RuntimeResource'] = $request->runtimeResource;
+
+        if (null !== $request->runtimeResource) {
+            @$body['RuntimeResource'] = $request->runtimeResource;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $body['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskIdsShrink)) {
-            $body['TaskIds'] = $request->taskIdsShrink;
+
+        if (null !== $request->taskIdsShrink) {
+            @$body['TaskIds'] = $request->taskIdsShrink;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->triggerRecurrence)) {
-            $body['TriggerRecurrence'] = $request->triggerRecurrence;
+
+        if (null !== $request->triggerRecurrence) {
+            @$body['TriggerRecurrence'] = $request->triggerRecurrence;
         }
-        if (!Utils::isUnset($request->triggerType)) {
-            $body['TriggerType'] = $request->triggerType;
+
+        if (null !== $request->triggerType) {
+            @$body['TriggerType'] = $request->triggerType;
         }
-        if (!Utils::isUnset($request->workflowId)) {
-            $body['WorkflowId'] = $request->workflowId;
+
+        if (null !== $request->workflowId) {
+            @$body['WorkflowId'] = $request->workflowId;
         }
-        if (!Utils::isUnset($request->workflowInstanceId)) {
-            $body['WorkflowInstanceId'] = $request->workflowInstanceId;
+
+        if (null !== $request->workflowInstanceId) {
+            @$body['WorkflowInstanceId'] = $request->workflowInstanceId;
         }
-        if (!Utils::isUnset($request->workflowInstanceType)) {
-            $body['WorkflowInstanceType'] = $request->workflowInstanceType;
+
+        if (null !== $request->workflowInstanceType) {
+            @$body['WorkflowInstanceType'] = $request->workflowInstanceType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListTaskInstances',
@@ -5894,18 +7774,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of instances. You can also specify filter conditions to query specific instances.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListTaskInstancesRequest $request ListTaskInstancesRequest
+     * Queries a list of instances. You can also specify filter conditions to query specific instances.
      *
-     * @return ListTaskInstancesResponse ListTaskInstancesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListTaskInstancesRequest
+     * @returns ListTaskInstancesResponse
+     *
+     * @param ListTaskInstancesRequest $request
+     *
+     * @return ListTaskInstancesResponse
      */
     public function listTaskInstances($request)
     {
@@ -5915,22 +7802,27 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of operation logs of a task by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     * You can call this operation to query only the operation logs generated within the previous 31 days.
-     *  *
-     * @param ListTaskOperationLogsRequest $request ListTaskOperationLogsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries a list of operation logs of a task by page.
      *
-     * @return ListTaskOperationLogsResponse ListTaskOperationLogsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     * You can call this operation to query only the operation logs generated within the previous 31 days.
+     *
+     * @param request - ListTaskOperationLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskOperationLogsResponse
+     *
+     * @param ListTaskOperationLogsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListTaskOperationLogsResponse
      */
     public function listTaskOperationLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskOperationLogs',
@@ -5943,19 +7835,26 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskOperationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskOperationLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of operation logs of a task by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     * You can call this operation to query only the operation logs generated within the previous 31 days.
-     *  *
-     * @param ListTaskOperationLogsRequest $request ListTaskOperationLogsRequest
+     * Queries a list of operation logs of a task by page.
      *
-     * @return ListTaskOperationLogsResponse ListTaskOperationLogsResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     * You can call this operation to query only the operation logs generated within the previous 31 days.
+     *
+     * @param request - ListTaskOperationLogsRequest
+     * @returns ListTaskOperationLogsResponse
+     *
+     * @param ListTaskOperationLogsRequest $request
+     *
+     * @return ListTaskOperationLogsResponse
      */
     public function listTaskOperationLogs($request)
     {
@@ -5965,55 +7864,81 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tasks by page. You can also specify filter conditions to query tasks.
-     *  *
-     * @param ListTasksRequest $request ListTasksRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of tasks by page. You can also specify filter conditions to query tasks.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param tmpReq - ListTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTasksResponse
+     *
+     * @param ListTasksRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTasksResponse
      */
-    public function listTasksWithOptions($request, $runtime)
+    public function listTasksWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new ListTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $body['Owner'] = $request->owner;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->projectEnv)) {
-            $body['ProjectEnv'] = $request->projectEnv;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectEnv) {
+            @$body['ProjectEnv'] = $request->projectEnv;
         }
-        if (!Utils::isUnset($request->runtimeResource)) {
-            $body['RuntimeResource'] = $request->runtimeResource;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $body['SortBy'] = $request->sortBy;
+
+        if (null !== $request->runtimeResource) {
+            @$body['RuntimeResource'] = $request->runtimeResource;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['TaskType'] = $request->taskType;
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->triggerRecurrence)) {
-            $body['TriggerRecurrence'] = $request->triggerRecurrence;
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->triggerType)) {
-            $body['TriggerType'] = $request->triggerType;
+
+        if (null !== $request->triggerRecurrence) {
+            @$body['TriggerRecurrence'] = $request->triggerRecurrence;
         }
-        if (!Utils::isUnset($request->workflowId)) {
-            $body['WorkflowId'] = $request->workflowId;
+
+        if (null !== $request->triggerType) {
+            @$body['TriggerType'] = $request->triggerType;
         }
+
+        if (null !== $request->workflowId) {
+            @$body['WorkflowId'] = $request->workflowId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListTasks',
@@ -6026,16 +7951,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of tasks by page. You can also specify filter conditions to query tasks.
-     *  *
-     * @param ListTasksRequest $request ListTasksRequest
+     * Queries a list of tasks by page. You can also specify filter conditions to query tasks.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param request - ListTasksRequest
+     * @returns ListTasksResponse
+     *
+     * @param ListTasksRequest $request
+     *
+     * @return ListTasksResponse
      */
     public function listTasks($request)
     {
@@ -6045,19 +7976,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of ancestor instances of an instance by page.
-     *  *
-     * @param ListUpstreamTaskInstancesRequest $request ListUpstreamTaskInstancesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of ancestor instances of an instance by page.
      *
-     * @return ListUpstreamTaskInstancesResponse ListUpstreamTaskInstancesResponse
+     * @param request - ListUpstreamTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUpstreamTaskInstancesResponse
+     *
+     * @param ListUpstreamTaskInstancesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListUpstreamTaskInstancesResponse
      */
     public function listUpstreamTaskInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUpstreamTaskInstances',
@@ -6070,16 +8005,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUpstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUpstreamTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUpstreamTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of ancestor instances of an instance by page.
-     *  *
-     * @param ListUpstreamTaskInstancesRequest $request ListUpstreamTaskInstancesRequest
+     * Queries a list of ancestor instances of an instance by page.
      *
-     * @return ListUpstreamTaskInstancesResponse ListUpstreamTaskInstancesResponse
+     * @param request - ListUpstreamTaskInstancesRequest
+     * @returns ListUpstreamTaskInstancesResponse
+     *
+     * @param ListUpstreamTaskInstancesRequest $request
+     *
+     * @return ListUpstreamTaskInstancesResponse
      */
     public function listUpstreamTaskInstances($request)
     {
@@ -6089,21 +8030,26 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of ancestor tasks of a task by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListUpstreamTasksRequest $request ListUpstreamTasksRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of ancestor tasks of a task by page.
      *
-     * @return ListUpstreamTasksResponse ListUpstreamTasksResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListUpstreamTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUpstreamTasksResponse
+     *
+     * @param ListUpstreamTasksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUpstreamTasksResponse
      */
     public function listUpstreamTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUpstreamTasks',
@@ -6116,18 +8062,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUpstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUpstreamTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUpstreamTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of ancestor tasks of a task by page.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ListUpstreamTasksRequest $request ListUpstreamTasksRequest
+     * Queries a list of ancestor tasks of a task by page.
      *
-     * @return ListUpstreamTasksResponse ListUpstreamTasksResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - ListUpstreamTasksRequest
+     * @returns ListUpstreamTasksResponse
+     *
+     * @param ListUpstreamTasksRequest $request
+     *
+     * @return ListUpstreamTasksResponse
      */
     public function listUpstreamTasks($request)
     {
@@ -6137,19 +8090,23 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
-     *  *
-     * @param ListWorkflowDefinitionsRequest $request ListWorkflowDefinitionsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
      *
-     * @return ListWorkflowDefinitionsResponse ListWorkflowDefinitionsResponse
+     * @param request - ListWorkflowDefinitionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkflowDefinitionsResponse
+     *
+     * @param ListWorkflowDefinitionsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListWorkflowDefinitionsResponse
      */
     public function listWorkflowDefinitionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWorkflowDefinitions',
@@ -6162,16 +8119,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkflowDefinitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkflowDefinitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkflowDefinitionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
-     *  *
-     * @param ListWorkflowDefinitionsRequest $request ListWorkflowDefinitionsRequest
+     * Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
      *
-     * @return ListWorkflowDefinitionsResponse ListWorkflowDefinitionsResponse
+     * @param request - ListWorkflowDefinitionsRequest
+     * @returns ListWorkflowDefinitionsResponse
+     *
+     * @param ListWorkflowDefinitionsRequest $request
+     *
+     * @return ListWorkflowDefinitionsResponse
      */
     public function listWorkflowDefinitions($request)
     {
@@ -6181,28 +8144,223 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Moves a user-defined function (UDF) to a path in DataStudio.
-     *  *
-     * @param MoveFunctionRequest $request MoveFunctionRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - ListWorkflowInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkflowInstancesResponse
      *
-     * @return MoveFunctionResponse MoveFunctionResponse
+     * @param ListWorkflowInstancesRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListWorkflowInstancesResponse
+     */
+    public function listWorkflowInstancesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListWorkflowInstancesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bizDate) {
+            @$body['BizDate'] = $request->bizDate;
+        }
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->workflowId) {
+            @$body['WorkflowId'] = $request->workflowId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkflowInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ListWorkflowInstancesRequest
+     * @returns ListWorkflowInstancesResponse
+     *
+     * @param ListWorkflowInstancesRequest $request
+     *
+     * @return ListWorkflowInstancesResponse
+     */
+    public function listWorkflowInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkflowInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param tmpReq - ListWorkflowsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkflowsResponse
+     *
+     * @param ListWorkflowsRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWorkflowsResponse
+     */
+    public function listWorkflowsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListWorkflowsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->envType) {
+            @$body['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->triggerType) {
+            @$body['TriggerType'] = $request->triggerType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkflows',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListWorkflowsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ListWorkflowsRequest
+     * @returns ListWorkflowsResponse
+     *
+     * @param ListWorkflowsRequest $request
+     *
+     * @return ListWorkflowsResponse
+     */
+    public function listWorkflows($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkflowsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Moves a user-defined function (UDF) to a path in DataStudio.
+     *
+     * @param request - MoveFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveFunctionResponse
+     *
+     * @param MoveFunctionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return MoveFunctionResponse
      */
     public function moveFunctionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->path)) {
-            $body['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$body['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MoveFunction',
@@ -6215,16 +8373,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Moves a user-defined function (UDF) to a path in DataStudio.
-     *  *
-     * @param MoveFunctionRequest $request MoveFunctionRequest
+     * Moves a user-defined function (UDF) to a path in DataStudio.
      *
-     * @return MoveFunctionResponse MoveFunctionResponse
+     * @param request - MoveFunctionRequest
+     * @returns MoveFunctionResponse
+     *
+     * @param MoveFunctionRequest $request
+     *
+     * @return MoveFunctionResponse
      */
     public function moveFunction($request)
     {
@@ -6234,28 +8398,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Moves a node to a path in DataStudio.
-     *  *
-     * @param MoveNodeRequest $request MoveNodeRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Moves a node to a path in DataStudio.
      *
-     * @return MoveNodeResponse MoveNodeResponse
+     * @param request - MoveNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveNodeResponse
+     *
+     * @param MoveNodeRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return MoveNodeResponse
      */
     public function moveNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->path)) {
-            $body['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$body['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MoveNode',
@@ -6268,16 +8439,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Moves a node to a path in DataStudio.
-     *  *
-     * @param MoveNodeRequest $request MoveNodeRequest
+     * Moves a node to a path in DataStudio.
      *
-     * @return MoveNodeResponse MoveNodeResponse
+     * @param request - MoveNodeRequest
+     * @returns MoveNodeResponse
+     *
+     * @param MoveNodeRequest $request
+     *
+     * @return MoveNodeResponse
      */
     public function moveNode($request)
     {
@@ -6287,28 +8464,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Moves a file resource to a path in DataStudio.
-     *  *
-     * @param MoveResourceRequest $request MoveResourceRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Moves a file resource to a path in DataStudio.
      *
-     * @return MoveResourceResponse MoveResourceResponse
+     * @param request - MoveResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveResourceResponse
+     *
+     * @param MoveResourceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return MoveResourceResponse
      */
     public function moveResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->path)) {
-            $body['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$body['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MoveResource',
@@ -6321,16 +8505,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Moves a file resource to a path in DataStudio.
-     *  *
-     * @param MoveResourceRequest $request MoveResourceRequest
+     * Moves a file resource to a path in DataStudio.
      *
-     * @return MoveResourceResponse MoveResourceResponse
+     * @param request - MoveResourceRequest
+     * @returns MoveResourceResponse
+     *
+     * @param MoveResourceRequest $request
+     *
+     * @return MoveResourceResponse
      */
     public function moveResource($request)
     {
@@ -6340,28 +8530,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Moves a workflow to a path in DataStudio.
-     *  *
-     * @param MoveWorkflowDefinitionRequest $request MoveWorkflowDefinitionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Moves a workflow to a path in DataStudio.
      *
-     * @return MoveWorkflowDefinitionResponse MoveWorkflowDefinitionResponse
+     * @param request - MoveWorkflowDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveWorkflowDefinitionResponse
+     *
+     * @param MoveWorkflowDefinitionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return MoveWorkflowDefinitionResponse
      */
     public function moveWorkflowDefinitionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->path)) {
-            $body['Path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$body['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MoveWorkflowDefinition',
@@ -6374,16 +8571,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Moves a workflow to a path in DataStudio.
-     *  *
-     * @param MoveWorkflowDefinitionRequest $request MoveWorkflowDefinitionRequest
+     * Moves a workflow to a path in DataStudio.
      *
-     * @return MoveWorkflowDefinitionResponse MoveWorkflowDefinitionResponse
+     * @param request - MoveWorkflowDefinitionRequest
+     * @returns MoveWorkflowDefinitionResponse
+     *
+     * @param MoveWorkflowDefinitionRequest $request
+     *
+     * @return MoveWorkflowDefinitionResponse
      */
     public function moveWorkflowDefinition($request)
     {
@@ -6393,37 +8596,46 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Removes multiple upstream dependencies of an instance at a time.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param RemoveTaskInstanceDependenciesRequest $tmpReq  RemoveTaskInstanceDependenciesRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Removes multiple upstream dependencies of an instance at a time.
      *
-     * @return RemoveTaskInstanceDependenciesResponse RemoveTaskInstanceDependenciesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - RemoveTaskInstanceDependenciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveTaskInstanceDependenciesResponse
+     *
+     * @param RemoveTaskInstanceDependenciesRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RemoveTaskInstanceDependenciesResponse
      */
     public function removeTaskInstanceDependenciesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RemoveTaskInstanceDependenciesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->upstreamTaskInstanceIds)) {
-            $request->upstreamTaskInstanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->upstreamTaskInstanceIds, 'UpstreamTaskInstanceIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->upstreamTaskInstanceIds) {
+            $request->upstreamTaskInstanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->upstreamTaskInstanceIds, 'UpstreamTaskInstanceIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->comment)) {
-            $body['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->upstreamTaskInstanceIdsShrink)) {
-            $body['UpstreamTaskInstanceIds'] = $request->upstreamTaskInstanceIdsShrink;
+
+        if (null !== $request->upstreamTaskInstanceIdsShrink) {
+            @$body['UpstreamTaskInstanceIds'] = $request->upstreamTaskInstanceIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RemoveTaskInstanceDependencies',
@@ -6436,18 +8648,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveTaskInstanceDependenciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveTaskInstanceDependenciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveTaskInstanceDependenciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes multiple upstream dependencies of an instance at a time.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param RemoveTaskInstanceDependenciesRequest $request RemoveTaskInstanceDependenciesRequest
+     * Removes multiple upstream dependencies of an instance at a time.
      *
-     * @return RemoveTaskInstanceDependenciesResponse RemoveTaskInstanceDependenciesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - RemoveTaskInstanceDependenciesRequest
+     * @returns RemoveTaskInstanceDependenciesResponse
+     *
+     * @param RemoveTaskInstanceDependenciesRequest $request
+     *
+     * @return RemoveTaskInstanceDependenciesResponse
      */
     public function removeTaskInstanceDependencies($request)
     {
@@ -6457,28 +8676,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Renames a user-defined function (UDF) in DataStudio.
-     *  *
-     * @param RenameFunctionRequest $request RenameFunctionRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Renames a user-defined function (UDF) in DataStudio.
      *
-     * @return RenameFunctionResponse RenameFunctionResponse
+     * @param request - RenameFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RenameFunctionResponse
+     *
+     * @param RenameFunctionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RenameFunctionResponse
      */
     public function renameFunctionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RenameFunction',
@@ -6491,16 +8717,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RenameFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenameFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenameFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Renames a user-defined function (UDF) in DataStudio.
-     *  *
-     * @param RenameFunctionRequest $request RenameFunctionRequest
+     * Renames a user-defined function (UDF) in DataStudio.
      *
-     * @return RenameFunctionResponse RenameFunctionResponse
+     * @param request - RenameFunctionRequest
+     * @returns RenameFunctionResponse
+     *
+     * @param RenameFunctionRequest $request
+     *
+     * @return RenameFunctionResponse
      */
     public function renameFunction($request)
     {
@@ -6510,28 +8742,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Renames a node in DataStudio.
-     *  *
-     * @param RenameNodeRequest $request RenameNodeRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Renames a node in DataStudio.
      *
-     * @return RenameNodeResponse RenameNodeResponse
+     * @param request - RenameNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RenameNodeResponse
+     *
+     * @param RenameNodeRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RenameNodeResponse
      */
     public function renameNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RenameNode',
@@ -6544,16 +8783,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RenameNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenameNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenameNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Renames a node in DataStudio.
-     *  *
-     * @param RenameNodeRequest $request RenameNodeRequest
+     * Renames a node in DataStudio.
      *
-     * @return RenameNodeResponse RenameNodeResponse
+     * @param request - RenameNodeRequest
+     * @returns RenameNodeResponse
+     *
+     * @param RenameNodeRequest $request
+     *
+     * @return RenameNodeResponse
      */
     public function renameNode($request)
     {
@@ -6563,28 +8808,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Renames a file resource in DataStudio.
-     *  *
-     * @param RenameResourceRequest $request RenameResourceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Renames a file resource in DataStudio.
      *
-     * @return RenameResourceResponse RenameResourceResponse
+     * @param request - RenameResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RenameResourceResponse
+     *
+     * @param RenameResourceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RenameResourceResponse
      */
     public function renameResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RenameResource',
@@ -6597,16 +8849,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RenameResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenameResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenameResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Renames a file resource in DataStudio.
-     *  *
-     * @param RenameResourceRequest $request RenameResourceRequest
+     * Renames a file resource in DataStudio.
      *
-     * @return RenameResourceResponse RenameResourceResponse
+     * @param request - RenameResourceRequest
+     * @returns RenameResourceResponse
+     *
+     * @param RenameResourceRequest $request
+     *
+     * @return RenameResourceResponse
      */
     public function renameResource($request)
     {
@@ -6616,28 +8874,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Renames a workflow in DataStudio.
-     *  *
-     * @param RenameWorkflowDefinitionRequest $request RenameWorkflowDefinitionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Renames a workflow in DataStudio.
      *
-     * @return RenameWorkflowDefinitionResponse RenameWorkflowDefinitionResponse
+     * @param request - RenameWorkflowDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RenameWorkflowDefinitionResponse
+     *
+     * @param RenameWorkflowDefinitionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RenameWorkflowDefinitionResponse
      */
     public function renameWorkflowDefinitionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RenameWorkflowDefinition',
@@ -6650,16 +8915,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RenameWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenameWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenameWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Renames a workflow in DataStudio.
-     *  *
-     * @param RenameWorkflowDefinitionRequest $request RenameWorkflowDefinitionRequest
+     * Renames a workflow in DataStudio.
      *
-     * @return RenameWorkflowDefinitionResponse RenameWorkflowDefinitionResponse
+     * @param request - RenameWorkflowDefinitionRequest
+     * @returns RenameWorkflowDefinitionResponse
+     *
+     * @param RenameWorkflowDefinitionRequest $request
+     *
+     * @return RenameWorkflowDefinitionResponse
      */
     public function renameWorkflowDefinition($request)
     {
@@ -6669,30 +8940,38 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param RerunTaskInstancesRequest $tmpReq  RerunTaskInstancesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return RerunTaskInstancesResponse RerunTaskInstancesResponse
+     * @param tmpReq - RerunTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RerunTaskInstancesResponse
+     *
+     * @param RerunTaskInstancesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RerunTaskInstancesResponse
      */
     public function rerunTaskInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RerunTaskInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ids)) {
-            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->comment)) {
-            $body['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->idsShrink)) {
-            $body['Ids'] = $request->idsShrink;
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RerunTaskInstances',
@@ -6705,16 +8984,23 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RerunTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RerunTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RerunTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param RerunTaskInstancesRequest $request RerunTaskInstancesRequest
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return RerunTaskInstancesResponse RerunTaskInstancesResponse
+     * @param request - RerunTaskInstancesRequest
+     * @returns RerunTaskInstancesResponse
+     *
+     * @param RerunTaskInstancesRequest $request
+     *
+     * @return RerunTaskInstancesResponse
      */
     public function rerunTaskInstances($request)
     {
@@ -6724,30 +9010,38 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ResumeTaskInstancesRequest $tmpReq  ResumeTaskInstancesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return ResumeTaskInstancesResponse ResumeTaskInstancesResponse
+     * @param tmpReq - ResumeTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResumeTaskInstancesResponse
+     *
+     * @param ResumeTaskInstancesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ResumeTaskInstancesResponse
      */
     public function resumeTaskInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ResumeTaskInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ids)) {
-            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->comment)) {
-            $body['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->idsShrink)) {
-            $body['Ids'] = $request->idsShrink;
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ResumeTaskInstances',
@@ -6760,16 +9054,23 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResumeTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResumeTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResumeTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param ResumeTaskInstancesRequest $request ResumeTaskInstancesRequest
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return ResumeTaskInstancesResponse ResumeTaskInstancesResponse
+     * @param request - ResumeTaskInstancesRequest
+     * @returns ResumeTaskInstancesResponse
+     *
+     * @param ResumeTaskInstancesRequest $request
+     *
+     * @return ResumeTaskInstancesResponse
      */
     public function resumeTaskInstances($request)
     {
@@ -6779,35 +9080,44 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Revokes roles that are assigned to a member in a workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param RevokeMemberProjectRolesRequest $tmpReq  RevokeMemberProjectRolesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Revokes roles that are assigned to a member in a workspace.
      *
-     * @return RevokeMemberProjectRolesResponse RevokeMemberProjectRolesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - RevokeMemberProjectRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevokeMemberProjectRolesResponse
+     *
+     * @param RevokeMemberProjectRolesRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RevokeMemberProjectRolesResponse
      */
     public function revokeMemberProjectRolesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RevokeMemberProjectRolesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roleCodes)) {
-            $request->roleCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->roleCodes) {
+            $request->roleCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->roleCodes, 'RoleCodes', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->roleCodesShrink)) {
-            $body['RoleCodes'] = $request->roleCodesShrink;
+
+        if (null !== $request->roleCodesShrink) {
+            @$body['RoleCodes'] = $request->roleCodesShrink;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RevokeMemberProjectRoles',
@@ -6820,18 +9130,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevokeMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeMemberProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeMemberProjectRolesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes roles that are assigned to a member in a workspace.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param RevokeMemberProjectRolesRequest $request RevokeMemberProjectRolesRequest
+     * Revokes roles that are assigned to a member in a workspace.
      *
-     * @return RevokeMemberProjectRolesResponse RevokeMemberProjectRolesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - RevokeMemberProjectRolesRequest
+     * @returns RevokeMemberProjectRolesResponse
+     *
+     * @param RevokeMemberProjectRolesRequest $request
+     *
+     * @return RevokeMemberProjectRolesResponse
      */
     public function revokeMemberProjectRoles($request)
     {
@@ -6841,30 +9158,38 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param SetSuccessTaskInstancesRequest $tmpReq  SetSuccessTaskInstancesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return SetSuccessTaskInstancesResponse SetSuccessTaskInstancesResponse
+     * @param tmpReq - SetSuccessTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetSuccessTaskInstancesResponse
+     *
+     * @param SetSuccessTaskInstancesRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetSuccessTaskInstancesResponse
      */
     public function setSuccessTaskInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SetSuccessTaskInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ids)) {
-            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->comment)) {
-            $body['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->idsShrink)) {
-            $body['Ids'] = $request->idsShrink;
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SetSuccessTaskInstances',
@@ -6877,16 +9202,23 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetSuccessTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetSuccessTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetSuccessTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param SetSuccessTaskInstancesRequest $request SetSuccessTaskInstancesRequest
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return SetSuccessTaskInstancesResponse SetSuccessTaskInstancesResponse
+     * @param request - SetSuccessTaskInstancesRequest
+     * @returns SetSuccessTaskInstancesResponse
+     *
+     * @param SetSuccessTaskInstancesRequest $request
+     *
+     * @return SetSuccessTaskInstancesResponse
      */
     public function setSuccessTaskInstances($request)
     {
@@ -6896,26 +9228,32 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Starts a new-version synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param StartDIJobRequest $tmpReq  StartDIJobRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Starts a new-version synchronization task.
      *
-     * @return StartDIJobResponse StartDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - StartDIJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartDIJobResponse
+     *
+     * @param StartDIJobRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return StartDIJobResponse
      */
     public function startDIJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new StartDIJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->realtimeStartSettings)) {
-            $request->realtimeStartSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->realtimeStartSettings, 'RealtimeStartSettings', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->realtimeStartSettings) {
+            $request->realtimeStartSettingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->realtimeStartSettings, 'RealtimeStartSettings', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartDIJob',
@@ -6928,18 +9266,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartDIJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts a new-version synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param StartDIJobRequest $request StartDIJobRequest
+     * Starts a new-version synchronization task.
      *
-     * @return StartDIJobResponse StartDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - StartDIJobRequest
+     * @returns StartDIJobResponse
+     *
+     * @param StartDIJobRequest $request
+     *
+     * @return StartDIJobResponse
      */
     public function startDIJob($request)
     {
@@ -6949,21 +9294,100 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Stops a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param StopDIJobRequest $request StopDIJobRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Starts multiple workflow instances at a time.
      *
-     * @return StopDIJobResponse StopDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - StartWorkflowInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartWorkflowInstancesResponse
+     *
+     * @param StartWorkflowInstancesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StartWorkflowInstancesResponse
+     */
+    public function startWorkflowInstancesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StartWorkflowInstancesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartWorkflowInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return StartWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Starts multiple workflow instances at a time.
+     *
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - StartWorkflowInstancesRequest
+     * @returns StartWorkflowInstancesResponse
+     *
+     * @param StartWorkflowInstancesRequest $request
+     *
+     * @return StartWorkflowInstancesResponse
+     */
+    public function startWorkflowInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startWorkflowInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Stops a synchronization task.
+     *
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - StopDIJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopDIJobResponse
+     *
+     * @param StopDIJobRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return StopDIJobResponse
      */
     public function stopDIJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopDIJob',
@@ -6976,18 +9400,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopDIJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param StopDIJobRequest $request StopDIJobRequest
+     * Stops a synchronization task.
      *
-     * @return StopDIJobResponse StopDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - StopDIJobRequest
+     * @returns StopDIJobResponse
+     *
+     * @param StopDIJobRequest $request
+     *
+     * @return StopDIJobResponse
      */
     public function stopDIJob($request)
     {
@@ -6997,30 +9428,38 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param StopTaskInstancesRequest $tmpReq  StopTaskInstancesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return StopTaskInstancesResponse StopTaskInstancesResponse
+     * @param tmpReq - StopTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopTaskInstancesResponse
+     *
+     * @param StopTaskInstancesRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StopTaskInstancesResponse
      */
     public function stopTaskInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new StopTaskInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ids)) {
-            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->comment)) {
-            $body['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->idsShrink)) {
-            $body['Ids'] = $request->idsShrink;
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StopTaskInstances',
@@ -7033,16 +9472,23 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param StopTaskInstancesRequest $request StopTaskInstancesRequest
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return StopTaskInstancesResponse StopTaskInstancesResponse
+     * @param request - StopTaskInstancesRequest
+     * @returns StopTaskInstancesResponse
+     *
+     * @param StopTaskInstancesRequest $request
+     *
+     * @return StopTaskInstancesResponse
      */
     public function stopTaskInstances($request)
     {
@@ -7052,30 +9498,102 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param SuspendTaskInstancesRequest $tmpReq  SuspendTaskInstancesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - StopWorkflowInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopWorkflowInstancesResponse
      *
-     * @return SuspendTaskInstancesResponse SuspendTaskInstancesResponse
+     * @param StopWorkflowInstancesRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StopWorkflowInstancesResponse
+     */
+    public function stopWorkflowInstancesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StopWorkflowInstancesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopWorkflowInstances',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return StopWorkflowInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - StopWorkflowInstancesRequest
+     * @returns StopWorkflowInstancesResponse
+     *
+     * @param StopWorkflowInstancesRequest $request
+     *
+     * @return StopWorkflowInstancesResponse
+     */
+    public function stopWorkflowInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopWorkflowInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - SuspendTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SuspendTaskInstancesResponse
+     *
+     * @param SuspendTaskInstancesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SuspendTaskInstancesResponse
      */
     public function suspendTaskInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SuspendTaskInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ids)) {
-            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->comment)) {
-            $body['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->idsShrink)) {
-            $body['Ids'] = $request->idsShrink;
+
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SuspendTaskInstances',
@@ -7088,16 +9606,23 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SuspendTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SuspendTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SuspendTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param SuspendTaskInstancesRequest $request SuspendTaskInstancesRequest
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
-     * @return SuspendTaskInstancesResponse SuspendTaskInstancesResponse
+     * @param request - SuspendTaskInstancesRequest
+     * @returns SuspendTaskInstancesResponse
+     *
+     * @param SuspendTaskInstancesRequest $request
+     *
+     * @return SuspendTaskInstancesResponse
      */
     public function suspendTaskInstances($request)
     {
@@ -7107,45 +9632,57 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 为资产绑定标签
-     *  *
-     * @param TagDataAssetsRequest $tmpReq  TagDataAssetsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 为资产绑定标签.
      *
-     * @return TagDataAssetsResponse TagDataAssetsResponse
+     * @param tmpReq - TagDataAssetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagDataAssetsResponse
+     *
+     * @param TagDataAssetsRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TagDataAssetsResponse
      */
     public function tagDataAssetsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TagDataAssetsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dataAssetIds)) {
-            $request->dataAssetIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataAssetIds, 'DataAssetIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataAssetIds) {
+            $request->dataAssetIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataAssetIds, 'DataAssetIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->autoTraceEnabled)) {
-            $query['AutoTraceEnabled'] = $request->autoTraceEnabled;
+        if (null !== $request->autoTraceEnabled) {
+            @$query['AutoTraceEnabled'] = $request->autoTraceEnabled;
         }
-        if (!Utils::isUnset($request->dataAssetIdsShrink)) {
-            $query['DataAssetIds'] = $request->dataAssetIdsShrink;
+
+        if (null !== $request->dataAssetIdsShrink) {
+            @$query['DataAssetIds'] = $request->dataAssetIdsShrink;
         }
-        if (!Utils::isUnset($request->dataAssetType)) {
-            $query['DataAssetType'] = $request->dataAssetType;
+
+        if (null !== $request->dataAssetType) {
+            @$query['DataAssetType'] = $request->dataAssetType;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagDataAssets',
@@ -7158,16 +9695,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagDataAssetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 为资产绑定标签
-     *  *
-     * @param TagDataAssetsRequest $request TagDataAssetsRequest
+     * 为资产绑定标签.
      *
-     * @return TagDataAssetsResponse TagDataAssetsResponse
+     * @param request - TagDataAssetsRequest
+     * @returns TagDataAssetsResponse
+     *
+     * @param TagDataAssetsRequest $request
+     *
+     * @return TagDataAssetsResponse
      */
     public function tagDataAssets($request)
     {
@@ -7177,32 +9720,40 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Triggers a task to run by using an HTTP Trigger node at a specified time.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param TriggerSchedulerTaskInstanceRequest $request TriggerSchedulerTaskInstanceRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Triggers a task to run by using an HTTP Trigger node at a specified time.
      *
-     * @return TriggerSchedulerTaskInstanceResponse TriggerSchedulerTaskInstanceResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - TriggerSchedulerTaskInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TriggerSchedulerTaskInstanceResponse
+     *
+     * @param TriggerSchedulerTaskInstanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return TriggerSchedulerTaskInstanceResponse
      */
     public function triggerSchedulerTaskInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->triggerTime)) {
-            $body['TriggerTime'] = $request->triggerTime;
+
+        if (null !== $request->triggerTime) {
+            @$body['TriggerTime'] = $request->triggerTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'TriggerSchedulerTaskInstance',
@@ -7215,18 +9766,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TriggerSchedulerTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TriggerSchedulerTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TriggerSchedulerTaskInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Triggers a task to run by using an HTTP Trigger node at a specified time.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param TriggerSchedulerTaskInstanceRequest $request TriggerSchedulerTaskInstanceRequest
+     * Triggers a task to run by using an HTTP Trigger node at a specified time.
      *
-     * @return TriggerSchedulerTaskInstanceResponse TriggerSchedulerTaskInstanceResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - TriggerSchedulerTaskInstanceRequest
+     * @returns TriggerSchedulerTaskInstanceResponse
+     *
+     * @param TriggerSchedulerTaskInstanceRequest $request
+     *
+     * @return TriggerSchedulerTaskInstanceResponse
      */
     public function triggerSchedulerTaskInstance($request)
     {
@@ -7236,42 +9794,53 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 为资产解绑标签关系
-     *  *
-     * @param UnTagDataAssetsRequest $tmpReq  UnTagDataAssetsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 为资产解绑标签关系.
      *
-     * @return UnTagDataAssetsResponse UnTagDataAssetsResponse
+     * @param tmpReq - UnTagDataAssetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnTagDataAssetsResponse
+     *
+     * @param UnTagDataAssetsRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UnTagDataAssetsResponse
      */
     public function unTagDataAssetsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UnTagDataAssetsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dataAssetIds)) {
-            $request->dataAssetIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataAssetIds, 'DataAssetIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataAssetIds) {
+            $request->dataAssetIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataAssetIds, 'DataAssetIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->dataAssetIdsShrink)) {
-            $query['DataAssetIds'] = $request->dataAssetIdsShrink;
+        if (null !== $request->dataAssetIdsShrink) {
+            @$query['DataAssetIds'] = $request->dataAssetIdsShrink;
         }
-        if (!Utils::isUnset($request->dataAssetType)) {
-            $query['DataAssetType'] = $request->dataAssetType;
+
+        if (null !== $request->dataAssetType) {
+            @$query['DataAssetType'] = $request->dataAssetType;
         }
-        if (!Utils::isUnset($request->envType)) {
-            $query['EnvType'] = $request->envType;
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnTagDataAssets',
@@ -7284,16 +9853,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnTagDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnTagDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnTagDataAssetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 为资产解绑标签关系
-     *  *
-     * @param UnTagDataAssetsRequest $request UnTagDataAssetsRequest
+     * 为资产解绑标签关系.
      *
-     * @return UnTagDataAssetsResponse UnTagDataAssetsResponse
+     * @param request - UnTagDataAssetsRequest
+     * @returns UnTagDataAssetsResponse
+     *
+     * @param UnTagDataAssetsRequest $request
+     *
+     * @return UnTagDataAssetsResponse
      */
     public function unTagDataAssets($request)
     {
@@ -7303,45 +9878,57 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates a custom alert monitoring rule.
-     *  *
-     * @param UpdateAlertRuleRequest $tmpReq  UpdateAlertRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Updates a custom alert monitoring rule.
      *
-     * @return UpdateAlertRuleResponse UpdateAlertRuleResponse
+     * @param tmpReq - UpdateAlertRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAlertRuleResponse
+     *
+     * @param UpdateAlertRuleRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAlertRuleResponse
      */
     public function updateAlertRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAlertRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->triggerCondition)) {
-            $request->triggerConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerCondition, 'TriggerCondition', 'json');
+
+        if (null !== $tmpReq->triggerCondition) {
+            $request->triggerConditionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->triggerCondition, 'TriggerCondition', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->triggerConditionShrink)) {
-            $query['TriggerCondition'] = $request->triggerConditionShrink;
+
+        if (null !== $request->triggerConditionShrink) {
+            @$query['TriggerCondition'] = $request->triggerConditionShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAlertRule',
@@ -7354,16 +9941,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAlertRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a custom alert monitoring rule.
-     *  *
-     * @param UpdateAlertRuleRequest $request UpdateAlertRuleRequest
+     * Updates a custom alert monitoring rule.
      *
-     * @return UpdateAlertRuleResponse UpdateAlertRuleResponse
+     * @param request - UpdateAlertRuleRequest
+     * @returns UpdateAlertRuleResponse
+     *
+     * @param UpdateAlertRuleRequest $request
+     *
+     * @return UpdateAlertRuleResponse
      */
     public function updateAlertRule($request)
     {
@@ -7373,27 +9966,33 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates an alert rule configured for a synchronization task.
-     *  *
-     * @param UpdateDIAlarmRuleRequest $tmpReq  UpdateDIAlarmRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Updates an alert rule configured for a synchronization task.
      *
-     * @return UpdateDIAlarmRuleResponse UpdateDIAlarmRuleResponse
+     * @param tmpReq - UpdateDIAlarmRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDIAlarmRuleResponse
+     *
+     * @param UpdateDIAlarmRuleRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateDIAlarmRuleResponse
      */
     public function updateDIAlarmRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDIAlarmRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->notificationSettings)) {
-            $request->notificationSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notificationSettings, 'NotificationSettings', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notificationSettings) {
+            $request->notificationSettingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notificationSettings, 'NotificationSettings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->triggerConditions)) {
-            $request->triggerConditionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->triggerConditions, 'TriggerConditions', 'json');
+
+        if (null !== $tmpReq->triggerConditions) {
+            $request->triggerConditionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->triggerConditions, 'TriggerConditions', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDIAlarmRule',
@@ -7406,16 +10005,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDIAlarmRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates an alert rule configured for a synchronization task.
-     *  *
-     * @param UpdateDIAlarmRuleRequest $request UpdateDIAlarmRuleRequest
+     * Updates an alert rule configured for a synchronization task.
      *
-     * @return UpdateDIAlarmRuleResponse UpdateDIAlarmRuleResponse
+     * @param request - UpdateDIAlarmRuleRequest
+     * @returns UpdateDIAlarmRuleResponse
+     *
+     * @param UpdateDIAlarmRuleRequest $request
+     *
+     * @return UpdateDIAlarmRuleResponse
      */
     public function updateDIAlarmRule($request)
     {
@@ -7425,35 +10030,44 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param UpdateDIJobRequest $tmpReq  UpdateDIJobRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Updates a synchronization task.
      *
-     * @return UpdateDIJobResponse UpdateDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - UpdateDIJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDIJobResponse
+     *
+     * @param UpdateDIJobRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateDIJobResponse
      */
     public function updateDIJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDIJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobSettings)) {
-            $request->jobSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSettings, 'JobSettings', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobSettings) {
+            $request->jobSettingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobSettings, 'JobSettings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceSettings)) {
-            $request->resourceSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceSettings, 'ResourceSettings', 'json');
+
+        if (null !== $tmpReq->resourceSettings) {
+            $request->resourceSettingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceSettings, 'ResourceSettings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tableMappings)) {
-            $request->tableMappingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableMappings, 'TableMappings', 'json');
+
+        if (null !== $tmpReq->tableMappings) {
+            $request->tableMappingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableMappings, 'TableMappings', 'json');
         }
-        if (!Utils::isUnset($tmpReq->transformationRules)) {
-            $request->transformationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
+
+        if (null !== $tmpReq->transformationRules) {
+            $request->transformationRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transformationRules, 'TransformationRules', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDIJob',
@@ -7466,18 +10080,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDIJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a synchronization task.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param UpdateDIJobRequest $request UpdateDIJobRequest
+     * Updates a synchronization task.
      *
-     * @return UpdateDIJobResponse UpdateDIJobResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - UpdateDIJobRequest
+     * @returns UpdateDIJobResponse
+     *
+     * @param UpdateDIJobRequest $request
+     *
+     * @return UpdateDIJobResponse
      */
     public function updateDIJob($request)
     {
@@ -7487,39 +10108,49 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新标签
-     *  *
-     * @param UpdateDataAssetTagRequest $tmpReq  UpdateDataAssetTagRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 更新标签.
      *
-     * @return UpdateDataAssetTagResponse UpdateDataAssetTagResponse
+     * @param tmpReq - UpdateDataAssetTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDataAssetTagResponse
+     *
+     * @param UpdateDataAssetTagRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateDataAssetTagResponse
      */
     public function updateDataAssetTagWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataAssetTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->managers)) {
-            $request->managersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managers, 'Managers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->managers) {
+            $request->managersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->managers, 'Managers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->values)) {
-            $request->valuesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->values, 'Values', 'json');
+
+        if (null !== $tmpReq->values) {
+            $request->valuesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->values, 'Values', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->managersShrink)) {
-            $query['Managers'] = $request->managersShrink;
+
+        if (null !== $request->managersShrink) {
+            @$query['Managers'] = $request->managersShrink;
         }
-        if (!Utils::isUnset($request->valuesShrink)) {
-            $query['Values'] = $request->valuesShrink;
+
+        if (null !== $request->valuesShrink) {
+            @$query['Values'] = $request->valuesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataAssetTag',
@@ -7532,16 +10163,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataAssetTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataAssetTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新标签
-     *  *
-     * @param UpdateDataAssetTagRequest $request UpdateDataAssetTagRequest
+     * 更新标签.
      *
-     * @return UpdateDataAssetTagResponse UpdateDataAssetTagResponse
+     * @param request - UpdateDataAssetTagRequest
+     * @returns UpdateDataAssetTagResponse
+     *
+     * @param UpdateDataAssetTagRequest $request
+     *
+     * @return UpdateDataAssetTagResponse
      */
     public function updateDataAssetTag($request)
     {
@@ -7551,71 +10188,92 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates a monitor.
-     *  *
-     * @description This API operation is supported in all DataWorks editions.
-     *  *
-     * @param UpdateDataQualityEvaluationTaskRequest $tmpReq  UpdateDataQualityEvaluationTaskRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Updates a monitor.
      *
-     * @return UpdateDataQualityEvaluationTaskResponse UpdateDataQualityEvaluationTaskResponse
+     * @remarks
+     * This API operation is supported in all DataWorks editions.
+     *
+     * @param tmpReq - UpdateDataQualityEvaluationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDataQualityEvaluationTaskResponse
+     *
+     * @param UpdateDataQualityEvaluationTaskRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateDataQualityEvaluationTaskResponse
      */
     public function updateDataQualityEvaluationTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataQualityEvaluationTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dataQualityRules)) {
-            $request->dataQualityRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRules, 'DataQualityRules', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataQualityRules) {
+            $request->dataQualityRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRules, 'DataQualityRules', 'json');
         }
-        if (!Utils::isUnset($tmpReq->hooks)) {
-            $request->hooksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hooks, 'Hooks', 'json');
+
+        if (null !== $tmpReq->hooks) {
+            $request->hooksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hooks, 'Hooks', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notifications)) {
-            $request->notificationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notifications, 'Notifications', 'json');
+
+        if (null !== $tmpReq->notifications) {
+            $request->notificationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notifications, 'Notifications', 'json');
         }
-        if (!Utils::isUnset($tmpReq->target)) {
-            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+
+        if (null !== $tmpReq->target) {
+            $request->targetShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
         }
-        if (!Utils::isUnset($tmpReq->trigger)) {
-            $request->triggerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+
+        if (null !== $tmpReq->trigger) {
+            $request->triggerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dataQualityRulesShrink)) {
-            $body['DataQualityRules'] = $request->dataQualityRulesShrink;
+        if (null !== $request->dataQualityRulesShrink) {
+            @$body['DataQualityRules'] = $request->dataQualityRulesShrink;
         }
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $body['DataSourceId'] = $request->dataSourceId;
+
+        if (null !== $request->dataSourceId) {
+            @$body['DataSourceId'] = $request->dataSourceId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->hooksShrink)) {
-            $body['Hooks'] = $request->hooksShrink;
+
+        if (null !== $request->hooksShrink) {
+            @$body['Hooks'] = $request->hooksShrink;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->notificationsShrink)) {
-            $body['Notifications'] = $request->notificationsShrink;
+
+        if (null !== $request->notificationsShrink) {
+            @$body['Notifications'] = $request->notificationsShrink;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->runtimeConf)) {
-            $body['RuntimeConf'] = $request->runtimeConf;
+
+        if (null !== $request->runtimeConf) {
+            @$body['RuntimeConf'] = $request->runtimeConf;
         }
-        if (!Utils::isUnset($request->targetShrink)) {
-            $body['Target'] = $request->targetShrink;
+
+        if (null !== $request->targetShrink) {
+            @$body['Target'] = $request->targetShrink;
         }
-        if (!Utils::isUnset($request->triggerShrink)) {
-            $body['Trigger'] = $request->triggerShrink;
+
+        if (null !== $request->triggerShrink) {
+            @$body['Trigger'] = $request->triggerShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataQualityEvaluationTask',
@@ -7628,18 +10286,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataQualityEvaluationTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a monitor.
-     *  *
-     * @description This API operation is supported in all DataWorks editions.
-     *  *
-     * @param UpdateDataQualityEvaluationTaskRequest $request UpdateDataQualityEvaluationTaskRequest
+     * Updates a monitor.
      *
-     * @return UpdateDataQualityEvaluationTaskResponse UpdateDataQualityEvaluationTaskResponse
+     * @remarks
+     * This API operation is supported in all DataWorks editions.
+     *
+     * @param request - UpdateDataQualityEvaluationTaskRequest
+     * @returns UpdateDataQualityEvaluationTaskResponse
+     *
+     * @param UpdateDataQualityEvaluationTaskRequest $request
+     *
+     * @return UpdateDataQualityEvaluationTaskResponse
      */
     public function updateDataQualityEvaluationTask($request)
     {
@@ -7649,68 +10314,79 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates a data quality monitoring rule.
-     *  *
-     * @param UpdateDataQualityRuleRequest $tmpReq  UpdateDataQualityRuleRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Updates a data quality monitoring rule.
      *
-     * @return UpdateDataQualityRuleResponse UpdateDataQualityRuleResponse
+     * @param tmpReq - UpdateDataQualityRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDataQualityRuleResponse
+     *
+     * @param UpdateDataQualityRuleRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDataQualityRuleResponse
      */
     public function updateDataQualityRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataQualityRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->checkingConfig)) {
-            $request->checkingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkingConfig) {
+            $request->checkingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->errorHandlers)) {
-            $request->errorHandlersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->errorHandlers, 'ErrorHandlers', 'json');
+
+        if (null !== $tmpReq->errorHandlers) {
+            $request->errorHandlersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->errorHandlers, 'ErrorHandlers', 'json');
         }
-        if (!Utils::isUnset($tmpReq->samplingConfig)) {
-            $request->samplingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
+
+        if (null !== $tmpReq->samplingConfig) {
+            $request->samplingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->target)) {
-            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
-        }
+
         $query = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->checkingConfigShrink)) {
-            $body['CheckingConfig'] = $request->checkingConfigShrink;
+        if (null !== $request->checkingConfigShrink) {
+            @$body['CheckingConfig'] = $request->checkingConfigShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $body['Enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$body['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->errorHandlersShrink)) {
-            $body['ErrorHandlers'] = $request->errorHandlersShrink;
+
+        if (null !== $request->errorHandlersShrink) {
+            @$body['ErrorHandlers'] = $request->errorHandlersShrink;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->samplingConfigShrink)) {
-            $body['SamplingConfig'] = $request->samplingConfigShrink;
+
+        if (null !== $request->samplingConfigShrink) {
+            @$body['SamplingConfig'] = $request->samplingConfigShrink;
         }
-        if (!Utils::isUnset($request->severity)) {
-            $body['Severity'] = $request->severity;
+
+        if (null !== $request->severity) {
+            @$body['Severity'] = $request->severity;
         }
-        if (!Utils::isUnset($request->targetShrink)) {
-            $body['Target'] = $request->targetShrink;
+
+        if (null !== $request->templateCode) {
+            @$body['TemplateCode'] = $request->templateCode;
         }
-        if (!Utils::isUnset($request->templateCode)) {
-            $body['TemplateCode'] = $request->templateCode;
-        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataQualityRule',
@@ -7723,16 +10399,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a data quality monitoring rule.
-     *  *
-     * @param UpdateDataQualityRuleRequest $request UpdateDataQualityRuleRequest
+     * Updates a data quality monitoring rule.
      *
-     * @return UpdateDataQualityRuleResponse UpdateDataQualityRuleResponse
+     * @param request - UpdateDataQualityRuleRequest
+     * @returns UpdateDataQualityRuleResponse
+     *
+     * @param UpdateDataQualityRuleRequest $request
+     *
+     * @return UpdateDataQualityRuleResponse
      */
     public function updateDataQualityRule($request)
     {
@@ -7742,47 +10424,59 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates a data quality monitoring rule template.
-     *  *
-     * @param UpdateDataQualityRuleTemplateRequest $tmpReq  UpdateDataQualityRuleTemplateRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Updates a data quality monitoring rule template.
      *
-     * @return UpdateDataQualityRuleTemplateResponse UpdateDataQualityRuleTemplateResponse
+     * @param tmpReq - UpdateDataQualityRuleTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDataQualityRuleTemplateResponse
+     *
+     * @param UpdateDataQualityRuleTemplateRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateDataQualityRuleTemplateResponse
      */
     public function updateDataQualityRuleTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataQualityRuleTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->checkingConfig)) {
-            $request->checkingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkingConfig) {
+            $request->checkingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->samplingConfig)) {
-            $request->samplingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
+
+        if (null !== $tmpReq->samplingConfig) {
+            $request->samplingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->checkingConfigShrink)) {
-            $body['CheckingConfig'] = $request->checkingConfigShrink;
+        if (null !== $request->checkingConfigShrink) {
+            @$body['CheckingConfig'] = $request->checkingConfigShrink;
         }
-        if (!Utils::isUnset($request->code)) {
-            $body['Code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->directoryPath)) {
-            $body['DirectoryPath'] = $request->directoryPath;
+
+        if (null !== $request->directoryPath) {
+            @$body['DirectoryPath'] = $request->directoryPath;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->samplingConfigShrink)) {
-            $body['SamplingConfig'] = $request->samplingConfigShrink;
+
+        if (null !== $request->samplingConfigShrink) {
+            @$body['SamplingConfig'] = $request->samplingConfigShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataQualityRuleTemplate',
@@ -7795,16 +10489,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataQualityRuleTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a data quality monitoring rule template.
-     *  *
-     * @param UpdateDataQualityRuleTemplateRequest $request UpdateDataQualityRuleTemplateRequest
+     * Updates a data quality monitoring rule template.
      *
-     * @return UpdateDataQualityRuleTemplateResponse UpdateDataQualityRuleTemplateResponse
+     * @param request - UpdateDataQualityRuleTemplateRequest
+     * @returns UpdateDataQualityRuleTemplateResponse
+     *
+     * @param UpdateDataQualityRuleTemplateRequest $request
+     *
+     * @return UpdateDataQualityRuleTemplateResponse
      */
     public function updateDataQualityRuleTemplate($request)
     {
@@ -7814,38 +10514,48 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a data source by ID.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Modifies a data source by ID.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Tenant Administrator, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDataSourceResponse UpdateDataSourceResponse
+     * @param request - UpdateDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDataSourceResponse
+     *
+     * @param UpdateDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDataSourceResponse
      */
     public function updateDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionProperties)) {
-            $query['ConnectionProperties'] = $request->connectionProperties;
+        if (null !== $request->connectionProperties) {
+            @$query['ConnectionProperties'] = $request->connectionProperties;
         }
-        if (!Utils::isUnset($request->connectionPropertiesMode)) {
-            $query['ConnectionPropertiesMode'] = $request->connectionPropertiesMode;
+
+        if (null !== $request->connectionPropertiesMode) {
+            @$query['ConnectionPropertiesMode'] = $request->connectionPropertiesMode;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDataSource',
@@ -7858,20 +10568,27 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a data source by ID.
-     *  *
-     * @description 1.  This API operation is available for all DataWorks editions.
+     * Modifies a data source by ID.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Tenant Administrator, Workspace Administrator, Workspace Owner, and O\\&M
-     *  *
-     * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
      *
-     * @return UpdateDataSourceResponse UpdateDataSourceResponse
+     * @param request - UpdateDataSourceRequest
+     * @returns UpdateDataSourceResponse
+     *
+     * @param UpdateDataSourceRequest $request
+     *
+     * @return UpdateDataSourceResponse
      */
     public function updateDataSource($request)
     {
@@ -7881,28 +10598,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
-     *  *
-     * @param UpdateFunctionRequest $request UpdateFunctionRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
-     * @return UpdateFunctionResponse UpdateFunctionResponse
+     * @param request - UpdateFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateFunctionResponse
+     *
+     * @param UpdateFunctionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateFunctionResponse
      */
     public function updateFunctionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateFunction',
@@ -7915,16 +10639,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
-     *  *
-     * @param UpdateFunctionRequest $request UpdateFunctionRequest
+     * Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
-     * @return UpdateFunctionResponse UpdateFunctionResponse
+     * @param request - UpdateFunctionRequest
+     * @returns UpdateFunctionResponse
+     *
+     * @param UpdateFunctionRequest $request
+     *
+     * @return UpdateFunctionResponse
      */
     public function updateFunction($request)
     {
@@ -7934,28 +10664,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
-     *  *
-     * @param UpdateNodeRequest $request UpdateNodeRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
-     * @return UpdateNodeResponse UpdateNodeResponse
+     * @param request - UpdateNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateNodeResponse
+     *
+     * @param UpdateNodeRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateNodeResponse
      */
     public function updateNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateNode',
@@ -7968,16 +10705,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
-     *  *
-     * @param UpdateNodeRequest $request UpdateNodeRequest
+     * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
-     * @return UpdateNodeResponse UpdateNodeResponse
+     * @param request - UpdateNodeRequest
+     * @returns UpdateNodeResponse
+     *
+     * @param UpdateNodeRequest $request
+     *
+     * @return UpdateNodeResponse
      */
     public function updateNode($request)
     {
@@ -7987,40 +10730,51 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates a DataWorks workspace.
-     *  *
-     * @param UpdateProjectRequest $request UpdateProjectRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Updates a DataWorks workspace.
      *
-     * @return UpdateProjectResponse UpdateProjectResponse
+     * @param request - UpdateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateProjectResponse
+     *
+     * @param UpdateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProjectResponse
      */
     public function updateProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->devEnvironmentEnabled)) {
-            $body['DevEnvironmentEnabled'] = $request->devEnvironmentEnabled;
+
+        if (null !== $request->devEnvironmentEnabled) {
+            @$body['DevEnvironmentEnabled'] = $request->devEnvironmentEnabled;
         }
-        if (!Utils::isUnset($request->devRoleDisabled)) {
-            $body['DevRoleDisabled'] = $request->devRoleDisabled;
+
+        if (null !== $request->devRoleDisabled) {
+            @$body['DevRoleDisabled'] = $request->devRoleDisabled;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->paiTaskEnabled)) {
-            $body['PaiTaskEnabled'] = $request->paiTaskEnabled;
+
+        if (null !== $request->paiTaskEnabled) {
+            @$body['PaiTaskEnabled'] = $request->paiTaskEnabled;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateProject',
@@ -8033,16 +10787,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a DataWorks workspace.
-     *  *
-     * @param UpdateProjectRequest $request UpdateProjectRequest
+     * Updates a DataWorks workspace.
      *
-     * @return UpdateProjectResponse UpdateProjectResponse
+     * @param request - UpdateProjectRequest
+     * @returns UpdateProjectResponse
+     *
+     * @param UpdateProjectRequest $request
+     *
+     * @return UpdateProjectResponse
      */
     public function updateProject($request)
     {
@@ -8052,28 +10812,35 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
-     *  *
-     * @param UpdateResourceRequest $request UpdateResourceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
-     * @return UpdateResourceResponse UpdateResourceResponse
+     * @param request - UpdateResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateResourceResponse
+     *
+     * @param UpdateResourceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateResourceResponse
      */
     public function updateResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateResource',
@@ -8086,16 +10853,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
-     *  *
-     * @param UpdateResourceRequest $request UpdateResourceRequest
+     * Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
-     * @return UpdateResourceResponse UpdateResourceResponse
+     * @param request - UpdateResourceRequest
+     * @returns UpdateResourceResponse
+     *
+     * @param UpdateResourceRequest $request
+     *
+     * @return UpdateResourceResponse
      */
     public function updateResource($request)
     {
@@ -8105,33 +10878,42 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates basic information about a resource group.
-     *  *
-     * @description You can use this API operation only in DataWorks Basic Edition or an advanced edition.
-     *  *
-     * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Updates basic information about a resource group.
      *
-     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
+     * @remarks
+     * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     *
+     * @param request - UpdateResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateResourceGroupResponse
+     *
+     * @param UpdateResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateResourceGroupResponse
      */
     public function updateResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aliyunResourceGroupId)) {
-            $body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
+        if (null !== $request->aliyunResourceGroupId) {
+            @$body['AliyunResourceGroupId'] = $request->aliyunResourceGroupId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$body['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateResourceGroup',
@@ -8144,18 +10926,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates basic information about a resource group.
-     *  *
-     * @description You can use this API operation only in DataWorks Basic Edition or an advanced edition.
-     *  *
-     * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
+     * Updates basic information about a resource group.
      *
-     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
+     * @remarks
+     * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     *
+     * @param request - UpdateResourceGroupRequest
+     * @returns UpdateResourceGroupResponse
+     *
+     * @param UpdateResourceGroupRequest $request
+     *
+     * @return UpdateResourceGroupResponse
      */
     public function updateResourceGroup($request)
     {
@@ -8165,27 +10954,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a route.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param UpdateRouteRequest $request UpdateRouteRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a route.
      *
-     * @return UpdateRouteResponse UpdateRouteResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - UpdateRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRouteResponse
+     *
+     * @param UpdateRouteRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateRouteResponse
      */
     public function updateRouteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->destinationCidr)) {
-            $body['DestinationCidr'] = $request->destinationCidr;
+        if (null !== $request->destinationCidr) {
+            @$body['DestinationCidr'] = $request->destinationCidr;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRoute',
@@ -8198,18 +10994,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRouteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about a route.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param UpdateRouteRequest $request UpdateRouteRequest
+     * Updates the information about a route.
      *
-     * @return UpdateRouteResponse UpdateRouteResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - UpdateRouteRequest
+     * @returns UpdateRouteResponse
+     *
+     * @param UpdateRouteRequest $request
+     *
+     * @return UpdateRouteResponse
      */
     public function updateRoute($request)
     {
@@ -8219,32 +11022,200 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies properties configured for multiple instances at a time. The properties include the priority, resource group for scheduling, and data source.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param UpdateTaskInstancesRequest $tmpReq  UpdateTaskInstancesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - UpdateTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskResponse
      *
-     * @return UpdateTaskInstancesResponse UpdateTaskInstancesResponse
+     * @param UpdateTaskRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateTaskResponse
+     */
+    public function updateTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataSource) {
+            $request->dataSourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
+        }
+
+        if (null !== $tmpReq->dependencies) {
+            $request->dependenciesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dependencies, 'Dependencies', 'json');
+        }
+
+        if (null !== $tmpReq->inputs) {
+            $request->inputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputs, 'Inputs', 'json');
+        }
+
+        if (null !== $tmpReq->outputs) {
+            $request->outputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outputs, 'Outputs', 'json');
+        }
+
+        if (null !== $tmpReq->runtimeResource) {
+            $request->runtimeResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
+        }
+
+        if (null !== $tmpReq->script) {
+            $request->scriptShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->script, 'Script', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
+        if (null !== $tmpReq->trigger) {
+            $request->triggerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientUniqueCode) {
+            @$body['ClientUniqueCode'] = $request->clientUniqueCode;
+        }
+
+        if (null !== $request->dataSourceShrink) {
+            @$body['DataSource'] = $request->dataSourceShrink;
+        }
+
+        if (null !== $request->dependenciesShrink) {
+            @$body['Dependencies'] = $request->dependenciesShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->envType) {
+            @$body['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->inputsShrink) {
+            @$body['Inputs'] = $request->inputsShrink;
+        }
+
+        if (null !== $request->instanceMode) {
+            @$body['InstanceMode'] = $request->instanceMode;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->outputsShrink) {
+            @$body['Outputs'] = $request->outputsShrink;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->rerunInterval) {
+            @$body['RerunInterval'] = $request->rerunInterval;
+        }
+
+        if (null !== $request->rerunMode) {
+            @$body['RerunMode'] = $request->rerunMode;
+        }
+
+        if (null !== $request->rerunTimes) {
+            @$body['RerunTimes'] = $request->rerunTimes;
+        }
+
+        if (null !== $request->runtimeResourceShrink) {
+            @$body['RuntimeResource'] = $request->runtimeResourceShrink;
+        }
+
+        if (null !== $request->scriptShrink) {
+            @$body['Script'] = $request->scriptShrink;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->triggerShrink) {
+            @$body['Trigger'] = $request->triggerShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTask',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateTaskRequest
+     * @returns UpdateTaskResponse
+     *
+     * @param UpdateTaskRequest $request
+     *
+     * @return UpdateTaskResponse
+     */
+    public function updateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies properties configured for multiple instances at a time. The properties include the priority, resource group for scheduling, and data source.
+     *
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param tmpReq - UpdateTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskInstancesResponse
+     *
+     * @param UpdateTaskInstancesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateTaskInstancesResponse
      */
     public function updateTaskInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTaskInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskInstances)) {
-            $request->taskInstancesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskInstances, 'TaskInstances', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskInstances) {
+            $request->taskInstancesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskInstances, 'TaskInstances', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->comment)) {
-            $body['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->taskInstancesShrink)) {
-            $body['TaskInstances'] = $request->taskInstancesShrink;
+
+        if (null !== $request->taskInstancesShrink) {
+            @$body['TaskInstances'] = $request->taskInstancesShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTaskInstances',
@@ -8257,18 +11228,25 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTaskInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies properties configured for multiple instances at a time. The properties include the priority, resource group for scheduling, and data source.
-     *  *
-     * @description This API operation is available for all DataWorks editions.
-     *  *
-     * @param UpdateTaskInstancesRequest $request UpdateTaskInstancesRequest
+     * Modifies properties configured for multiple instances at a time. The properties include the priority, resource group for scheduling, and data source.
      *
-     * @return UpdateTaskInstancesResponse UpdateTaskInstancesResponse
+     * @remarks
+     * This API operation is available for all DataWorks editions.
+     *
+     * @param request - UpdateTaskInstancesRequest
+     * @returns UpdateTaskInstancesResponse
+     *
+     * @param UpdateTaskInstancesRequest $request
+     *
+     * @return UpdateTaskInstancesResponse
      */
     public function updateTaskInstances($request)
     {
@@ -8278,28 +11256,155 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
-     *  *
-     * @param UpdateWorkflowDefinitionRequest $request UpdateWorkflowDefinitionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - UpdateWorkflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWorkflowResponse
      *
-     * @return UpdateWorkflowDefinitionResponse UpdateWorkflowDefinitionResponse
+     * @param UpdateWorkflowRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateWorkflowResponse
+     */
+    public function updateWorkflowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateWorkflowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dependencies) {
+            $request->dependenciesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dependencies, 'Dependencies', 'json');
+        }
+
+        if (null !== $tmpReq->outputs) {
+            $request->outputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outputs, 'Outputs', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
+        if (null !== $tmpReq->tasks) {
+            $request->tasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tasks, 'Tasks', 'json');
+        }
+
+        if (null !== $tmpReq->trigger) {
+            $request->triggerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientUniqueCode) {
+            @$body['ClientUniqueCode'] = $request->clientUniqueCode;
+        }
+
+        if (null !== $request->dependenciesShrink) {
+            @$body['Dependencies'] = $request->dependenciesShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->envType) {
+            @$body['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->outputsShrink) {
+            @$body['Outputs'] = $request->outputsShrink;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['Parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->tasksShrink) {
+            @$body['Tasks'] = $request->tasksShrink;
+        }
+
+        if (null !== $request->triggerShrink) {
+            @$body['Trigger'] = $request->triggerShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWorkflow',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateWorkflowRequest
+     * @returns UpdateWorkflowResponse
+     *
+     * @param UpdateWorkflowRequest $request
+     *
+     * @return UpdateWorkflowResponse
+     */
+    public function updateWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+     *
+     * @param request - UpdateWorkflowDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWorkflowDefinitionResponse
+     *
+     * @param UpdateWorkflowDefinitionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateWorkflowDefinitionResponse
      */
     public function updateWorkflowDefinitionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $body['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$body['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateWorkflowDefinition',
@@ -8312,16 +11417,22 @@ class Dataworkspublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWorkflowDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWorkflowDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
-     *  *
-     * @param UpdateWorkflowDefinitionRequest $request UpdateWorkflowDefinitionRequest
+     * Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
-     * @return UpdateWorkflowDefinitionResponse UpdateWorkflowDefinitionResponse
+     * @param request - UpdateWorkflowDefinitionRequest
+     * @returns UpdateWorkflowDefinitionResponse
+     *
+     * @param UpdateWorkflowDefinitionRequest $request
+     *
+     * @return UpdateWorkflowDefinitionResponse
      */
     public function updateWorkflowDefinition($request)
     {

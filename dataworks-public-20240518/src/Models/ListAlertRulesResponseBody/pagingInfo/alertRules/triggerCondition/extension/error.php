@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesResponseBody\pagingInfo\alertRules\triggerCondition\extension;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class error extends Model
 {
@@ -12,10 +12,7 @@ class error extends Model
      * @var bool
      */
     public $autoRerunAlertEnabled;
-
     /**
-     * @description The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
-     *
      * @var int[]
      */
     public $streamTaskIds;
@@ -26,35 +23,51 @@ class error extends Model
 
     public function validate()
     {
+        if (\is_array($this->streamTaskIds)) {
+            Model::validateArray($this->streamTaskIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRerunAlertEnabled) {
             $res['AutoRerunAlertEnabled'] = $this->autoRerunAlertEnabled;
         }
+
         if (null !== $this->streamTaskIds) {
-            $res['StreamTaskIds'] = $this->streamTaskIds;
+            if (\is_array($this->streamTaskIds)) {
+                $res['StreamTaskIds'] = [];
+                $n1                   = 0;
+                foreach ($this->streamTaskIds as $item1) {
+                    $res['StreamTaskIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return error
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRerunAlertEnabled'])) {
             $model->autoRerunAlertEnabled = $map['AutoRerunAlertEnabled'];
         }
+
         if (isset($map['StreamTaskIds'])) {
             if (!empty($map['StreamTaskIds'])) {
-                $model->streamTaskIds = $map['StreamTaskIds'];
+                $model->streamTaskIds = [];
+                $n1                   = 0;
+                foreach ($map['StreamTaskIds'] as $item1) {
+                    $model->streamTaskIds[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,49 +4,44 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskRequest\dataQualityRules\checkingConfig\thresholds;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class expected extends Model
 {
     /**
-     * @description The comparison operator. Valid values:
-     *
-     *   \\>
-     *   \\>=
-     *   <
-     *   <=
-     *   !=
-     *   \\=
-     *
-     * @example =
-     *
+     * @var string
+     */
+    public $expression;
+    /**
      * @var string
      */
     public $operator;
-
     /**
-     * @description The threshold value.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'operator' => 'Operator',
-        'value'    => 'Value',
+        'expression' => 'Expression',
+        'operator'   => 'Operator',
+        'value'      => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->expression) {
+            $res['Expression'] = $this->expression;
+        }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -54,17 +49,22 @@ class expected extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return expected
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Expression'])) {
+            $model->expression = $map['Expression'];
+        }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

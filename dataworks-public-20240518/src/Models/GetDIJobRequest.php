@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDIJobRequest extends Model
 {
     /**
-     * @description This parameter is deprecated. Use the Id parameter instead.
-     *
-     * @example 11588
-     *
-     * @deprecated
-     *
      * @var int
      */
     public $DIJobId;
-
     /**
-     * @description The ID of the synchronization task.
-     *
-     * @example 11588
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description Specifies whether to return detailed configuration information, including TransformationRules, TableMappings, and JobSettings. Valid values: true and false. Default value: true.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $withDetails;
@@ -52,20 +33,24 @@ class GetDIJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIJobId) {
             $res['DIJobId'] = $this->DIJobId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->withDetails) {
             $res['WithDetails'] = $this->withDetails;
         }
@@ -73,23 +58,26 @@ class GetDIJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDIJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIJobId'])) {
             $model->DIJobId = $map['DIJobId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['WithDetails'])) {
             $model->withDetails = $map['WithDetails'];
         }

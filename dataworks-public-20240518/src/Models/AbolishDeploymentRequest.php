@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AbolishDeploymentRequest extends Model
 {
     /**
-     * @description The ID of the process.
-     *
-     * This parameter is required.
-     * @example 1606087c-9ac4-43f0-83a8-0b5ced21XXXX
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
-     *
-     * This parameter is required.
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
@@ -34,14 +23,16 @@ class AbolishDeploymentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -49,17 +40,18 @@ class AbolishDeploymentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AbolishDeploymentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

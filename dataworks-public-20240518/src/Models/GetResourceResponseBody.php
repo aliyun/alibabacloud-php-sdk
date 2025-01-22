@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceResponseBody\resource;
-use AlibabaCloud\Tea\Model;
 
 class GetResourceResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example E871F6C0-2EFF-5790-A00D-C57543EEXXXX
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the file resource.
-     *
      * @var resource
      */
     public $resource;
@@ -31,32 +24,38 @@ class GetResourceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->resource) {
+            $this->resource->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resource) {
-            $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
+            $res['Resource'] = null !== $this->resource ? $this->resource->toArray($noStream) : $this->resource;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);
         }

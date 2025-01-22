@@ -4,44 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDeploymentShrinkRequest extends Model
 {
     /**
-     * @description The description of the process.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The IDs of entities to which you want to apply the process.
-     *
-     * This parameter is required.
      * @var string
      */
     public $objectIdsShrink;
-
     /**
-     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
-     *
-     * This parameter is required.
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description Specifies whether to deploy or undeploy the entity. Valid values:
-     *
-     *   Online: deploys the entity.
-     *   Offline: undeploys the entity.
-     *
-     * This parameter is required.
-     * @example Online
-     *
      * @var string
      */
     public $type;
@@ -54,20 +33,24 @@ class CreateDeploymentShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->objectIdsShrink) {
             $res['ObjectIds'] = $this->objectIdsShrink;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -75,23 +58,26 @@ class CreateDeploymentShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDeploymentShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ObjectIds'])) {
             $model->objectIdsShrink = $map['ObjectIds'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

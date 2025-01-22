@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskInstanceRequest\runtimeResource;
-use AlibabaCloud\Tea\Model;
 
 class CreateDataQualityEvaluationTaskInstanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 200001
-     *
      * @var int
      */
     public $dataQualityEvaluationTaskId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example { "triggerTime": 1733284062000 }
-     *
      * @var string
      */
     public $parameters;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
-
     /**
      * @var runtimeResource
      */
@@ -49,44 +34,54 @@ class CreateDataQualityEvaluationTaskInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->runtimeResource) {
+            $this->runtimeResource->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataQualityEvaluationTaskId) {
             $res['DataQualityEvaluationTaskId'] = $this->dataQualityEvaluationTaskId;
         }
+
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->runtimeResource) {
-            $res['RuntimeResource'] = null !== $this->runtimeResource ? $this->runtimeResource->toMap() : null;
+            $res['RuntimeResource'] = null !== $this->runtimeResource ? $this->runtimeResource->toArray($noStream) : $this->runtimeResource;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataQualityEvaluationTaskInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityEvaluationTaskId'])) {
             $model->dataQualityEvaluationTaskId = $map['DataQualityEvaluationTaskId'];
         }
+
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RuntimeResource'])) {
             $model->runtimeResource = runtimeResource::fromMap($map['RuntimeResource']);
         }

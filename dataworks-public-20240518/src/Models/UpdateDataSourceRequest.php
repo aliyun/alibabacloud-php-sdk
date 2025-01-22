@@ -4,61 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDataSourceRequest extends Model
 {
     /**
-     * @description The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
-     *
-     *   Dev: development environment
-     *   Prod: production environment
-     *
-     * This parameter is required.
-     * @example {
-     * }
      * @var string
      */
     public $connectionProperties;
-
     /**
-     * @description The mode in which the data source is added. The mode varies based on the data source type. Valid values:
-     *
-     *   InstanceMode: instance mode
-     *   UrlMode: connection string mode
-     *   CdhMode: CDH cluster mode
-     *
-     * @example UrlMode
-     *
      * @var string
      */
     public $connectionPropertiesMode;
-
     /**
-     * @description The description of the data source. The description cannot exceed 3,000 characters in length.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The data source ID.
-     *
-     * This parameter is required.
-     * @example 16033
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The DataWorks workspace ID.
-     *
-     * This parameter is required.
-     * @example 5678
-     *
      * @var int
      */
     public $projectId;
@@ -72,23 +38,28 @@ class UpdateDataSourceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionProperties) {
             $res['ConnectionProperties'] = $this->connectionProperties;
         }
+
         if (null !== $this->connectionPropertiesMode) {
             $res['ConnectionPropertiesMode'] = $this->connectionPropertiesMode;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -96,26 +67,30 @@ class UpdateDataSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDataSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionProperties'])) {
             $model->connectionProperties = $map['ConnectionProperties'];
         }
+
         if (isset($map['ConnectionPropertiesMode'])) {
             $model->connectionPropertiesMode = $map['ConnectionPropertiesMode'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

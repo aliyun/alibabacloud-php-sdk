@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponseBody\pagingInfo\nodes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class runtimeResource extends Model
 {
     /**
-     * @description The resource group ID.
-     *
-     * @example S_resgrop_xxx
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -22,9 +18,10 @@ class runtimeResource extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
@@ -34,11 +31,11 @@ class runtimeResource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return runtimeResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

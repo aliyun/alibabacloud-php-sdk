@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskResponseBody\dataQualityEvaluationTask;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hooks extends Model
 {
     /**
-     * @description Hook触发条件
-     *
-     * @example (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
-     *
      * @var string
      */
     public $condition;
-
     /**
-     * @description The hook type. Only one hook type is supported.
-     *
-     * Valid values:
-     *
-     *   BlockTaskInstance: Blocks the running of scheduling tasks. A monitor is triggered by scheduling tasks. After a monitor finishes running, the monitor determines whether to block the running of scheduling tasks based on the hook condition.
-     *
-     * @example BlockTaskInstance
-     *
      * @var string
      */
     public $type;
@@ -36,14 +23,16 @@ class hooks extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->condition) {
             $res['Condition'] = $this->condition;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,17 +40,18 @@ class hooks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hooks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Condition'])) {
             $model->condition = $map['Condition'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

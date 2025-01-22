@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest\sourceDataSourceSettings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataSourceProperties extends Model
 {
     /**
-     * @description The encoding format of the database.
-     *
-     * @example UTF-8
-     *
      * @var string
      */
     public $encoding;
-
     /**
-     * @description The time zone.
-     *
-     * @example GMT+8
-     *
      * @var string
      */
     public $timezone;
@@ -32,14 +23,16 @@ class dataSourceProperties extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encoding) {
             $res['Encoding'] = $this->encoding;
         }
+
         if (null !== $this->timezone) {
             $res['Timezone'] = $this->timezone;
         }
@@ -47,17 +40,18 @@ class dataSourceProperties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSourceProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Encoding'])) {
             $model->encoding = $map['Encoding'];
         }
+
         if (isset($map['Timezone'])) {
             $model->timezone = $map['Timezone'];
         }

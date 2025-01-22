@@ -4,28 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceGroupResponseBody\resourceGroup;
-use AlibabaCloud\Tea\Model;
 
 class GetResourceGroupResponseBody extends Model
 {
     /**
-     * @example 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The details about the resource group.
-     *
      * @var resourceGroup
      */
     public $resourceGroup;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -37,17 +29,23 @@ class GetResourceGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->resourceGroup) {
+            $this->resourceGroup->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceGroup) {
-            $res['ResourceGroup'] = null !== $this->resourceGroup ? $this->resourceGroup->toMap() : null;
+            $res['ResourceGroup'] = null !== $this->resourceGroup ? $this->resourceGroup->toArray($noStream) : $this->resourceGroup;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -55,20 +53,22 @@ class GetResourceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceGroup'])) {
             $model->resourceGroup = resourceGroup::fromMap($map['ResourceGroup']);
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

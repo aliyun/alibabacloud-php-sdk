@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityEvaluationTask\notifications\notifications;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notificationReceivers extends Model
 {
     /**
-     * @example {"atAll":"true"}
-     *
      * @var string
      */
     public $extension;
-
     /**
-     * @example AliUid
-     *
      * @var string
      */
     public $receiverType;
-
     /**
      * @var string[]
      */
@@ -34,41 +28,59 @@ class notificationReceivers extends Model
 
     public function validate()
     {
+        if (\is_array($this->receiverValues)) {
+            Model::validateArray($this->receiverValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
+
         if (null !== $this->receiverType) {
             $res['ReceiverType'] = $this->receiverType;
         }
+
         if (null !== $this->receiverValues) {
-            $res['ReceiverValues'] = $this->receiverValues;
+            if (\is_array($this->receiverValues)) {
+                $res['ReceiverValues'] = [];
+                $n1                    = 0;
+                foreach ($this->receiverValues as $item1) {
+                    $res['ReceiverValues'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notificationReceivers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
+
         if (isset($map['ReceiverType'])) {
             $model->receiverType = $map['ReceiverType'];
         }
+
         if (isset($map['ReceiverValues'])) {
             if (!empty($map['ReceiverValues'])) {
-                $model->receiverValues = $map['ReceiverValues'];
+                $model->receiverValues = [];
+                $n1                    = 0;
+                foreach ($map['ReceiverValues'] as $item1) {
+                    $model->receiverValues[$n1++] = $item1;
+                }
             }
         }
 

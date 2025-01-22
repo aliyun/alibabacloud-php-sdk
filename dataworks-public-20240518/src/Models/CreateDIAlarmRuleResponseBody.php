@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDIAlarmRuleResponseBody extends Model
 {
     /**
-     * @description This parameter is deprecated and is replaced by the Id parameter.
-     *
-     * @example 1
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $DIAlarmRuleId;
-
     /**
-     * @description The ID of the alert rule.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
-     *
-     * @example C636A747-7E4E-594D-94CD-2B4F8A9A9A63
-     *
      * @var string
      */
     public $requestId;
@@ -44,17 +28,20 @@ class CreateDIAlarmRuleResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIAlarmRuleId) {
             $res['DIAlarmRuleId'] = $this->DIAlarmRuleId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,20 +49,22 @@ class CreateDIAlarmRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDIAlarmRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIAlarmRuleId'])) {
             $model->DIAlarmRuleId = $map['DIAlarmRuleId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityResultsResponseBody\pagingInfo\dataQualityResults\rule;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityResultsResponseBody\pagingInfo\dataQualityResults\rule\checkingConfig\thresholds;
-use AlibabaCloud\Tea\Model;
 
 class checkingConfig extends Model
 {
     /**
-     * @example { "bizdate": [ "-1", "-7", "-1m" ] }
-     *
      * @var string
      */
     public $referencedSamplesFilter;
-
     /**
      * @var thresholds
      */
     public $thresholds;
-
     /**
-     * @description The threshold calculation method. Valid values:
-     *
-     *   Fixed
-     *   Fluctation
-     *   FluctationDiscreate
-     *   Auto
-     *   Average
-     *   Variance
-     *
-     * @example FIXED
-     *
      * @var string
      */
     public $type;
@@ -44,17 +29,23 @@ class checkingConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->thresholds) {
+            $this->thresholds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->referencedSamplesFilter) {
             $res['ReferencedSamplesFilter'] = $this->referencedSamplesFilter;
         }
+
         if (null !== $this->thresholds) {
-            $res['Thresholds'] = null !== $this->thresholds ? $this->thresholds->toMap() : null;
+            $res['Thresholds'] = null !== $this->thresholds ? $this->thresholds->toArray($noStream) : $this->thresholds;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -62,20 +53,22 @@ class checkingConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checkingConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReferencedSamplesFilter'])) {
             $model->referencedSamplesFilter = $map['ReferencedSamplesFilter'];
         }
+
         if (isset($map['Thresholds'])) {
             $model->thresholds = thresholds::fromMap($map['Thresholds']);
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskResponseBody\dataQualityEvaluationTask;
-use AlibabaCloud\Tea\Model;
 
 class GetDataQualityEvaluationTaskResponseBody extends Model
 {
     /**
-     * @description The details of the monitor.
-     *
      * @var dataQualityEvaluationTask
      */
     public $dataQualityEvaluationTask;
-
     /**
-     * @description Id of the request
-     *
-     * @example SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetDataQualityEvaluationTaskResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->dataQualityEvaluationTask) {
+            $this->dataQualityEvaluationTask->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataQualityEvaluationTask) {
-            $res['DataQualityEvaluationTask'] = null !== $this->dataQualityEvaluationTask ? $this->dataQualityEvaluationTask->toMap() : null;
+            $res['DataQualityEvaluationTask'] = null !== $this->dataQualityEvaluationTask ? $this->dataQualityEvaluationTask->toArray($noStream) : $this->dataQualityEvaluationTask;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetDataQualityEvaluationTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataQualityEvaluationTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityEvaluationTask'])) {
             $model->dataQualityEvaluationTask = dataQualityEvaluationTask::fromMap($map['DataQualityEvaluationTask']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

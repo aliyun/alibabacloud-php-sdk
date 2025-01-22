@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponseBody\task;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponseBody\task\subTasks\subTasks;
 
 class subTasks extends Model
 {
     /**
-     * @description The subtasks.
-     *
-     * @var \AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponseBody\task\subTasks\subTasks[]
+     * @var subTasks[]
      */
     public $subTasks;
-
     /**
-     * @description The type of the subtask.
-     *
-     * Valid values:
-     *
-     *   DoWhile: do-while node
-     *   Combined: node group
-     *   ForEach: for-each node
-     *
-     * @example Combined
-     *
      * @var string
      */
     public $type;
@@ -36,20 +24,25 @@ class subTasks extends Model
 
     public function validate()
     {
+        if (\is_array($this->subTasks)) {
+            Model::validateArray($this->subTasks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subTasks) {
-            $res['SubTasks'] = [];
-            if (null !== $this->subTasks && \is_array($this->subTasks)) {
-                $n = 0;
-                foreach ($this->subTasks as $item) {
-                    $res['SubTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subTasks)) {
+                $res['SubTasks'] = [];
+                $n1              = 0;
+                foreach ($this->subTasks as $item1) {
+                    $res['SubTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -57,23 +50,24 @@ class subTasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subTasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubTasks'])) {
             if (!empty($map['SubTasks'])) {
                 $model->subTasks = [];
-                $n               = 0;
-                foreach ($map['SubTasks'] as $item) {
-                    $model->subTasks[$n++] = null !== $item ? \AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponseBody\task\subTasks\subTasks::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['SubTasks'] as $item1) {
+                    $model->subTasks[$n1++] = self::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

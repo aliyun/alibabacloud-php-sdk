@@ -4,40 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleRequest\notification;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class receivers extends Model
 {
     /**
-     * @description The additional configuration of the alert recipient. If the ReceiverType parameter is set to DingdingUrl, you can set this parameter to {"atAll":true} to remind all members in a DingTalk group.
-     *
-     * @example {"atAll":true}
-     *
      * @var string
      */
     public $extension;
-
     /**
-     * @description The type of the alert recipient. Valid valves:
-     *
-     *   AliUid: Alibaba Cloud account ID.
-     *   Shift Schedules: The personnel in a shift schedule.
-     *   TaskOwner: The node owner. This parameter is available for custom alerts and event alerts.
-     *   Owner: The baseline owner. This parameter is available for baseline alerts.
-     *   WebhookUrl: URL of a custom webhook.
-     *   DingdingUrl: DingTalk chatbot URL.
-     *   FeishuUrl: Lark chatbot URL.
-     *   WeixinUrl: WeCom chatbot URL.
-     *
-     * @example TaskOwner
-     *
      * @var string
      */
     public $receiverType;
-
     /**
-     * @description The IDs of the alert recipients.
-     *
      * @var string[]
      */
     public $receiverValues;
@@ -49,41 +28,59 @@ class receivers extends Model
 
     public function validate()
     {
+        if (\is_array($this->receiverValues)) {
+            Model::validateArray($this->receiverValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
+
         if (null !== $this->receiverType) {
             $res['ReceiverType'] = $this->receiverType;
         }
+
         if (null !== $this->receiverValues) {
-            $res['ReceiverValues'] = $this->receiverValues;
+            if (\is_array($this->receiverValues)) {
+                $res['ReceiverValues'] = [];
+                $n1                    = 0;
+                foreach ($this->receiverValues as $item1) {
+                    $res['ReceiverValues'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return receivers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
+
         if (isset($map['ReceiverType'])) {
             $model->receiverType = $map['ReceiverType'];
         }
+
         if (isset($map['ReceiverValues'])) {
             if (!empty($map['ReceiverValues'])) {
-                $model->receiverValues = $map['ReceiverValues'];
+                $model->receiverValues = [];
+                $n1                    = 0;
+                foreach ($map['ReceiverValues'] as $item1) {
+                    $model->receiverValues[$n1++] = $item1;
+                }
             }
         }
 

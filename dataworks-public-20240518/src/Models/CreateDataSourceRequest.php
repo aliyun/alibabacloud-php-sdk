@@ -4,70 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDataSourceRequest extends Model
 {
     /**
-     * @description The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
-     *
-     *   Dev: development environment
-     *   Prod: production environment
-     *
-     * This parameter is required.
-     * @example {
-     * }
      * @var string
      */
     public $connectionProperties;
-
     /**
-     * @description The mode in which you want to add the data source. The mode varies based on the data source type. Valid values for MySQL data sources:
-     *
-     *   InstanceMode: instance mode
-     *   UrlMode: connection string mode
-     *
-     * This parameter is required.
-     * @example UrlMode
-     *
      * @var string
      */
     public $connectionPropertiesMode;
-
     /**
-     * @description The description of the data source. The description cannot exceed 3,000 characters in length.
-     *
-     * @example this is a holo datasource
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The name of the data source. The name can be up to 255 characters in length and can contain letters, digits, and underscores (_). The name must start with a letter.
-     *
-     * This parameter is required.
-     * @example demo_holo_datasource
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The type of the data source. More than 70 types of data sources are supported in DataWorks.
-     *
-     * This parameter is required.
-     * @example hologres
-     *
      * @var string
      */
     public $type;
@@ -82,26 +43,32 @@ class CreateDataSourceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionProperties) {
             $res['ConnectionProperties'] = $this->connectionProperties;
         }
+
         if (null !== $this->connectionPropertiesMode) {
             $res['ConnectionPropertiesMode'] = $this->connectionPropertiesMode;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -109,29 +76,34 @@ class CreateDataSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionProperties'])) {
             $model->connectionProperties = $map['ConnectionProperties'];
         }
+
         if (isset($map['ConnectionPropertiesMode'])) {
             $model->connectionPropertiesMode = $map['ConnectionPropertiesMode'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

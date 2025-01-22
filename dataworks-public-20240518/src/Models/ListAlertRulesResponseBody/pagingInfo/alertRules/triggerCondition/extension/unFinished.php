@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesResponseBody\pagingInfo\alertRules\triggerCondition\extension;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class unFinished extends Model
 {
     /**
-     * @description The latest completion time of the instance. The period is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
-     *
-     * @example 12:00
-     *
      * @var string
      */
     public $unFinishedTime;
@@ -22,9 +18,10 @@ class unFinished extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->unFinishedTime) {
@@ -34,11 +31,11 @@ class unFinished extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return unFinished
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponseBody\dataQualityEvaluationTaskInstance\task;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notifications extends Model
 {
     /**
-     * @example ${severity} == "High" AND ${status} == "Critical"
-     *
      * @var string
      */
     public $condition;
-
     /**
      * @var \AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponseBody\dataQualityEvaluationTaskInstance\task\notifications\notifications[]
      */
@@ -26,20 +23,25 @@ class notifications extends Model
 
     public function validate()
     {
+        if (\is_array($this->notifications)) {
+            Model::validateArray($this->notifications);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->condition) {
             $res['Condition'] = $this->condition;
         }
+
         if (null !== $this->notifications) {
-            $res['Notifications'] = [];
-            if (null !== $this->notifications && \is_array($this->notifications)) {
-                $n = 0;
-                foreach ($this->notifications as $item) {
-                    $res['Notifications'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->notifications)) {
+                $res['Notifications'] = [];
+                $n1                   = 0;
+                foreach ($this->notifications as $item1) {
+                    $res['Notifications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -47,23 +49,24 @@ class notifications extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifications
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Condition'])) {
             $model->condition = $map['Condition'];
         }
+
         if (isset($map['Notifications'])) {
             if (!empty($map['Notifications'])) {
                 $model->notifications = [];
-                $n                    = 0;
-                foreach ($map['Notifications'] as $item) {
-                    $model->notifications[$n++] = null !== $item ? \AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponseBody\dataQualityEvaluationTaskInstance\task\notifications\notifications::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['Notifications'] as $item1) {
+                    $model->notifications[$n1++] = \AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponseBody\dataQualityEvaluationTaskInstance\task\notifications\notifications::fromMap($item1);
                 }
             }
         }

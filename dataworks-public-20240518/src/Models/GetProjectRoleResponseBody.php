@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRoleResponseBody\projectRole;
-use AlibabaCloud\Tea\Model;
 
 class GetProjectRoleResponseBody extends Model
 {
     /**
-     * @description The role in the DataWorks workspace.
-     *
      * @var projectRole
      */
     public $projectRole;
-
     /**
-     * @description The request ID.
-     *
-     * @example 82F28E60-CF48-5EDF-AB25-D806847B97D1
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetProjectRoleResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->projectRole) {
+            $this->projectRole->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectRole) {
-            $res['ProjectRole'] = null !== $this->projectRole ? $this->projectRole->toMap() : null;
+            $res['ProjectRole'] = null !== $this->projectRole ? $this->projectRole->toArray($noStream) : $this->projectRole;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetProjectRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProjectRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectRole'])) {
             $model->projectRole = projectRole::fromMap($map['ProjectRole']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRouteRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 192.168.0.0/16
-     *
      * @var string
      */
     public $destinationCidr;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $networkId;
@@ -32,14 +23,16 @@ class CreateRouteRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationCidr) {
             $res['DestinationCidr'] = $this->destinationCidr;
         }
+
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
         }
@@ -47,17 +40,18 @@ class CreateRouteRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRouteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationCidr'])) {
             $model->destinationCidr = $map['DestinationCidr'];
         }
+
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
         }

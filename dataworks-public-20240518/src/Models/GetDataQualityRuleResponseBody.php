@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleResponseBody\dataQualityRule;
-use AlibabaCloud\Tea\Model;
 
 class GetDataQualityRuleResponseBody extends Model
 {
     /**
-     * @description The information about the rule.
-     *
      * @var dataQualityRule
      */
     public $dataQualityRule;
-
     /**
-     * @example 691CA452-D37A-4ED0-9441
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +24,19 @@ class GetDataQualityRuleResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->dataQualityRule) {
+            $this->dataQualityRule->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataQualityRule) {
-            $res['DataQualityRule'] = null !== $this->dataQualityRule ? $this->dataQualityRule->toMap() : null;
+            $res['DataQualityRule'] = null !== $this->dataQualityRule ? $this->dataQualityRule->toArray($noStream) : $this->dataQualityRule;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +44,18 @@ class GetDataQualityRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataQualityRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityRule'])) {
             $model->dataQualityRule = dataQualityRule::fromMap($map['DataQualityRule']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

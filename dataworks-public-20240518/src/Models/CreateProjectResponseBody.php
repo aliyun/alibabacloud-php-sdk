@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateProjectResponseBody extends Model
 {
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The workspace ID.
-     *
-     * @example 123456
-     *
-     * @deprecated
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The request ID.
-     *
-     * @example AFBB799F-8578-51C5-A766-E922EDB8XXXX
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class CreateProjectResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class CreateProjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

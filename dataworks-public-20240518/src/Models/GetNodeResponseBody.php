@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeResponseBody\node;
-use AlibabaCloud\Tea\Model;
 
 class GetNodeResponseBody extends Model
 {
     /**
-     * @description The information about the node.
-     *
      * @var node
      */
     public $node;
-
     /**
-     * @description The request ID.
-     *
-     * @example 22C97E95-F023-56B5-8852-B1A77A17XXXX
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetNodeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->node) {
+            $this->node->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->node) {
-            $res['Node'] = null !== $this->node ? $this->node->toMap() : null;
+            $res['Node'] = null !== $this->node ? $this->node->toArray($noStream) : $this->node;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetNodeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNodeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Node'])) {
             $model->node = node::fromMap($map['Node']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

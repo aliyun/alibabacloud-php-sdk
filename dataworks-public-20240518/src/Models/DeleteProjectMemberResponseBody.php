@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteProjectMemberResponseBody extends Model
 {
     /**
-     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
-     *
-     * @example 1FF0465F-209C-5964-8F30-FAF21B677CC6
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteProjectMemberResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteProjectMemberResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteProjectMemberResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

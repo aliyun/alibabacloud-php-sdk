@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityResult\rule\checkingConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityResult\rule\checkingConfig\thresholds\critical;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityResult\rule\checkingConfig\thresholds\expected;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityResult\rule\checkingConfig\thresholds\warned;
-use AlibabaCloud\Tea\Model;
 
 class thresholds extends Model
 {
@@ -15,12 +15,10 @@ class thresholds extends Model
      * @var critical
      */
     public $critical;
-
     /**
      * @var expected
      */
     public $expected;
-
     /**
      * @var warned
      */
@@ -33,38 +31,52 @@ class thresholds extends Model
 
     public function validate()
     {
+        if (null !== $this->critical) {
+            $this->critical->validate();
+        }
+        if (null !== $this->expected) {
+            $this->expected->validate();
+        }
+        if (null !== $this->warned) {
+            $this->warned->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->critical) {
-            $res['Critical'] = null !== $this->critical ? $this->critical->toMap() : null;
+            $res['Critical'] = null !== $this->critical ? $this->critical->toArray($noStream) : $this->critical;
         }
+
         if (null !== $this->expected) {
-            $res['Expected'] = null !== $this->expected ? $this->expected->toMap() : null;
+            $res['Expected'] = null !== $this->expected ? $this->expected->toArray($noStream) : $this->expected;
         }
+
         if (null !== $this->warned) {
-            $res['Warned'] = null !== $this->warned ? $this->warned->toMap() : null;
+            $res['Warned'] = null !== $this->warned ? $this->warned->toArray($noStream) : $this->warned;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return thresholds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Critical'])) {
             $model->critical = critical::fromMap($map['Critical']);
         }
+
         if (isset($map['Expected'])) {
             $model->expected = expected::fromMap($map['Expected']);
         }
+
         if (isset($map['Warned'])) {
             $model->warned = warned::fromMap($map['Warned']);
         }

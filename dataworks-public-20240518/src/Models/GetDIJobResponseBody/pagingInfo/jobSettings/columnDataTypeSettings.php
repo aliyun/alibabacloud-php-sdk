@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobResponseBody\pagingInfo\jobSettings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class columnDataTypeSettings extends Model
 {
     /**
-     * @description The data type of the destination field.
-     *
-     * @example text
-     *
      * @var string
      */
     public $destinationDataType;
-
     /**
-     * @description The data type of the source field.
-     *
-     * @example bigint
-     *
      * @var string
      */
     public $sourceDataType;
@@ -32,14 +23,16 @@ class columnDataTypeSettings extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationDataType) {
             $res['DestinationDataType'] = $this->destinationDataType;
         }
+
         if (null !== $this->sourceDataType) {
             $res['SourceDataType'] = $this->sourceDataType;
         }
@@ -47,17 +40,18 @@ class columnDataTypeSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columnDataTypeSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationDataType'])) {
             $model->destinationDataType = $map['DestinationDataType'];
         }
+
         if (isset($map['SourceDataType'])) {
             $model->sourceDataType = $map['SourceDataType'];
         }

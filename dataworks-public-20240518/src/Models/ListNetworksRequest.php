@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListNetworksRequest extends Model
 {
@@ -12,24 +12,15 @@ class ListNetworksRequest extends Model
      * @var int
      */
     public $pageNumber;
-
     /**
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example Serverless_res_group_524257424564736_6831777003XXXXX
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @example CreateTime Asc
-     *
      * @var string
      */
     public $sortBy;
@@ -42,20 +33,24 @@ class ListNetworksRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
@@ -63,23 +58,26 @@ class ListNetworksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNetworksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }

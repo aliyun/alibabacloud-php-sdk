@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceResponseBody\dataSource;
-use AlibabaCloud\Tea\Model;
 
 class GetDataSourceResponseBody extends Model
 {
     /**
-     * @description The information about the data source.
-     *
      * @var dataSource
      */
     public $dataSource;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9252F32F-D855-549E-8898-61CF5A733050
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetDataSourceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->dataSource) {
+            $this->dataSource->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSource) {
-            $res['DataSource'] = null !== $this->dataSource ? $this->dataSource->toMap() : null;
+            $res['DataSource'] = null !== $this->dataSource ? $this->dataSource->toArray($noStream) : $this->dataSource;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetDataSourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataSourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSource'])) {
             $model->dataSource = dataSource::fromMap($map['DataSource']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

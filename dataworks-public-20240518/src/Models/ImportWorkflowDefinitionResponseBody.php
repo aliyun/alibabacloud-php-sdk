@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionResponseBody\asyncJob;
-use AlibabaCloud\Tea\Model;
 
 class ImportWorkflowDefinitionResponseBody extends Model
 {
     /**
-     * @description The status information of the asynchronous task.
-     *
      * @var asyncJob
      */
     public $asyncJob;
-
     /**
-     * @description The request ID.
-     *
-     * @example 7C352CB7-CD88-50CF-9D0D-E81BDF020E7F
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ImportWorkflowDefinitionResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->asyncJob) {
+            $this->asyncJob->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asyncJob) {
-            $res['AsyncJob'] = null !== $this->asyncJob ? $this->asyncJob->toMap() : null;
+            $res['AsyncJob'] = null !== $this->asyncJob ? $this->asyncJob->toArray($noStream) : $this->asyncJob;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ImportWorkflowDefinitionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportWorkflowDefinitionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AsyncJob'])) {
             $model->asyncJob = asyncJob::fromMap($map['AsyncJob']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

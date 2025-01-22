@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobResponseBody\pagingInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetDIJobResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pagingInfo
      */
     public $pagingInfo;
-
     /**
-     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
-     *
-     * @example C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetDIJobResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->pagingInfo) {
+            $this->pagingInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pagingInfo) {
-            $res['PagingInfo'] = null !== $this->pagingInfo ? $this->pagingInfo->toMap() : null;
+            $res['PagingInfo'] = null !== $this->pagingInfo ? $this->pagingInfo->toArray($noStream) : $this->pagingInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetDIJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDIJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PagingInfo'])) {
             $model->pagingInfo = pagingInfo::fromMap($map['PagingInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

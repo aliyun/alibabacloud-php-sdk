@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachDataQualityRulesToEvaluationTaskShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 200001
-     *
      * @var int
      */
     public $dataQualityEvaluationTaskId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $dataQualityRuleIdsShrink;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
@@ -40,17 +28,20 @@ class AttachDataQualityRulesToEvaluationTaskShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataQualityEvaluationTaskId) {
             $res['DataQualityEvaluationTaskId'] = $this->dataQualityEvaluationTaskId;
         }
+
         if (null !== $this->dataQualityRuleIdsShrink) {
             $res['DataQualityRuleIds'] = $this->dataQualityRuleIdsShrink;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -58,20 +49,22 @@ class AttachDataQualityRulesToEvaluationTaskShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachDataQualityRulesToEvaluationTaskShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityEvaluationTaskId'])) {
             $model->dataQualityEvaluationTaskId = $map['DataQualityEvaluationTaskId'];
         }
+
         if (isset($map['DataQualityRuleIds'])) {
             $model->dataQualityRuleIdsShrink = $map['DataQualityRuleIds'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

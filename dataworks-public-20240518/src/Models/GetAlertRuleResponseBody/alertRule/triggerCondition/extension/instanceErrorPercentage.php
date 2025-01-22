@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponseBody\alertRule\triggerCondition\extension;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceErrorPercentage extends Model
 {
     /**
-     * @description The maximum percentage of instances on which an error occurs in the workspace to the total number of instances. Valid values: [1-100].
-     *
-     * @example 10
-     *
      * @var int
      */
     public $percentage;
@@ -22,9 +18,10 @@ class instanceErrorPercentage extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->percentage) {
@@ -34,11 +31,11 @@ class instanceErrorPercentage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceErrorPercentage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

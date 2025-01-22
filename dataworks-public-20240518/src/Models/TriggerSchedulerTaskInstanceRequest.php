@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TriggerSchedulerTaskInstanceRequest extends Model
 {
@@ -12,23 +12,11 @@ class TriggerSchedulerTaskInstanceRequest extends Model
      * @var string
      */
     public $envType;
-
     /**
-     * @description The task ID.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $taskId;
-
     /**
-     * @description The time defined by the HTTP Trigger node.
-     *
-     * This parameter is required.
-     * @example 1710239005403
-     *
      * @var int
      */
     public $triggerTime;
@@ -40,17 +28,20 @@ class TriggerSchedulerTaskInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->triggerTime) {
             $res['TriggerTime'] = $this->triggerTime;
         }
@@ -58,20 +49,22 @@ class TriggerSchedulerTaskInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TriggerSchedulerTaskInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TriggerTime'])) {
             $model->triggerTime = $map['TriggerTime'];
         }

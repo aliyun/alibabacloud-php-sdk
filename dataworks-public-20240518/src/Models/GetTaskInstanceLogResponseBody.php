@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTaskInstanceLogResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 22C97E95-F023-56B5-8852-B1A77A17XXXX
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The run log of the instance.
-     *
-     * @example This is running log
-     *
      * @var string
      */
     public $taskInstanceLog;
@@ -32,14 +23,16 @@ class GetTaskInstanceLogResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskInstanceLog) {
             $res['TaskInstanceLog'] = $this->taskInstanceLog;
         }
@@ -47,17 +40,18 @@ class GetTaskInstanceLogResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTaskInstanceLogResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskInstanceLog'])) {
             $model->taskInstanceLog = $map['TaskInstanceLog'];
         }

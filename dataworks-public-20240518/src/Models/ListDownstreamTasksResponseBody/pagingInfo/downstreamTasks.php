@@ -4,18 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTasksResponseBody\pagingInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTasksResponseBody\pagingInfo\downstreamTasks\task;
-use AlibabaCloud\Tea\Model;
 
 class downstreamTasks extends Model
 {
     /**
-     * @description The dependency type.
-     *
      * @var string
      */
     public $dependencyType;
-
     /**
      * @var task
      */
@@ -27,32 +24,38 @@ class downstreamTasks extends Model
 
     public function validate()
     {
+        if (null !== $this->task) {
+            $this->task->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dependencyType) {
             $res['DependencyType'] = $this->dependencyType;
         }
+
         if (null !== $this->task) {
-            $res['Task'] = null !== $this->task ? $this->task->toMap() : null;
+            $res['Task'] = null !== $this->task ? $this->task->toArray($noStream) : $this->task;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return downstreamTasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DependencyType'])) {
             $model->dependencyType = $map['DependencyType'];
         }
+
         if (isset($map['Task'])) {
             $model->task = task::fromMap($map['Task']);
         }

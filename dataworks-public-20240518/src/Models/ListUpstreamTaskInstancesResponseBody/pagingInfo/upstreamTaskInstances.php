@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTaskInstancesResponseBody\pagingInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTaskInstancesResponseBody\pagingInfo\upstreamTaskInstances\taskInstance;
-use AlibabaCloud\Tea\Model;
 
 class upstreamTaskInstances extends Model
 {
     /**
-     * @description The dependency type.
-     *
      * @var string
      */
     public $dependencyType;
-
     /**
-     * @description The information about a task instance.
-     *
      * @var taskInstance
      */
     public $taskInstance;
@@ -29,32 +24,38 @@ class upstreamTaskInstances extends Model
 
     public function validate()
     {
+        if (null !== $this->taskInstance) {
+            $this->taskInstance->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dependencyType) {
             $res['DependencyType'] = $this->dependencyType;
         }
+
         if (null !== $this->taskInstance) {
-            $res['TaskInstance'] = null !== $this->taskInstance ? $this->taskInstance->toMap() : null;
+            $res['TaskInstance'] = null !== $this->taskInstance ? $this->taskInstance->toArray($noStream) : $this->taskInstance;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return upstreamTaskInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DependencyType'])) {
             $model->dependencyType = $map['DependencyType'];
         }
+
         if (isset($map['TaskInstance'])) {
             $model->taskInstance = taskInstance::fromMap($map['TaskInstance']);
         }

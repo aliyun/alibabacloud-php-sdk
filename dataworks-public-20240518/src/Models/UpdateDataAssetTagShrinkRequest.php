@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDataAssetTagShrinkRequest extends Model
 {
@@ -12,21 +12,14 @@ class UpdateDataAssetTagShrinkRequest extends Model
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example key1
-     *
      * @var string
      */
     public $key;
-
     /**
      * @var string
      */
     public $managersShrink;
-
     /**
      * @var string
      */
@@ -40,20 +33,24 @@ class UpdateDataAssetTagShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->managersShrink) {
             $res['Managers'] = $this->managersShrink;
         }
+
         if (null !== $this->valuesShrink) {
             $res['Values'] = $this->valuesShrink;
         }
@@ -61,23 +58,26 @@ class UpdateDataAssetTagShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDataAssetTagShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Managers'])) {
             $model->managersShrink = $map['Managers'];
         }
+
         if (isset($map['Values'])) {
             $model->valuesShrink = $map['Values'];
         }
