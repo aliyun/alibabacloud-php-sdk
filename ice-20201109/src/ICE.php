@@ -11,6 +11,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddFavoritePublicMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddFavoritePublicMediaResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaConnectFlowInputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaConnectFlowInputResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaConnectFlowOutputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaConnectFlowOutputResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
@@ -27,6 +31,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAvatarTrainingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAvatarTrainingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomTemplateRequest;
@@ -35,6 +41,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelGroupRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelGroupResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageOriginEndpointRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageOriginEndpointResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveRecordTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveRecordTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveRecordTemplateShrinkRequest;
@@ -43,12 +55,20 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveSnapshotTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveTranscodeTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveTranscodeTemplateShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateMediaConnectFlowRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateMediaConnectFlowResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreatePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreatePipelineResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateProgramRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateProgramResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchIndexRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchIndexResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSearchLibResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSourceLocationRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSourceLocationResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSourceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSourceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadStreamRequest;
@@ -59,6 +79,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAvatarTrainingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomTemplateRequest;
@@ -71,6 +93,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLivePackageChannelGroupRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLivePackageChannelGroupResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLivePackageChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLivePackageChannelResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLivePackageOriginEndpointRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLivePackageOriginEndpointResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveRecordFilesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveRecordFilesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveRecordTemplateRequest;
@@ -84,6 +112,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaConnectFlowRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaConnectFlowResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaFromSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaFromSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosRequest;
@@ -94,8 +124,14 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePlayInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePlayInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteProgramRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteProgramResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSourceLocationRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSourceLocationResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSourceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSourceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceRequest;
@@ -134,6 +170,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetBatchMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetBatchMediaProducingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetContentAnalyzeConfigResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceJobResponse;
@@ -155,6 +193,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingIndexFileResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLivePackageChannelGroupRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLivePackageChannelGroupResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLivePackageChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLivePackageChannelResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLivePackageOriginEndpointRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetLivePackageOriginEndpointResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveRecordJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveRecordJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveRecordTemplateRequest;
@@ -167,6 +211,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConvertJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConvertJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoJobRequest;
@@ -183,6 +229,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetPipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPlayInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPlayInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetProgramRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetProgramResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetProjectExportJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetProjectExportJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoRequest;
@@ -193,6 +241,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetSnapshotJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSnapshotJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSnapshotUrlsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSnapshotUrlsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetSourceLocationRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetSourceLocationResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetSourceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetSourceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetStorageListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetStorageListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSystemTemplateRequest;
@@ -215,6 +267,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAlertsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarsRequest;
@@ -223,6 +277,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarTrainingJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarTrainingJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListBatchMediaProducingJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListBatchMediaProducingJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListChannelAlertsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListChannelAlertsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListChannelsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListChannelsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoiceJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoiceJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoicesRequest;
@@ -237,6 +295,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListEditingProjectsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListEditingProjectsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageChannelGroupsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageChannelGroupsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageChannelsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageChannelsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageOriginEndpointsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageOriginEndpointsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordFilesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordFilesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordJobsRequest;
@@ -265,8 +329,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPipelinesResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListProgramsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListProgramsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSchedulesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSchedulesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsRequest;
@@ -276,6 +344,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartSysAvatarModelsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartVoiceGroupsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSnapshotJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSnapshotJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSourceLocationsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSourceLocationsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSourcesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSourcesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSystemTemplatesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSystemTemplatesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTemplatesRequest;
@@ -353,6 +425,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SetNotifyConfigResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartRtcRobotInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartRtcRobotInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartRtcRobotInstanceShrinkRequest;
@@ -360,6 +434,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopAIAgentInstanceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StopChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StopChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopRtcRobotInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopRtcRobotInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
@@ -459,12 +535,22 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAvatarTrainingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCategoryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCategoryResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomizedVoiceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomizedVoiceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelCredentialsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelCredentialsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelGroupRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelGroupResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageOriginEndpointRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageOriginEndpointResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveRecordTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveRecordTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveRecordTemplateShrinkRequest;
@@ -476,6 +562,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaConnectFlowStatusRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaConnectFlowStatusResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaMarksRequest;
@@ -484,9 +572,15 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateProgramRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateProgramResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateRtcRobotInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateRtcRobotInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateRtcRobotInstanceShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSourceLocationRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSourceLocationResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSourceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSourceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UploadMediaByURLRequest;
@@ -636,8 +730,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddCategoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -698,8 +795,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -753,8 +853,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddFavoritePublicMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddFavoritePublicMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddFavoritePublicMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -772,6 +875,214 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addFavoritePublicMediaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为MediaConnect实例添加input.
+     *
+     * @param request - AddMediaConnectFlowInputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddMediaConnectFlowInputResponse
+     *
+     * @param AddMediaConnectFlowInputRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddMediaConnectFlowInputResponse
+     */
+    public function addMediaConnectFlowInputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cidrs) {
+            @$query['Cidrs'] = $request->cidrs;
+        }
+
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->inputFromUrl) {
+            @$query['InputFromUrl'] = $request->inputFromUrl;
+        }
+
+        if (null !== $request->inputName) {
+            @$query['InputName'] = $request->inputName;
+        }
+
+        if (null !== $request->inputProtocol) {
+            @$query['InputProtocol'] = $request->inputProtocol;
+        }
+
+        if (null !== $request->maxBitrate) {
+            @$query['MaxBitrate'] = $request->maxBitrate;
+        }
+
+        if (null !== $request->pairFlowId) {
+            @$query['PairFlowId'] = $request->pairFlowId;
+        }
+
+        if (null !== $request->pairOutputName) {
+            @$query['PairOutputName'] = $request->pairOutputName;
+        }
+
+        if (null !== $request->srtLatency) {
+            @$query['SrtLatency'] = $request->srtLatency;
+        }
+
+        if (null !== $request->srtPassphrase) {
+            @$query['SrtPassphrase'] = $request->srtPassphrase;
+        }
+
+        if (null !== $request->srtPbkeyLen) {
+            @$query['SrtPbkeyLen'] = $request->srtPbkeyLen;
+        }
+
+        if (null !== $request->srtPbkeylen) {
+            @$query['SrtPbkeylen'] = $request->srtPbkeylen;
+        }
+
+        if (null !== $request->srtPbkeyssen) {
+            @$query['SrtPbkeyssen'] = $request->srtPbkeyssen;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMediaConnectFlowInput',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddMediaConnectFlowInputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return AddMediaConnectFlowInputResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 为MediaConnect实例添加input.
+     *
+     * @param request - AddMediaConnectFlowInputRequest
+     * @returns AddMediaConnectFlowInputResponse
+     *
+     * @param AddMediaConnectFlowInputRequest $request
+     *
+     * @return AddMediaConnectFlowInputResponse
+     */
+    public function addMediaConnectFlowInput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMediaConnectFlowInputWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为MediaConnect实例添加output.
+     *
+     * @param request - AddMediaConnectFlowOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddMediaConnectFlowOutputResponse
+     *
+     * @param AddMediaConnectFlowOutputRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddMediaConnectFlowOutputResponse
+     */
+    public function addMediaConnectFlowOutputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cidrs) {
+            @$query['Cidrs'] = $request->cidrs;
+        }
+
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->outputName) {
+            @$query['OutputName'] = $request->outputName;
+        }
+
+        if (null !== $request->outputProtocol) {
+            @$query['OutputProtocol'] = $request->outputProtocol;
+        }
+
+        if (null !== $request->outputToUrl) {
+            @$query['OutputToUrl'] = $request->outputToUrl;
+        }
+
+        if (null !== $request->pairChannelId) {
+            @$query['PairChannelId'] = $request->pairChannelId;
+        }
+
+        if (null !== $request->pairFlowId) {
+            @$query['PairFlowId'] = $request->pairFlowId;
+        }
+
+        if (null !== $request->pairInputName) {
+            @$query['PairInputName'] = $request->pairInputName;
+        }
+
+        if (null !== $request->playerLimit) {
+            @$query['PlayerLimit'] = $request->playerLimit;
+        }
+
+        if (null !== $request->srtLatency) {
+            @$query['SrtLatency'] = $request->srtLatency;
+        }
+
+        if (null !== $request->srtPassphrase) {
+            @$query['SrtPassphrase'] = $request->srtPassphrase;
+        }
+
+        if (null !== $request->srtPbkeyLen) {
+            @$query['SrtPbkeyLen'] = $request->srtPbkeyLen;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMediaConnectFlowOutput',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddMediaConnectFlowOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return AddMediaConnectFlowOutputResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 为MediaConnect实例添加output.
+     *
+     * @param request - AddMediaConnectFlowOutputRequest
+     * @returns AddMediaConnectFlowOutputResponse
+     *
+     * @param AddMediaConnectFlowOutputRequest $request
+     *
+     * @return AddMediaConnectFlowOutputResponse
+     */
+    public function addMediaConnectFlowOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMediaConnectFlowOutputWithOptions($request, $runtime);
     }
 
     /**
@@ -812,8 +1123,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddMediaMarksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -902,8 +1216,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -974,8 +1291,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AlterSearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AlterSearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AlterSearchIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1033,8 +1353,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchGetMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchGetMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetMediaInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1108,8 +1431,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelDNAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelDNAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelDNAJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1167,8 +1493,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelFavoritePublicMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelFavoritePublicMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelFavoritePublicMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1222,8 +1551,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAuditResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1301,8 +1633,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAvatarTrainingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1320,6 +1655,92 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAvatarTrainingJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一个新的频道.
+     *
+     * @param request - CreateChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateChannelResponse
+     *
+     * @param CreateChannelRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateChannelResponse
+     */
+    public function createChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessPolicy) {
+            @$query['AccessPolicy'] = $request->accessPolicy;
+        }
+
+        if (null !== $request->accessToken) {
+            @$query['AccessToken'] = $request->accessToken;
+        }
+
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->channelTier) {
+            @$query['ChannelTier'] = $request->channelTier;
+        }
+
+        if (null !== $request->fillerSourceLocationName) {
+            @$query['FillerSourceLocationName'] = $request->fillerSourceLocationName;
+        }
+
+        if (null !== $request->fillerSourceName) {
+            @$query['FillerSourceName'] = $request->fillerSourceName;
+        }
+
+        if (null !== $request->outPutConfigList) {
+            @$query['OutPutConfigList'] = $request->outPutConfigList;
+        }
+
+        if (null !== $request->playbackMode) {
+            @$query['PlaybackMode'] = $request->playbackMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个新的频道.
+     *
+     * @param request - CreateChannelRequest
+     * @returns CreateChannelResponse
+     *
+     * @param CreateChannelRequest $request
+     *
+     * @return CreateChannelResponse
+     */
+    public function createChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -1368,8 +1789,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCustomTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1439,8 +1863,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCustomizedVoiceJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1521,8 +1948,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDNADBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1617,8 +2047,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1636,6 +2069,258 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建实时打包频道.
+     *
+     * @param request - CreateLivePackageChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLivePackageChannelResponse
+     *
+     * @param CreateLivePackageChannelRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateLivePackageChannelResponse
+     */
+    public function createLivePackageChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->channelName) {
+            @$body['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->segmentCount) {
+            @$body['SegmentCount'] = $request->segmentCount;
+        }
+
+        if (null !== $request->segmentDuration) {
+            @$body['SegmentDuration'] = $request->segmentDuration;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLivePackageChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLivePackageChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateLivePackageChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建实时打包频道.
+     *
+     * @param request - CreateLivePackageChannelRequest
+     * @returns CreateLivePackageChannelResponse
+     *
+     * @param CreateLivePackageChannelRequest $request
+     *
+     * @return CreateLivePackageChannelResponse
+     */
+    public function createLivePackageChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLivePackageChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加实时打包频道组.
+     *
+     * @param request - CreateLivePackageChannelGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLivePackageChannelGroupResponse
+     *
+     * @param CreateLivePackageChannelGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateLivePackageChannelGroupResponse
+     */
+    public function createLivePackageChannelGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        $body = [];
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLivePackageChannelGroup',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLivePackageChannelGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateLivePackageChannelGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 添加实时打包频道组.
+     *
+     * @param request - CreateLivePackageChannelGroupRequest
+     * @returns CreateLivePackageChannelGroupResponse
+     *
+     * @param CreateLivePackageChannelGroupRequest $request
+     *
+     * @return CreateLivePackageChannelGroupResponse
+     */
+    public function createLivePackageChannelGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLivePackageChannelGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建实时打包源站端点.
+     *
+     * @param request - CreateLivePackageOriginEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLivePackageOriginEndpointResponse
+     *
+     * @param CreateLivePackageOriginEndpointRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateLivePackageOriginEndpointResponse
+     */
+    public function createLivePackageOriginEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->authorizationCode) {
+            @$body['AuthorizationCode'] = $request->authorizationCode;
+        }
+
+        if (null !== $request->channelName) {
+            @$body['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->endpointName) {
+            @$body['EndpointName'] = $request->endpointName;
+        }
+
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->ipBlacklist) {
+            @$body['IpBlacklist'] = $request->ipBlacklist;
+        }
+
+        if (null !== $request->ipWhitelist) {
+            @$body['IpWhitelist'] = $request->ipWhitelist;
+        }
+
+        if (null !== $request->manifestName) {
+            @$body['ManifestName'] = $request->manifestName;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->timeshiftVision) {
+            @$body['TimeshiftVision'] = $request->timeshiftVision;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLivePackageOriginEndpoint',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLivePackageOriginEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateLivePackageOriginEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建实时打包源站端点.
+     *
+     * @param request - CreateLivePackageOriginEndpointRequest
+     * @returns CreateLivePackageOriginEndpointResponse
+     *
+     * @param CreateLivePackageOriginEndpointRequest $request
+     *
+     * @return CreateLivePackageOriginEndpointResponse
+     */
+    public function createLivePackageOriginEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLivePackageOriginEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -1685,8 +2370,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLiveRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLiveRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLiveRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1755,8 +2443,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLiveSnapshotTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLiveSnapshotTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLiveSnapshotTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1824,8 +2515,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLiveTranscodeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLiveTranscodeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLiveTranscodeTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1843,6 +2537,68 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createLiveTranscodeTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建MediaConnect Flow.
+     *
+     * @param request - CreateMediaConnectFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateMediaConnectFlowResponse
+     *
+     * @param CreateMediaConnectFlowRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateMediaConnectFlowResponse
+     */
+    public function createMediaConnectFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowName) {
+            @$query['FlowName'] = $request->flowName;
+        }
+
+        if (null !== $request->flowRegion) {
+            @$query['FlowRegion'] = $request->flowRegion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMediaConnectFlow',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMediaConnectFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateMediaConnectFlowResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建MediaConnect Flow.
+     *
+     * @param request - CreateMediaConnectFlowRequest
+     * @returns CreateMediaConnectFlowResponse
+     *
+     * @param CreateMediaConnectFlowRequest $request
+     *
+     * @return CreateMediaConnectFlowResponse
+     */
+    public function createMediaConnectFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMediaConnectFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -1887,8 +2643,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePipelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1906,6 +2665,92 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPipelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一个新的节目.
+     *
+     * @param request - CreateProgramRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProgramResponse
+     *
+     * @param CreateProgramRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProgramResponse
+     */
+    public function createProgramWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->adBreaks) {
+            @$query['AdBreaks'] = $request->adBreaks;
+        }
+
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->clipRange) {
+            @$query['ClipRange'] = $request->clipRange;
+        }
+
+        if (null !== $request->programName) {
+            @$query['ProgramName'] = $request->programName;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        if (null !== $request->sourceName) {
+            @$query['SourceName'] = $request->sourceName;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->transition) {
+            @$query['Transition'] = $request->transition;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProgram',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProgramResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateProgramResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个新的节目.
+     *
+     * @param request - CreateProgramRequest
+     * @returns CreateProgramResponse
+     *
+     * @param CreateProgramRequest $request
+     *
+     * @return CreateProgramResponse
+     */
+    public function createProgram($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProgramWithOptions($request, $runtime);
     }
 
     /**
@@ -1957,8 +2802,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSearchIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2015,8 +2863,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSearchLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2034,6 +2885,146 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSearchLibWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一个新的源.
+     *
+     * @param request - CreateSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSourceResponse
+     *
+     * @param CreateSourceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSourceResponse
+     */
+    public function createSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->httpPackageConfigurations) {
+            @$query['HttpPackageConfigurations'] = $request->httpPackageConfigurations;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        if (null !== $request->sourceName) {
+            @$query['SourceName'] = $request->sourceName;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSource',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateSourceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个新的源.
+     *
+     * @param request - CreateSourceRequest
+     * @returns CreateSourceResponse
+     *
+     * @param CreateSourceRequest $request
+     *
+     * @return CreateSourceResponse
+     */
+    public function createSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一个新的源位置.
+     *
+     * @param request - CreateSourceLocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSourceLocationResponse
+     *
+     * @param CreateSourceLocationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSourceLocationResponse
+     */
+    public function createSourceLocationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseUrl) {
+            @$query['BaseUrl'] = $request->baseUrl;
+        }
+
+        if (null !== $request->enableSegmentDelivery) {
+            @$query['EnableSegmentDelivery'] = $request->enableSegmentDelivery;
+        }
+
+        if (null !== $request->segmentDeliveryUrl) {
+            @$query['SegmentDeliveryUrl'] = $request->segmentDeliveryUrl;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSourceLocation',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSourceLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateSourceLocationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个新的源位置.
+     *
+     * @param request - CreateSourceLocationRequest
+     * @returns CreateSourceLocationResponse
+     *
+     * @param CreateSourceLocationRequest $request
+     *
+     * @return CreateSourceLocationResponse
+     */
+    public function createSourceLocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSourceLocationWithOptions($request, $runtime);
     }
 
     /**
@@ -2103,8 +3094,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateUploadMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUploadMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUploadMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2188,8 +3182,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateUploadStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUploadStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUploadStreamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2248,8 +3245,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DecryptKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DecryptKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DecryptKMSDataKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2303,8 +3303,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAvatarTrainingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2361,8 +3364,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCategoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2383,6 +3389,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除频道.
+     *
+     * @param request - DeleteChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteChannelResponse
+     *
+     * @param DeleteChannelRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteChannelResponse
+     */
+    public function deleteChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除频道.
+     *
+     * @param request - DeleteChannelRequest
+     * @returns DeleteChannelResponse
+     *
+     * @param DeleteChannelRequest $request
+     *
+     * @return DeleteChannelResponse
+     */
+    public function deleteChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -2419,8 +3483,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCustomTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2474,8 +3541,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCustomizedVoiceJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2545,8 +3615,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDNADBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2620,8 +3693,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDNAFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDNAFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDNAFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2683,8 +3759,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2738,8 +3817,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEditingProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEditingProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEditingProjectsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2757,6 +3839,192 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEditingProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除实时打包频道.
+     *
+     * @param request - DeleteLivePackageChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLivePackageChannelResponse
+     *
+     * @param DeleteLivePackageChannelRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteLivePackageChannelResponse
+     */
+    public function deleteLivePackageChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLivePackageChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLivePackageChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteLivePackageChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除实时打包频道.
+     *
+     * @param request - DeleteLivePackageChannelRequest
+     * @returns DeleteLivePackageChannelResponse
+     *
+     * @param DeleteLivePackageChannelRequest $request
+     *
+     * @return DeleteLivePackageChannelResponse
+     */
+    public function deleteLivePackageChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLivePackageChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除直播打包频道组.
+     *
+     * @param request - DeleteLivePackageChannelGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLivePackageChannelGroupResponse
+     *
+     * @param DeleteLivePackageChannelGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteLivePackageChannelGroupResponse
+     */
+    public function deleteLivePackageChannelGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLivePackageChannelGroup',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLivePackageChannelGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteLivePackageChannelGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除直播打包频道组.
+     *
+     * @param request - DeleteLivePackageChannelGroupRequest
+     * @returns DeleteLivePackageChannelGroupResponse
+     *
+     * @param DeleteLivePackageChannelGroupRequest $request
+     *
+     * @return DeleteLivePackageChannelGroupResponse
+     */
+    public function deleteLivePackageChannelGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLivePackageChannelGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除实时打包源站端点.
+     *
+     * @param request - DeleteLivePackageOriginEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLivePackageOriginEndpointResponse
+     *
+     * @param DeleteLivePackageOriginEndpointRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteLivePackageOriginEndpointResponse
+     */
+    public function deleteLivePackageOriginEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->endpointName) {
+            @$query['EndpointName'] = $request->endpointName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLivePackageOriginEndpoint',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLivePackageOriginEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteLivePackageOriginEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除实时打包源站端点.
+     *
+     * @param request - DeleteLivePackageOriginEndpointRequest
+     * @returns DeleteLivePackageOriginEndpointResponse
+     *
+     * @param DeleteLivePackageOriginEndpointRequest $request
+     *
+     * @return DeleteLivePackageOriginEndpointResponse
+     */
+    public function deleteLivePackageOriginEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLivePackageOriginEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -2797,8 +4065,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLiveRecordFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLiveRecordFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLiveRecordFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2852,8 +4123,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLiveRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLiveRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLiveRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2921,8 +4195,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLiveSnapshotFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLiveSnapshotFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLiveSnapshotFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2976,8 +4253,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLiveSnapshotTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLiveSnapshotTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLiveSnapshotTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3031,8 +4311,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLiveTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLiveTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLiveTranscodeJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3086,8 +4369,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLiveTranscodeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLiveTranscodeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLiveTranscodeTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3105,6 +4391,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteLiveTranscodeTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据实例id删除MediaConnect实例.
+     *
+     * @param request - DeleteMediaConnectFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMediaConnectFlowResponse
+     *
+     * @param DeleteMediaConnectFlowRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteMediaConnectFlowResponse
+     */
+    public function deleteMediaConnectFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaConnectFlow',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMediaConnectFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteMediaConnectFlowResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 根据实例id删除MediaConnect实例.
+     *
+     * @param request - DeleteMediaConnectFlowRequest
+     * @returns DeleteMediaConnectFlowResponse
+     *
+     * @param DeleteMediaConnectFlowRequest $request
+     *
+     * @return DeleteMediaConnectFlowResponse
+     */
+    public function deleteMediaConnectFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaConnectFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -3149,8 +4493,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMediaFromSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMediaFromSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMediaFromSearchLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3212,8 +4559,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMediaInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3271,8 +4621,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMediaMarksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3326,8 +4679,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePipelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3392,8 +4748,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePlayInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3414,6 +4773,68 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePlayInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除节目.
+     *
+     * @param request - DeleteProgramRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProgramResponse
+     *
+     * @param DeleteProgramRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProgramResponse
+     */
+    public function deleteProgramWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->programName) {
+            @$query['ProgramName'] = $request->programName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProgram',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProgramResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteProgramResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除节目.
+     *
+     * @param request - DeleteProgramRequest
+     * @returns DeleteProgramResponse
+     *
+     * @param DeleteProgramRequest $request
+     *
+     * @return DeleteProgramResponse
+     */
+    public function deleteProgram($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProgramWithOptions($request, $runtime);
     }
 
     /**
@@ -3450,8 +4871,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSmartJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSmartJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSmartJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3469,6 +4893,138 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSmartJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除源.
+     *
+     * @param request - DeleteSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSourceResponse
+     *
+     * @param DeleteSourceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteSourceResponse
+     */
+    public function deleteSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->softDelete) {
+            @$query['SoftDelete'] = $request->softDelete;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        if (null !== $request->sourceName) {
+            @$query['SourceName'] = $request->sourceName;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSource',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteSourceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除源.
+     *
+     * @param request - DeleteSourceRequest
+     * @returns DeleteSourceResponse
+     *
+     * @param DeleteSourceRequest $request
+     *
+     * @return DeleteSourceResponse
+     */
+    public function deleteSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除源位置.
+     *
+     * @param request - DeleteSourceLocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSourceLocationResponse
+     *
+     * @param DeleteSourceLocationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteSourceLocationResponse
+     */
+    public function deleteSourceLocationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->softDelete) {
+            @$query['SoftDelete'] = $request->softDelete;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSourceLocation',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSourceLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteSourceLocationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除源位置.
+     *
+     * @param request - DeleteSourceLocationRequest
+     * @returns DeleteSourceLocationResponse
+     *
+     * @param DeleteSourceLocationRequest $request
+     *
+     * @return DeleteSourceLocationResponse
+     */
+    public function deleteSourceLocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSourceLocationWithOptions($request, $runtime);
     }
 
     /**
@@ -3506,8 +5062,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3566,8 +5125,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAIAgentInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3633,8 +5195,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMeterImsEditUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMeterImsEditUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMeterImsEditUsageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3700,8 +5265,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMeterImsMediaConvertUHDUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMeterImsMediaConvertUHDUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMeterImsMediaConvertUHDUsageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3767,8 +5335,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMeterImsMediaConvertUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMeterImsMediaConvertUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMeterImsMediaConvertUsageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3834,8 +5405,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMeterImsMpsAiUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMeterImsMpsAiUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMeterImsMpsAiUsageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3897,8 +5471,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMeterImsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMeterImsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMeterImsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3952,8 +5529,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNotifyConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4037,8 +5617,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePlayListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlayListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlayListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4090,8 +5673,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRtcRobotInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4153,8 +5739,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetectAudioForCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetectAudioForCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetectAudioForCustomizedVoiceJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4212,8 +5801,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DropSearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DropSearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DropSearchIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4267,8 +5859,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DropSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DropSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DropSearchLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4344,8 +5939,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateAIAgentCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateAIAgentCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateAIAgentCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4390,8 +5988,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateKMSDataKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4442,8 +6043,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAvatarResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4497,8 +6101,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAvatarTrainingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4552,8 +6159,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetBatchMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBatchMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBatchMediaProducingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4626,8 +6236,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCategoriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4648,6 +6261,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCategoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取频道.
+     *
+     * @param request - GetChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetChannelResponse
+     *
+     * @param GetChannelRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetChannelResponse
+     */
+    public function getChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取频道.
+     *
+     * @param request - GetChannelRequest
+     * @returns GetChannelResponse
+     *
+     * @param GetChannelRequest $request
+     *
+     * @return GetChannelResponse
+     */
+    public function getChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -4675,8 +6346,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetContentAnalyzeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetContentAnalyzeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetContentAnalyzeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4765,8 +6439,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCustomTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4850,8 +6527,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCustomizedVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCustomizedVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCustomizedVoiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4905,8 +6585,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCustomizedVoiceJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4951,8 +6634,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDefaultStorageLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDefaultStorageLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDefaultStorageLocationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5003,8 +6689,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDemonstrationForCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDemonstrationForCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDemonstrationForCustomizedVoiceJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5058,8 +6747,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDynamicImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDynamicImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDynamicImageJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5117,8 +6809,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5172,8 +6867,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5218,8 +6916,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEventCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEventCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEventCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5282,8 +6983,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLiveEditingIndexFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLiveEditingIndexFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLiveEditingIndexFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5337,8 +7041,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLiveEditingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLiveEditingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLiveEditingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5356,6 +7063,192 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLiveEditingJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取实时打包频道.
+     *
+     * @param request - GetLivePackageChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLivePackageChannelResponse
+     *
+     * @param GetLivePackageChannelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetLivePackageChannelResponse
+     */
+    public function getLivePackageChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLivePackageChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLivePackageChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetLivePackageChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实时打包频道.
+     *
+     * @param request - GetLivePackageChannelRequest
+     * @returns GetLivePackageChannelResponse
+     *
+     * @param GetLivePackageChannelRequest $request
+     *
+     * @return GetLivePackageChannelResponse
+     */
+    public function getLivePackageChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLivePackageChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取直播打包频道组.
+     *
+     * @param request - GetLivePackageChannelGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLivePackageChannelGroupResponse
+     *
+     * @param GetLivePackageChannelGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetLivePackageChannelGroupResponse
+     */
+    public function getLivePackageChannelGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLivePackageChannelGroup',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLivePackageChannelGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetLivePackageChannelGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取直播打包频道组.
+     *
+     * @param request - GetLivePackageChannelGroupRequest
+     * @returns GetLivePackageChannelGroupResponse
+     *
+     * @param GetLivePackageChannelGroupRequest $request
+     *
+     * @return GetLivePackageChannelGroupResponse
+     */
+    public function getLivePackageChannelGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLivePackageChannelGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取实时打包源站端点.
+     *
+     * @param request - GetLivePackageOriginEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLivePackageOriginEndpointResponse
+     *
+     * @param GetLivePackageOriginEndpointRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetLivePackageOriginEndpointResponse
+     */
+    public function getLivePackageOriginEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->endpointName) {
+            @$query['EndpointName'] = $request->endpointName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLivePackageOriginEndpoint',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLivePackageOriginEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetLivePackageOriginEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实时打包源站端点.
+     *
+     * @param request - GetLivePackageOriginEndpointRequest
+     * @returns GetLivePackageOriginEndpointResponse
+     *
+     * @param GetLivePackageOriginEndpointRequest $request
+     *
+     * @return GetLivePackageOriginEndpointResponse
+     */
+    public function getLivePackageOriginEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLivePackageOriginEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -5388,8 +7281,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLiveRecordJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLiveRecordJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLiveRecordJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5439,8 +7335,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLiveRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLiveRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLiveRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5490,8 +7389,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLiveSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLiveSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLiveSnapshotJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5541,8 +7443,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLiveSnapshotTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLiveSnapshotTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLiveSnapshotTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5596,8 +7501,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLiveTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLiveTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLiveTranscodeJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5651,8 +7559,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLiveTranscodeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLiveTranscodeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLiveTranscodeTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5670,6 +7581,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLiveTranscodeTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据实例Id获取对应MediaConnect的详细信息.
+     *
+     * @param request - GetMediaConnectFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMediaConnectFlowResponse
+     *
+     * @param GetMediaConnectFlowRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMediaConnectFlowResponse
+     */
+    public function getMediaConnectFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaConnectFlow',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMediaConnectFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetMediaConnectFlowResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 根据实例Id获取对应MediaConnect的详细信息.
+     *
+     * @param request - GetMediaConnectFlowRequest
+     * @returns GetMediaConnectFlowResponse
+     *
+     * @param GetMediaConnectFlowRequest $request
+     *
+     * @return GetMediaConnectFlowResponse
+     */
+    public function getMediaConnectFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaConnectFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -5706,8 +7675,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMediaConvertJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaConvertJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaConvertJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5776,8 +7748,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5834,8 +7809,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMediaInfoJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaInfoJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaInfoJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5893,8 +7871,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaMarksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5944,8 +7925,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaProducingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5999,8 +7983,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPackageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPackageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPackageJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6054,8 +8041,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPipelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6116,8 +8106,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPlayInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6138,6 +8131,68 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPlayInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取节目.
+     *
+     * @param request - GetProgramRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProgramResponse
+     *
+     * @param GetProgramRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProgramResponse
+     */
+    public function getProgramWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->programName) {
+            @$query['ProgramName'] = $request->programName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProgram',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProgramResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetProgramResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取节目.
+     *
+     * @param request - GetProgramRequest
+     * @returns GetProgramResponse
+     *
+     * @param GetProgramRequest $request
+     *
+     * @return GetProgramResponse
+     */
+    public function getProgram($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProgramWithOptions($request, $runtime);
     }
 
     /**
@@ -6174,8 +8229,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProjectExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProjectExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProjectExportJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6229,8 +8287,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPublicMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPublicMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPublicMediaInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6284,8 +8345,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSmartHandleJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSmartHandleJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSmartHandleJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6339,8 +8403,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSnapshotJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6410,8 +8477,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSnapshotUrlsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSnapshotUrlsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSnapshotUrlsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6429,6 +8499,130 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSnapshotUrlsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取源.
+     *
+     * @param request - GetSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSourceResponse
+     *
+     * @param GetSourceRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetSourceResponse
+     */
+    public function getSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        if (null !== $request->sourceName) {
+            @$query['SourceName'] = $request->sourceName;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSource',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSourceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取源.
+     *
+     * @param request - GetSourceRequest
+     * @returns GetSourceResponse
+     *
+     * @param GetSourceRequest $request
+     *
+     * @return GetSourceResponse
+     */
+    public function getSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取源位置.
+     *
+     * @param request - GetSourceLocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSourceLocationResponse
+     *
+     * @param GetSourceLocationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSourceLocationResponse
+     */
+    public function getSourceLocationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSourceLocation',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSourceLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSourceLocationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取源位置.
+     *
+     * @param request - GetSourceLocationRequest
+     * @returns GetSourceLocationResponse
+     *
+     * @param GetSourceLocationRequest $request
+     *
+     * @return GetSourceLocationResponse
+     */
+    public function getSourceLocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSourceLocationWithOptions($request, $runtime);
     }
 
     /**
@@ -6473,8 +8667,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStorageListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStorageListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStorageListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6528,8 +8725,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSystemTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSystemTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSystemTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6592,8 +8792,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6656,8 +8859,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTemplateMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6707,8 +8913,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTemplateParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateParamsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6762,8 +8971,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTranscodeJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6825,8 +9037,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUrlUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUrlUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUrlUploadInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6911,8 +9126,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVideoListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVideoListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVideoListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6969,8 +9187,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkflowTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkflowTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkflowTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7040,8 +9261,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InsertMediaToSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InsertMediaToSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InsertMediaToSearchLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7111,8 +9335,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAIAgentInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7130,6 +9357,92 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAIAgentInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取警告.
+     *
+     * @param request - ListAlertsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAlertsResponse
+     *
+     * @param ListAlertsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAlertsResponse
+     */
+    public function listAlertsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->gmtEnd) {
+            @$query['GmtEnd'] = $request->gmtEnd;
+        }
+
+        if (null !== $request->gmtStart) {
+            @$query['GmtStart'] = $request->gmtStart;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceArn) {
+            @$query['ResourceArn'] = $request->resourceArn;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortByModifiedTime) {
+            @$query['SortByModifiedTime'] = $request->sortByModifiedTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlerts',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListAlertsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取警告.
+     *
+     * @param request - ListAlertsRequest
+     * @returns ListAlertsResponse
+     *
+     * @param ListAlertsRequest $request
+     *
+     * @return ListAlertsResponse
+     */
+    public function listAlerts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAlertsWithOptions($request, $runtime);
     }
 
     /**
@@ -7170,8 +9483,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAllPublicMediaTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAllPublicMediaTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAllPublicMediaTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7233,8 +9549,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAvatarTrainingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAvatarTrainingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAvatarTrainingJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7296,8 +9615,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAvatarsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAvatarsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAvatarsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7379,8 +9701,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListBatchMediaProducingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListBatchMediaProducingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListBatchMediaProducingJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7398,6 +9723,174 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBatchMediaProducingJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取频道警告.
+     *
+     * @param request - ListChannelAlertsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListChannelAlertsResponse
+     *
+     * @param ListChannelAlertsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListChannelAlertsResponse
+     */
+    public function listChannelAlertsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->gmtEnd) {
+            @$query['GmtEnd'] = $request->gmtEnd;
+        }
+
+        if (null !== $request->gmtStart) {
+            @$query['GmtStart'] = $request->gmtStart;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceArn) {
+            @$query['ResourceArn'] = $request->resourceArn;
+        }
+
+        if (null !== $request->sortByModifiedTime) {
+            @$query['SortByModifiedTime'] = $request->sortByModifiedTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListChannelAlerts',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChannelAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListChannelAlertsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取频道警告.
+     *
+     * @param request - ListChannelAlertsRequest
+     * @returns ListChannelAlertsResponse
+     *
+     * @param ListChannelAlertsRequest $request
+     *
+     * @return ListChannelAlertsResponse
+     */
+    public function listChannelAlerts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChannelAlertsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取频道列表.
+     *
+     * @param request - ListChannelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListChannelsResponse
+     *
+     * @param ListChannelsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListChannelsResponse
+     */
+    public function listChannelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->channelTier) {
+            @$query['ChannelTier'] = $request->channelTier;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->playbackMode) {
+            @$query['PlaybackMode'] = $request->playbackMode;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortByModifiedTime) {
+            @$query['SortByModifiedTime'] = $request->sortByModifiedTime;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListChannels',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListChannelsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取频道列表.
+     *
+     * @param request - ListChannelsRequest
+     * @returns ListChannelsResponse
+     *
+     * @param ListChannelsRequest $request
+     *
+     * @return ListChannelsResponse
+     */
+    public function listChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChannelsWithOptions($request, $runtime);
     }
 
     /**
@@ -7458,8 +9951,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCustomTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCustomTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCustomTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7521,8 +10017,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCustomizedVoiceJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCustomizedVoiceJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCustomizedVoiceJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7584,8 +10083,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCustomizedVoicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCustomizedVoicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCustomizedVoicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7655,8 +10157,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDNADBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7737,8 +10242,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDNAFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDNAFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDNAFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7819,8 +10327,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDynamicImageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDynamicImageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDynamicImageJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7910,8 +10421,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEditingProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEditingProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEditingProjectsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7929,6 +10443,228 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEditingProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实时打包频道组.
+     *
+     * @param request - ListLivePackageChannelGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLivePackageChannelGroupsResponse
+     *
+     * @param ListLivePackageChannelGroupsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListLivePackageChannelGroupsResponse
+     */
+    public function listLivePackageChannelGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLivePackageChannelGroups',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLivePackageChannelGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListLivePackageChannelGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实时打包频道组.
+     *
+     * @param request - ListLivePackageChannelGroupsRequest
+     * @returns ListLivePackageChannelGroupsResponse
+     *
+     * @param ListLivePackageChannelGroupsRequest $request
+     *
+     * @return ListLivePackageChannelGroupsResponse
+     */
+    public function listLivePackageChannelGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLivePackageChannelGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实时打包频道.
+     *
+     * @param request - ListLivePackageChannelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLivePackageChannelsResponse
+     *
+     * @param ListLivePackageChannelsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListLivePackageChannelsResponse
+     */
+    public function listLivePackageChannelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLivePackageChannels',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLivePackageChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListLivePackageChannelsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实时打包频道.
+     *
+     * @param request - ListLivePackageChannelsRequest
+     * @returns ListLivePackageChannelsResponse
+     *
+     * @param ListLivePackageChannelsRequest $request
+     *
+     * @return ListLivePackageChannelsResponse
+     */
+    public function listLivePackageChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLivePackageChannelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实时打包源站端点.
+     *
+     * @param request - ListLivePackageOriginEndpointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLivePackageOriginEndpointsResponse
+     *
+     * @param ListLivePackageOriginEndpointsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListLivePackageOriginEndpointsResponse
+     */
+    public function listLivePackageOriginEndpointsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLivePackageOriginEndpoints',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLivePackageOriginEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListLivePackageOriginEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实时打包源站端点.
+     *
+     * @param request - ListLivePackageOriginEndpointsRequest
+     * @returns ListLivePackageOriginEndpointsResponse
+     *
+     * @param ListLivePackageOriginEndpointsRequest $request
+     *
+     * @return ListLivePackageOriginEndpointsResponse
+     */
+    public function listLivePackageOriginEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLivePackageOriginEndpointsWithOptions($request, $runtime);
     }
 
     /**
@@ -7961,8 +10697,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLiveRecordFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLiveRecordFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLiveRecordFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8012,8 +10751,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLiveRecordJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLiveRecordJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLiveRecordJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8063,8 +10805,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLiveRecordTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLiveRecordTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLiveRecordTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8114,8 +10859,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLiveSnapshotFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLiveSnapshotFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLiveSnapshotFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8165,8 +10913,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLiveSnapshotJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLiveSnapshotJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLiveSnapshotJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8216,8 +10967,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLiveSnapshotTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLiveSnapshotTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLiveSnapshotTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8295,8 +11049,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLiveTranscodeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLiveTranscodeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLiveTranscodeJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8374,8 +11131,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLiveTranscodeTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLiveTranscodeTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLiveTranscodeTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8472,8 +11232,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMediaBasicInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMediaBasicInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMediaBasicInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8554,8 +11317,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMediaInfoJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMediaInfoJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMediaInfoJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8613,8 +11379,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMediaMarksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8704,8 +11473,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMediaProducingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMediaProducingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMediaProducingJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8783,8 +11555,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPackageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPackageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPackageJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8838,8 +11613,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPipelinesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8857,6 +11635,80 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPipelinesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取节目列表.
+     *
+     * @param request - ListProgramsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProgramsResponse
+     *
+     * @param ListProgramsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProgramsResponse
+     */
+    public function listProgramsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->programName) {
+            @$query['ProgramName'] = $request->programName;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPrograms',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProgramsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListProgramsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取节目列表.
+     *
+     * @param request - ListProgramsRequest
+     * @returns ListProgramsResponse
+     *
+     * @param ListProgramsRequest $request
+     *
+     * @return ListProgramsResponse
+     */
+    public function listPrograms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProgramsWithOptions($request, $runtime);
     }
 
     /**
@@ -8917,8 +11769,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPublicMediaBasicInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPublicMediaBasicInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPublicMediaBasicInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8936,6 +11791,76 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPublicMediaBasicInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取节目单.
+     *
+     * @param request - ListSchedulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSchedulesResponse
+     *
+     * @param ListSchedulesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSchedulesResponse
+     */
+    public function listSchedulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->windowDurationSeconds) {
+            @$query['WindowDurationSeconds'] = $request->windowDurationSeconds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSchedules',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListSchedulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取节目单.
+     *
+     * @param request - ListSchedulesRequest
+     * @returns ListSchedulesResponse
+     *
+     * @param ListSchedulesRequest $request
+     *
+     * @return ListSchedulesResponse
+     */
+    public function listSchedules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSchedulesWithOptions($request, $runtime);
     }
 
     /**
@@ -8976,8 +11901,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSearchLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9027,8 +11955,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSmartJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSmartJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSmartJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9090,8 +12021,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSmartSysAvatarModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSmartSysAvatarModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSmartSysAvatarModelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9136,8 +12070,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSmartVoiceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSmartVoiceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSmartVoiceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9212,8 +12149,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSnapshotJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSnapshotJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSnapshotJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9231,6 +12171,170 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSnapshotJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列举源位置.
+     *
+     * @param request - ListSourceLocationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSourceLocationsResponse
+     *
+     * @param ListSourceLocationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSourceLocationsResponse
+     */
+    public function listSourceLocationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filterState) {
+            @$query['FilterState'] = $request->filterState;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortByModifiedTime) {
+            @$query['SortByModifiedTime'] = $request->sortByModifiedTime;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSourceLocations',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSourceLocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListSourceLocationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列举源位置.
+     *
+     * @param request - ListSourceLocationsRequest
+     * @returns ListSourceLocationsResponse
+     *
+     * @param ListSourceLocationsRequest $request
+     *
+     * @return ListSourceLocationsResponse
+     */
+    public function listSourceLocations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSourceLocationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列举源.
+     *
+     * @param request - ListSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSourcesResponse
+     *
+     * @param ListSourcesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSourcesResponse
+     */
+    public function listSourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filterState) {
+            @$query['FilterState'] = $request->filterState;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortByModifiedTime) {
+            @$query['SortByModifiedTime'] = $request->sortByModifiedTime;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        if (null !== $request->sourceName) {
+            @$query['SourceName'] = $request->sourceName;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSources',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列举源.
+     *
+     * @param request - ListSourcesRequest
+     * @returns ListSourcesResponse
+     *
+     * @param ListSourcesRequest $request
+     *
+     * @return ListSourcesResponse
+     */
+    public function listSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -9320,8 +12424,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSystemTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSystemTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSystemTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9433,8 +12540,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9517,8 +12627,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTranscodeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTranscodeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTranscodeJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9572,8 +12685,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryCopyrightExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryCopyrightExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryCopyrightExtractJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9647,8 +12763,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryCopyrightJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryCopyrightJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryCopyrightJobListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9718,8 +12837,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryDNAJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDNAJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDNAJobListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9777,8 +12899,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryIProductionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryIProductionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryIProductionJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9859,8 +12984,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryMediaCensorJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryMediaCensorJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryMediaCensorJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9960,8 +13088,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryMediaCensorJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryMediaCensorJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryMediaCensorJobListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10022,8 +13153,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryMediaIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryMediaIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryMediaIndexJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10081,8 +13215,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QuerySearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySearchIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySearchIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10136,8 +13273,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QuerySearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySearchLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10195,8 +13335,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QuerySmarttagJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySmarttagJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySmarttagJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10270,8 +13413,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryTraceAbJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryTraceAbJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTraceAbJobListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10325,8 +13471,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryTraceExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryTraceExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTraceExtractJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10396,8 +13545,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryTraceM3u8JobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryTraceM3u8JobListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTraceM3u8JobListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10454,8 +13606,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RefreshUploadMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefreshUploadMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshUploadMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10571,8 +13726,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RegisterMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RegisterMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterMediaInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10640,8 +13798,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RegisterMediaStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RegisterMediaStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterMediaStreamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10730,8 +13891,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10793,8 +13957,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchIndexJobRerunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchIndexJobRerunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchIndexJobRerunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10875,8 +14042,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10972,8 +14142,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchMediaByAILabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchMediaByAILabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchMediaByAILabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11057,8 +14230,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchMediaByFaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchMediaByFaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchMediaByFaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11135,8 +14311,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchMediaByHybridResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchMediaByHybridResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchMediaByHybridResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11209,8 +14388,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchMediaByMultimodalResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchMediaByMultimodalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchMediaByMultimodalResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11290,8 +14472,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchMediaClipByFaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchMediaClipByFaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchMediaClipByFaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11376,8 +14561,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchPublicMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchPublicMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchPublicMediaInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11435,8 +14623,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendAIAgentDataChannelMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendAIAgentDataChannelMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendAIAgentDataChannelMessageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11498,8 +14689,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendAIAgentSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendAIAgentSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendAIAgentSpeechResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11557,8 +14751,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendLiveSnapshotJobCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendLiveSnapshotJobCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendLiveSnapshotJobCommandResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11616,8 +14813,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendLiveTranscodeJobCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendLiveTranscodeJobCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendLiveTranscodeJobCommandResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11679,8 +14879,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetContentAnalyzeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetContentAnalyzeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetContentAnalyzeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11734,8 +14937,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetDefaultCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDefaultCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDefaultCustomTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11797,8 +15003,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetDefaultStorageLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDefaultStorageLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDefaultStorageLocationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11872,8 +15081,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetEventCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetEventCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetEventCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11943,8 +15155,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetNotifyConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12020,8 +15235,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartAIAgentInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12039,6 +15257,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startAIAgentInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启动频道.
+     *
+     * @param request - StartChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartChannelResponse
+     *
+     * @param StartChannelRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StartChannelResponse
+     */
+    public function startChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return StartChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 启动频道.
+     *
+     * @param request - StartChannelRequest
+     * @returns StartChannelResponse
+     *
+     * @param StartChannelRequest $request
+     *
+     * @return StartChannelResponse
+     */
+    public function startChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -12101,8 +15377,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartRtcRobotInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12168,8 +15447,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12227,8 +15509,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopAIAgentInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12246,6 +15531,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopAIAgentInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 停止频道.
+     *
+     * @param request - StopChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopChannelResponse
+     *
+     * @param StopChannelRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return StopChannelResponse
+     */
+    public function stopChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return StopChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 停止频道.
+     *
+     * @param request - StopChannelRequest
+     * @returns StopChannelResponse
+     *
+     * @param StopChannelRequest $request
+     *
+     * @return StopChannelResponse
+     */
+    public function stopChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -12282,8 +15625,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopRtcRobotInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12357,8 +15703,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitASRJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitASRJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitASRJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12436,8 +15785,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitAudioProduceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitAudioProduceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitAudioProduceJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12491,8 +15843,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitAvatarTrainingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12566,8 +15921,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitAvatarVideoJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitAvatarVideoJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitAvatarVideoJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12639,8 +15997,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitBatchMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitBatchMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitBatchMediaProducingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12708,8 +16069,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitCopyrightExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitCopyrightExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitCopyrightExtractJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12805,8 +16169,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitCopyrightJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitCopyrightJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitCopyrightJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12864,8 +16231,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitCustomizedVoiceJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12970,8 +16340,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitDNAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDNAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDNAJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -12997,7 +16370,23 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交动态图表任务
+     * Generates animated charts based on Excel datasheets, such as line, pie, and bar charts. You can modify the line color and font.
+     *
+     * @remarks
+     * This feature is available only in the China (Shanghai) region.
+     * *   You can add a title, subtitle, data source, and unit to a chart and specify the font and font size. For supported fonts, see [Fonts](https://help.aliyun.com/document_detail/449567.html).
+     * *   This feature provides five styles of animated charts: normal, mystery, lively, business, and green.
+     * *   You can set the background color or image.
+     * *   You can set the animation duration, size, and bitrate.
+     * Examples
+     * *   Line chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.mp4)
+     * *   Bar chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.mp4)
+     * *   Pie chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.mp4)
+     * *   Normal: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Normal.mp4)
+     * *   Mystery: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Mystery.mp4)
+     * *   Lively: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Lively.mp4)
+     * *   Business: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Business.mp4)
+     * *   Green: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Green.mp4)
      *
      * @param request - SubmitDynamicChartJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13078,12 +16467,31 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitDynamicChartJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDynamicChartJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDynamicChartJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * 提交动态图表任务
+     * Generates animated charts based on Excel datasheets, such as line, pie, and bar charts. You can modify the line color and font.
+     *
+     * @remarks
+     * This feature is available only in the China (Shanghai) region.
+     * *   You can add a title, subtitle, data source, and unit to a chart and specify the font and font size. For supported fonts, see [Fonts](https://help.aliyun.com/document_detail/449567.html).
+     * *   This feature provides five styles of animated charts: normal, mystery, lively, business, and green.
+     * *   You can set the background color or image.
+     * *   You can set the animation duration, size, and bitrate.
+     * Examples
+     * *   Line chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/line.mp4)
+     * *   Bar chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/histgram.mp4)
+     * *   Pie chart: [Sample datasheet](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.xlsx), [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/pie.mp4)
+     * *   Normal: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Normal.mp4)
+     * *   Mystery: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Mystery.mp4)
+     * *   Lively: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Lively.mp4)
+     * *   Business: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Business.mp4)
+     * *   Green: [Effect](https://ice-public-media.oss-cn-shanghai.aliyuncs.com/smart/dynamicChart/Green.mp4)
      *
      * @param request - SubmitDynamicChartJobRequest
      * @returns SubmitDynamicChartJobResponse
@@ -13171,8 +16579,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitDynamicImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDynamicImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDynamicImageJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -13272,8 +16683,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitIProductionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitIProductionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitIProductionJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -13354,8 +16768,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitLiveEditingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitLiveEditingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitLiveEditingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -13443,8 +16860,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitLiveRecordJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitLiveRecordJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitLiveRecordJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -13529,8 +16949,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitLiveSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitLiveSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitLiveSnapshotJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -13622,8 +17045,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitLiveTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitLiveTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitLiveTranscodeJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -13689,8 +17115,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitMediaAiAnalysisJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitMediaAiAnalysisJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitMediaAiAnalysisJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -13793,8 +17222,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitMediaCensorJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitMediaCensorJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitMediaCensorJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -13863,8 +17295,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitMediaConvertJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitMediaConvertJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitMediaConvertJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -13943,8 +17378,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitMediaInfoJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitMediaInfoJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitMediaInfoJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14063,8 +17501,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitMediaProducingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14164,8 +17605,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitPackageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitPackageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitPackageJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14237,8 +17681,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitProjectExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitProjectExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitProjectExportJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14306,8 +17753,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitScreenMediaHighlightsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitScreenMediaHighlightsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitScreenMediaHighlightsJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14410,8 +17860,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitSmarttagJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitSmarttagJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitSmarttagJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14506,8 +17959,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitSnapshotJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14575,8 +18031,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitSportsHighlightsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitSportsHighlightsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitSportsHighlightsJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14646,8 +18105,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitStandardCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitStandardCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitStandardCustomizedVoiceJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14726,8 +18188,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitSyncMediaInfoJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitSyncMediaInfoJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitSyncMediaInfoJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14800,8 +18265,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitTextGenerateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitTextGenerateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitTextGenerateJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14889,8 +18357,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitTraceAbJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitTraceAbJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitTraceAbJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -14958,8 +18429,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitTraceExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitTraceExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitTraceExtractJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15035,8 +18509,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitTraceM3u8JobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitTraceM3u8JobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitTraceM3u8JobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15124,8 +18601,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitTranscodeJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15206,8 +18686,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitVideoTranslationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitVideoTranslationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitVideoTranslationJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15272,8 +18755,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TakeoverAIAgentCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TakeoverAIAgentCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TakeoverAIAgentCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15341,8 +18827,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAIAgentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAIAgentInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15420,8 +18909,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAvatarTrainingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15482,8 +18974,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCategoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15504,6 +18999,84 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新频道.
+     *
+     * @param request - UpdateChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateChannelResponse
+     *
+     * @param UpdateChannelRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateChannelResponse
+     */
+    public function updateChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessPolicy) {
+            @$query['AccessPolicy'] = $request->accessPolicy;
+        }
+
+        if (null !== $request->accessToken) {
+            @$query['AccessToken'] = $request->accessToken;
+        }
+
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->fillerSourceLocationName) {
+            @$query['FillerSourceLocationName'] = $request->fillerSourceLocationName;
+        }
+
+        if (null !== $request->fillerSourceName) {
+            @$query['FillerSourceName'] = $request->fillerSourceName;
+        }
+
+        if (null !== $request->outPutConfigList) {
+            @$query['OutPutConfigList'] = $request->outPutConfigList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新频道.
+     *
+     * @param request - UpdateChannelRequest
+     * @returns UpdateChannelResponse
+     *
+     * @param UpdateChannelRequest $request
+     *
+     * @return UpdateChannelResponse
+     */
+    public function updateChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateChannelWithOptions($request, $runtime);
     }
 
     /**
@@ -15548,8 +19121,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCustomTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCustomTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15607,8 +19183,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCustomizedVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCustomizedVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCustomizedVoiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15692,8 +19271,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15711,6 +19293,306 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实时打包频道.
+     *
+     * @param request - UpdateLivePackageChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLivePackageChannelResponse
+     *
+     * @param UpdateLivePackageChannelRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateLivePackageChannelResponse
+     */
+    public function updateLivePackageChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->channelName) {
+            @$body['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->segmentCount) {
+            @$body['SegmentCount'] = $request->segmentCount;
+        }
+
+        if (null !== $request->segmentDuration) {
+            @$body['SegmentDuration'] = $request->segmentDuration;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLivePackageChannel',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLivePackageChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateLivePackageChannelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实时打包频道.
+     *
+     * @param request - UpdateLivePackageChannelRequest
+     * @returns UpdateLivePackageChannelResponse
+     *
+     * @param UpdateLivePackageChannelRequest $request
+     *
+     * @return UpdateLivePackageChannelResponse
+     */
+    public function updateLivePackageChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLivePackageChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实时打包频道.
+     *
+     * @param request - UpdateLivePackageChannelCredentialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLivePackageChannelCredentialsResponse
+     *
+     * @param UpdateLivePackageChannelCredentialsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateLivePackageChannelCredentialsResponse
+     */
+    public function updateLivePackageChannelCredentialsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->channelName) {
+            @$body['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->rotateCredentials) {
+            @$body['RotateCredentials'] = $request->rotateCredentials;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLivePackageChannelCredentials',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLivePackageChannelCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateLivePackageChannelCredentialsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实时打包频道.
+     *
+     * @param request - UpdateLivePackageChannelCredentialsRequest
+     * @returns UpdateLivePackageChannelCredentialsResponse
+     *
+     * @param UpdateLivePackageChannelCredentialsRequest $request
+     *
+     * @return UpdateLivePackageChannelCredentialsResponse
+     */
+    public function updateLivePackageChannelCredentials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLivePackageChannelCredentialsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改直播打包频道组.
+     *
+     * @param request - UpdateLivePackageChannelGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLivePackageChannelGroupResponse
+     *
+     * @param UpdateLivePackageChannelGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateLivePackageChannelGroupResponse
+     */
+    public function updateLivePackageChannelGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLivePackageChannelGroup',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLivePackageChannelGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateLivePackageChannelGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改直播打包频道组.
+     *
+     * @param request - UpdateLivePackageChannelGroupRequest
+     * @returns UpdateLivePackageChannelGroupResponse
+     *
+     * @param UpdateLivePackageChannelGroupRequest $request
+     *
+     * @return UpdateLivePackageChannelGroupResponse
+     */
+    public function updateLivePackageChannelGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLivePackageChannelGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改实时打包源站端点.
+     *
+     * @param request - UpdateLivePackageOriginEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLivePackageOriginEndpointResponse
+     *
+     * @param UpdateLivePackageOriginEndpointRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateLivePackageOriginEndpointResponse
+     */
+    public function updateLivePackageOriginEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authorizationCode) {
+            @$body['AuthorizationCode'] = $request->authorizationCode;
+        }
+
+        if (null !== $request->channelName) {
+            @$body['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->endpointName) {
+            @$body['EndpointName'] = $request->endpointName;
+        }
+
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->ipBlacklist) {
+            @$body['IpBlacklist'] = $request->ipBlacklist;
+        }
+
+        if (null !== $request->ipWhitelist) {
+            @$body['IpWhitelist'] = $request->ipWhitelist;
+        }
+
+        if (null !== $request->manifestName) {
+            @$body['ManifestName'] = $request->manifestName;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->timeshiftVision) {
+            @$body['TimeshiftVision'] = $request->timeshiftVision;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLivePackageOriginEndpoint',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLivePackageOriginEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateLivePackageOriginEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实时打包源站端点.
+     *
+     * @param request - UpdateLivePackageOriginEndpointRequest
+     * @returns UpdateLivePackageOriginEndpointResponse
+     *
+     * @param UpdateLivePackageOriginEndpointRequest $request
+     *
+     * @return UpdateLivePackageOriginEndpointResponse
+     */
+    public function updateLivePackageOriginEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLivePackageOriginEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -15764,8 +19646,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLiveRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLiveRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLiveRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15838,8 +19723,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLiveSnapshotTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLiveSnapshotTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLiveSnapshotTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -15927,8 +19815,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLiveTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLiveTranscodeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLiveTranscodeJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -16000,8 +19891,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLiveTranscodeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLiveTranscodeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLiveTranscodeTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -16019,6 +19913,68 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateLiveTranscodeTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改MediaConnect实例状态
+     *
+     * @param request - UpdateMediaConnectFlowStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMediaConnectFlowStatusResponse
+     *
+     * @param UpdateMediaConnectFlowStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateMediaConnectFlowStatusResponse
+     */
+    public function updateMediaConnectFlowStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaConnectFlowStatus',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMediaConnectFlowStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateMediaConnectFlowStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改MediaConnect实例状态
+     *
+     * @param request - UpdateMediaConnectFlowStatusRequest
+     * @returns UpdateMediaConnectFlowStatusResponse
+     *
+     * @param UpdateMediaConnectFlowStatusRequest $request
+     *
+     * @return UpdateMediaConnectFlowStatusResponse
+     */
+    public function updateMediaConnectFlowStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMediaConnectFlowStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -16102,8 +20058,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMediaInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -16164,8 +20123,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMediaMarksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -16227,8 +20189,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMediaToSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMediaToSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMediaToSearchLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -16294,8 +20259,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePipelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -16313,6 +20281,92 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePipelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新节目.
+     *
+     * @param request - UpdateProgramRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateProgramResponse
+     *
+     * @param UpdateProgramRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProgramResponse
+     */
+    public function updateProgramWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->adBreaks) {
+            @$query['AdBreaks'] = $request->adBreaks;
+        }
+
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->clipRange) {
+            @$query['ClipRange'] = $request->clipRange;
+        }
+
+        if (null !== $request->programName) {
+            @$query['ProgramName'] = $request->programName;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        if (null !== $request->sourceName) {
+            @$query['SourceName'] = $request->sourceName;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->transition) {
+            @$query['Transition'] = $request->transition;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProgram',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateProgramResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateProgramResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新节目.
+     *
+     * @param request - UpdateProgramRequest
+     * @returns UpdateProgramResponse
+     *
+     * @param UpdateProgramRequest $request
+     *
+     * @return UpdateProgramResponse
+     */
+    public function updateProgram($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProgramWithOptions($request, $runtime);
     }
 
     /**
@@ -16359,8 +20413,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRtcRobotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRtcRobotInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -16378,6 +20435,146 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRtcRobotInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新源.
+     *
+     * @param request - UpdateSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSourceResponse
+     *
+     * @param UpdateSourceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateSourceResponse
+     */
+    public function updateSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->httpPackageConfigurations) {
+            @$query['HttpPackageConfigurations'] = $request->httpPackageConfigurations;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        if (null !== $request->sourceName) {
+            @$query['SourceName'] = $request->sourceName;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSource',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateSourceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新源.
+     *
+     * @param request - UpdateSourceRequest
+     * @returns UpdateSourceResponse
+     *
+     * @param UpdateSourceRequest $request
+     *
+     * @return UpdateSourceResponse
+     */
+    public function updateSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新源位置.
+     *
+     * @param request - UpdateSourceLocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSourceLocationResponse
+     *
+     * @param UpdateSourceLocationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateSourceLocationResponse
+     */
+    public function updateSourceLocationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseUrl) {
+            @$query['BaseUrl'] = $request->baseUrl;
+        }
+
+        if (null !== $request->enableSegmentDelivery) {
+            @$query['EnableSegmentDelivery'] = $request->enableSegmentDelivery;
+        }
+
+        if (null !== $request->segmentDeliveryUrl) {
+            @$query['SegmentDeliveryUrl'] = $request->segmentDeliveryUrl;
+        }
+
+        if (null !== $request->sourceLocationName) {
+            @$query['SourceLocationName'] = $request->sourceLocationName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSourceLocation',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSourceLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateSourceLocationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新源位置.
+     *
+     * @param request - UpdateSourceLocationRequest
+     * @returns UpdateSourceLocationResponse
+     *
+     * @param UpdateSourceLocationRequest $request
+     *
+     * @return UpdateSourceLocationResponse
+     */
+    public function updateSourceLocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSourceLocationWithOptions($request, $runtime);
     }
 
     /**
@@ -16448,8 +20645,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -16539,8 +20739,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UploadMediaByURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadMediaByURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadMediaByURLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -16627,8 +20830,11 @@ class ICE extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UploadStreamByURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadStreamByURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadStreamByURLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

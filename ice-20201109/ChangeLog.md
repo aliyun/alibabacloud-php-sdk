@@ -1,3 +1,64 @@
+2025-01-22 Version: 3.7.0
+- Support API AddMediaConnectFlowInput.
+- Support API AddMediaConnectFlowOutput.
+- Support API CreateChannel.
+- Support API CreateLivePackageChannel.
+- Support API CreateLivePackageChannelGroup.
+- Support API CreateLivePackageOriginEndpoint.
+- Support API CreateMediaConnectFlow.
+- Support API CreateProgram.
+- Support API CreateSource.
+- Support API CreateSourceLocation.
+- Support API DeleteChannel.
+- Support API DeleteLivePackageChannel.
+- Support API DeleteLivePackageChannelGroup.
+- Support API DeleteLivePackageOriginEndpoint.
+- Support API DeleteMediaConnectFlow.
+- Support API DeleteProgram.
+- Support API DeleteSource.
+- Support API DeleteSourceLocation.
+- Support API GetChannel.
+- Support API GetLivePackageChannel.
+- Support API GetLivePackageChannelGroup.
+- Support API GetLivePackageOriginEndpoint.
+- Support API GetMediaConnectFlow.
+- Support API GetMediaConvertJob.
+- Support API GetProgram.
+- Support API GetProjectExportJob.
+- Support API GetSource.
+- Support API GetSourceLocation.
+- Support API ListAlerts.
+- Support API ListChannelAlerts.
+- Support API ListChannels.
+- Support API ListLivePackageChannelGroups.
+- Support API ListLivePackageChannels.
+- Support API ListLivePackageOriginEndpoints.
+- Support API ListPrograms.
+- Support API ListSchedules.
+- Support API ListSourceLocations.
+- Support API ListSources.
+- Support API SendAIAgentDataChannelMessage.
+- Support API StartChannel.
+- Support API StopChannel.
+- Support API SubmitMediaConvertJob.
+- Support API SubmitProjectExportJob.
+- Support API SubmitScreenMediaHighlightsJob.
+- Support API TakeoverAIAgentCall.
+- Support API UpdateChannel.
+- Support API UpdateLivePackageChannel.
+- Support API UpdateLivePackageChannelCredentials.
+- Support API UpdateLivePackageChannelGroup.
+- Support API UpdateLivePackageOriginEndpoint.
+- Support API UpdateMediaConnectFlowStatus.
+- Support API UpdateProgram.
+- Support API UpdateSource.
+- Support API UpdateSourceLocation.
+- Update API GetSmartHandleJob: update response param.
+- Update API ListSearchLib: update response param.
+- Update API QuerySearchLib: update response param.
+- Update API SubmitMediaAiAnalysisJob: add param UserData.
+
+
 2025-01-17 Version: 3.7.0
 - Support API GetMediaConvertJob.
 - Support API GetProjectExportJob.
