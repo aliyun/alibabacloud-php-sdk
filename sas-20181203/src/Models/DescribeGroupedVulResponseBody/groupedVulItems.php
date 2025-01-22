@@ -25,6 +25,10 @@ class groupedVulItems extends Model
      */
     public $handledCount;
     /**
+     * @var string
+     */
+    public $languageType;
+    /**
      * @var int
      */
     public $laterCount;
@@ -61,6 +65,7 @@ class groupedVulItems extends Model
         'asapCount'     => 'AsapCount',
         'gmtLast'       => 'GmtLast',
         'handledCount'  => 'HandledCount',
+        'languageType'  => 'LanguageType',
         'laterCount'    => 'LaterCount',
         'name'          => 'Name',
         'nntfCount'     => 'NntfCount',
@@ -93,6 +98,10 @@ class groupedVulItems extends Model
 
         if (null !== $this->handledCount) {
             $res['HandledCount'] = $this->handledCount;
+        }
+
+        if (null !== $this->languageType) {
+            $res['LanguageType'] = $this->languageType;
         }
 
         if (null !== $this->laterCount) {
@@ -152,6 +161,10 @@ class groupedVulItems extends Model
 
         if (isset($map['HandledCount'])) {
             $model->handledCount = $map['HandledCount'];
+        }
+
+        if (isset($map['LanguageType'])) {
+            $model->languageType = $map['LanguageType'];
         }
 
         if (isset($map['LaterCount'])) {

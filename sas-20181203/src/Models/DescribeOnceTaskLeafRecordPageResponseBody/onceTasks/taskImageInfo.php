@@ -55,6 +55,10 @@ class taskImageInfo extends Model
     /**
      * @var string
      */
+    public $registryType;
+    /**
+     * @var string
+     */
     public $repoId;
     /**
      * @var string
@@ -84,6 +88,7 @@ class taskImageInfo extends Model
         'nodeName'       => 'NodeName',
         'pod'            => 'Pod',
         'regionId'       => 'RegionId',
+        'registryType'   => 'RegistryType',
         'repoId'         => 'RepoId',
         'repoName'       => 'RepoName',
         'repoNamespace'  => 'RepoNamespace',
@@ -141,6 +146,10 @@ class taskImageInfo extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->registryType) {
+            $res['RegistryType'] = $this->registryType;
         }
 
         if (null !== $this->repoId) {
@@ -216,6 +225,10 @@ class taskImageInfo extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['RegistryType'])) {
+            $model->registryType = $map['RegistryType'];
         }
 
         if (isset($map['RepoId'])) {
