@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest\tools\function_;
-use AlibabaCloud\Tea\Model;
 
 class tools extends Model
 {
@@ -13,10 +13,7 @@ class tools extends Model
      * @var function_
      */
     public $function;
-
     /**
-     * @example function
-     *
      * @var string
      */
     public $type;
@@ -27,14 +24,19 @@ class tools extends Model
 
     public function validate()
     {
+        if (null !== $this->function) {
+            $this->function->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->function) {
-            $res['function'] = null !== $this->function ? $this->function->toMap() : null;
+            $res['function'] = null !== $this->function ? $this->function->toArray($noStream) : $this->function;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -42,17 +44,18 @@ class tools extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tools
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['function'])) {
             $model->function = function_::fromMap($map['function']);
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentRequest\filters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class or_ extends Model
 {
     /**
-     * @example 30
-     *
      * @var float
      */
     public $boost;
-
     /**
-     * @example researcher
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @example eq
-     *
      * @var string
      */
     public $operator;
-
     /**
-     * @example zhangsan
-     *
      * @var string
      */
     public $value;
@@ -44,20 +33,24 @@ class or_ extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->boost) {
             $res['boost'] = $this->boost;
         }
+
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->operator) {
             $res['operator'] = $this->operator;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -65,23 +58,26 @@ class or_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return or_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['boost'])) {
             $model->boost = $map['boost'];
         }
+
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['operator'])) {
             $model->operator = $map['operator'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

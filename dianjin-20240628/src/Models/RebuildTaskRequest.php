@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RebuildTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $taskIds;
@@ -20,29 +18,43 @@ class RebuildTaskRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->taskIds)) {
+            Model::validateArray($this->taskIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskIds) {
-            $res['taskIds'] = $this->taskIds;
+            if (\is_array($this->taskIds)) {
+                $res['taskIds'] = [];
+                $n1             = 0;
+                foreach ($this->taskIds as $item1) {
+                    $res['taskIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RebuildTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['taskIds'])) {
             if (!empty($map['taskIds'])) {
-                $model->taskIds = $map['taskIds'];
+                $model->taskIds = [];
+                $n1             = 0;
+                foreach ($map['taskIds'] as $item1) {
+                    $model->taskIds[$n1++] = $item1;
+                }
             }
         }
 

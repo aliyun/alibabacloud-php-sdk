@@ -4,49 +4,32 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest\messages;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest\tools;
-use AlibabaCloud\Tea\Model;
 
 class RunChatResultGenerationRequest extends Model
 {
     /**
-     * @example {"topP": 0.8}
-     *
      * @var mixed[]
      */
     public $inferenceParameters;
-
     /**
-     * @description This parameter is required.
-     *
      * @var messages[]
      */
     public $messages;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example qwen-max
-     *
      * @var string
      */
     public $modelId;
-
     /**
-     * @example 237645726354
-     *
      * @var string
      */
     public $sessionId;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $stream;
-
     /**
      * @var tools[]
      */
@@ -62,38 +45,58 @@ class RunChatResultGenerationRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->inferenceParameters)) {
+            Model::validateArray($this->inferenceParameters);
+        }
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
+        }
+        if (\is_array($this->tools)) {
+            Model::validateArray($this->tools);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inferenceParameters) {
-            $res['inferenceParameters'] = $this->inferenceParameters;
-        }
-        if (null !== $this->messages) {
-            $res['messages'] = [];
-            if (null !== $this->messages && \is_array($this->messages)) {
-                $n = 0;
-                foreach ($this->messages as $item) {
-                    $res['messages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->inferenceParameters)) {
+                $res['inferenceParameters'] = [];
+                foreach ($this->inferenceParameters as $key1 => $value1) {
+                    $res['inferenceParameters'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->messages) {
+            if (\is_array($this->messages)) {
+                $res['messages'] = [];
+                $n1              = 0;
+                foreach ($this->messages as $item1) {
+                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
+
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
+
         if (null !== $this->stream) {
             $res['stream'] = $this->stream;
         }
+
         if (null !== $this->tools) {
-            $res['tools'] = [];
-            if (null !== $this->tools && \is_array($this->tools)) {
-                $n = 0;
-                foreach ($this->tools as $item) {
-                    $res['tools'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tools)) {
+                $res['tools'] = [];
+                $n1           = 0;
+                foreach ($this->tools as $item1) {
+                    $res['tools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -101,41 +104,51 @@ class RunChatResultGenerationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunChatResultGenerationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['inferenceParameters'])) {
-            $model->inferenceParameters = $map['inferenceParameters'];
-        }
-        if (isset($map['messages'])) {
-            if (!empty($map['messages'])) {
-                $model->messages = [];
-                $n               = 0;
-                foreach ($map['messages'] as $item) {
-                    $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
+            if (!empty($map['inferenceParameters'])) {
+                $model->inferenceParameters = [];
+                foreach ($map['inferenceParameters'] as $key1 => $value1) {
+                    $model->inferenceParameters[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['messages'])) {
+            if (!empty($map['messages'])) {
+                $model->messages = [];
+                $n1              = 0;
+                foreach ($map['messages'] as $item1) {
+                    $model->messages[$n1++] = messages::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
+
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
+
         if (isset($map['stream'])) {
             $model->stream = $map['stream'];
         }
+
         if (isset($map['tools'])) {
             if (!empty($map['tools'])) {
                 $model->tools = [];
-                $n            = 0;
-                foreach ($map['tools'] as $item) {
-                    $model->tools[$n++] = null !== $item ? tools::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['tools'] as $item1) {
+                    $model->tools[$n1++] = tools::fromMap($item1);
                 }
             }
         }

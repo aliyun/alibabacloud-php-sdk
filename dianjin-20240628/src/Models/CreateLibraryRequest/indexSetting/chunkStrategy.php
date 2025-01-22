@@ -4,69 +4,43 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryRequest\indexSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class chunkStrategy extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $docTreeSplit;
-
     /**
-     * @example 300
-     *
      * @var int
      */
     public $docTreeSplitSize;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enhanceGraph;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enhanceTable;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $overlap;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $sentenceSplit;
-
     /**
-     * @example 300
-     *
      * @var int
      */
     public $sentenceSplitSize;
-
     /**
-     * @example 300
-     *
      * @var int
      */
     public $size;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $split;
@@ -84,35 +58,44 @@ class chunkStrategy extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docTreeSplit) {
             $res['docTreeSplit'] = $this->docTreeSplit;
         }
+
         if (null !== $this->docTreeSplitSize) {
             $res['docTreeSplitSize'] = $this->docTreeSplitSize;
         }
+
         if (null !== $this->enhanceGraph) {
             $res['enhanceGraph'] = $this->enhanceGraph;
         }
+
         if (null !== $this->enhanceTable) {
             $res['enhanceTable'] = $this->enhanceTable;
         }
+
         if (null !== $this->overlap) {
             $res['overlap'] = $this->overlap;
         }
+
         if (null !== $this->sentenceSplit) {
             $res['sentenceSplit'] = $this->sentenceSplit;
         }
+
         if (null !== $this->sentenceSplitSize) {
             $res['sentenceSplitSize'] = $this->sentenceSplitSize;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
+
         if (null !== $this->split) {
             $res['split'] = $this->split;
         }
@@ -120,38 +103,46 @@ class chunkStrategy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return chunkStrategy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['docTreeSplit'])) {
             $model->docTreeSplit = $map['docTreeSplit'];
         }
+
         if (isset($map['docTreeSplitSize'])) {
             $model->docTreeSplitSize = $map['docTreeSplitSize'];
         }
+
         if (isset($map['enhanceGraph'])) {
             $model->enhanceGraph = $map['enhanceGraph'];
         }
+
         if (isset($map['enhanceTable'])) {
             $model->enhanceTable = $map['enhanceTable'];
         }
+
         if (isset($map['overlap'])) {
             $model->overlap = $map['overlap'];
         }
+
         if (isset($map['sentenceSplit'])) {
             $model->sentenceSplit = $map['sentenceSplit'];
         }
+
         if (isset($map['sentenceSplitSize'])) {
             $model->sentenceSplitSize = $map['sentenceSplitSize'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
+
         if (isset($map['split'])) {
             $model->split = $map['split'];
         }

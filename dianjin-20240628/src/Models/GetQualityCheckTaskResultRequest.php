@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetQualityCheckTaskResultRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 17071319
-     *
      * @var string
      */
     public $taskId;
@@ -22,9 +18,10 @@ class GetQualityCheckTaskResultRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -34,11 +31,11 @@ class GetQualityCheckTaskResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQualityCheckTaskResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

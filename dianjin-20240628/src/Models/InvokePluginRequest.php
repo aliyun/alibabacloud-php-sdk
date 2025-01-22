@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InvokePluginRequest extends Model
 {
@@ -12,10 +12,7 @@ class InvokePluginRequest extends Model
      * @var mixed[]
      */
     public $params;
-
     /**
-     * @example 3mj87da7zr
-     *
      * @var string
      */
     public $pluginId;
@@ -26,14 +23,24 @@ class InvokePluginRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->params)) {
+            Model::validateArray($this->params);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->params) {
-            $res['params'] = $this->params;
+            if (\is_array($this->params)) {
+                $res['params'] = [];
+                foreach ($this->params as $key1 => $value1) {
+                    $res['params'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->pluginId) {
             $res['pluginId'] = $this->pluginId;
         }
@@ -41,17 +48,23 @@ class InvokePluginRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InvokePluginRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['params'])) {
-            $model->params = $map['params'];
+            if (!empty($map['params'])) {
+                $model->params = [];
+                foreach ($map['params'] as $key1 => $value1) {
+                    $model->params[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['pluginId'])) {
             $model->pluginId = $map['pluginId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReIndexRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 8326472354762354
-     *
      * @var string
      */
     public $documentId;
@@ -22,9 +18,10 @@ class ReIndexRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->documentId) {
@@ -34,11 +31,11 @@ class ReIndexRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReIndexRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

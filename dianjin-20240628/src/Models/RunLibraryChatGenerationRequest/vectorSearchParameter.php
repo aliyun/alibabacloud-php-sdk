@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RunLibraryChatGenerationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vectorSearchParameter extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $limit;
@@ -20,9 +18,10 @@ class vectorSearchParameter extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limit) {
@@ -32,11 +31,11 @@ class vectorSearchParameter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vectorSearchParameter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

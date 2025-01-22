@@ -4,30 +4,20 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateQaLibraryRequest\parseQaResults;
-use AlibabaCloud\Tea\Model;
 
 class UpdateQaLibraryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var parseQaResults[]
      */
     public $parseQaResults;
-
     /**
-     * @example 6jh378d
-     *
      * @var string
      */
     public $qaLibraryId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 0FC6636E-380A-5369-AE01-D1C15BB9B254
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,29 @@ class UpdateQaLibraryRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->parseQaResults)) {
+            Model::validateArray($this->parseQaResults);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parseQaResults) {
-            $res['parseQaResults'] = [];
-            if (null !== $this->parseQaResults && \is_array($this->parseQaResults)) {
-                $n = 0;
-                foreach ($this->parseQaResults as $item) {
-                    $res['parseQaResults'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parseQaResults)) {
+                $res['parseQaResults'] = [];
+                $n1                    = 0;
+                foreach ($this->parseQaResults as $item1) {
+                    $res['parseQaResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->qaLibraryId) {
             $res['qaLibraryId'] = $this->qaLibraryId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -63,26 +59,28 @@ class UpdateQaLibraryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateQaLibraryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['parseQaResults'])) {
             if (!empty($map['parseQaResults'])) {
                 $model->parseQaResults = [];
-                $n                     = 0;
-                foreach ($map['parseQaResults'] as $item) {
-                    $model->parseQaResults[$n++] = null !== $item ? parseQaResults::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['parseQaResults'] as $item1) {
+                    $model->parseQaResults[$n1++] = parseQaResults::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['qaLibraryId'])) {
             $model->qaLibraryId = $map['qaLibraryId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

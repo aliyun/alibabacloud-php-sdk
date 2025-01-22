@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryListResponseBody\data\records\indexSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modelConfig extends Model
 {
     /**
-     * @example 0.8
-     *
      * @var float
      */
     public $temperature;
-
     /**
-     * @description topP
-     *
-     * @example 0.8
-     *
      * @var float
      */
     public $topP;
@@ -30,14 +23,16 @@ class modelConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->temperature) {
             $res['temperature'] = $this->temperature;
         }
+
         if (null !== $this->topP) {
             $res['topP'] = $this->topP;
         }
@@ -45,17 +40,18 @@ class modelConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modelConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['temperature'])) {
             $model->temperature = $map['temperature'];
         }
+
         if (isset($map['topP'])) {
             $model->topP = $map['topP'];
         }

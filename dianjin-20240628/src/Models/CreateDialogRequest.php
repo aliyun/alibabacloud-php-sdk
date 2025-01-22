@@ -4,54 +4,34 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDialogRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example taobao
-     *
      * @var string
      */
     public $channel;
-
     /**
      * @var bool
      */
     public $enableLibrary;
-
     /**
-     * @example null
-     *
      * @var mixed[]
      */
     public $metaData;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example live_broadcast_qa
-     *
      * @var string
      */
     public $playCode;
-
     /**
      * @var string[]
      */
     public $qaLibraryList;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ebf83826-dc1c-46f8-9759-0fb6da4c8xxx
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var bool
      */
@@ -68,29 +48,53 @@ class CreateDialogRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->metaData)) {
+            Model::validateArray($this->metaData);
+        }
+        if (\is_array($this->qaLibraryList)) {
+            Model::validateArray($this->qaLibraryList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
+
         if (null !== $this->enableLibrary) {
             $res['enableLibrary'] = $this->enableLibrary;
         }
+
         if (null !== $this->metaData) {
-            $res['metaData'] = $this->metaData;
+            if (\is_array($this->metaData)) {
+                $res['metaData'] = [];
+                foreach ($this->metaData as $key1 => $value1) {
+                    $res['metaData'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->playCode) {
             $res['playCode'] = $this->playCode;
         }
+
         if (null !== $this->qaLibraryList) {
-            $res['qaLibraryList'] = $this->qaLibraryList;
+            if (\is_array($this->qaLibraryList)) {
+                $res['qaLibraryList'] = [];
+                $n1                   = 0;
+                foreach ($this->qaLibraryList as $item1) {
+                    $res['qaLibraryList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->selfDirected) {
             $res['selfDirected'] = $this->selfDirected;
         }
@@ -98,34 +102,49 @@ class CreateDialogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDialogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }
+
         if (isset($map['enableLibrary'])) {
             $model->enableLibrary = $map['enableLibrary'];
         }
+
         if (isset($map['metaData'])) {
-            $model->metaData = $map['metaData'];
+            if (!empty($map['metaData'])) {
+                $model->metaData = [];
+                foreach ($map['metaData'] as $key1 => $value1) {
+                    $model->metaData[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['playCode'])) {
             $model->playCode = $map['playCode'];
         }
+
         if (isset($map['qaLibraryList'])) {
             if (!empty($map['qaLibraryList'])) {
-                $model->qaLibraryList = $map['qaLibraryList'];
+                $model->qaLibraryList = [];
+                $n1                   = 0;
+                foreach ($map['qaLibraryList'] as $item1) {
+                    $model->qaLibraryList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['selfDirected'])) {
             $model->selfDirected = $map['selfDirected'];
         }

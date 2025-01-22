@@ -4,60 +4,39 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RebuildTaskResponseBody extends Model
 {
     /**
-     * @example null
-     *
      * @var int
      */
     public $cost;
-
     /**
      * @var mixed[][]
      */
     public $data;
-
     /**
-     * @example null
-     *
      * @var string
      */
     public $dataType;
-
     /**
-     * @example 0
-     *
      * @var string
      */
     public $errCode;
-
     /**
-     * @example ok
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example EF4B5C9B-3BC8-5171-A47B-4C5CF3DC3258
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
-
     /**
-     * @example 2024-04-24 11:54:34
-     *
      * @var string
      */
     public $time;
@@ -74,32 +53,54 @@ class RebuildTaskResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cost) {
             $res['cost'] = $this->cost;
         }
+
         if (null !== $this->data) {
-            $res['data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1          = 0;
+                foreach ($this->data as $item1) {
+                    if (\is_array($item1)) {
+                        $res['data'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['data'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->dataType) {
             $res['dataType'] = $this->dataType;
         }
+
         if (null !== $this->errCode) {
             $res['errCode'] = $this->errCode;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
+
         if (null !== $this->time) {
             $res['time'] = $this->time;
         }
@@ -107,37 +108,53 @@ class RebuildTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RebuildTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cost'])) {
             $model->cost = $map['cost'];
         }
+
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
-                $model->data = $map['data'];
+                $model->data = [];
+                $n1          = 0;
+                foreach ($map['data'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->data[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->data[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['dataType'])) {
             $model->dataType = $map['dataType'];
         }
+
         if (isset($map['errCode'])) {
             $model->errCode = $map['errCode'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
+
         if (isset($map['time'])) {
             $model->time = $map['time'];
         }

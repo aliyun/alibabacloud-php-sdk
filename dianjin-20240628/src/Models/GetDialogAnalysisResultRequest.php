@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDialogAnalysisResultRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $asc;
-
     /**
-     * @example 2024-09-23 09:20:02
-     *
      * @var string
      */
     public $endTime;
-
     /**
      * @var string[]
      */
     public $sessionIds;
-
     /**
-     * @example 2024-09-14 09:11:00
-     *
      * @var string
      */
     public $startTime;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $useUrl;
@@ -50,23 +38,37 @@ class GetDialogAnalysisResultRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->sessionIds)) {
+            Model::validateArray($this->sessionIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asc) {
             $res['asc'] = $this->asc;
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->sessionIds) {
-            $res['sessionIds'] = $this->sessionIds;
+            if (\is_array($this->sessionIds)) {
+                $res['sessionIds'] = [];
+                $n1                = 0;
+                foreach ($this->sessionIds as $item1) {
+                    $res['sessionIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
+
         if (null !== $this->useUrl) {
             $res['useUrl'] = $this->useUrl;
         }
@@ -74,28 +76,36 @@ class GetDialogAnalysisResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDialogAnalysisResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['asc'])) {
             $model->asc = $map['asc'];
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['sessionIds'])) {
             if (!empty($map['sessionIds'])) {
-                $model->sessionIds = $map['sessionIds'];
+                $model->sessionIds = [];
+                $n1                = 0;
+                foreach ($map['sessionIds'] as $item1) {
+                    $model->sessionIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
+
         if (isset($map['useUrl'])) {
             $model->useUrl = $map['useUrl'];
         }

@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class docInfos extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 198386463432
-     *
      * @var string
      */
     public $docId;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $endPage;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example rdxrmo6amk
-     *
      * @var string
      */
     public $libraryId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $startPage;
@@ -48,20 +33,24 @@ class docInfos extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docId) {
             $res['docId'] = $this->docId;
         }
+
         if (null !== $this->endPage) {
             $res['endPage'] = $this->endPage;
         }
+
         if (null !== $this->libraryId) {
             $res['libraryId'] = $this->libraryId;
         }
+
         if (null !== $this->startPage) {
             $res['startPage'] = $this->startPage;
         }
@@ -69,23 +58,26 @@ class docInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return docInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['docId'])) {
             $model->docId = $map['docId'];
         }
+
         if (isset($map['endPage'])) {
             $model->endPage = $map['endPage'];
         }
+
         if (isset($map['libraryId'])) {
             $model->libraryId = $map['libraryId'];
         }
+
         if (isset($map['startPage'])) {
             $model->startPage = $map['startPage'];
         }

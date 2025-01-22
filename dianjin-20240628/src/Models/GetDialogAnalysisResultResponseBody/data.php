@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultResponseBody\data\dialogAnalysisRespList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->dialogAnalysisRespList)) {
+            Model::validateArray($this->dialogAnalysisRespList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dialogAnalysisRespList) {
-            $res['dialogAnalysisRespList'] = [];
-            if (null !== $this->dialogAnalysisRespList && \is_array($this->dialogAnalysisRespList)) {
-                $n = 0;
-                foreach ($this->dialogAnalysisRespList as $item) {
-                    $res['dialogAnalysisRespList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dialogAnalysisRespList)) {
+                $res['dialogAnalysisRespList'] = [];
+                $n1                            = 0;
+                foreach ($this->dialogAnalysisRespList as $item1) {
+                    $res['dialogAnalysisRespList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dialogAnalysisRespList'])) {
             if (!empty($map['dialogAnalysisRespList'])) {
                 $model->dialogAnalysisRespList = [];
-                $n                             = 0;
-                foreach ($map['dialogAnalysisRespList'] as $item) {
-                    $model->dialogAnalysisRespList[$n++] = null !== $item ? dialogAnalysisRespList::fromMap($item) : $item;
+                $n1                            = 0;
+                foreach ($map['dialogAnalysisRespList'] as $item1) {
+                    $model->dialogAnalysisRespList[$n1++] = dialogAnalysisRespList::fromMap($item1);
                 }
             }
         }

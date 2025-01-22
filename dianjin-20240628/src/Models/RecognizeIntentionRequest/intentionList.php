@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RecognizeIntentionRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class intentionList extends Model
 {
@@ -12,19 +12,14 @@ class intentionList extends Model
      * @var string
      */
     public $description;
-
     /**
      * @var string
      */
     public $intention;
-
     /**
-     * @example 1808766224000262144
-     *
      * @var string
      */
     public $intentionCode;
-
     /**
      * @var string
      */
@@ -38,20 +33,24 @@ class intentionList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->intention) {
             $res['intention'] = $this->intention;
         }
+
         if (null !== $this->intentionCode) {
             $res['intentionCode'] = $this->intentionCode;
         }
+
         if (null !== $this->intentionScript) {
             $res['intentionScript'] = $this->intentionScript;
         }
@@ -59,23 +58,26 @@ class intentionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return intentionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['intention'])) {
             $model->intention = $map['intention'];
         }
+
         if (isset($map['intentionCode'])) {
             $model->intentionCode = $map['intentionCode'];
         }
+
         if (isset($map['intentionScript'])) {
             $model->intentionScript = $map['intentionScript'];
         }

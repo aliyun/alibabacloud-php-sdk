@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\GenDocQaResultResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parseQaResults extends Model
 {
@@ -12,7 +12,6 @@ class parseQaResults extends Model
      * @var string
      */
     public $answer;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class parseQaResults extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answer) {
             $res['answer'] = $this->answer;
         }
+
         if (null !== $this->question) {
             $res['question'] = $this->question;
         }
@@ -39,17 +40,18 @@ class parseQaResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parseQaResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['answer'])) {
             $model->answer = $map['answer'];
         }
+
         if (isset($map['question'])) {
             $model->question = $map['question'];
         }

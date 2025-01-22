@@ -4,26 +4,20 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryRequest\indexSetting;
-use AlibabaCloud\Tea\Model;
 
 class CreateLibraryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $description;
-
     /**
      * @var indexSetting
      */
     public $indexSetting;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $libraryName;
@@ -35,17 +29,23 @@ class CreateLibraryRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->indexSetting) {
+            $this->indexSetting->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->indexSetting) {
-            $res['indexSetting'] = null !== $this->indexSetting ? $this->indexSetting->toMap() : null;
+            $res['indexSetting'] = null !== $this->indexSetting ? $this->indexSetting->toArray($noStream) : $this->indexSetting;
         }
+
         if (null !== $this->libraryName) {
             $res['libraryName'] = $this->libraryName;
         }
@@ -53,20 +53,22 @@ class CreateLibraryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLibraryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['indexSetting'])) {
             $model->indexSetting = indexSetting::fromMap($map['indexSetting']);
         }
+
         if (isset($map['libraryName'])) {
             $model->libraryName = $map['libraryName'];
         }
