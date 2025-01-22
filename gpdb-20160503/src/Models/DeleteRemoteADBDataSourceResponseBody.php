@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRemoteADBDataSourceResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example e9d60eb1-e90d-4bc6-a470-c8b767460858
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The job ID.
-     *
-     * @example 90000
-     *
      * @var int
      */
     public $taskId;
@@ -32,14 +23,16 @@ class DeleteRemoteADBDataSourceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -47,17 +40,18 @@ class DeleteRemoteADBDataSourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRemoteADBDataSourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

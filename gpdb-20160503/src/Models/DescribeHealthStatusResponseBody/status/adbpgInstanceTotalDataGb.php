@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class adbpgInstanceTotalDataGb extends Model
 {
     /**
-     * @description The total amount of data storage of the instance. Unit: GB.
-     *
-     * @example 4.1
-     *
      * @var float
      */
     public $value;
@@ -22,9 +18,10 @@ class adbpgInstanceTotalDataGb extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->value) {
@@ -34,11 +31,11 @@ class adbpgInstanceTotalDataGb extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return adbpgInstanceTotalDataGb
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

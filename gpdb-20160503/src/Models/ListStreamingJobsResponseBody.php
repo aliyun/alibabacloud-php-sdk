@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsResponseBody\jobItems;
-use AlibabaCloud\Tea\Model;
 
 class ListStreamingJobsResponseBody extends Model
 {
     /**
-     * @description The queried jobs.
-     *
      * @var jobItems[]
      */
     public $jobItems;
-
     /**
-     * @description Current page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description Number of records per page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageRecordCount;
-
     /**
-     * @description Request ID.
-     *
-     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Total number of records.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalRecordCount;
@@ -61,29 +39,37 @@ class ListStreamingJobsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->jobItems)) {
+            Model::validateArray($this->jobItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobItems) {
-            $res['JobItems'] = [];
-            if (null !== $this->jobItems && \is_array($this->jobItems)) {
-                $n = 0;
-                foreach ($this->jobItems as $item) {
-                    $res['JobItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobItems)) {
+                $res['JobItems'] = [];
+                $n1              = 0;
+                foreach ($this->jobItems as $item1) {
+                    $res['JobItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
@@ -91,32 +77,36 @@ class ListStreamingJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListStreamingJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobItems'])) {
             if (!empty($map['JobItems'])) {
                 $model->jobItems = [];
-                $n               = 0;
-                foreach ($map['JobItems'] as $item) {
-                    $model->jobItems[$n++] = null !== $item ? jobItems::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['JobItems'] as $item1) {
+                    $model->jobItems[$n1++] = jobItems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }

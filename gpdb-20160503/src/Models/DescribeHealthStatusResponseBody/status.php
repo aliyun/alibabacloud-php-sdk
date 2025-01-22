@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbgpSegmentDiskUsagePercentMax;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgConnectionStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgDiskStatus;
@@ -19,116 +20,66 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\stat
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\nodeMasterStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\nodeSegmentConnectionStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\nodeSegmentDiskStatus;
-use AlibabaCloud\Tea\Model;
 
 class status extends Model
 {
     /**
-     * @description The information of maximum compute node storage usage.
-     *
-     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var adbgpSegmentDiskUsagePercentMax
      */
     public $adbgpSegmentDiskUsagePercentMax;
-
     /**
-     * @description The information of instance connection health status.
-     *
      * @var adbpgConnectionStatus
      */
     public $adbpgConnectionStatus;
-
     /**
-     * @description The information of instance storage status.
-     *
-     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var adbpgDiskStatus
      */
     public $adbpgDiskStatus;
-
     /**
-     * @description The information of instance storage usage.
-     *
-     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var adbpgDiskUsagePercent
      */
     public $adbpgDiskUsagePercent;
-
     /**
-     * @description The total amount of cold data storage.
-     *
      * @var adbpgInstanceColdDataGb
      */
     public $adbpgInstanceColdDataGb;
-
     /**
-     * @description The total amount of hot data storage.
-     *
      * @var adbpgInstanceHotDataGb
      */
     public $adbpgInstanceHotDataGb;
-
     /**
-     * @description The total amount of data storage of the instance.
-     *
      * @var adbpgInstanceTotalDataGb
      */
     public $adbpgInstanceTotalDataGb;
-
     /**
-     * @description The information of maximum coordinator node storage usage.
-     *
-     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var adbpgMasterDiskUsagePercentMax
      */
     public $adbpgMasterDiskUsagePercentMax;
-
     /**
-     * @description The information of coordinator node availability status.
-     *
      * @var adbpgMasterStatus
      */
     public $adbpgMasterStatus;
-
     /**
-     * @description The information of compute node availability status.
-     *
      * @var adbpgSegmentStatus
      */
     public $adbpgSegmentStatus;
-
     /**
-     * @description The information of instance health status.
-     *
      * @var adbpgStatus
      */
     public $adbpgStatus;
-
     /**
-     * @description The information of coordinator node connection health status.
-     *
      * @var nodeMasterConnectionStatus
      */
     public $nodeMasterConnectionStatus;
-
     /**
-     * @description The information of coordinator node health status.
-     *
      * @var nodeMasterStatus
      */
     public $nodeMasterStatus;
-
     /**
-     * @description The information of compute node connection health status.
-     *
      * @var nodeSegmentConnectionStatus
      */
     public $nodeSegmentConnectionStatus;
-
     /**
-     * @description The information of compute node storage status.
-     *
-     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var nodeSegmentDiskStatus
      */
     public $nodeSegmentDiskStatus;
@@ -152,110 +103,184 @@ class status extends Model
 
     public function validate()
     {
+        if (null !== $this->adbgpSegmentDiskUsagePercentMax) {
+            $this->adbgpSegmentDiskUsagePercentMax->validate();
+        }
+        if (null !== $this->adbpgConnectionStatus) {
+            $this->adbpgConnectionStatus->validate();
+        }
+        if (null !== $this->adbpgDiskStatus) {
+            $this->adbpgDiskStatus->validate();
+        }
+        if (null !== $this->adbpgDiskUsagePercent) {
+            $this->adbpgDiskUsagePercent->validate();
+        }
+        if (null !== $this->adbpgInstanceColdDataGb) {
+            $this->adbpgInstanceColdDataGb->validate();
+        }
+        if (null !== $this->adbpgInstanceHotDataGb) {
+            $this->adbpgInstanceHotDataGb->validate();
+        }
+        if (null !== $this->adbpgInstanceTotalDataGb) {
+            $this->adbpgInstanceTotalDataGb->validate();
+        }
+        if (null !== $this->adbpgMasterDiskUsagePercentMax) {
+            $this->adbpgMasterDiskUsagePercentMax->validate();
+        }
+        if (null !== $this->adbpgMasterStatus) {
+            $this->adbpgMasterStatus->validate();
+        }
+        if (null !== $this->adbpgSegmentStatus) {
+            $this->adbpgSegmentStatus->validate();
+        }
+        if (null !== $this->adbpgStatus) {
+            $this->adbpgStatus->validate();
+        }
+        if (null !== $this->nodeMasterConnectionStatus) {
+            $this->nodeMasterConnectionStatus->validate();
+        }
+        if (null !== $this->nodeMasterStatus) {
+            $this->nodeMasterStatus->validate();
+        }
+        if (null !== $this->nodeSegmentConnectionStatus) {
+            $this->nodeSegmentConnectionStatus->validate();
+        }
+        if (null !== $this->nodeSegmentDiskStatus) {
+            $this->nodeSegmentDiskStatus->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adbgpSegmentDiskUsagePercentMax) {
-            $res['adbgp_segment_disk_usage_percent_max'] = null !== $this->adbgpSegmentDiskUsagePercentMax ? $this->adbgpSegmentDiskUsagePercentMax->toMap() : null;
+            $res['adbgp_segment_disk_usage_percent_max'] = null !== $this->adbgpSegmentDiskUsagePercentMax ? $this->adbgpSegmentDiskUsagePercentMax->toArray($noStream) : $this->adbgpSegmentDiskUsagePercentMax;
         }
+
         if (null !== $this->adbpgConnectionStatus) {
-            $res['adbpg_connection_status'] = null !== $this->adbpgConnectionStatus ? $this->adbpgConnectionStatus->toMap() : null;
+            $res['adbpg_connection_status'] = null !== $this->adbpgConnectionStatus ? $this->adbpgConnectionStatus->toArray($noStream) : $this->adbpgConnectionStatus;
         }
+
         if (null !== $this->adbpgDiskStatus) {
-            $res['adbpg_disk_status'] = null !== $this->adbpgDiskStatus ? $this->adbpgDiskStatus->toMap() : null;
+            $res['adbpg_disk_status'] = null !== $this->adbpgDiskStatus ? $this->adbpgDiskStatus->toArray($noStream) : $this->adbpgDiskStatus;
         }
+
         if (null !== $this->adbpgDiskUsagePercent) {
-            $res['adbpg_disk_usage_percent'] = null !== $this->adbpgDiskUsagePercent ? $this->adbpgDiskUsagePercent->toMap() : null;
+            $res['adbpg_disk_usage_percent'] = null !== $this->adbpgDiskUsagePercent ? $this->adbpgDiskUsagePercent->toArray($noStream) : $this->adbpgDiskUsagePercent;
         }
+
         if (null !== $this->adbpgInstanceColdDataGb) {
-            $res['adbpg_instance_cold_data_gb'] = null !== $this->adbpgInstanceColdDataGb ? $this->adbpgInstanceColdDataGb->toMap() : null;
+            $res['adbpg_instance_cold_data_gb'] = null !== $this->adbpgInstanceColdDataGb ? $this->adbpgInstanceColdDataGb->toArray($noStream) : $this->adbpgInstanceColdDataGb;
         }
+
         if (null !== $this->adbpgInstanceHotDataGb) {
-            $res['adbpg_instance_hot_data_gb'] = null !== $this->adbpgInstanceHotDataGb ? $this->adbpgInstanceHotDataGb->toMap() : null;
+            $res['adbpg_instance_hot_data_gb'] = null !== $this->adbpgInstanceHotDataGb ? $this->adbpgInstanceHotDataGb->toArray($noStream) : $this->adbpgInstanceHotDataGb;
         }
+
         if (null !== $this->adbpgInstanceTotalDataGb) {
-            $res['adbpg_instance_total_data_gb'] = null !== $this->adbpgInstanceTotalDataGb ? $this->adbpgInstanceTotalDataGb->toMap() : null;
+            $res['adbpg_instance_total_data_gb'] = null !== $this->adbpgInstanceTotalDataGb ? $this->adbpgInstanceTotalDataGb->toArray($noStream) : $this->adbpgInstanceTotalDataGb;
         }
+
         if (null !== $this->adbpgMasterDiskUsagePercentMax) {
-            $res['adbpg_master_disk_usage_percent_max'] = null !== $this->adbpgMasterDiskUsagePercentMax ? $this->adbpgMasterDiskUsagePercentMax->toMap() : null;
+            $res['adbpg_master_disk_usage_percent_max'] = null !== $this->adbpgMasterDiskUsagePercentMax ? $this->adbpgMasterDiskUsagePercentMax->toArray($noStream) : $this->adbpgMasterDiskUsagePercentMax;
         }
+
         if (null !== $this->adbpgMasterStatus) {
-            $res['adbpg_master_status'] = null !== $this->adbpgMasterStatus ? $this->adbpgMasterStatus->toMap() : null;
+            $res['adbpg_master_status'] = null !== $this->adbpgMasterStatus ? $this->adbpgMasterStatus->toArray($noStream) : $this->adbpgMasterStatus;
         }
+
         if (null !== $this->adbpgSegmentStatus) {
-            $res['adbpg_segment_status'] = null !== $this->adbpgSegmentStatus ? $this->adbpgSegmentStatus->toMap() : null;
+            $res['adbpg_segment_status'] = null !== $this->adbpgSegmentStatus ? $this->adbpgSegmentStatus->toArray($noStream) : $this->adbpgSegmentStatus;
         }
+
         if (null !== $this->adbpgStatus) {
-            $res['adbpg_status'] = null !== $this->adbpgStatus ? $this->adbpgStatus->toMap() : null;
+            $res['adbpg_status'] = null !== $this->adbpgStatus ? $this->adbpgStatus->toArray($noStream) : $this->adbpgStatus;
         }
+
         if (null !== $this->nodeMasterConnectionStatus) {
-            $res['node_master_connection_status'] = null !== $this->nodeMasterConnectionStatus ? $this->nodeMasterConnectionStatus->toMap() : null;
+            $res['node_master_connection_status'] = null !== $this->nodeMasterConnectionStatus ? $this->nodeMasterConnectionStatus->toArray($noStream) : $this->nodeMasterConnectionStatus;
         }
+
         if (null !== $this->nodeMasterStatus) {
-            $res['node_master_status'] = null !== $this->nodeMasterStatus ? $this->nodeMasterStatus->toMap() : null;
+            $res['node_master_status'] = null !== $this->nodeMasterStatus ? $this->nodeMasterStatus->toArray($noStream) : $this->nodeMasterStatus;
         }
+
         if (null !== $this->nodeSegmentConnectionStatus) {
-            $res['node_segment_connection_status'] = null !== $this->nodeSegmentConnectionStatus ? $this->nodeSegmentConnectionStatus->toMap() : null;
+            $res['node_segment_connection_status'] = null !== $this->nodeSegmentConnectionStatus ? $this->nodeSegmentConnectionStatus->toArray($noStream) : $this->nodeSegmentConnectionStatus;
         }
+
         if (null !== $this->nodeSegmentDiskStatus) {
-            $res['node_segment_disk_status'] = null !== $this->nodeSegmentDiskStatus ? $this->nodeSegmentDiskStatus->toMap() : null;
+            $res['node_segment_disk_status'] = null !== $this->nodeSegmentDiskStatus ? $this->nodeSegmentDiskStatus->toArray($noStream) : $this->nodeSegmentDiskStatus;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return status
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['adbgp_segment_disk_usage_percent_max'])) {
             $model->adbgpSegmentDiskUsagePercentMax = adbgpSegmentDiskUsagePercentMax::fromMap($map['adbgp_segment_disk_usage_percent_max']);
         }
+
         if (isset($map['adbpg_connection_status'])) {
             $model->adbpgConnectionStatus = adbpgConnectionStatus::fromMap($map['adbpg_connection_status']);
         }
+
         if (isset($map['adbpg_disk_status'])) {
             $model->adbpgDiskStatus = adbpgDiskStatus::fromMap($map['adbpg_disk_status']);
         }
+
         if (isset($map['adbpg_disk_usage_percent'])) {
             $model->adbpgDiskUsagePercent = adbpgDiskUsagePercent::fromMap($map['adbpg_disk_usage_percent']);
         }
+
         if (isset($map['adbpg_instance_cold_data_gb'])) {
             $model->adbpgInstanceColdDataGb = adbpgInstanceColdDataGb::fromMap($map['adbpg_instance_cold_data_gb']);
         }
+
         if (isset($map['adbpg_instance_hot_data_gb'])) {
             $model->adbpgInstanceHotDataGb = adbpgInstanceHotDataGb::fromMap($map['adbpg_instance_hot_data_gb']);
         }
+
         if (isset($map['adbpg_instance_total_data_gb'])) {
             $model->adbpgInstanceTotalDataGb = adbpgInstanceTotalDataGb::fromMap($map['adbpg_instance_total_data_gb']);
         }
+
         if (isset($map['adbpg_master_disk_usage_percent_max'])) {
             $model->adbpgMasterDiskUsagePercentMax = adbpgMasterDiskUsagePercentMax::fromMap($map['adbpg_master_disk_usage_percent_max']);
         }
+
         if (isset($map['adbpg_master_status'])) {
             $model->adbpgMasterStatus = adbpgMasterStatus::fromMap($map['adbpg_master_status']);
         }
+
         if (isset($map['adbpg_segment_status'])) {
             $model->adbpgSegmentStatus = adbpgSegmentStatus::fromMap($map['adbpg_segment_status']);
         }
+
         if (isset($map['adbpg_status'])) {
             $model->adbpgStatus = adbpgStatus::fromMap($map['adbpg_status']);
         }
+
         if (isset($map['node_master_connection_status'])) {
             $model->nodeMasterConnectionStatus = nodeMasterConnectionStatus::fromMap($map['node_master_connection_status']);
         }
+
         if (isset($map['node_master_status'])) {
             $model->nodeMasterStatus = nodeMasterStatus::fromMap($map['node_master_status']);
         }
+
         if (isset($map['node_segment_connection_status'])) {
             $model->nodeSegmentConnectionStatus = nodeSegmentConnectionStatus::fromMap($map['node_segment_connection_status']);
         }
+
         if (isset($map['node_segment_disk_status'])) {
             $model->nodeSegmentDiskStatus = nodeSegmentDiskStatus::fromMap($map['node_segment_disk_status']);
         }

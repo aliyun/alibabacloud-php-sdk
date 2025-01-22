@@ -4,81 +4,39 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoResponseBody\DBInstanceNetInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBInstanceNetInfo extends Model
 {
     /**
-     * @description The type of the endpoint.
-     *
-     * @example Intranet
-     *
      * @var string
      */
     public $addressType;
-
     /**
-     * @description The endpoint that is used to connect to the instance.
-     *
-     * @example gp-xxxxxxx.gpdb.rds.aliyuncs.com
-     *
      * @var string
      */
     public $connectionString;
-
     /**
-     * @description The IP address.
-     *
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $IPAddress;
-
     /**
-     * @description The type of the IP address.
-     *
-     *   Valid values for instances in the classic network: Inner and Public.
-     *   Valid values for instances in a virtual private cloud (VPC): Private and Public.
-     *
-     * @example Inner
-     *
      * @var string
      */
     public $IPType;
-
     /**
-     * @description The port number.
-     *
-     * @example 3432
-     *
      * @var string
      */
     public $port;
-
     /**
-     * @description The VPC ID of the instance.
-     *
-     * @example vpc-xxxxxxx
-     *
      * @var string
      */
     public $VPCId;
-
     /**
-     * @description The vSwitch ID. Multiple IDs are separated by commas (,).
-     *
-     * @example vsw-xxxxxxxx
-     *
      * @var string
      */
     public $vSwitchId;
-
     /**
-     * @description The ID of the instance that is deployed in a VPC.
-     *
-     * @example vpc-xxxxxxx
-     *
      * @var string
      */
     public $vpcInstanceId;
@@ -95,32 +53,40 @@ class DBInstanceNetInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addressType) {
             $res['AddressType'] = $this->addressType;
         }
+
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
+
         if (null !== $this->IPAddress) {
             $res['IPAddress'] = $this->IPAddress;
         }
+
         if (null !== $this->IPType) {
             $res['IPType'] = $this->IPType;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
         }
@@ -128,35 +94,42 @@ class DBInstanceNetInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBInstanceNetInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddressType'])) {
             $model->addressType = $map['AddressType'];
         }
+
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
+
         if (isset($map['IPAddress'])) {
             $model->IPAddress = $map['IPAddress'];
         }
+
         if (isset($map['IPType'])) {
             $model->IPType = $map['IPType'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcInstanceId'])) {
             $model->vpcInstanceId = $map['VpcInstanceId'];
         }

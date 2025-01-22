@@ -4,78 +4,39 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSecretRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example gp-xxxxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The description of the access credential.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The password of the database account that is used to access the instance.
-     *
-     * This parameter is required.
-     * @example pwd123
-     *
      * @var string
      */
     public $password;
-
     /**
-     * @description The region ID of the instance.
-     *
-     * This parameter is required.
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The name of the access credential. The name must be 1 to 16 characters in length and can contain letters, digits, and underscores (_). If you leave this parameter empty, the value of the Username parameter is used.
-     *
-     * @example testsecret
-     *
      * @var string
      */
     public $secretName;
-
     /**
-     * @description Specifies whether to check the connectivity to the instance by using the name and password of the database account.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $testConnection;
-
     /**
-     * @description The name of the database account that is used to access the instance.
-     *
-     * This parameter is required.
-     * @example testacc
-     *
      * @var string
      */
     public $username;
@@ -92,32 +53,40 @@ class CreateSecretRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
+
         if (null !== $this->testConnection) {
             $res['TestConnection'] = $this->testConnection;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -125,35 +94,42 @@ class CreateSecretRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSecretRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }
+
         if (isset($map['TestConnection'])) {
             $model->testConnection = $map['TestConnection'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\RerankResponseBody\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class results extends Model
 {
     /**
-     * @description Re-ordered document information.
-     *
-     * @example ADBPG is the OLAP database of Alibaba Cloud.
-     *
      * @var string
      */
     public $document;
-
     /**
-     * @description Index of this document in the request parameter Documents, starting from 0.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $index;
-
     /**
-     * @description Rerank similarity score.
-     *
-     * @example 2.31412
-     *
      * @var float
      */
     public $relevanceScore;
@@ -42,17 +28,20 @@ class results extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->document) {
             $res['Document'] = $this->document;
         }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->relevanceScore) {
             $res['RelevanceScore'] = $this->relevanceScore;
         }
@@ -60,20 +49,22 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Document'])) {
             $model->document = $map['Document'];
         }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['RelevanceScore'])) {
             $model->relevanceScore = $map['RelevanceScore'];
         }

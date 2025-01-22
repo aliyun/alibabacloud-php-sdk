@@ -4,56 +4,27 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBInstanceNetworkTypeRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example gp-bp12ga6v69h86****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The new network type of the instance. Valid values:
-     *
-     *   VPC
-     *   Classic
-     *
-     * This parameter is required.
-     * @example VPC
-     *
      * @var string
      */
     public $instanceNetworkType;
-
     /**
-     * @description The internal IP address of the instance.
-     *
-     * @example 10.10.XX.XX
-     *
      * @var string
      */
     public $privateIpAddress;
-
     /**
-     * @description The virtual private cloud (VPC) ID of the instance.
-     *
-     * @example vpc-bp19ame5m1r3oejns****
-     *
      * @var string
      */
     public $VPCId;
-
     /**
-     * @description The vSwitch ID of the instance. This parameter must be specified when VPCId is specified.
-     *
-     * @example vsw-bp1cpq8mr64paltkb****
-     *
      * @var string
      */
     public $vSwitchId;
@@ -67,23 +38,28 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
+
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
+
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -91,26 +67,30 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBInstanceNetworkTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
+
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
+
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

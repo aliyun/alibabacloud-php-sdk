@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingResponseBody\results;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingResponseBody\results\results\embedding;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
@@ -13,10 +13,7 @@ class results extends Model
      * @var embedding
      */
     public $embedding;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $index;
@@ -27,14 +24,19 @@ class results extends Model
 
     public function validate()
     {
+        if (null !== $this->embedding) {
+            $this->embedding->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->embedding) {
-            $res['Embedding'] = null !== $this->embedding ? $this->embedding->toMap() : null;
+            $res['Embedding'] = null !== $this->embedding ? $this->embedding->toArray($noStream) : $this->embedding;
         }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
@@ -42,17 +44,18 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Embedding'])) {
             $model->embedding = embedding::fromMap($map['Embedding']);
         }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }

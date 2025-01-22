@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSupportMaxPerformanceResponseBody\performances;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstanceSupportMaxPerformanceResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example gp-bp***************
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The queried performance metric.
-     *
      * @var performances
      */
     public $performances;
-
     /**
-     * @description The request ID.
-     *
-     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +29,23 @@ class DescribeDBInstanceSupportMaxPerformanceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->performances) {
+            $this->performances->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->performances) {
-            $res['Performances'] = null !== $this->performances ? $this->performances->toMap() : null;
+            $res['Performances'] = null !== $this->performances ? $this->performances->toArray($noStream) : $this->performances;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +53,22 @@ class DescribeDBInstanceSupportMaxPerformanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstanceSupportMaxPerformanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Performances'])) {
             $model->performances = performances::fromMap($map['Performances']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataSharePerformanceResponseBody\performanceKeys;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDataSharePerformanceResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example gp-bp12ga6v69h86****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The end time of the query.
-     *
-     * @example 2022-08-03T15:10Z
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @description Details of data sharing performance metrics.
-     *
      * @var performanceKeys[]
      */
     public $performanceKeys;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example BBE00C04-A3E8-4114-881D-0480A72CB92E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The start time of the query.
-     *
-     * @example 2022-08-03T15:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -61,29 +39,37 @@ class DescribeDataSharePerformanceResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->performanceKeys)) {
+            Model::validateArray($this->performanceKeys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->performanceKeys) {
-            $res['PerformanceKeys'] = [];
-            if (null !== $this->performanceKeys && \is_array($this->performanceKeys)) {
-                $n = 0;
-                foreach ($this->performanceKeys as $item) {
-                    $res['PerformanceKeys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->performanceKeys)) {
+                $res['PerformanceKeys'] = [];
+                $n1                     = 0;
+                foreach ($this->performanceKeys as $item1) {
+                    $res['PerformanceKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -91,32 +77,36 @@ class DescribeDataSharePerformanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDataSharePerformanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['PerformanceKeys'])) {
             if (!empty($map['PerformanceKeys'])) {
                 $model->performanceKeys = [];
-                $n                      = 0;
-                foreach ($map['PerformanceKeys'] as $item) {
-                    $model->performanceKeys[$n++] = null !== $item ? performanceKeys::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['PerformanceKeys'] as $item1) {
+                    $model->performanceKeys[$n1++] = performanceKeys::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

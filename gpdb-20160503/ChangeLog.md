@@ -1,3 +1,8 @@
+2025-01-22 Version: 2.5.0
+- Support API CloneDBInstance.
+- Support API ModifyDBInstanceDeploymentMode.
+
+
 2025-01-14 Version: 2.4.0
 - Support API CreateBackup.
 - Support API DeleteBackup.

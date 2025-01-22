@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsResponseBody\regions;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsResponseBody\regions\region\zones;
-use AlibabaCloud\Tea\Model;
 
 class region extends Model
 {
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description Details of the zones.
-     *
      * @var zones
      */
     public $zones;
@@ -31,32 +24,38 @@ class region extends Model
 
     public function validate()
     {
+        if (null !== $this->zones) {
+            $this->zones->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->zones) {
-            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
+            $res['Zones'] = null !== $this->zones ? $this->zones->toArray($noStream) : $this->zones;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return region
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Zones'])) {
             $model->zones = zones::fromMap($map['Zones']);
         }

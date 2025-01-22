@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSupportMaxPerformanceResponseBody\performances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class performance extends Model
 {
     /**
-     * @description The performance bottleneck type.
-     *
-     * @example ecs or disk
-     *
      * @var string
      */
     public $bottleneck;
-
     /**
-     * @description The name of the performance metric.
-     *
-     * @example adbpg_status,adbpg_disk_status,adbpg_connection_status,adbgp_segment_disk_usage_percent_max,adbpg_master_disk_usage_percent_max,adbpg_disk_usage_percent
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The unit of the performance metric.
-     *
-     * @example %
-     *
      * @var string
      */
     public $unit;
-
     /**
-     * @description The value of the performance metric.
-     *
-     * @example 90
-     *
      * @var string
      */
     public $value;
@@ -52,20 +33,24 @@ class performance extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bottleneck) {
             $res['Bottleneck'] = $this->bottleneck;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -73,23 +58,26 @@ class performance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return performance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bottleneck'])) {
             $model->bottleneck = $map['Bottleneck'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DownloadSQLLogsRecordsResponseBody extends Model
 {
     /**
-     * @description The ID of the download task.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $downloadId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DownloadSQLLogsRecordsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downloadId) {
             $res['DownloadId'] = $this->downloadId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DownloadSQLLogsRecordsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DownloadSQLLogsRecordsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadId'])) {
             $model->downloadId = $map['DownloadId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

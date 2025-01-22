@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class secrets extends Model
 {
@@ -18,17 +18,21 @@ class secrets extends Model
 
     public function validate()
     {
+        if (\is_array($this->secrets)) {
+            Model::validateArray($this->secrets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->secrets) {
-            $res['Secrets'] = [];
-            if (null !== $this->secrets && \is_array($this->secrets)) {
-                $n = 0;
-                foreach ($this->secrets as $item) {
-                    $res['Secrets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->secrets)) {
+                $res['Secrets'] = [];
+                $n1             = 0;
+                foreach ($this->secrets as $item1) {
+                    $res['Secrets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +40,20 @@ class secrets extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return secrets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Secrets'])) {
             if (!empty($map['Secrets'])) {
                 $model->secrets = [];
-                $n              = 0;
-                foreach ($map['Secrets'] as $item) {
-                    $model->secrets[$n++] = null !== $item ? \AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsResponseBody\secrets\secrets::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Secrets'] as $item1) {
+                    $model->secrets[$n1++] = \AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsResponseBody\secrets\secrets::fromMap($item1);
                 }
             }
         }

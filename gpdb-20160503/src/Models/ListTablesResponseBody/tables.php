@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTablesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tables extends Model
 {
@@ -18,29 +18,43 @@ class tables extends Model
 
     public function validate()
     {
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tables) {
-            $res['Tables'] = $this->tables;
+            if (\is_array($this->tables)) {
+                $res['Tables'] = [];
+                $n1            = 0;
+                foreach ($this->tables as $item1) {
+                    $res['Tables'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tables
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
-                $model->tables = $map['Tables'];
+                $model->tables = [];
+                $n1            = 0;
+                foreach ($map['Tables'] as $item1) {
+                    $model->tables[$n1++] = $item1;
+                }
             }
         }
 

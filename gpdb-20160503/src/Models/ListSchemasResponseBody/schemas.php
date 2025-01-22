@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSchemasResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schemas extends Model
 {
@@ -18,29 +18,43 @@ class schemas extends Model
 
     public function validate()
     {
+        if (\is_array($this->schemas)) {
+            Model::validateArray($this->schemas);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->schemas) {
-            $res['Schemas'] = $this->schemas;
+            if (\is_array($this->schemas)) {
+                $res['Schemas'] = [];
+                $n1             = 0;
+                foreach ($this->schemas as $item1) {
+                    $res['Schemas'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schemas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Schemas'])) {
             if (!empty($map['Schemas'])) {
-                $model->schemas = $map['Schemas'];
+                $model->schemas = [];
+                $n1             = 0;
+                foreach ($map['Schemas'] as $item1) {
+                    $model->schemas[$n1++] = $item1;
+                }
             }
         }
 

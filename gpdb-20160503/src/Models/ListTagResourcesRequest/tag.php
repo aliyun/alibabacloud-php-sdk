@@ -4,31 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The key of tag N. The key must be 1 to 64 characters in length.
-     *
-     * Valid values of N: 1 to 20.
-     *
-     *   If you specify only `Tag.N.Key`, all instances that have the tag key added are returned.
-     *   If you specify only `Tag.N.Value`, the `InvalidParameter.TagValue` error message is returned.
-     *   If you specify multiple tag key-value pairs at a time, the instances that match all the specified tag key-value pairs are returned.
-     *
-     * @example TestKey
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The value of tag N. The value must be 1 to 128 characters in length.
-     *
-     * Valid values of N: 1 to 20.
-     * @example TestValue
-     *
      * @var string
      */
     public $value;
@@ -39,14 +23,16 @@ class tag extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -54,17 +40,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

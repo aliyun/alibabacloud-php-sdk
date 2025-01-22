@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SwitchDBInstanceNetTypeRequest extends Model
 {
     /**
-     * @description The prefix of the custom endpoint.
-     *
-     *   The prefix can contain lowercase letters, digits, and hyphens (-) and must start with a lowercase letter.
-     *   The prefix can be up to 30 characters in length.
-     *
-     * This parameter is required.
-     * @example test1234
-     *
      * @var string
      */
     public $connectionStringPrefix;
-
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example rm-uf6wjk5xxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The port number.
-     *
-     * This parameter is required.
-     * @example 3306
-     *
      * @var string
      */
     public $port;
@@ -48,17 +28,20 @@ class SwitchDBInstanceNetTypeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -66,20 +49,22 @@ class SwitchDBInstanceNetTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SwitchDBInstanceNetTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
