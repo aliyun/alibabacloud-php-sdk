@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePrivateAccessTagRequest extends Model
 {
@@ -12,12 +12,7 @@ class CreatePrivateAccessTagRequest extends Model
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example tag_name
-     *
      * @var string
      */
     public $name;
@@ -28,14 +23,16 @@ class CreatePrivateAccessTagRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -43,17 +40,18 @@ class CreatePrivateAccessTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePrivateAccessTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

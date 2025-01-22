@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessPolicesResponseBody\polices;
-use AlibabaCloud\Tea\Model;
 
 class ListPrivateAccessPolicesResponseBody extends Model
 {
@@ -13,17 +13,11 @@ class ListPrivateAccessPolicesResponseBody extends Model
      * @var polices[]
      */
     public $polices;
-
     /**
-     * @example 748CFDC7-1EB6-5B8B-9405-DA76ED5BB60D
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalNum;
@@ -35,23 +29,29 @@ class ListPrivateAccessPolicesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->polices)) {
+            Model::validateArray($this->polices);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->polices) {
-            $res['Polices'] = [];
-            if (null !== $this->polices && \is_array($this->polices)) {
-                $n = 0;
-                foreach ($this->polices as $item) {
-                    $res['Polices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->polices)) {
+                $res['Polices'] = [];
+                $n1             = 0;
+                foreach ($this->polices as $item1) {
+                    $res['Polices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
@@ -59,26 +59,28 @@ class ListPrivateAccessPolicesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPrivateAccessPolicesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Polices'])) {
             if (!empty($map['Polices'])) {
                 $model->polices = [];
-                $n              = 0;
-                foreach ($map['Polices'] as $item) {
-                    $model->polices[$n++] = null !== $item ? polices::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Polices'] as $item1) {
+                    $model->polices[$n1++] = polices::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }

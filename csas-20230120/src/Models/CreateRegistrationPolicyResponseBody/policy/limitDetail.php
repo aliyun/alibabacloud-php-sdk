@@ -4,26 +4,20 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyResponseBody\policy;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyResponseBody\policy\limitDetail\limitCount;
-use AlibabaCloud\Tea\Model;
 
 class limitDetail extends Model
 {
     /**
-     * @example Company
-     *
      * @var string
      */
     public $deviceBelong;
-
     /**
      * @var limitCount
      */
     public $limitCount;
-
     /**
-     * @example LimitDiff
-     *
      * @var string
      */
     public $limitType;
@@ -35,17 +29,23 @@ class limitDetail extends Model
 
     public function validate()
     {
+        if (null !== $this->limitCount) {
+            $this->limitCount->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceBelong) {
             $res['DeviceBelong'] = $this->deviceBelong;
         }
+
         if (null !== $this->limitCount) {
-            $res['LimitCount'] = null !== $this->limitCount ? $this->limitCount->toMap() : null;
+            $res['LimitCount'] = null !== $this->limitCount ? $this->limitCount->toArray($noStream) : $this->limitCount;
         }
+
         if (null !== $this->limitType) {
             $res['LimitType'] = $this->limitType;
         }
@@ -53,20 +53,22 @@ class limitDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return limitDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceBelong'])) {
             $model->deviceBelong = $map['DeviceBelong'];
         }
+
         if (isset($map['LimitCount'])) {
             $model->limitCount = limitCount::fromMap($map['LimitCount']);
         }
+
         if (isset($map['LimitType'])) {
             $model->limitType = $map['LimitType'];
         }

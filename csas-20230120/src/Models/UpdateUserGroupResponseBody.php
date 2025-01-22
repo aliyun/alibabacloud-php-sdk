@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateUserGroupResponseBody extends Model
 {
     /**
-     * @example FD724DBC-CD76-5235-BF76-59C51B73296D
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class UpdateUserGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UpdateUserGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateUserGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

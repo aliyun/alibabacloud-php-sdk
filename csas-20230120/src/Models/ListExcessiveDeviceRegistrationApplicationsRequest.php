@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListExcessiveDeviceRegistrationApplicationsRequest extends Model
 {
@@ -12,63 +12,38 @@ class ListExcessiveDeviceRegistrationApplicationsRequest extends Model
      * @var string[]
      */
     public $applicationIds;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
      * @var string
      */
     public $department;
-
     /**
-     * @example 36efa42d-2c32-c4dc-e3fc-8541e33a****
-     *
      * @var string
      */
     public $deviceTag;
-
     /**
-     * @example win10-64bit
-     *
      * @var string
      */
     public $hostname;
-
     /**
-     * @example 00:16:XX:XX:7c:46
-     *
      * @var string
      */
     public $mac;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
-     *
      * @var string
      */
     public $saseUserId;
-
     /**
      * @var string[]
      */
     public $statuses;
-
     /**
      * @var string
      */
@@ -88,38 +63,66 @@ class ListExcessiveDeviceRegistrationApplicationsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->applicationIds)) {
+            Model::validateArray($this->applicationIds);
+        }
+        if (\is_array($this->statuses)) {
+            Model::validateArray($this->statuses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationIds) {
-            $res['ApplicationIds'] = $this->applicationIds;
+            if (\is_array($this->applicationIds)) {
+                $res['ApplicationIds'] = [];
+                $n1                    = 0;
+                foreach ($this->applicationIds as $item1) {
+                    $res['ApplicationIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->department) {
             $res['Department'] = $this->department;
         }
+
         if (null !== $this->deviceTag) {
             $res['DeviceTag'] = $this->deviceTag;
         }
+
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
         }
+
         if (null !== $this->mac) {
             $res['Mac'] = $this->mac;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->saseUserId) {
             $res['SaseUserId'] = $this->saseUserId;
         }
+
         if (null !== $this->statuses) {
-            $res['Statuses'] = $this->statuses;
+            if (\is_array($this->statuses)) {
+                $res['Statuses'] = [];
+                $n1              = 0;
+                foreach ($this->statuses as $item1) {
+                    $res['Statuses'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -127,45 +130,62 @@ class ListExcessiveDeviceRegistrationApplicationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListExcessiveDeviceRegistrationApplicationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
-                $model->applicationIds = $map['ApplicationIds'];
+                $model->applicationIds = [];
+                $n1                    = 0;
+                foreach ($map['ApplicationIds'] as $item1) {
+                    $model->applicationIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Department'])) {
             $model->department = $map['Department'];
         }
+
         if (isset($map['DeviceTag'])) {
             $model->deviceTag = $map['DeviceTag'];
         }
+
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
         }
+
         if (isset($map['Mac'])) {
             $model->mac = $map['Mac'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SaseUserId'])) {
             $model->saseUserId = $map['SaseUserId'];
         }
+
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {
-                $model->statuses = $map['Statuses'];
+                $model->statuses = [];
+                $n1              = 0;
+                foreach ($map['Statuses'] as $item1) {
+                    $model->statuses[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\documentControl\backgroundControl;
-use AlibabaCloud\Tea\Model;
 
 class documentControl extends Model
 {
@@ -13,17 +13,11 @@ class documentControl extends Model
      * @var backgroundControl
      */
     public $backgroundControl;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $invisibleAntiAllCopy;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $invisibleAntiTextCopy;
@@ -35,17 +29,23 @@ class documentControl extends Model
 
     public function validate()
     {
+        if (null !== $this->backgroundControl) {
+            $this->backgroundControl->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backgroundControl) {
-            $res['BackgroundControl'] = null !== $this->backgroundControl ? $this->backgroundControl->toMap() : null;
+            $res['BackgroundControl'] = null !== $this->backgroundControl ? $this->backgroundControl->toArray($noStream) : $this->backgroundControl;
         }
+
         if (null !== $this->invisibleAntiAllCopy) {
             $res['InvisibleAntiAllCopy'] = $this->invisibleAntiAllCopy;
         }
+
         if (null !== $this->invisibleAntiTextCopy) {
             $res['InvisibleAntiTextCopy'] = $this->invisibleAntiTextCopy;
         }
@@ -53,20 +53,22 @@ class documentControl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return documentControl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackgroundControl'])) {
             $model->backgroundControl = backgroundControl::fromMap($map['BackgroundControl']);
         }
+
         if (isset($map['InvisibleAntiAllCopy'])) {
             $model->invisibleAntiAllCopy = $map['InvisibleAntiAllCopy'];
         }
+
         if (isset($map['InvisibleAntiTextCopy'])) {
             $model->invisibleAntiTextCopy = $map['InvisibleAntiTextCopy'];
         }

@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIdpConfigsRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @example CSAS,DingTalk,LDAP
-     *
      * @var string
      */
     public $include;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -36,17 +28,20 @@ class ListIdpConfigsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->include) {
             $res['Include'] = $this->include;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -54,20 +49,22 @@ class ListIdpConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIdpConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Include'])) {
             $model->include = $map['Include'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

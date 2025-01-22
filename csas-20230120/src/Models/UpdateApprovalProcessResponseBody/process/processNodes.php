@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class processNodes extends Model
 {
     /**
-     * @example su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
-     *
      * @var string
      */
     public $saseUserId;
-
     /**
      * @var string
      */
@@ -26,14 +23,16 @@ class processNodes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->saseUserId) {
             $res['SaseUserId'] = $this->saseUserId;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -41,17 +40,18 @@ class processNodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return processNodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SaseUserId'])) {
             $model->saseUserId = $map['SaseUserId'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePrivateAccessPolicyResponseBody extends Model
 {
     /**
-     * @example pa-policy-867ef4007c8a****
-     *
      * @var string
      */
     public $policyId;
-
     /**
-     * @example EFE7EBB2-449D-5BBB-B381-CA7839BC1649
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class CreatePrivateAccessPolicyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class CreatePrivateAccessPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePrivateAccessPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

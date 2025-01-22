@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRegistrationPoliciesResponseBody extends Model
 {
     /**
-     * @example D6707286-A50E-57B1-B2CF-EFAC59E850D8
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class DeleteRegistrationPoliciesResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteRegistrationPoliciesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRegistrationPoliciesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

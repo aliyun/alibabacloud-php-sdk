@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListConnectorsRequest extends Model
 {
@@ -12,37 +12,22 @@ class ListConnectorsRequest extends Model
      * @var string[]
      */
     public $connectorIds;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @example connector_name
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
      * @var string
      */
     public $status;
-
     /**
      * @var string
      */
@@ -58,26 +43,41 @@ class ListConnectorsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->connectorIds)) {
+            Model::validateArray($this->connectorIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectorIds) {
-            $res['ConnectorIds'] = $this->connectorIds;
+            if (\is_array($this->connectorIds)) {
+                $res['ConnectorIds'] = [];
+                $n1                  = 0;
+                foreach ($this->connectorIds as $item1) {
+                    $res['ConnectorIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->switchStatus) {
             $res['SwitchStatus'] = $this->switchStatus;
         }
@@ -85,31 +85,40 @@ class ListConnectorsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListConnectorsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectorIds'])) {
             if (!empty($map['ConnectorIds'])) {
-                $model->connectorIds = $map['ConnectorIds'];
+                $model->connectorIds = [];
+                $n1                  = 0;
+                foreach ($map['ConnectorIds'] as $item1) {
+                    $model->connectorIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SwitchStatus'])) {
             $model->switchStatus = $map['SwitchStatus'];
         }

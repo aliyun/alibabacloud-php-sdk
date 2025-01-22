@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateNacUserCertStatusResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @example successful
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example 102350E7-1A20-58F5-9D63-ABEA820AE6E1
-     *
      * @var string
      */
     public $requestId;
@@ -36,17 +28,20 @@ class UpdateNacUserCertStatusResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,20 +49,22 @@ class UpdateNacUserCertStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateNacUserCertStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

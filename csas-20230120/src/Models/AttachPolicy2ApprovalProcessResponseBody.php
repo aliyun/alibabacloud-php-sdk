@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachPolicy2ApprovalProcessResponseBody extends Model
 {
     /**
-     * @example C51D9340-4604-5331-AE62-407F3B408F86
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class AttachPolicy2ApprovalProcessResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class AttachPolicy2ApprovalProcessResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachPolicy2ApprovalProcessResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

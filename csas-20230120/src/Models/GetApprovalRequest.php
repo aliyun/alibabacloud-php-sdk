@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetApprovalRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example approval-872b5e911b35****
-     *
      * @var string
      */
     public $approvalId;
@@ -22,9 +18,10 @@ class GetApprovalRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->approvalId) {
@@ -34,11 +31,11 @@ class GetApprovalRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetApprovalRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

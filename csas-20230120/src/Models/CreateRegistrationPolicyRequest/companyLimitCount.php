@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class companyLimitCount extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $all;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $mobile;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $PC;
@@ -36,17 +28,20 @@ class companyLimitCount extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
+
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
         }
+
         if (null !== $this->PC) {
             $res['PC'] = $this->PC;
         }
@@ -54,20 +49,22 @@ class companyLimitCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return companyLimitCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
+
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
         }
+
         if (isset($map['PC'])) {
             $model->PC = $map['PC'];
         }

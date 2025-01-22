@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateWmInfoMappingRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example aGVsbG8gc2F*****
-     *
      * @var string
      */
     public $wmInfoBytesB64;
-
     /**
-     * @example 32
-     *
      * @var int
      */
     public $wmInfoSize;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example PureDocument
-     *
      * @var string
      */
     public $wmType;
@@ -40,17 +28,20 @@ class CreateWmInfoMappingRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->wmInfoBytesB64) {
             $res['WmInfoBytesB64'] = $this->wmInfoBytesB64;
         }
+
         if (null !== $this->wmInfoSize) {
             $res['WmInfoSize'] = $this->wmInfoSize;
         }
+
         if (null !== $this->wmType) {
             $res['WmType'] = $this->wmType;
         }
@@ -58,20 +49,22 @@ class CreateWmInfoMappingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateWmInfoMappingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WmInfoBytesB64'])) {
             $model->wmInfoBytesB64 = $map['WmInfoBytesB64'];
         }
+
         if (isset($map['WmInfoSize'])) {
             $model->wmInfoSize = $map['WmInfoSize'];
         }
+
         if (isset($map['WmType'])) {
             $model->wmType = $map['WmType'];
         }

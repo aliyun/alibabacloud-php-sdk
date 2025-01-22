@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePrivateAccessPolicyResponseBody extends Model
 {
     /**
-     * @example 4D169859-A4F2-5EC8-853B-8447787C0D8A
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class DeletePrivateAccessPolicyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeletePrivateAccessPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePrivateAccessPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

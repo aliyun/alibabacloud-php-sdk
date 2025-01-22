@@ -4,18 +4,15 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForRegistrationPolicyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForRegistrationPolicyResponseBody\policies\userGroups;
-use AlibabaCloud\Tea\Model;
 
 class policies extends Model
 {
     /**
-     * @example reg-policy-f25c9e5872e5****
-     *
      * @var string
      */
     public $policyId;
-
     /**
      * @var userGroups[]
      */
@@ -27,20 +24,25 @@ class policies extends Model
 
     public function validate()
     {
+        if (\is_array($this->userGroups)) {
+            Model::validateArray($this->userGroups);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->userGroups) {
-            $res['UserGroups'] = [];
-            if (null !== $this->userGroups && \is_array($this->userGroups)) {
-                $n = 0;
-                foreach ($this->userGroups as $item) {
-                    $res['UserGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userGroups)) {
+                $res['UserGroups'] = [];
+                $n1                = 0;
+                foreach ($this->userGroups as $item1) {
+                    $res['UserGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +50,24 @@ class policies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['UserGroups'])) {
             if (!empty($map['UserGroups'])) {
                 $model->userGroups = [];
-                $n                 = 0;
-                foreach ($map['UserGroups'] as $item) {
-                    $model->userGroups[$n++] = null !== $item ? userGroups::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['UserGroups'] as $item1) {
+                    $model->userGroups[$n1++] = userGroups::fromMap($item1);
                 }
             }
         }

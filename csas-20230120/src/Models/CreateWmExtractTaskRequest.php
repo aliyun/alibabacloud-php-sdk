@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskRequest\csvControl;
-use AlibabaCloud\Tea\Model;
 
 class CreateWmExtractTaskRequest extends Model
 {
@@ -13,58 +13,31 @@ class CreateWmExtractTaskRequest extends Model
      * @var csvControl
      */
     public $csvControl;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $documentIsCapture;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example https://example.com/test-****.pdf
-     *
      * @var string
      */
     public $fileUrl;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example test-****.pdf
-     *
      * @var string
      */
     public $filename;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $videoIsLong;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $videoSpeed;
-
     /**
-     * @example 32
-     *
      * @var int
      */
     public $wmInfoSize;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example PureDocument
-     *
      * @var string
      */
     public $wmType;
@@ -81,32 +54,43 @@ class CreateWmExtractTaskRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->csvControl) {
+            $this->csvControl->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->csvControl) {
-            $res['CsvControl'] = null !== $this->csvControl ? $this->csvControl->toMap() : null;
+            $res['CsvControl'] = null !== $this->csvControl ? $this->csvControl->toArray($noStream) : $this->csvControl;
         }
+
         if (null !== $this->documentIsCapture) {
             $res['DocumentIsCapture'] = $this->documentIsCapture;
         }
+
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
+
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
         }
+
         if (null !== $this->videoIsLong) {
             $res['VideoIsLong'] = $this->videoIsLong;
         }
+
         if (null !== $this->videoSpeed) {
             $res['VideoSpeed'] = $this->videoSpeed;
         }
+
         if (null !== $this->wmInfoSize) {
             $res['WmInfoSize'] = $this->wmInfoSize;
         }
+
         if (null !== $this->wmType) {
             $res['WmType'] = $this->wmType;
         }
@@ -114,35 +98,42 @@ class CreateWmExtractTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateWmExtractTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CsvControl'])) {
             $model->csvControl = csvControl::fromMap($map['CsvControl']);
         }
+
         if (isset($map['DocumentIsCapture'])) {
             $model->documentIsCapture = $map['DocumentIsCapture'];
         }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
+
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
         }
+
         if (isset($map['VideoIsLong'])) {
             $model->videoIsLong = $map['VideoIsLong'];
         }
+
         if (isset($map['VideoSpeed'])) {
             $model->videoSpeed = $map['VideoSpeed'];
         }
+
         if (isset($map['WmInfoSize'])) {
             $model->wmInfoSize = $map['WmInfoSize'];
         }
+
         if (isset($map['WmType'])) {
             $model->wmType = $map['WmType'];
         }

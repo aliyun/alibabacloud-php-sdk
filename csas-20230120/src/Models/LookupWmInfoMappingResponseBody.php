@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class LookupWmInfoMappingResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class LookupWmInfoMappingResponseBody extends Model
      * @var data
      */
     public $data;
-
     /**
-     * @example 7E9D7ACD-53D5-56EF-A913-79D148D06299
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class LookupWmInfoMappingResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class LookupWmInfoMappingResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LookupWmInfoMappingResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetActiveIdpConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,22 +12,15 @@ class data extends Model
      * @var string
      */
     public $description;
-
     /**
-     * @example idp-cfg001
-     *
      * @var string
      */
     public $id;
-
     /**
      * @var string
      */
     public $name;
-
     /**
-     * @example DingTalk
-     *
      * @var string
      */
     public $type;
@@ -40,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -61,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

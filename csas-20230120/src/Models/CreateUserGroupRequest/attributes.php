@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class attributes extends Model
 {
     /**
-     * @example 12
-     *
      * @var int
      */
     public $idpId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example Equal
-     *
      * @var string
      */
     public $relation;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example department
-     *
      * @var string
      */
     public $userGroupType;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $value;
@@ -48,20 +33,24 @@ class attributes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->idpId) {
             $res['IdpId'] = $this->idpId;
         }
+
         if (null !== $this->relation) {
             $res['Relation'] = $this->relation;
         }
+
         if (null !== $this->userGroupType) {
             $res['UserGroupType'] = $this->userGroupType;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -69,23 +58,26 @@ class attributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return attributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdpId'])) {
             $model->idpId = $map['IdpId'];
         }
+
         if (isset($map['Relation'])) {
             $model->relation = $map['Relation'];
         }
+
         if (isset($map['UserGroupType'])) {
             $model->userGroupType = $map['UserGroupType'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

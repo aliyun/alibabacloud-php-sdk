@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserApplicationsResponseBody\applications;
-use AlibabaCloud\Tea\Model;
 
 class ListUserApplicationsResponseBody extends Model
 {
@@ -13,19 +13,11 @@ class ListUserApplicationsResponseBody extends Model
      * @var applications[]
      */
     public $applications;
-
     /**
-     * @description Id of the request
-     *
-     * @example 58D6B23E-E5DA-5418-8F61-51A3B5A30049
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $totalNum;
@@ -37,23 +29,29 @@ class ListUserApplicationsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->applications)) {
+            Model::validateArray($this->applications);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applications) {
-            $res['Applications'] = [];
-            if (null !== $this->applications && \is_array($this->applications)) {
-                $n = 0;
-                foreach ($this->applications as $item) {
-                    $res['Applications'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->applications)) {
+                $res['Applications'] = [];
+                $n1                  = 0;
+                foreach ($this->applications as $item1) {
+                    $res['Applications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
@@ -61,26 +59,28 @@ class ListUserApplicationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserApplicationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];
-                $n                   = 0;
-                foreach ($map['Applications'] as $item) {
-                    $model->applications[$n++] = null !== $item ? applications::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['Applications'] as $item1) {
+                    $model->applications[$n1++] = applications::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
