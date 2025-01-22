@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetActionResponseBody extends Model
 {
@@ -12,32 +12,26 @@ class GetActionResponseBody extends Model
      * @var string
      */
     public $actionName;
-
     /**
      * @var string
      */
     public $actionType;
-
     /**
      * @var int[]
      */
     public $content;
-
     /**
      * @var string
      */
     public $createTime;
-
     /**
      * @var string
      */
     public $modifiedTime;
-
     /**
      * @var string
      */
     public $popularity;
-
     /**
      * @var string
      */
@@ -54,29 +48,36 @@ class GetActionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionName) {
             $res['ActionName'] = $this->actionName;
         }
+
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
+
         if (null !== $this->popularity) {
             $res['Popularity'] = $this->popularity;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -84,32 +85,38 @@ class GetActionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetActionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionName'])) {
             $model->actionName = $map['ActionName'];
         }
+
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
+
         if (isset($map['Popularity'])) {
             $model->popularity = $map['Popularity'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

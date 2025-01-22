@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\GetUserExecutionTemplateResponseBody\template;
-use AlibabaCloud\Tea\Model;
 
 class GetUserExecutionTemplateResponseBody extends Model
 {
@@ -13,12 +13,10 @@ class GetUserExecutionTemplateResponseBody extends Model
      * @var string
      */
     public $content;
-
     /**
      * @var string
      */
     public $requestId;
-
     /**
      * @var template
      */
@@ -31,38 +29,46 @@ class GetUserExecutionTemplateResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->template) {
+            $this->template->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->template) {
-            $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
+            $res['Template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserExecutionTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Template'])) {
             $model->template = template::fromMap($map['Template']);
         }

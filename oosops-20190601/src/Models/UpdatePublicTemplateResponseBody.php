@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\UpdatePublicTemplateResponseBody\template;
-use AlibabaCloud\Tea\Model;
 
 class UpdatePublicTemplateResponseBody extends Model
 {
@@ -13,7 +13,6 @@ class UpdatePublicTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
-
     /**
      * @var template
      */
@@ -25,32 +24,38 @@ class UpdatePublicTemplateResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->template) {
+            $this->template->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->template) {
-            $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
+            $res['Template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePublicTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Template'])) {
             $model->template = template::fromMap($map['Template']);
         }

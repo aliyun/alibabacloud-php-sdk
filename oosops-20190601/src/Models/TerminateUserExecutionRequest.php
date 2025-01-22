@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TerminateUserExecutionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $aliUid;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $executionId;
-
     /**
      * @var string
      */
@@ -34,17 +28,20 @@ class TerminateUserExecutionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -52,20 +49,22 @@ class TerminateUserExecutionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TerminateUserExecutionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

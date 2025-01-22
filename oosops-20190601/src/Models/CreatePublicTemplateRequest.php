@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePublicTemplateRequest extends Model
 {
@@ -12,41 +12,30 @@ class CreatePublicTemplateRequest extends Model
      * @var string
      */
     public $category;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
-
     /**
      * @var bool
      */
     public $isExample;
-
     /**
      * @var int
      */
     public $popularity;
-
     /**
      * @var string
      */
     public $publisher;
-
     /**
      * @var string
      */
     public $regionId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $templateName;
-
     /**
      * @var string
      */
@@ -64,32 +53,40 @@ class CreatePublicTemplateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->isExample) {
             $res['IsExample'] = $this->isExample;
         }
+
         if (null !== $this->popularity) {
             $res['Popularity'] = $this->popularity;
         }
+
         if (null !== $this->publisher) {
             $res['Publisher'] = $this->publisher;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
         }
@@ -97,35 +94,42 @@ class CreatePublicTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePublicTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['IsExample'])) {
             $model->isExample = $map['IsExample'];
         }
+
         if (isset($map['Popularity'])) {
             $model->popularity = $map['Popularity'];
         }
+
         if (isset($map['Publisher'])) {
             $model->publisher = $map['Publisher'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
         }

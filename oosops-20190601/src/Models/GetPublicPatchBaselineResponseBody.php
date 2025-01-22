@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\GetPublicPatchBaselineResponseBody\patchBaseline;
-use AlibabaCloud\Tea\Model;
 
 class GetPublicPatchBaselineResponseBody extends Model
 {
@@ -13,7 +13,6 @@ class GetPublicPatchBaselineResponseBody extends Model
      * @var patchBaseline
      */
     public $patchBaseline;
-
     /**
      * @var string
      */
@@ -25,14 +24,19 @@ class GetPublicPatchBaselineResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->patchBaseline) {
+            $this->patchBaseline->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->patchBaseline) {
-            $res['PatchBaseline'] = null !== $this->patchBaseline ? $this->patchBaseline->toMap() : null;
+            $res['PatchBaseline'] = null !== $this->patchBaseline ? $this->patchBaseline->toArray($noStream) : $this->patchBaseline;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +44,18 @@ class GetPublicPatchBaselineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPublicPatchBaselineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PatchBaseline'])) {
             $model->patchBaseline = patchBaseline::fromMap($map['PatchBaseline']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

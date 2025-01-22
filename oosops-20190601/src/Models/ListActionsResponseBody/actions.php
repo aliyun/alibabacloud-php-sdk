@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models\ListActionsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class actions extends Model
 {
@@ -12,37 +12,30 @@ class actions extends Model
      * @var string
      */
     public $actionType;
-
     /**
      * @var string
      */
     public $createdDate;
-
     /**
      * @var string
      */
     public $description;
-
     /**
      * @var string
      */
     public $OOSActionName;
-
     /**
      * @var int
      */
     public $popularity;
-
     /**
      * @var string
      */
     public $properties;
-
     /**
      * @var string
      */
     public $templateVersion;
-
     /**
      * @var string
      */
@@ -60,32 +53,40 @@ class actions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
+
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->OOSActionName) {
             $res['OOSActionName'] = $this->OOSActionName;
         }
+
         if (null !== $this->popularity) {
             $res['Popularity'] = $this->popularity;
         }
+
         if (null !== $this->properties) {
             $res['Properties'] = $this->properties;
         }
+
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
+
         if (null !== $this->updateDate) {
             $res['UpdateDate'] = $this->updateDate;
         }
@@ -93,35 +94,42 @@ class actions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return actions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }
+
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['OOSActionName'])) {
             $model->OOSActionName = $map['OOSActionName'];
         }
+
         if (isset($map['Popularity'])) {
             $model->popularity = $map['Popularity'];
         }
+
         if (isset($map['Properties'])) {
             $model->properties = $map['Properties'];
         }
+
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
         }
+
         if (isset($map['UpdateDate'])) {
             $model->updateDate = $map['UpdateDate'];
         }

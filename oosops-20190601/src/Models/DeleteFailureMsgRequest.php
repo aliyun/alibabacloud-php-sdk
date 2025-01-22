@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFailureMsgRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $operation;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $requestFingerprint;
@@ -28,14 +23,16 @@ class DeleteFailureMsgRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
+
         if (null !== $this->requestFingerprint) {
             $res['RequestFingerprint'] = $this->requestFingerprint;
         }
@@ -43,17 +40,18 @@ class DeleteFailureMsgRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFailureMsgRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
+
         if (isset($map['RequestFingerprint'])) {
             $model->requestFingerprint = $map['RequestFingerprint'];
         }

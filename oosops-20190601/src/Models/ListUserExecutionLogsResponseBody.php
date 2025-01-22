@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\ListUserExecutionLogsResponseBody\executionLogs;
-use AlibabaCloud\Tea\Model;
 
 class ListUserExecutionLogsResponseBody extends Model
 {
@@ -13,17 +13,14 @@ class ListUserExecutionLogsResponseBody extends Model
      * @var executionLogs[]
      */
     public $executionLogs;
-
     /**
      * @var int
      */
     public $maxResults;
-
     /**
      * @var string
      */
     public $nextToken;
-
     /**
      * @var string
      */
@@ -37,26 +34,33 @@ class ListUserExecutionLogsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->executionLogs)) {
+            Model::validateArray($this->executionLogs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->executionLogs) {
-            $res['ExecutionLogs'] = [];
-            if (null !== $this->executionLogs && \is_array($this->executionLogs)) {
-                $n = 0;
-                foreach ($this->executionLogs as $item) {
-                    $res['ExecutionLogs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->executionLogs)) {
+                $res['ExecutionLogs'] = [];
+                $n1                   = 0;
+                foreach ($this->executionLogs as $item1) {
+                    $res['ExecutionLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,29 +68,32 @@ class ListUserExecutionLogsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserExecutionLogsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecutionLogs'])) {
             if (!empty($map['ExecutionLogs'])) {
                 $model->executionLogs = [];
-                $n                    = 0;
-                foreach ($map['ExecutionLogs'] as $item) {
-                    $model->executionLogs[$n++] = null !== $item ? executionLogs::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['ExecutionLogs'] as $item1) {
+                    $model->executionLogs[$n1++] = executionLogs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

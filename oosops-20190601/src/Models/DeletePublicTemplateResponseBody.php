@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePublicTemplateResponseBody extends Model
 {
@@ -18,9 +18,10 @@ class DeletePublicTemplateResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -30,11 +31,11 @@ class DeletePublicTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePublicTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

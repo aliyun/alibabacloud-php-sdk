@@ -4,41 +4,30 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePublicPatchBaselineRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $approvalRules;
-
     /**
      * @var string
      */
     public $clientToken;
-
     /**
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $operationSystem;
-
     /**
      * @var string
      */
@@ -54,26 +43,32 @@ class CreatePublicPatchBaselineRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->approvalRules) {
             $res['ApprovalRules'] = $this->approvalRules;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->operationSystem) {
             $res['OperationSystem'] = $this->operationSystem;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -81,29 +76,34 @@ class CreatePublicPatchBaselineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePublicPatchBaselineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApprovalRules'])) {
             $model->approvalRules = $map['ApprovalRules'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OperationSystem'])) {
             $model->operationSystem = $map['OperationSystem'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

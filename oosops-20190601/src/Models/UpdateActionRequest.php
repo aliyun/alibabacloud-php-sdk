@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateActionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $actionName;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $actionType;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
-
     /**
      * @var int
      */
     public $popularity;
-
     /**
      * @var string
      */
@@ -48,23 +38,28 @@ class UpdateActionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionName) {
             $res['ActionName'] = $this->actionName;
         }
+
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->popularity) {
             $res['Popularity'] = $this->popularity;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -72,26 +67,30 @@ class UpdateActionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateActionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionName'])) {
             $model->actionName = $map['ActionName'];
         }
+
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Popularity'])) {
             $model->popularity = $map['Popularity'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

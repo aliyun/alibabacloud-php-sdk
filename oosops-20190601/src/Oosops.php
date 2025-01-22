@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Oosops\V20190601;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\AuditPublicTemplateRegistrationRequest;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\AuditPublicTemplateRegistrationResponse;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\CreateActionRequest;
@@ -91,11 +90,10 @@ use AlibabaCloud\SDK\Oosops\V20190601\Models\UpdatePublicTemplateRequest;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\UpdatePublicTemplateResponse;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\ValidatePublicTemplateContentRequest;
 use AlibabaCloud\SDK\Oosops\V20190601\Models\ValidatePublicTemplateContentResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Oosops extends OpenApiClient
 {
@@ -120,40 +118,49 @@ class Oosops extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AuditPublicTemplateRegistrationRequest $request AuditPublicTemplateRegistrationRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - AuditPublicTemplateRegistrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AuditPublicTemplateRegistrationResponse
      *
-     * @return AuditPublicTemplateRegistrationResponse AuditPublicTemplateRegistrationResponse
+     * @param AuditPublicTemplateRegistrationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return AuditPublicTemplateRegistrationResponse
      */
     public function auditPublicTemplateRegistrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditAction)) {
-            $query['AuditAction'] = $request->auditAction;
+        if (null !== $request->auditAction) {
+            @$query['AuditAction'] = $request->auditAction;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->registrationId)) {
-            $query['RegistrationId'] = $request->registrationId;
+
+        if (null !== $request->registrationId) {
+            @$query['RegistrationId'] = $request->registrationId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AuditPublicTemplateRegistration',
@@ -166,14 +173,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AuditPublicTemplateRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AuditPublicTemplateRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AuditPublicTemplateRegistrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AuditPublicTemplateRegistrationRequest $request AuditPublicTemplateRegistrationRequest
+     * @param request - AuditPublicTemplateRegistrationRequest
+     * @returns AuditPublicTemplateRegistrationResponse
      *
-     * @return AuditPublicTemplateRegistrationResponse AuditPublicTemplateRegistrationResponse
+     * @param AuditPublicTemplateRegistrationRequest $request
+     *
+     * @return AuditPublicTemplateRegistrationResponse
      */
     public function auditPublicTemplateRegistration($request)
     {
@@ -183,32 +196,41 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreateActionRequest $request CreateActionRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateActionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateActionResponse
      *
-     * @return CreateActionResponse CreateActionResponse
+     * @param CreateActionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateActionResponse
      */
     public function createActionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionName)) {
-            $query['ActionName'] = $request->actionName;
+        if (null !== $request->actionName) {
+            @$query['ActionName'] = $request->actionName;
         }
-        if (!Utils::isUnset($request->actionType)) {
-            $query['ActionType'] = $request->actionType;
+
+        if (null !== $request->actionType) {
+            @$query['ActionType'] = $request->actionType;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->popularity)) {
-            $query['Popularity'] = $request->popularity;
+
+        if (null !== $request->popularity) {
+            @$query['Popularity'] = $request->popularity;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAction',
@@ -221,14 +243,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateActionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateActionRequest $request CreateActionRequest
+     * @param request - CreateActionRequest
+     * @returns CreateActionResponse
      *
-     * @return CreateActionResponse CreateActionResponse
+     * @param CreateActionRequest $request
+     *
+     * @return CreateActionResponse
      */
     public function createAction($request)
     {
@@ -238,40 +266,51 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个公共参数。
-     *  *
-     * @param CreatePublicParameterRequest $request CreatePublicParameterRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 创建一个公共参数。
      *
-     * @return CreatePublicParameterResponse CreatePublicParameterResponse
+     * @param request - CreatePublicParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePublicParameterResponse
+     *
+     * @param CreatePublicParameterRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreatePublicParameterResponse
      */
     public function createPublicParameterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->constraints)) {
-            $query['Constraints'] = $request->constraints;
+
+        if (null !== $request->constraints) {
+            @$query['Constraints'] = $request->constraints;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parameterType)) {
-            $query['ParameterType'] = $request->parameterType;
+
+        if (null !== $request->parameterType) {
+            @$query['ParameterType'] = $request->parameterType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePublicParameter',
@@ -284,16 +323,22 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePublicParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePublicParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePublicParameterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建一个公共参数。
-     *  *
-     * @param CreatePublicParameterRequest $request CreatePublicParameterRequest
+     * 创建一个公共参数。
      *
-     * @return CreatePublicParameterResponse CreatePublicParameterResponse
+     * @param request - CreatePublicParameterRequest
+     * @returns CreatePublicParameterResponse
+     *
+     * @param CreatePublicParameterRequest $request
+     *
+     * @return CreatePublicParameterResponse
      */
     public function createPublicParameter($request)
     {
@@ -303,35 +348,45 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreatePublicPatchBaselineRequest $request CreatePublicPatchBaselineRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - CreatePublicPatchBaselineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePublicPatchBaselineResponse
      *
-     * @return CreatePublicPatchBaselineResponse CreatePublicPatchBaselineResponse
+     * @param CreatePublicPatchBaselineRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreatePublicPatchBaselineResponse
      */
     public function createPublicPatchBaselineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->approvalRules)) {
-            $query['ApprovalRules'] = $request->approvalRules;
+        if (null !== $request->approvalRules) {
+            @$query['ApprovalRules'] = $request->approvalRules;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->operationSystem)) {
-            $query['OperationSystem'] = $request->operationSystem;
+
+        if (null !== $request->operationSystem) {
+            @$query['OperationSystem'] = $request->operationSystem;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePublicPatchBaseline',
@@ -344,14 +399,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePublicPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePublicPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePublicPatchBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreatePublicPatchBaselineRequest $request CreatePublicPatchBaselineRequest
+     * @param request - CreatePublicPatchBaselineRequest
+     * @returns CreatePublicPatchBaselineResponse
      *
-     * @return CreatePublicPatchBaselineResponse CreatePublicPatchBaselineResponse
+     * @param CreatePublicPatchBaselineRequest $request
+     *
+     * @return CreatePublicPatchBaselineResponse
      */
     public function createPublicPatchBaseline($request)
     {
@@ -361,41 +422,53 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param CreatePublicTemplateRequest $request CreatePublicTemplateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreatePublicTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePublicTemplateResponse
      *
-     * @return CreatePublicTemplateResponse CreatePublicTemplateResponse
+     * @param CreatePublicTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreatePublicTemplateResponse
      */
     public function createPublicTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->isExample)) {
-            $query['IsExample'] = $request->isExample;
+
+        if (null !== $request->isExample) {
+            @$query['IsExample'] = $request->isExample;
         }
-        if (!Utils::isUnset($request->popularity)) {
-            $query['Popularity'] = $request->popularity;
+
+        if (null !== $request->popularity) {
+            @$query['Popularity'] = $request->popularity;
         }
-        if (!Utils::isUnset($request->publisher)) {
-            $query['Publisher'] = $request->publisher;
+
+        if (null !== $request->publisher) {
+            @$query['Publisher'] = $request->publisher;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->versionName)) {
-            $query['VersionName'] = $request->versionName;
+
+        if (null !== $request->versionName) {
+            @$query['VersionName'] = $request->versionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePublicTemplate',
@@ -408,14 +481,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePublicTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePublicTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePublicTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreatePublicTemplateRequest $request CreatePublicTemplateRequest
+     * @param request - CreatePublicTemplateRequest
+     * @returns CreatePublicTemplateResponse
      *
-     * @return CreatePublicTemplateResponse CreatePublicTemplateResponse
+     * @param CreatePublicTemplateRequest $request
+     *
+     * @return CreatePublicTemplateResponse
      */
     public function createPublicTemplate($request)
     {
@@ -425,23 +504,29 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeleteFailureMsgRequest $request DeleteFailureMsgRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteFailureMsgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFailureMsgResponse
      *
-     * @return DeleteFailureMsgResponse DeleteFailureMsgResponse
+     * @param DeleteFailureMsgRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteFailureMsgResponse
      */
     public function deleteFailureMsgWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->operation)) {
-            $query['Operation'] = $request->operation;
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
         }
-        if (!Utils::isUnset($request->requestFingerprint)) {
-            $query['RequestFingerprint'] = $request->requestFingerprint;
+
+        if (null !== $request->requestFingerprint) {
+            @$query['RequestFingerprint'] = $request->requestFingerprint;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFailureMsg',
@@ -454,14 +539,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFailureMsgResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFailureMsgResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFailureMsgResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteFailureMsgRequest $request DeleteFailureMsgRequest
+     * @param request - DeleteFailureMsgRequest
+     * @returns DeleteFailureMsgResponse
      *
-     * @return DeleteFailureMsgResponse DeleteFailureMsgResponse
+     * @param DeleteFailureMsgRequest $request
+     *
+     * @return DeleteFailureMsgResponse
      */
     public function deleteFailureMsg($request)
     {
@@ -471,25 +562,31 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @summary 删除公共参数。
-     *  *
-     * @param DeletePublicParameterRequest $request DeletePublicParameterRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 删除公共参数。
      *
-     * @return DeletePublicParameterResponse DeletePublicParameterResponse
+     * @param request - DeletePublicParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePublicParameterResponse
+     *
+     * @param DeletePublicParameterRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeletePublicParameterResponse
      */
     public function deletePublicParameterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePublicParameter',
@@ -502,16 +599,22 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePublicParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePublicParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePublicParameterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除公共参数。
-     *  *
-     * @param DeletePublicParameterRequest $request DeletePublicParameterRequest
+     * 删除公共参数。
      *
-     * @return DeletePublicParameterResponse DeletePublicParameterResponse
+     * @param request - DeletePublicParameterRequest
+     * @returns DeletePublicParameterResponse
+     *
+     * @param DeletePublicParameterRequest $request
+     *
+     * @return DeletePublicParameterResponse
      */
     public function deletePublicParameter($request)
     {
@@ -521,20 +624,25 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeletePublicPatchBaselineRequest $request DeletePublicPatchBaselineRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DeletePublicPatchBaselineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePublicPatchBaselineResponse
      *
-     * @return DeletePublicPatchBaselineResponse DeletePublicPatchBaselineResponse
+     * @param DeletePublicPatchBaselineRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeletePublicPatchBaselineResponse
      */
     public function deletePublicPatchBaselineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePublicPatchBaseline',
@@ -547,14 +655,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePublicPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePublicPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePublicPatchBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeletePublicPatchBaselineRequest $request DeletePublicPatchBaselineRequest
+     * @param request - DeletePublicPatchBaselineRequest
+     * @returns DeletePublicPatchBaselineResponse
      *
-     * @return DeletePublicPatchBaselineResponse DeletePublicPatchBaselineResponse
+     * @param DeletePublicPatchBaselineRequest $request
+     *
+     * @return DeletePublicPatchBaselineResponse
      */
     public function deletePublicPatchBaseline($request)
     {
@@ -564,23 +678,29 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DeletePublicTemplateRequest $request DeletePublicTemplateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DeletePublicTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePublicTemplateResponse
      *
-     * @return DeletePublicTemplateResponse DeletePublicTemplateResponse
+     * @param DeletePublicTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeletePublicTemplateResponse
      */
     public function deletePublicTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePublicTemplate',
@@ -593,14 +713,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePublicTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePublicTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePublicTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeletePublicTemplateRequest $request DeletePublicTemplateRequest
+     * @param request - DeletePublicTemplateRequest
+     * @returns DeletePublicTemplateResponse
      *
-     * @return DeletePublicTemplateResponse DeletePublicTemplateResponse
+     * @param DeletePublicTemplateRequest $request
+     *
+     * @return DeletePublicTemplateResponse
      */
     public function deletePublicTemplate($request)
     {
@@ -610,59 +736,77 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param DoCheckResourceRequest $request DoCheckResourceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DoCheckResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DoCheckResourceResponse
      *
-     * @return DoCheckResourceResponse DoCheckResourceResponse
+     * @param DoCheckResourceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DoCheckResourceResponse
      */
     public function doCheckResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bid)) {
-            $query['bid'] = $request->bid;
+        if (null !== $request->bid) {
+            @$query['bid'] = $request->bid;
         }
-        if (!Utils::isUnset($request->country)) {
-            $query['country'] = $request->country;
+
+        if (null !== $request->country) {
+            @$query['country'] = $request->country;
         }
-        if (!Utils::isUnset($request->gmtWakeup)) {
-            $query['gmtWakeup'] = $request->gmtWakeup;
+
+        if (null !== $request->gmtWakeup) {
+            @$query['gmtWakeup'] = $request->gmtWakeup;
         }
-        if (!Utils::isUnset($request->hid)) {
-            $query['hid'] = $request->hid;
+
+        if (null !== $request->hid) {
+            @$query['hid'] = $request->hid;
         }
-        if (!Utils::isUnset($request->interrupt)) {
-            $query['interrupt'] = $request->interrupt;
+
+        if (null !== $request->interrupt) {
+            @$query['interrupt'] = $request->interrupt;
         }
-        if (!Utils::isUnset($request->invoker)) {
-            $query['invoker'] = $request->invoker;
+
+        if (null !== $request->invoker) {
+            @$query['invoker'] = $request->invoker;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['level'] = $request->level;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['message'] = $request->message;
         }
-        if (!Utils::isUnset($request->pk)) {
-            $query['pk'] = $request->pk;
+
+        if (null !== $request->pk) {
+            @$query['pk'] = $request->pk;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $query['prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$query['prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->success)) {
-            $query['success'] = $request->success;
+
+        if (null !== $request->success) {
+            @$query['success'] = $request->success;
         }
-        if (!Utils::isUnset($request->taskExtraData)) {
-            $query['taskExtraData'] = $request->taskExtraData;
+
+        if (null !== $request->taskExtraData) {
+            @$query['taskExtraData'] = $request->taskExtraData;
         }
-        if (!Utils::isUnset($request->taskIdentifier)) {
-            $query['taskIdentifier'] = $request->taskIdentifier;
+
+        if (null !== $request->taskIdentifier) {
+            @$query['taskIdentifier'] = $request->taskIdentifier;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DoCheckResource',
@@ -675,14 +819,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DoCheckResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DoCheckResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DoCheckResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DoCheckResourceRequest $request DoCheckResourceRequest
+     * @param request - DoCheckResourceRequest
+     * @returns DoCheckResourceResponse
      *
-     * @return DoCheckResourceResponse DoCheckResourceResponse
+     * @param DoCheckResourceRequest $request
+     *
+     * @return DoCheckResourceResponse
      */
     public function doCheckResource($request)
     {
@@ -692,25 +842,31 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @summary 获取action的详细信息
-     *  *
-     * @param GetActionRequest $request GetActionRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 获取action的详细信息.
      *
-     * @return GetActionResponse GetActionResponse
+     * @param request - GetActionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetActionResponse
+     *
+     * @param GetActionRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetActionResponse
      */
     public function getActionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionName)) {
-            $query['ActionName'] = $request->actionName;
+        if (null !== $request->actionName) {
+            @$query['ActionName'] = $request->actionName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAction',
@@ -723,16 +879,22 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetActionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取action的详细信息
-     *  *
-     * @param GetActionRequest $request GetActionRequest
+     * 获取action的详细信息.
      *
-     * @return GetActionResponse GetActionResponse
+     * @param request - GetActionRequest
+     * @returns GetActionResponse
+     *
+     * @param GetActionRequest $request
+     *
+     * @return GetActionResponse
      */
     public function getAction($request)
     {
@@ -742,29 +904,37 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetFlowControlRequest $request GetFlowControlRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - GetFlowControlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFlowControlResponse
      *
-     * @return GetFlowControlResponse GetFlowControlResponse
+     * @param GetFlowControlRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetFlowControlResponse
      */
     public function getFlowControlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->api)) {
-            $query['Api'] = $request->api;
+        if (null !== $request->api) {
+            @$query['Api'] = $request->api;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetFlowControl',
@@ -777,14 +947,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFlowControlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFlowControlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFlowControlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetFlowControlRequest $request GetFlowControlRequest
+     * @param request - GetFlowControlRequest
+     * @returns GetFlowControlResponse
      *
-     * @return GetFlowControlResponse GetFlowControlResponse
+     * @param GetFlowControlRequest $request
+     *
+     * @return GetFlowControlResponse
      */
     public function getFlowControl($request)
     {
@@ -794,28 +970,35 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @summary 获取一个公共参数，包括参数值。
-     *  *
-     * @param GetPublicParameterRequest $request GetPublicParameterRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取一个公共参数，包括参数值。
      *
-     * @return GetPublicParameterResponse GetPublicParameterResponse
+     * @param request - GetPublicParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPublicParameterResponse
+     *
+     * @param GetPublicParameterRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetPublicParameterResponse
      */
     public function getPublicParameterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parameterVersion)) {
-            $query['ParameterVersion'] = $request->parameterVersion;
+
+        if (null !== $request->parameterVersion) {
+            @$query['ParameterVersion'] = $request->parameterVersion;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPublicParameter',
@@ -828,16 +1011,22 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPublicParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPublicParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPublicParameterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取一个公共参数，包括参数值。
-     *  *
-     * @param GetPublicParameterRequest $request GetPublicParameterRequest
+     * 获取一个公共参数，包括参数值。
      *
-     * @return GetPublicParameterResponse GetPublicParameterResponse
+     * @param request - GetPublicParameterRequest
+     * @returns GetPublicParameterResponse
+     *
+     * @param GetPublicParameterRequest $request
+     *
+     * @return GetPublicParameterResponse
      */
     public function getPublicParameter($request)
     {
@@ -847,23 +1036,29 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetPublicPatchBaselineRequest $request GetPublicPatchBaselineRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - GetPublicPatchBaselineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPublicPatchBaselineResponse
      *
-     * @return GetPublicPatchBaselineResponse GetPublicPatchBaselineResponse
+     * @param GetPublicPatchBaselineRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPublicPatchBaselineResponse
      */
     public function getPublicPatchBaselineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPublicPatchBaseline',
@@ -876,14 +1071,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPublicPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPublicPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPublicPatchBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetPublicPatchBaselineRequest $request GetPublicPatchBaselineRequest
+     * @param request - GetPublicPatchBaselineRequest
+     * @returns GetPublicPatchBaselineResponse
      *
-     * @return GetPublicPatchBaselineResponse GetPublicPatchBaselineResponse
+     * @param GetPublicPatchBaselineRequest $request
+     *
+     * @return GetPublicPatchBaselineResponse
      */
     public function getPublicPatchBaseline($request)
     {
@@ -893,26 +1094,33 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetPublicTemplateRequest $request GetPublicTemplateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - GetPublicTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPublicTemplateResponse
      *
-     * @return GetPublicTemplateResponse GetPublicTemplateResponse
+     * @param GetPublicTemplateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetPublicTemplateResponse
      */
     public function getPublicTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPublicTemplate',
@@ -925,14 +1133,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPublicTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPublicTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPublicTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetPublicTemplateRequest $request GetPublicTemplateRequest
+     * @param request - GetPublicTemplateRequest
+     * @returns GetPublicTemplateResponse
      *
-     * @return GetPublicTemplateResponse GetPublicTemplateResponse
+     * @param GetPublicTemplateRequest $request
+     *
+     * @return GetPublicTemplateResponse
      */
     public function getPublicTemplate($request)
     {
@@ -942,26 +1156,33 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetQuotaRequest $request GetQuotaRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - GetQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQuotaResponse
      *
-     * @return GetQuotaResponse GetQuotaResponse
+     * @param GetQuotaRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetQuotaResponse
      */
     public function getQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->quotaName)) {
-            $query['QuotaName'] = $request->quotaName;
+        if (null !== $request->quotaName) {
+            @$query['QuotaName'] = $request->quotaName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQuota',
@@ -974,14 +1195,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetQuotaRequest $request GetQuotaRequest
+     * @param request - GetQuotaRequest
+     * @returns GetQuotaResponse
      *
-     * @return GetQuotaResponse GetQuotaResponse
+     * @param GetQuotaRequest $request
+     *
+     * @return GetQuotaResponse
      */
     public function getQuota($request)
     {
@@ -991,26 +1218,33 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetUserExecutionTemplateRequest $request GetUserExecutionTemplateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - GetUserExecutionTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserExecutionTemplateResponse
      *
-     * @return GetUserExecutionTemplateResponse GetUserExecutionTemplateResponse
+     * @param GetUserExecutionTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetUserExecutionTemplateResponse
      */
     public function getUserExecutionTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->executionId)) {
-            $query['ExecutionId'] = $request->executionId;
+
+        if (null !== $request->executionId) {
+            @$query['ExecutionId'] = $request->executionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUserExecutionTemplate',
@@ -1023,14 +1257,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserExecutionTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserExecutionTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserExecutionTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetUserExecutionTemplateRequest $request GetUserExecutionTemplateRequest
+     * @param request - GetUserExecutionTemplateRequest
+     * @returns GetUserExecutionTemplateResponse
      *
-     * @return GetUserExecutionTemplateResponse GetUserExecutionTemplateResponse
+     * @param GetUserExecutionTemplateRequest $request
+     *
+     * @return GetUserExecutionTemplateResponse
      */
     public function getUserExecutionTemplate($request)
     {
@@ -1040,29 +1280,37 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param GetUserTemplateRequest $request GetUserTemplateRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - GetUserTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserTemplateResponse
      *
-     * @return GetUserTemplateResponse GetUserTemplateResponse
+     * @param GetUserTemplateRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetUserTemplateResponse
      */
     public function getUserTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUserTemplate',
@@ -1075,14 +1323,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetUserTemplateRequest $request GetUserTemplateRequest
+     * @param request - GetUserTemplateRequest
+     * @returns GetUserTemplateResponse
      *
-     * @return GetUserTemplateResponse GetUserTemplateResponse
+     * @param GetUserTemplateRequest $request
+     *
+     * @return GetUserTemplateResponse
      */
     public function getUserTemplate($request)
     {
@@ -1092,29 +1346,37 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListActionsRequest $request ListActionsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - ListActionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListActionsResponse
      *
-     * @return ListActionsResponse ListActionsResponse
+     * @param ListActionsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListActionsResponse
      */
     public function listActionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->OOSActionName)) {
-            $query['OOSActionName'] = $request->OOSActionName;
+
+        if (null !== $request->OOSActionName) {
+            @$query['OOSActionName'] = $request->OOSActionName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListActions',
@@ -1127,14 +1389,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListActionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListActionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListActionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListActionsRequest $request ListActionsRequest
+     * @param request - ListActionsRequest
+     * @returns ListActionsResponse
      *
-     * @return ListActionsResponse ListActionsResponse
+     * @param ListActionsRequest $request
+     *
+     * @return ListActionsResponse
      */
     public function listActions($request)
     {
@@ -1144,9 +1412,13 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - ListDefaultQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDefaultQuotaResponse
      *
-     * @return ListDefaultQuotaResponse ListDefaultQuotaResponse
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListDefaultQuotaResponse
      */
     public function listDefaultQuotaWithOptions($runtime)
     {
@@ -1162,12 +1434,17 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDefaultQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDefaultQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDefaultQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @return ListDefaultQuotaResponse ListDefaultQuotaResponse
+     * @returns ListDefaultQuotaResponse
+     *
+     * @return ListDefaultQuotaResponse
      */
     public function listDefaultQuota()
     {
@@ -1177,26 +1454,33 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListFailureMsgsRequest $request ListFailureMsgsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ListFailureMsgsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListFailureMsgsResponse
      *
-     * @return ListFailureMsgsResponse ListFailureMsgsResponse
+     * @param ListFailureMsgsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListFailureMsgsResponse
      */
     public function listFailureMsgsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->requestFingerprint)) {
-            $query['RequestFingerprint'] = $request->requestFingerprint;
+
+        if (null !== $request->requestFingerprint) {
+            @$query['RequestFingerprint'] = $request->requestFingerprint;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListFailureMsgs',
@@ -1209,14 +1493,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListFailureMsgsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFailureMsgsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFailureMsgsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListFailureMsgsRequest $request ListFailureMsgsRequest
+     * @param request - ListFailureMsgsRequest
+     * @returns ListFailureMsgsResponse
      *
-     * @return ListFailureMsgsResponse ListFailureMsgsResponse
+     * @param ListFailureMsgsRequest $request
+     *
+     * @return ListFailureMsgsResponse
      */
     public function listFailureMsgs($request)
     {
@@ -1226,38 +1516,49 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListOOSLogsRequest $request ListOOSLogsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - ListOOSLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOOSLogsResponse
      *
-     * @return ListOOSLogsResponse ListOOSLogsResponse
+     * @param ListOOSLogsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListOOSLogsResponse
      */
     public function listOOSLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->executionId)) {
-            $query['ExecutionId'] = $request->executionId;
+
+        if (null !== $request->executionId) {
+            @$query['ExecutionId'] = $request->executionId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->requestFingerprint)) {
-            $query['RequestFingerprint'] = $request->requestFingerprint;
+
+        if (null !== $request->requestFingerprint) {
+            @$query['RequestFingerprint'] = $request->requestFingerprint;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOOSLogs',
@@ -1270,14 +1571,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOOSLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOOSLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOOSLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListOOSLogsRequest $request ListOOSLogsRequest
+     * @param request - ListOOSLogsRequest
+     * @returns ListOOSLogsResponse
      *
-     * @return ListOOSLogsResponse ListOOSLogsResponse
+     * @param ListOOSLogsRequest $request
+     *
+     * @return ListOOSLogsResponse
      */
     public function listOOSLogs($request)
     {
@@ -1287,46 +1594,67 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @summary 查询公共参数。支持多种查询
-     *  *
-     * @param ListPublicParametersRequest $request ListPublicParametersRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询公共参数。支持多种查询.
      *
-     * @return ListPublicParametersResponse ListPublicParametersResponse
+     * @param request - ListPublicParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPublicParametersResponse
+     *
+     * @param ListPublicParametersRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPublicParametersResponse
      */
     public function listPublicParametersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->createdDateAfter) {
+            @$query['CreatedDateAfter'] = $request->createdDateAfter;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->createdDateBefore) {
+            @$query['CreatedDateBefore'] = $request->createdDateBefore;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->parameterType)) {
-            $query['ParameterType'] = $request->parameterType;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->recursive)) {
-            $query['Recursive'] = $request->recursive;
+
+        if (null !== $request->parameterType) {
+            @$query['ParameterType'] = $request->parameterType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->sortField)) {
-            $query['SortField'] = $request->sortField;
+
+        if (null !== $request->recursive) {
+            @$query['Recursive'] = $request->recursive;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
+        if (null !== $request->sortField) {
+            @$query['SortField'] = $request->sortField;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPublicParameters',
@@ -1339,16 +1667,22 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPublicParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPublicParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPublicParametersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询公共参数。支持多种查询
-     *  *
-     * @param ListPublicParametersRequest $request ListPublicParametersRequest
+     * 查询公共参数。支持多种查询.
      *
-     * @return ListPublicParametersResponse ListPublicParametersResponse
+     * @param request - ListPublicParametersRequest
+     * @returns ListPublicParametersResponse
+     *
+     * @param ListPublicParametersRequest $request
+     *
+     * @return ListPublicParametersResponse
      */
     public function listPublicParameters($request)
     {
@@ -1358,35 +1692,45 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicPatchBaselinesRequest $request ListPublicPatchBaselinesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - ListPublicPatchBaselinesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPublicPatchBaselinesResponse
      *
-     * @return ListPublicPatchBaselinesResponse ListPublicPatchBaselinesResponse
+     * @param ListPublicPatchBaselinesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListPublicPatchBaselinesResponse
      */
     public function listPublicPatchBaselinesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->operationSystem)) {
-            $query['OperationSystem'] = $request->operationSystem;
+
+        if (null !== $request->operationSystem) {
+            @$query['OperationSystem'] = $request->operationSystem;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->shareType)) {
-            $query['ShareType'] = $request->shareType;
+
+        if (null !== $request->shareType) {
+            @$query['ShareType'] = $request->shareType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPublicPatchBaselines',
@@ -1399,14 +1743,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPublicPatchBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPublicPatchBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPublicPatchBaselinesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListPublicPatchBaselinesRequest $request ListPublicPatchBaselinesRequest
+     * @param request - ListPublicPatchBaselinesRequest
+     * @returns ListPublicPatchBaselinesResponse
      *
-     * @return ListPublicPatchBaselinesResponse ListPublicPatchBaselinesResponse
+     * @param ListPublicPatchBaselinesRequest $request
+     *
+     * @return ListPublicPatchBaselinesResponse
      */
     public function listPublicPatchBaselines($request)
     {
@@ -1416,35 +1766,45 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicTemplateRegistrationsRequest $request ListPublicTemplateRegistrationsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - ListPublicTemplateRegistrationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPublicTemplateRegistrationsResponse
      *
-     * @return ListPublicTemplateRegistrationsResponse ListPublicTemplateRegistrationsResponse
+     * @param ListPublicTemplateRegistrationsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListPublicTemplateRegistrationsResponse
      */
     public function listPublicTemplateRegistrationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->registrationId)) {
-            $query['RegistrationId'] = $request->registrationId;
+
+        if (null !== $request->registrationId) {
+            @$query['RegistrationId'] = $request->registrationId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPublicTemplateRegistrations',
@@ -1457,14 +1817,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPublicTemplateRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPublicTemplateRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPublicTemplateRegistrationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListPublicTemplateRegistrationsRequest $request ListPublicTemplateRegistrationsRequest
+     * @param request - ListPublicTemplateRegistrationsRequest
+     * @returns ListPublicTemplateRegistrationsResponse
      *
-     * @return ListPublicTemplateRegistrationsResponse ListPublicTemplateRegistrationsResponse
+     * @param ListPublicTemplateRegistrationsRequest $request
+     *
+     * @return ListPublicTemplateRegistrationsResponse
      */
     public function listPublicTemplateRegistrations($request)
     {
@@ -1474,56 +1840,73 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListPublicTemplatesRequest $request ListPublicTemplatesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ListPublicTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPublicTemplatesResponse
      *
-     * @return ListPublicTemplatesResponse ListPublicTemplatesResponse
+     * @param ListPublicTemplatesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListPublicTemplatesResponse
      */
     public function listPublicTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createdBy)) {
-            $query['CreatedBy'] = $request->createdBy;
+        if (null !== $request->createdBy) {
+            @$query['CreatedBy'] = $request->createdBy;
         }
-        if (!Utils::isUnset($request->createdDateAfter)) {
-            $query['CreatedDateAfter'] = $request->createdDateAfter;
+
+        if (null !== $request->createdDateAfter) {
+            @$query['CreatedDateAfter'] = $request->createdDateAfter;
         }
-        if (!Utils::isUnset($request->createdDateBefore)) {
-            $query['CreatedDateBefore'] = $request->createdDateBefore;
+
+        if (null !== $request->createdDateBefore) {
+            @$query['CreatedDateBefore'] = $request->createdDateBefore;
         }
-        if (!Utils::isUnset($request->isExample)) {
-            $query['IsExample'] = $request->isExample;
+
+        if (null !== $request->isExample) {
+            @$query['IsExample'] = $request->isExample;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->popularity)) {
-            $query['Popularity'] = $request->popularity;
+
+        if (null !== $request->popularity) {
+            @$query['Popularity'] = $request->popularity;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->shareType)) {
-            $query['ShareType'] = $request->shareType;
+
+        if (null !== $request->shareType) {
+            @$query['ShareType'] = $request->shareType;
         }
-        if (!Utils::isUnset($request->sortField)) {
-            $query['SortField'] = $request->sortField;
+
+        if (null !== $request->sortField) {
+            @$query['SortField'] = $request->sortField;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
-        if (!Utils::isUnset($request->templateFormat)) {
-            $query['TemplateFormat'] = $request->templateFormat;
+
+        if (null !== $request->templateFormat) {
+            @$query['TemplateFormat'] = $request->templateFormat;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPublicTemplates',
@@ -1536,14 +1919,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPublicTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPublicTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPublicTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListPublicTemplatesRequest $request ListPublicTemplatesRequest
+     * @param request - ListPublicTemplatesRequest
+     * @returns ListPublicTemplatesResponse
      *
-     * @return ListPublicTemplatesResponse ListPublicTemplatesResponse
+     * @param ListPublicTemplatesRequest $request
+     *
+     * @return ListPublicTemplatesResponse
      */
     public function listPublicTemplates($request)
     {
@@ -1553,38 +1942,49 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserExecutionLogsRequest $request ListUserExecutionLogsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ListUserExecutionLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserExecutionLogsResponse
      *
-     * @return ListUserExecutionLogsResponse ListUserExecutionLogsResponse
+     * @param ListUserExecutionLogsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListUserExecutionLogsResponse
      */
     public function listUserExecutionLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->executionId)) {
-            $query['ExecutionId'] = $request->executionId;
+
+        if (null !== $request->executionId) {
+            @$query['ExecutionId'] = $request->executionId;
         }
-        if (!Utils::isUnset($request->logType)) {
-            $query['LogType'] = $request->logType;
+
+        if (null !== $request->logType) {
+            @$query['LogType'] = $request->logType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskExecutionId)) {
-            $query['TaskExecutionId'] = $request->taskExecutionId;
+
+        if (null !== $request->taskExecutionId) {
+            @$query['TaskExecutionId'] = $request->taskExecutionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserExecutionLogs',
@@ -1597,14 +1997,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserExecutionLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserExecutionLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserExecutionLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListUserExecutionLogsRequest $request ListUserExecutionLogsRequest
+     * @param request - ListUserExecutionLogsRequest
+     * @returns ListUserExecutionLogsResponse
      *
-     * @return ListUserExecutionLogsResponse ListUserExecutionLogsResponse
+     * @param ListUserExecutionLogsRequest $request
+     *
+     * @return ListUserExecutionLogsResponse
      */
     public function listUserExecutionLogs($request)
     {
@@ -1614,71 +2020,93 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserExecutionsRequest $request ListUserExecutionsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ListUserExecutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserExecutionsResponse
      *
-     * @return ListUserExecutionsResponse ListUserExecutionsResponse
+     * @param ListUserExecutionsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListUserExecutionsResponse
      */
     public function listUserExecutionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->endDateAfter)) {
-            $query['EndDateAfter'] = $request->endDateAfter;
+
+        if (null !== $request->endDateAfter) {
+            @$query['EndDateAfter'] = $request->endDateAfter;
         }
-        if (!Utils::isUnset($request->endDateBefore)) {
-            $query['EndDateBefore'] = $request->endDateBefore;
+
+        if (null !== $request->endDateBefore) {
+            @$query['EndDateBefore'] = $request->endDateBefore;
         }
-        if (!Utils::isUnset($request->executedBy)) {
-            $query['ExecutedBy'] = $request->executedBy;
+
+        if (null !== $request->executedBy) {
+            @$query['ExecutedBy'] = $request->executedBy;
         }
-        if (!Utils::isUnset($request->executionId)) {
-            $query['ExecutionId'] = $request->executionId;
+
+        if (null !== $request->executionId) {
+            @$query['ExecutionId'] = $request->executionId;
         }
-        if (!Utils::isUnset($request->includeChildExecution)) {
-            $query['IncludeChildExecution'] = $request->includeChildExecution;
+
+        if (null !== $request->includeChildExecution) {
+            @$query['IncludeChildExecution'] = $request->includeChildExecution;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->parentExecutionId)) {
-            $query['ParentExecutionId'] = $request->parentExecutionId;
+
+        if (null !== $request->parentExecutionId) {
+            @$query['ParentExecutionId'] = $request->parentExecutionId;
         }
-        if (!Utils::isUnset($request->ramRole)) {
-            $query['RamRole'] = $request->ramRole;
+
+        if (null !== $request->ramRole) {
+            @$query['RamRole'] = $request->ramRole;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sortField)) {
-            $query['SortField'] = $request->sortField;
+
+        if (null !== $request->sortField) {
+            @$query['SortField'] = $request->sortField;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
-        if (!Utils::isUnset($request->startDateAfter)) {
-            $query['StartDateAfter'] = $request->startDateAfter;
+
+        if (null !== $request->startDateAfter) {
+            @$query['StartDateAfter'] = $request->startDateAfter;
         }
-        if (!Utils::isUnset($request->startDateBefore)) {
-            $query['StartDateBefore'] = $request->startDateBefore;
+
+        if (null !== $request->startDateBefore) {
+            @$query['StartDateBefore'] = $request->startDateBefore;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserExecutions',
@@ -1691,14 +2119,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListUserExecutionsRequest $request ListUserExecutionsRequest
+     * @param request - ListUserExecutionsRequest
+     * @returns ListUserExecutionsResponse
      *
-     * @return ListUserExecutionsResponse ListUserExecutionsResponse
+     * @param ListUserExecutionsRequest $request
+     *
+     * @return ListUserExecutionsResponse
      */
     public function listUserExecutions($request)
     {
@@ -1708,32 +2142,41 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserInstancePatchStatesRequest $request ListUserInstancePatchStatesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - ListUserInstancePatchStatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserInstancePatchStatesResponse
      *
-     * @return ListUserInstancePatchStatesResponse ListUserInstancePatchStatesResponse
+     * @param ListUserInstancePatchStatesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListUserInstancePatchStatesResponse
      */
     public function listUserInstancePatchStatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserInstancePatchStates',
@@ -1746,14 +2189,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserInstancePatchStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserInstancePatchStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserInstancePatchStatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListUserInstancePatchStatesRequest $request ListUserInstancePatchStatesRequest
+     * @param request - ListUserInstancePatchStatesRequest
+     * @returns ListUserInstancePatchStatesResponse
      *
-     * @return ListUserInstancePatchStatesResponse ListUserInstancePatchStatesResponse
+     * @param ListUserInstancePatchStatesRequest $request
+     *
+     * @return ListUserInstancePatchStatesResponse
      */
     public function listUserInstancePatchStates($request)
     {
@@ -1763,32 +2212,41 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserInstancePatchesRequest $request ListUserInstancePatchesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ListUserInstancePatchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserInstancePatchesResponse
      *
-     * @return ListUserInstancePatchesResponse ListUserInstancePatchesResponse
+     * @param ListUserInstancePatchesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListUserInstancePatchesResponse
      */
     public function listUserInstancePatchesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserInstancePatches',
@@ -1801,14 +2259,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserInstancePatchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserInstancePatchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserInstancePatchesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListUserInstancePatchesRequest $request ListUserInstancePatchesRequest
+     * @param request - ListUserInstancePatchesRequest
+     * @returns ListUserInstancePatchesResponse
      *
-     * @return ListUserInstancePatchesResponse ListUserInstancePatchesResponse
+     * @param ListUserInstancePatchesRequest $request
+     *
+     * @return ListUserInstancePatchesResponse
      */
     public function listUserInstancePatches($request)
     {
@@ -1818,38 +2282,49 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserInventoryEntriesRequest $request ListUserInventoryEntriesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - ListUserInventoryEntriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserInventoryEntriesResponse
      *
-     * @return ListUserInventoryEntriesResponse ListUserInventoryEntriesResponse
+     * @param ListUserInventoryEntriesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListUserInventoryEntriesResponse
      */
     public function listUserInventoryEntriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->typeName)) {
-            $query['TypeName'] = $request->typeName;
+
+        if (null !== $request->typeName) {
+            @$query['TypeName'] = $request->typeName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserInventoryEntries',
@@ -1862,14 +2337,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserInventoryEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserInventoryEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserInventoryEntriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListUserInventoryEntriesRequest $request ListUserInventoryEntriesRequest
+     * @param request - ListUserInventoryEntriesRequest
+     * @returns ListUserInventoryEntriesResponse
      *
-     * @return ListUserInventoryEntriesResponse ListUserInventoryEntriesResponse
+     * @param ListUserInventoryEntriesRequest $request
+     *
+     * @return ListUserInventoryEntriesResponse
      */
     public function listUserInventoryEntries($request)
     {
@@ -1879,68 +2360,89 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserTaskExecutionsRequest $request ListUserTaskExecutionsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - ListUserTaskExecutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserTaskExecutionsResponse
      *
-     * @return ListUserTaskExecutionsResponse ListUserTaskExecutionsResponse
+     * @param ListUserTaskExecutionsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListUserTaskExecutionsResponse
      */
     public function listUserTaskExecutionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->endDateAfter)) {
-            $query['EndDateAfter'] = $request->endDateAfter;
+
+        if (null !== $request->endDateAfter) {
+            @$query['EndDateAfter'] = $request->endDateAfter;
         }
-        if (!Utils::isUnset($request->endDateBefore)) {
-            $query['EndDateBefore'] = $request->endDateBefore;
+
+        if (null !== $request->endDateBefore) {
+            @$query['EndDateBefore'] = $request->endDateBefore;
         }
-        if (!Utils::isUnset($request->executionId)) {
-            $query['ExecutionId'] = $request->executionId;
+
+        if (null !== $request->executionId) {
+            @$query['ExecutionId'] = $request->executionId;
         }
-        if (!Utils::isUnset($request->includeChildTaskExecution)) {
-            $query['IncludeChildTaskExecution'] = $request->includeChildTaskExecution;
+
+        if (null !== $request->includeChildTaskExecution) {
+            @$query['IncludeChildTaskExecution'] = $request->includeChildTaskExecution;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->parentTaskExecutionId)) {
-            $query['ParentTaskExecutionId'] = $request->parentTaskExecutionId;
+
+        if (null !== $request->parentTaskExecutionId) {
+            @$query['ParentTaskExecutionId'] = $request->parentTaskExecutionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sortField)) {
-            $query['SortField'] = $request->sortField;
+
+        if (null !== $request->sortField) {
+            @$query['SortField'] = $request->sortField;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
-        if (!Utils::isUnset($request->startDateAfter)) {
-            $query['StartDateAfter'] = $request->startDateAfter;
+
+        if (null !== $request->startDateAfter) {
+            @$query['StartDateAfter'] = $request->startDateAfter;
         }
-        if (!Utils::isUnset($request->startDateBefore)) {
-            $query['StartDateBefore'] = $request->startDateBefore;
+
+        if (null !== $request->startDateBefore) {
+            @$query['StartDateBefore'] = $request->startDateBefore;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskAction)) {
-            $query['TaskAction'] = $request->taskAction;
+
+        if (null !== $request->taskAction) {
+            @$query['TaskAction'] = $request->taskAction;
         }
-        if (!Utils::isUnset($request->taskExecutionId)) {
-            $query['TaskExecutionId'] = $request->taskExecutionId;
+
+        if (null !== $request->taskExecutionId) {
+            @$query['TaskExecutionId'] = $request->taskExecutionId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserTaskExecutions',
@@ -1953,14 +2455,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserTaskExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserTaskExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserTaskExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListUserTaskExecutionsRequest $request ListUserTaskExecutionsRequest
+     * @param request - ListUserTaskExecutionsRequest
+     * @returns ListUserTaskExecutionsResponse
      *
-     * @return ListUserTaskExecutionsResponse ListUserTaskExecutionsResponse
+     * @param ListUserTaskExecutionsRequest $request
+     *
+     * @return ListUserTaskExecutionsResponse
      */
     public function listUserTaskExecutions($request)
     {
@@ -1970,62 +2478,81 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ListUserTemplatesRequest $request ListUserTemplatesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListUserTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserTemplatesResponse
      *
-     * @return ListUserTemplatesResponse ListUserTemplatesResponse
+     * @param ListUserTemplatesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUserTemplatesResponse
      */
     public function listUserTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->createdBy)) {
-            $query['CreatedBy'] = $request->createdBy;
+
+        if (null !== $request->createdBy) {
+            @$query['CreatedBy'] = $request->createdBy;
         }
-        if (!Utils::isUnset($request->createdDateAfter)) {
-            $query['CreatedDateAfter'] = $request->createdDateAfter;
+
+        if (null !== $request->createdDateAfter) {
+            @$query['CreatedDateAfter'] = $request->createdDateAfter;
         }
-        if (!Utils::isUnset($request->createdDateBefore)) {
-            $query['CreatedDateBefore'] = $request->createdDateBefore;
+
+        if (null !== $request->createdDateBefore) {
+            @$query['CreatedDateBefore'] = $request->createdDateBefore;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->popularity)) {
-            $query['Popularity'] = $request->popularity;
+
+        if (null !== $request->popularity) {
+            @$query['Popularity'] = $request->popularity;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->shareType)) {
-            $query['ShareType'] = $request->shareType;
+
+        if (null !== $request->shareType) {
+            @$query['ShareType'] = $request->shareType;
         }
-        if (!Utils::isUnset($request->sortField)) {
-            $query['SortField'] = $request->sortField;
+
+        if (null !== $request->sortField) {
+            @$query['SortField'] = $request->sortField;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
-        if (!Utils::isUnset($request->templateFormat)) {
-            $query['TemplateFormat'] = $request->templateFormat;
+
+        if (null !== $request->templateFormat) {
+            @$query['TemplateFormat'] = $request->templateFormat;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserTemplates',
@@ -2038,14 +2565,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListUserTemplatesRequest $request ListUserTemplatesRequest
+     * @param request - ListUserTemplatesRequest
+     * @returns ListUserTemplatesResponse
      *
-     * @return ListUserTemplatesResponse ListUserTemplatesResponse
+     * @param ListUserTemplatesRequest $request
+     *
+     * @return ListUserTemplatesResponse
      */
     public function listUserTemplates($request)
     {
@@ -2055,26 +2588,33 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ResetTimerTriggerExecutionRequest $request ResetTimerTriggerExecutionRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - ResetTimerTriggerExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetTimerTriggerExecutionResponse
      *
-     * @return ResetTimerTriggerExecutionResponse ResetTimerTriggerExecutionResponse
+     * @param ResetTimerTriggerExecutionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ResetTimerTriggerExecutionResponse
      */
     public function resetTimerTriggerExecutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->executionId)) {
-            $query['ExecutionId'] = $request->executionId;
+
+        if (null !== $request->executionId) {
+            @$query['ExecutionId'] = $request->executionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetTimerTriggerExecution',
@@ -2087,14 +2627,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetTimerTriggerExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetTimerTriggerExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetTimerTriggerExecutionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ResetTimerTriggerExecutionRequest $request ResetTimerTriggerExecutionRequest
+     * @param request - ResetTimerTriggerExecutionRequest
+     * @returns ResetTimerTriggerExecutionResponse
      *
-     * @return ResetTimerTriggerExecutionResponse ResetTimerTriggerExecutionResponse
+     * @param ResetTimerTriggerExecutionRequest $request
+     *
+     * @return ResetTimerTriggerExecutionResponse
      */
     public function resetTimerTriggerExecution($request)
     {
@@ -2104,29 +2650,37 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ResetUserExecutionRequest $request ResetUserExecutionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ResetUserExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetUserExecutionResponse
      *
-     * @return ResetUserExecutionResponse ResetUserExecutionResponse
+     * @param ResetUserExecutionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ResetUserExecutionResponse
      */
     public function resetUserExecutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->executionId)) {
-            $query['ExecutionId'] = $request->executionId;
+
+        if (null !== $request->executionId) {
+            @$query['ExecutionId'] = $request->executionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetUserExecution',
@@ -2139,14 +2693,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetUserExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetUserExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetUserExecutionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ResetUserExecutionRequest $request ResetUserExecutionRequest
+     * @param request - ResetUserExecutionRequest
+     * @returns ResetUserExecutionResponse
      *
-     * @return ResetUserExecutionResponse ResetUserExecutionResponse
+     * @param ResetUserExecutionRequest $request
+     *
+     * @return ResetUserExecutionResponse
      */
     public function resetUserExecution($request)
     {
@@ -2156,32 +2716,41 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param SetFlowControlRequest $request SetFlowControlRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - SetFlowControlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetFlowControlResponse
      *
-     * @return SetFlowControlResponse SetFlowControlResponse
+     * @param SetFlowControlRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SetFlowControlResponse
      */
     public function setFlowControlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->api)) {
-            $query['Api'] = $request->api;
+        if (null !== $request->api) {
+            @$query['Api'] = $request->api;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetFlowControl',
@@ -2194,14 +2763,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetFlowControlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetFlowControlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetFlowControlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SetFlowControlRequest $request SetFlowControlRequest
+     * @param request - SetFlowControlRequest
+     * @returns SetFlowControlResponse
      *
-     * @return SetFlowControlResponse SetFlowControlResponse
+     * @param SetFlowControlRequest $request
+     *
+     * @return SetFlowControlResponse
      */
     public function setFlowControl($request)
     {
@@ -2211,29 +2786,37 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param SetQuotaRequest $request SetQuotaRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - SetQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetQuotaResponse
      *
-     * @return SetQuotaResponse SetQuotaResponse
+     * @param SetQuotaRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SetQuotaResponse
      */
     public function setQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->quotaName)) {
-            $query['QuotaName'] = $request->quotaName;
+        if (null !== $request->quotaName) {
+            @$query['QuotaName'] = $request->quotaName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['Uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetQuota',
@@ -2246,14 +2829,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SetQuotaRequest $request SetQuotaRequest
+     * @param request - SetQuotaRequest
+     * @returns SetQuotaResponse
      *
-     * @return SetQuotaResponse SetQuotaResponse
+     * @param SetQuotaRequest $request
+     *
+     * @return SetQuotaResponse
      */
     public function setQuota($request)
     {
@@ -2263,26 +2852,33 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param TerminateUserExecutionRequest $request TerminateUserExecutionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - TerminateUserExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TerminateUserExecutionResponse
      *
-     * @return TerminateUserExecutionResponse TerminateUserExecutionResponse
+     * @param TerminateUserExecutionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return TerminateUserExecutionResponse
      */
     public function terminateUserExecutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->executionId)) {
-            $query['ExecutionId'] = $request->executionId;
+
+        if (null !== $request->executionId) {
+            @$query['ExecutionId'] = $request->executionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TerminateUserExecution',
@@ -2295,14 +2891,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TerminateUserExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TerminateUserExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TerminateUserExecutionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param TerminateUserExecutionRequest $request TerminateUserExecutionRequest
+     * @param request - TerminateUserExecutionRequest
+     * @returns TerminateUserExecutionResponse
      *
-     * @return TerminateUserExecutionResponse TerminateUserExecutionResponse
+     * @param TerminateUserExecutionRequest $request
+     *
+     * @return TerminateUserExecutionResponse
      */
     public function terminateUserExecution($request)
     {
@@ -2312,32 +2914,41 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdateActionRequest $request UpdateActionRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateActionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateActionResponse
      *
-     * @return UpdateActionResponse UpdateActionResponse
+     * @param UpdateActionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateActionResponse
      */
     public function updateActionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionName)) {
-            $query['ActionName'] = $request->actionName;
+        if (null !== $request->actionName) {
+            @$query['ActionName'] = $request->actionName;
         }
-        if (!Utils::isUnset($request->actionType)) {
-            $query['ActionType'] = $request->actionType;
+
+        if (null !== $request->actionType) {
+            @$query['ActionType'] = $request->actionType;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->popularity)) {
-            $query['Popularity'] = $request->popularity;
+
+        if (null !== $request->popularity) {
+            @$query['Popularity'] = $request->popularity;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAction',
@@ -2350,14 +2961,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateActionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateActionRequest $request UpdateActionRequest
+     * @param request - UpdateActionRequest
+     * @returns UpdateActionResponse
      *
-     * @return UpdateActionResponse UpdateActionResponse
+     * @param UpdateActionRequest $request
+     *
+     * @return UpdateActionResponse
      */
     public function updateAction($request)
     {
@@ -2367,31 +2984,39 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @summary 更新一个已存在的公共参数。
-     *  *
-     * @param UpdatePublicParameterRequest $request UpdatePublicParameterRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 更新一个已存在的公共参数。
      *
-     * @return UpdatePublicParameterResponse UpdatePublicParameterResponse
+     * @param request - UpdatePublicParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePublicParameterResponse
+     *
+     * @param UpdatePublicParameterRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdatePublicParameterResponse
      */
     public function updatePublicParameterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePublicParameter',
@@ -2404,16 +3029,22 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePublicParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePublicParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePublicParameterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新一个已存在的公共参数。
-     *  *
-     * @param UpdatePublicParameterRequest $request UpdatePublicParameterRequest
+     * 更新一个已存在的公共参数。
      *
-     * @return UpdatePublicParameterResponse UpdatePublicParameterResponse
+     * @param request - UpdatePublicParameterRequest
+     * @returns UpdatePublicParameterResponse
+     *
+     * @param UpdatePublicParameterRequest $request
+     *
+     * @return UpdatePublicParameterResponse
      */
     public function updatePublicParameter($request)
     {
@@ -2423,32 +3054,41 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdatePublicPatchBaselineRequest $request UpdatePublicPatchBaselineRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdatePublicPatchBaselineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePublicPatchBaselineResponse
      *
-     * @return UpdatePublicPatchBaselineResponse UpdatePublicPatchBaselineResponse
+     * @param UpdatePublicPatchBaselineRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdatePublicPatchBaselineResponse
      */
     public function updatePublicPatchBaselineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->approvalRules)) {
-            $query['ApprovalRules'] = $request->approvalRules;
+        if (null !== $request->approvalRules) {
+            @$query['ApprovalRules'] = $request->approvalRules;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePublicPatchBaseline',
@@ -2461,14 +3101,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePublicPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePublicPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePublicPatchBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdatePublicPatchBaselineRequest $request UpdatePublicPatchBaselineRequest
+     * @param request - UpdatePublicPatchBaselineRequest
+     * @returns UpdatePublicPatchBaselineResponse
      *
-     * @return UpdatePublicPatchBaselineResponse UpdatePublicPatchBaselineResponse
+     * @param UpdatePublicPatchBaselineRequest $request
+     *
+     * @return UpdatePublicPatchBaselineResponse
      */
     public function updatePublicPatchBaseline($request)
     {
@@ -2478,38 +3124,49 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param UpdatePublicTemplateRequest $request UpdatePublicTemplateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdatePublicTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePublicTemplateResponse
      *
-     * @return UpdatePublicTemplateResponse UpdatePublicTemplateResponse
+     * @param UpdatePublicTemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdatePublicTemplateResponse
      */
     public function updatePublicTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->popularity)) {
-            $query['Popularity'] = $request->popularity;
+
+        if (null !== $request->popularity) {
+            @$query['Popularity'] = $request->popularity;
         }
-        if (!Utils::isUnset($request->publisher)) {
-            $query['Publisher'] = $request->publisher;
+
+        if (null !== $request->publisher) {
+            @$query['Publisher'] = $request->publisher;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->versionName)) {
-            $query['VersionName'] = $request->versionName;
+
+        if (null !== $request->versionName) {
+            @$query['VersionName'] = $request->versionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePublicTemplate',
@@ -2522,14 +3179,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePublicTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePublicTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePublicTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdatePublicTemplateRequest $request UpdatePublicTemplateRequest
+     * @param request - UpdatePublicTemplateRequest
+     * @returns UpdatePublicTemplateResponse
      *
-     * @return UpdatePublicTemplateResponse UpdatePublicTemplateResponse
+     * @param UpdatePublicTemplateRequest $request
+     *
+     * @return UpdatePublicTemplateResponse
      */
     public function updatePublicTemplate($request)
     {
@@ -2539,29 +3202,37 @@ class Oosops extends OpenApiClient
     }
 
     /**
-     * @param ValidatePublicTemplateContentRequest $request ValidatePublicTemplateContentRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - ValidatePublicTemplateContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ValidatePublicTemplateContentResponse
      *
-     * @return ValidatePublicTemplateContentResponse ValidatePublicTemplateContentResponse
+     * @param ValidatePublicTemplateContentRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ValidatePublicTemplateContentResponse
      */
     public function validatePublicTemplateContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ValidatePublicTemplateContent',
@@ -2574,14 +3245,20 @@ class Oosops extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ValidatePublicTemplateContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ValidatePublicTemplateContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ValidatePublicTemplateContentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ValidatePublicTemplateContentRequest $request ValidatePublicTemplateContentRequest
+     * @param request - ValidatePublicTemplateContentRequest
+     * @returns ValidatePublicTemplateContentResponse
      *
-     * @return ValidatePublicTemplateContentResponse ValidatePublicTemplateContentResponse
+     * @param ValidatePublicTemplateContentRequest $request
+     *
+     * @return ValidatePublicTemplateContentResponse
      */
     public function validatePublicTemplateContent($request)
     {
