@@ -13,6 +13,10 @@ class RunStyleWritingRequest extends Model
      */
     public $learningSamples;
     /**
+     * @var string
+     */
+    public $processStage;
+    /**
      * @var string[]
      */
     public $referenceMaterials;
@@ -21,13 +25,19 @@ class RunStyleWritingRequest extends Model
      */
     public $styleFeature;
     /**
+     * @var bool
+     */
+    public $useSearch;
+    /**
      * @var string
      */
     public $writingTheme;
     protected $_name = [
         'learningSamples'    => 'learningSamples',
+        'processStage'       => 'processStage',
         'referenceMaterials' => 'referenceMaterials',
         'styleFeature'       => 'styleFeature',
+        'useSearch'          => 'useSearch',
         'writingTheme'       => 'writingTheme',
     ];
 
@@ -55,6 +65,10 @@ class RunStyleWritingRequest extends Model
             }
         }
 
+        if (null !== $this->processStage) {
+            $res['processStage'] = $this->processStage;
+        }
+
         if (null !== $this->referenceMaterials) {
             if (\is_array($this->referenceMaterials)) {
                 $res['referenceMaterials'] = [];
@@ -67,6 +81,10 @@ class RunStyleWritingRequest extends Model
 
         if (null !== $this->styleFeature) {
             $res['styleFeature'] = $this->styleFeature;
+        }
+
+        if (null !== $this->useSearch) {
+            $res['useSearch'] = $this->useSearch;
         }
 
         if (null !== $this->writingTheme) {
@@ -94,6 +112,10 @@ class RunStyleWritingRequest extends Model
             }
         }
 
+        if (isset($map['processStage'])) {
+            $model->processStage = $map['processStage'];
+        }
+
         if (isset($map['referenceMaterials'])) {
             if (!empty($map['referenceMaterials'])) {
                 $model->referenceMaterials = [];
@@ -106,6 +128,10 @@ class RunStyleWritingRequest extends Model
 
         if (isset($map['styleFeature'])) {
             $model->styleFeature = $map['styleFeature'];
+        }
+
+        if (isset($map['useSearch'])) {
+            $model->useSearch = $map['useSearch'];
         }
 
         if (isset($map['writingTheme'])) {

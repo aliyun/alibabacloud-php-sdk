@@ -129,8 +129,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateBroadcastNewsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateBroadcastNewsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateBroadcastNewsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -212,8 +215,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateOutputFormatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateOutputFormatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateOutputFormatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -264,8 +270,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVideoAnalysisConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -323,8 +332,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVideoAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -400,8 +412,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHotTopicSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHotTopicSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHotTopicSummariesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -523,8 +538,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunHotTopicChatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunHotTopicChatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunHotTopicChatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -602,8 +620,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunHotTopicSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunHotTopicSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunHotTopicSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -681,8 +702,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunMarketingInformationExtractResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunMarketingInformationExtractResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunMarketingInformationExtractResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -766,8 +790,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunMarketingInformationWritingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunMarketingInformationWritingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunMarketingInformationWritingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -857,8 +884,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunNetworkContentAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunNetworkContentAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunNetworkContentAuditResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -922,8 +952,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunScriptChatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunScriptChatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunScriptChatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -991,8 +1024,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunScriptContinueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunScriptContinueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunScriptContinueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1076,8 +1112,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunScriptPlanningResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunScriptPlanningResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunScriptPlanningResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1137,8 +1176,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunScriptRefineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunScriptRefineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunScriptRefineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1193,12 +1235,20 @@ class QuanMiaoLightApp extends OpenApiClient
             @$body['learningSamples'] = $request->learningSamplesShrink;
         }
 
+        if (null !== $request->processStage) {
+            @$body['processStage'] = $request->processStage;
+        }
+
         if (null !== $request->referenceMaterialsShrink) {
             @$body['referenceMaterials'] = $request->referenceMaterialsShrink;
         }
 
         if (null !== $request->styleFeature) {
             @$body['styleFeature'] = $request->styleFeature;
+        }
+
+        if (null !== $request->useSearch) {
+            @$body['useSearch'] = $request->useSearch;
         }
 
         if (null !== $request->writingTheme) {
@@ -1220,8 +1270,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunStyleWritingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunStyleWritingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunStyleWritingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1311,8 +1364,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunTagMiningAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunTagMiningAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunTagMiningAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1438,8 +1494,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunVideoAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunVideoAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunVideoAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1557,8 +1616,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitVideoAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1618,8 +1680,11 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVideoAnalysisConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

@@ -15,19 +15,29 @@ class RunStyleWritingShrinkRequest extends Model
     /**
      * @var string
      */
+    public $processStage;
+    /**
+     * @var string
+     */
     public $referenceMaterialsShrink;
     /**
      * @var string
      */
     public $styleFeature;
     /**
+     * @var bool
+     */
+    public $useSearch;
+    /**
      * @var string
      */
     public $writingTheme;
     protected $_name = [
         'learningSamplesShrink'    => 'learningSamples',
+        'processStage'             => 'processStage',
         'referenceMaterialsShrink' => 'referenceMaterials',
         'styleFeature'             => 'styleFeature',
+        'useSearch'                => 'useSearch',
         'writingTheme'             => 'writingTheme',
     ];
 
@@ -43,12 +53,20 @@ class RunStyleWritingShrinkRequest extends Model
             $res['learningSamples'] = $this->learningSamplesShrink;
         }
 
+        if (null !== $this->processStage) {
+            $res['processStage'] = $this->processStage;
+        }
+
         if (null !== $this->referenceMaterialsShrink) {
             $res['referenceMaterials'] = $this->referenceMaterialsShrink;
         }
 
         if (null !== $this->styleFeature) {
             $res['styleFeature'] = $this->styleFeature;
+        }
+
+        if (null !== $this->useSearch) {
+            $res['useSearch'] = $this->useSearch;
         }
 
         if (null !== $this->writingTheme) {
@@ -70,12 +88,20 @@ class RunStyleWritingShrinkRequest extends Model
             $model->learningSamplesShrink = $map['learningSamples'];
         }
 
+        if (isset($map['processStage'])) {
+            $model->processStage = $map['processStage'];
+        }
+
         if (isset($map['referenceMaterials'])) {
             $model->referenceMaterialsShrink = $map['referenceMaterials'];
         }
 
         if (isset($map['styleFeature'])) {
             $model->styleFeature = $map['styleFeature'];
+        }
+
+        if (isset($map['useSearch'])) {
+            $model->useSearch = $map['useSearch'];
         }
 
         if (isset($map['writingTheme'])) {
