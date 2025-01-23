@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAlgorithmResponseBody extends Model
 {
     /**
-     * @example algo-xsldfvu1334
-     *
      * @var string
      */
     public $algorithmId;
-
     /**
-     * @example E7C42CC7-2E85-508A-84F4-923B605FD10F
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class CreateAlgorithmResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algorithmId) {
             $res['AlgorithmId'] = $this->algorithmId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class CreateAlgorithmResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAlgorithmResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlgorithmId'])) {
             $model->algorithmId = $map['AlgorithmId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

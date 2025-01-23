@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UserInfo extends Model
 {
@@ -12,7 +12,6 @@ class UserInfo extends Model
      * @var string
      */
     public $userId;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class UserInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -39,17 +40,18 @@ class UserInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UserInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

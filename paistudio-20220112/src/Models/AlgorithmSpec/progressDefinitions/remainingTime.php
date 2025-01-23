@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\AlgorithmSpec\progressDefinitions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class remainingTime extends Model
 {
@@ -12,7 +12,6 @@ class remainingTime extends Model
      * @var string
      */
     public $description;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class remainingTime extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->regex) {
             $res['Regex'] = $this->regex;
         }
@@ -39,17 +40,18 @@ class remainingTime extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return remainingTime
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Regex'])) {
             $model->regex = $map['Regex'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAlgorithmRequest extends Model
 {
@@ -12,10 +12,7 @@ class UpdateAlgorithmRequest extends Model
      * @var string
      */
     public $algorithmDescription;
-
     /**
-     * @example LLM Train
-     *
      * @var string
      */
     public $displayName;
@@ -26,14 +23,16 @@ class UpdateAlgorithmRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algorithmDescription) {
             $res['AlgorithmDescription'] = $this->algorithmDescription;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -41,17 +40,18 @@ class UpdateAlgorithmRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAlgorithmRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlgorithmDescription'])) {
             $model->algorithmDescription = $map['AlgorithmDescription'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }

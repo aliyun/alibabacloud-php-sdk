@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourceGroupShrinkRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isAIWorkspaceDataEnabled;
-
     /**
      * @var string
      */
@@ -26,14 +23,16 @@ class GetResourceGroupShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isAIWorkspaceDataEnabled) {
             $res['IsAIWorkspaceDataEnabled'] = $this->isAIWorkspaceDataEnabled;
         }
+
         if (null !== $this->tagShrink) {
             $res['Tag'] = $this->tagShrink;
         }
@@ -41,17 +40,18 @@ class GetResourceGroupShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceGroupShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsAIWorkspaceDataEnabled'])) {
             $model->isAIWorkspaceDataEnabled = $map['IsAIWorkspaceDataEnabled'];
         }
+
         if (isset($map['Tag'])) {
             $model->tagShrink = $map['Tag'];
         }

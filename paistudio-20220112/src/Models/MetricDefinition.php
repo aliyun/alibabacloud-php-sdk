@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MetricDefinition extends Model
 {
     /**
-     * @example train dataset oob score
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example train:oob_score
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example .*train:oob_score=([-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?).*
-     *
      * @var string
      */
     public $regex;
@@ -40,17 +28,20 @@ class MetricDefinition extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regex) {
             $res['Regex'] = $this->regex;
         }
@@ -58,20 +49,22 @@ class MetricDefinition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MetricDefinition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Regex'])) {
             $model->regex = $map['Regex'];
         }

@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourceGroupRequestRequest extends Model
 {
     /**
-     * @example Running
-     *
      * @var string
      */
     public $podStatus;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example rgf0zhfqn1d4ity2
-     *
      * @var string
      */
     public $resourceGroupID;
@@ -30,14 +23,16 @@ class GetResourceGroupRequestRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->podStatus) {
             $res['PodStatus'] = $this->podStatus;
         }
+
         if (null !== $this->resourceGroupID) {
             $res['ResourceGroupID'] = $this->resourceGroupID;
         }
@@ -45,17 +40,18 @@ class GetResourceGroupRequestRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceGroupRequestRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PodStatus'])) {
             $model->podStatus = $map['PodStatus'];
         }
+
         if (isset($map['ResourceGroupID'])) {
             $model->resourceGroupID = $map['ResourceGroupID'];
         }

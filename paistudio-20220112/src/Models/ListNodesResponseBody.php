@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListNodesResponseBody extends Model
 {
@@ -12,17 +12,11 @@ class ListNodesResponseBody extends Model
      * @var Node[]
      */
     public $nodes;
-
     /**
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 23
-     *
      * @var int
      */
     public $totalCount;
@@ -34,23 +28,29 @@ class ListNodesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodes) {
-            $res['Nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodes)) {
+                $res['Nodes'] = [];
+                $n1           = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,26 +58,28 @@ class ListNodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
-                foreach ($map['Nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? Node::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Nodes'] as $item1) {
+                    $model->nodes[$n1++] = Node::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

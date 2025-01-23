@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class NodeSpec extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @example ecs.g6.4xlarge
-     *
      * @var string
      */
     public $type;
@@ -28,14 +23,16 @@ class NodeSpec extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -43,17 +40,18 @@ class NodeSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NodeSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AllocateStrategySpec extends Model
 {
@@ -18,17 +18,21 @@ class AllocateStrategySpec extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodeSpecs)) {
+            Model::validateArray($this->nodeSpecs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeSpecs) {
-            $res['NodeSpecs'] = [];
-            if (null !== $this->nodeSpecs && \is_array($this->nodeSpecs)) {
-                $n = 0;
-                foreach ($this->nodeSpecs as $item) {
-                    $res['NodeSpecs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeSpecs)) {
+                $res['NodeSpecs'] = [];
+                $n1               = 0;
+                foreach ($this->nodeSpecs as $item1) {
+                    $res['NodeSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +40,20 @@ class AllocateStrategySpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocateStrategySpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeSpecs'])) {
             if (!empty($map['NodeSpecs'])) {
                 $model->nodeSpecs = [];
-                $n                = 0;
-                foreach ($map['NodeSpecs'] as $item) {
-                    $model->nodeSpecs[$n++] = null !== $item ? NodeSpec::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['NodeSpecs'] as $item1) {
+                    $model->nodeSpecs[$n1++] = NodeSpec::fromMap($item1);
                 }
             }
         }

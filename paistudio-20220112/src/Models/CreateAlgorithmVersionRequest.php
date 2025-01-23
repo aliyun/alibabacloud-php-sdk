@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAlgorithmVersionRequest extends Model
 {
@@ -18,23 +18,27 @@ class CreateAlgorithmVersionRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->algorithmSpec) {
+            $this->algorithmSpec->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algorithmSpec) {
-            $res['AlgorithmSpec'] = null !== $this->algorithmSpec ? $this->algorithmSpec->toMap() : null;
+            $res['AlgorithmSpec'] = null !== $this->algorithmSpec ? $this->algorithmSpec->toArray($noStream) : $this->algorithmSpec;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAlgorithmVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

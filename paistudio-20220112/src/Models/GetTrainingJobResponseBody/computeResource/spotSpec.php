@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\computeResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class spotSpec extends Model
 {
     /**
-     * @example 0.9
-     *
      * @var float
      */
     public $spotDiscountLimit;
-
     /**
-     * @example SpotWithPriceLimit
-     *
      * @var string
      */
     public $spotStrategy;
@@ -28,14 +23,16 @@ class spotSpec extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->spotDiscountLimit) {
             $res['SpotDiscountLimit'] = $this->spotDiscountLimit;
         }
+
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
         }
@@ -43,17 +40,18 @@ class spotSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spotSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpotDiscountLimit'])) {
             $model->spotDiscountLimit = $map['SpotDiscountLimit'];
         }
+
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
         }

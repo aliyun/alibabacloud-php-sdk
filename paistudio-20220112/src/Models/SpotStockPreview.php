@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SpotStockPreview extends Model
 {
     /**
-     * @example ml.gu8xf.8xlarge-gu108
-     *
      * @var string
      */
     public $instanceType;
-
     /**
-     * @example 0.1
-     *
      * @var float
      */
     public $spotDiscount;
-
     /**
-     * @example WithStock
-     *
      * @var string
      */
     public $stockStatus;
@@ -36,17 +28,20 @@ class SpotStockPreview extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->spotDiscount) {
             $res['SpotDiscount'] = $this->spotDiscount;
         }
+
         if (null !== $this->stockStatus) {
             $res['StockStatus'] = $this->stockStatus;
         }
@@ -54,20 +49,22 @@ class SpotStockPreview extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SpotStockPreview
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['SpotDiscount'])) {
             $model->spotDiscount = $map['SpotDiscount'];
         }
+
         if (isset($map['StockStatus'])) {
             $model->stockStatus = $map['StockStatus'];
         }

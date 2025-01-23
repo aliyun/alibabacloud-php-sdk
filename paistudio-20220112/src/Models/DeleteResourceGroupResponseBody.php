@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteResourceGroupResponseBody extends Model
 {
     /**
-     * @example F082BD0D-21E1-5F9B-81A0-AB07485B03CD
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example rgvl9d6utwcscukh
-     *
      * @var string
      */
     public $resourceGroupID;
@@ -28,14 +23,16 @@ class DeleteResourceGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceGroupID) {
             $res['ResourceGroupID'] = $this->resourceGroupID;
         }
@@ -43,17 +40,18 @@ class DeleteResourceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteResourceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceGroupID'])) {
             $model->resourceGroupID = $map['ResourceGroupID'];
         }

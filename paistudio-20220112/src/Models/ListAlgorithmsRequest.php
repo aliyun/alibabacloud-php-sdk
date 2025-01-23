@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAlgorithmsRequest extends Model
 {
     /**
-     * @example algo-xsldfvu1334
-     *
      * @var string
      */
     public $algorithmId;
-
     /**
-     * @example llm_training
-     *
      * @var string
      */
     public $algorithmName;
-
     /**
-     * @example pai
-     *
      * @var string
      */
     public $algorithmProvider;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 12345
-     *
      * @var string
      */
     public $workspaceId;
@@ -60,26 +43,32 @@ class ListAlgorithmsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algorithmId) {
             $res['AlgorithmId'] = $this->algorithmId;
         }
+
         if (null !== $this->algorithmName) {
             $res['AlgorithmName'] = $this->algorithmName;
         }
+
         if (null !== $this->algorithmProvider) {
             $res['AlgorithmProvider'] = $this->algorithmProvider;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -87,29 +76,34 @@ class ListAlgorithmsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAlgorithmsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlgorithmId'])) {
             $model->algorithmId = $map['AlgorithmId'];
         }
+
         if (isset($map['AlgorithmName'])) {
             $model->algorithmName = $map['AlgorithmName'];
         }
+
         if (isset($map['AlgorithmProvider'])) {
             $model->algorithmProvider = $map['AlgorithmProvider'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

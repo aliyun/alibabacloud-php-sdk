@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ForwardInfo extends Model
 {
@@ -12,7 +12,6 @@ class ForwardInfo extends Model
      * @var string
      */
     public $eipAllocationId;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class ForwardInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eipAllocationId) {
             $res['EipAllocationId'] = $this->eipAllocationId;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
@@ -39,17 +40,18 @@ class ForwardInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ForwardInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipAllocationId'])) {
             $model->eipAllocationId = $map['EipAllocationId'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }

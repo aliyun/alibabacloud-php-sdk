@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuotaIdName extends Model
 {
     /**
-     * @example quota12345
-     *
      * @var string
      */
     public $quotaId;
-
     /**
-     * @example dlc-quota
-     *
      * @var string
      */
     public $quotaName;
@@ -28,14 +23,16 @@ class QuotaIdName extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
         }
+
         if (null !== $this->quotaName) {
             $res['QuotaName'] = $this->quotaName;
         }
@@ -43,17 +40,18 @@ class QuotaIdName extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuotaIdName
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
         }
+
         if (isset($map['QuotaName'])) {
             $model->quotaName = $map['QuotaName'];
         }

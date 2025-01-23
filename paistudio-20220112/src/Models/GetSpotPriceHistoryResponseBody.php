@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSpotPriceHistoryResponseBody extends Model
 {
     /**
-     * @example 8BDA4440-DD3C-5F4B-BBDD-94A9CE1E75C7
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var SpotPriceItem[]
      */
     public $spotPriceHistory;
-
     /**
-     * @example 194
-     *
      * @var int
      */
     public $totalCount;
@@ -34,23 +28,29 @@ class GetSpotPriceHistoryResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->spotPriceHistory)) {
+            Model::validateArray($this->spotPriceHistory);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->spotPriceHistory) {
-            $res['SpotPriceHistory'] = [];
-            if (null !== $this->spotPriceHistory && \is_array($this->spotPriceHistory)) {
-                $n = 0;
-                foreach ($this->spotPriceHistory as $item) {
-                    $res['SpotPriceHistory'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->spotPriceHistory)) {
+                $res['SpotPriceHistory'] = [];
+                $n1                      = 0;
+                foreach ($this->spotPriceHistory as $item1) {
+                    $res['SpotPriceHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,26 +58,28 @@ class GetSpotPriceHistoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSpotPriceHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SpotPriceHistory'])) {
             if (!empty($map['SpotPriceHistory'])) {
                 $model->spotPriceHistory = [];
-                $n                       = 0;
-                foreach ($map['SpotPriceHistory'] as $item) {
-                    $model->spotPriceHistory[$n++] = null !== $item ? SpotPriceItem::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['SpotPriceHistory'] as $item1) {
+                    $model->spotPriceHistory[$n1++] = SpotPriceItem::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

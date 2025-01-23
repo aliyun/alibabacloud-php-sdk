@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GPUInfo extends Model
 {
@@ -12,7 +12,6 @@ class GPUInfo extends Model
      * @var int
      */
     public $count;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class GPUInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -39,17 +40,18 @@ class GPUInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GPUInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
