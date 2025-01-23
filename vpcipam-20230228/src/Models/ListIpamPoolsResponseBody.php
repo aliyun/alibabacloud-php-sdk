@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolsResponseBody\ipamPools;
-use AlibabaCloud\Tea\Model;
 
 class ListIpamPoolsResponseBody extends Model
 {
@@ -13,36 +13,23 @@ class ListIpamPoolsResponseBody extends Model
      * @var int
      */
     public $count;
-
     /**
      * @var ipamPools[]
      */
     public $ipamPools;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example B54867DE-83DC-56B4-A57E-69A03119D0B1
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $totalCount;
@@ -57,32 +44,41 @@ class ListIpamPoolsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipamPools)) {
+            Model::validateArray($this->ipamPools);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->ipamPools) {
-            $res['IpamPools'] = [];
-            if (null !== $this->ipamPools && \is_array($this->ipamPools)) {
-                $n = 0;
-                foreach ($this->ipamPools as $item) {
-                    $res['IpamPools'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipamPools)) {
+                $res['IpamPools'] = [];
+                $n1               = 0;
+                foreach ($this->ipamPools as $item1) {
+                    $res['IpamPools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -90,35 +86,40 @@ class ListIpamPoolsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIpamPoolsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['IpamPools'])) {
             if (!empty($map['IpamPools'])) {
                 $model->ipamPools = [];
-                $n                = 0;
-                foreach ($map['IpamPools'] as $item) {
-                    $model->ipamPools[$n++] = null !== $item ? ipamPools::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['IpamPools'] as $item1) {
+                    $model->ipamPools[$n1++] = ipamPools::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

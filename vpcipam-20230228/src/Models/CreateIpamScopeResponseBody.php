@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateIpamScopeResponseBody extends Model
 {
     /**
-     * @example ipam-scope-glfmcyldpm8lsy****
-     *
      * @var string
      */
     public $ipamScopeId;
-
     /**
-     * @example E897D16A-50EB-543F-B002-C5A26AB818FF
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class CreateIpamScopeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipamScopeId) {
             $res['IpamScopeId'] = $this->ipamScopeId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class CreateIpamScopeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIpamScopeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpamScopeId'])) {
             $model->ipamScopeId = $map['IpamScopeId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

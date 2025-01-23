@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIpamPoolAllocationRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ipam-pool-alloc-112za33e4****
-     *
      * @var string
      */
     public $ipamPoolAllocationId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -32,14 +23,16 @@ class GetIpamPoolAllocationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipamPoolAllocationId) {
             $res['IpamPoolAllocationId'] = $this->ipamPoolAllocationId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,17 +40,18 @@ class GetIpamPoolAllocationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIpamPoolAllocationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpamPoolAllocationId'])) {
             $model->ipamPoolAllocationId = $map['IpamPoolAllocationId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

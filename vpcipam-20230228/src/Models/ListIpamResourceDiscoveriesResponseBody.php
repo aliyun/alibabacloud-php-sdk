@@ -4,47 +4,32 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveriesResponseBody\ipamResourceDiscoveries;
-use AlibabaCloud\Tea\Model;
 
 class ListIpamResourceDiscoveriesResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $count;
-
     /**
      * @var ipamResourceDiscoveries[]
      */
     public $ipamResourceDiscoveries;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example 86137597-443F-5B66-B9B6-8514E0C50B8F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -59,32 +44,41 @@ class ListIpamResourceDiscoveriesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipamResourceDiscoveries)) {
+            Model::validateArray($this->ipamResourceDiscoveries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->ipamResourceDiscoveries) {
-            $res['IpamResourceDiscoveries'] = [];
-            if (null !== $this->ipamResourceDiscoveries && \is_array($this->ipamResourceDiscoveries)) {
-                $n = 0;
-                foreach ($this->ipamResourceDiscoveries as $item) {
-                    $res['IpamResourceDiscoveries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipamResourceDiscoveries)) {
+                $res['IpamResourceDiscoveries'] = [];
+                $n1                             = 0;
+                foreach ($this->ipamResourceDiscoveries as $item1) {
+                    $res['IpamResourceDiscoveries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -92,35 +86,40 @@ class ListIpamResourceDiscoveriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIpamResourceDiscoveriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['IpamResourceDiscoveries'])) {
             if (!empty($map['IpamResourceDiscoveries'])) {
                 $model->ipamResourceDiscoveries = [];
-                $n                              = 0;
-                foreach ($map['IpamResourceDiscoveries'] as $item) {
-                    $model->ipamResourceDiscoveries[$n++] = null !== $item ? ipamResourceDiscoveries::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['IpamResourceDiscoveries'] as $item1) {
+                    $model->ipamResourceDiscoveries[$n1++] = ipamResourceDiscoveries::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateIpamPoolResponseBody extends Model
 {
     /**
-     * @example 9DED57B9-7654-5B6D-93F7-BCA5839FEE38
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class UpdateIpamPoolResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UpdateIpamPoolResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateIpamPoolResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

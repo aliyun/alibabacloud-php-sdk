@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamPoolCidrsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipamPoolCidrs extends Model
 {
     /**
-     * @example 192.168.1.0/24
-     *
      * @var string
      */
     public $cidr;
-
     /**
-     * @example ipam-pool-6rcq3tobayc20t****
-     *
      * @var string
      */
     public $ipamPoolId;
-
     /**
-     * @example Created
-     *
      * @var string
      */
     public $status;
@@ -36,17 +28,20 @@ class ipamPoolCidrs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidr) {
             $res['Cidr'] = $this->cidr;
         }
+
         if (null !== $this->ipamPoolId) {
             $res['IpamPoolId'] = $this->ipamPoolId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -54,20 +49,22 @@ class ipamPoolCidrs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipamPoolCidrs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cidr'])) {
             $model->cidr = $map['Cidr'];
         }
+
         if (isset($map['IpamPoolId'])) {
             $model->ipamPoolId = $map['IpamPoolId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,55 +4,35 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIpamPoolAllocationsRequest extends Model
 {
     /**
-     * @example 192.168.1.0/24
-     *
      * @var string
      */
     public $cidr;
-
     /**
      * @var string[]
      */
     public $ipamPoolAllocationIds;
-
     /**
      * @var string
      */
     public $ipamPoolAllocationName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ipam-pool-6rcq3tobayc20t****
-     *
      * @var string
      */
     public $ipamPoolId;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -68,29 +48,45 @@ class ListIpamPoolAllocationsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipamPoolAllocationIds)) {
+            Model::validateArray($this->ipamPoolAllocationIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidr) {
             $res['Cidr'] = $this->cidr;
         }
+
         if (null !== $this->ipamPoolAllocationIds) {
-            $res['IpamPoolAllocationIds'] = $this->ipamPoolAllocationIds;
+            if (\is_array($this->ipamPoolAllocationIds)) {
+                $res['IpamPoolAllocationIds'] = [];
+                $n1                           = 0;
+                foreach ($this->ipamPoolAllocationIds as $item1) {
+                    $res['IpamPoolAllocationIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ipamPoolAllocationName) {
             $res['IpamPoolAllocationName'] = $this->ipamPoolAllocationName;
         }
+
         if (null !== $this->ipamPoolId) {
             $res['IpamPoolId'] = $this->ipamPoolId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -98,34 +94,44 @@ class ListIpamPoolAllocationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIpamPoolAllocationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cidr'])) {
             $model->cidr = $map['Cidr'];
         }
+
         if (isset($map['IpamPoolAllocationIds'])) {
             if (!empty($map['IpamPoolAllocationIds'])) {
-                $model->ipamPoolAllocationIds = $map['IpamPoolAllocationIds'];
+                $model->ipamPoolAllocationIds = [];
+                $n1                           = 0;
+                foreach ($map['IpamPoolAllocationIds'] as $item1) {
+                    $model->ipamPoolAllocationIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['IpamPoolAllocationName'])) {
             $model->ipamPoolAllocationName = $map['IpamPoolAllocationName'];
         }
+
         if (isset($map['IpamPoolId'])) {
             $model->ipamPoolId = $map['IpamPoolId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

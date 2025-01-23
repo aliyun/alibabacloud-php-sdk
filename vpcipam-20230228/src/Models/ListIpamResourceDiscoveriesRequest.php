@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveriesRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class ListIpamResourceDiscoveriesRequest extends Model
 {
@@ -13,72 +13,47 @@ class ListIpamResourceDiscoveriesRequest extends Model
      * @var string[]
      */
     public $ipamResourceDiscoveryIds;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $ipamResourceDiscoveryName;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @example rg-aek2sermdd6****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
      * @var tags[]
      */
     public $tags;
-
     /**
-     * @example system
-     *
      * @var string
      */
     public $type;
@@ -99,50 +74,74 @@ class ListIpamResourceDiscoveriesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipamResourceDiscoveryIds)) {
+            Model::validateArray($this->ipamResourceDiscoveryIds);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipamResourceDiscoveryIds) {
-            $res['IpamResourceDiscoveryIds'] = $this->ipamResourceDiscoveryIds;
-        }
-        if (null !== $this->ipamResourceDiscoveryName) {
-            $res['IpamResourceDiscoveryName'] = $this->ipamResourceDiscoveryName;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipamResourceDiscoveryIds)) {
+                $res['IpamResourceDiscoveryIds'] = [];
+                $n1                              = 0;
+                foreach ($this->ipamResourceDiscoveryIds as $item1) {
+                    $res['IpamResourceDiscoveryIds'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->ipamResourceDiscoveryName) {
+            $res['IpamResourceDiscoveryName'] = $this->ipamResourceDiscoveryName;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -150,55 +149,70 @@ class ListIpamResourceDiscoveriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIpamResourceDiscoveriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpamResourceDiscoveryIds'])) {
             if (!empty($map['IpamResourceDiscoveryIds'])) {
-                $model->ipamResourceDiscoveryIds = $map['IpamResourceDiscoveryIds'];
-            }
-        }
-        if (isset($map['IpamResourceDiscoveryName'])) {
-            $model->ipamResourceDiscoveryName = $map['IpamResourceDiscoveryName'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $model->ipamResourceDiscoveryIds = [];
+                $n1                              = 0;
+                foreach ($map['IpamResourceDiscoveryIds'] as $item1) {
+                    $model->ipamResourceDiscoveryIds[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['IpamResourceDiscoveryName'])) {
+            $model->ipamResourceDiscoveryName = $map['IpamResourceDiscoveryName'];
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

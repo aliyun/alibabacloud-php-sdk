@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceCidrsResponseBody\ipamResourceCidrs;
-use AlibabaCloud\Tea\Model;
 
 class ListIpamResourceCidrsResponseBody extends Model
 {
@@ -13,36 +13,23 @@ class ListIpamResourceCidrsResponseBody extends Model
      * @var int
      */
     public $count;
-
     /**
      * @var ipamResourceCidrs[]
      */
     public $ipamResourceCidrs;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example 49A9DE56-B68C-5FFC-BC06-509D086F287C
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $totalCount;
@@ -57,32 +44,41 @@ class ListIpamResourceCidrsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipamResourceCidrs)) {
+            Model::validateArray($this->ipamResourceCidrs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->ipamResourceCidrs) {
-            $res['IpamResourceCidrs'] = [];
-            if (null !== $this->ipamResourceCidrs && \is_array($this->ipamResourceCidrs)) {
-                $n = 0;
-                foreach ($this->ipamResourceCidrs as $item) {
-                    $res['IpamResourceCidrs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipamResourceCidrs)) {
+                $res['IpamResourceCidrs'] = [];
+                $n1                       = 0;
+                foreach ($this->ipamResourceCidrs as $item1) {
+                    $res['IpamResourceCidrs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -90,35 +86,40 @@ class ListIpamResourceCidrsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIpamResourceCidrsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['IpamResourceCidrs'])) {
             if (!empty($map['IpamResourceCidrs'])) {
                 $model->ipamResourceCidrs = [];
-                $n                        = 0;
-                foreach ($map['IpamResourceCidrs'] as $item) {
-                    $model->ipamResourceCidrs[$n++] = null !== $item ? ipamResourceCidrs::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['IpamResourceCidrs'] as $item1) {
+                    $model->ipamResourceCidrs[$n1++] = ipamResourceCidrs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AddIpamPoolCidrRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AddIpamPoolCidrResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ChangeResourceGroupRequest;
@@ -64,11 +63,10 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamScopeRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamScopeResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class VpcIpam extends OpenApiClient
 {
@@ -93,43 +91,53 @@ class VpcIpam extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AddIpamPoolCidrRequest $request AddIpamPoolCidrRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - AddIpamPoolCidrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddIpamPoolCidrResponse
      *
-     * @return AddIpamPoolCidrResponse AddIpamPoolCidrResponse
+     * @param AddIpamPoolCidrRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddIpamPoolCidrResponse
      */
     public function addIpamPoolCidrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cidr)) {
-            $query['Cidr'] = $request->cidr;
+        if (null !== $request->cidr) {
+            @$query['Cidr'] = $request->cidr;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamPoolId)) {
-            $query['IpamPoolId'] = $request->ipamPoolId;
+
+        if (null !== $request->ipamPoolId) {
+            @$query['IpamPoolId'] = $request->ipamPoolId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddIpamPoolCidr',
@@ -142,14 +150,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddIpamPoolCidrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddIpamPoolCidrResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddIpamPoolCidrResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AddIpamPoolCidrRequest $request AddIpamPoolCidrRequest
+     * @param request - AddIpamPoolCidrRequest
+     * @returns AddIpamPoolCidrResponse
      *
-     * @return AddIpamPoolCidrResponse AddIpamPoolCidrResponse
+     * @param AddIpamPoolCidrRequest $request
+     *
+     * @return AddIpamPoolCidrResponse
      */
     public function addIpamPoolCidr($request)
     {
@@ -159,41 +173,53 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeResourceGroupResponse
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeResourceGroup',
@@ -206,14 +232,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param request - ChangeResourceGroupRequest
+     * @returns ChangeResourceGroupResponse
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -223,55 +255,71 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 创建IPAM实例。
-     *  *
-     * @param CreateIpamRequest $request CreateIpamRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 创建IPAM实例。
      *
-     * @return CreateIpamResponse CreateIpamResponse
+     * @param request - CreateIpamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateIpamResponse
+     *
+     * @param CreateIpamRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateIpamResponse
      */
     public function createIpamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamDescription)) {
-            $query['IpamDescription'] = $request->ipamDescription;
+
+        if (null !== $request->ipamDescription) {
+            @$query['IpamDescription'] = $request->ipamDescription;
         }
-        if (!Utils::isUnset($request->ipamName)) {
-            $query['IpamName'] = $request->ipamName;
+
+        if (null !== $request->ipamName) {
+            @$query['IpamName'] = $request->ipamName;
         }
-        if (!Utils::isUnset($request->operatingRegionList)) {
-            $query['OperatingRegionList'] = $request->operatingRegionList;
+
+        if (null !== $request->operatingRegionList) {
+            @$query['OperatingRegionList'] = $request->operatingRegionList;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateIpam',
@@ -284,16 +332,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateIpamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateIpamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateIpamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建IPAM实例。
-     *  *
-     * @param CreateIpamRequest $request CreateIpamRequest
+     * 创建IPAM实例。
      *
-     * @return CreateIpamResponse CreateIpamResponse
+     * @param request - CreateIpamRequest
+     * @returns CreateIpamResponse
+     *
+     * @param CreateIpamRequest $request
+     *
+     * @return CreateIpamResponse
      */
     public function createIpam($request)
     {
@@ -303,74 +357,97 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param CreateIpamPoolRequest $request CreateIpamPoolRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateIpamPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateIpamPoolResponse
      *
-     * @return CreateIpamPoolResponse CreateIpamPoolResponse
+     * @param CreateIpamPoolRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateIpamPoolResponse
      */
     public function createIpamPoolWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allocationDefaultCidrMask)) {
-            $query['AllocationDefaultCidrMask'] = $request->allocationDefaultCidrMask;
+        if (null !== $request->allocationDefaultCidrMask) {
+            @$query['AllocationDefaultCidrMask'] = $request->allocationDefaultCidrMask;
         }
-        if (!Utils::isUnset($request->allocationMaxCidrMask)) {
-            $query['AllocationMaxCidrMask'] = $request->allocationMaxCidrMask;
+
+        if (null !== $request->allocationMaxCidrMask) {
+            @$query['AllocationMaxCidrMask'] = $request->allocationMaxCidrMask;
         }
-        if (!Utils::isUnset($request->allocationMinCidrMask)) {
-            $query['AllocationMinCidrMask'] = $request->allocationMinCidrMask;
+
+        if (null !== $request->allocationMinCidrMask) {
+            @$query['AllocationMinCidrMask'] = $request->allocationMinCidrMask;
         }
-        if (!Utils::isUnset($request->autoImport)) {
-            $query['AutoImport'] = $request->autoImport;
+
+        if (null !== $request->autoImport) {
+            @$query['AutoImport'] = $request->autoImport;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipVersion)) {
-            $query['IpVersion'] = $request->ipVersion;
+
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
         }
-        if (!Utils::isUnset($request->ipamPoolDescription)) {
-            $query['IpamPoolDescription'] = $request->ipamPoolDescription;
+
+        if (null !== $request->ipamPoolDescription) {
+            @$query['IpamPoolDescription'] = $request->ipamPoolDescription;
         }
-        if (!Utils::isUnset($request->ipamPoolName)) {
-            $query['IpamPoolName'] = $request->ipamPoolName;
+
+        if (null !== $request->ipamPoolName) {
+            @$query['IpamPoolName'] = $request->ipamPoolName;
         }
-        if (!Utils::isUnset($request->ipamScopeId)) {
-            $query['IpamScopeId'] = $request->ipamScopeId;
+
+        if (null !== $request->ipamScopeId) {
+            @$query['IpamScopeId'] = $request->ipamScopeId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolRegionId)) {
-            $query['PoolRegionId'] = $request->poolRegionId;
+
+        if (null !== $request->poolRegionId) {
+            @$query['PoolRegionId'] = $request->poolRegionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sourceIpamPoolId)) {
-            $query['SourceIpamPoolId'] = $request->sourceIpamPoolId;
+
+        if (null !== $request->sourceIpamPoolId) {
+            @$query['SourceIpamPoolId'] = $request->sourceIpamPoolId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateIpamPool',
@@ -383,14 +460,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateIpamPoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateIpamPoolRequest $request CreateIpamPoolRequest
+     * @param request - CreateIpamPoolRequest
+     * @returns CreateIpamPoolResponse
      *
-     * @return CreateIpamPoolResponse CreateIpamPoolResponse
+     * @param CreateIpamPoolRequest $request
+     *
+     * @return CreateIpamPoolResponse
      */
     public function createIpamPool($request)
     {
@@ -400,41 +483,53 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param CreateIpamPoolAllocationRequest $request CreateIpamPoolAllocationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateIpamPoolAllocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateIpamPoolAllocationResponse
      *
-     * @return CreateIpamPoolAllocationResponse CreateIpamPoolAllocationResponse
+     * @param CreateIpamPoolAllocationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateIpamPoolAllocationResponse
      */
     public function createIpamPoolAllocationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cidr)) {
-            $query['Cidr'] = $request->cidr;
+        if (null !== $request->cidr) {
+            @$query['Cidr'] = $request->cidr;
         }
-        if (!Utils::isUnset($request->cidrMask)) {
-            $query['CidrMask'] = $request->cidrMask;
+
+        if (null !== $request->cidrMask) {
+            @$query['CidrMask'] = $request->cidrMask;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamPoolAllocationDescription)) {
-            $query['IpamPoolAllocationDescription'] = $request->ipamPoolAllocationDescription;
+
+        if (null !== $request->ipamPoolAllocationDescription) {
+            @$query['IpamPoolAllocationDescription'] = $request->ipamPoolAllocationDescription;
         }
-        if (!Utils::isUnset($request->ipamPoolAllocationName)) {
-            $query['IpamPoolAllocationName'] = $request->ipamPoolAllocationName;
+
+        if (null !== $request->ipamPoolAllocationName) {
+            @$query['IpamPoolAllocationName'] = $request->ipamPoolAllocationName;
         }
-        if (!Utils::isUnset($request->ipamPoolId)) {
-            $query['IpamPoolId'] = $request->ipamPoolId;
+
+        if (null !== $request->ipamPoolId) {
+            @$query['IpamPoolId'] = $request->ipamPoolId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateIpamPoolAllocation',
@@ -447,14 +542,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateIpamPoolAllocationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateIpamPoolAllocationRequest $request CreateIpamPoolAllocationRequest
+     * @param request - CreateIpamPoolAllocationRequest
+     * @returns CreateIpamPoolAllocationResponse
      *
-     * @return CreateIpamPoolAllocationResponse CreateIpamPoolAllocationResponse
+     * @param CreateIpamPoolAllocationRequest $request
+     *
+     * @return CreateIpamPoolAllocationResponse
      */
     public function createIpamPoolAllocation($request)
     {
@@ -464,56 +565,73 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param CreateIpamScopeRequest $request CreateIpamScopeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateIpamScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateIpamScopeResponse
      *
-     * @return CreateIpamScopeResponse CreateIpamScopeResponse
+     * @param CreateIpamScopeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateIpamScopeResponse
      */
     public function createIpamScopeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamId)) {
-            $query['IpamId'] = $request->ipamId;
+
+        if (null !== $request->ipamId) {
+            @$query['IpamId'] = $request->ipamId;
         }
-        if (!Utils::isUnset($request->ipamScopeDescription)) {
-            $query['IpamScopeDescription'] = $request->ipamScopeDescription;
+
+        if (null !== $request->ipamScopeDescription) {
+            @$query['IpamScopeDescription'] = $request->ipamScopeDescription;
         }
-        if (!Utils::isUnset($request->ipamScopeName)) {
-            $query['IpamScopeName'] = $request->ipamScopeName;
+
+        if (null !== $request->ipamScopeName) {
+            @$query['IpamScopeName'] = $request->ipamScopeName;
         }
-        if (!Utils::isUnset($request->ipamScopeType)) {
-            $query['IpamScopeType'] = $request->ipamScopeType;
+
+        if (null !== $request->ipamScopeType) {
+            @$query['IpamScopeType'] = $request->ipamScopeType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateIpamScope',
@@ -526,14 +644,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateIpamScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateIpamScopeRequest $request CreateIpamScopeRequest
+     * @param request - CreateIpamScopeRequest
+     * @returns CreateIpamScopeResponse
      *
-     * @return CreateIpamScopeResponse CreateIpamScopeResponse
+     * @param CreateIpamScopeRequest $request
+     *
+     * @return CreateIpamScopeResponse
      */
     public function createIpamScope($request)
     {
@@ -543,41 +667,53 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpamRequest $request DeleteIpamRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteIpamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIpamResponse
      *
-     * @return DeleteIpamResponse DeleteIpamResponse
+     * @param DeleteIpamRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteIpamResponse
      */
     public function deleteIpamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamId)) {
-            $query['IpamId'] = $request->ipamId;
+
+        if (null !== $request->ipamId) {
+            @$query['IpamId'] = $request->ipamId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIpam',
@@ -590,14 +726,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIpamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIpamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIpamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteIpamRequest $request DeleteIpamRequest
+     * @param request - DeleteIpamRequest
+     * @returns DeleteIpamResponse
      *
-     * @return DeleteIpamResponse DeleteIpamResponse
+     * @param DeleteIpamRequest $request
+     *
+     * @return DeleteIpamResponse
      */
     public function deleteIpam($request)
     {
@@ -607,41 +749,53 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpamPoolRequest $request DeleteIpamPoolRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteIpamPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIpamPoolResponse
      *
-     * @return DeleteIpamPoolResponse DeleteIpamPoolResponse
+     * @param DeleteIpamPoolRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteIpamPoolResponse
      */
     public function deleteIpamPoolWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamPoolId)) {
-            $query['IpamPoolId'] = $request->ipamPoolId;
+
+        if (null !== $request->ipamPoolId) {
+            @$query['IpamPoolId'] = $request->ipamPoolId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIpamPool',
@@ -654,14 +808,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIpamPoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteIpamPoolRequest $request DeleteIpamPoolRequest
+     * @param request - DeleteIpamPoolRequest
+     * @returns DeleteIpamPoolResponse
      *
-     * @return DeleteIpamPoolResponse DeleteIpamPoolResponse
+     * @param DeleteIpamPoolRequest $request
+     *
+     * @return DeleteIpamPoolResponse
      */
     public function deleteIpamPool($request)
     {
@@ -671,29 +831,37 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpamPoolAllocationRequest $request DeleteIpamPoolAllocationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteIpamPoolAllocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIpamPoolAllocationResponse
      *
-     * @return DeleteIpamPoolAllocationResponse DeleteIpamPoolAllocationResponse
+     * @param DeleteIpamPoolAllocationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteIpamPoolAllocationResponse
      */
     public function deleteIpamPoolAllocationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamPoolAllocationId)) {
-            $query['IpamPoolAllocationId'] = $request->ipamPoolAllocationId;
+
+        if (null !== $request->ipamPoolAllocationId) {
+            @$query['IpamPoolAllocationId'] = $request->ipamPoolAllocationId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIpamPoolAllocation',
@@ -706,14 +874,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIpamPoolAllocationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteIpamPoolAllocationRequest $request DeleteIpamPoolAllocationRequest
+     * @param request - DeleteIpamPoolAllocationRequest
+     * @returns DeleteIpamPoolAllocationResponse
      *
-     * @return DeleteIpamPoolAllocationResponse DeleteIpamPoolAllocationResponse
+     * @param DeleteIpamPoolAllocationRequest $request
+     *
+     * @return DeleteIpamPoolAllocationResponse
      */
     public function deleteIpamPoolAllocation($request)
     {
@@ -723,32 +897,41 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpamPoolCidrRequest $request DeleteIpamPoolCidrRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteIpamPoolCidrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIpamPoolCidrResponse
      *
-     * @return DeleteIpamPoolCidrResponse DeleteIpamPoolCidrResponse
+     * @param DeleteIpamPoolCidrRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteIpamPoolCidrResponse
      */
     public function deleteIpamPoolCidrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cidr)) {
-            $query['Cidr'] = $request->cidr;
+        if (null !== $request->cidr) {
+            @$query['Cidr'] = $request->cidr;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamPoolId)) {
-            $query['IpamPoolId'] = $request->ipamPoolId;
+
+        if (null !== $request->ipamPoolId) {
+            @$query['IpamPoolId'] = $request->ipamPoolId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIpamPoolCidr',
@@ -761,14 +944,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIpamPoolCidrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIpamPoolCidrResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIpamPoolCidrResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteIpamPoolCidrRequest $request DeleteIpamPoolCidrRequest
+     * @param request - DeleteIpamPoolCidrRequest
+     * @returns DeleteIpamPoolCidrResponse
      *
-     * @return DeleteIpamPoolCidrResponse DeleteIpamPoolCidrResponse
+     * @param DeleteIpamPoolCidrRequest $request
+     *
+     * @return DeleteIpamPoolCidrResponse
      */
     public function deleteIpamPoolCidr($request)
     {
@@ -778,41 +967,53 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpamScopeRequest $request DeleteIpamScopeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteIpamScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIpamScopeResponse
      *
-     * @return DeleteIpamScopeResponse DeleteIpamScopeResponse
+     * @param DeleteIpamScopeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteIpamScopeResponse
      */
     public function deleteIpamScopeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamScopeId)) {
-            $query['IpamScopeId'] = $request->ipamScopeId;
+
+        if (null !== $request->ipamScopeId) {
+            @$query['IpamScopeId'] = $request->ipamScopeId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIpamScope',
@@ -825,14 +1026,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIpamScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteIpamScopeRequest $request DeleteIpamScopeRequest
+     * @param request - DeleteIpamScopeRequest
+     * @returns DeleteIpamScopeResponse
      *
-     * @return DeleteIpamScopeResponse DeleteIpamScopeResponse
+     * @param DeleteIpamScopeRequest $request
+     *
+     * @return DeleteIpamScopeResponse
      */
     public function deleteIpamScope($request)
     {
@@ -842,19 +1049,23 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定IPAM地址池CIDR分配的信息
-     *  *
-     * @param GetIpamPoolAllocationRequest $request GetIpamPoolAllocationRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询指定IPAM地址池CIDR分配的信息.
      *
-     * @return GetIpamPoolAllocationResponse GetIpamPoolAllocationResponse
+     * @param request - GetIpamPoolAllocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetIpamPoolAllocationResponse
+     *
+     * @param GetIpamPoolAllocationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetIpamPoolAllocationResponse
      */
     public function getIpamPoolAllocationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetIpamPoolAllocation',
@@ -867,16 +1078,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIpamPoolAllocationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询指定IPAM地址池CIDR分配的信息
-     *  *
-     * @param GetIpamPoolAllocationRequest $request GetIpamPoolAllocationRequest
+     * 查询指定IPAM地址池CIDR分配的信息.
      *
-     * @return GetIpamPoolAllocationResponse GetIpamPoolAllocationResponse
+     * @param request - GetIpamPoolAllocationRequest
+     * @returns GetIpamPoolAllocationResponse
+     *
+     * @param GetIpamPoolAllocationRequest $request
+     *
+     * @return GetIpamPoolAllocationResponse
      */
     public function getIpamPoolAllocation($request)
     {
@@ -886,37 +1103,47 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 查询IPAM功能的开通状态。
-     *  *
-     * @param GetVpcIpamServiceStatusRequest $request GetVpcIpamServiceStatusRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询IPAM功能的开通状态。
      *
-     * @return GetVpcIpamServiceStatusResponse GetVpcIpamServiceStatusResponse
+     * @param request - GetVpcIpamServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVpcIpamServiceStatusResponse
+     *
+     * @param GetVpcIpamServiceStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetVpcIpamServiceStatusResponse
      */
     public function getVpcIpamServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetVpcIpamServiceStatus',
@@ -929,16 +1156,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVpcIpamServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVpcIpamServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVpcIpamServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询IPAM功能的开通状态。
-     *  *
-     * @param GetVpcIpamServiceStatusRequest $request GetVpcIpamServiceStatusRequest
+     * 查询IPAM功能的开通状态。
      *
-     * @return GetVpcIpamServiceStatusResponse GetVpcIpamServiceStatusResponse
+     * @param request - GetVpcIpamServiceStatusRequest
+     * @returns GetVpcIpamServiceStatusResponse
+     *
+     * @param GetVpcIpamServiceStatusRequest $request
+     *
+     * @return GetVpcIpamServiceStatusResponse
      */
     public function getVpcIpamServiceStatus($request)
     {
@@ -948,35 +1181,45 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param ListIpamDiscoveredResourceRequest $request ListIpamDiscoveredResourceRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - ListIpamDiscoveredResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIpamDiscoveredResourceResponse
      *
-     * @return ListIpamDiscoveredResourceResponse ListIpamDiscoveredResourceResponse
+     * @param ListIpamDiscoveredResourceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListIpamDiscoveredResourceResponse
      */
     public function listIpamDiscoveredResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipamResourceDiscoveryId)) {
-            $query['IpamResourceDiscoveryId'] = $request->ipamResourceDiscoveryId;
+        if (null !== $request->ipamResourceDiscoveryId) {
+            @$query['IpamResourceDiscoveryId'] = $request->ipamResourceDiscoveryId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIpamDiscoveredResource',
@@ -989,14 +1232,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIpamDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIpamDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIpamDiscoveredResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListIpamDiscoveredResourceRequest $request ListIpamDiscoveredResourceRequest
+     * @param request - ListIpamDiscoveredResourceRequest
+     * @returns ListIpamDiscoveredResourceResponse
      *
-     * @return ListIpamDiscoveredResourceResponse ListIpamDiscoveredResourceResponse
+     * @param ListIpamDiscoveredResourceRequest $request
+     *
+     * @return ListIpamDiscoveredResourceResponse
      */
     public function listIpamDiscoveredResource($request)
     {
@@ -1006,38 +1255,49 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param ListIpamPoolAllocationsRequest $request ListIpamPoolAllocationsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ListIpamPoolAllocationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIpamPoolAllocationsResponse
      *
-     * @return ListIpamPoolAllocationsResponse ListIpamPoolAllocationsResponse
+     * @param ListIpamPoolAllocationsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListIpamPoolAllocationsResponse
      */
     public function listIpamPoolAllocationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cidr)) {
-            $query['Cidr'] = $request->cidr;
+        if (null !== $request->cidr) {
+            @$query['Cidr'] = $request->cidr;
         }
-        if (!Utils::isUnset($request->ipamPoolAllocationIds)) {
-            $query['IpamPoolAllocationIds'] = $request->ipamPoolAllocationIds;
+
+        if (null !== $request->ipamPoolAllocationIds) {
+            @$query['IpamPoolAllocationIds'] = $request->ipamPoolAllocationIds;
         }
-        if (!Utils::isUnset($request->ipamPoolAllocationName)) {
-            $query['IpamPoolAllocationName'] = $request->ipamPoolAllocationName;
+
+        if (null !== $request->ipamPoolAllocationName) {
+            @$query['IpamPoolAllocationName'] = $request->ipamPoolAllocationName;
         }
-        if (!Utils::isUnset($request->ipamPoolId)) {
-            $query['IpamPoolId'] = $request->ipamPoolId;
+
+        if (null !== $request->ipamPoolId) {
+            @$query['IpamPoolId'] = $request->ipamPoolId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIpamPoolAllocations',
@@ -1050,14 +1310,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIpamPoolAllocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIpamPoolAllocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIpamPoolAllocationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListIpamPoolAllocationsRequest $request ListIpamPoolAllocationsRequest
+     * @param request - ListIpamPoolAllocationsRequest
+     * @returns ListIpamPoolAllocationsResponse
      *
-     * @return ListIpamPoolAllocationsResponse ListIpamPoolAllocationsResponse
+     * @param ListIpamPoolAllocationsRequest $request
+     *
+     * @return ListIpamPoolAllocationsResponse
      */
     public function listIpamPoolAllocations($request)
     {
@@ -1067,32 +1333,41 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param ListIpamPoolCidrsRequest $request ListIpamPoolCidrsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListIpamPoolCidrsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIpamPoolCidrsResponse
      *
-     * @return ListIpamPoolCidrsResponse ListIpamPoolCidrsResponse
+     * @param ListIpamPoolCidrsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListIpamPoolCidrsResponse
      */
     public function listIpamPoolCidrsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cidr)) {
-            $query['Cidr'] = $request->cidr;
+        if (null !== $request->cidr) {
+            @$query['Cidr'] = $request->cidr;
         }
-        if (!Utils::isUnset($request->ipamPoolId)) {
-            $query['IpamPoolId'] = $request->ipamPoolId;
+
+        if (null !== $request->ipamPoolId) {
+            @$query['IpamPoolId'] = $request->ipamPoolId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIpamPoolCidrs',
@@ -1105,14 +1380,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIpamPoolCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIpamPoolCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIpamPoolCidrsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListIpamPoolCidrsRequest $request ListIpamPoolCidrsRequest
+     * @param request - ListIpamPoolCidrsRequest
+     * @returns ListIpamPoolCidrsResponse
      *
-     * @return ListIpamPoolCidrsResponse ListIpamPoolCidrsResponse
+     * @param ListIpamPoolCidrsRequest $request
+     *
+     * @return ListIpamPoolCidrsResponse
      */
     public function listIpamPoolCidrs($request)
     {
@@ -1122,62 +1403,81 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param ListIpamPoolsRequest $request ListIpamPoolsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ListIpamPoolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIpamPoolsResponse
      *
-     * @return ListIpamPoolsResponse ListIpamPoolsResponse
+     * @param ListIpamPoolsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListIpamPoolsResponse
      */
     public function listIpamPoolsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipamPoolIds)) {
-            $query['IpamPoolIds'] = $request->ipamPoolIds;
+        if (null !== $request->ipamPoolIds) {
+            @$query['IpamPoolIds'] = $request->ipamPoolIds;
         }
-        if (!Utils::isUnset($request->ipamPoolName)) {
-            $query['IpamPoolName'] = $request->ipamPoolName;
+
+        if (null !== $request->ipamPoolName) {
+            @$query['IpamPoolName'] = $request->ipamPoolName;
         }
-        if (!Utils::isUnset($request->ipamScopeId)) {
-            $query['IpamScopeId'] = $request->ipamScopeId;
+
+        if (null !== $request->ipamScopeId) {
+            @$query['IpamScopeId'] = $request->ipamScopeId;
         }
-        if (!Utils::isUnset($request->isShared)) {
-            $query['IsShared'] = $request->isShared;
+
+        if (null !== $request->isShared) {
+            @$query['IsShared'] = $request->isShared;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolRegionId)) {
-            $query['PoolRegionId'] = $request->poolRegionId;
+
+        if (null !== $request->poolRegionId) {
+            @$query['PoolRegionId'] = $request->poolRegionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sourceIpamPoolId)) {
-            $query['SourceIpamPoolId'] = $request->sourceIpamPoolId;
+
+        if (null !== $request->sourceIpamPoolId) {
+            @$query['SourceIpamPoolId'] = $request->sourceIpamPoolId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIpamPools',
@@ -1190,14 +1490,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIpamPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIpamPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIpamPoolsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListIpamPoolsRequest $request ListIpamPoolsRequest
+     * @param request - ListIpamPoolsRequest
+     * @returns ListIpamPoolsResponse
      *
-     * @return ListIpamPoolsResponse ListIpamPoolsResponse
+     * @param ListIpamPoolsRequest $request
+     *
+     * @return ListIpamPoolsResponse
      */
     public function listIpamPools($request)
     {
@@ -1207,44 +1513,57 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param ListIpamResourceCidrsRequest $request ListIpamResourceCidrsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ListIpamResourceCidrsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIpamResourceCidrsResponse
      *
-     * @return ListIpamResourceCidrsResponse ListIpamResourceCidrsResponse
+     * @param ListIpamResourceCidrsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListIpamResourceCidrsResponse
      */
     public function listIpamResourceCidrsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipamPoolId)) {
-            $query['IpamPoolId'] = $request->ipamPoolId;
+        if (null !== $request->ipamPoolId) {
+            @$query['IpamPoolId'] = $request->ipamPoolId;
         }
-        if (!Utils::isUnset($request->ipamScopeId)) {
-            $query['IpamScopeId'] = $request->ipamScopeId;
+
+        if (null !== $request->ipamScopeId) {
+            @$query['IpamScopeId'] = $request->ipamScopeId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIpamResourceCidrs',
@@ -1257,14 +1576,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIpamResourceCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIpamResourceCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIpamResourceCidrsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListIpamResourceCidrsRequest $request ListIpamResourceCidrsRequest
+     * @param request - ListIpamResourceCidrsRequest
+     * @returns ListIpamResourceCidrsResponse
      *
-     * @return ListIpamResourceCidrsResponse ListIpamResourceCidrsResponse
+     * @param ListIpamResourceCidrsRequest $request
+     *
+     * @return ListIpamResourceCidrsResponse
      */
     public function listIpamResourceCidrs($request)
     {
@@ -1274,55 +1599,71 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 查询ipam资源发现实例
-     *  *
-     * @param ListIpamResourceDiscoveriesRequest $request ListIpamResourceDiscoveriesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询ipam资源发现实例.
      *
-     * @return ListIpamResourceDiscoveriesResponse ListIpamResourceDiscoveriesResponse
+     * @param request - ListIpamResourceDiscoveriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIpamResourceDiscoveriesResponse
+     *
+     * @param ListIpamResourceDiscoveriesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListIpamResourceDiscoveriesResponse
      */
     public function listIpamResourceDiscoveriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipamResourceDiscoveryIds)) {
-            $query['IpamResourceDiscoveryIds'] = $request->ipamResourceDiscoveryIds;
+        if (null !== $request->ipamResourceDiscoveryIds) {
+            @$query['IpamResourceDiscoveryIds'] = $request->ipamResourceDiscoveryIds;
         }
-        if (!Utils::isUnset($request->ipamResourceDiscoveryName)) {
-            $query['IpamResourceDiscoveryName'] = $request->ipamResourceDiscoveryName;
+
+        if (null !== $request->ipamResourceDiscoveryName) {
+            @$query['IpamResourceDiscoveryName'] = $request->ipamResourceDiscoveryName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIpamResourceDiscoveries',
@@ -1335,16 +1676,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIpamResourceDiscoveriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIpamResourceDiscoveriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIpamResourceDiscoveriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询ipam资源发现实例
-     *  *
-     * @param ListIpamResourceDiscoveriesRequest $request ListIpamResourceDiscoveriesRequest
+     * 查询ipam资源发现实例.
      *
-     * @return ListIpamResourceDiscoveriesResponse ListIpamResourceDiscoveriesResponse
+     * @param request - ListIpamResourceDiscoveriesRequest
+     * @returns ListIpamResourceDiscoveriesResponse
+     *
+     * @param ListIpamResourceDiscoveriesRequest $request
+     *
+     * @return ListIpamResourceDiscoveriesResponse
      */
     public function listIpamResourceDiscoveries($request)
     {
@@ -1354,56 +1701,73 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param ListIpamScopesRequest $request ListIpamScopesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - ListIpamScopesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIpamScopesResponse
      *
-     * @return ListIpamScopesResponse ListIpamScopesResponse
+     * @param ListIpamScopesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListIpamScopesResponse
      */
     public function listIpamScopesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipamId)) {
-            $query['IpamId'] = $request->ipamId;
+        if (null !== $request->ipamId) {
+            @$query['IpamId'] = $request->ipamId;
         }
-        if (!Utils::isUnset($request->ipamScopeIds)) {
-            $query['IpamScopeIds'] = $request->ipamScopeIds;
+
+        if (null !== $request->ipamScopeIds) {
+            @$query['IpamScopeIds'] = $request->ipamScopeIds;
         }
-        if (!Utils::isUnset($request->ipamScopeName)) {
-            $query['IpamScopeName'] = $request->ipamScopeName;
+
+        if (null !== $request->ipamScopeName) {
+            @$query['IpamScopeName'] = $request->ipamScopeName;
         }
-        if (!Utils::isUnset($request->ipamScopeType)) {
-            $query['IpamScopeType'] = $request->ipamScopeType;
+
+        if (null !== $request->ipamScopeType) {
+            @$query['IpamScopeType'] = $request->ipamScopeType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIpamScopes',
@@ -1416,14 +1780,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIpamScopesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIpamScopesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIpamScopesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListIpamScopesRequest $request ListIpamScopesRequest
+     * @param request - ListIpamScopesRequest
+     * @returns ListIpamScopesResponse
      *
-     * @return ListIpamScopesResponse ListIpamScopesResponse
+     * @param ListIpamScopesRequest $request
+     *
+     * @return ListIpamScopesResponse
      */
     public function listIpamScopes($request)
     {
@@ -1433,52 +1803,67 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 查询ipam
-     *  *
-     * @param ListIpamsRequest $request ListIpamsRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 查询ipam.
      *
-     * @return ListIpamsResponse ListIpamsResponse
+     * @param request - ListIpamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIpamsResponse
+     *
+     * @param ListIpamsRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListIpamsResponse
      */
     public function listIpamsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipamIds)) {
-            $query['IpamIds'] = $request->ipamIds;
+        if (null !== $request->ipamIds) {
+            @$query['IpamIds'] = $request->ipamIds;
         }
-        if (!Utils::isUnset($request->ipamName)) {
-            $query['IpamName'] = $request->ipamName;
+
+        if (null !== $request->ipamName) {
+            @$query['IpamName'] = $request->ipamName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIpams',
@@ -1491,16 +1876,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIpamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIpamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIpamsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询ipam
-     *  *
-     * @param ListIpamsRequest $request ListIpamsRequest
+     * 查询ipam.
      *
-     * @return ListIpamsResponse ListIpamsResponse
+     * @param request - ListIpamsRequest
+     * @returns ListIpamsResponse
+     *
+     * @param ListIpamsRequest $request
+     *
+     * @return ListIpamsResponse
      */
     public function listIpams($request)
     {
@@ -1510,49 +1901,63 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 查询资源标签列表
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询资源标签列表.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -1565,16 +1970,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询资源标签列表
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * 查询资源标签列表.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1584,37 +1995,47 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 开通IPAM功能。
-     *  *
-     * @param OpenVpcIpamServiceRequest $request OpenVpcIpamServiceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 开通IPAM功能。
      *
-     * @return OpenVpcIpamServiceResponse OpenVpcIpamServiceResponse
+     * @param request - OpenVpcIpamServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OpenVpcIpamServiceResponse
+     *
+     * @param OpenVpcIpamServiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OpenVpcIpamServiceResponse
      */
     public function openVpcIpamServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OpenVpcIpamService',
@@ -1627,16 +2048,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OpenVpcIpamServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenVpcIpamServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenVpcIpamServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 开通IPAM功能。
-     *  *
-     * @param OpenVpcIpamServiceRequest $request OpenVpcIpamServiceRequest
+     * 开通IPAM功能。
      *
-     * @return OpenVpcIpamServiceResponse OpenVpcIpamServiceResponse
+     * @param request - OpenVpcIpamServiceRequest
+     * @returns OpenVpcIpamServiceResponse
+     *
+     * @param OpenVpcIpamServiceRequest $request
+     *
+     * @return OpenVpcIpamServiceResponse
      */
     public function openVpcIpamService($request)
     {
@@ -1646,43 +2073,55 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 为资源实例绑定资源标签
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 为资源实例绑定资源标签.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -1695,16 +2134,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 为资源实例绑定资源标签
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * 为资源实例绑定资源标签.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1714,46 +2159,59 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 为资源解绑资源标签
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 为资源解绑资源标签.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -1766,16 +2224,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 为资源解绑资源标签
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * 为资源解绑资源标签.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -1785,55 +2249,71 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 更新ipam
-     *  *
-     * @param UpdateIpamRequest $request UpdateIpamRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 更新ipam.
      *
-     * @return UpdateIpamResponse UpdateIpamResponse
+     * @param request - UpdateIpamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateIpamResponse
+     *
+     * @param UpdateIpamRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateIpamResponse
      */
     public function updateIpamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addOperatingRegion)) {
-            $query['AddOperatingRegion'] = $request->addOperatingRegion;
+        if (null !== $request->addOperatingRegion) {
+            @$query['AddOperatingRegion'] = $request->addOperatingRegion;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamDescription)) {
-            $query['IpamDescription'] = $request->ipamDescription;
+
+        if (null !== $request->ipamDescription) {
+            @$query['IpamDescription'] = $request->ipamDescription;
         }
-        if (!Utils::isUnset($request->ipamId)) {
-            $query['IpamId'] = $request->ipamId;
+
+        if (null !== $request->ipamId) {
+            @$query['IpamId'] = $request->ipamId;
         }
-        if (!Utils::isUnset($request->ipamName)) {
-            $query['IpamName'] = $request->ipamName;
+
+        if (null !== $request->ipamName) {
+            @$query['IpamName'] = $request->ipamName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->removeOperatingRegion)) {
-            $query['RemoveOperatingRegion'] = $request->removeOperatingRegion;
+
+        if (null !== $request->removeOperatingRegion) {
+            @$query['RemoveOperatingRegion'] = $request->removeOperatingRegion;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateIpam',
@@ -1846,16 +2326,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateIpamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateIpamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateIpamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新ipam
-     *  *
-     * @param UpdateIpamRequest $request UpdateIpamRequest
+     * 更新ipam.
      *
-     * @return UpdateIpamResponse UpdateIpamResponse
+     * @param request - UpdateIpamRequest
+     * @returns UpdateIpamResponse
+     *
+     * @param UpdateIpamRequest $request
+     *
+     * @return UpdateIpamResponse
      */
     public function updateIpam($request)
     {
@@ -1865,62 +2351,81 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param UpdateIpamPoolRequest $request UpdateIpamPoolRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateIpamPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateIpamPoolResponse
      *
-     * @return UpdateIpamPoolResponse UpdateIpamPoolResponse
+     * @param UpdateIpamPoolRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateIpamPoolResponse
      */
     public function updateIpamPoolWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allocationDefaultCidrMask)) {
-            $query['AllocationDefaultCidrMask'] = $request->allocationDefaultCidrMask;
+        if (null !== $request->allocationDefaultCidrMask) {
+            @$query['AllocationDefaultCidrMask'] = $request->allocationDefaultCidrMask;
         }
-        if (!Utils::isUnset($request->allocationMaxCidrMask)) {
-            $query['AllocationMaxCidrMask'] = $request->allocationMaxCidrMask;
+
+        if (null !== $request->allocationMaxCidrMask) {
+            @$query['AllocationMaxCidrMask'] = $request->allocationMaxCidrMask;
         }
-        if (!Utils::isUnset($request->allocationMinCidrMask)) {
-            $query['AllocationMinCidrMask'] = $request->allocationMinCidrMask;
+
+        if (null !== $request->allocationMinCidrMask) {
+            @$query['AllocationMinCidrMask'] = $request->allocationMinCidrMask;
         }
-        if (!Utils::isUnset($request->autoImport)) {
-            $query['AutoImport'] = $request->autoImport;
+
+        if (null !== $request->autoImport) {
+            @$query['AutoImport'] = $request->autoImport;
         }
-        if (!Utils::isUnset($request->clearAllocationDefaultCidrMask)) {
-            $query['ClearAllocationDefaultCidrMask'] = $request->clearAllocationDefaultCidrMask;
+
+        if (null !== $request->clearAllocationDefaultCidrMask) {
+            @$query['ClearAllocationDefaultCidrMask'] = $request->clearAllocationDefaultCidrMask;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamPoolDescription)) {
-            $query['IpamPoolDescription'] = $request->ipamPoolDescription;
+
+        if (null !== $request->ipamPoolDescription) {
+            @$query['IpamPoolDescription'] = $request->ipamPoolDescription;
         }
-        if (!Utils::isUnset($request->ipamPoolId)) {
-            $query['IpamPoolId'] = $request->ipamPoolId;
+
+        if (null !== $request->ipamPoolId) {
+            @$query['IpamPoolId'] = $request->ipamPoolId;
         }
-        if (!Utils::isUnset($request->ipamPoolName)) {
-            $query['IpamPoolName'] = $request->ipamPoolName;
+
+        if (null !== $request->ipamPoolName) {
+            @$query['IpamPoolName'] = $request->ipamPoolName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateIpamPool',
@@ -1933,14 +2438,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateIpamPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateIpamPoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateIpamPoolRequest $request UpdateIpamPoolRequest
+     * @param request - UpdateIpamPoolRequest
+     * @returns UpdateIpamPoolResponse
      *
-     * @return UpdateIpamPoolResponse UpdateIpamPoolResponse
+     * @param UpdateIpamPoolRequest $request
+     *
+     * @return UpdateIpamPoolResponse
      */
     public function updateIpamPool($request)
     {
@@ -1950,37 +2461,47 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @summary 更新IPAM地址池分配信息
-     *  *
-     * @param UpdateIpamPoolAllocationRequest $request UpdateIpamPoolAllocationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 更新IPAM地址池分配信息.
      *
-     * @return UpdateIpamPoolAllocationResponse UpdateIpamPoolAllocationResponse
+     * @param request - UpdateIpamPoolAllocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateIpamPoolAllocationResponse
+     *
+     * @param UpdateIpamPoolAllocationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateIpamPoolAllocationResponse
      */
     public function updateIpamPoolAllocationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamPoolAllocationDescription)) {
-            $query['IpamPoolAllocationDescription'] = $request->ipamPoolAllocationDescription;
+
+        if (null !== $request->ipamPoolAllocationDescription) {
+            @$query['IpamPoolAllocationDescription'] = $request->ipamPoolAllocationDescription;
         }
-        if (!Utils::isUnset($request->ipamPoolAllocationId)) {
-            $query['IpamPoolAllocationId'] = $request->ipamPoolAllocationId;
+
+        if (null !== $request->ipamPoolAllocationId) {
+            @$query['IpamPoolAllocationId'] = $request->ipamPoolAllocationId;
         }
-        if (!Utils::isUnset($request->ipamPoolAllocationName)) {
-            $query['IpamPoolAllocationName'] = $request->ipamPoolAllocationName;
+
+        if (null !== $request->ipamPoolAllocationName) {
+            @$query['IpamPoolAllocationName'] = $request->ipamPoolAllocationName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateIpamPoolAllocation',
@@ -1993,16 +2514,22 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateIpamPoolAllocationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新IPAM地址池分配信息
-     *  *
-     * @param UpdateIpamPoolAllocationRequest $request UpdateIpamPoolAllocationRequest
+     * 更新IPAM地址池分配信息.
      *
-     * @return UpdateIpamPoolAllocationResponse UpdateIpamPoolAllocationResponse
+     * @param request - UpdateIpamPoolAllocationRequest
+     * @returns UpdateIpamPoolAllocationResponse
+     *
+     * @param UpdateIpamPoolAllocationRequest $request
+     *
+     * @return UpdateIpamPoolAllocationResponse
      */
     public function updateIpamPoolAllocation($request)
     {
@@ -2012,47 +2539,61 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * @param UpdateIpamScopeRequest $request UpdateIpamScopeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateIpamScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateIpamScopeResponse
      *
-     * @return UpdateIpamScopeResponse UpdateIpamScopeResponse
+     * @param UpdateIpamScopeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateIpamScopeResponse
      */
     public function updateIpamScopeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ipamScopeDescription)) {
-            $query['IpamScopeDescription'] = $request->ipamScopeDescription;
+
+        if (null !== $request->ipamScopeDescription) {
+            @$query['IpamScopeDescription'] = $request->ipamScopeDescription;
         }
-        if (!Utils::isUnset($request->ipamScopeId)) {
-            $query['IpamScopeId'] = $request->ipamScopeId;
+
+        if (null !== $request->ipamScopeId) {
+            @$query['IpamScopeId'] = $request->ipamScopeId;
         }
-        if (!Utils::isUnset($request->ipamScopeName)) {
-            $query['IpamScopeName'] = $request->ipamScopeName;
+
+        if (null !== $request->ipamScopeName) {
+            @$query['IpamScopeName'] = $request->ipamScopeName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateIpamScope',
@@ -2065,14 +2606,20 @@ class VpcIpam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateIpamScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateIpamScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateIpamScopeRequest $request UpdateIpamScopeRequest
+     * @param request - UpdateIpamScopeRequest
+     * @returns UpdateIpamScopeResponse
      *
-     * @return UpdateIpamScopeResponse UpdateIpamScopeResponse
+     * @param UpdateIpamScopeRequest $request
+     *
+     * @return UpdateIpamScopeResponse
      */
     public function updateIpamScope($request)
     {
