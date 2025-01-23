@@ -19,6 +19,10 @@ class GetAICoachTaskSessionReportResponseBody extends Model
     /**
      * @var string
      */
+    public $evaluationRating;
+    /**
+     * @var string
+     */
     public $evaluationResult;
     /**
      * @var bool
@@ -47,6 +51,7 @@ class GetAICoachTaskSessionReportResponseBody extends Model
     protected $_name = [
         'duration'         => 'duration',
         'endTime'          => 'endTime',
+        'evaluationRating' => 'evaluationRating',
         'evaluationResult' => 'evaluationResult',
         'feedback'         => 'feedback',
         'requestId'        => 'requestId',
@@ -70,6 +75,10 @@ class GetAICoachTaskSessionReportResponseBody extends Model
 
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+
+        if (null !== $this->evaluationRating) {
+            $res['evaluationRating'] = $this->evaluationRating;
         }
 
         if (null !== $this->evaluationResult) {
@@ -117,6 +126,10 @@ class GetAICoachTaskSessionReportResponseBody extends Model
 
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+
+        if (isset($map['evaluationRating'])) {
+            $model->evaluationRating = $map['evaluationRating'];
         }
 
         if (isset($map['evaluationResult'])) {

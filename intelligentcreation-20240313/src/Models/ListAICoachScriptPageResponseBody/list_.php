@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScrip
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_\completeStrategy;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_\sampleDialogueList;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_\scoreConfig;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_\weights;
 
 class list_ extends Model
@@ -27,6 +28,10 @@ class list_ extends Model
      * @var string
      */
     public $coverUrl;
+    /**
+     * @var bool
+     */
+    public $dialogueTextFlag;
     /**
      * @var bool
      */
@@ -72,6 +77,10 @@ class list_ extends Model
      */
     public $sampleDialogueList;
     /**
+     * @var scoreConfig
+     */
+    public $scoreConfig;
+    /**
      * @var string
      */
     public $scriptRecordId;
@@ -104,6 +113,7 @@ class list_ extends Model
         'assessmentScope'      => 'assessmentScope',
         'completeStrategy'     => 'completeStrategy',
         'coverUrl'             => 'coverUrl',
+        'dialogueTextFlag'     => 'dialogueTextFlag',
         'dialogueTipFlag'      => 'dialogueTipFlag',
         'evaluateReportFlag'   => 'evaluateReportFlag',
         'expressiveness'       => 'expressiveness',
@@ -115,6 +125,7 @@ class list_ extends Model
         'name'                 => 'name',
         'orderAckFlag'         => 'orderAckFlag',
         'sampleDialogueList'   => 'sampleDialogueList',
+        'scoreConfig'          => 'scoreConfig',
         'scriptRecordId'       => 'scriptRecordId',
         'sparringTipContent'   => 'sparringTipContent',
         'sparringTipTitle'     => 'sparringTipTitle',
@@ -134,6 +145,9 @@ class list_ extends Model
         }
         if (\is_array($this->sampleDialogueList)) {
             Model::validateArray($this->sampleDialogueList);
+        }
+        if (null !== $this->scoreConfig) {
+            $this->scoreConfig->validate();
         }
         if (null !== $this->weights) {
             $this->weights->validate();
@@ -158,6 +172,10 @@ class list_ extends Model
 
         if (null !== $this->coverUrl) {
             $res['coverUrl'] = $this->coverUrl;
+        }
+
+        if (null !== $this->dialogueTextFlag) {
+            $res['dialogueTextFlag'] = $this->dialogueTextFlag;
         }
 
         if (null !== $this->dialogueTipFlag) {
@@ -215,6 +233,10 @@ class list_ extends Model
             }
         }
 
+        if (null !== $this->scoreConfig) {
+            $res['scoreConfig'] = null !== $this->scoreConfig ? $this->scoreConfig->toArray($noStream) : $this->scoreConfig;
+        }
+
         if (null !== $this->scriptRecordId) {
             $res['scriptRecordId'] = $this->scriptRecordId;
         }
@@ -270,6 +292,10 @@ class list_ extends Model
             $model->coverUrl = $map['coverUrl'];
         }
 
+        if (isset($map['dialogueTextFlag'])) {
+            $model->dialogueTextFlag = $map['dialogueTextFlag'];
+        }
+
         if (isset($map['dialogueTipFlag'])) {
             $model->dialogueTipFlag = $map['dialogueTipFlag'];
         }
@@ -323,6 +349,10 @@ class list_ extends Model
                     $model->sampleDialogueList[$n1++] = sampleDialogueList::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['scoreConfig'])) {
+            $model->scoreConfig = scoreConfig::fromMap($map['scoreConfig']);
         }
 
         if (isset($map['scriptRecordId'])) {
