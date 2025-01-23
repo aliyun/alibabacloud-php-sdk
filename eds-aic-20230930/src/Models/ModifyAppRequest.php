@@ -4,30 +4,23 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAppRequest extends Model
 {
     /**
-     * @example 1234
-     *
      * @var int
      */
     public $appId;
-
     /**
      * @var string
      */
     public $appName;
-
     /**
      * @var string
      */
     public $description;
-
     /**
-     * @example https://defaultIcon.png
-     *
      * @var string
      */
     public $iconUrl;
@@ -40,20 +33,24 @@ class ModifyAppRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->iconUrl) {
             $res['IconUrl'] = $this->iconUrl;
         }
@@ -61,23 +58,26 @@ class ModifyAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IconUrl'])) {
             $model->iconUrl = $map['IconUrl'];
         }

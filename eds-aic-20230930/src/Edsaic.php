@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AttachKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AttachKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AuthorizeAndroidInstanceRequest;
@@ -27,6 +26,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupShrinkRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScreenshotRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScreenshotResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAndroidInstanceGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteAppsRequest;
@@ -109,11 +110,10 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceGroupImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceGroupImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpgradeAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpgradeAndroidInstanceGroupResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Edsaic extends OpenApiClient
 {
@@ -139,36 +139,43 @@ class Edsaic extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 绑定密钥对
-     *  *
-     * @param AttachKeyPairRequest $request AttachKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 绑定密钥对.
      *
-     * @return AttachKeyPairResponse AttachKeyPairResponse
+     * @param request - AttachKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachKeyPairResponse
+     *
+     * @param AttachKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AttachKeyPairResponse
      */
     public function attachKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachKeyPair',
@@ -181,16 +188,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 绑定密钥对
-     *  *
-     * @param AttachKeyPairRequest $request AttachKeyPairRequest
+     * 绑定密钥对.
      *
-     * @return AttachKeyPairResponse AttachKeyPairResponse
+     * @param request - AttachKeyPairRequest
+     * @returns AttachKeyPairResponse
+     *
+     * @param AttachKeyPairRequest $request
+     *
+     * @return AttachKeyPairResponse
      */
     public function attachKeyPair($request)
     {
@@ -200,28 +213,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 为用户授权/解授权安卓实例
-     *  *
-     * @param AuthorizeAndroidInstanceRequest $request AuthorizeAndroidInstanceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 为用户授权/解授权安卓实例.
      *
-     * @return AuthorizeAndroidInstanceResponse AuthorizeAndroidInstanceResponse
+     * @param request - AuthorizeAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AuthorizeAndroidInstanceResponse
+     *
+     * @param AuthorizeAndroidInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AuthorizeAndroidInstanceResponse
      */
     public function authorizeAndroidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->authorizeUserId)) {
-            $query['AuthorizeUserId'] = $request->authorizeUserId;
+
+        if (null !== $request->authorizeUserId) {
+            @$query['AuthorizeUserId'] = $request->authorizeUserId;
         }
-        if (!Utils::isUnset($request->unAuthorizeUserId)) {
-            $query['UnAuthorizeUserId'] = $request->unAuthorizeUserId;
+
+        if (null !== $request->unAuthorizeUserId) {
+            @$query['UnAuthorizeUserId'] = $request->unAuthorizeUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AuthorizeAndroidInstance',
@@ -234,16 +254,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AuthorizeAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AuthorizeAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AuthorizeAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 为用户授权/解授权安卓实例
-     *  *
-     * @param AuthorizeAndroidInstanceRequest $request AuthorizeAndroidInstanceRequest
+     * 为用户授权/解授权安卓实例.
      *
-     * @return AuthorizeAndroidInstanceResponse AuthorizeAndroidInstanceResponse
+     * @param request - AuthorizeAndroidInstanceRequest
+     * @returns AuthorizeAndroidInstanceResponse
+     *
+     * @param AuthorizeAndroidInstanceRequest $request
+     *
+     * @return AuthorizeAndroidInstanceResponse
      */
     public function authorizeAndroidInstance($request)
     {
@@ -253,46 +279,59 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 数据备份
-     *  *
-     * @param BackupFileRequest $request BackupFileRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 数据备份.
      *
-     * @return BackupFileResponse BackupFileResponse
+     * @param request - BackupFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BackupFileResponse
+     *
+     * @param BackupFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BackupFileResponse
      */
     public function backupFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIdList)) {
-            $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
-        if (!Utils::isUnset($request->backupAll)) {
-            $query['BackupAll'] = $request->backupAll;
+
+        if (null !== $request->backupAll) {
+            @$query['BackupAll'] = $request->backupAll;
         }
-        if (!Utils::isUnset($request->backupFileName)) {
-            $query['BackupFileName'] = $request->backupFileName;
+
+        if (null !== $request->backupFileName) {
+            @$query['BackupFileName'] = $request->backupFileName;
         }
-        if (!Utils::isUnset($request->backupFilePath)) {
-            $query['BackupFilePath'] = $request->backupFilePath;
+
+        if (null !== $request->backupFilePath) {
+            @$query['BackupFilePath'] = $request->backupFilePath;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->sourceAppList)) {
-            $query['SourceAppList'] = $request->sourceAppList;
+
+        if (null !== $request->sourceAppList) {
+            @$query['SourceAppList'] = $request->sourceAppList;
         }
-        if (!Utils::isUnset($request->sourceFilePathList)) {
-            $query['SourceFilePathList'] = $request->sourceFilePathList;
+
+        if (null !== $request->sourceFilePathList) {
+            @$query['SourceFilePathList'] = $request->sourceFilePathList;
         }
-        if (!Utils::isUnset($request->uploadEndpoint)) {
-            $query['UploadEndpoint'] = $request->uploadEndpoint;
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BackupFile',
@@ -305,16 +344,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BackupFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BackupFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BackupFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 数据备份
-     *  *
-     * @param BackupFileRequest $request BackupFileRequest
+     * 数据备份.
      *
-     * @return BackupFileResponse BackupFileResponse
+     * @param request - BackupFileRequest
+     * @returns BackupFileResponse
+     *
+     * @param BackupFileRequest $request
+     *
+     * @return BackupFileResponse
      */
     public function backupFile($request)
     {
@@ -324,31 +369,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 批量获取ticket
-     *  *
-     * @param BatchGetAcpConnectionTicketRequest $request BatchGetAcpConnectionTicketRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 批量获取ticket.
      *
-     * @return BatchGetAcpConnectionTicketResponse BatchGetAcpConnectionTicketResponse
+     * @param request - BatchGetAcpConnectionTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchGetAcpConnectionTicketResponse
+     *
+     * @param BatchGetAcpConnectionTicketRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return BatchGetAcpConnectionTicketResponse
      */
     public function batchGetAcpConnectionTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->instanceTasks)) {
-            $query['InstanceTasks'] = $request->instanceTasks;
+
+        if (null !== $request->instanceTasks) {
+            @$query['InstanceTasks'] = $request->instanceTasks;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchGetAcpConnectionTicket',
@@ -361,16 +414,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchGetAcpConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchGetAcpConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetAcpConnectionTicketResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量获取ticket
-     *  *
-     * @param BatchGetAcpConnectionTicketRequest $request BatchGetAcpConnectionTicketRequest
+     * 批量获取ticket.
      *
-     * @return BatchGetAcpConnectionTicketResponse BatchGetAcpConnectionTicketResponse
+     * @param request - BatchGetAcpConnectionTicketRequest
+     * @returns BatchGetAcpConnectionTicketResponse
+     *
+     * @param BatchGetAcpConnectionTicketRequest $request
+     *
+     * @return BatchGetAcpConnectionTicketResponse
      */
     public function batchGetAcpConnectionTicket($request)
     {
@@ -380,34 +439,43 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 检查资源库存
-     *  *
-     * @param CheckResourceStockRequest $request CheckResourceStockRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 检查资源库存.
      *
-     * @return CheckResourceStockResponse CheckResourceStockResponse
+     * @param request - CheckResourceStockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckResourceStockResponse
+     *
+     * @param CheckResourceStockRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckResourceStockResponse
      */
     public function checkResourceStockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acpSpecId)) {
-            $query['AcpSpecId'] = $request->acpSpecId;
+        if (null !== $request->acpSpecId) {
+            @$query['AcpSpecId'] = $request->acpSpecId;
         }
-        if (!Utils::isUnset($request->amount)) {
-            $query['Amount'] = $request->amount;
+
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->gpuAcceleration)) {
-            $query['GpuAcceleration'] = $request->gpuAcceleration;
+
+        if (null !== $request->gpuAcceleration) {
+            @$query['GpuAcceleration'] = $request->gpuAcceleration;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckResourceStock',
@@ -420,16 +488,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckResourceStockResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckResourceStockResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckResourceStockResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 检查资源库存
-     *  *
-     * @param CheckResourceStockRequest $request CheckResourceStockRequest
+     * 检查资源库存.
      *
-     * @return CheckResourceStockResponse CheckResourceStockResponse
+     * @param request - CheckResourceStockRequest
+     * @returns CheckResourceStockResponse
+     *
+     * @param CheckResourceStockRequest $request
+     *
+     * @return CheckResourceStockResponse
      */
     public function checkResourceStock($request)
     {
@@ -439,70 +513,91 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 创建安卓实例组
-     *  *
-     * @param CreateAndroidInstanceGroupRequest $request CreateAndroidInstanceGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 创建安卓实例组.
      *
-     * @return CreateAndroidInstanceGroupResponse CreateAndroidInstanceGroupResponse
+     * @param request - CreateAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAndroidInstanceGroupResponse
+     *
+     * @param CreateAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateAndroidInstanceGroupResponse
      */
     public function createAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->amount)) {
-            $query['Amount'] = $request->amount;
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->gpuAcceleration)) {
-            $query['GpuAcceleration'] = $request->gpuAcceleration;
+
+        if (null !== $request->gpuAcceleration) {
+            @$query['GpuAcceleration'] = $request->gpuAcceleration;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->instanceGroupName)) {
-            $query['InstanceGroupName'] = $request->instanceGroupName;
+
+        if (null !== $request->instanceGroupName) {
+            @$query['InstanceGroupName'] = $request->instanceGroupName;
         }
-        if (!Utils::isUnset($request->instanceGroupSpec)) {
-            $query['InstanceGroupSpec'] = $request->instanceGroupSpec;
+
+        if (null !== $request->instanceGroupSpec) {
+            @$query['InstanceGroupSpec'] = $request->instanceGroupSpec;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
-        if (!Utils::isUnset($request->numberOfInstances)) {
-            $query['NumberOfInstances'] = $request->numberOfInstances;
+
+        if (null !== $request->numberOfInstances) {
+            @$query['NumberOfInstances'] = $request->numberOfInstances;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->policyGroupId)) {
-            $query['PolicyGroupId'] = $request->policyGroupId;
+
+        if (null !== $request->policyGroupId) {
+            @$query['PolicyGroupId'] = $request->policyGroupId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAndroidInstanceGroup',
@@ -515,16 +610,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建安卓实例组
-     *  *
-     * @param CreateAndroidInstanceGroupRequest $request CreateAndroidInstanceGroupRequest
+     * 创建安卓实例组.
      *
-     * @return CreateAndroidInstanceGroupResponse CreateAndroidInstanceGroupResponse
+     * @param request - CreateAndroidInstanceGroupRequest
+     * @returns CreateAndroidInstanceGroupResponse
+     *
+     * @param CreateAndroidInstanceGroupRequest $request
+     *
+     * @return CreateAndroidInstanceGroupResponse
      */
     public function createAndroidInstanceGroup($request)
     {
@@ -534,41 +635,53 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @param CreateAppRequest $request CreateAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAppResponse
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param CreateAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAppResponse
      */
     public function createAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['FilePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->iconUrl)) {
-            $query['IconUrl'] = $request->iconUrl;
+
+        if (null !== $request->iconUrl) {
+            @$query['IconUrl'] = $request->iconUrl;
         }
-        if (!Utils::isUnset($request->installParam)) {
-            $query['InstallParam'] = $request->installParam;
+
+        if (null !== $request->installParam) {
+            @$query['InstallParam'] = $request->installParam;
         }
-        if (!Utils::isUnset($request->ossAppUrl)) {
-            $query['OssAppUrl'] = $request->ossAppUrl;
+
+        if (null !== $request->ossAppUrl) {
+            @$query['OssAppUrl'] = $request->ossAppUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateApp',
@@ -581,14 +694,20 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateAppRequest $request CreateAppRequest
+     * @param request - CreateAppRequest
+     * @returns CreateAppResponse
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param CreateAppRequest $request
+     *
+     * @return CreateAppResponse
      */
     public function createApp($request)
     {
@@ -598,31 +717,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义镜像
-     *  *
-     * @param CreateCustomImageRequest $request CreateCustomImageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 创建自定义镜像.
      *
-     * @return CreateCustomImageResponse CreateCustomImageResponse
+     * @param request - CreateCustomImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCustomImageResponse
+     *
+     * @param CreateCustomImageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCustomImageResponse
      */
     public function createCustomImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->imageName)) {
-            $body['ImageName'] = $request->imageName;
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCustomImage',
@@ -635,16 +762,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCustomImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCustomImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCustomImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建自定义镜像
-     *  *
-     * @param CreateCustomImageRequest $request CreateCustomImageRequest
+     * 创建自定义镜像.
      *
-     * @return CreateCustomImageResponse CreateCustomImageResponse
+     * @param request - CreateCustomImageRequest
+     * @returns CreateCustomImageResponse
+     *
+     * @param CreateCustomImageRequest $request
+     *
+     * @return CreateCustomImageResponse
      */
     public function createCustomImage($request)
     {
@@ -654,22 +787,27 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 创建密钥对
-     *  *
-     * @param CreateKeyPairRequest $request CreateKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 创建密钥对.
      *
-     * @return CreateKeyPairResponse CreateKeyPairResponse
+     * @param request - CreateKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateKeyPairResponse
+     *
+     * @param CreateKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateKeyPairResponse
      */
     public function createKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateKeyPair',
@@ -682,16 +820,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建密钥对
-     *  *
-     * @param CreateKeyPairRequest $request CreateKeyPairRequest
+     * 创建密钥对.
      *
-     * @return CreateKeyPairResponse CreateKeyPairResponse
+     * @param request - CreateKeyPairRequest
+     * @returns CreateKeyPairResponse
+     *
+     * @param CreateKeyPairRequest $request
+     *
+     * @return CreateKeyPairResponse
      */
     public function createKeyPair($request)
     {
@@ -701,51 +845,65 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 创建策略
-     *  *
-     * @param CreatePolicyGroupRequest $tmpReq  CreatePolicyGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 创建策略.
      *
-     * @return CreatePolicyGroupResponse CreatePolicyGroupResponse
+     * @param tmpReq - CreatePolicyGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePolicyGroupResponse
+     *
+     * @param CreatePolicyGroupRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreatePolicyGroupResponse
      */
     public function createPolicyGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePolicyGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->netRedirectPolicy)) {
-            $request->netRedirectPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->netRedirectPolicy) {
+            $request->netRedirectPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cameraRedirect)) {
-            $body['CameraRedirect'] = $request->cameraRedirect;
+        if (null !== $request->cameraRedirect) {
+            @$body['CameraRedirect'] = $request->cameraRedirect;
         }
-        if (!Utils::isUnset($request->clipboard)) {
-            $body['Clipboard'] = $request->clipboard;
+
+        if (null !== $request->clipboard) {
+            @$body['Clipboard'] = $request->clipboard;
         }
-        if (!Utils::isUnset($request->html5FileTransfer)) {
-            $body['Html5FileTransfer'] = $request->html5FileTransfer;
+
+        if (null !== $request->html5FileTransfer) {
+            @$body['Html5FileTransfer'] = $request->html5FileTransfer;
         }
-        if (!Utils::isUnset($request->localDrive)) {
-            $body['LocalDrive'] = $request->localDrive;
+
+        if (null !== $request->localDrive) {
+            @$body['LocalDrive'] = $request->localDrive;
         }
-        if (!Utils::isUnset($request->lockResolution)) {
-            $body['LockResolution'] = $request->lockResolution;
+
+        if (null !== $request->lockResolution) {
+            @$body['LockResolution'] = $request->lockResolution;
         }
-        if (!Utils::isUnset($request->netRedirectPolicyShrink)) {
-            $body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
+
+        if (null !== $request->netRedirectPolicyShrink) {
+            @$body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
         }
-        if (!Utils::isUnset($request->policyGroupName)) {
-            $body['PolicyGroupName'] = $request->policyGroupName;
+
+        if (null !== $request->policyGroupName) {
+            @$body['PolicyGroupName'] = $request->policyGroupName;
         }
-        if (!Utils::isUnset($request->resolutionHeight)) {
-            $body['ResolutionHeight'] = $request->resolutionHeight;
+
+        if (null !== $request->resolutionHeight) {
+            @$body['ResolutionHeight'] = $request->resolutionHeight;
         }
-        if (!Utils::isUnset($request->resolutionWidth)) {
-            $body['ResolutionWidth'] = $request->resolutionWidth;
+
+        if (null !== $request->resolutionWidth) {
+            @$body['ResolutionWidth'] = $request->resolutionWidth;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreatePolicyGroup',
@@ -758,16 +916,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePolicyGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建策略
-     *  *
-     * @param CreatePolicyGroupRequest $request CreatePolicyGroupRequest
+     * 创建策略.
      *
-     * @return CreatePolicyGroupResponse CreatePolicyGroupResponse
+     * @param request - CreatePolicyGroupRequest
+     * @returns CreatePolicyGroupResponse
+     *
+     * @param CreatePolicyGroupRequest $request
+     *
+     * @return CreatePolicyGroupResponse
      */
     public function createPolicyGroup($request)
     {
@@ -777,22 +941,93 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 删除安卓实例组
-     *  *
-     * @param DeleteAndroidInstanceGroupRequest $request DeleteAndroidInstanceGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 创建云手机截图接口.
      *
-     * @return DeleteAndroidInstanceGroupResponse DeleteAndroidInstanceGroupResponse
+     * @param request - CreateScreenshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateScreenshotResponse
+     *
+     * @param CreateScreenshotRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateScreenshotResponse
+     */
+    public function createScreenshotWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        }
+
+        if (null !== $request->ossBucketName) {
+            @$query['OssBucketName'] = $request->ossBucketName;
+        }
+
+        if (null !== $request->skipCheckPolicyConfig) {
+            @$query['SkipCheckPolicyConfig'] = $request->skipCheckPolicyConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScreenshot',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateScreenshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateScreenshotResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建云手机截图接口.
+     *
+     * @param request - CreateScreenshotRequest
+     * @returns CreateScreenshotResponse
+     *
+     * @param CreateScreenshotRequest $request
+     *
+     * @return CreateScreenshotResponse
+     */
+    public function createScreenshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createScreenshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除安卓实例组.
+     *
+     * @param request - DeleteAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAndroidInstanceGroupResponse
+     *
+     * @param DeleteAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteAndroidInstanceGroupResponse
      */
     public function deleteAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $query['InstanceGroupIds'] = $request->instanceGroupIds;
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAndroidInstanceGroup',
@@ -805,16 +1040,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除安卓实例组
-     *  *
-     * @param DeleteAndroidInstanceGroupRequest $request DeleteAndroidInstanceGroupRequest
+     * 删除安卓实例组.
      *
-     * @return DeleteAndroidInstanceGroupResponse DeleteAndroidInstanceGroupResponse
+     * @param request - DeleteAndroidInstanceGroupRequest
+     * @returns DeleteAndroidInstanceGroupResponse
+     *
+     * @param DeleteAndroidInstanceGroupRequest $request
+     *
+     * @return DeleteAndroidInstanceGroupResponse
      */
     public function deleteAndroidInstanceGroup($request)
     {
@@ -824,22 +1065,27 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 删除app
-     *  *
-     * @param DeleteAppsRequest $request DeleteAppsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 删除app.
      *
-     * @return DeleteAppsResponse DeleteAppsResponse
+     * @param request - DeleteAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAppsResponse
+     *
+     * @param DeleteAppsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteAppsResponse
      */
     public function deleteAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIdList)) {
-            $query['AppIdList'] = $request->appIdList;
+        if (null !== $request->appIdList) {
+            @$query['AppIdList'] = $request->appIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApps',
@@ -852,16 +1098,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除app
-     *  *
-     * @param DeleteAppsRequest $request DeleteAppsRequest
+     * 删除app.
      *
-     * @return DeleteAppsResponse DeleteAppsResponse
+     * @param request - DeleteAppsRequest
+     * @returns DeleteAppsResponse
+     *
+     * @param DeleteAppsRequest $request
+     *
+     * @return DeleteAppsResponse
      */
     public function deleteApps($request)
     {
@@ -871,25 +1123,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @param DeleteImagesRequest $tmpReq  DeleteImagesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - DeleteImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteImagesResponse
      *
-     * @return DeleteImagesResponse DeleteImagesResponse
+     * @param DeleteImagesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteImagesResponse
      */
     public function deleteImagesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteImagesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->imageIds)) {
-            $request->imageIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageIds, 'ImageIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->imageIds) {
+            $request->imageIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageIds, 'ImageIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->imageIdsShrink)) {
-            $body['ImageIds'] = $request->imageIdsShrink;
+        if (null !== $request->imageIdsShrink) {
+            @$body['ImageIds'] = $request->imageIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteImages',
@@ -902,14 +1160,20 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteImagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteImagesRequest $request DeleteImagesRequest
+     * @param request - DeleteImagesRequest
+     * @returns DeleteImagesResponse
      *
-     * @return DeleteImagesResponse DeleteImagesResponse
+     * @param DeleteImagesRequest $request
+     *
+     * @return DeleteImagesResponse
      */
     public function deleteImages($request)
     {
@@ -919,22 +1183,27 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 删除密钥对
-     *  *
-     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 删除密钥对.
      *
-     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
+     * @param request - DeleteKeyPairsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteKeyPairsResponse
+     *
+     * @param DeleteKeyPairsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteKeyPairsResponse
      */
     public function deleteKeyPairsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairIds)) {
-            $query['KeyPairIds'] = $request->keyPairIds;
+        if (null !== $request->keyPairIds) {
+            @$query['KeyPairIds'] = $request->keyPairIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteKeyPairs',
@@ -947,16 +1216,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteKeyPairsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除密钥对
-     *  *
-     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
+     * 删除密钥对.
      *
-     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
+     * @param request - DeleteKeyPairsRequest
+     * @returns DeleteKeyPairsResponse
+     *
+     * @param DeleteKeyPairsRequest $request
+     *
+     * @return DeleteKeyPairsResponse
      */
     public function deleteKeyPairs($request)
     {
@@ -966,22 +1241,27 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 删除策略
-     *  *
-     * @param DeletePolicyGroupRequest $request DeletePolicyGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 删除策略.
      *
-     * @return DeletePolicyGroupResponse DeletePolicyGroupResponse
+     * @param request - DeletePolicyGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePolicyGroupResponse
+     *
+     * @param DeletePolicyGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeletePolicyGroupResponse
      */
     public function deletePolicyGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyGroupIds)) {
-            $query['PolicyGroupIds'] = $request->policyGroupIds;
+        if (null !== $request->policyGroupIds) {
+            @$query['PolicyGroupIds'] = $request->policyGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePolicyGroup',
@@ -994,16 +1274,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePolicyGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除策略
-     *  *
-     * @param DeletePolicyGroupRequest $request DeletePolicyGroupRequest
+     * 删除策略.
      *
-     * @return DeletePolicyGroupResponse DeletePolicyGroupResponse
+     * @param request - DeletePolicyGroupRequest
+     * @returns DeletePolicyGroupResponse
+     *
+     * @param DeletePolicyGroupRequest $request
+     *
+     * @return DeletePolicyGroupResponse
      */
     public function deletePolicyGroup($request)
     {
@@ -1013,49 +1299,63 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例组
-     *  *
-     * @param DescribeAndroidInstanceGroupsRequest $request DescribeAndroidInstanceGroupsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 查询实例组.
      *
-     * @return DescribeAndroidInstanceGroupsResponse DescribeAndroidInstanceGroupsResponse
+     * @param request - DescribeAndroidInstanceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAndroidInstanceGroupsResponse
+     *
+     * @param DescribeAndroidInstanceGroupsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeAndroidInstanceGroupsResponse
      */
     public function describeAndroidInstanceGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $query['InstanceGroupIds'] = $request->instanceGroupIds;
+
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
-        if (!Utils::isUnset($request->instanceGroupName)) {
-            $query['InstanceGroupName'] = $request->instanceGroupName;
+
+        if (null !== $request->instanceGroupName) {
+            @$query['InstanceGroupName'] = $request->instanceGroupName;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->policyGroupId)) {
-            $query['PolicyGroupId'] = $request->policyGroupId;
+
+        if (null !== $request->policyGroupId) {
+            @$query['PolicyGroupId'] = $request->policyGroupId;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAndroidInstanceGroups',
@@ -1068,16 +1368,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAndroidInstanceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAndroidInstanceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAndroidInstanceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询实例组
-     *  *
-     * @param DescribeAndroidInstanceGroupsRequest $request DescribeAndroidInstanceGroupsRequest
+     * 查询实例组.
      *
-     * @return DescribeAndroidInstanceGroupsResponse DescribeAndroidInstanceGroupsResponse
+     * @param request - DescribeAndroidInstanceGroupsRequest
+     * @returns DescribeAndroidInstanceGroupsResponse
+     *
+     * @param DescribeAndroidInstanceGroupsRequest $request
+     *
+     * @return DescribeAndroidInstanceGroupsResponse
      */
     public function describeAndroidInstanceGroups($request)
     {
@@ -1087,58 +1393,83 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询安卓实例列表
-     *  *
-     * @param DescribeAndroidInstancesRequest $request DescribeAndroidInstancesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询安卓的实例列表.
      *
-     * @return DescribeAndroidInstancesResponse DescribeAndroidInstancesResponse
+     * @param request - DescribeAndroidInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAndroidInstancesResponse
+     *
+     * @param DescribeAndroidInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAndroidInstancesResponse
      */
     public function describeAndroidInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->androidInstanceName)) {
-            $query['AndroidInstanceName'] = $request->androidInstanceName;
+
+        if (null !== $request->androidInstanceName) {
+            @$query['AndroidInstanceName'] = $request->androidInstanceName;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $query['InstanceGroupIds'] = $request->instanceGroupIds;
+
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
-        if (!Utils::isUnset($request->instanceGroupName)) {
-            $query['InstanceGroupName'] = $request->instanceGroupName;
+
+        if (null !== $request->instanceGroupName) {
+            @$query['InstanceGroupName'] = $request->instanceGroupName;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAndroidInstances',
@@ -1151,16 +1482,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAndroidInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAndroidInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAndroidInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询安卓实例列表
-     *  *
-     * @param DescribeAndroidInstancesRequest $request DescribeAndroidInstancesRequest
+     * 查询安卓的实例列表.
      *
-     * @return DescribeAndroidInstancesResponse DescribeAndroidInstancesResponse
+     * @param request - DescribeAndroidInstancesRequest
+     * @returns DescribeAndroidInstancesResponse
+     *
+     * @param DescribeAndroidInstancesRequest $request
+     *
+     * @return DescribeAndroidInstancesResponse
      */
     public function describeAndroidInstances($request)
     {
@@ -1170,43 +1507,55 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询app
-     *  *
-     * @param DescribeAppsRequest $request DescribeAppsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查询app.
      *
-     * @return DescribeAppsResponse DescribeAppsResponse
+     * @param request - DescribeAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAppsResponse
+     *
+     * @param DescribeAppsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeAppsResponse
      */
     public function describeAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIdList)) {
-            $query['AppIdList'] = $request->appIdList;
+        if (null !== $request->appIdList) {
+            @$query['AppIdList'] = $request->appIdList;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->installationStatus)) {
-            $query['InstallationStatus'] = $request->installationStatus;
+
+        if (null !== $request->installationStatus) {
+            @$query['InstallationStatus'] = $request->installationStatus;
         }
-        if (!Utils::isUnset($request->MD5)) {
-            $query['MD5'] = $request->MD5;
+
+        if (null !== $request->MD5) {
+            @$query['MD5'] = $request->MD5;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApps',
@@ -1219,16 +1568,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询app
-     *  *
-     * @param DescribeAppsRequest $request DescribeAppsRequest
+     * 查询app.
      *
-     * @return DescribeAppsResponse DescribeAppsResponse
+     * @param request - DescribeAppsRequest
+     * @returns DescribeAppsResponse
+     *
+     * @param DescribeAppsRequest $request
+     *
+     * @return DescribeAppsResponse
      */
     public function describeApps($request)
     {
@@ -1238,58 +1593,75 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询备份文件列表
-     *  *
-     * @param DescribeBackupFilesRequest $request DescribeBackupFilesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询备份文件列表.
      *
-     * @return DescribeBackupFilesResponse DescribeBackupFilesResponse
+     * @param request - DescribeBackupFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBackupFilesResponse
+     *
+     * @param DescribeBackupFilesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBackupFilesResponse
      */
     public function describeBackupFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceId)) {
-            $query['AndroidInstanceId'] = $request->androidInstanceId;
+        if (null !== $request->androidInstanceId) {
+            @$query['AndroidInstanceId'] = $request->androidInstanceId;
         }
-        if (!Utils::isUnset($request->androidInstanceName)) {
-            $query['AndroidInstanceName'] = $request->androidInstanceName;
+
+        if (null !== $request->androidInstanceName) {
+            @$query['AndroidInstanceName'] = $request->androidInstanceName;
         }
-        if (!Utils::isUnset($request->backupAll)) {
-            $query['BackupAll'] = $request->backupAll;
+
+        if (null !== $request->backupAll) {
+            @$query['BackupAll'] = $request->backupAll;
         }
-        if (!Utils::isUnset($request->backupFileId)) {
-            $query['BackupFileId'] = $request->backupFileId;
+
+        if (null !== $request->backupFileId) {
+            @$query['BackupFileId'] = $request->backupFileId;
         }
-        if (!Utils::isUnset($request->backupFileName)) {
-            $query['BackupFileName'] = $request->backupFileName;
+
+        if (null !== $request->backupFileName) {
+            @$query['BackupFileName'] = $request->backupFileName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->statusList)) {
-            $query['StatusList'] = $request->statusList;
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackupFiles',
@@ -1302,16 +1674,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询备份文件列表
-     *  *
-     * @param DescribeBackupFilesRequest $request DescribeBackupFilesRequest
+     * 查询备份文件列表.
      *
-     * @return DescribeBackupFilesResponse DescribeBackupFilesResponse
+     * @param request - DescribeBackupFilesRequest
+     * @returns DescribeBackupFilesResponse
+     *
+     * @param DescribeBackupFilesRequest $request
+     *
+     * @return DescribeBackupFilesResponse
      */
     public function describeBackupFiles($request)
     {
@@ -1321,35 +1699,53 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageListRequest $request DescribeImageListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询镜像列表.
      *
-     * @return DescribeImageListResponse DescribeImageListResponse
+     * @param request - DescribeImageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeImageListResponse
+     *
+     * @param DescribeImageListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeImageListResponse
      */
     public function describeImageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->imagePackageType) {
+            @$query['ImagePackageType'] = $request->imagePackageType;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->imageName)) {
-            $body['ImageName'] = $request->imageName;
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $body['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$body['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeImageList',
@@ -1362,14 +1758,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeImageListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeImageListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeImageListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeImageListRequest $request DescribeImageListRequest
+     * 查询镜像列表.
      *
-     * @return DescribeImageListResponse DescribeImageListResponse
+     * @param request - DescribeImageListRequest
+     * @returns DescribeImageListResponse
+     *
+     * @param DescribeImageListRequest $request
+     *
+     * @return DescribeImageListResponse
      */
     public function describeImageList($request)
     {
@@ -1379,25 +1783,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询命令结果
-     *  *
-     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询命令结果.
      *
-     * @return DescribeInvocationsResponse DescribeInvocationsResponse
+     * @param request - DescribeInvocationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInvocationsResponse
+     *
+     * @param DescribeInvocationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInvocationsResponse
      */
     public function describeInvocationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->invocationId)) {
-            $query['InvocationId'] = $request->invocationId;
+
+        if (null !== $request->invocationId) {
+            @$query['InvocationId'] = $request->invocationId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInvocations',
@@ -1410,16 +1820,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInvocationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询命令结果
-     *  *
-     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
+     * 查询命令结果.
      *
-     * @return DescribeInvocationsResponse DescribeInvocationsResponse
+     * @param request - DescribeInvocationsRequest
+     * @returns DescribeInvocationsResponse
+     *
+     * @param DescribeInvocationsRequest $request
+     *
+     * @return DescribeInvocationsResponse
      */
     public function describeInvocations($request)
     {
@@ -1429,31 +1845,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询密钥对
-     *  *
-     * @param DescribeKeyPairsRequest $request DescribeKeyPairsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询密钥对.
      *
-     * @return DescribeKeyPairsResponse DescribeKeyPairsResponse
+     * @param request - DescribeKeyPairsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeKeyPairsResponse
+     *
+     * @param DescribeKeyPairsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeKeyPairsResponse
      */
     public function describeKeyPairsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairIds)) {
-            $query['KeyPairIds'] = $request->keyPairIds;
+        if (null !== $request->keyPairIds) {
+            @$query['KeyPairIds'] = $request->keyPairIds;
         }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeKeyPairs',
@@ -1466,16 +1890,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeKeyPairsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询密钥对
-     *  *
-     * @param DescribeKeyPairsRequest $request DescribeKeyPairsRequest
+     * 查询密钥对.
      *
-     * @return DescribeKeyPairsResponse DescribeKeyPairsResponse
+     * @param request - DescribeKeyPairsRequest
+     * @returns DescribeKeyPairsResponse
+     *
+     * @param DescribeKeyPairsRequest $request
+     *
+     * @return DescribeKeyPairsResponse
      */
     public function describeKeyPairs($request)
     {
@@ -1485,22 +1915,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询地域
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询地域
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -1513,16 +1952,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询地域
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * 查询地域
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1532,37 +1977,55 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询规格
-     *  *
-     * @param DescribeSpecRequest $request DescribeSpecRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查询规格
      *
-     * @return DescribeSpecResponse DescribeSpecResponse
+     * @param request - DescribeSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSpecResponse
+     *
+     * @param DescribeSpecRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeSpecResponse
      */
     public function describeSpecWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->matrixSpec) {
+            @$query['MatrixSpec'] = $request->matrixSpec;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->specIds)) {
-            $query['SpecIds'] = $request->specIds;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->specStatus)) {
-            $query['SpecStatus'] = $request->specStatus;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
-        if (!Utils::isUnset($request->specType)) {
-            $query['SpecType'] = $request->specType;
+
+        if (null !== $request->specIds) {
+            @$query['SpecIds'] = $request->specIds;
         }
+
+        if (null !== $request->specStatus) {
+            @$query['SpecStatus'] = $request->specStatus;
+        }
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSpec',
@@ -1575,16 +2038,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSpecResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询规格
-     *  *
-     * @param DescribeSpecRequest $request DescribeSpecRequest
+     * 查询规格
      *
-     * @return DescribeSpecResponse DescribeSpecResponse
+     * @param request - DescribeSpecRequest
+     * @returns DescribeSpecResponse
+     *
+     * @param DescribeSpecRequest $request
+     *
+     * @return DescribeSpecResponse
      */
     public function describeSpec($request)
     {
@@ -1594,61 +2063,79 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询异步任务
-     *  *
-     * @param DescribeTasksRequest $request DescribeTasksRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询异步任务
      *
-     * @return DescribeTasksResponse DescribeTasksResponse
+     * @param request - DescribeTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTasksResponse
+     *
+     * @param DescribeTasksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeTasksResponse
      */
     public function describeTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->invokeId)) {
-            $query['InvokeId'] = $request->invokeId;
+
+        if (null !== $request->invokeId) {
+            @$query['InvokeId'] = $request->invokeId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->parentTaskId)) {
-            $query['ParentTaskId'] = $request->parentTaskId;
+
+        if (null !== $request->parentTaskId) {
+            @$query['ParentTaskId'] = $request->parentTaskId;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->taskIds)) {
-            $query['TaskIds'] = $request->taskIds;
+
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $query['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$query['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->taskStatuses)) {
-            $query['TaskStatuses'] = $request->taskStatuses;
+
+        if (null !== $request->taskStatuses) {
+            @$query['TaskStatuses'] = $request->taskStatuses;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->taskTypes)) {
-            $query['TaskTypes'] = $request->taskTypes;
+
+        if (null !== $request->taskTypes) {
+            @$query['TaskTypes'] = $request->taskTypes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTasks',
@@ -1661,16 +2148,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询异步任务
-     *  *
-     * @param DescribeTasksRequest $request DescribeTasksRequest
+     * 查询异步任务
      *
-     * @return DescribeTasksResponse DescribeTasksResponse
+     * @param request - DescribeTasksRequest
+     * @returns DescribeTasksResponse
+     *
+     * @param DescribeTasksRequest $request
+     *
+     * @return DescribeTasksResponse
      */
     public function describeTasks($request)
     {
@@ -1680,25 +2173,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 解绑密钥对
-     *  *
-     * @param DetachKeyPairRequest $request DetachKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 解绑密钥对.
      *
-     * @return DetachKeyPairResponse DetachKeyPairResponse
+     * @param request - DetachKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachKeyPairResponse
+     *
+     * @param DetachKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DetachKeyPairResponse
      */
     public function detachKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachKeyPair',
@@ -1711,16 +2210,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 解绑密钥对
-     *  *
-     * @param DetachKeyPairRequest $request DetachKeyPairRequest
+     * 解绑密钥对.
      *
-     * @return DetachKeyPairResponse DetachKeyPairResponse
+     * @param request - DetachKeyPairRequest
+     * @returns DetachKeyPairResponse
+     *
+     * @param DetachKeyPairRequest $request
+     *
+     * @return DetachKeyPairResponse
      */
     public function detachKeyPair($request)
     {
@@ -1730,25 +2235,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 自定义镜像分发
-     *  *
-     * @param DistributeImageRequest $request DistributeImageRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 自定义镜像分发.
      *
-     * @return DistributeImageResponse DistributeImageResponse
+     * @param request - DistributeImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DistributeImageResponse
+     *
+     * @param DistributeImageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DistributeImageResponse
      */
     public function distributeImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->distributeRegionList)) {
-            $body['DistributeRegionList'] = $request->distributeRegionList;
+        if (null !== $request->distributeRegionList) {
+            @$body['DistributeRegionList'] = $request->distributeRegionList;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DistributeImage',
@@ -1761,16 +2272,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DistributeImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DistributeImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DistributeImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 自定义镜像分发
-     *  *
-     * @param DistributeImageRequest $request DistributeImageRequest
+     * 自定义镜像分发.
      *
-     * @return DistributeImageResponse DistributeImageResponse
+     * @param request - DistributeImageRequest
+     * @returns DistributeImageResponse
+     *
+     * @param DistributeImageRequest $request
+     *
+     * @return DistributeImageResponse
      */
     public function distributeImage($request)
     {
@@ -1780,28 +2297,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 实例组缩容
-     *  *
-     * @param DowngradeAndroidInstanceGroupRequest $request DowngradeAndroidInstanceGroupRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 实例组缩容.
      *
-     * @return DowngradeAndroidInstanceGroupResponse DowngradeAndroidInstanceGroupResponse
+     * @param request - DowngradeAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DowngradeAndroidInstanceGroupResponse
+     *
+     * @param DowngradeAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DowngradeAndroidInstanceGroupResponse
      */
     public function downgradeAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DowngradeAndroidInstanceGroup',
@@ -1814,16 +2338,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DowngradeAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DowngradeAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DowngradeAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 实例组缩容
-     *  *
-     * @param DowngradeAndroidInstanceGroupRequest $request DowngradeAndroidInstanceGroupRequest
+     * 实例组缩容.
      *
-     * @return DowngradeAndroidInstanceGroupResponse DowngradeAndroidInstanceGroupResponse
+     * @param request - DowngradeAndroidInstanceGroupRequest
+     * @returns DowngradeAndroidInstanceGroupResponse
+     *
+     * @param DowngradeAndroidInstanceGroupRequest $request
+     *
+     * @return DowngradeAndroidInstanceGroupResponse
      */
     public function downgradeAndroidInstanceGroup($request)
     {
@@ -1833,34 +2363,43 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 云手机拉取文件到OSS
-     *  *
-     * @param FetchFileRequest $request FetchFileRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 云手机拉取文件到OSS.
      *
-     * @return FetchFileResponse FetchFileResponse
+     * @param request - FetchFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns FetchFileResponse
+     *
+     * @param FetchFileRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return FetchFileResponse
      */
     public function fetchFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIdList)) {
-            $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
-        if (!Utils::isUnset($request->sourceFilePath)) {
-            $query['SourceFilePath'] = $request->sourceFilePath;
+
+        if (null !== $request->sourceFilePath) {
+            @$query['SourceFilePath'] = $request->sourceFilePath;
         }
-        if (!Utils::isUnset($request->uploadEndpoint)) {
-            $query['UploadEndpoint'] = $request->uploadEndpoint;
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
         }
-        if (!Utils::isUnset($request->uploadUrl)) {
-            $query['UploadUrl'] = $request->uploadUrl;
+
+        if (null !== $request->uploadUrl) {
+            @$query['UploadUrl'] = $request->uploadUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'FetchFile',
@@ -1873,16 +2412,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FetchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return FetchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FetchFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 云手机拉取文件到OSS
-     *  *
-     * @param FetchFileRequest $request FetchFileRequest
+     * 云手机拉取文件到OSS.
      *
-     * @return FetchFileResponse FetchFileResponse
+     * @param request - FetchFileRequest
+     * @returns FetchFileResponse
+     *
+     * @param FetchFileRequest $request
+     *
+     * @return FetchFileResponse
      */
     public function fetchFile($request)
     {
@@ -1892,23 +2437,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @param ImportKeyPairRequest $request ImportKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 导入秘钥.
      *
-     * @return ImportKeyPairResponse ImportKeyPairResponse
+     * @param request - ImportKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ImportKeyPairResponse
+     *
+     * @param ImportKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ImportKeyPairResponse
      */
     public function importKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->publicKeyBody)) {
-            $query['PublicKeyBody'] = $request->publicKeyBody;
+
+        if (null !== $request->publicKeyBody) {
+            @$query['PublicKeyBody'] = $request->publicKeyBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ImportKeyPair',
@@ -1921,14 +2474,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ImportKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ImportKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ImportKeyPairRequest $request ImportKeyPairRequest
+     * 导入秘钥.
      *
-     * @return ImportKeyPairResponse ImportKeyPairResponse
+     * @param request - ImportKeyPairRequest
+     * @returns ImportKeyPairResponse
+     *
+     * @param ImportKeyPairRequest $request
+     *
+     * @return ImportKeyPairResponse
      */
     public function importKeyPair($request)
     {
@@ -1938,28 +2499,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 安装app到实例组
-     *  *
-     * @param InstallAppRequest $request InstallAppRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 安装app到实例组.
      *
-     * @return InstallAppResponse InstallAppResponse
+     * @param request - InstallAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InstallAppResponse
+     *
+     * @param InstallAppRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return InstallAppResponse
      */
     public function installAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIdList)) {
-            $query['AppIdList'] = $request->appIdList;
+        if (null !== $request->appIdList) {
+            @$query['AppIdList'] = $request->appIdList;
         }
-        if (!Utils::isUnset($request->instanceGroupIdList)) {
-            $query['InstanceGroupIdList'] = $request->instanceGroupIdList;
+
+        if (null !== $request->instanceGroupIdList) {
+            @$query['InstanceGroupIdList'] = $request->instanceGroupIdList;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallApp',
@@ -1972,16 +2540,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InstallAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InstallAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 安装app到实例组
-     *  *
-     * @param InstallAppRequest $request InstallAppRequest
+     * 安装app到实例组.
      *
-     * @return InstallAppResponse InstallAppResponse
+     * @param request - InstallAppRequest
+     * @returns InstallAppResponse
+     *
+     * @param InstallAppRequest $request
+     *
+     * @return InstallAppResponse
      */
     public function installApp($request)
     {
@@ -1991,31 +2565,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询Policy列表
-     *  *
-     * @param ListPolicyGroupsRequest $request ListPolicyGroupsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询Policy列表.
      *
-     * @return ListPolicyGroupsResponse ListPolicyGroupsResponse
+     * @param request - ListPolicyGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPolicyGroupsResponse
+     *
+     * @param ListPolicyGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPolicyGroupsResponse
      */
     public function listPolicyGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->policyGroupIds)) {
-            $body['PolicyGroupIds'] = $request->policyGroupIds;
+
+        if (null !== $request->policyGroupIds) {
+            @$body['PolicyGroupIds'] = $request->policyGroupIds;
         }
-        if (!Utils::isUnset($request->policyGroupName)) {
-            $body['PolicyGroupName'] = $request->policyGroupName;
+
+        if (null !== $request->policyGroupName) {
+            @$body['PolicyGroupName'] = $request->policyGroupName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListPolicyGroups',
@@ -2028,16 +2610,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPolicyGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPolicyGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPolicyGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询Policy列表
-     *  *
-     * @param ListPolicyGroupsRequest $request ListPolicyGroupsRequest
+     * 查询Policy列表.
      *
-     * @return ListPolicyGroupsResponse ListPolicyGroupsResponse
+     * @param request - ListPolicyGroupsRequest
+     * @returns ListPolicyGroupsResponse
+     *
+     * @param ListPolicyGroupsRequest $request
+     *
+     * @return ListPolicyGroupsResponse
      */
     public function listPolicyGroups($request)
     {
@@ -2047,25 +2635,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改安卓实例信息
-     *  *
-     * @param ModifyAndroidInstanceRequest $request ModifyAndroidInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 修改安卓实例信息.
      *
-     * @return ModifyAndroidInstanceResponse ModifyAndroidInstanceResponse
+     * @param request - ModifyAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAndroidInstanceResponse
+     *
+     * @param ModifyAndroidInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAndroidInstanceResponse
      */
     public function modifyAndroidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceId)) {
-            $query['AndroidInstanceId'] = $request->androidInstanceId;
+        if (null !== $request->androidInstanceId) {
+            @$query['AndroidInstanceId'] = $request->androidInstanceId;
         }
-        if (!Utils::isUnset($request->newAndroidInstanceName)) {
-            $query['NewAndroidInstanceName'] = $request->newAndroidInstanceName;
+
+        if (null !== $request->newAndroidInstanceName) {
+            @$query['NewAndroidInstanceName'] = $request->newAndroidInstanceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAndroidInstance',
@@ -2078,16 +2672,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改安卓实例信息
-     *  *
-     * @param ModifyAndroidInstanceRequest $request ModifyAndroidInstanceRequest
+     * 修改安卓实例信息.
      *
-     * @return ModifyAndroidInstanceResponse ModifyAndroidInstanceResponse
+     * @param request - ModifyAndroidInstanceRequest
+     * @returns ModifyAndroidInstanceResponse
+     *
+     * @param ModifyAndroidInstanceRequest $request
+     *
+     * @return ModifyAndroidInstanceResponse
      */
     public function modifyAndroidInstance($request)
     {
@@ -2097,28 +2697,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改安卓实例组
-     *  *
-     * @param ModifyAndroidInstanceGroupRequest $request ModifyAndroidInstanceGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 修改安卓实例组.
      *
-     * @return ModifyAndroidInstanceGroupResponse ModifyAndroidInstanceGroupResponse
+     * @param request - ModifyAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAndroidInstanceGroupResponse
+     *
+     * @param ModifyAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyAndroidInstanceGroupResponse
      */
     public function modifyAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
-        if (!Utils::isUnset($request->newInstanceGroupName)) {
-            $query['NewInstanceGroupName'] = $request->newInstanceGroupName;
+
+        if (null !== $request->newInstanceGroupName) {
+            @$query['NewInstanceGroupName'] = $request->newInstanceGroupName;
         }
-        if (!Utils::isUnset($request->policyGroupId)) {
-            $query['PolicyGroupId'] = $request->policyGroupId;
+
+        if (null !== $request->policyGroupId) {
+            @$query['PolicyGroupId'] = $request->policyGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAndroidInstanceGroup',
@@ -2131,16 +2738,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改安卓实例组
-     *  *
-     * @param ModifyAndroidInstanceGroupRequest $request ModifyAndroidInstanceGroupRequest
+     * 修改安卓实例组.
      *
-     * @return ModifyAndroidInstanceGroupResponse ModifyAndroidInstanceGroupResponse
+     * @param request - ModifyAndroidInstanceGroupRequest
+     * @returns ModifyAndroidInstanceGroupResponse
+     *
+     * @param ModifyAndroidInstanceGroupRequest $request
+     *
+     * @return ModifyAndroidInstanceGroupResponse
      */
     public function modifyAndroidInstanceGroup($request)
     {
@@ -2150,31 +2763,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改app
-     *  *
-     * @param ModifyAppRequest $request ModifyAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 修改app.
      *
-     * @return ModifyAppResponse ModifyAppResponse
+     * @param request - ModifyAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAppResponse
+     *
+     * @param ModifyAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ModifyAppResponse
      */
     public function modifyAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->iconUrl)) {
-            $query['IconUrl'] = $request->iconUrl;
+
+        if (null !== $request->iconUrl) {
+            @$query['IconUrl'] = $request->iconUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApp',
@@ -2187,16 +2808,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改app
-     *  *
-     * @param ModifyAppRequest $request ModifyAppRequest
+     * 修改app.
      *
-     * @return ModifyAppResponse ModifyAppResponse
+     * @param request - ModifyAppRequest
+     * @returns ModifyAppResponse
+     *
+     * @param ModifyAppRequest $request
+     *
+     * @return ModifyAppResponse
      */
     public function modifyApp($request)
     {
@@ -2206,25 +2833,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改密钥对名称
-     *  *
-     * @param ModifyKeyPairNameRequest $request ModifyKeyPairNameRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 修改密钥对名称.
      *
-     * @return ModifyKeyPairNameResponse ModifyKeyPairNameResponse
+     * @param request - ModifyKeyPairNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyKeyPairNameResponse
+     *
+     * @param ModifyKeyPairNameRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyKeyPairNameResponse
      */
     public function modifyKeyPairNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
-        if (!Utils::isUnset($request->newKeyPairName)) {
-            $query['NewKeyPairName'] = $request->newKeyPairName;
+
+        if (null !== $request->newKeyPairName) {
+            @$query['NewKeyPairName'] = $request->newKeyPairName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyKeyPairName',
@@ -2237,16 +2870,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyKeyPairNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyKeyPairNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyKeyPairNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改密钥对名称
-     *  *
-     * @param ModifyKeyPairNameRequest $request ModifyKeyPairNameRequest
+     * 修改密钥对名称.
      *
-     * @return ModifyKeyPairNameResponse ModifyKeyPairNameResponse
+     * @param request - ModifyKeyPairNameRequest
+     * @returns ModifyKeyPairNameResponse
+     *
+     * @param ModifyKeyPairNameRequest $request
+     *
+     * @return ModifyKeyPairNameResponse
      */
     public function modifyKeyPairName($request)
     {
@@ -2256,54 +2895,69 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改policy
-     *  *
-     * @param ModifyPolicyGroupRequest $tmpReq  ModifyPolicyGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 修改policy.
      *
-     * @return ModifyPolicyGroupResponse ModifyPolicyGroupResponse
+     * @param tmpReq - ModifyPolicyGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyPolicyGroupResponse
+     *
+     * @param ModifyPolicyGroupRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyPolicyGroupResponse
      */
     public function modifyPolicyGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyPolicyGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->netRedirectPolicy)) {
-            $request->netRedirectPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->netRedirectPolicy) {
+            $request->netRedirectPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cameraRedirect)) {
-            $body['CameraRedirect'] = $request->cameraRedirect;
+        if (null !== $request->cameraRedirect) {
+            @$body['CameraRedirect'] = $request->cameraRedirect;
         }
-        if (!Utils::isUnset($request->clipboard)) {
-            $body['Clipboard'] = $request->clipboard;
+
+        if (null !== $request->clipboard) {
+            @$body['Clipboard'] = $request->clipboard;
         }
-        if (!Utils::isUnset($request->html5FileTransfer)) {
-            $body['Html5FileTransfer'] = $request->html5FileTransfer;
+
+        if (null !== $request->html5FileTransfer) {
+            @$body['Html5FileTransfer'] = $request->html5FileTransfer;
         }
-        if (!Utils::isUnset($request->localDrive)) {
-            $body['LocalDrive'] = $request->localDrive;
+
+        if (null !== $request->localDrive) {
+            @$body['LocalDrive'] = $request->localDrive;
         }
-        if (!Utils::isUnset($request->lockResolution)) {
-            $body['LockResolution'] = $request->lockResolution;
+
+        if (null !== $request->lockResolution) {
+            @$body['LockResolution'] = $request->lockResolution;
         }
-        if (!Utils::isUnset($request->netRedirectPolicyShrink)) {
-            $body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
+
+        if (null !== $request->netRedirectPolicyShrink) {
+            @$body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
         }
-        if (!Utils::isUnset($request->policyGroupId)) {
-            $body['PolicyGroupId'] = $request->policyGroupId;
+
+        if (null !== $request->policyGroupId) {
+            @$body['PolicyGroupId'] = $request->policyGroupId;
         }
-        if (!Utils::isUnset($request->policyGroupName)) {
-            $body['PolicyGroupName'] = $request->policyGroupName;
+
+        if (null !== $request->policyGroupName) {
+            @$body['PolicyGroupName'] = $request->policyGroupName;
         }
-        if (!Utils::isUnset($request->resolutionHeight)) {
-            $body['ResolutionHeight'] = $request->resolutionHeight;
+
+        if (null !== $request->resolutionHeight) {
+            @$body['ResolutionHeight'] = $request->resolutionHeight;
         }
-        if (!Utils::isUnset($request->resolutionWidth)) {
-            $body['ResolutionWidth'] = $request->resolutionWidth;
+
+        if (null !== $request->resolutionWidth) {
+            @$body['ResolutionWidth'] = $request->resolutionWidth;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyPolicyGroup',
@@ -2316,16 +2970,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyPolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPolicyGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改policy
-     *  *
-     * @param ModifyPolicyGroupRequest $request ModifyPolicyGroupRequest
+     * 修改policy.
      *
-     * @return ModifyPolicyGroupResponse ModifyPolicyGroupResponse
+     * @param request - ModifyPolicyGroupRequest
+     * @returns ModifyPolicyGroupResponse
+     *
+     * @param ModifyPolicyGroupRequest $request
+     *
+     * @return ModifyPolicyGroupResponse
      */
     public function modifyPolicyGroup($request)
     {
@@ -2335,28 +2995,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 操作App
-     *  *
-     * @param OperateAppRequest $request OperateAppRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 操作App.
      *
-     * @return OperateAppResponse OperateAppResponse
+     * @param request - OperateAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OperateAppResponse
+     *
+     * @param OperateAppRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return OperateAppResponse
      */
     public function operateAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OperateApp',
@@ -2369,16 +3036,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OperateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 操作App
-     *  *
-     * @param OperateAppRequest $request OperateAppRequest
+     * 操作App.
      *
-     * @return OperateAppResponse OperateAppResponse
+     * @param request - OperateAppRequest
+     * @returns OperateAppResponse
+     *
+     * @param OperateAppRequest $request
+     *
+     * @return OperateAppResponse
      */
     public function operateApp($request)
     {
@@ -2388,25 +3061,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 重启安卓实例
-     *  *
-     * @param RebootAndroidInstancesInGroupRequest $request RebootAndroidInstancesInGroupRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 重启安卓实例.
      *
-     * @return RebootAndroidInstancesInGroupResponse RebootAndroidInstancesInGroupResponse
+     * @param request - RebootAndroidInstancesInGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RebootAndroidInstancesInGroupResponse
+     *
+     * @param RebootAndroidInstancesInGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RebootAndroidInstancesInGroupResponse
      */
     public function rebootAndroidInstancesInGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->forceStop)) {
-            $query['ForceStop'] = $request->forceStop;
+
+        if (null !== $request->forceStop) {
+            @$query['ForceStop'] = $request->forceStop;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RebootAndroidInstancesInGroup',
@@ -2419,16 +3098,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RebootAndroidInstancesInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RebootAndroidInstancesInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RebootAndroidInstancesInGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 重启安卓实例
-     *  *
-     * @param RebootAndroidInstancesInGroupRequest $request RebootAndroidInstancesInGroupRequest
+     * 重启安卓实例.
      *
-     * @return RebootAndroidInstancesInGroupResponse RebootAndroidInstancesInGroupResponse
+     * @param request - RebootAndroidInstancesInGroupRequest
+     * @returns RebootAndroidInstancesInGroupResponse
+     *
+     * @param RebootAndroidInstancesInGroupRequest $request
+     *
+     * @return RebootAndroidInstancesInGroupResponse
      */
     public function rebootAndroidInstancesInGroup($request)
     {
@@ -2438,37 +3123,47 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 数据恢复
-     *  *
-     * @param RecoveryFileRequest $request RecoveryFileRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 数据恢复.
      *
-     * @return RecoveryFileResponse RecoveryFileResponse
+     * @param request - RecoveryFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RecoveryFileResponse
+     *
+     * @param RecoveryFileRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RecoveryFileResponse
      */
     public function recoveryFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIdList)) {
-            $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
-        if (!Utils::isUnset($request->backupAll)) {
-            $query['BackupAll'] = $request->backupAll;
+
+        if (null !== $request->backupAll) {
+            @$query['BackupAll'] = $request->backupAll;
         }
-        if (!Utils::isUnset($request->backupFileId)) {
-            $query['BackupFileId'] = $request->backupFileId;
+
+        if (null !== $request->backupFileId) {
+            @$query['BackupFileId'] = $request->backupFileId;
         }
-        if (!Utils::isUnset($request->backupFilePath)) {
-            $query['BackupFilePath'] = $request->backupFilePath;
+
+        if (null !== $request->backupFilePath) {
+            @$query['BackupFilePath'] = $request->backupFilePath;
         }
-        if (!Utils::isUnset($request->uploadEndpoint)) {
-            $query['UploadEndpoint'] = $request->uploadEndpoint;
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RecoveryFile',
@@ -2481,16 +3176,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RecoveryFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RecoveryFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RecoveryFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 数据恢复
-     *  *
-     * @param RecoveryFileRequest $request RecoveryFileRequest
+     * 数据恢复.
      *
-     * @return RecoveryFileResponse RecoveryFileResponse
+     * @param request - RecoveryFileRequest
+     * @returns RecoveryFileResponse
+     *
+     * @param RecoveryFileRequest $request
+     *
+     * @return RecoveryFileResponse
      */
     public function recoveryFile($request)
     {
@@ -2500,31 +3201,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 续费安卓实例组
-     *  *
-     * @param RenewAndroidInstanceGroupsRequest $request RenewAndroidInstanceGroupsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 续费安卓实例组.
      *
-     * @return RenewAndroidInstanceGroupsResponse RenewAndroidInstanceGroupsResponse
+     * @param request - RenewAndroidInstanceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RenewAndroidInstanceGroupsResponse
+     *
+     * @param RenewAndroidInstanceGroupsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RenewAndroidInstanceGroupsResponse
      */
     public function renewAndroidInstanceGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $query['InstanceGroupIds'] = $request->instanceGroupIds;
+
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RenewAndroidInstanceGroups',
@@ -2537,16 +3246,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RenewAndroidInstanceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenewAndroidInstanceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenewAndroidInstanceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 续费安卓实例组
-     *  *
-     * @param RenewAndroidInstanceGroupsRequest $request RenewAndroidInstanceGroupsRequest
+     * 续费安卓实例组.
      *
-     * @return RenewAndroidInstanceGroupsResponse RenewAndroidInstanceGroupsResponse
+     * @param request - RenewAndroidInstanceGroupsRequest
+     * @returns RenewAndroidInstanceGroupsResponse
+     *
+     * @param RenewAndroidInstanceGroupsRequest $request
+     *
+     * @return RenewAndroidInstanceGroupsResponse
      */
     public function renewAndroidInstanceGroups($request)
     {
@@ -2556,22 +3271,27 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 重置安卓实例
-     *  *
-     * @param ResetAndroidInstancesInGroupRequest $request ResetAndroidInstancesInGroupRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 重置安卓实例.
      *
-     * @return ResetAndroidInstancesInGroupResponse ResetAndroidInstancesInGroupResponse
+     * @param request - ResetAndroidInstancesInGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetAndroidInstancesInGroupResponse
+     *
+     * @param ResetAndroidInstancesInGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ResetAndroidInstancesInGroupResponse
      */
     public function resetAndroidInstancesInGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetAndroidInstancesInGroup',
@@ -2584,16 +3304,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetAndroidInstancesInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetAndroidInstancesInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetAndroidInstancesInGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 重置安卓实例
-     *  *
-     * @param ResetAndroidInstancesInGroupRequest $request ResetAndroidInstancesInGroupRequest
+     * 重置安卓实例.
      *
-     * @return ResetAndroidInstancesInGroupResponse ResetAndroidInstancesInGroupResponse
+     * @param request - ResetAndroidInstancesInGroupRequest
+     * @returns ResetAndroidInstancesInGroupResponse
+     *
+     * @param ResetAndroidInstancesInGroupRequest $request
+     *
+     * @return ResetAndroidInstancesInGroupResponse
      */
     public function resetAndroidInstancesInGroup($request)
     {
@@ -2603,31 +3329,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 通过eds agent通道下发命令
-     *  *
-     * @param RunCommandRequest $request RunCommandRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 通过eds agent通道下发命令.
      *
-     * @return RunCommandResponse RunCommandResponse
+     * @param request - RunCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RunCommandResponse
+     *
+     * @param RunCommandRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunCommandResponse
      */
     public function runCommandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commandContent)) {
-            $query['CommandContent'] = $request->commandContent;
+        if (null !== $request->commandContent) {
+            @$query['CommandContent'] = $request->commandContent;
         }
-        if (!Utils::isUnset($request->contentEncoding)) {
-            $query['ContentEncoding'] = $request->contentEncoding;
+
+        if (null !== $request->contentEncoding) {
+            @$query['ContentEncoding'] = $request->contentEncoding;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RunCommand',
@@ -2640,16 +3374,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunCommandResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过eds agent通道下发命令
-     *  *
-     * @param RunCommandRequest $request RunCommandRequest
+     * 通过eds agent通道下发命令.
      *
-     * @return RunCommandResponse RunCommandResponse
+     * @param request - RunCommandRequest
+     * @returns RunCommandResponse
+     *
+     * @param RunCommandRequest $request
+     *
+     * @return RunCommandResponse
      */
     public function runCommand($request)
     {
@@ -2659,34 +3399,43 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 推送文件到云手机
-     *  *
-     * @param SendFileRequest $request SendFileRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 推送文件到云手机.
      *
-     * @return SendFileResponse SendFileResponse
+     * @param request - SendFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendFileResponse
+     *
+     * @param SendFileRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SendFileResponse
      */
     public function sendFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIdList)) {
-            $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
-        if (!Utils::isUnset($request->sourceFilePath)) {
-            $query['SourceFilePath'] = $request->sourceFilePath;
+
+        if (null !== $request->sourceFilePath) {
+            @$query['SourceFilePath'] = $request->sourceFilePath;
         }
-        if (!Utils::isUnset($request->uploadEndpoint)) {
-            $query['UploadEndpoint'] = $request->uploadEndpoint;
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
         }
-        if (!Utils::isUnset($request->uploadUrl)) {
-            $query['UploadUrl'] = $request->uploadUrl;
+
+        if (null !== $request->uploadUrl) {
+            @$query['UploadUrl'] = $request->uploadUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SendFile',
@@ -2699,16 +3448,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 推送文件到云手机
-     *  *
-     * @param SendFileRequest $request SendFileRequest
+     * 推送文件到云手机.
      *
-     * @return SendFileResponse SendFileResponse
+     * @param request - SendFileRequest
+     * @returns SendFileResponse
+     *
+     * @param SendFileRequest $request
+     *
+     * @return SendFileResponse
      */
     public function sendFile($request)
     {
@@ -2718,22 +3473,27 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 实例开机
-     *  *
-     * @param StartAndroidInstanceRequest $request StartAndroidInstanceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 实例开机.
      *
-     * @return StartAndroidInstanceResponse StartAndroidInstanceResponse
+     * @param request - StartAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartAndroidInstanceResponse
+     *
+     * @param StartAndroidInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartAndroidInstanceResponse
      */
     public function startAndroidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartAndroidInstance',
@@ -2746,16 +3506,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 实例开机
-     *  *
-     * @param StartAndroidInstanceRequest $request StartAndroidInstanceRequest
+     * 实例开机.
      *
-     * @return StartAndroidInstanceResponse StartAndroidInstanceResponse
+     * @param request - StartAndroidInstanceRequest
+     * @returns StartAndroidInstanceResponse
+     *
+     * @param StartAndroidInstanceRequest $request
+     *
+     * @return StartAndroidInstanceResponse
      */
     public function startAndroidInstance($request)
     {
@@ -2765,25 +3531,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 实例关机
-     *  *
-     * @param StopAndroidInstanceRequest $request StopAndroidInstanceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 实例关机.
      *
-     * @return StopAndroidInstanceResponse StopAndroidInstanceResponse
+     * @param request - StopAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopAndroidInstanceResponse
+     *
+     * @param StopAndroidInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StopAndroidInstanceResponse
      */
     public function stopAndroidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->forceStop)) {
-            $query['ForceStop'] = $request->forceStop;
+
+        if (null !== $request->forceStop) {
+            @$query['ForceStop'] = $request->forceStop;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopAndroidInstance',
@@ -2796,16 +3568,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 实例关机
-     *  *
-     * @param StopAndroidInstanceRequest $request StopAndroidInstanceRequest
+     * 实例关机.
      *
-     * @return StopAndroidInstanceResponse StopAndroidInstanceResponse
+     * @param request - StopAndroidInstanceRequest
+     * @returns StopAndroidInstanceResponse
+     *
+     * @param StopAndroidInstanceRequest $request
+     *
+     * @return StopAndroidInstanceResponse
      */
     public function stopAndroidInstance($request)
     {
@@ -2815,28 +3593,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 卸载app
-     *  *
-     * @param UninstallAppRequest $request UninstallAppRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 卸载app.
      *
-     * @return UninstallAppResponse UninstallAppResponse
+     * @param request - UninstallAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UninstallAppResponse
+     *
+     * @param UninstallAppRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UninstallAppResponse
      */
     public function uninstallAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIdList)) {
-            $query['AppIdList'] = $request->appIdList;
+        if (null !== $request->appIdList) {
+            @$query['AppIdList'] = $request->appIdList;
         }
-        if (!Utils::isUnset($request->instanceGroupIdList)) {
-            $query['InstanceGroupIdList'] = $request->instanceGroupIdList;
+
+        if (null !== $request->instanceGroupIdList) {
+            @$query['InstanceGroupIdList'] = $request->instanceGroupIdList;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UninstallApp',
@@ -2849,16 +3634,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UninstallAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UninstallAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UninstallAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 卸载app
-     *  *
-     * @param UninstallAppRequest $request UninstallAppRequest
+     * 卸载app.
      *
-     * @return UninstallAppResponse UninstallAppResponse
+     * @param request - UninstallAppRequest
+     * @returns UninstallAppResponse
+     *
+     * @param UninstallAppRequest $request
+     *
+     * @return UninstallAppResponse
      */
     public function uninstallApp($request)
     {
@@ -2868,25 +3659,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改自定义镜像名称
-     *  *
-     * @param UpdateCustomImageNameRequest $request UpdateCustomImageNameRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 修改自定义镜像名称.
      *
-     * @return UpdateCustomImageNameResponse UpdateCustomImageNameResponse
+     * @param request - UpdateCustomImageNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCustomImageNameResponse
+     *
+     * @param UpdateCustomImageNameRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateCustomImageNameResponse
      */
     public function updateCustomImageNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->imageName)) {
-            $body['ImageName'] = $request->imageName;
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCustomImageName',
@@ -2899,16 +3696,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCustomImageNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCustomImageNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCustomImageNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改自定义镜像名称
-     *  *
-     * @param UpdateCustomImageNameRequest $request UpdateCustomImageNameRequest
+     * 修改自定义镜像名称.
      *
-     * @return UpdateCustomImageNameResponse UpdateCustomImageNameResponse
+     * @param request - UpdateCustomImageNameRequest
+     * @returns UpdateCustomImageNameResponse
+     *
+     * @param UpdateCustomImageNameRequest $request
+     *
+     * @return UpdateCustomImageNameResponse
      */
     public function updateCustomImageName($request)
     {
@@ -2918,25 +3721,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 实例组变更镜像
-     *  *
-     * @param UpdateInstanceGroupImageRequest $request UpdateInstanceGroupImageRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 实例组变更镜像.
      *
-     * @return UpdateInstanceGroupImageResponse UpdateInstanceGroupImageResponse
+     * @param request - UpdateInstanceGroupImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateInstanceGroupImageResponse
+     *
+     * @param UpdateInstanceGroupImageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateInstanceGroupImageResponse
      */
     public function updateInstanceGroupImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $body['InstanceGroupIds'] = $request->instanceGroupIds;
+
+        if (null !== $request->instanceGroupIds) {
+            @$body['InstanceGroupIds'] = $request->instanceGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateInstanceGroupImage',
@@ -2949,16 +3758,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateInstanceGroupImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateInstanceGroupImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateInstanceGroupImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 实例组变更镜像
-     *  *
-     * @param UpdateInstanceGroupImageRequest $request UpdateInstanceGroupImageRequest
+     * 实例组变更镜像.
      *
-     * @return UpdateInstanceGroupImageResponse UpdateInstanceGroupImageResponse
+     * @param request - UpdateInstanceGroupImageRequest
+     * @returns UpdateInstanceGroupImageResponse
+     *
+     * @param UpdateInstanceGroupImageRequest $request
+     *
+     * @return UpdateInstanceGroupImageResponse
      */
     public function updateInstanceGroupImage($request)
     {
@@ -2968,28 +3783,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 安卓实例组扩容
-     *  *
-     * @param UpgradeAndroidInstanceGroupRequest $request UpgradeAndroidInstanceGroupRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 安卓实例组扩容.
      *
-     * @return UpgradeAndroidInstanceGroupResponse UpgradeAndroidInstanceGroupResponse
+     * @param request - UpgradeAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpgradeAndroidInstanceGroupResponse
+     *
+     * @param UpgradeAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpgradeAndroidInstanceGroupResponse
      */
     public function upgradeAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->increaseNumberOfInstance)) {
-            $query['IncreaseNumberOfInstance'] = $request->increaseNumberOfInstance;
+
+        if (null !== $request->increaseNumberOfInstance) {
+            @$query['IncreaseNumberOfInstance'] = $request->increaseNumberOfInstance;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeAndroidInstanceGroup',
@@ -3002,16 +3824,22 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpgradeAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpgradeAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 安卓实例组扩容
-     *  *
-     * @param UpgradeAndroidInstanceGroupRequest $request UpgradeAndroidInstanceGroupRequest
+     * 安卓实例组扩容.
      *
-     * @return UpgradeAndroidInstanceGroupResponse UpgradeAndroidInstanceGroupResponse
+     * @param request - UpgradeAndroidInstanceGroupRequest
+     * @returns UpgradeAndroidInstanceGroupResponse
+     *
+     * @param UpgradeAndroidInstanceGroupRequest $request
+     *
+     * @return UpgradeAndroidInstanceGroupResponse
      */
     public function upgradeAndroidInstanceGroup($request)
     {

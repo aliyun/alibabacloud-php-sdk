@@ -4,44 +4,31 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecoveryFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $androidInstanceIdList;
-
     /**
      * @var bool
      */
     public $backupAll;
-
     /**
-     * @example bf-azhps4rdyi2th****
-     *
      * @var string
      */
     public $backupFileId;
-
     /**
      * @var string
      */
     public $backupFilePath;
-
     /**
-     * @example oss-cn-hangzhou-internal.aliyuncs.com
-     *
      * @var string
      */
     public $uploadEndpoint;
-
     /**
-     * @example OSS
-     *
      * @var string
      */
     public $uploadType;
@@ -56,26 +43,41 @@ class RecoveryFileRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->androidInstanceIdList)) {
+            Model::validateArray($this->androidInstanceIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->androidInstanceIdList) {
-            $res['AndroidInstanceIdList'] = $this->androidInstanceIdList;
+            if (\is_array($this->androidInstanceIdList)) {
+                $res['AndroidInstanceIdList'] = [];
+                $n1                           = 0;
+                foreach ($this->androidInstanceIdList as $item1) {
+                    $res['AndroidInstanceIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->backupAll) {
             $res['BackupAll'] = $this->backupAll;
         }
+
         if (null !== $this->backupFileId) {
             $res['BackupFileId'] = $this->backupFileId;
         }
+
         if (null !== $this->backupFilePath) {
             $res['BackupFilePath'] = $this->backupFilePath;
         }
+
         if (null !== $this->uploadEndpoint) {
             $res['UploadEndpoint'] = $this->uploadEndpoint;
         }
+
         if (null !== $this->uploadType) {
             $res['UploadType'] = $this->uploadType;
         }
@@ -83,31 +85,40 @@ class RecoveryFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecoveryFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidInstanceIdList'])) {
             if (!empty($map['AndroidInstanceIdList'])) {
-                $model->androidInstanceIdList = $map['AndroidInstanceIdList'];
+                $model->androidInstanceIdList = [];
+                $n1                           = 0;
+                foreach ($map['AndroidInstanceIdList'] as $item1) {
+                    $model->androidInstanceIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['BackupAll'])) {
             $model->backupAll = $map['BackupAll'];
         }
+
         if (isset($map['BackupFileId'])) {
             $model->backupFileId = $map['BackupFileId'];
         }
+
         if (isset($map['BackupFilePath'])) {
             $model->backupFilePath = $map['BackupFilePath'];
         }
+
         if (isset($map['UploadEndpoint'])) {
             $model->uploadEndpoint = $map['UploadEndpoint'];
         }
+
         if (isset($map['UploadType'])) {
             $model->uploadType = $map['UploadType'];
         }

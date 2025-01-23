@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeAndroidInstanceGroupRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $autoPay;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $increaseNumberOfInstance;
-
     /**
-     * @example ag-asguicdjh****
-     *
      * @var string
      */
     public $instanceGroupId;
@@ -36,17 +28,20 @@ class UpgradeAndroidInstanceGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+
         if (null !== $this->increaseNumberOfInstance) {
             $res['IncreaseNumberOfInstance'] = $this->increaseNumberOfInstance;
         }
+
         if (null !== $this->instanceGroupId) {
             $res['InstanceGroupId'] = $this->instanceGroupId;
         }
@@ -54,20 +49,22 @@ class UpgradeAndroidInstanceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeAndroidInstanceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+
         if (isset($map['IncreaseNumberOfInstance'])) {
             $model->increaseNumberOfInstance = $map['IncreaseNumberOfInstance'];
         }
+
         if (isset($map['InstanceGroupId'])) {
             $model->instanceGroupId = $map['InstanceGroupId'];
         }

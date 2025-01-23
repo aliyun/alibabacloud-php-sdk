@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeAndroidInstanceGroupResponseBody extends Model
 {
@@ -12,17 +12,11 @@ class UpgradeAndroidInstanceGroupResponseBody extends Model
      * @var string
      */
     public $instanceIds;
-
     /**
-     * @example 223684716098****
-     *
      * @var string
      */
     public $orderId;
-
     /**
-     * @example 310A783E-CC46-5452-A8A3-71AE5DB59****
-     *
      * @var string
      */
     public $requestId;
@@ -34,17 +28,20 @@ class UpgradeAndroidInstanceGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,20 +49,22 @@ class UpgradeAndroidInstanceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeAndroidInstanceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

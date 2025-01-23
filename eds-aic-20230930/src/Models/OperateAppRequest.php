@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OperateAppRequest extends Model
 {
     /**
-     * @example 1234
-     *
      * @var int
      */
     public $appId;
-
     /**
      * @var string[]
      */
     public $instanceIdList;
-
     /**
-     * @example start
-     *
      * @var string
      */
     public $operateType;
@@ -34,17 +28,29 @@ class OperateAppRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceIdList)) {
+            Model::validateArray($this->instanceIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->instanceIdList) {
-            $res['InstanceIdList'] = $this->instanceIdList;
+            if (\is_array($this->instanceIdList)) {
+                $res['InstanceIdList'] = [];
+                $n1                    = 0;
+                foreach ($this->instanceIdList as $item1) {
+                    $res['InstanceIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
         }
@@ -52,22 +58,28 @@ class OperateAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperateAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['InstanceIdList'])) {
             if (!empty($map['InstanceIdList'])) {
-                $model->instanceIdList = $map['InstanceIdList'];
+                $model->instanceIdList = [];
+                $n1                    = 0;
+                foreach ($map['InstanceIdList'] as $item1) {
+                    $model->instanceIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
         }

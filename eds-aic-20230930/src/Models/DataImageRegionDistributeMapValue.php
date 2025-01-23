@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataImageRegionDistributeMapValue extends Model
 {
     /**
-     * @example AVAILABLE
-     *
      * @var string
      */
     public $distributeStatus;
-
     /**
-     * @example 100%
-     *
      * @var string
      */
     public $progress;
@@ -28,14 +23,16 @@ class DataImageRegionDistributeMapValue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->distributeStatus) {
             $res['DistributeStatus'] = $this->distributeStatus;
         }
+
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
@@ -43,17 +40,18 @@ class DataImageRegionDistributeMapValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataImageRegionDistributeMapValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DistributeStatus'])) {
             $model->distributeStatus = $map['DistributeStatus'];
         }
+
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }

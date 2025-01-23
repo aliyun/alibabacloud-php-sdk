@@ -4,47 +4,27 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FetchFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $androidInstanceIdList;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example /data/a.txt
-     *
      * @var string
      */
     public $sourceFilePath;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example oss-cn-hangzhou.aliyuncs.com
-     *
      * @var string
      */
     public $uploadEndpoint;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example OSS
-     *
      * @var string
      */
     public $uploadType;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $uploadUrl;
@@ -58,23 +38,37 @@ class FetchFileRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->androidInstanceIdList)) {
+            Model::validateArray($this->androidInstanceIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->androidInstanceIdList) {
-            $res['AndroidInstanceIdList'] = $this->androidInstanceIdList;
+            if (\is_array($this->androidInstanceIdList)) {
+                $res['AndroidInstanceIdList'] = [];
+                $n1                           = 0;
+                foreach ($this->androidInstanceIdList as $item1) {
+                    $res['AndroidInstanceIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->sourceFilePath) {
             $res['SourceFilePath'] = $this->sourceFilePath;
         }
+
         if (null !== $this->uploadEndpoint) {
             $res['UploadEndpoint'] = $this->uploadEndpoint;
         }
+
         if (null !== $this->uploadType) {
             $res['UploadType'] = $this->uploadType;
         }
+
         if (null !== $this->uploadUrl) {
             $res['UploadUrl'] = $this->uploadUrl;
         }
@@ -82,28 +76,36 @@ class FetchFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FetchFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidInstanceIdList'])) {
             if (!empty($map['AndroidInstanceIdList'])) {
-                $model->androidInstanceIdList = $map['AndroidInstanceIdList'];
+                $model->androidInstanceIdList = [];
+                $n1                           = 0;
+                foreach ($map['AndroidInstanceIdList'] as $item1) {
+                    $model->androidInstanceIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SourceFilePath'])) {
             $model->sourceFilePath = $map['SourceFilePath'];
         }
+
         if (isset($map['UploadEndpoint'])) {
             $model->uploadEndpoint = $map['UploadEndpoint'];
         }
+
         if (isset($map['UploadType'])) {
             $model->uploadType = $map['UploadType'];
         }
+
         if (isset($map['UploadUrl'])) {
             $model->uploadUrl = $map['UploadUrl'];
         }

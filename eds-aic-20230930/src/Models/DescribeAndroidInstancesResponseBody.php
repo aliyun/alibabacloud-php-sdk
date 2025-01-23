@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAndroidInstancesResponseBody extends Model
 {
@@ -13,24 +13,15 @@ class DescribeAndroidInstancesResponseBody extends Model
      * @var instanceModel[]
      */
     public $instanceModel;
-
     /**
-     * @example AAAAAV3MpHK1AP0pfERHZN5pu6kmma/xxE9WtwL/ADvZ****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example F07A1DA1-E1EB-5CCA-8EED-12F85D32****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -43,26 +34,33 @@ class DescribeAndroidInstancesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceModel)) {
+            Model::validateArray($this->instanceModel);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceModel) {
-            $res['InstanceModel'] = [];
-            if (null !== $this->instanceModel && \is_array($this->instanceModel)) {
-                $n = 0;
-                foreach ($this->instanceModel as $item) {
-                    $res['InstanceModel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceModel)) {
+                $res['InstanceModel'] = [];
+                $n1                   = 0;
+                foreach ($this->instanceModel as $item1) {
+                    $res['InstanceModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -70,29 +68,32 @@ class DescribeAndroidInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAndroidInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceModel'])) {
             if (!empty($map['InstanceModel'])) {
                 $model->instanceModel = [];
-                $n                    = 0;
-                foreach ($map['InstanceModel'] as $item) {
-                    $model->instanceModel[$n++] = null !== $item ? instanceModel::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['InstanceModel'] as $item1) {
+                    $model->instanceModel[$n1++] = instanceModel::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

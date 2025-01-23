@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DowngradeAndroidInstanceGroupRequest extends Model
 {
@@ -12,19 +12,11 @@ class DowngradeAndroidInstanceGroupRequest extends Model
      * @var string[]
      */
     public $androidInstanceIds;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $autoPay;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ag-cuv4scs4obxhs****
-     *
      * @var string
      */
     public $instanceGroupId;
@@ -36,17 +28,29 @@ class DowngradeAndroidInstanceGroupRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->androidInstanceIds)) {
+            Model::validateArray($this->androidInstanceIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->androidInstanceIds) {
-            $res['AndroidInstanceIds'] = $this->androidInstanceIds;
+            if (\is_array($this->androidInstanceIds)) {
+                $res['AndroidInstanceIds'] = [];
+                $n1                        = 0;
+                foreach ($this->androidInstanceIds as $item1) {
+                    $res['AndroidInstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+
         if (null !== $this->instanceGroupId) {
             $res['InstanceGroupId'] = $this->instanceGroupId;
         }
@@ -54,22 +58,28 @@ class DowngradeAndroidInstanceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DowngradeAndroidInstanceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidInstanceIds'])) {
             if (!empty($map['AndroidInstanceIds'])) {
-                $model->androidInstanceIds = $map['AndroidInstanceIds'];
+                $model->androidInstanceIds = [];
+                $n1                        = 0;
+                foreach ($map['AndroidInstanceIds'] as $item1) {
+                    $model->androidInstanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+
         if (isset($map['InstanceGroupId'])) {
             $model->instanceGroupId = $map['InstanceGroupId'];
         }

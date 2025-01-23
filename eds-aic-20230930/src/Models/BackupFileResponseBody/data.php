@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,17 +12,14 @@ class data extends Model
      * @var string
      */
     public $androidInstanceId;
-
     /**
      * @var string
      */
     public $backupFileId;
-
     /**
      * @var string
      */
     public $backupFileName;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->androidInstanceId) {
             $res['AndroidInstanceId'] = $this->androidInstanceId;
         }
+
         if (null !== $this->backupFileId) {
             $res['BackupFileId'] = $this->backupFileId;
         }
+
         if (null !== $this->backupFileName) {
             $res['BackupFileName'] = $this->backupFileName;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -57,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidInstanceId'])) {
             $model->androidInstanceId = $map['AndroidInstanceId'];
         }
+
         if (isset($map['BackupFileId'])) {
             $model->backupFileId = $map['BackupFileId'];
         }
+
         if (isset($map['BackupFileName'])) {
             $model->backupFileName = $map['BackupFileName'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

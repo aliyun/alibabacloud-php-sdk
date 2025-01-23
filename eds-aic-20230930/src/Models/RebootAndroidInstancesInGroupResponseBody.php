@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RebootAndroidInstancesInGroupResponseBody extends Model
 {
     /**
-     * @example 227CBB4C-F5DC-589D-A667-C5CA3D52****
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class RebootAndroidInstancesInGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class RebootAndroidInstancesInGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RebootAndroidInstancesInGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

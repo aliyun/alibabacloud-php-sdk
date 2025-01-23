@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAppsRequest extends Model
 {
@@ -12,46 +12,31 @@ class DescribeAppsRequest extends Model
      * @var string[]
      */
     public $appIdList;
-
     /**
      * @var string
      */
     public $appName;
-
     /**
      * @var string
      */
     public $bizRegionId;
-
     /**
-     * @example INSTALLING
-     *
      * @var string
      */
     public $installationStatus;
-
     /**
      * @var string
      */
     public $MD5;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example NORMAL
-     *
      * @var string
      */
     public $status;
@@ -68,32 +53,49 @@ class DescribeAppsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->appIdList)) {
+            Model::validateArray($this->appIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appIdList) {
-            $res['AppIdList'] = $this->appIdList;
+            if (\is_array($this->appIdList)) {
+                $res['AppIdList'] = [];
+                $n1               = 0;
+                foreach ($this->appIdList as $item1) {
+                    $res['AppIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
         }
+
         if (null !== $this->installationStatus) {
             $res['InstallationStatus'] = $this->installationStatus;
         }
+
         if (null !== $this->MD5) {
             $res['MD5'] = $this->MD5;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -101,37 +103,48 @@ class DescribeAppsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAppsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIdList'])) {
             if (!empty($map['AppIdList'])) {
-                $model->appIdList = $map['AppIdList'];
+                $model->appIdList = [];
+                $n1               = 0;
+                foreach ($map['AppIdList'] as $item1) {
+                    $model->appIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
+
         if (isset($map['InstallationStatus'])) {
             $model->installationStatus = $map['InstallationStatus'];
         }
+
         if (isset($map['MD5'])) {
             $model->MD5 = $map['MD5'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
