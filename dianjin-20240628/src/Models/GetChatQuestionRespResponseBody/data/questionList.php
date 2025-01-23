@@ -19,6 +19,10 @@ class questionList extends Model
     /**
      * @var string
      */
+    public $oriContent;
+    /**
+     * @var string
+     */
     public $reply;
     /**
      * @var string
@@ -37,13 +41,14 @@ class questionList extends Model
      */
     public $userName;
     protected $_name = [
-        'content'   => 'content',
-        'gmtCreate' => 'gmtCreate',
-        'reply'     => 'reply',
-        'sessionId' => 'sessionId',
-        'type'      => 'type',
-        'userId'    => 'userId',
-        'userName'  => 'userName',
+        'content'    => 'content',
+        'gmtCreate'  => 'gmtCreate',
+        'oriContent' => 'oriContent',
+        'reply'      => 'reply',
+        'sessionId'  => 'sessionId',
+        'type'       => 'type',
+        'userId'     => 'userId',
+        'userName'   => 'userName',
     ];
 
     public function validate()
@@ -60,6 +65,10 @@ class questionList extends Model
 
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
+        }
+
+        if (null !== $this->oriContent) {
+            $res['oriContent'] = $this->oriContent;
         }
 
         if (null !== $this->reply) {
@@ -99,6 +108,10 @@ class questionList extends Model
 
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
+        }
+
+        if (isset($map['oriContent'])) {
+            $model->oriContent = $map['oriContent'];
         }
 
         if (isset($map['reply'])) {
