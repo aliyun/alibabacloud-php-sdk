@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDDLJobStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The content of the task.
-     *
-     * @example success
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description The ID of the ongoing task. If no value is returned for this parameter, all subtasks are complete.
-     *
-     * @example abc1
-     *
      * @var string
      */
     public $nextTaskId;
-
     /**
-     * @description The status of the task.
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @description The task ID.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $taskId;
@@ -52,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->nextTaskId) {
             $res['NextTaskId'] = $this->nextTaskId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -73,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['NextTaskId'])) {
             $model->nextTaskId = $map['NextTaskId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

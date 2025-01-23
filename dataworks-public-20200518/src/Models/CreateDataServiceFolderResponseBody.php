@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDataServiceFolderResponseBody extends Model
 {
     /**
-     * @description The ID of the created folder.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $folderId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0000-ABCD-E****
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateDataServiceFolderResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateDataServiceFolderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataServiceFolderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

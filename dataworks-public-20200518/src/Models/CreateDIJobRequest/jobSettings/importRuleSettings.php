@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobRequest\jobSettings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class importRuleSettings extends Model
 {
     /**
-     * @description The ID of the task to be imported.
-     *
-     * @example 10000
-     *
      * @var string
      */
     public $fileId;
-
     /**
-     * @description The import source of the task. Set the value to Datastudio, which indicates synchronization tasks created in DataStudio.
-     *
-     * @example Datastudio
-     *
      * @var string
      */
     public $source;
@@ -32,14 +23,16 @@ class importRuleSettings extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -47,17 +40,18 @@ class importRuleSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return importRuleSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

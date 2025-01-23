@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataDesensPlanTemplateValue extends Model
 {
     /**
-     * @description The name of the data masking method.
-     *
-     * @example hash
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description Indicates whether a watermark is added. Valid values:
-     *
-     *   true: allow
-     *   false: disallow
-     *
-     * @example true
-     *
      * @var bool
      */
     public $supportWaterMark;
-
     /**
-     * @description The data masking parameters and their descriptions.
-     *
      * @var mixed[]
      */
     public $extParamTemplate;
@@ -43,41 +28,59 @@ class DataDesensPlanTemplateValue extends Model
 
     public function validate()
     {
+        if (\is_array($this->extParamTemplate)) {
+            Model::validateArray($this->extParamTemplate);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->supportWaterMark) {
             $res['SupportWaterMark'] = $this->supportWaterMark;
         }
+
         if (null !== $this->extParamTemplate) {
-            $res['ExtParamTemplate'] = $this->extParamTemplate;
+            if (\is_array($this->extParamTemplate)) {
+                $res['ExtParamTemplate'] = [];
+                $n1                      = 0;
+                foreach ($this->extParamTemplate as $item1) {
+                    $res['ExtParamTemplate'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataDesensPlanTemplateValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SupportWaterMark'])) {
             $model->supportWaterMark = $map['SupportWaterMark'];
         }
+
         if (isset($map['ExtParamTemplate'])) {
             if (!empty($map['ExtParamTemplate'])) {
-                $model->extParamTemplate = $map['ExtParamTemplate'];
+                $model->extParamTemplate = [];
+                $n1                      = 0;
+                foreach ($map['ExtParamTemplate'] as $item1) {
+                    $model->extParamTemplate[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIAlarmRulesResponseBody\DIAlarmRulePaging\DIJobAlarmRules\notificationSettings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notificationReceivers extends Model
 {
     /**
-     * @description The recipient type.
-     *
-     *   If the alert notification method is Mail, Phone, or Sms, the recipient type is Alibaba Cloud account ID.
-     *   If the alert notification method is Ding, the recipient type is DingTalk chatbot token.
-     *
-     * @example DingToken
-     *
      * @var string
      */
     public $receiverType;
-
     /**
-     * @description The recipients.
-     *
      * @var string[]
      */
     public $receiverValues;
@@ -33,35 +23,51 @@ class notificationReceivers extends Model
 
     public function validate()
     {
+        if (\is_array($this->receiverValues)) {
+            Model::validateArray($this->receiverValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->receiverType) {
             $res['ReceiverType'] = $this->receiverType;
         }
+
         if (null !== $this->receiverValues) {
-            $res['ReceiverValues'] = $this->receiverValues;
+            if (\is_array($this->receiverValues)) {
+                $res['ReceiverValues'] = [];
+                $n1                    = 0;
+                foreach ($this->receiverValues as $item1) {
+                    $res['ReceiverValues'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notificationReceivers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReceiverType'])) {
             $model->receiverType = $map['ReceiverType'];
         }
+
         if (isset($map['ReceiverValues'])) {
             if (!empty($map['ReceiverValues'])) {
-                $model->receiverValues = $map['ReceiverValues'];
+                $model->receiverValues = [];
+                $n1                    = 0;
+                foreach ($map['ReceiverValues'] as $item1) {
+                    $model->receiverValues[$n1++] = $item1;
+                }
             }
         }
 

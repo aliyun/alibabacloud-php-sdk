@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProjectIdsResponseBody extends Model
 {
     /**
-     * @description The IDs of the DataWorks workspaces. The IDs of the workspaces on which the desired Alibaba Cloud account has permissions were returned.
-     *
      * @var int[]
      */
     public $projectIds;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0b57ff7216278945532771749d****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,25 @@ class ListProjectIdsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->projectIds)) {
+            Model::validateArray($this->projectIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectIds) {
-            $res['ProjectIds'] = $this->projectIds;
+            if (\is_array($this->projectIds)) {
+                $res['ProjectIds'] = [];
+                $n1                = 0;
+                foreach ($this->projectIds as $item1) {
+                    $res['ProjectIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +49,24 @@ class ListProjectIdsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectIdsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectIds'])) {
             if (!empty($map['ProjectIds'])) {
-                $model->projectIds = $map['ProjectIds'];
+                $model->projectIds = [];
+                $n1                = 0;
+                foreach ($map['ProjectIds'] as $item1) {
+                    $model->projectIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DsgQueryDefaultTemplatesRequest extends Model
 {
     /**
-     * @description The ID of the level-2 data masking scenario. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to query the list of IDs.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $sceneId;
@@ -23,9 +18,10 @@ class DsgQueryDefaultTemplatesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sceneId) {
@@ -35,11 +31,11 @@ class DsgQueryDefaultTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DsgQueryDefaultTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

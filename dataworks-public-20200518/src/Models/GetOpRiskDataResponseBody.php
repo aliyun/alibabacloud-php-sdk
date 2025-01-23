@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOpRiskDataResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0000-ABCD-EFG****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the high-risk sensitive data. The information includes totalCount and opRiskDatas. opRiskDatas includes the following parameters:
-     *
-     *   sensType: the type of the sensitive data
-     *   sensLevel: the sensitivity level of the sensitive data
-     *   opType: the type of the operation
-     *   sql: the SQL statement that is executed
-     *   opAccount: the account that is used to perform the operation
-     *   opTime: the time when the operation was performed
-     *
      * @var string
      */
     public $riskData;
@@ -37,14 +23,16 @@ class GetOpRiskDataResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->riskData) {
             $res['RiskData'] = $this->riskData;
         }
@@ -52,17 +40,18 @@ class GetOpRiskDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOpRiskDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RiskData'])) {
             $model->riskData = $map['RiskData'];
         }

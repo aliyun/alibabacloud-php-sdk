@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesResponseBody\paging\shiftSchedules;
-use AlibabaCloud\Tea\Model;
 
 class paging extends Model
 {
     /**
-     * @description The page number. Minimum value: 1. Maximum value: 100.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The shift schedules.
-     *
      * @var shiftSchedules[]
      */
     public $shiftSchedules;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class paging extends Model
 
     public function validate()
     {
+        if (\is_array($this->shiftSchedules)) {
+            Model::validateArray($this->shiftSchedules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->shiftSchedules) {
-            $res['ShiftSchedules'] = [];
-            if (null !== $this->shiftSchedules && \is_array($this->shiftSchedules)) {
-                $n = 0;
-                foreach ($this->shiftSchedules as $item) {
-                    $res['ShiftSchedules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->shiftSchedules)) {
+                $res['ShiftSchedules'] = [];
+                $n1                    = 0;
+                foreach ($this->shiftSchedules as $item1) {
+                    $res['ShiftSchedules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class paging extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return paging
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ShiftSchedules'])) {
             if (!empty($map['ShiftSchedules'])) {
                 $model->shiftSchedules = [];
-                $n                     = 0;
-                foreach ($map['ShiftSchedules'] as $item) {
-                    $model->shiftSchedules[$n++] = null !== $item ? shiftSchedules::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ShiftSchedules'] as $item1) {
+                    $model->shiftSchedules[$n1++] = shiftSchedules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

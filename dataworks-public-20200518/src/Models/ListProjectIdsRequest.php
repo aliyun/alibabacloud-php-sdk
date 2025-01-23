@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProjectIdsRequest extends Model
 {
     /**
-     * @description The ID of the desired Alibaba Cloud account.
-     *
-     * This parameter is required.
-     * @example 171111
-     *
      * @var string
      */
     public $userId;
@@ -23,9 +18,10 @@ class ListProjectIdsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -35,11 +31,11 @@ class ListProjectIdsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectIdsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

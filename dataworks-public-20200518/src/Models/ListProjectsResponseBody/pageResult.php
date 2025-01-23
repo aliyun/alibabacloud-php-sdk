@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectsResponseBody\pageResult\projectList;
-use AlibabaCloud\Tea\Model;
 
 class pageResult extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Default value: 10. Maximum value: 100.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The DataWorks workspaces.
-     *
      * @var projectList[]
      */
     public $projectList;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class pageResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->projectList)) {
+            Model::validateArray($this->projectList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->projectList) {
-            $res['ProjectList'] = [];
-            if (null !== $this->projectList && \is_array($this->projectList)) {
-                $n = 0;
-                foreach ($this->projectList as $item) {
-                    $res['ProjectList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->projectList)) {
+                $res['ProjectList'] = [];
+                $n1                 = 0;
+                foreach ($this->projectList as $item1) {
+                    $res['ProjectList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class pageResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProjectList'])) {
             if (!empty($map['ProjectList'])) {
                 $model->projectList = [];
-                $n                  = 0;
-                foreach ($map['ProjectList'] as $item) {
-                    $model->projectList[$n++] = null !== $item ? projectList::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['ProjectList'] as $item1) {
+                    $model->projectList[$n1++] = projectList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

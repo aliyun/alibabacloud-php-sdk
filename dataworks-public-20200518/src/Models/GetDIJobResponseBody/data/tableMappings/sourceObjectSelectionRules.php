@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDIJobResponseBody\data\tableMappings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceObjectSelectionRules extends Model
 {
     /**
-     * @description The expression.
-     *
-     * @example mysql_table_1
-     *
      * @var string
      */
     public $expression;
-
     /**
-     * @description The type of the object. Valid values:
-     *
-     *   Table
-     *   Database
-     *
-     * @example Table
-     *
      * @var string
      */
     public $objectType;
@@ -35,14 +23,16 @@ class sourceObjectSelectionRules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
+
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
         }
@@ -50,17 +40,18 @@ class sourceObjectSelectionRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceObjectSelectionRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
+
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
         }

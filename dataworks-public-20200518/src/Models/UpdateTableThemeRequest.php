@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTableThemeRequest extends Model
 {
     /**
-     * @description The name of the theme.
-     *
-     * This parameter is required.
-     * @example table folder name
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The workspace ID.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The ID of the theme.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $themeId;
@@ -44,17 +28,20 @@ class UpdateTableThemeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->themeId) {
             $res['ThemeId'] = $this->themeId;
         }
@@ -62,20 +49,22 @@ class UpdateTableThemeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTableThemeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ThemeId'])) {
             $model->themeId = $map['ThemeId'];
         }

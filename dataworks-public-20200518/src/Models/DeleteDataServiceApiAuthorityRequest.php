@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDataServiceApiAuthorityRequest extends Model
 {
     /**
-     * @description The API ID.
-     *
-     * This parameter is required.
-     * @example 10001
-     *
      * @var int
      */
     public $apiId;
-
     /**
-     * @description The ID of the workspace from which you want to revoke the access permissions on the API.
-     *
-     * This parameter is required.
-     * @example 10002
-     *
      * @var int
      */
     public $authorizedProjectId;
-
     /**
-     * @description The workspace ID.
-     *
-     * This parameter is required.
-     * @example 10003
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The tenant ID. This parameter is deprecated.
-     *
-     * @example 10004
-     *
      * @var int
      */
     public $tenantId;
@@ -55,20 +33,24 @@ class DeleteDataServiceApiAuthorityRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+
         if (null !== $this->authorizedProjectId) {
             $res['AuthorizedProjectId'] = $this->authorizedProjectId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -76,23 +58,26 @@ class DeleteDataServiceApiAuthorityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDataServiceApiAuthorityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+
         if (isset($map['AuthorizedProjectId'])) {
             $model->authorizedProjectId = $map['AuthorizedProjectId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

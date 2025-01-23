@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OfflineNodeRequest extends Model
 {
     /**
-     * @description The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to obtain the node ID.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $nodeId;
-
     /**
-     * @description The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to obtain the ID.
-     *
-     * This parameter is required.
-     * @example 9527
-     *
      * @var int
      */
     public $projectId;
@@ -34,14 +23,16 @@ class OfflineNodeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -49,17 +40,18 @@ class OfflineNodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OfflineNodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

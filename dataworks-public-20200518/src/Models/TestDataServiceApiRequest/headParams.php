@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TestDataServiceApiRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class headParams extends Model
 {
     /**
-     * @description The name of the parameter.
-     *
-     * @example requestId
-     *
      * @var string
      */
     public $paramKey;
-
     /**
-     * @description The value of the parameter.
-     *
-     * @example abcd
-     *
      * @var string
      */
     public $paramValue;
@@ -32,14 +23,16 @@ class headParams extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramKey) {
             $res['ParamKey'] = $this->paramKey;
         }
+
         if (null !== $this->paramValue) {
             $res['ParamValue'] = $this->paramValue;
         }
@@ -47,17 +40,18 @@ class headParams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return headParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamKey'])) {
             $model->paramKey = $map['ParamKey'];
         }
+
         if (isset($map['ParamValue'])) {
             $model->paramValue = $map['ParamValue'];
         }

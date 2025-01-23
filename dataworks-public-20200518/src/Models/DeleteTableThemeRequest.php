@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTableThemeRequest extends Model
 {
     /**
-     * @description The ID of the DataWorks workspace.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The ID of the theme.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $themeId;
@@ -33,14 +23,16 @@ class DeleteTableThemeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->themeId) {
             $res['ThemeId'] = $this->themeId;
         }
@@ -48,17 +40,18 @@ class DeleteTableThemeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTableThemeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ThemeId'])) {
             $model->themeId = $map['ThemeId'];
         }

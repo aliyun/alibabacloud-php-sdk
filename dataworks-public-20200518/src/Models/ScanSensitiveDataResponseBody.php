@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScanSensitiveDataResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0000-ABCD-EFG****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The check result. sensDatas indicates the rules that are used to check the sensitive data. sensDatas includes the following parameters:
-     *
-     *   hitCount: the number of times that the sensitive data hits the rule.
-     *   ruleName: the name of the rule.
-     *
      * @var mixed[]
      */
     public $sensitives;
@@ -33,34 +23,50 @@ class ScanSensitiveDataResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->sensitives)) {
+            Model::validateArray($this->sensitives);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sensitives) {
-            $res['Sensitives'] = $this->sensitives;
+            if (\is_array($this->sensitives)) {
+                $res['Sensitives'] = [];
+                foreach ($this->sensitives as $key1 => $value1) {
+                    $res['Sensitives'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScanSensitiveDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Sensitives'])) {
-            $model->sensitives = $map['Sensitives'];
+            if (!empty($map['Sensitives'])) {
+                $model->sensitives = [];
+                foreach ($map['Sensitives'] as $key1 => $value1) {
+                    $model->sensitives[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

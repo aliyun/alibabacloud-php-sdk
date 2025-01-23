@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMigrationProcessResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The name of the step in the migration task.
-     *
-     * @example IMPORE_PREPARE
-     *
      * @var string
      */
     public $taskName;
-
     /**
-     * @description The running status of the step in the migration task. Valid values:
-     *
-     *   INIT
-     *   RUNNING
-     *   FAILURE
-     *   SUCCESS
-     *
-     * @example SUCCESS
-     *
      * @var string
      */
     public $taskStatus;
@@ -37,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
+
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
@@ -52,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
+
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }

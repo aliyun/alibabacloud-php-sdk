@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RegisterLineageRelationRequest extends Model
 {
     /**
-     * @description The structure whose lineage you want to register to DataWorks.
-     *
-     * This parameter is required.
      * @var LineageRelationRegisterVO
      */
     public $lineageRelationRegisterVO;
@@ -21,23 +18,27 @@ class RegisterLineageRelationRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->lineageRelationRegisterVO) {
+            $this->lineageRelationRegisterVO->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lineageRelationRegisterVO) {
-            $res['LineageRelationRegisterVO'] = null !== $this->lineageRelationRegisterVO ? $this->lineageRelationRegisterVO->toMap() : null;
+            $res['LineageRelationRegisterVO'] = null !== $this->lineageRelationRegisterVO ? $this->lineageRelationRegisterVO->toArray($noStream) : $this->lineageRelationRegisterVO;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegisterLineageRelationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

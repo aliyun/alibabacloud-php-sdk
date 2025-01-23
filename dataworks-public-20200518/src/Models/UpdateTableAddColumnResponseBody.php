@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateTableAddColumnResponseBody\taskInfo;
-use AlibabaCloud\Tea\Model;
 
 class UpdateTableAddColumnResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the request task. After a request task is submitted, it is divided into multiple subtasks that are run in sequence. After the current subtask is complete, the next subtask starts to run. After all subtasks are complete, the request task is complete. If a request task is aborted due to one of the following issues, address the issue based on the error code and initiate the request task again:
-     *
-     *   The request task fails to be submitted.
-     *   After the request task is submitted, a subtask fails to run.
-     *
      * @var taskInfo
      */
     public $taskInfo;
@@ -34,32 +24,38 @@ class UpdateTableAddColumnResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->taskInfo) {
+            $this->taskInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskInfo) {
-            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toMap() : null;
+            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toArray($noStream) : $this->taskInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTableAddColumnResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskInfo'])) {
             $model->taskInfo = taskInfo::fromMap($map['TaskInfo']);
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetPermissionApplyOrderDetailResponseBody\applyOrderDetail\approveContent\projectMeta;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetPermissionApplyOrderDetailResponseBody\applyOrderDetail\approveContent\projectMeta\objectMetaList\columnMetaList;
-use AlibabaCloud\Tea\Model;
 
 class objectMetaList extends Model
 {
     /**
-     * @description The information about the column fields in the object on which you request permissions.
-     *
      * @var columnMetaList[]
      */
     public $columnMetaList;
-
     /**
-     * @description The name of the table on which you request permissions.
-     *
-     * @example aTableName
-     *
      * @var string
      */
     public $objectName;
@@ -31,20 +24,25 @@ class objectMetaList extends Model
 
     public function validate()
     {
+        if (\is_array($this->columnMetaList)) {
+            Model::validateArray($this->columnMetaList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnMetaList) {
-            $res['ColumnMetaList'] = [];
-            if (null !== $this->columnMetaList && \is_array($this->columnMetaList)) {
-                $n = 0;
-                foreach ($this->columnMetaList as $item) {
-                    $res['ColumnMetaList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columnMetaList)) {
+                $res['ColumnMetaList'] = [];
+                $n1                    = 0;
+                foreach ($this->columnMetaList as $item1) {
+                    $res['ColumnMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->objectName) {
             $res['ObjectName'] = $this->objectName;
         }
@@ -52,23 +50,24 @@ class objectMetaList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return objectMetaList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnMetaList'])) {
             if (!empty($map['ColumnMetaList'])) {
                 $model->columnMetaList = [];
-                $n                     = 0;
-                foreach ($map['ColumnMetaList'] as $item) {
-                    $model->columnMetaList[$n++] = null !== $item ? columnMetaList::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ColumnMetaList'] as $item1) {
+                    $model->columnMetaList[$n1++] = columnMetaList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ObjectName'])) {
             $model->objectName = $map['ObjectName'];
         }

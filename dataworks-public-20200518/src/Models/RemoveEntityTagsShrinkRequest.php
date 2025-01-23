@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveEntityTagsShrinkRequest extends Model
 {
     /**
-     * @description The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
-     *
-     * This parameter is required.
-     * @example maxcompute-table.projectA.tableA
-     *
      * @var string
      */
     public $qualifiedName;
-
     /**
-     * @description The tag keys.
-     *
-     * This parameter is required.
      * @var string
      */
     public $tagKeysShrink;
@@ -32,14 +23,16 @@ class RemoveEntityTagsShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qualifiedName) {
             $res['QualifiedName'] = $this->qualifiedName;
         }
+
         if (null !== $this->tagKeysShrink) {
             $res['TagKeys'] = $this->tagKeysShrink;
         }
@@ -47,17 +40,18 @@ class RemoveEntityTagsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveEntityTagsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QualifiedName'])) {
             $model->qualifiedName = $map['QualifiedName'];
         }
+
         if (isset($map['TagKeys'])) {
             $model->tagKeysShrink = $map['TagKeys'];
         }

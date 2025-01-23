@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DsgSceneQuerySceneListByNameRequest extends Model
 {
     /**
-     * @description The name of the data masking scenario. A fuzzy match is performed in the platform based on a keyword to search for the data masking scenario.
-     *
-     * @example dev_
-     *
      * @var string
      */
     public $sceneName;
@@ -22,9 +18,10 @@ class DsgSceneQuerySceneListByNameRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sceneName) {
@@ -34,11 +31,11 @@ class DsgSceneQuerySceneListByNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DsgSceneQuerySceneListByNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

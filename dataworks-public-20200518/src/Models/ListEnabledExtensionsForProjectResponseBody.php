@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEnabledExtensionsForProjectResponseBody\extensions;
-use AlibabaCloud\Tea\Model;
 
 class ListEnabledExtensionsForProjectResponseBody extends Model
 {
     /**
-     * @description The details of the extension.
-     *
      * @var extensions[]
      */
     public $extensions;
-
     /**
-     * @description The request ID.
-     *
-     * @example 4F2CA7ED-27E5-59EA-A8C4-F1F7A1FF0B22
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListEnabledExtensionsForProjectResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->extensions)) {
+            Model::validateArray($this->extensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extensions) {
-            $res['Extensions'] = [];
-            if (null !== $this->extensions && \is_array($this->extensions)) {
-                $n = 0;
-                foreach ($this->extensions as $item) {
-                    $res['Extensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->extensions)) {
+                $res['Extensions'] = [];
+                $n1                = 0;
+                foreach ($this->extensions as $item1) {
+                    $res['Extensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListEnabledExtensionsForProjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEnabledExtensionsForProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extensions'])) {
             if (!empty($map['Extensions'])) {
                 $model->extensions = [];
-                $n                 = 0;
-                foreach ($map['Extensions'] as $item) {
-                    $model->extensions[$n++] = null !== $item ? extensions::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['Extensions'] as $item1) {
+                    $model->extensions[$n1++] = extensions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

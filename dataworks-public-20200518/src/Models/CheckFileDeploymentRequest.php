@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckFileDeploymentRequest extends Model
 {
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example https://result.aliyun.com/?checkerInstanceId=
-     *
      * @var string
      */
     public $checkDetailUrl;
-
     /**
-     * @description The ID of the instance to which the file checker belongs. You can obtain the ID from the CheckerInstanceId parameter in the check event logs returned by DataWorks.
-     *
-     * This parameter is required.
-     * @example 66_123455623_2
-     *
      * @var string
      */
     public $checkerInstanceId;
-
     /**
-     * @description The check status of the file that you want to deploy. Valid values:
-     *
-     *   OK: The file passes the check.
-     *   WARN: The file passes the check, but an alert is reported.
-     *   FAIL: The file fails the check.
-     *
-     * This parameter is required.
-     * @example OK
-     *
      * @var string
      */
     public $status;
@@ -48,17 +28,20 @@ class CheckFileDeploymentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkDetailUrl) {
             $res['CheckDetailUrl'] = $this->checkDetailUrl;
         }
+
         if (null !== $this->checkerInstanceId) {
             $res['CheckerInstanceId'] = $this->checkerInstanceId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -66,20 +49,22 @@ class CheckFileDeploymentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckFileDeploymentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckDetailUrl'])) {
             $model->checkDetailUrl = $map['CheckDetailUrl'];
         }
+
         if (isset($map['CheckerInstanceId'])) {
             $model->checkerInstanceId = $map['CheckerInstanceId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

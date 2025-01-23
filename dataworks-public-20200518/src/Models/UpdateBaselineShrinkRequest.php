@@ -4,121 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateBaselineShrinkRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the alerting feature. Valid values: true and false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $alertEnabled;
-
     /**
-     * @description The alert margin threshold of the baseline. Unit: minutes.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $alertMarginThreshold;
-
     /**
-     * @description The alert settings of the baseline.
-     *
      * @var string
      */
     public $alertSettingsShrink;
-
     /**
-     * @description The baseline ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
-     *
-     * This parameter is required.
-     * @example 1000010800007
-     *
      * @var int
      */
     public $baselineId;
-
     /**
-     * @description The name of the baseline.
-     *
-     * @example BaselineName
-     *
      * @var string
      */
     public $baselineName;
-
     /**
-     * @description The type of the baseline. Valid values: DAILY and HOURLY.
-     *
-     * @example DAILY
-     *
      * @var string
      */
     public $baselineType;
-
     /**
-     * @description Specifies whether to enable the baseline. Valid values: true and false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description The ancestor nodes of nodes in the baseline. Separate the ancestor nodes with commas (,). If a large number of ancestor nodes exist, we recommend that you create a zero load node and configure the zero load node as the descendant node of nodes in the baseline to facilitate node management.
-     *
-     * @example 1,2,3
-     *
      * @var string
      */
     public $nodeIds;
-
     /**
-     * @description The settings of the committed completion time of the baseline.
-     *
      * @var string
      */
     public $overtimeSettingsShrink;
-
     /**
-     * @description The ID of the Alibaba Cloud account used by the baseline owner.
-     *
-     * @example 3726346****
-     *
      * @var string
      */
     public $owner;
-
     /**
-     * @description The priority of the baseline. Valid values: {1,3,5,7,8}.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $priority;
-
     /**
-     * @description The workspace ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
-     *
-     * This parameter is required.
-     * @example 2043
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The ID of the node that you want to disassociate from the baseline. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
-     *
-     * @example 123,456
-     *
      * @var string
      */
     public $removeNodeIds;
@@ -140,47 +78,60 @@ class UpdateBaselineShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertEnabled) {
             $res['AlertEnabled'] = $this->alertEnabled;
         }
+
         if (null !== $this->alertMarginThreshold) {
             $res['AlertMarginThreshold'] = $this->alertMarginThreshold;
         }
+
         if (null !== $this->alertSettingsShrink) {
             $res['AlertSettings'] = $this->alertSettingsShrink;
         }
+
         if (null !== $this->baselineId) {
             $res['BaselineId'] = $this->baselineId;
         }
+
         if (null !== $this->baselineName) {
             $res['BaselineName'] = $this->baselineName;
         }
+
         if (null !== $this->baselineType) {
             $res['BaselineType'] = $this->baselineType;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->nodeIds) {
             $res['NodeIds'] = $this->nodeIds;
         }
+
         if (null !== $this->overtimeSettingsShrink) {
             $res['OvertimeSettings'] = $this->overtimeSettingsShrink;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->removeNodeIds) {
             $res['RemoveNodeIds'] = $this->removeNodeIds;
         }
@@ -188,50 +139,62 @@ class UpdateBaselineShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateBaselineShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertEnabled'])) {
             $model->alertEnabled = $map['AlertEnabled'];
         }
+
         if (isset($map['AlertMarginThreshold'])) {
             $model->alertMarginThreshold = $map['AlertMarginThreshold'];
         }
+
         if (isset($map['AlertSettings'])) {
             $model->alertSettingsShrink = $map['AlertSettings'];
         }
+
         if (isset($map['BaselineId'])) {
             $model->baselineId = $map['BaselineId'];
         }
+
         if (isset($map['BaselineName'])) {
             $model->baselineName = $map['BaselineName'];
         }
+
         if (isset($map['BaselineType'])) {
             $model->baselineType = $map['BaselineType'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['NodeIds'])) {
             $model->nodeIds = $map['NodeIds'];
         }
+
         if (isset($map['OvertimeSettings'])) {
             $model->overtimeSettingsShrink = $map['OvertimeSettings'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RemoveNodeIds'])) {
             $model->removeNodeIds = $map['RemoveNodeIds'];
         }

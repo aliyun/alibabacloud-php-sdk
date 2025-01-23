@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckFileDeploymentResponseBody extends Model
 {
     /**
-     * @description The request ID. You can use the ID to troubleshoot issues.
-     *
-     * @example 86d5a5ac-0cc0-4c5f-a374-a15713b252ab
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CheckFileDeploymentResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CheckFileDeploymentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckFileDeploymentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

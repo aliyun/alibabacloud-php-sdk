@@ -4,54 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDataServiceGroupRequest extends Model
 {
     /**
-     * @description The ID of the API group that is associated with the business process in the API Gateway console. You can log on to the API Gateway console and go to the Group Details page to view the ID.
-     *
-     * This parameter is required.
-     * @example 1000abcd
-     *
      * @var string
      */
     public $apiGatewayGroupId;
-
     /**
-     * @description The description of the business process.
-     *
-     * @example Test business process
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The name of the business process.
-     *
-     * This parameter is required.
-     * @example Business process name
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @description The ID of the workspace.
-     *
-     * This parameter is required.
-     * @example 10001
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The tenant ID. This parameter is deprecated.
-     *
-     * @example 10002
-     *
      * @var int
      */
     public $tenantId;
@@ -65,23 +38,28 @@ class CreateDataServiceGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiGatewayGroupId) {
             $res['ApiGatewayGroupId'] = $this->apiGatewayGroupId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -89,26 +67,30 @@ class CreateDataServiceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataServiceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiGatewayGroupId'])) {
             $model->apiGatewayGroupId = $map['ApiGatewayGroupId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

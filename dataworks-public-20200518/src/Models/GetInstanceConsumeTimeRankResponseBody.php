@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceConsumeTimeRankResponseBody\instanceConsumeTimeRank;
-use AlibabaCloud\Tea\Model;
 
 class GetInstanceConsumeTimeRankResponseBody extends Model
 {
     /**
-     * @description The ranking record of the running durations of instances.
-     *
      * @var instanceConsumeTimeRank
      */
     public $instanceConsumeTimeRank;
-
     /**
-     * @description The request ID.
-     *
-     * @example 6347364dadsfadf****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetInstanceConsumeTimeRankResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->instanceConsumeTimeRank) {
+            $this->instanceConsumeTimeRank->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceConsumeTimeRank) {
-            $res['InstanceConsumeTimeRank'] = null !== $this->instanceConsumeTimeRank ? $this->instanceConsumeTimeRank->toMap() : null;
+            $res['InstanceConsumeTimeRank'] = null !== $this->instanceConsumeTimeRank ? $this->instanceConsumeTimeRank->toArray($noStream) : $this->instanceConsumeTimeRank;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetInstanceConsumeTimeRankResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceConsumeTimeRankResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceConsumeTimeRank'])) {
             $model->instanceConsumeTimeRank = instanceConsumeTimeRank::fromMap($map['InstanceConsumeTimeRank']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

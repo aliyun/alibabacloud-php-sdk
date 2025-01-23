@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SearchNodesByOutputRequest extends Model
 {
     /**
-     * @description The output names of the node. If you specify multiple output names, separate them with commas (,).
-     *
-     * This parameter is required.
-     * @example aaaaa.1231412_out,bbbb.12313123_out
-     *
      * @var string
      */
     public $outputs;
-
     /**
-     * @description The environment of Operation Center. Valid values: PROD and DEV.
-     *
-     * This parameter is required.
-     * @example PROD
-     *
      * @var string
      */
     public $projectEnv;
@@ -34,14 +23,16 @@ class SearchNodesByOutputRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
         }
+
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
@@ -49,17 +40,18 @@ class SearchNodesByOutputRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchNodesByOutputRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];
         }
+
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }

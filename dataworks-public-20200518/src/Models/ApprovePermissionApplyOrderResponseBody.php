@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApprovePermissionApplyOrderResponseBody extends Model
 {
     /**
-     * @description Indicates whether the permission request order is processed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $approveSuccess;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0bc1ec92159376****
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class ApprovePermissionApplyOrderResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->approveSuccess) {
             $res['ApproveSuccess'] = $this->approveSuccess;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class ApprovePermissionApplyOrderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApprovePermissionApplyOrderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApproveSuccess'])) {
             $model->approveSuccess = $map['ApproveSuccess'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

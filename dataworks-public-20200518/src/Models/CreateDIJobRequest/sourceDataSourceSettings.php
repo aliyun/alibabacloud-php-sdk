@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDIJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceDataSourceSettings extends Model
 {
     /**
-     * @description The name of the data source.
-     *
-     * @example mysql_datasource_1
-     *
      * @var string
      */
     public $dataSourceName;
-
     /**
-     * @description The properties of the data source.
-     *
      * @var string[]
      */
     public $dataSourceProperties;
@@ -30,34 +23,50 @@ class sourceDataSourceSettings extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataSourceProperties)) {
+            Model::validateArray($this->dataSourceProperties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceName) {
             $res['DataSourceName'] = $this->dataSourceName;
         }
+
         if (null !== $this->dataSourceProperties) {
-            $res['DataSourceProperties'] = $this->dataSourceProperties;
+            if (\is_array($this->dataSourceProperties)) {
+                $res['DataSourceProperties'] = [];
+                foreach ($this->dataSourceProperties as $key1 => $value1) {
+                    $res['DataSourceProperties'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceDataSourceSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceName'])) {
             $model->dataSourceName = $map['DataSourceName'];
         }
+
         if (isset($map['DataSourceProperties'])) {
-            $model->dataSourceProperties = $map['DataSourceProperties'];
+            if (!empty($map['DataSourceProperties'])) {
+                $model->dataSourceProperties = [];
+                foreach ($map['DataSourceProperties'] as $key1 => $value1) {
+                    $model->dataSourceProperties[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

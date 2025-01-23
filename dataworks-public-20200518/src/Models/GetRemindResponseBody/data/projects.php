@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class projects extends Model
 {
     /**
-     * @description The workspace ID.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $projectId;
@@ -22,9 +18,10 @@ class projects extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectId) {
@@ -34,11 +31,11 @@ class projects extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return projects
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

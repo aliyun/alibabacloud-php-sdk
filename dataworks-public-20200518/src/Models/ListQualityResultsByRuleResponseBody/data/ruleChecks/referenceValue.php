@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByRuleResponseBody\data\ruleChecks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class referenceValue extends Model
 {
     /**
-     * @description The data timestamp. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
-     *
-     * @example 1600704000000
-     *
      * @var string
      */
     public $bizDate;
-
     /**
-     * @description The values of the sample field that are grouped by using the GROUP BY clause. For example, the values of the Gender field are grouped by using the GROUP BY clause. In this case, the values of DiscreteProperty are Male, Female, and null.
-     *
-     * @example type1
-     *
      * @var string
      */
     public $discreteProperty;
-
     /**
-     * @description The string of the monitoring result.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $singleCheckResult;
-
     /**
-     * @description The threshold.
-     *
-     * @example 0.2
-     *
      * @var float
      */
     public $threshold;
-
     /**
-     * @description The sample value.
-     *
-     * @example 20
-     *
      * @var float
      */
     public $value;
@@ -62,23 +38,28 @@ class referenceValue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
         }
+
         if (null !== $this->discreteProperty) {
             $res['DiscreteProperty'] = $this->discreteProperty;
         }
+
         if (null !== $this->singleCheckResult) {
             $res['SingleCheckResult'] = $this->singleCheckResult;
         }
+
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -86,26 +67,30 @@ class referenceValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return referenceValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
         }
+
         if (isset($map['DiscreteProperty'])) {
             $model->discreteProperty = $map['DiscreteProperty'];
         }
+
         if (isset($map['SingleCheckResult'])) {
             $model->singleCheckResult = $map['SingleCheckResult'];
         }
+
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

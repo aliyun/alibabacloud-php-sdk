@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest\jobSettings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cycleScheduleSettings extends Model
 {
@@ -18,9 +18,10 @@ class cycleScheduleSettings extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scheduleParameters) {
@@ -30,11 +31,11 @@ class cycleScheduleSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cycleScheduleSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

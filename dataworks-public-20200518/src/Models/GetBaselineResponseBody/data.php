@@ -4,86 +4,57 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineResponseBody\data\alertSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineResponseBody\data\overTimeSettings;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $alertEnabled;
-
     /**
-     * @example 60
-     *
      * @var int
      */
     public $alertMarginThreshold;
-
     /**
-     * @description The alert settings.
-     *
      * @var alertSettings[]
      */
     public $alertSettings;
-
     /**
-     * @example 1001
-     *
      * @var int
      */
     public $baselineId;
-
     /**
      * @var string
      */
     public $baselineName;
-
     /**
-     * @example DAILY
-     *
      * @var string
      */
     public $baselineType;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
-
     /**
      * @var int[]
      */
     public $nodeIds;
-
     /**
      * @var overTimeSettings[]
      */
     public $overTimeSettings;
-
     /**
-     * @example 9527952****
-     *
      * @var string
      */
     public $owner;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $priority;
-
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
@@ -104,56 +75,83 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->alertSettings)) {
+            Model::validateArray($this->alertSettings);
+        }
+        if (\is_array($this->nodeIds)) {
+            Model::validateArray($this->nodeIds);
+        }
+        if (\is_array($this->overTimeSettings)) {
+            Model::validateArray($this->overTimeSettings);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertEnabled) {
             $res['AlertEnabled'] = $this->alertEnabled;
         }
+
         if (null !== $this->alertMarginThreshold) {
             $res['AlertMarginThreshold'] = $this->alertMarginThreshold;
         }
+
         if (null !== $this->alertSettings) {
-            $res['AlertSettings'] = [];
-            if (null !== $this->alertSettings && \is_array($this->alertSettings)) {
-                $n = 0;
-                foreach ($this->alertSettings as $item) {
-                    $res['AlertSettings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertSettings)) {
+                $res['AlertSettings'] = [];
+                $n1                   = 0;
+                foreach ($this->alertSettings as $item1) {
+                    $res['AlertSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->baselineId) {
             $res['BaselineId'] = $this->baselineId;
         }
+
         if (null !== $this->baselineName) {
             $res['BaselineName'] = $this->baselineName;
         }
+
         if (null !== $this->baselineType) {
             $res['BaselineType'] = $this->baselineType;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
-        }
-        if (null !== $this->overTimeSettings) {
-            $res['OverTimeSettings'] = [];
-            if (null !== $this->overTimeSettings && \is_array($this->overTimeSettings)) {
-                $n = 0;
-                foreach ($this->overTimeSettings as $item) {
-                    $res['OverTimeSettings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeIds)) {
+                $res['NodeIds'] = [];
+                $n1             = 0;
+                foreach ($this->nodeIds as $item1) {
+                    $res['NodeIds'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->overTimeSettings) {
+            if (\is_array($this->overTimeSettings)) {
+                $res['OverTimeSettings'] = [];
+                $n1                      = 0;
+                foreach ($this->overTimeSettings as $item1) {
+                    $res['OverTimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -161,61 +159,76 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertEnabled'])) {
             $model->alertEnabled = $map['AlertEnabled'];
         }
+
         if (isset($map['AlertMarginThreshold'])) {
             $model->alertMarginThreshold = $map['AlertMarginThreshold'];
         }
+
         if (isset($map['AlertSettings'])) {
             if (!empty($map['AlertSettings'])) {
                 $model->alertSettings = [];
-                $n                    = 0;
-                foreach ($map['AlertSettings'] as $item) {
-                    $model->alertSettings[$n++] = null !== $item ? alertSettings::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['AlertSettings'] as $item1) {
+                    $model->alertSettings[$n1++] = alertSettings::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['BaselineId'])) {
             $model->baselineId = $map['BaselineId'];
         }
+
         if (isset($map['BaselineName'])) {
             $model->baselineName = $map['BaselineName'];
         }
+
         if (isset($map['BaselineType'])) {
             $model->baselineType = $map['BaselineType'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
-                $model->nodeIds = $map['NodeIds'];
-            }
-        }
-        if (isset($map['OverTimeSettings'])) {
-            if (!empty($map['OverTimeSettings'])) {
-                $model->overTimeSettings = [];
-                $n                       = 0;
-                foreach ($map['OverTimeSettings'] as $item) {
-                    $model->overTimeSettings[$n++] = null !== $item ? overTimeSettings::fromMap($item) : $item;
+                $model->nodeIds = [];
+                $n1             = 0;
+                foreach ($map['NodeIds'] as $item1) {
+                    $model->nodeIds[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['OverTimeSettings'])) {
+            if (!empty($map['OverTimeSettings'])) {
+                $model->overTimeSettings = [];
+                $n1                      = 0;
+                foreach ($map['OverTimeSettings'] as $item1) {
+                    $model->overTimeSettings[$n1++] = overTimeSettings::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

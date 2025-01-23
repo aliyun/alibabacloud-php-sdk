@@ -4,53 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTableLevelRequest extends Model
 {
     /**
-     * @description The description of the table level.
-     *
-     * @example level description
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the table level. You can call the ListTableLevel operation to query the ID.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $levelId;
-
     /**
-     * @description The table level type. Valid values: 1 and 2. The value 1 indicates the logical level. The value 2 indicates the physical level.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $levelType;
-
     /**
-     * @description The name of the table level.
-     *
-     * @example level name
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The ID of the DataWorks workspace.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $projectId;
@@ -64,23 +38,28 @@ class UpdateTableLevelRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->levelId) {
             $res['LevelId'] = $this->levelId;
         }
+
         if (null !== $this->levelType) {
             $res['LevelType'] = $this->levelType;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -88,26 +67,30 @@ class UpdateTableLevelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTableLevelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['LevelId'])) {
             $model->levelId = $map['LevelId'];
         }
+
         if (isset($map['LevelType'])) {
             $model->levelType = $map['LevelType'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

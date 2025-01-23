@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIJobsResponseBody\DIJobPaging;
-use AlibabaCloud\Tea\Model;
 
 class ListDIJobsResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var DIJobPaging
      */
     public $DIJobPaging;
-
     /**
-     * @description The request ID.
-     *
-     * @example 7263E4AC-9D2E-5B29-B8AF-7C5012E92A41
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListDIJobsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->DIJobPaging) {
+            $this->DIJobPaging->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIJobPaging) {
-            $res['DIJobPaging'] = null !== $this->DIJobPaging ? $this->DIJobPaging->toMap() : null;
+            $res['DIJobPaging'] = null !== $this->DIJobPaging ? $this->DIJobPaging->toArray($noStream) : $this->DIJobPaging;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListDIJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDIJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIJobPaging'])) {
             $model->DIJobPaging = DIJobPaging::fromMap($map['DIJobPaging']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

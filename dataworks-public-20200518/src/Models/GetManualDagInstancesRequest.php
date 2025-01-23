@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetManualDagInstancesRequest extends Model
 {
     /**
-     * @description The ID of the directed acyclic graph (DAG) for the manually triggered workflow. You can call the [CreateManualDag](https://help.aliyun.com/document_detail/189728.html) operation to query the ID.
-     *
-     * This parameter is required.
-     * @example 7000001231241
-     *
      * @var string
      */
     public $dagId;
-
     /**
-     * @description The environment of Operation Center. Valid values: PROD and DEV.
-     *
-     * This parameter is required.
-     * @example RPOD
-     *
      * @var string
      */
     public $projectEnv;
-
     /**
-     * @description The name of the workspace to which the manually triggered workflow belongs. You can log on to the DataWorks console and go to the Workspace Settings panel to query the name.
-     *
-     * This parameter is required.
-     * @example test_workspace
-     *
      * @var string
      */
     public $projectName;
@@ -45,17 +28,20 @@ class GetManualDagInstancesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
+
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -63,20 +49,22 @@ class GetManualDagInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetManualDagInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
+
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

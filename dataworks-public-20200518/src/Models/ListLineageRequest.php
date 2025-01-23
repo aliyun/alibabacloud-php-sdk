@@ -4,52 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListLineageRequest extends Model
 {
     /**
-     * @description The lineage type. Valid values:\\
-     * This parameter is required.
-     * @example up
-     *
      * @var string
      */
     public $direction;
-
     /**
-     * @description The unique identifier of the entity.
-     *
-     * This parameter is required.
-     * @example maxcompute-table.project.table
-     *
      * @var string
      */
     public $entityQualifiedName;
-
     /**
-     * @description The keyword of the entity name.
-     *
-     * @example name-keyword
-     *
      * @var string
      */
     public $keyword;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * @example next-token-from-previous-request
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The number of entries per page. Maximum value: 100.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -63,23 +38,28 @@ class ListLineageRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->entityQualifiedName) {
             $res['EntityQualifiedName'] = $this->entityQualifiedName;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -87,26 +67,30 @@ class ListLineageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLineageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['EntityQualifiedName'])) {
             $model->entityQualifiedName = $map['EntityQualifiedName'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

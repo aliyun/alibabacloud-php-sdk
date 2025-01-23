@@ -4,54 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListShiftPersonnelsRequest extends Model
 {
     /**
-     * @description The time when the on-duty engineer starts a shift. Set the value to a UNIX timestamp.
-     *
-     * This parameter is required.
-     * @example 1593950832000
-     *
      * @var int
      */
     public $beginTime;
-
     /**
-     * @description The time when the on-duty engineer ends a shift. Set the value to a UNIX timestamp.
-     *
-     * This parameter is required.
-     * @example 1593950832000
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description The ID of the Alibaba Cloud account. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to view the ID.
-     *
-     * @example 1933790****551
-     *
      * @var string
      */
     public $shiftPersonUID;
-
     /**
-     * @description The unique identifier of the shift schedule.
-     *
-     * This parameter is required.
-     * @example 2ab6456ada634b2f938ee******9b45b
-     *
      * @var string
      */
     public $shiftScheduleIdentifier;
-
     /**
-     * @description The type of the on-duty engineer that you want to query. Valid values: ALL, PRIMARY, BACKUP, and DESIGNATED_USER.
-     *
-     * @example ALL
-     *
      * @var string
      */
     public $userType;
@@ -65,23 +38,28 @@ class ListShiftPersonnelsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->shiftPersonUID) {
             $res['ShiftPersonUID'] = $this->shiftPersonUID;
         }
+
         if (null !== $this->shiftScheduleIdentifier) {
             $res['ShiftScheduleIdentifier'] = $this->shiftScheduleIdentifier;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -89,26 +67,30 @@ class ListShiftPersonnelsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListShiftPersonnelsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['ShiftPersonUID'])) {
             $model->shiftPersonUID = $map['ShiftPersonUID'];
         }
+
         if (isset($map['ShiftScheduleIdentifier'])) {
             $model->shiftScheduleIdentifier = $map['ShiftScheduleIdentifier'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

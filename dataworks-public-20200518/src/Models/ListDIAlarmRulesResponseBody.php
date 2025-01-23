@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIAlarmRulesResponseBody\DIAlarmRulePaging;
-use AlibabaCloud\Tea\Model;
 
 class ListDIAlarmRulesResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var DIAlarmRulePaging
      */
     public $DIAlarmRulePaging;
-
     /**
-     * @description The request ID.
-     *
-     * @example 74C2FECD-5B3A-554A-BCF5-351A36DE9815
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListDIAlarmRulesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->DIAlarmRulePaging) {
+            $this->DIAlarmRulePaging->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIAlarmRulePaging) {
-            $res['DIAlarmRulePaging'] = null !== $this->DIAlarmRulePaging ? $this->DIAlarmRulePaging->toMap() : null;
+            $res['DIAlarmRulePaging'] = null !== $this->DIAlarmRulePaging ? $this->DIAlarmRulePaging->toArray($noStream) : $this->DIAlarmRulePaging;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListDIAlarmRulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDIAlarmRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIAlarmRulePaging'])) {
             $model->DIAlarmRulePaging = DIAlarmRulePaging::fromMap($map['DIAlarmRulePaging']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

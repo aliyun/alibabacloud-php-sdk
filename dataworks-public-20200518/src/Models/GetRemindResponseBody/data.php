@@ -4,188 +4,101 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\baselines;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\bizProcesses;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\nodes;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\projects;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\receivers;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data\robots;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The minimum interval at which alerts are reported. Unit: seconds.
-     *
-     * @example 1800
-     *
      * @var int
      */
     public $alertInterval;
-
     /**
-     * @description The alert notification method.
-     *
      * @var string[]
      */
     public $alertMethods;
-
     /**
-     * @description The description of the alert recipient.
-     *
      * @var string[]
      */
     public $alertTargets;
-
     /**
-     * @description The recipient of the alert. Valid values: OWNER and OTHER. The value OWNER indicates the node owner. The value OTHER indicates a specified user.
-     *
-     * @example OWNER
-     *
      * @var string
      */
     public $alertUnit;
-
     /**
      * @var int[]
      */
     public $allowNodes;
-
     /**
-     * @description The baselines to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is BASELINE.
-     *
      * @var baselines[]
      */
     public $baselines;
-
     /**
-     * @description The workflows to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is BIZPROCESS.
-     *
      * @var bizProcesses[]
      */
     public $bizProcesses;
-
     /**
-     * @description *   If the value of the RemindType parameter is FINISHED, this parameter is left empty.
-     *   If the value of the RemindType parameter is UNFINISHED, the trigger conditions are returned as key-value pairs. Example: {"hour":23,"minu":59}. Valid values of hour: [0,47]. Valid values of minu: [0,59].
-     *   If the value of the RemindType parameter is ERROR, this parameter is left empty.
-     *   If the value of the RemindType parameter is CYCLE_UNFINISHED, the trigger conditions are returned as key-value pairs. Example: {"1":"05:50","2":"06:50","3":"07:50","4":"08:50","5":"09:50","6":"10:50","7":"11:50","8":"12:50","9":"13:50","10":"14:50","11":"15:50","12":"16:50","13":"17:50","14":"18:50","15":"19:50","16":"20:50","17":"21:50","18":"22:50","19":"23:50","20":"24:50","21":"25:50"}. The key indicates the ID of the cycle. Valid values: [1,288]. The value indicates the timeout period of the node that is running in the cycle. Specify the value in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
-     *   If the value of the RemindType parameter is TIMEOUT, the timeout period is returned. Unit: seconds. Example: 1800. This value indicates that an alert is reported if the node has run for more than 30 minutes.
-     *
-     * @example {"hour":23,"minu":59}
-     *
      * @var string
      */
     public $detail;
-
     /**
-     * @description The end time of the quiet hours. The value is in the hh:mm format. Valid values of hh: [0,23]. Valid values of mm: [0,59].
-     *
-     * @example 08:00
-     *
      * @var string
      */
     public $dndEnd;
-
     /**
-     * @description The start time of the quiet hours. The value is in the hh:mm format. Valid values of hh: [0,23]. Valid values of mm: [0,59].
-     *
-     * @example 00:00
-     *
      * @var string
      */
     public $dndStart;
-
     /**
-     * @description The ID of the Alibaba Cloud account used by the creator of the custom alert rule.
-     *
-     * @example 9527951795****
-     *
      * @var string
      */
     public $founder;
-
     /**
-     * @description The maximum number of alerts.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $maxAlertTimes;
-
     /**
-     * @description The nodes to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is NODE.
-     *
      * @var nodes[]
      */
     public $nodes;
-
     /**
-     * @description The workspaces to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is PROJECT.
-     *
      * @var projects[]
      */
     public $projects;
-
     /**
      * @var receivers[]
      */
     public $receivers;
-
     /**
-     * @description The custom alert rule ID.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $remindId;
-
     /**
-     * @description The name of the rule.
-     *
      * @var string
      */
     public $remindName;
-
     /**
-     * @description The conditions that trigger an alert. Valid values: FINISHED, UNFINISHED, ERROR, CYCLE_UNFINISHED, and TIMEOUT.
-     *
-     * @example FINISHED
-     *
      * @var string
      */
     public $remindType;
-
     /**
-     * @description The type of the object to which the custom alert rule is applied. Valid values: NODE, BASELINE, PROJECT, and BIZPROCESS. The value NODE indicates a node. The value BASELINE indicates a baseline. The value PROJECT indicates a workspace. The value BIZPROCESS indicates a workflow.
-     *
-     * @example NODE
-     *
      * @var string
      */
     public $remindUnit;
-
     /**
-     * @description The webhook URLs of the DingTalk chatbots.
-     *
      * @var robots[]
      */
     public $robots;
-
     /**
-     * @description Indicates whether the custom alert rule is enabled. Valid values: true and false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $useflag;
-
     /**
-     * @description The information about the webhook URL.
-     *
      * @var string[]
      */
     public $webhooks;
@@ -216,233 +129,346 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->alertMethods)) {
+            Model::validateArray($this->alertMethods);
+        }
+        if (\is_array($this->alertTargets)) {
+            Model::validateArray($this->alertTargets);
+        }
+        if (\is_array($this->allowNodes)) {
+            Model::validateArray($this->allowNodes);
+        }
+        if (\is_array($this->baselines)) {
+            Model::validateArray($this->baselines);
+        }
+        if (\is_array($this->bizProcesses)) {
+            Model::validateArray($this->bizProcesses);
+        }
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        if (\is_array($this->projects)) {
+            Model::validateArray($this->projects);
+        }
+        if (\is_array($this->receivers)) {
+            Model::validateArray($this->receivers);
+        }
+        if (\is_array($this->robots)) {
+            Model::validateArray($this->robots);
+        }
+        if (\is_array($this->webhooks)) {
+            Model::validateArray($this->webhooks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertInterval) {
             $res['AlertInterval'] = $this->alertInterval;
         }
+
         if (null !== $this->alertMethods) {
-            $res['AlertMethods'] = $this->alertMethods;
+            if (\is_array($this->alertMethods)) {
+                $res['AlertMethods'] = [];
+                $n1                  = 0;
+                foreach ($this->alertMethods as $item1) {
+                    $res['AlertMethods'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->alertTargets) {
-            $res['AlertTargets'] = $this->alertTargets;
+            if (\is_array($this->alertTargets)) {
+                $res['AlertTargets'] = [];
+                $n1                  = 0;
+                foreach ($this->alertTargets as $item1) {
+                    $res['AlertTargets'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->alertUnit) {
             $res['AlertUnit'] = $this->alertUnit;
         }
+
         if (null !== $this->allowNodes) {
-            $res['AllowNodes'] = $this->allowNodes;
+            if (\is_array($this->allowNodes)) {
+                $res['AllowNodes'] = [];
+                $n1                = 0;
+                foreach ($this->allowNodes as $item1) {
+                    $res['AllowNodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->baselines) {
-            $res['Baselines'] = [];
-            if (null !== $this->baselines && \is_array($this->baselines)) {
-                $n = 0;
-                foreach ($this->baselines as $item) {
-                    $res['Baselines'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->baselines)) {
+                $res['Baselines'] = [];
+                $n1               = 0;
+                foreach ($this->baselines as $item1) {
+                    $res['Baselines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->bizProcesses) {
-            $res['BizProcesses'] = [];
-            if (null !== $this->bizProcesses && \is_array($this->bizProcesses)) {
-                $n = 0;
-                foreach ($this->bizProcesses as $item) {
-                    $res['BizProcesses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bizProcesses)) {
+                $res['BizProcesses'] = [];
+                $n1                  = 0;
+                foreach ($this->bizProcesses as $item1) {
+                    $res['BizProcesses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
+
         if (null !== $this->dndEnd) {
             $res['DndEnd'] = $this->dndEnd;
         }
+
         if (null !== $this->dndStart) {
             $res['DndStart'] = $this->dndStart;
         }
+
         if (null !== $this->founder) {
             $res['Founder'] = $this->founder;
         }
+
         if (null !== $this->maxAlertTimes) {
             $res['MaxAlertTimes'] = $this->maxAlertTimes;
         }
+
         if (null !== $this->nodes) {
-            $res['Nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodes)) {
+                $res['Nodes'] = [];
+                $n1           = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->projects) {
-            $res['Projects'] = [];
-            if (null !== $this->projects && \is_array($this->projects)) {
-                $n = 0;
-                foreach ($this->projects as $item) {
-                    $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->projects)) {
+                $res['Projects'] = [];
+                $n1              = 0;
+                foreach ($this->projects as $item1) {
+                    $res['Projects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->receivers) {
-            $res['Receivers'] = [];
-            if (null !== $this->receivers && \is_array($this->receivers)) {
-                $n = 0;
-                foreach ($this->receivers as $item) {
-                    $res['Receivers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->receivers)) {
+                $res['Receivers'] = [];
+                $n1               = 0;
+                foreach ($this->receivers as $item1) {
+                    $res['Receivers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->remindId) {
             $res['RemindId'] = $this->remindId;
         }
+
         if (null !== $this->remindName) {
             $res['RemindName'] = $this->remindName;
         }
+
         if (null !== $this->remindType) {
             $res['RemindType'] = $this->remindType;
         }
+
         if (null !== $this->remindUnit) {
             $res['RemindUnit'] = $this->remindUnit;
         }
+
         if (null !== $this->robots) {
-            $res['Robots'] = [];
-            if (null !== $this->robots && \is_array($this->robots)) {
-                $n = 0;
-                foreach ($this->robots as $item) {
-                    $res['Robots'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->robots)) {
+                $res['Robots'] = [];
+                $n1            = 0;
+                foreach ($this->robots as $item1) {
+                    $res['Robots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->useflag) {
             $res['Useflag'] = $this->useflag;
         }
+
         if (null !== $this->webhooks) {
-            $res['Webhooks'] = $this->webhooks;
+            if (\is_array($this->webhooks)) {
+                $res['Webhooks'] = [];
+                $n1              = 0;
+                foreach ($this->webhooks as $item1) {
+                    $res['Webhooks'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertInterval'])) {
             $model->alertInterval = $map['AlertInterval'];
         }
+
         if (isset($map['AlertMethods'])) {
             if (!empty($map['AlertMethods'])) {
-                $model->alertMethods = $map['AlertMethods'];
+                $model->alertMethods = [];
+                $n1                  = 0;
+                foreach ($map['AlertMethods'] as $item1) {
+                    $model->alertMethods[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AlertTargets'])) {
             if (!empty($map['AlertTargets'])) {
-                $model->alertTargets = $map['AlertTargets'];
+                $model->alertTargets = [];
+                $n1                  = 0;
+                foreach ($map['AlertTargets'] as $item1) {
+                    $model->alertTargets[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AlertUnit'])) {
             $model->alertUnit = $map['AlertUnit'];
         }
+
         if (isset($map['AllowNodes'])) {
             if (!empty($map['AllowNodes'])) {
-                $model->allowNodes = $map['AllowNodes'];
+                $model->allowNodes = [];
+                $n1                = 0;
+                foreach ($map['AllowNodes'] as $item1) {
+                    $model->allowNodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Baselines'])) {
             if (!empty($map['Baselines'])) {
                 $model->baselines = [];
-                $n                = 0;
-                foreach ($map['Baselines'] as $item) {
-                    $model->baselines[$n++] = null !== $item ? baselines::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Baselines'] as $item1) {
+                    $model->baselines[$n1++] = baselines::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['BizProcesses'])) {
             if (!empty($map['BizProcesses'])) {
                 $model->bizProcesses = [];
-                $n                   = 0;
-                foreach ($map['BizProcesses'] as $item) {
-                    $model->bizProcesses[$n++] = null !== $item ? bizProcesses::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['BizProcesses'] as $item1) {
+                    $model->bizProcesses[$n1++] = bizProcesses::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
+
         if (isset($map['DndEnd'])) {
             $model->dndEnd = $map['DndEnd'];
         }
+
         if (isset($map['DndStart'])) {
             $model->dndStart = $map['DndStart'];
         }
+
         if (isset($map['Founder'])) {
             $model->founder = $map['Founder'];
         }
+
         if (isset($map['MaxAlertTimes'])) {
             $model->maxAlertTimes = $map['MaxAlertTimes'];
         }
+
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
-                foreach ($map['Nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Nodes'] as $item1) {
+                    $model->nodes[$n1++] = nodes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Projects'])) {
             if (!empty($map['Projects'])) {
                 $model->projects = [];
-                $n               = 0;
-                foreach ($map['Projects'] as $item) {
-                    $model->projects[$n++] = null !== $item ? projects::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Projects'] as $item1) {
+                    $model->projects[$n1++] = projects::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Receivers'])) {
             if (!empty($map['Receivers'])) {
                 $model->receivers = [];
-                $n                = 0;
-                foreach ($map['Receivers'] as $item) {
-                    $model->receivers[$n++] = null !== $item ? receivers::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Receivers'] as $item1) {
+                    $model->receivers[$n1++] = receivers::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RemindId'])) {
             $model->remindId = $map['RemindId'];
         }
+
         if (isset($map['RemindName'])) {
             $model->remindName = $map['RemindName'];
         }
+
         if (isset($map['RemindType'])) {
             $model->remindType = $map['RemindType'];
         }
+
         if (isset($map['RemindUnit'])) {
             $model->remindUnit = $map['RemindUnit'];
         }
+
         if (isset($map['Robots'])) {
             if (!empty($map['Robots'])) {
                 $model->robots = [];
-                $n             = 0;
-                foreach ($map['Robots'] as $item) {
-                    $model->robots[$n++] = null !== $item ? robots::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Robots'] as $item1) {
+                    $model->robots[$n1++] = robots::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Useflag'])) {
             $model->useflag = $map['Useflag'];
         }
+
         if (isset($map['Webhooks'])) {
             if (!empty($map['Webhooks'])) {
-                $model->webhooks = $map['Webhooks'];
+                $model->webhooks = [];
+                $n1              = 0;
+                foreach ($map['Webhooks'] as $item1) {
+                    $model->webhooks[$n1++] = $item1;
+                }
             }
         }
 

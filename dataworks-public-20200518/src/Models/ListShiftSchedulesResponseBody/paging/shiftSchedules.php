@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesResponseBody\paging;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class shiftSchedules extends Model
 {
     /**
-     * @description The unique identifier of the shift schedule. You can use the identifier to query the on-duty engineers in the shift schedule.
-     *
-     * @example 2ab6456ada634b2f938ee******9b45b
-     *
      * @var string
      */
     public $shiftScheduleIdentifier;
-
     /**
-     * @description The name of the shift schedule.
-     *
      * @var string
      */
     public $shiftScheduleName;
@@ -30,14 +23,16 @@ class shiftSchedules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->shiftScheduleIdentifier) {
             $res['ShiftScheduleIdentifier'] = $this->shiftScheduleIdentifier;
         }
+
         if (null !== $this->shiftScheduleName) {
             $res['ShiftScheduleName'] = $this->shiftScheduleName;
         }
@@ -45,17 +40,18 @@ class shiftSchedules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return shiftSchedules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ShiftScheduleIdentifier'])) {
             $model->shiftScheduleIdentifier = $map['ShiftScheduleIdentifier'];
         }
+
         if (isset($map['ShiftScheduleName'])) {
             $model->shiftScheduleName = $map['ShiftScheduleName'];
         }

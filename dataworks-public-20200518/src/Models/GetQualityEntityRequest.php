@@ -4,60 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetQualityEntityRequest extends Model
 {
     /**
-     * @description The type of the compute engine or data source. Valid values:
-     *
-     *   cdh
-     *   analyticdb_for_mysql
-     *   odps
-     *   emr
-     *   hadoop
-     *   holodb
-     *   hybriddb_for_postgresql
-     *
-     * This parameter is required.
-     * @example odps
-     *
      * @var string
      */
     public $envType;
-
     /**
-     * @description The partition filter expression.
-     *
-     * @example dt=$[yyyymmdd]
-     *
      * @var string
      */
     public $matchExpression;
-
     /**
-     * @example 12345
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
-     *
-     * This parameter is required.
-     * @example autotest
-     *
      * @var string
      */
     public $projectName;
-
     /**
-     * @description The name of the partitioned table. You can call the [GetMetaTablePartition](https://help.aliyun.com/document_detail/173923.html) operation to obtain the name.
-     *
-     * This parameter is required.
-     * @example dual
-     *
      * @var string
      */
     public $tableName;
@@ -71,23 +38,28 @@ class GetQualityEntityRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+
         if (null !== $this->matchExpression) {
             $res['MatchExpression'] = $this->matchExpression;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -95,26 +67,30 @@ class GetQualityEntityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQualityEntityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+
         if (isset($map['MatchExpression'])) {
             $model->matchExpression = $map['MatchExpression'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

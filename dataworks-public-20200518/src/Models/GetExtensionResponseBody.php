@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetExtensionResponseBody\extension;
-use AlibabaCloud\Tea\Model;
 
 class GetExtensionResponseBody extends Model
 {
     /**
-     * @description The details of the extension.
-     *
      * @var extension
      */
     public $extension;
-
     /**
-     * @description The request ID. You can use the request ID to query logs and troubleshoot issues.
-     *
-     * @example 0000-ABCD-EFG
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetExtensionResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->extension) {
+            $this->extension->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extension) {
-            $res['Extension'] = null !== $this->extension ? $this->extension->toMap() : null;
+            $res['Extension'] = null !== $this->extension ? $this->extension->toArray($noStream) : $this->extension;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetExtensionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetExtensionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extension'])) {
             $model->extension = extension::fromMap($map['Extension']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

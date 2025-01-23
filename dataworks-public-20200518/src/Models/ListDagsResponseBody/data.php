@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDagsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDagsResponseBody\data\dags;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The entities returned.
-     *
      * @var dags[]
      */
     public $dags;
@@ -21,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->dags)) {
+            Model::validateArray($this->dags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dags) {
-            $res['Dags'] = [];
-            if (null !== $this->dags && \is_array($this->dags)) {
-                $n = 0;
-                foreach ($this->dags as $item) {
-                    $res['Dags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dags)) {
+                $res['Dags'] = [];
+                $n1          = 0;
+                foreach ($this->dags as $item1) {
+                    $res['Dags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dags'])) {
             if (!empty($map['Dags'])) {
                 $model->dags = [];
-                $n           = 0;
-                foreach ($map['Dags'] as $item) {
-                    $model->dags[$n++] = null !== $item ? dags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Dags'] as $item1) {
+                    $model->dags[$n1++] = dags::fromMap($item1);
                 }
             }
         }

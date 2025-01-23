@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListPermissionApplyOrdersResponseBody\applyOrders;
-use AlibabaCloud\Tea\Model;
 
 class ListPermissionApplyOrdersResponseBody extends Model
 {
     /**
-     * @description The query results returned by page.
-     *
      * @var applyOrders
      */
     public $applyOrders;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0bc1ec92159376****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListPermissionApplyOrdersResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->applyOrders) {
+            $this->applyOrders->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyOrders) {
-            $res['ApplyOrders'] = null !== $this->applyOrders ? $this->applyOrders->toMap() : null;
+            $res['ApplyOrders'] = null !== $this->applyOrders ? $this->applyOrders->toArray($noStream) : $this->applyOrders;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListPermissionApplyOrdersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPermissionApplyOrdersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplyOrders'])) {
             $model->applyOrders = applyOrders::fromMap($map['ApplyOrders']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoResponseBody\data\solutionInfo\stepDetail;
-use AlibabaCloud\Tea\Model;
 
 class solutionInfo extends Model
 {
     /**
-     * @description The creator of the data synchronization solution.
-     *
-     * @example dataworks_3h1
-     *
      * @var string
      */
     public $creatorName;
-
     /**
-     * @description The ID of the data synchronization solution.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The status of the data synchronization solution.
-     *
-     * @example run
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @description The step details of the data synchronization solution.
-     *
      * @var stepDetail[]
      */
     public $stepDetail;
@@ -51,26 +34,33 @@ class solutionInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->stepDetail)) {
+            Model::validateArray($this->stepDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creatorName) {
             $res['CreatorName'] = $this->creatorName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->stepDetail) {
-            $res['StepDetail'] = [];
-            if (null !== $this->stepDetail && \is_array($this->stepDetail)) {
-                $n = 0;
-                foreach ($this->stepDetail as $item) {
-                    $res['StepDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->stepDetail)) {
+                $res['StepDetail'] = [];
+                $n1                = 0;
+                foreach ($this->stepDetail as $item1) {
+                    $res['StepDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -78,29 +68,32 @@ class solutionInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return solutionInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatorName'])) {
             $model->creatorName = $map['CreatorName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['StepDetail'])) {
             if (!empty($map['StepDetail'])) {
                 $model->stepDetail = [];
-                $n                 = 0;
-                foreach ($map['StepDetail'] as $item) {
-                    $model->stepDetail[$n++] = null !== $item ? stepDetail::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['StepDetail'] as $item1) {
+                    $model->stepDetail[$n1++] = stepDetail::fromMap($item1);
                 }
             }
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTablePartitionRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sortCriterion extends Model
 {
     /**
-     * @description The order in which partitions in the metatable are sorted. Valid values: asc and desc. Default value: desc.
-     *
-     * @example desc
-     *
      * @var string
      */
     public $order;
-
     /**
-     * @description The field that is used to sort partitions in the metatable. Valid values: name and modify_time. By default, partitions in the metatable are sorted based on their creation time.
-     *
-     * @example name
-     *
      * @var string
      */
     public $sortField;
@@ -32,14 +23,16 @@ class sortCriterion extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->sortField) {
             $res['SortField'] = $this->sortField;
         }
@@ -47,17 +40,18 @@ class sortCriterion extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sortCriterion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['SortField'])) {
             $model->sortField = $map['SortField'];
         }

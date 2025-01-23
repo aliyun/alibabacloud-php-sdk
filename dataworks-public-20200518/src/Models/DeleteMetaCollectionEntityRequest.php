@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMetaCollectionEntityRequest extends Model
 {
     /**
-     * @description The unique identifier of the collection.
-     *
-     * This parameter is required.
-     * @example album.12345
-     *
      * @var string
      */
     public $collectionQualifiedName;
-
     /**
-     * @description The unique identifier of the entity.
-     *
-     * This parameter is required.
-     * @example maxcompute.projectA.tableB
-     *
      * @var string
      */
     public $entityQualifiedName;
@@ -34,14 +23,16 @@ class DeleteMetaCollectionEntityRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collectionQualifiedName) {
             $res['CollectionQualifiedName'] = $this->collectionQualifiedName;
         }
+
         if (null !== $this->entityQualifiedName) {
             $res['EntityQualifiedName'] = $this->entityQualifiedName;
         }
@@ -49,17 +40,18 @@ class DeleteMetaCollectionEntityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMetaCollectionEntityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CollectionQualifiedName'])) {
             $model->collectionQualifiedName = $map['CollectionQualifiedName'];
         }
+
         if (isset($map['EntityQualifiedName'])) {
             $model->entityQualifiedName = $map['EntityQualifiedName'];
         }

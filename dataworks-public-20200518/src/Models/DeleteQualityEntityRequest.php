@@ -4,54 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteQualityEntityRequest extends Model
 {
     /**
-     * @description The ID of the partition filter expression.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $entityId;
-
     /**
-     * @description The type of the compute engine or data source. The following types are supported: E-MapReduce (EMR), Hologres, AnalyticDB for PostgreSQL, CDH, MaxCompute, Kafka, and DataHub.
-     *
-     * Valid values:
-     *
-     *   odps
-     *   emr
-     *   hadoop
-     *   cdh
-     *   hybriddb_for_postgresql
-     *   holodb
-     *
-     * This parameter is required.
-     * @example ODPS
-     *
      * @var string
      */
     public $envType;
-
     /**
-     * @description The DataWorks workspace ID.
-     *
-     * @example 12345
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The name of the compute engine or data source.
-     *
-     * This parameter is required.
-     * @example autotest
-     *
      * @var string
      */
     public $projectName;
@@ -64,20 +33,24 @@ class DeleteQualityEntityRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
+
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -85,23 +58,26 @@ class DeleteQualityEntityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteQualityEntityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
+
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

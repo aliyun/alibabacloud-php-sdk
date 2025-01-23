@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDagTestRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2020-05-26 00:00:00
-     *
      * @var string
      */
     public $bizdate;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example xm_create_test
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $nodeId;
-
     /**
-     * @example bizdate=$bizdate tbods=$tbods
-     *
      * @var string
      */
     public $nodeParams;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example PROD
-     *
      * @var string
      */
     public $projectEnv;
@@ -60,23 +38,28 @@ class CreateDagTestRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->nodeParams) {
             $res['NodeParams'] = $this->nodeParams;
         }
+
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
@@ -84,26 +67,30 @@ class CreateDagTestRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDagTestRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['NodeParams'])) {
             $model->nodeParams = $map['NodeParams'];
         }
+
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }

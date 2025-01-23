@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaColumnLineageResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataEntityList extends Model
 {
     /**
-     * @description The EMR cluster ID.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The unique identifier of the field.
-     *
-     * @example odps.engine_name.table_name.1
-     *
      * @var string
      */
     public $columnGuid;
-
     /**
-     * @description The name of the field.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $columnName;
-
     /**
-     * @description The name of the database.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $databaseName;
-
     /**
-     * @description The name of the table.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $tableName;
@@ -62,23 +38,28 @@ class dataEntityList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->columnGuid) {
             $res['ColumnGuid'] = $this->columnGuid;
         }
+
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
+
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -86,26 +67,30 @@ class dataEntityList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataEntityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ColumnGuid'])) {
             $model->columnGuid = $map['ColumnGuid'];
         }
+
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
+
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

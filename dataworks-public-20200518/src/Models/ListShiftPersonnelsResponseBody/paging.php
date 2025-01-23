@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftPersonnelsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftPersonnelsResponseBody\paging\shiftPersons;
-use AlibabaCloud\Tea\Model;
 
 class paging extends Model
 {
     /**
-     * @description The page number. Valid values: 1 to 100. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Default value: 10. Maximum value: 100.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description A list of on-duty engineers in a shift schedule.
-     *
      * @var shiftPersons[]
      */
     public $shiftPersons;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class paging extends Model
 
     public function validate()
     {
+        if (\is_array($this->shiftPersons)) {
+            Model::validateArray($this->shiftPersons);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->shiftPersons) {
-            $res['ShiftPersons'] = [];
-            if (null !== $this->shiftPersons && \is_array($this->shiftPersons)) {
-                $n = 0;
-                foreach ($this->shiftPersons as $item) {
-                    $res['ShiftPersons'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->shiftPersons)) {
+                $res['ShiftPersons'] = [];
+                $n1                  = 0;
+                foreach ($this->shiftPersons as $item1) {
+                    $res['ShiftPersons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class paging extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return paging
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ShiftPersons'])) {
             if (!empty($map['ShiftPersons'])) {
                 $model->shiftPersons = [];
-                $n                   = 0;
-                foreach ($map['ShiftPersons'] as $item) {
-                    $model->shiftPersons[$n++] = null !== $item ? shiftPersons::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['ShiftPersons'] as $item1) {
+                    $model->shiftPersons[$n1++] = shiftPersons::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

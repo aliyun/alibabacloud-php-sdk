@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetPermissionApplyOrderDetailResponseBody\applyOrderDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class approveAccountList extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account that is used to process the permission request order.
-     *
-     * @example 182293110403****
-     *
      * @var string
      */
     public $baseId;
@@ -22,9 +18,10 @@ class approveAccountList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseId) {
@@ -34,11 +31,11 @@ class approveAccountList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return approveAccountList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

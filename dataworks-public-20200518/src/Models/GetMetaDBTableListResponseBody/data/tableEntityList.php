@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaDBTableListResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableEntityList extends Model
 {
     /**
-     * @description The name of the metadatabase.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $databaseName;
-
     /**
-     * @description The GUID of the metatable.
-     *
-     * @example odps.engine_name.tname
-     *
      * @var string
      */
     public $tableGuid;
-
     /**
-     * @description The name of the metatable.
-     *
-     * @example tname
-     *
      * @var string
      */
     public $tableName;
@@ -42,17 +28,20 @@ class tableEntityList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
+
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -60,20 +49,22 @@ class tableEntityList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableEntityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }
+
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

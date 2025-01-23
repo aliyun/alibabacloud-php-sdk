@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMetaTableIntroWikiRequest extends Model
 {
     /**
-     * @description The GUID of the metatable.
-     *
-     * This parameter is required.
-     * @example odps.engine_name.table_name
-     *
      * @var string
      */
     public $tableGuid;
-
     /**
-     * @description The version of the instructions.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $wikiVersion;
@@ -33,14 +23,16 @@ class GetMetaTableIntroWikiRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
+
         if (null !== $this->wikiVersion) {
             $res['WikiVersion'] = $this->wikiVersion;
         }
@@ -48,17 +40,18 @@ class GetMetaTableIntroWikiRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMetaTableIntroWikiRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }
+
         if (isset($map['WikiVersion'])) {
             $model->wikiVersion = $map['WikiVersion'];
         }

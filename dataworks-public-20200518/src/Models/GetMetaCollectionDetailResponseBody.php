@@ -4,59 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMetaCollectionDetailResponseBody extends Model
 {
     /**
-     * @description The information about the collection.
-     *
      * @var Collection
      */
     public $collection;
-
     /**
-     * @description The error code.
-     *
-     * @example 9999
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description The error message.
-     *
-     * @example album.xxxx does not exist.
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
-     *
-     * @example 0000-ABCD-E****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     * false
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -71,26 +43,35 @@ class GetMetaCollectionDetailResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->collection) {
+            $this->collection->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collection) {
-            $res['Collection'] = null !== $this->collection ? $this->collection->toMap() : null;
+            $res['Collection'] = null !== $this->collection ? $this->collection->toArray($noStream) : $this->collection;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -98,29 +79,34 @@ class GetMetaCollectionDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMetaCollectionDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Collection'])) {
             $model->collection = Collection::fromMap($map['Collection']);
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

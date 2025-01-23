@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteTableResponseBody\taskInfo;
-use AlibabaCloud\Tea\Model;
 
 class DeleteTableResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example abcde
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the task that is used to delete the table.
-     *
      * @var taskInfo
      */
     public $taskInfo;
@@ -31,32 +24,38 @@ class DeleteTableResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->taskInfo) {
+            $this->taskInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskInfo) {
-            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toMap() : null;
+            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toArray($noStream) : $this->taskInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTableResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskInfo'])) {
             $model->taskInfo = taskInfo::fromMap($map['TaskInfo']);
         }

@@ -4,83 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneQuerySceneListByNameResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneQuerySceneListByNameResponseBody\data\projects;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about multiple levels of data masking scenarios.
-     *
      * @var mixed[]
      */
     public $children;
-
     /**
-     * @description The description of the data masking scenario.
-     *
      * @var string
      */
     public $desc;
-
     /**
-     * @description The ID of the data masking scenario.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The information about the compute engine for which the data masking scenario takes effect.
-     *
      * @var projects[]
      */
     public $projects;
-
     /**
-     * @description The code of the level-1 data masking scenario. Valid values:
-     *
-     *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
-     *   maxcompute_desense_code: data masking at the MaxCompute compute engine layer
-     *   maxcompute_new_desense_code: data masking at the MaxCompute compute engine layer (new)
-     *   hologres_display_desense_code: data masking at the Hologres compute engine layer
-     *   dataworks_data_integration_desense_code: static data masking in Data Integration
-     *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
-     *
-     * @example dataworks_display_desense_code
-     *
      * @var string
      */
     public $sceneCode;
-
     /**
-     * @description The level of the data masking scenario. Valid values:
-     *
-     *   0: level-1 data masking scenario
-     *   1: level-2 data masking scenario
-     *
-     * @example 1
-     *
      * @var int
      */
     public $sceneLevel;
-
     /**
-     * @description The name of the data masking scenario.
-     *
-     * @example test_scene
-     *
      * @var string
      */
     public $sceneName;
-
     /**
-     * @description The list of user groups in the data masking scenario. Separate user groups with commas (,).
-     *
-     * @example user1,user2
-     *
      * @var string
      */
     public $userGroups;
@@ -97,38 +54,58 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->children)) {
+            Model::validateArray($this->children);
+        }
+        if (\is_array($this->projects)) {
+            Model::validateArray($this->projects);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->children) {
-            $res['Children'] = $this->children;
-        }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->projects) {
-            $res['Projects'] = [];
-            if (null !== $this->projects && \is_array($this->projects)) {
-                $n = 0;
-                foreach ($this->projects as $item) {
-                    $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->children)) {
+                $res['Children'] = [];
+                $n1              = 0;
+                foreach ($this->children as $item1) {
+                    $res['Children'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
+
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->projects) {
+            if (\is_array($this->projects)) {
+                $res['Projects'] = [];
+                $n1              = 0;
+                foreach ($this->projects as $item1) {
+                    $res['Projects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
         }
+
         if (null !== $this->sceneLevel) {
             $res['SceneLevel'] = $this->sceneLevel;
         }
+
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
         }
+
         if (null !== $this->userGroups) {
             $res['UserGroups'] = $this->userGroups;
         }
@@ -136,43 +113,54 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Children'])) {
             if (!empty($map['Children'])) {
-                $model->children = $map['Children'];
-            }
-        }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Projects'])) {
-            if (!empty($map['Projects'])) {
-                $model->projects = [];
-                $n               = 0;
-                foreach ($map['Projects'] as $item) {
-                    $model->projects[$n++] = null !== $item ? projects::fromMap($item) : $item;
+                $model->children = [];
+                $n1              = 0;
+                foreach ($map['Children'] as $item1) {
+                    $model->children[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
+
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+
+        if (isset($map['Projects'])) {
+            if (!empty($map['Projects'])) {
+                $model->projects = [];
+                $n1              = 0;
+                foreach ($map['Projects'] as $item1) {
+                    $model->projects[$n1++] = projects::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
         }
+
         if (isset($map['SceneLevel'])) {
             $model->sceneLevel = $map['SceneLevel'];
         }
+
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
         }
+
         if (isset($map['UserGroups'])) {
             $model->userGroups = $map['UserGroups'];
         }

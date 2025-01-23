@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMigrationProcessRequest extends Model
 {
     /**
-     * @description The migration package ID. You can call the CreateImportMigration operation to query the ID.
-     *
-     * This parameter is required.
-     * @example 123456
-     *
      * @var int
      */
     public $migrationId;
-
     /**
-     * @description The workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID.
-     *
-     * This parameter is required.
-     * @example 123456
-     *
      * @var int
      */
     public $projectId;
@@ -34,14 +23,16 @@ class GetMigrationProcessRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->migrationId) {
             $res['MigrationId'] = $this->migrationId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -49,17 +40,18 @@ class GetMigrationProcessRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMigrationProcessRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MigrationId'])) {
             $model->migrationId = $map['MigrationId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

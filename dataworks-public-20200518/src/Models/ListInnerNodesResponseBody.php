@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInnerNodesResponseBody\paging;
-use AlibabaCloud\Tea\Model;
 
 class ListInnerNodesResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var paging
      */
     public $paging;
-
     /**
-     * @description The request ID.
-     *
-     * @example E6F0DBDD-5AD****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -41,17 +29,23 @@ class ListInnerNodesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->paging) {
+            $this->paging->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paging) {
-            $res['Paging'] = null !== $this->paging ? $this->paging->toMap() : null;
+            $res['Paging'] = null !== $this->paging ? $this->paging->toArray($noStream) : $this->paging;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -59,20 +53,22 @@ class ListInnerNodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInnerNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Paging'])) {
             $model->paging = paging::fromMap($map['Paging']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

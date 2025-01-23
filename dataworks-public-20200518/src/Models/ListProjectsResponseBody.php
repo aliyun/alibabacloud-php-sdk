@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectsResponseBody\pageResult;
-use AlibabaCloud\Tea\Model;
 
 class ListProjectsResponseBody extends Model
 {
     /**
-     * @description The results that are returned.
-     *
      * @var pageResult
      */
     public $pageResult;
-
     /**
-     * @description The request ID.
-     *
-     * @example 20658801***
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListProjectsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->pageResult) {
+            $this->pageResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageResult) {
-            $res['PageResult'] = null !== $this->pageResult ? $this->pageResult->toMap() : null;
+            $res['PageResult'] = null !== $this->pageResult ? $this->pageResult->toArray($noStream) : $this->pageResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListProjectsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageResult'])) {
             $model->pageResult = pageResult::fromMap($map['PageResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

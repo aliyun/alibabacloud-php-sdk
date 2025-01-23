@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileTypeStatisticResponseBody\programTypeAndCounts;
-use AlibabaCloud\Tea\Model;
 
 class GetFileTypeStatisticResponseBody extends Model
 {
     /**
-     * @description An array of node types and quantity.
-     *
      * @var programTypeAndCounts[]
      */
     public $programTypeAndCounts;
-
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
-     *
-     * @example SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class GetFileTypeStatisticResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->programTypeAndCounts)) {
+            Model::validateArray($this->programTypeAndCounts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->programTypeAndCounts) {
-            $res['ProgramTypeAndCounts'] = [];
-            if (null !== $this->programTypeAndCounts && \is_array($this->programTypeAndCounts)) {
-                $n = 0;
-                foreach ($this->programTypeAndCounts as $item) {
-                    $res['ProgramTypeAndCounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->programTypeAndCounts)) {
+                $res['ProgramTypeAndCounts'] = [];
+                $n1                          = 0;
+                foreach ($this->programTypeAndCounts as $item1) {
+                    $res['ProgramTypeAndCounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class GetFileTypeStatisticResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileTypeStatisticResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProgramTypeAndCounts'])) {
             if (!empty($map['ProgramTypeAndCounts'])) {
                 $model->programTypeAndCounts = [];
-                $n                           = 0;
-                foreach ($map['ProgramTypeAndCounts'] as $item) {
-                    $model->programTypeAndCounts[$n++] = null !== $item ? programTypeAndCounts::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['ProgramTypeAndCounts'] as $item1) {
+                    $model->programTypeAndCounts[$n1++] = programTypeAndCounts::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

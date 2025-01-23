@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateClusterConfigsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $clusterId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example SPARK_CONF
-     *
      * @var string
      */
     public $configType;
-
     /**
-     * @description This parameter is required.
-     *
      * @var ClusterConfig[]
      */
     public $configValues;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 5678
-     *
      * @var int
      */
     public $projectId;
@@ -50,26 +33,33 @@ class UpdateClusterConfigsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->configValues)) {
+            Model::validateArray($this->configValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
         }
+
         if (null !== $this->configValues) {
-            $res['ConfigValues'] = [];
-            if (null !== $this->configValues && \is_array($this->configValues)) {
-                $n = 0;
-                foreach ($this->configValues as $item) {
-                    $res['ConfigValues'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configValues)) {
+                $res['ConfigValues'] = [];
+                $n1                  = 0;
+                foreach ($this->configValues as $item1) {
+                    $res['ConfigValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -77,29 +67,32 @@ class UpdateClusterConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateClusterConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
         }
+
         if (isset($map['ConfigValues'])) {
             if (!empty($map['ConfigValues'])) {
                 $model->configValues = [];
-                $n                   = 0;
-                foreach ($map['ConfigValues'] as $item) {
-                    $model->configValues[$n++] = null !== $item ? ClusterConfig::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['ConfigValues'] as $item1) {
+                    $model->configValues[$n1++] = ClusterConfig::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEntitiesByTagsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\Entity;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The entities.
-     *
      * @var Entity[]
      */
     public $entityList;
-
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example 12345
-     *
      * @var string
      */
     public $nextToken;
@@ -31,20 +24,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->entityList)) {
+            Model::validateArray($this->entityList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityList) {
-            $res['EntityList'] = [];
-            if (null !== $this->entityList && \is_array($this->entityList)) {
-                $n = 0;
-                foreach ($this->entityList as $item) {
-                    $res['EntityList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entityList)) {
+                $res['EntityList'] = [];
+                $n1                = 0;
+                foreach ($this->entityList as $item1) {
+                    $res['EntityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -52,23 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityList'])) {
             if (!empty($map['EntityList'])) {
                 $model->entityList = [];
-                $n                 = 0;
-                foreach ($map['EntityList'] as $item) {
-                    $model->entityList[$n++] = null !== $item ? Entity::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['EntityList'] as $item1) {
+                    $model->entityList[$n1++] = Entity::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

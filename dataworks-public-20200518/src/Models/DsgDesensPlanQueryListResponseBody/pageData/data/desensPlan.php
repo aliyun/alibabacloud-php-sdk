@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanQueryListResponseBody\pageData\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class desensPlan extends Model
 {
     /**
-     * @description The type of the data masking rule.
-     *
-     * @example hash
-     *
      * @var string
      */
     public $desensPlanType;
-
     /**
-     * @description The parameters for the data masking rule. For more information about the parameters, see the [DsgDesensPlanAddOrUpdate](https://help.aliyun.com/document_detail/2786295.html) API reference.
-     *
      * @var mixed[]
      */
     public $extParam;
@@ -30,34 +23,50 @@ class desensPlan extends Model
 
     public function validate()
     {
+        if (\is_array($this->extParam)) {
+            Model::validateArray($this->extParam);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desensPlanType) {
             $res['DesensPlanType'] = $this->desensPlanType;
         }
+
         if (null !== $this->extParam) {
-            $res['ExtParam'] = $this->extParam;
+            if (\is_array($this->extParam)) {
+                $res['ExtParam'] = [];
+                foreach ($this->extParam as $key1 => $value1) {
+                    $res['ExtParam'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return desensPlan
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesensPlanType'])) {
             $model->desensPlanType = $map['DesensPlanType'];
         }
+
         if (isset($map['ExtParam'])) {
-            $model->extParam = $map['ExtParam'];
+            if (!empty($map['ExtParam'])) {
+                $model->extParam = [];
+                foreach ($map['ExtParam'] as $key1 => $value1) {
+                    $model->extParam[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

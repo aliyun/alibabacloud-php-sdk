@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPermissionApplyOrderDetailRequest extends Model
 {
     /**
-     * @description The ID of the permission request order. You can call the [ListPermissionApplyOrders](https://help.aliyun.com/document_detail/211008.html) operation to obtain the ID.
-     *
-     * This parameter is required.
-     * @example 48f36729-05f9-4a40-9286-933fd940f30a
-     *
      * @var string
      */
     public $flowId;
@@ -23,9 +18,10 @@ class GetPermissionApplyOrderDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flowId) {
@@ -35,11 +31,11 @@ class GetPermissionApplyOrderDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPermissionApplyOrderDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

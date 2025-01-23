@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bizProcesses extends Model
 {
     /**
-     * @description The ID of the workflow.
-     *
-     * @example 9527
-     *
      * @var int
      */
     public $bizId;
-
     /**
-     * @description The name of the workflow.
-     *
      * @var string
      */
     public $bizProcessName;
@@ -30,14 +23,16 @@ class bizProcesses extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+
         if (null !== $this->bizProcessName) {
             $res['BizProcessName'] = $this->bizProcessName;
         }
@@ -45,17 +40,18 @@ class bizProcesses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bizProcesses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+
         if (isset($map['BizProcessName'])) {
             $model->bizProcessName = $map['BizProcessName'];
         }

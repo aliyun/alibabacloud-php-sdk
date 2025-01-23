@@ -4,50 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDIJobShrinkRequest extends Model
 {
     /**
-     * @description The ID of the synchronization task.
-     *
-     * @example 11588
-     *
      * @var int
      */
     public $DIJobId;
-
     /**
-     * @description The description of the synchronization task.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
-     *
      * @var string
      */
     public $jobSettingsShrink;
-
     /**
-     * @description The resource settings.
-     *
      * @var string
      */
     public $resourceSettingsShrink;
-
     /**
-     * @description The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
-     *
      * @var string
      */
     public $tableMappingsShrink;
-
     /**
-     * @description The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
-     *
      * @var string
      */
     public $transformationRulesShrink;
@@ -62,26 +43,32 @@ class UpdateDIJobShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIJobId) {
             $res['DIJobId'] = $this->DIJobId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->jobSettingsShrink) {
             $res['JobSettings'] = $this->jobSettingsShrink;
         }
+
         if (null !== $this->resourceSettingsShrink) {
             $res['ResourceSettings'] = $this->resourceSettingsShrink;
         }
+
         if (null !== $this->tableMappingsShrink) {
             $res['TableMappings'] = $this->tableMappingsShrink;
         }
+
         if (null !== $this->transformationRulesShrink) {
             $res['TransformationRules'] = $this->transformationRulesShrink;
         }
@@ -89,29 +76,34 @@ class UpdateDIJobShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDIJobShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIJobId'])) {
             $model->DIJobId = $map['DIJobId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['JobSettings'])) {
             $model->jobSettingsShrink = $map['JobSettings'];
         }
+
         if (isset($map['ResourceSettings'])) {
             $model->resourceSettingsShrink = $map['ResourceSettings'];
         }
+
         if (isset($map['TableMappings'])) {
             $model->tableMappingsShrink = $map['TableMappings'];
         }
+
         if (isset($map['TransformationRules'])) {
             $model->transformationRulesShrink = $map['TransformationRules'];
         }

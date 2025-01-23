@@ -4,69 +4,35 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaDBResponseBody\databaseInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dbList extends Model
 {
     /**
-     * @description The timestamp at which the metadatabase was created. You can convert the timestamp to the date based on the time zone that you use.
-     *
-     * @example 1388776825
-     *
      * @var int
      */
     public $createTimeStamp;
-
     /**
-     * @description The URL of the metadatabase.
-     *
-     * @example hdfs://localhost:777/user/hadoop/test.txt
-     *
      * @var string
      */
     public $location;
-
     /**
-     * @description The timestamp at which the metadatabase was updated.
-     *
-     * @example 1388776837
-     *
      * @var int
      */
     public $modifiedTimeStamp;
-
     /**
-     * @description The name of the metadatabase.
-     *
-     * @example name
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The owner ID.
-     *
-     * @example 1232
-     *
      * @var string
      */
     public $ownerId;
-
     /**
-     * @description The type of the metadatabase.
-     *
-     * @example HIVE
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The UUID of the metadatabase.
-     *
-     * @example 32342
-     *
      * @var string
      */
     public $UUID;
@@ -82,29 +48,36 @@ class dbList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTimeStamp) {
             $res['CreateTimeStamp'] = $this->createTimeStamp;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->modifiedTimeStamp) {
             $res['ModifiedTimeStamp'] = $this->modifiedTimeStamp;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->UUID) {
             $res['UUID'] = $this->UUID;
         }
@@ -112,32 +85,38 @@ class dbList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dbList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTimeStamp'])) {
             $model->createTimeStamp = $map['CreateTimeStamp'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['ModifiedTimeStamp'])) {
             $model->modifiedTimeStamp = $map['ModifiedTimeStamp'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['UUID'])) {
             $model->UUID = $map['UUID'];
         }

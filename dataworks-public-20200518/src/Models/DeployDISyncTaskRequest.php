@@ -4,43 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeployDISyncTaskRequest extends Model
 {
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   true: The request is successful.
-     *   false: The request fails.
-     *
-     * This parameter is required.
-     * @example 100
-     *
      * @var int
      */
     public $fileId;
-
     /**
-     * @description The type of the object that you want to deploy. Valid values:
-     *
-     *   DI_REALTIME: real-time synchronization node
-     *   DI_SOLUTION: data synchronization solution
-     *
-     * This parameter is required.
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description *   If you set the TaskType parameter to DI_REALTIME, set the FileId parameter to the ID of the real-time synchronization node that you want to deploy.
-     *   If you set the TaskType parameter to DI_SOLUTION, set the FileId parameter to the ID of the data synchronization solution that you want to deploy.
-     *
-     * This parameter is required.
-     * @example DI_REALTIME
-     *
      * @var string
      */
     public $taskType;
@@ -52,17 +28,20 @@ class DeployDISyncTaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -70,20 +49,22 @@ class DeployDISyncTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeployDISyncTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

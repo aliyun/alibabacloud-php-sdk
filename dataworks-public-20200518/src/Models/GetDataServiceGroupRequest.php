@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataServiceGroupRequest extends Model
 {
     /**
-     * @description The business process ID.
-     *
-     * This parameter is required.
-     * @example ds_123abc
-     *
      * @var string
      */
     public $groupId;
-
     /**
-     * @description The workspace ID.
-     *
-     * This parameter is required.
-     * @example 10001
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The tenant ID. This parameter is deprecated.
-     *
-     * @example 10002
-     *
      * @var int
      */
     public $tenantId;
@@ -44,17 +28,20 @@ class GetDataServiceGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -62,20 +49,22 @@ class GetDataServiceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataServiceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

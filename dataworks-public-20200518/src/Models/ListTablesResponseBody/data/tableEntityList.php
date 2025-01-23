@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTablesResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTablesResponseBody\data\tableEntityList\entityContent;
-use AlibabaCloud\Tea\Model;
 
 class tableEntityList extends Model
 {
@@ -13,10 +13,7 @@ class tableEntityList extends Model
      * @var entityContent
      */
     public $entityContent;
-
     /**
-     * @example maxcompute-table.project.table
-     *
      * @var string
      */
     public $entityQualifiedName;
@@ -27,14 +24,19 @@ class tableEntityList extends Model
 
     public function validate()
     {
+        if (null !== $this->entityContent) {
+            $this->entityContent->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityContent) {
-            $res['EntityContent'] = null !== $this->entityContent ? $this->entityContent->toMap() : null;
+            $res['EntityContent'] = null !== $this->entityContent ? $this->entityContent->toArray($noStream) : $this->entityContent;
         }
+
         if (null !== $this->entityQualifiedName) {
             $res['EntityQualifiedName'] = $this->entityQualifiedName;
         }
@@ -42,17 +44,18 @@ class tableEntityList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableEntityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityContent'])) {
             $model->entityContent = entityContent::fromMap($map['EntityContent']);
         }
+
         if (isset($map['EntityQualifiedName'])) {
             $model->entityQualifiedName = $map['EntityQualifiedName'];
         }

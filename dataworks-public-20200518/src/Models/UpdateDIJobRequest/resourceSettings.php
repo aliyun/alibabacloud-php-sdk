@@ -4,26 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest\resourceSettings\offlineResourceSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest\resourceSettings\realtimeResourceSettings;
-use AlibabaCloud\Tea\Model;
 
 class resourceSettings extends Model
 {
     /**
-     * @description The resource used for batch synchronization.
-     *
      * @var offlineResourceSettings
      */
     public $offlineResourceSettings;
-
     /**
-     * @description The resource used for real-time synchronization.
-     *
      * @var realtimeResourceSettings
      */
     public $realtimeResourceSettings;
-
     /**
      * @var float
      */
@@ -36,17 +30,26 @@ class resourceSettings extends Model
 
     public function validate()
     {
+        if (null !== $this->offlineResourceSettings) {
+            $this->offlineResourceSettings->validate();
+        }
+        if (null !== $this->realtimeResourceSettings) {
+            $this->realtimeResourceSettings->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->offlineResourceSettings) {
-            $res['OfflineResourceSettings'] = null !== $this->offlineResourceSettings ? $this->offlineResourceSettings->toMap() : null;
+            $res['OfflineResourceSettings'] = null !== $this->offlineResourceSettings ? $this->offlineResourceSettings->toArray($noStream) : $this->offlineResourceSettings;
         }
+
         if (null !== $this->realtimeResourceSettings) {
-            $res['RealtimeResourceSettings'] = null !== $this->realtimeResourceSettings ? $this->realtimeResourceSettings->toMap() : null;
+            $res['RealtimeResourceSettings'] = null !== $this->realtimeResourceSettings ? $this->realtimeResourceSettings->toArray($noStream) : $this->realtimeResourceSettings;
         }
+
         if (null !== $this->requestedCu) {
             $res['RequestedCu'] = $this->requestedCu;
         }
@@ -54,20 +57,22 @@ class resourceSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OfflineResourceSettings'])) {
             $model->offlineResourceSettings = offlineResourceSettings::fromMap($map['OfflineResourceSettings']);
         }
+
         if (isset($map['RealtimeResourceSettings'])) {
             $model->realtimeResourceSettings = realtimeResourceSettings::fromMap($map['RealtimeResourceSettings']);
         }
+
         if (isset($map['RequestedCu'])) {
             $model->requestedCu = $map['RequestedCu'];
         }

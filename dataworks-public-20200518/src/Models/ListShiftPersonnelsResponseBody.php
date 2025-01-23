@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftPersonnelsResponseBody\paging;
-use AlibabaCloud\Tea\Model;
 
 class ListShiftPersonnelsResponseBody extends Model
 {
     /**
-     * @description The pagination data.
-     *
      * @var paging
      */
     public $paging;
-
     /**
-     * @description The request ID. You can use the ID to troubleshoot issues.
-     *
-     * @example 0000-ABCD-EFG
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListShiftPersonnelsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->paging) {
+            $this->paging->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paging) {
-            $res['Paging'] = null !== $this->paging ? $this->paging->toMap() : null;
+            $res['Paging'] = null !== $this->paging ? $this->paging->toArray($noStream) : $this->paging;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListShiftPersonnelsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListShiftPersonnelsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Paging'])) {
             $model->paging = paging::fromMap($map['Paging']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

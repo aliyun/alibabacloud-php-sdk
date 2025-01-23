@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaCollectionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\Collection;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The collections.
-     *
      * @var Collection[]
      */
     public $collectionList;
-
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example 37ae2053d87d380f28ce0dc0853ca51e
-     *
      * @var string
      */
     public $nextToken;
@@ -31,20 +24,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->collectionList)) {
+            Model::validateArray($this->collectionList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collectionList) {
-            $res['CollectionList'] = [];
-            if (null !== $this->collectionList && \is_array($this->collectionList)) {
-                $n = 0;
-                foreach ($this->collectionList as $item) {
-                    $res['CollectionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->collectionList)) {
+                $res['CollectionList'] = [];
+                $n1                    = 0;
+                foreach ($this->collectionList as $item1) {
+                    $res['CollectionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -52,23 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CollectionList'])) {
             if (!empty($map['CollectionList'])) {
                 $model->collectionList = [];
-                $n                     = 0;
-                foreach ($map['CollectionList'] as $item) {
-                    $model->collectionList[$n++] = null !== $item ? Collection::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['CollectionList'] as $item1) {
+                    $model->collectionList[$n1++] = Collection::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

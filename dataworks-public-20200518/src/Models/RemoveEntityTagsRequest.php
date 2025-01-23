@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveEntityTagsRequest extends Model
 {
     /**
-     * @description The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
-     *
-     * This parameter is required.
-     * @example maxcompute-table.projectA.tableA
-     *
      * @var string
      */
     public $qualifiedName;
-
     /**
-     * @description The tag keys.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $tagKeys;
@@ -32,35 +23,51 @@ class RemoveEntityTagsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagKeys)) {
+            Model::validateArray($this->tagKeys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qualifiedName) {
             $res['QualifiedName'] = $this->qualifiedName;
         }
+
         if (null !== $this->tagKeys) {
-            $res['TagKeys'] = $this->tagKeys;
+            if (\is_array($this->tagKeys)) {
+                $res['TagKeys'] = [];
+                $n1             = 0;
+                foreach ($this->tagKeys as $item1) {
+                    $res['TagKeys'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveEntityTagsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QualifiedName'])) {
             $model->qualifiedName = $map['QualifiedName'];
         }
+
         if (isset($map['TagKeys'])) {
             if (!empty($map['TagKeys'])) {
-                $model->tagKeys = $map['TagKeys'];
+                $model->tagKeys = [];
+                $n1             = 0;
+                foreach ($map['TagKeys'] as $item1) {
+                    $model->tagKeys[$n1++] = $item1;
+                }
             }
         }
 

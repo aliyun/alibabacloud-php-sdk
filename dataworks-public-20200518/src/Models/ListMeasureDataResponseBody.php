@@ -4,62 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMeasureDataResponseBody\measureDatas;
-use AlibabaCloud\Tea\Model;
 
 class ListMeasureDataResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example 100001001
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description The error message.
-     *
-     * @example The user is not in tenant.
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @description The measurement results.
-     *
      * @var measureDatas[]
      */
     public $measureDatas;
-
     /**
-     * @description The request ID.
-     *
-     * @example 1AFAE64E-D1BE-432B-A9****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -74,32 +44,41 @@ class ListMeasureDataResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->measureDatas)) {
+            Model::validateArray($this->measureDatas);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->measureDatas) {
-            $res['MeasureDatas'] = [];
-            if (null !== $this->measureDatas && \is_array($this->measureDatas)) {
-                $n = 0;
-                foreach ($this->measureDatas as $item) {
-                    $res['MeasureDatas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->measureDatas)) {
+                $res['MeasureDatas'] = [];
+                $n1                  = 0;
+                foreach ($this->measureDatas as $item1) {
+                    $res['MeasureDatas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -107,35 +86,40 @@ class ListMeasureDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMeasureDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['MeasureDatas'])) {
             if (!empty($map['MeasureDatas'])) {
                 $model->measureDatas = [];
-                $n                   = 0;
-                foreach ($map['MeasureDatas'] as $item) {
-                    $model->measureDatas[$n++] = null !== $item ? measureDatas::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['MeasureDatas'] as $item1) {
+                    $model->measureDatas[$n1++] = measureDatas::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

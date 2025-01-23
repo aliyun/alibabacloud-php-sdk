@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceCountTrendResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceCounts extends Model
 {
     /**
-     * @description The number of instances.
-     *
-     * @example 9527
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The data timestamp.
-     *
-     * @example 1600963200000
-     *
      * @var int
      */
     public $date;
@@ -32,14 +23,16 @@ class instanceCounts extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
@@ -47,17 +40,18 @@ class instanceCounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceCounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }

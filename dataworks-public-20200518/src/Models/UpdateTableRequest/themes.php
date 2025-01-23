@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateTableRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class themes extends Model
 {
     /**
-     * @description The ID of the associated topic.
-     *
-     * @example 101
-     *
      * @var int
      */
     public $themeId;
-
     /**
-     * @description The level that corresponds to the topic ID.
-     *
-     * @example 101
-     *
      * @var int
      */
     public $themeLevel;
@@ -32,14 +23,16 @@ class themes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->themeId) {
             $res['ThemeId'] = $this->themeId;
         }
+
         if (null !== $this->themeLevel) {
             $res['ThemeLevel'] = $this->themeLevel;
         }
@@ -47,17 +40,18 @@ class themes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return themes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ThemeId'])) {
             $model->themeId = $map['ThemeId'];
         }
+
         if (isset($map['ThemeLevel'])) {
             $model->themeLevel = $map['ThemeLevel'];
         }

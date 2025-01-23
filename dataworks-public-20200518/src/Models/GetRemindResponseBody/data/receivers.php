@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class receivers extends Model
 {
@@ -12,10 +12,7 @@ class receivers extends Model
      * @var string[]
      */
     public $alertTargets;
-
     /**
-     * @example OWNER
-     *
      * @var string
      */
     public $alertUnit;
@@ -26,14 +23,25 @@ class receivers extends Model
 
     public function validate()
     {
+        if (\is_array($this->alertTargets)) {
+            Model::validateArray($this->alertTargets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertTargets) {
-            $res['AlertTargets'] = $this->alertTargets;
+            if (\is_array($this->alertTargets)) {
+                $res['AlertTargets'] = [];
+                $n1                  = 0;
+                foreach ($this->alertTargets as $item1) {
+                    $res['AlertTargets'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->alertUnit) {
             $res['AlertUnit'] = $this->alertUnit;
         }
@@ -41,19 +49,24 @@ class receivers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return receivers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertTargets'])) {
             if (!empty($map['AlertTargets'])) {
-                $model->alertTargets = $map['AlertTargets'];
+                $model->alertTargets = [];
+                $n1                  = 0;
+                foreach ($map['AlertTargets'] as $item1) {
+                    $model->alertTargets[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AlertUnit'])) {
             $model->alertUnit = $map['AlertUnit'];
         }

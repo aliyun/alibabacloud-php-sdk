@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesResponseBody\paging;
-use AlibabaCloud\Tea\Model;
 
 class ListShiftSchedulesResponseBody extends Model
 {
     /**
-     * @description The pagination data.
-     *
      * @var paging
      */
     public $paging;
-
     /**
-     * @description The request ID.
-     *
-     * @example E6F0DBDD-5AD****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListShiftSchedulesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->paging) {
+            $this->paging->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paging) {
-            $res['Paging'] = null !== $this->paging ? $this->paging->toMap() : null;
+            $res['Paging'] = null !== $this->paging ? $this->paging->toArray($noStream) : $this->paging;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListShiftSchedulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListShiftSchedulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Paging'])) {
             $model->paging = paging::fromMap($map['Paging']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

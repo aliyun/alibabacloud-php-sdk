@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiResponseBody\data\wizardDetails;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class wizardConnection extends Model
 {
     /**
-     * @description The ID of the data source.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $connectionId;
-
     /**
-     * @description The name of the table in the data source.
-     *
-     * @example t
-     *
      * @var string
      */
     public $tableName;
@@ -32,14 +23,16 @@ class wizardConnection extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionId) {
             $res['ConnectionId'] = $this->connectionId;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -47,17 +40,18 @@ class wizardConnection extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return wizardConnection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionId'])) {
             $model->connectionId = $map['ConnectionId'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

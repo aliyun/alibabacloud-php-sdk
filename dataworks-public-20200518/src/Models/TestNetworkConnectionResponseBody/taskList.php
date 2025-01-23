@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TestNetworkConnectionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class taskList extends Model
 {
     /**
-     * @description The reason why the data source and resource group failed the connectivity test. If data source and the resource group passed the connectivity test, this parameter is left empty.
-     *
      * @var string
      */
     public $connectMessage;
-
     /**
-     * @description The result of the connectivity test. Valid values:
-     *
-     *   true: The data source and the resource group passed the connectivity test.
-     *   false: The data source and the resource group failed the connectivity test. You can troubleshoot issues based on the ConnectMessage parameter.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $connectStatus;
@@ -33,14 +23,16 @@ class taskList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectMessage) {
             $res['ConnectMessage'] = $this->connectMessage;
         }
+
         if (null !== $this->connectStatus) {
             $res['ConnectStatus'] = $this->connectStatus;
         }
@@ -48,17 +40,18 @@ class taskList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectMessage'])) {
             $model->connectMessage = $map['ConnectMessage'];
         }
+
         if (isset($map['ConnectStatus'])) {
             $model->connectStatus = $map['ConnectStatus'];
         }

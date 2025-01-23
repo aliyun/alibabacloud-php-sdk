@@ -4,64 +4,33 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIAlarmRuleRequest\notificationSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIAlarmRuleRequest\triggerConditions;
-use AlibabaCloud\Tea\Model;
 
 class UpdateDIAlarmRuleRequest extends Model
 {
     /**
-     * @description The alert rule ID.
-     *
-     * This parameter is required.
-     * @example 34982
-     *
      * @var int
      */
     public $DIAlarmRuleId;
-
     /**
-     * @description The description of the alert rule.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description Specifies whether to enable the alert rule. By default, the alert rule is disabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description The metric type in the alert rule. Valid values:
-     *
-     *   Heartbeat
-     *   FailoverCount
-     *   Delay
-     *
-     * This parameter is required.
-     * @example Heartbeat
-     *
      * @var string
      */
     public $metricType;
-
     /**
-     * @description The alert notification settings.
-     *
-     * This parameter is required.
      * @var notificationSettings
      */
     public $notificationSettings;
-
     /**
-     * @description The conditions that can trigger the alert rule.
-     *
-     * This parameter is required.
      * @var triggerConditions[]
      */
     public $triggerConditions;
@@ -76,32 +45,44 @@ class UpdateDIAlarmRuleRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->notificationSettings) {
+            $this->notificationSettings->validate();
+        }
+        if (\is_array($this->triggerConditions)) {
+            Model::validateArray($this->triggerConditions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIAlarmRuleId) {
             $res['DIAlarmRuleId'] = $this->DIAlarmRuleId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
         }
+
         if (null !== $this->notificationSettings) {
-            $res['NotificationSettings'] = null !== $this->notificationSettings ? $this->notificationSettings->toMap() : null;
+            $res['NotificationSettings'] = null !== $this->notificationSettings ? $this->notificationSettings->toArray($noStream) : $this->notificationSettings;
         }
+
         if (null !== $this->triggerConditions) {
-            $res['TriggerConditions'] = [];
-            if (null !== $this->triggerConditions && \is_array($this->triggerConditions)) {
-                $n = 0;
-                foreach ($this->triggerConditions as $item) {
-                    $res['TriggerConditions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->triggerConditions)) {
+                $res['TriggerConditions'] = [];
+                $n1                       = 0;
+                foreach ($this->triggerConditions as $item1) {
+                    $res['TriggerConditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -109,35 +90,40 @@ class UpdateDIAlarmRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDIAlarmRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIAlarmRuleId'])) {
             $model->DIAlarmRuleId = $map['DIAlarmRuleId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
         }
+
         if (isset($map['NotificationSettings'])) {
             $model->notificationSettings = notificationSettings::fromMap($map['NotificationSettings']);
         }
+
         if (isset($map['TriggerConditions'])) {
             if (!empty($map['TriggerConditions'])) {
                 $model->triggerConditions = [];
-                $n                        = 0;
-                foreach ($map['TriggerConditions'] as $item) {
-                    $model->triggerConditions[$n++] = null !== $item ? triggerConditions::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['TriggerConditions'] as $item1) {
+                    $model->triggerConditions[$n1++] = triggerConditions::fromMap($item1);
                 }
             }
         }

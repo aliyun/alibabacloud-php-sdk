@@ -4,52 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDataServiceApiAuthoritiesRequest extends Model
 {
     /**
-     * @description The keyword in the name of the API. The keyword can be used to search for the API whose name contains the keyword.
-     *
-     * @example My API name
-     *
      * @var string
      */
     public $apiNameKeyword;
-
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the workspace.
-     *
-     * This parameter is required.
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The tenant ID. This parameter is deprecated.
-     *
-     * @example 10001
-     *
      * @var int
      */
     public $tenantId;
@@ -63,23 +38,28 @@ class ListDataServiceApiAuthoritiesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiNameKeyword) {
             $res['ApiNameKeyword'] = $this->apiNameKeyword;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -87,26 +67,30 @@ class ListDataServiceApiAuthoritiesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataServiceApiAuthoritiesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiNameKeyword'])) {
             $model->apiNameKeyword = $map['ApiNameKeyword'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

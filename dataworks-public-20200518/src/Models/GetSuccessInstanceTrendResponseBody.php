@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetSuccessInstanceTrendResponseBody\instanceStatusTrend;
-use AlibabaCloud\Tea\Model;
 
 class GetSuccessInstanceTrendResponseBody extends Model
 {
     /**
-     * @description The trend of statistics on the instance status in different time periods.
-     *
      * @var instanceStatusTrend
      */
     public $instanceStatusTrend;
-
     /**
-     * @description The request ID.
-     *
-     * @example 952795279527ab****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetSuccessInstanceTrendResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->instanceStatusTrend) {
+            $this->instanceStatusTrend->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceStatusTrend) {
-            $res['InstanceStatusTrend'] = null !== $this->instanceStatusTrend ? $this->instanceStatusTrend->toMap() : null;
+            $res['InstanceStatusTrend'] = null !== $this->instanceStatusTrend ? $this->instanceStatusTrend->toArray($noStream) : $this->instanceStatusTrend;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetSuccessInstanceTrendResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSuccessInstanceTrendResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceStatusTrend'])) {
             $model->instanceStatusTrend = instanceStatusTrend::fromMap($map['InstanceStatusTrend']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

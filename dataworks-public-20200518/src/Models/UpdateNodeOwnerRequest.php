@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateNodeOwnerRequest extends Model
 {
     /**
-     * @description The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $nodeId;
-
     /**
-     * @description The environment in which the node runs. Valid values: DEV and PROD. The value DEV indicates the development environment, and the value PROD indicates the production environment.
-     *
-     *   PROD
-     *   DEV
-     *
-     * This parameter is required.
-     * @example PROD
-     *
      * @var string
      */
     public $projectEnv;
-
     /**
-     * @description The ID of the Alibaba Cloud account used by the node owner. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to view the ID.
-     *
-     * This parameter is required.
-     * @example 19337906836551
-     *
      * @var string
      */
     public $userId;
@@ -48,17 +28,20 @@ class UpdateNodeOwnerRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -66,20 +49,22 @@ class UpdateNodeOwnerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateNodeOwnerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

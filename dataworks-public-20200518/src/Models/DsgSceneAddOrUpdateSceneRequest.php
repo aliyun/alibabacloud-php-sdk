@@ -4,15 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneAddOrUpdateSceneRequest\scenes;
-use AlibabaCloud\Tea\Model;
 
 class DsgSceneAddOrUpdateSceneRequest extends Model
 {
     /**
-     * @description The information about the level-2 data masking scenario.
-     *
-     * This parameter is required.
      * @var scenes[]
      */
     public $scenes;
@@ -22,17 +19,21 @@ class DsgSceneAddOrUpdateSceneRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->scenes)) {
+            Model::validateArray($this->scenes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scenes) {
-            $res['scenes'] = [];
-            if (null !== $this->scenes && \is_array($this->scenes)) {
-                $n = 0;
-                foreach ($this->scenes as $item) {
-                    $res['scenes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->scenes)) {
+                $res['scenes'] = [];
+                $n1            = 0;
+                foreach ($this->scenes as $item1) {
+                    $res['scenes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -40,20 +41,20 @@ class DsgSceneAddOrUpdateSceneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DsgSceneAddOrUpdateSceneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['scenes'])) {
             if (!empty($map['scenes'])) {
                 $model->scenes = [];
-                $n             = 0;
-                foreach ($map['scenes'] as $item) {
-                    $model->scenes[$n++] = null !== $item ? scenes::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['scenes'] as $item1) {
+                    $model->scenes[$n1++] = scenes::fromMap($item1);
                 }
             }
         }

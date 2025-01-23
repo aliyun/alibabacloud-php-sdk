@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DsgScenedDeleteSceneShrinkRequest extends Model
 {
     /**
-     * @description The IDs of level-2 data masking scenarios.
-     *
-     * This parameter is required.
      * @var string
      */
     public $idsShrink;
@@ -21,9 +18,10 @@ class DsgScenedDeleteSceneShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->idsShrink) {
@@ -33,11 +31,11 @@ class DsgScenedDeleteSceneShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DsgScenedDeleteSceneShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

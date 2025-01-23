@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApplicationsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applications extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * @example 20000
-     *
      * @var int
      */
     public $applicationId;
-
     /**
-     * @description The name of the application.
-     *
-     * @example My application
-     *
      * @var string
      */
     public $applicationName;
-
     /**
-     * @description The workspace ID.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
@@ -42,17 +28,20 @@ class applications extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -60,20 +49,22 @@ class applications extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applications
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

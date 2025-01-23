@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceStatusCountResponseBody\statusCount;
-use AlibabaCloud\Tea\Model;
 
 class GetInstanceStatusCountResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0000-ABCD-EFG****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The statistics of instances.
-     *
      * @var statusCount
      */
     public $statusCount;
@@ -31,32 +24,38 @@ class GetInstanceStatusCountResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->statusCount) {
+            $this->statusCount->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->statusCount) {
-            $res['StatusCount'] = null !== $this->statusCount ? $this->statusCount->toMap() : null;
+            $res['StatusCount'] = null !== $this->statusCount ? $this->statusCount->toArray($noStream) : $this->statusCount;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceStatusCountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StatusCount'])) {
             $model->statusCount = statusCount::fromMap($map['StatusCount']);
         }

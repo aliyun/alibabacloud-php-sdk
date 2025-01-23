@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ClusterConfig extends Model
 {
     /**
-     * @example {"spark.driver.memory":"1g"}
-     *
      * @var string
      */
     public $configValue;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $enableOverwrite;
-
     /**
-     * @example ide
-     *
      * @var string
      */
     public $moduleName;
@@ -36,17 +28,20 @@ class ClusterConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
         }
+
         if (null !== $this->enableOverwrite) {
             $res['EnableOverwrite'] = $this->enableOverwrite;
         }
+
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
         }
@@ -54,20 +49,22 @@ class ClusterConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ClusterConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
         }
+
         if (isset($map['EnableOverwrite'])) {
             $model->enableOverwrite = $map['EnableOverwrite'];
         }
+
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
         }

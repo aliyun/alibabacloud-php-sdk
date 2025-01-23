@@ -4,27 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LineageRelationRegisterBulkVO extends Model
 {
     /**
-     * @example 1684327487964
-     *
      * @var int
      */
     public $createTimestamp;
-
     /**
      * @var LineageEntityVO[]
      */
     public $destEntities;
-
     /**
      * @var RelationshipVO
      */
     public $relationship;
-
     /**
      * @var LineageEntityVO[]
      */
@@ -38,32 +33,45 @@ class LineageRelationRegisterBulkVO extends Model
 
     public function validate()
     {
+        if (\is_array($this->destEntities)) {
+            Model::validateArray($this->destEntities);
+        }
+        if (null !== $this->relationship) {
+            $this->relationship->validate();
+        }
+        if (\is_array($this->srcEntities)) {
+            Model::validateArray($this->srcEntities);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
         }
+
         if (null !== $this->destEntities) {
-            $res['DestEntities'] = [];
-            if (null !== $this->destEntities && \is_array($this->destEntities)) {
-                $n = 0;
-                foreach ($this->destEntities as $item) {
-                    $res['DestEntities'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->destEntities)) {
+                $res['DestEntities'] = [];
+                $n1                  = 0;
+                foreach ($this->destEntities as $item1) {
+                    $res['DestEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->relationship) {
-            $res['Relationship'] = null !== $this->relationship ? $this->relationship->toMap() : null;
+            $res['Relationship'] = null !== $this->relationship ? $this->relationship->toArray($noStream) : $this->relationship;
         }
+
         if (null !== $this->srcEntities) {
-            $res['SrcEntities'] = [];
-            if (null !== $this->srcEntities && \is_array($this->srcEntities)) {
-                $n = 0;
-                foreach ($this->srcEntities as $item) {
-                    $res['SrcEntities'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->srcEntities)) {
+                $res['SrcEntities'] = [];
+                $n1                 = 0;
+                foreach ($this->srcEntities as $item1) {
+                    $res['SrcEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -71,35 +79,38 @@ class LineageRelationRegisterBulkVO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LineageRelationRegisterBulkVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
         }
+
         if (isset($map['DestEntities'])) {
             if (!empty($map['DestEntities'])) {
                 $model->destEntities = [];
-                $n                   = 0;
-                foreach ($map['DestEntities'] as $item) {
-                    $model->destEntities[$n++] = null !== $item ? LineageEntityVO::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['DestEntities'] as $item1) {
+                    $model->destEntities[$n1++] = LineageEntityVO::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Relationship'])) {
             $model->relationship = RelationshipVO::fromMap($map['Relationship']);
         }
+
         if (isset($map['SrcEntities'])) {
             if (!empty($map['SrcEntities'])) {
                 $model->srcEntities = [];
-                $n                  = 0;
-                foreach ($map['SrcEntities'] as $item) {
-                    $model->srcEntities[$n++] = null !== $item ? LineageEntityVO::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['SrcEntities'] as $item1) {
+                    $model->srcEntities[$n1++] = LineageEntityVO::fromMap($item1);
                 }
             }
         }

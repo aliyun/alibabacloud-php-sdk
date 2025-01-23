@@ -4,121 +4,56 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineResponseBody\data\alertSettings\dingRobots;
-use AlibabaCloud\Tea\Model;
 
 class alertSettings extends Model
 {
     /**
-     * @description The interval at which an event alert notification is sent. Unit: seconds.
-     *
-     * @example 900
-     *
      * @var int
      */
     public $alertInterval;
-
     /**
-     * @description The maximum number of times an event alert notification is sent.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $alertMaximum;
-
     /**
-     * @description The alert notification methods.
-     *
      * @var string[]
      */
     public $alertMethods;
-
     /**
-     * @description The details of the alert recipient.
-     *
-     *   If the value of AlertRecipientType is OWNER, this parameter is left empty.
-     *   If the value of AlertRecipientType is SHIFT_SCHEDULE, the value of this parameter is the ID of a shift schedule.
-     *   If the value of AlertRecipientType is OTHER, the value of this parameter is the UIDs of specified personnel. Multiple UIDs are separated by commas (,).
-     *
-     * @example 123123
-     *
      * @var string
      */
     public $alertRecipient;
-
     /**
-     * @description The type of the alert recipient. Valid values:
-     *
-     *   OWNER: indicates the node owner.
-     *   OTHER: indicates specified personnel.
-     *   SHIFT_SCHEDULE: indicates personnel in a shift schedule.
-     *
-     * @example OWNER
-     *
      * @var string
      */
     public $alertRecipientType;
-
     /**
-     * @description The type of the alert. Valid values:
-     *
-     *   BASELINE: indicates a baseline alert.
-     *   TOPIC: indicates an event alert.
-     *
-     * @example BASELINE
-     *
      * @var string
      */
     public $alertType;
-
     /**
-     * @description Indicates whether the baseline alerting feature is enabled. The feature is specific to baselines. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $baselineAlertEnabled;
-
     /**
-     * @description The DingTalk chatbots.
-     *
      * @var dingRobots[]
      */
     public $dingRobots;
-
     /**
-     * @description The end of the time range for silence. The time is in the HH:mm:ss format.
-     *
-     * @example 00:00:00
-     *
      * @var string
      */
     public $silenceEndTime;
-
     /**
-     * @description The beginning of the time range for silence. The time is in the HH:mm:ss format.
-     *
-     * @example 00:00:00
-     *
      * @var string
      */
     public $silenceStartTime;
-
     /**
-     * @description The types of event alerts, which are event-specific configurations.
-     *
      * @var string[]
      */
     public $topicTypes;
-
     /**
-     * @description The webhook URLs.
-     *
      * @var string[]
      */
     public $webhooks;
@@ -139,111 +74,176 @@ class alertSettings extends Model
 
     public function validate()
     {
+        if (\is_array($this->alertMethods)) {
+            Model::validateArray($this->alertMethods);
+        }
+        if (\is_array($this->dingRobots)) {
+            Model::validateArray($this->dingRobots);
+        }
+        if (\is_array($this->topicTypes)) {
+            Model::validateArray($this->topicTypes);
+        }
+        if (\is_array($this->webhooks)) {
+            Model::validateArray($this->webhooks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertInterval) {
             $res['AlertInterval'] = $this->alertInterval;
         }
+
         if (null !== $this->alertMaximum) {
             $res['AlertMaximum'] = $this->alertMaximum;
         }
+
         if (null !== $this->alertMethods) {
-            $res['AlertMethods'] = $this->alertMethods;
-        }
-        if (null !== $this->alertRecipient) {
-            $res['AlertRecipient'] = $this->alertRecipient;
-        }
-        if (null !== $this->alertRecipientType) {
-            $res['AlertRecipientType'] = $this->alertRecipientType;
-        }
-        if (null !== $this->alertType) {
-            $res['AlertType'] = $this->alertType;
-        }
-        if (null !== $this->baselineAlertEnabled) {
-            $res['BaselineAlertEnabled'] = $this->baselineAlertEnabled;
-        }
-        if (null !== $this->dingRobots) {
-            $res['DingRobots'] = [];
-            if (null !== $this->dingRobots && \is_array($this->dingRobots)) {
-                $n = 0;
-                foreach ($this->dingRobots as $item) {
-                    $res['DingRobots'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertMethods)) {
+                $res['AlertMethods'] = [];
+                $n1                  = 0;
+                foreach ($this->alertMethods as $item1) {
+                    $res['AlertMethods'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->alertRecipient) {
+            $res['AlertRecipient'] = $this->alertRecipient;
+        }
+
+        if (null !== $this->alertRecipientType) {
+            $res['AlertRecipientType'] = $this->alertRecipientType;
+        }
+
+        if (null !== $this->alertType) {
+            $res['AlertType'] = $this->alertType;
+        }
+
+        if (null !== $this->baselineAlertEnabled) {
+            $res['BaselineAlertEnabled'] = $this->baselineAlertEnabled;
+        }
+
+        if (null !== $this->dingRobots) {
+            if (\is_array($this->dingRobots)) {
+                $res['DingRobots'] = [];
+                $n1                = 0;
+                foreach ($this->dingRobots as $item1) {
+                    $res['DingRobots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->silenceEndTime) {
             $res['SilenceEndTime'] = $this->silenceEndTime;
         }
+
         if (null !== $this->silenceStartTime) {
             $res['SilenceStartTime'] = $this->silenceStartTime;
         }
+
         if (null !== $this->topicTypes) {
-            $res['TopicTypes'] = $this->topicTypes;
+            if (\is_array($this->topicTypes)) {
+                $res['TopicTypes'] = [];
+                $n1                = 0;
+                foreach ($this->topicTypes as $item1) {
+                    $res['TopicTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->webhooks) {
-            $res['Webhooks'] = $this->webhooks;
+            if (\is_array($this->webhooks)) {
+                $res['Webhooks'] = [];
+                $n1              = 0;
+                foreach ($this->webhooks as $item1) {
+                    $res['Webhooks'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alertSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertInterval'])) {
             $model->alertInterval = $map['AlertInterval'];
         }
+
         if (isset($map['AlertMaximum'])) {
             $model->alertMaximum = $map['AlertMaximum'];
         }
+
         if (isset($map['AlertMethods'])) {
             if (!empty($map['AlertMethods'])) {
-                $model->alertMethods = $map['AlertMethods'];
-            }
-        }
-        if (isset($map['AlertRecipient'])) {
-            $model->alertRecipient = $map['AlertRecipient'];
-        }
-        if (isset($map['AlertRecipientType'])) {
-            $model->alertRecipientType = $map['AlertRecipientType'];
-        }
-        if (isset($map['AlertType'])) {
-            $model->alertType = $map['AlertType'];
-        }
-        if (isset($map['BaselineAlertEnabled'])) {
-            $model->baselineAlertEnabled = $map['BaselineAlertEnabled'];
-        }
-        if (isset($map['DingRobots'])) {
-            if (!empty($map['DingRobots'])) {
-                $model->dingRobots = [];
-                $n                 = 0;
-                foreach ($map['DingRobots'] as $item) {
-                    $model->dingRobots[$n++] = null !== $item ? dingRobots::fromMap($item) : $item;
+                $model->alertMethods = [];
+                $n1                  = 0;
+                foreach ($map['AlertMethods'] as $item1) {
+                    $model->alertMethods[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['AlertRecipient'])) {
+            $model->alertRecipient = $map['AlertRecipient'];
+        }
+
+        if (isset($map['AlertRecipientType'])) {
+            $model->alertRecipientType = $map['AlertRecipientType'];
+        }
+
+        if (isset($map['AlertType'])) {
+            $model->alertType = $map['AlertType'];
+        }
+
+        if (isset($map['BaselineAlertEnabled'])) {
+            $model->baselineAlertEnabled = $map['BaselineAlertEnabled'];
+        }
+
+        if (isset($map['DingRobots'])) {
+            if (!empty($map['DingRobots'])) {
+                $model->dingRobots = [];
+                $n1                = 0;
+                foreach ($map['DingRobots'] as $item1) {
+                    $model->dingRobots[$n1++] = dingRobots::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['SilenceEndTime'])) {
             $model->silenceEndTime = $map['SilenceEndTime'];
         }
+
         if (isset($map['SilenceStartTime'])) {
             $model->silenceStartTime = $map['SilenceStartTime'];
         }
+
         if (isset($map['TopicTypes'])) {
             if (!empty($map['TopicTypes'])) {
-                $model->topicTypes = $map['TopicTypes'];
+                $model->topicTypes = [];
+                $n1                = 0;
+                foreach ($map['TopicTypes'] as $item1) {
+                    $model->topicTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Webhooks'])) {
             if (!empty($map['Webhooks'])) {
-                $model->webhooks = $map['Webhooks'];
+                $model->webhooks = [];
+                $n1              = 0;
+                foreach ($map['Webhooks'] as $item1) {
+                    $model->webhooks[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,53 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMetaCollectionEntitiesRequest extends Model
 {
     /**
-     * @description The unique identifier of the collection.
-     *
-     * This parameter is required.
-     * @example album.12345
-     *
      * @var string
      */
     public $collectionQualifiedName;
-
     /**
-     * @description The type of the entities.
-     *
-     * For example, if this parameter is set to maxcompute-table, the entity is a MaxCompute table.
-     * @example maxcompute-table
-     *
      * @var string
      */
     public $entityType;
-
     /**
-     * @description The search keyword.
-     *
-     * @example test
-     *
      * @var string
      */
     public $keyword;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * @example 12222
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -64,23 +38,28 @@ class ListMetaCollectionEntitiesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collectionQualifiedName) {
             $res['CollectionQualifiedName'] = $this->collectionQualifiedName;
         }
+
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -88,26 +67,30 @@ class ListMetaCollectionEntitiesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMetaCollectionEntitiesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CollectionQualifiedName'])) {
             $model->collectionQualifiedName = $map['CollectionQualifiedName'];
         }
+
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

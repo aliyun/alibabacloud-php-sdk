@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApiAuthoritiesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApiAuthoritiesResponseBody\data\apiAuthorizationList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The APIs on which other users are granted the access permissions.
-     *
      * @var apiAuthorizationList[]
      */
     public $apiAuthorizationList;
-
     /**
-     * @description The page number. The value of this parameter is the same as that of the PageNumber parameter in the request.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->apiAuthorizationList)) {
+            Model::validateArray($this->apiAuthorizationList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiAuthorizationList) {
-            $res['ApiAuthorizationList'] = [];
-            if (null !== $this->apiAuthorizationList && \is_array($this->apiAuthorizationList)) {
-                $n = 0;
-                foreach ($this->apiAuthorizationList as $item) {
-                    $res['ApiAuthorizationList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiAuthorizationList)) {
+                $res['ApiAuthorizationList'] = [];
+                $n1                          = 0;
+                foreach ($this->apiAuthorizationList as $item1) {
+                    $res['ApiAuthorizationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiAuthorizationList'])) {
             if (!empty($map['ApiAuthorizationList'])) {
                 $model->apiAuthorizationList = [];
-                $n                           = 0;
-                foreach ($map['ApiAuthorizationList'] as $item) {
-                    $model->apiAuthorizationList[$n++] = null !== $item ? apiAuthorizationList::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['ApiAuthorizationList'] as $item1) {
+                    $model->apiAuthorizationList[$n1++] = apiAuthorizationList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

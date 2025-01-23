@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetIDEEventDetailResponseBody\eventDetail;
-use AlibabaCloud\Tea\Model;
 
 class GetIDEEventDetailResponseBody extends Model
 {
     /**
-     * @description The data snapshot that is generated when an extension point event is triggered.
-     *
-     * The fields contained in data snapshots vary based on the types of the triggered extension point events. For more information, see the description of the fields.
      * @var eventDetail
      */
     public $eventDetail;
-
     /**
-     * @description The request ID.
-     *
-     * @example 8abcb91f-d266-4073-b907-2ed670378ed1
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +24,19 @@ class GetIDEEventDetailResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->eventDetail) {
+            $this->eventDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventDetail) {
-            $res['EventDetail'] = null !== $this->eventDetail ? $this->eventDetail->toMap() : null;
+            $res['EventDetail'] = null !== $this->eventDetail ? $this->eventDetail->toArray($noStream) : $this->eventDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +44,18 @@ class GetIDEEventDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIDEEventDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventDetail'])) {
             $model->eventDetail = eventDetail::fromMap($map['EventDetail']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

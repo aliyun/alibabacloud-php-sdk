@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RegisterLineageRelationShrinkRequest extends Model
 {
     /**
-     * @description The structure whose lineage you want to register to DataWorks.
-     *
-     * This parameter is required.
      * @var string
      */
     public $lineageRelationRegisterVOShrink;
@@ -21,9 +18,10 @@ class RegisterLineageRelationShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lineageRelationRegisterVOShrink) {
@@ -33,11 +31,11 @@ class RegisterLineageRelationShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegisterLineageRelationShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

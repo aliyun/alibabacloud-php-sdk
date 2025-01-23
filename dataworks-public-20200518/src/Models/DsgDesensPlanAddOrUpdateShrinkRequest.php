@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DsgDesensPlanAddOrUpdateShrinkRequest extends Model
 {
     /**
-     * @description A collection of data masking rules that you want to add or modify.
-     *
-     * This parameter is required.
      * @var string
      */
     public $desensRulesShrink;
@@ -21,9 +18,10 @@ class DsgDesensPlanAddOrUpdateShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desensRulesShrink) {
@@ -33,11 +31,11 @@ class DsgDesensPlanAddOrUpdateShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DsgDesensPlanAddOrUpdateShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

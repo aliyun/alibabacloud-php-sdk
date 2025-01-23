@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftPersonnelsResponseBody\paging;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class shiftPersons extends Model
 {
     /**
-     * @description The time when the on-duty engineer starts the shift.
-     *
-     * @example 1593950832000
-     *
      * @var int
      */
     public $beginTime;
-
     /**
-     * @description The time when the on-duty engineer ends the shift.
-     *
-     * @example 1593950832000
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description The name of the on-duty engineer.
-     *
      * @var string
      */
     public $shiftPersonName;
-
     /**
-     * @description The UID of the on-duty engineer.
-     *
-     * @example 3726346****
-     *
      * @var string
      */
     public $shiftPersonUID;
@@ -50,20 +33,24 @@ class shiftPersons extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->shiftPersonName) {
             $res['ShiftPersonName'] = $this->shiftPersonName;
         }
+
         if (null !== $this->shiftPersonUID) {
             $res['ShiftPersonUID'] = $this->shiftPersonUID;
         }
@@ -71,23 +58,26 @@ class shiftPersons extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return shiftPersons
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['ShiftPersonName'])) {
             $model->shiftPersonName = $map['ShiftPersonName'];
         }
+
         if (isset($map['ShiftPersonUID'])) {
             $model->shiftPersonUID = $map['ShiftPersonUID'];
         }

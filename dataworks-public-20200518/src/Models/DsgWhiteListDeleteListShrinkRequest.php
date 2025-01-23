@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DsgWhiteListDeleteListShrinkRequest extends Model
 {
     /**
-     * @description The IDs of the whitelists.
-     *
-     * This parameter is required.
      * @var string
      */
     public $idsShrink;
@@ -21,9 +18,10 @@ class DsgWhiteListDeleteListShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->idsShrink) {
@@ -33,11 +31,11 @@ class DsgWhiteListDeleteListShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DsgWhiteListDeleteListShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopInstanceRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [ListInstances](https://help.aliyun.com/document_detail/173982.html) operation to obtain the ID.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $instanceId;
-
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV.
-     *
-     * This parameter is required.
-     * @example PROD
-     *
      * @var string
      */
     public $projectEnv;
@@ -34,14 +23,16 @@ class StopInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
@@ -49,17 +40,18 @@ class StopInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }

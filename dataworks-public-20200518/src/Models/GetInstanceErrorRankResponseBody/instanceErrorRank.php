@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceErrorRankResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceErrorRankResponseBody\instanceErrorRank\errorRank;
-use AlibabaCloud\Tea\Model;
 
 class instanceErrorRank extends Model
 {
     /**
-     * @description The ranking data of nodes on which errors occurred within the last month.
-     *
      * @var errorRank[]
      */
     public $errorRank;
-
     /**
-     * @description The timestamp at which the rankings were updated.
-     *
-     * @example 1600963200000
-     *
      * @var int
      */
     public $updateTime;
@@ -31,20 +24,25 @@ class instanceErrorRank extends Model
 
     public function validate()
     {
+        if (\is_array($this->errorRank)) {
+            Model::validateArray($this->errorRank);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorRank) {
-            $res['ErrorRank'] = [];
-            if (null !== $this->errorRank && \is_array($this->errorRank)) {
-                $n = 0;
-                foreach ($this->errorRank as $item) {
-                    $res['ErrorRank'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->errorRank)) {
+                $res['ErrorRank'] = [];
+                $n1               = 0;
+                foreach ($this->errorRank as $item1) {
+                    $res['ErrorRank'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -52,23 +50,24 @@ class instanceErrorRank extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceErrorRank
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorRank'])) {
             if (!empty($map['ErrorRank'])) {
                 $model->errorRank = [];
-                $n                = 0;
-                foreach ($map['ErrorRank'] as $item) {
-                    $model->errorRank[$n++] = null !== $item ? errorRank::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['ErrorRank'] as $item1) {
+                    $model->errorRank[$n1++] = errorRank::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

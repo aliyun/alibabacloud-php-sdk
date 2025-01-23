@@ -4,55 +4,35 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LineageEntityVO extends Model
 {
     /**
-     * @example attribute map
-     *
      * @var string[]
      */
     public $attributes;
-
     /**
-     * @example http://domain.test.url/entity
-     *
      * @var string
      */
     public $detailUrl;
-
     /**
-     * @example maxcompute-table
-     *
      * @var string
      */
     public $entityType;
-
     /**
-     * @example tableName
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example owner
-     *
      * @var string
      */
     public $owner;
-
     /**
-     * @example dbName
-     *
      * @var string
      */
     public $parentName;
-
     /**
-     * @example maxcompute-table.projectName.tablename
-     *
      * @var string
      */
     public $qualifiedName;
@@ -68,29 +48,44 @@ class LineageEntityVO extends Model
 
     public function validate()
     {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
+            if (\is_array($this->attributes)) {
+                $res['Attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['Attributes'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->detailUrl) {
             $res['DetailUrl'] = $this->detailUrl;
         }
+
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->parentName) {
             $res['ParentName'] = $this->parentName;
         }
+
         if (null !== $this->qualifiedName) {
             $res['QualifiedName'] = $this->qualifiedName;
         }
@@ -98,32 +93,43 @@ class LineageEntityVO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LineageEntityVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attributes'])) {
-            $model->attributes = $map['Attributes'];
+            if (!empty($map['Attributes'])) {
+                $model->attributes = [];
+                foreach ($map['Attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['DetailUrl'])) {
             $model->detailUrl = $map['DetailUrl'];
         }
+
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['ParentName'])) {
             $model->parentName = $map['ParentName'];
         }
+
         if (isset($map['QualifiedName'])) {
             $model->qualifiedName = $map['QualifiedName'];
         }

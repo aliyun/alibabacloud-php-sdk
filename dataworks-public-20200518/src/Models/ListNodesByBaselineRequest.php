@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListNodesByBaselineRequest extends Model
 {
     /**
-     * @description The baseline ID. You can call the [ListBaselineConfigs](https://help.aliyun.com/document_detail/173964.html) operation to query the baseline ID.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $baselineId;
@@ -23,9 +18,10 @@ class ListNodesByBaselineRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baselineId) {
@@ -35,11 +31,11 @@ class ListNodesByBaselineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodesByBaselineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

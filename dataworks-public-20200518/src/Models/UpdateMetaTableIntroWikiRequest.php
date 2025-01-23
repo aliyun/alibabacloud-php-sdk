@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMetaTableIntroWikiRequest extends Model
 {
     /**
-     * @description The details of the instructions on how to use the metatable.
-     *
-     * This parameter is required.
-     * @example abc
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description The GUID of the table. Specify the GUID in the odps.{projectName}.{tableName} format.
-     *
-     * This parameter is required.
-     * @example odps.test.table1
-     *
      * @var string
      */
     public $tableGuid;
@@ -34,14 +23,16 @@ class UpdateMetaTableIntroWikiRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
@@ -49,17 +40,18 @@ class UpdateMetaTableIntroWikiRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMetaTableIntroWikiRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }

@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFromMetaCategoryRequest extends Model
 {
     /**
-     * @description The ID of the category.
-     *
-     * This parameter is required.
-     * @example 5
-     *
      * @var int
      */
     public $categoryId;
-
     /**
-     * @description The GUID of the metatable.
-     *
-     * This parameter is required.
-     * @example odps.engine_name.table_name
-     *
      * @var string
      */
     public $tableGuid;
@@ -34,14 +23,16 @@ class DeleteFromMetaCategoryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
@@ -49,17 +40,18 @@ class DeleteFromMetaCategoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFromMetaCategoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }

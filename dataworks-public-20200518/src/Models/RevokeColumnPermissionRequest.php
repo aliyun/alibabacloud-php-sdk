@@ -4,68 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokeColumnPermissionRequest extends Model
 {
     /**
-     * @description The fields for which you want to revoke permissions from a user. Separate multiple fields with commas (,). You can revoke the permissions on the fields only in MaxCompute tables.
-     *
-     * This parameter is required.
-     * @example id,name
-     *
      * @var string
      */
     public $columns;
-
     /**
-     * @description The name of the MaxCompute project to which the fields belong. You can log on to the DataWorks console and go to the SettingCenter page to obtain the name of the MaxCompute project that you associate with the workspace.
-     *
-     * This parameter is required.
-     * @example aMaxcomputeProjectName
-     *
      * @var string
      */
     public $maxComputeProjectName;
-
     /**
-     * @description The ID of the Alibaba Cloud account of the user from which you want to revoke permissions. You can log on to the DataWorks console and go to the Security Settings page to obtain the ID. You must specify either this parameter or the RevokeUserName parameter. If you specify both this parameter and the RevokeUserName parameter and the parameter values are different, the value of this parameter prevails.
-     *
-     * @example 267842600408993176
-     *
      * @var string
      */
     public $revokeUserId;
-
     /**
-     * @description The Alibaba Cloud account from which you want to revoke permissions. Specify this parameter in the format that is the same as the format of the account used to access the MaxCompute project.
-     *
-     *   If the account is an Alibaba Cloud account, the value is in the ALIYUN$+Account name format.
-     *   If the account is a RAM user, the value is in the RAM$+Account name format.
-     *
-     * You must specify either this parameter or the RevokeUserId parameter. If you specify both this parameter and the RevokeUserId parameter and the parameter values are different, the value of the RevokeUserId parameter prevails.
-     * @example RAM$dataworks_3h1_1:stsramuser
-     *
      * @var string
      */
     public $revokeUserName;
-
     /**
-     * @description The name of the MaxCompute table to which the fields belong. You can call the [SearchMetaTables](https://help.aliyun.com/document_detail/173919.html) operation to query the name of the MaxCompute table.
-     *
-     * This parameter is required.
-     * @example aTableName
-     *
      * @var string
      */
     public $tableName;
-
     /**
-     * @description The ID of the DataWorks workspace with which the MaxCompute project is associated. You can log on to the DataWorks console and go to the Workspace page to obtain the ID.
-     *
-     * This parameter is required.
-     * @example 12345
-     *
      * @var int
      */
     public $workspaceId;
@@ -80,26 +43,32 @@ class RevokeColumnPermissionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columns) {
             $res['Columns'] = $this->columns;
         }
+
         if (null !== $this->maxComputeProjectName) {
             $res['MaxComputeProjectName'] = $this->maxComputeProjectName;
         }
+
         if (null !== $this->revokeUserId) {
             $res['RevokeUserId'] = $this->revokeUserId;
         }
+
         if (null !== $this->revokeUserName) {
             $res['RevokeUserName'] = $this->revokeUserName;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -107,29 +76,34 @@ class RevokeColumnPermissionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeColumnPermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Columns'])) {
             $model->columns = $map['Columns'];
         }
+
         if (isset($map['MaxComputeProjectName'])) {
             $model->maxComputeProjectName = $map['MaxComputeProjectName'];
         }
+
         if (isset($map['RevokeUserId'])) {
             $model->revokeUserId = $map['RevokeUserId'];
         }
+
         if (isset($map['RevokeUserName'])) {
             $model->revokeUserName = $map['RevokeUserName'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

@@ -4,46 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveProjectMemberFromRoleRequest extends Model
 {
     /**
-     * @description The DataWorks workspace ID.
-     *
-     * This parameter is required.
-     * @example 27
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The code of the role in the DataWorks workspace. You can call the ListProjectRoles operation to query the codes of all roles in a DataWorks workspace. Valid values:
-     *
-     *   role_project_owner: workspace owner
-     *   role_project_admin: workspace administrator
-     *   role_project_dev: developer
-     *   role_project_pe: O\\&M engineer
-     *   role_project_deploy: deployment expert
-     *   role_project_guest: visitor
-     *   role_project_security: security administrator
-     *   role_project_tester: experiencer
-     *   role_project_erd: model designer
-     *
-     * This parameter is required.
-     * @example role_project_guest
-     *
      * @var string
      */
     public $roleCode;
-
     /**
-     * @description The user ID.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var string
      */
     public $userId;
@@ -55,17 +28,20 @@ class RemoveProjectMemberFromRoleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->roleCode) {
             $res['RoleCode'] = $this->roleCode;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -73,20 +49,22 @@ class RemoveProjectMemberFromRoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveProjectMemberFromRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RoleCode'])) {
             $model->roleCode = $map['RoleCode'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDeploymentResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDeploymentResponseBody\data\deployedItems;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDeploymentResponseBody\data\deployment;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -14,10 +14,7 @@ class data extends Model
      * @var deployedItems[]
      */
     public $deployedItems;
-
     /**
-     * @description The details of the deployment task.
-     *
      * @var deployment
      */
     public $deployment;
@@ -28,44 +25,53 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->deployedItems)) {
+            Model::validateArray($this->deployedItems);
+        }
+        if (null !== $this->deployment) {
+            $this->deployment->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deployedItems) {
-            $res['DeployedItems'] = [];
-            if (null !== $this->deployedItems && \is_array($this->deployedItems)) {
-                $n = 0;
-                foreach ($this->deployedItems as $item) {
-                    $res['DeployedItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deployedItems)) {
+                $res['DeployedItems'] = [];
+                $n1                   = 0;
+                foreach ($this->deployedItems as $item1) {
+                    $res['DeployedItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->deployment) {
-            $res['Deployment'] = null !== $this->deployment ? $this->deployment->toMap() : null;
+            $res['Deployment'] = null !== $this->deployment ? $this->deployment->toArray($noStream) : $this->deployment;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeployedItems'])) {
             if (!empty($map['DeployedItems'])) {
                 $model->deployedItems = [];
-                $n                    = 0;
-                foreach ($map['DeployedItems'] as $item) {
-                    $model->deployedItems[$n++] = null !== $item ? deployedItems::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['DeployedItems'] as $item1) {
+                    $model->deployedItems[$n1++] = deployedItems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Deployment'])) {
             $model->deployment = deployment::fromMap($map['Deployment']);
         }

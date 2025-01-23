@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaDBResponseBody\databaseInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListMetaDBResponseBody extends Model
 {
     /**
-     * @description The information about the metadatabases.
-     *
      * @var databaseInfo
      */
     public $databaseInfo;
-
     /**
-     * @description The request ID.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListMetaDBResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->databaseInfo) {
+            $this->databaseInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseInfo) {
-            $res['DatabaseInfo'] = null !== $this->databaseInfo ? $this->databaseInfo->toMap() : null;
+            $res['DatabaseInfo'] = null !== $this->databaseInfo ? $this->databaseInfo->toArray($noStream) : $this->databaseInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListMetaDBResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMetaDBResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseInfo'])) {
             $model->databaseInfo = databaseInfo::fromMap($map['DatabaseInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,60 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableChangeLogResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataEntityList extends Model
 {
     /**
-     * @description The content of the change.
-     *
-     * @example "[{\\"action\\":\\"ADD_COLUMN\\",\\"value\\":[{\\"originName\\":\\"\\",\\"originType\\":\\"\\",\\"originComment\\":\\"\\",\\"name\\":\\"id\\",\\"type\\":\\"struct<name:string>\\",\\"comment\\":\\"\\"}]}]",
-     *
      * @var string
      */
     public $changeContent;
-
     /**
-     * @description The type of the change.
-     *
-     * @example CREATE_TABLE
-     *
      * @var string
      */
     public $changeType;
-
     /**
-     * @description The time when the metatable was created.
-     *
-     * @example 1590722845000
-     *
      * @var int
      */
     public $createTime;
-
     /**
-     * @description The time when the metatable was modified.
-     *
-     * @example 1590722845000
-     *
      * @var int
      */
     public $modifiedTime;
-
     /**
-     * @description The entity on which the change was made. Valid values: TABLE and PARTITION.
-     *
-     * @example TABLE
-     *
      * @var string
      */
     public $objectType;
-
     /**
-     * @description The name of the operator.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $operator;
@@ -72,26 +43,32 @@ class dataEntityList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeContent) {
             $res['ChangeContent'] = $this->changeContent;
         }
+
         if (null !== $this->changeType) {
             $res['ChangeType'] = $this->changeType;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
+
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
@@ -99,29 +76,34 @@ class dataEntityList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataEntityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeContent'])) {
             $model->changeContent = $map['ChangeContent'];
         }
+
         if (isset($map['ChangeType'])) {
             $model->changeType = $map['ChangeType'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
+
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }

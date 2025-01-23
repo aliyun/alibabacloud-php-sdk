@@ -4,110 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDataSourceRequest extends Model
 {
     /**
-     * @description The details about the data source. You are not allowed to change the type of the data source. For example, you are not allowed to change the data source type from MaxCompute to MySQL. Examples of details of some common data sources:
-     *
-     *   odps
-     *
-     * }
-     *
-     *   mysql
-     *
-     * }
-     *
-     *   rds
-     *
-     * }
-     *
-     *   oss
-     *
-     * }
-     *
-     *   sqlserver
-     *
-     * }
-     *
-     *   polardb
-     *
-     * }
-     *
-     *   oracle
-     *
-     * }
-     *
-     *   mongodb
-     *
-     * }
-     *
-     *   emr
-     *
-     * }
-     *
-     *   postgresql
-     *
-     * }
-     *
-     *   analyticdb_for_mysql
-     *
-     * }
-     *
-     *   hybriddb_for_postgresql
-     *
-     * }
-     *
-     *   holo
-     *
-     * }
-     *
-     *   kafka
-     *
-     * }
-     * @example {"accessId":"xssssss","accessKey":"xsaxsaxsa","authType":2,"endpoint":"http://service.odps.aliyun.com/api","project":"xsaxsax","tag":"public"}
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description The ID of the data source. You can call the [ListDataSources](https://help.aliyun.com/document_detail/2780072.html) operation to query the ID.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $dataSourceId;
-
     /**
-     * @description The description of the data source.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The environment in which the data source resides. Valid values:
-     *
-     *   0: development environment
-     *   1: production environment
-     *
-     * @example 1
-     *
      * @var int
      */
     public $envType;
-
     /**
-     * @description The status of the data source. This parameter is deprecated. Do not use this parameter.
-     *
-     * @example ENABLED
-     *
      * @var string
      */
     public $status;
@@ -121,23 +38,28 @@ class UpdateDataSourceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -145,26 +67,30 @@ class UpdateDataSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDataSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

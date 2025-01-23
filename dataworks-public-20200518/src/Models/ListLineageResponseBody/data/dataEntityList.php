@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListLineageResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\Entity;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListLineageResponseBody\data\dataEntityList\relationList;
-use AlibabaCloud\Tea\Model;
 
 class dataEntityList extends Model
 {
     /**
-     * @description The time when the lineage was generated.
-     *
-     * @example 1686215809269
-     *
      * @var int
      */
     public $createTimestamp;
-
     /**
-     * @description The information about the entity.
-     *
      * @var Entity
      */
     public $entity;
-
     /**
-     * @description The array of the relationship structure.
-     *
      * @var relationList[]
      */
     public $relationList;
@@ -40,23 +30,32 @@ class dataEntityList extends Model
 
     public function validate()
     {
+        if (null !== $this->entity) {
+            $this->entity->validate();
+        }
+        if (\is_array($this->relationList)) {
+            Model::validateArray($this->relationList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
         }
+
         if (null !== $this->entity) {
-            $res['Entity'] = null !== $this->entity ? $this->entity->toMap() : null;
+            $res['Entity'] = null !== $this->entity ? $this->entity->toArray($noStream) : $this->entity;
         }
+
         if (null !== $this->relationList) {
-            $res['RelationList'] = [];
-            if (null !== $this->relationList && \is_array($this->relationList)) {
-                $n = 0;
-                foreach ($this->relationList as $item) {
-                    $res['RelationList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->relationList)) {
+                $res['RelationList'] = [];
+                $n1                  = 0;
+                foreach ($this->relationList as $item1) {
+                    $res['RelationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -64,26 +63,28 @@ class dataEntityList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataEntityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
         }
+
         if (isset($map['Entity'])) {
             $model->entity = Entity::fromMap($map['Entity']);
         }
+
         if (isset($map['RelationList'])) {
             if (!empty($map['RelationList'])) {
                 $model->relationList = [];
-                $n                   = 0;
-                foreach ($map['RelationList'] as $item) {
-                    $model->relationList[$n++] = null !== $item ? relationList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['RelationList'] as $item1) {
+                    $model->relationList[$n1++] = relationList::fromMap($item1);
                 }
             }
         }

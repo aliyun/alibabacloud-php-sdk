@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaDBResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaDBResponseBody\databaseInfo\dbList;
-use AlibabaCloud\Tea\Model;
 
 class databaseInfo extends Model
 {
     /**
-     * @description The metadatabases.
-     *
      * @var dbList[]
      */
     public $dbList;
-
     /**
-     * @description The total number of the metadatabases returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -31,20 +24,25 @@ class databaseInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->dbList)) {
+            Model::validateArray($this->dbList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbList) {
-            $res['DbList'] = [];
-            if (null !== $this->dbList && \is_array($this->dbList)) {
-                $n = 0;
-                foreach ($this->dbList as $item) {
-                    $res['DbList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dbList)) {
+                $res['DbList'] = [];
+                $n1            = 0;
+                foreach ($this->dbList as $item1) {
+                    $res['DbList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -52,23 +50,24 @@ class databaseInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databaseInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbList'])) {
             if (!empty($map['DbList'])) {
                 $model->dbList = [];
-                $n             = 0;
-                foreach ($map['DbList'] as $item) {
-                    $model->dbList[$n++] = null !== $item ? dbList::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['DbList'] as $item1) {
+                    $model->dbList[$n1++] = dbList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

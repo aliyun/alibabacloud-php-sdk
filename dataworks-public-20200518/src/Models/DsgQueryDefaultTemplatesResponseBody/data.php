@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQueryDefaultTemplatesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DataDesensPlanTemplateValue;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The sensitive field type.
-     *
-     * @example phone
-     *
      * @var string
      */
     public $dataType;
-
     /**
-     * @description The supported data masking methods and parameter descriptions.
-     *
      * @var DataDesensPlanTemplateValue[][]
      */
     public $desensPlanTemplate;
@@ -31,34 +24,62 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->desensPlanTemplate)) {
+            Model::validateArray($this->desensPlanTemplate);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
+
         if (null !== $this->desensPlanTemplate) {
-            $res['DesensPlanTemplate'] = $this->desensPlanTemplate;
+            if (\is_array($this->desensPlanTemplate)) {
+                $res['DesensPlanTemplate'] = [];
+                foreach ($this->desensPlanTemplate as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['DesensPlanTemplate'][$key1] = [];
+                        $n2                               = 0;
+                        foreach ($value1 as $item2) {
+                            $res['DesensPlanTemplate'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
+
         if (isset($map['DesensPlanTemplate'])) {
-            $model->desensPlanTemplate = $map['DesensPlanTemplate'];
+            if (!empty($map['DesensPlanTemplate'])) {
+                $model->desensPlanTemplate = [];
+                foreach ($map['DesensPlanTemplate'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->desensPlanTemplate[$key1] = [];
+                        $n2                               = 0;
+                        foreach ($value1 as $item2) {
+                            $model->desensPlanTemplate[$key1][$n2++] = DataDesensPlanTemplateValue::fromMap($item2);
+                        }
+                    }
+                }
+            }
         }
 
         return $model;

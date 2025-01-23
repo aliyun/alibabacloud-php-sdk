@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstanceHistoryRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the ListInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $instanceId;
-
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV. By default, data of instances in the production environment is queried.
-     *
-     * @example PROD
-     *
      * @var string
      */
     public $projectEnv;
@@ -33,14 +23,16 @@ class ListInstanceHistoryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
@@ -48,17 +40,18 @@ class ListInstanceHistoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceHistoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }

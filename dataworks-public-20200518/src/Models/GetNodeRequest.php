@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetNodeRequest extends Model
 {
     /**
-     * @description The interval at which the node is rerun after the node fails to run.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $nodeId;
-
     /**
-     * @description The priority of the node. Valid values: 1, 3, 5, 7, and 8.
-     *
-     * This parameter is required.
-     * @example PROD
-     *
      * @var string
      */
     public $projectEnv;
@@ -34,14 +23,16 @@ class GetNodeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
@@ -49,17 +40,18 @@ class GetNodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }

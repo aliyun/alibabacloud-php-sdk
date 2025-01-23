@@ -4,58 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupQueryListResponseBody\pageData;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The usernames in the user group.
-     *
      * @var string[]
      */
     public $accounts;
-
     /**
-     * @description The time when the user group was created.
-     *
-     * @example 2024-05-10 17:14:44
-     *
      * @var string
      */
     public $gmtCreate;
-
     /**
-     * @description The time when the user group was modified.
-     *
-     * @example 2024-05-10 17:14:44
-     *
      * @var string
      */
     public $gmtModified;
-
     /**
-     * @description The user group ID.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the user group.
-     *
-     * @example test_group
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The owner of the user group.
-     *
-     * @example user1
-     *
      * @var string
      */
     public $owner;
@@ -70,26 +43,41 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->accounts)) {
+            Model::validateArray($this->accounts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accounts) {
-            $res['Accounts'] = $this->accounts;
+            if (\is_array($this->accounts)) {
+                $res['Accounts'] = [];
+                $n1              = 0;
+                foreach ($this->accounts as $item1) {
+                    $res['Accounts'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
@@ -97,31 +85,40 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
-                $model->accounts = $map['Accounts'];
+                $model->accounts = [];
+                $n1              = 0;
+                foreach ($map['Accounts'] as $item1) {
+                    $model->accounts[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }

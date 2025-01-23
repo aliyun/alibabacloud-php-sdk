@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDISyncInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The reason why the real-time synchronization task or the data synchronization solution fails to be started.
-     *
-     * If the real-time synchronization task or the data synchronization solution is started, the value null is returned.
-     * @example fileId:[100] is invalid.
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description Indicates whether the real-time synchronization task or the data synchronization solution is started. Valid values:
-     *
-     *   success: The real-time synchronization task or the data synchronization solution is started.
-     *   fail: The real-time synchronization task or the data synchronization solution fails to be started. You can troubleshoot the issue based on the provided cause.
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
@@ -36,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -51,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

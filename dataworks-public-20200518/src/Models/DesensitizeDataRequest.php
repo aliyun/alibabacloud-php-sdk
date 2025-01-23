@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DesensitizeDataRequest extends Model
 {
     /**
-     * @description The data that you want to mask.
-     *
-     * This parameter is required.
-     * @example 15365291784
-     *
      * @var string
      */
     public $data;
-
     /**
-     * @description The code of the data masking scenario. You can view the code on the Data Masking Management page in Data Security Guard of the DataWorks console.
-     *
-     * This parameter is required.
-     * @example _default_scene_code
-     *
      * @var string
      */
     public $sceneCode;
@@ -34,14 +23,16 @@ class DesensitizeDataRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
         }
@@ -49,17 +40,18 @@ class DesensitizeDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DesensitizeDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDIJobRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDIJobRequest\realtimeStartSettings\failoverSettings;
-use AlibabaCloud\Tea\Model;
 
 class realtimeStartSettings extends Model
 {
     /**
-     * @description The failover settings.
-     *
      * @var failoverSettings
      */
     public $failoverSettings;
-
     /**
-     * @description The timestamp of the start offset. Unit: seconds. If you do not configure this parameter, the offset is not reset by default.
-     *
-     * @example 1671516776
-     *
      * @var int
      */
     public $startTime;
@@ -31,14 +24,19 @@ class realtimeStartSettings extends Model
 
     public function validate()
     {
+        if (null !== $this->failoverSettings) {
+            $this->failoverSettings->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failoverSettings) {
-            $res['FailoverSettings'] = null !== $this->failoverSettings ? $this->failoverSettings->toMap() : null;
+            $res['FailoverSettings'] = null !== $this->failoverSettings ? $this->failoverSettings->toArray($noStream) : $this->failoverSettings;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -46,17 +44,18 @@ class realtimeStartSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return realtimeStartSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailoverSettings'])) {
             $model->failoverSettings = failoverSettings::fromMap($map['FailoverSettings']);
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,44 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMetaCollectionRequest extends Model
 {
     /**
-     * @description The type of the collection.
-     *
-     * This parameter is required.
-     * @example ALBUM
-     *
      * @var string
      */
     public $collectionType;
-
     /**
-     * @description The comment of the collection. The comment must be 1 to 64 characters in length.
-     *
-     * @example this is a comment
-     *
      * @var string
      */
     public $comment;
-
     /**
-     * @description The name of the collection. The name must be 1 to 32 characters in length.
-     *
-     * This parameter is required.
-     * @example collection_name
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The unique identifier of the parent collection.
-     *
-     * @example album.333508
-     *
      * @var string
      */
     public $parentQualifiedName;
@@ -54,20 +33,24 @@ class CreateMetaCollectionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collectionType) {
             $res['CollectionType'] = $this->collectionType;
         }
+
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->parentQualifiedName) {
             $res['ParentQualifiedName'] = $this->parentQualifiedName;
         }
@@ -75,23 +58,26 @@ class CreateMetaCollectionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMetaCollectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CollectionType'])) {
             $model->collectionType = $map['CollectionType'];
         }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ParentQualifiedName'])) {
             $model->parentQualifiedName = $map['ParentQualifiedName'];
         }

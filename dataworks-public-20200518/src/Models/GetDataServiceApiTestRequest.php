@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataServiceApiTestRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123434
-     *
      * @var int
      */
     public $testId;
@@ -22,9 +18,10 @@ class GetDataServiceApiTestRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->testId) {
@@ -34,11 +31,11 @@ class GetDataServiceApiTestRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataServiceApiTestRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

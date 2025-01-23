@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListEntityTagsRequest extends Model
 {
     /**
-     * @description The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
-     *
-     * This parameter is required.
-     * @example maxcompute-table.projectA.tableA
-     *
      * @var string
      */
     public $qualifiedName;
@@ -23,9 +18,10 @@ class ListEntityTagsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qualifiedName) {
@@ -35,11 +31,11 @@ class ListEntityTagsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEntityTagsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

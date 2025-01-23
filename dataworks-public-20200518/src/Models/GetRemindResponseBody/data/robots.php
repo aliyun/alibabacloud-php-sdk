@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class robots extends Model
 {
     /**
-     * @description Indicates whether all group members are notified when the alert notification is sent to a DingTalk group. Valid values: true and false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $atAll;
-
     /**
-     * @description The webhook URL of the DingTalk chatbot.
-     *
-     * @example https://oapi.dingtalk.com/robot/send?access_token=******************************
-     *
      * @var string
      */
     public $webUrl;
@@ -32,14 +23,16 @@ class robots extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->atAll) {
             $res['AtAll'] = $this->atAll;
         }
+
         if (null !== $this->webUrl) {
             $res['WebUrl'] = $this->webUrl;
         }
@@ -47,17 +40,18 @@ class robots extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return robots
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AtAll'])) {
             $model->atAll = $map['AtAll'];
         }
+
         if (isset($map['WebUrl'])) {
             $model->webUrl = $map['WebUrl'];
         }

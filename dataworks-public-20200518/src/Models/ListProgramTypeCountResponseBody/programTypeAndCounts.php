@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProgramTypeCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class programTypeAndCounts extends Model
 {
     /**
-     * @description The number of nodes.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The node type.
-     *
-     * @example ODPS_SQL
-     *
      * @var string
      */
     public $programType;
@@ -32,14 +23,16 @@ class programTypeAndCounts extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->programType) {
             $res['ProgramType'] = $this->programType;
         }
@@ -47,17 +40,18 @@ class programTypeAndCounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return programTypeAndCounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['ProgramType'])) {
             $model->programType = $map['ProgramType'];
         }

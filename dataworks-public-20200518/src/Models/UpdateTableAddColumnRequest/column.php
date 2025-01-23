@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateTableAddColumnRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class column extends Model
 {
     /**
-     * @description The name of the field.
-     *
-     * This parameter is required.
-     * @example abc
-     *
      * @var string
      */
     public $columnName;
-
     /**
-     * @description The display name of the field.
-     *
      * @var string
      */
     public $columnNameCn;
-
     /**
-     * @description The type of the field. For more information, see MaxCompute field types.
-     *
-     * This parameter is required.
-     * @example string
-     *
      * @var string
      */
     public $columnType;
-
     /**
-     * @description The comment of the field.
-     *
      * @var string
      */
     public $comment;
@@ -50,20 +33,24 @@ class column extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
+
         if (null !== $this->columnNameCn) {
             $res['ColumnNameCn'] = $this->columnNameCn;
         }
+
         if (null !== $this->columnType) {
             $res['ColumnType'] = $this->columnType;
         }
+
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
@@ -71,23 +58,26 @@ class column extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return column
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
+
         if (isset($map['ColumnNameCn'])) {
             $model->columnNameCn = $map['ColumnNameCn'];
         }
+
         if (isset($map['ColumnType'])) {
             $model->columnType = $map['ColumnType'];
         }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }

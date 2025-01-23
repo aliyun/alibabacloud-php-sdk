@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDIAlarmRuleResponseBody\DIAlarmRule;
-use AlibabaCloud\Tea\Model;
 
 class GetDIAlarmRuleResponseBody extends Model
 {
     /**
-     * @description The details of the alert rule.
-     *
      * @var DIAlarmRule
      */
     public $DIAlarmRule;
-
     /**
-     * @description The request ID.
-     *
-     * @example 4A807D85-AC9F-55F7-A58F-998D5249CAD9
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetDIAlarmRuleResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->DIAlarmRule) {
+            $this->DIAlarmRule->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIAlarmRule) {
-            $res['DIAlarmRule'] = null !== $this->DIAlarmRule ? $this->DIAlarmRule->toMap() : null;
+            $res['DIAlarmRule'] = null !== $this->DIAlarmRule ? $this->DIAlarmRule->toArray($noStream) : $this->DIAlarmRule;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetDIAlarmRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDIAlarmRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIAlarmRule'])) {
             $model->DIAlarmRule = DIAlarmRule::fromMap($map['DIAlarmRule']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

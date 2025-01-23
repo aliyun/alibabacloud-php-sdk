@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListNodesResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListNodesResponseBody extends Model
 {
     /**
-     * @description The ID of the associated workflow.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example Invalid.Tenant.ConnectionNotExists
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description The page number of the returned page.
-     *
-     * @example The connection does not exist.
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description The interval at which the node is rerun after the node fails to run.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @description The list of nodes.
-     *
-     * @example E6F0DBDD-5AD****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the node can be rerun.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -71,26 +44,35 @@ class ListNodesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -98,29 +80,34 @@ class ListNodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

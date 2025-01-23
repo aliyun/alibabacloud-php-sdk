@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTableLevelResponseBody extends Model
 {
     /**
-     * @description Indicates whether the table level was deleted.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $deleteResult;
-
     /**
-     * @description The request ID.
-     *
-     * @example abcde
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DeleteTableLevelResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteResult) {
             $res['DeleteResult'] = $this->deleteResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DeleteTableLevelResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTableLevelResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteResult'])) {
             $model->deleteResult = $map['DeleteResult'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

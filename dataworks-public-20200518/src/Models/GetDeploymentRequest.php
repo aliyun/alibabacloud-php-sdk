@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDeploymentRequest extends Model
 {
     /**
-     * @description The ID of the deployment task. A deployment task ID is generated when you call the [SubmitFile](https://help.aliyun.com/document_detail/173944.html) or [DeployFile](https://help.aliyun.com/document_detail/173956.html) operation.
-     *
-     * This parameter is required.
-     * @example 3000001
-     *
      * @var int
      */
     public $deploymentId;
-
     /**
-     * @description The ID of the DataWorks workspace. You can click the Workspace Manage icon in the upper-right corner of the DataStudio page to go to the Workspace Management page and view the workspace ID.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
-
     /**
-     * @description The GUID of the DataWorks workspace. You can view the GUID in the upper part of the DataStudio page. You can also select another GUID to switch to another workspace.
-     *
-     * You must specify either this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
-     * @example dw_project
-     *
      * @var string
      */
     public $projectIdentifier;
@@ -44,17 +28,20 @@ class GetDeploymentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentId) {
             $res['DeploymentId'] = $this->deploymentId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
@@ -62,20 +49,22 @@ class GetDeploymentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeploymentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentId'])) {
             $model->deploymentId = $map['DeploymentId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
         }

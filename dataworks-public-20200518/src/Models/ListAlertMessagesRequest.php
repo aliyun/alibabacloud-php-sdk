@@ -4,95 +4,43 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAlertMessagesRequest extends Model
 {
     /**
-     * @description The notification method. Valid values:
-     *
-     *   MAIL
-     *   SMS Alert notifications can be sent by text message only in the Singapore, Malaysia (Kuala Lumpur), and Germany (Frankfurt) regions.
-     *
-     * You can specify multiple notification methods. Separate them with commas (,).
-     * @example SMS,MAIL,PHONE
-     *
      * @var string
      */
     public $alertMethods;
-
     /**
-     * @description The type of the alert rule. Valid values: GLOBAL, USER_DEFINE, and OTHER. The value GLOBAL indicates that the alert rule is a global alert rule. The value USER_DEFINE indicates that the alert rule is customized by a user. The value OTHER indicates that the alert rule is a rule of another type. You can specify multiple types. Separate them with commas (,).
-     *
-     * @example GLOBAL,USER_DEFINE,OTHER
-     *
      * @var string
      */
     public $alertRuleTypes;
-
     /**
-     * @description The ID of the Alibaba Cloud account used by the alert recipient.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $alertUser;
-
     /**
-     * @description The baseline ID. This parameter takes effect if the AlertRuleTypes parameter is set to GLOBAL. You can configure either this parameter or the RemindId parameter.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $baselineId;
-
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
-     *
-     * This parameter is required.
-     * @example 2020-04-02T00:00:00+0800
-     *
      * @var string
      */
     public $beginTime;
-
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
-     *
-     * This parameter is required.
-     * @example 2020-04-04T00:00:00+0800
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @description The page number. Default value: 1. Minimum value: 1. Maximum value: 30.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Default value: 10. Maximum value: 100.
-     *
-     * This parameter is required.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The custom alert rule ID. This parameter takes effect if the AlertRuleTypes parameter is set to USER_DEFINE. You can configure either this parameter or the BaselineId parameter.
-     *
-     * @example 9527
-     *
      * @var int
      */
     public $remindId;
@@ -110,35 +58,44 @@ class ListAlertMessagesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertMethods) {
             $res['AlertMethods'] = $this->alertMethods;
         }
+
         if (null !== $this->alertRuleTypes) {
             $res['AlertRuleTypes'] = $this->alertRuleTypes;
         }
+
         if (null !== $this->alertUser) {
             $res['AlertUser'] = $this->alertUser;
         }
+
         if (null !== $this->baselineId) {
             $res['BaselineId'] = $this->baselineId;
         }
+
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->remindId) {
             $res['RemindId'] = $this->remindId;
         }
@@ -146,38 +103,46 @@ class ListAlertMessagesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAlertMessagesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertMethods'])) {
             $model->alertMethods = $map['AlertMethods'];
         }
+
         if (isset($map['AlertRuleTypes'])) {
             $model->alertRuleTypes = $map['AlertRuleTypes'];
         }
+
         if (isset($map['AlertUser'])) {
             $model->alertUser = $map['AlertUser'];
         }
+
         if (isset($map['BaselineId'])) {
             $model->baselineId = $map['BaselineId'];
         }
+
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RemindId'])) {
             $model->remindId = $map['RemindId'];
         }

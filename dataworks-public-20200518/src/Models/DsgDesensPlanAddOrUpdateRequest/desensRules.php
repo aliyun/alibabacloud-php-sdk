@@ -4,86 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanAddOrUpdateRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanAddOrUpdateRequest\desensRules\desensPlan;
-use AlibabaCloud\Tea\Model;
 
 class desensRules extends Model
 {
     /**
-     * @description Specifies whether to add a watermark. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $checkWatermark;
-
     /**
-     * @description The sensitive field type.
-     *
-     * This parameter is required.
-     * @example phone
-     *
      * @var string
      */
     public $dataType;
-
     /**
-     * @description The data masking rule.
-     *
-     * This parameter is required.
      * @var desensPlan
      */
     public $desensPlan;
-
     /**
-     * @description The ID of the data masking rule. You can call the [DsgDesensPlanQueryList](https://help.aliyun.com/document_detail/2786578.html) operation to query the ID of the data masking rule.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The owner of the data masking rule.
-     *
-     * This parameter is required.
-     * @example test_user
-     *
      * @var string
      */
     public $owner;
-
     /**
-     * @description The name of the data masking rule.
-     *
-     * This parameter is required.
-     * @example phone_hash
-     *
      * @var string
      */
     public $ruleName;
-
     /**
-     * @description The level-2 data masking scenario.
-     *
-     * This parameter is required.
      * @var int[]
      */
     public $sceneIds;
-
     /**
-     * @description The status of the data masking rule. Valid values:
-     *
-     *   0: expired
-     *   1: effective
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -100,32 +54,52 @@ class desensRules extends Model
 
     public function validate()
     {
+        if (null !== $this->desensPlan) {
+            $this->desensPlan->validate();
+        }
+        if (\is_array($this->sceneIds)) {
+            Model::validateArray($this->sceneIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkWatermark) {
             $res['CheckWatermark'] = $this->checkWatermark;
         }
+
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
+
         if (null !== $this->desensPlan) {
-            $res['DesensPlan'] = null !== $this->desensPlan ? $this->desensPlan->toMap() : null;
+            $res['DesensPlan'] = null !== $this->desensPlan ? $this->desensPlan->toArray($noStream) : $this->desensPlan;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->sceneIds) {
-            $res['SceneIds'] = $this->sceneIds;
+            if (\is_array($this->sceneIds)) {
+                $res['SceneIds'] = [];
+                $n1              = 0;
+                foreach ($this->sceneIds as $item1) {
+                    $res['SceneIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -133,37 +107,48 @@ class desensRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return desensRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckWatermark'])) {
             $model->checkWatermark = $map['CheckWatermark'];
         }
+
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
+
         if (isset($map['DesensPlan'])) {
             $model->desensPlan = desensPlan::fromMap($map['DesensPlan']);
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['SceneIds'])) {
             if (!empty($map['SceneIds'])) {
-                $model->sceneIds = $map['SceneIds'];
+                $model->sceneIds = [];
+                $n1              = 0;
+                foreach ($map['SceneIds'] as $item1) {
+                    $model->sceneIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

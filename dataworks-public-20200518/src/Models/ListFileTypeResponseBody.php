@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFileTypeResponseBody\nodeTypeInfoList;
-use AlibabaCloud\Tea\Model;
 
 class ListFileTypeResponseBody extends Model
 {
     /**
-     * @description The information about node types.
-     *
      * @var nodeTypeInfoList
      */
     public $nodeTypeInfoList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0000-ABCD-EFG****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListFileTypeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->nodeTypeInfoList) {
+            $this->nodeTypeInfoList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeTypeInfoList) {
-            $res['NodeTypeInfoList'] = null !== $this->nodeTypeInfoList ? $this->nodeTypeInfoList->toMap() : null;
+            $res['NodeTypeInfoList'] = null !== $this->nodeTypeInfoList ? $this->nodeTypeInfoList->toArray($noStream) : $this->nodeTypeInfoList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListFileTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFileTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeTypeInfoList'])) {
             $model->nodeTypeInfoList = nodeTypeInfoList::fromMap($map['NodeTypeInfoList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

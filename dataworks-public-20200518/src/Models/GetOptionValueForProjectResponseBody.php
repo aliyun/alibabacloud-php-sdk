@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOptionValueForProjectResponseBody extends Model
 {
     /**
-     * @description The data returned In the example, cuNumber is a custom key.
-     *
-     * @example {"cuNumber":"0"}
-     *
      * @var string
      */
     public $optionValue;
-
     /**
-     * @description The request ID.
-     *
-     * @example E6F0DBDD-5AD****
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class GetOptionValueForProjectResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->optionValue) {
             $res['OptionValue'] = $this->optionValue;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class GetOptionValueForProjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOptionValueForProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OptionValue'])) {
             $model->optionValue = $map['OptionValue'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

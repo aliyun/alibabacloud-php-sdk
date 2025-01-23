@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListSuccessInstanceAmountResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListSuccessInstanceAmountResponseBody\instanceStatusTrend\avgTrend;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListSuccessInstanceAmountResponseBody\instanceStatusTrend\todayTrend;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListSuccessInstanceAmountResponseBody\instanceStatusTrend\yesterdayTrend;
-use AlibabaCloud\Tea\Model;
 
 class instanceStatusTrend extends Model
 {
     /**
-     * @description The average trend.
-     *
      * @var avgTrend[]
      */
     public $avgTrend;
-
     /**
-     * @description The trend of the number of auto triggered node instances that are successfully run on the current day.
-     *
      * @var todayTrend[]
      */
     public $todayTrend;
-
     /**
-     * @description The trend of the number of auto triggered node instances that are successfully run one day earlier than the current day.
-     *
      * @var yesterdayTrend[]
      */
     public $yesterdayTrend;
@@ -39,35 +31,47 @@ class instanceStatusTrend extends Model
 
     public function validate()
     {
+        if (\is_array($this->avgTrend)) {
+            Model::validateArray($this->avgTrend);
+        }
+        if (\is_array($this->todayTrend)) {
+            Model::validateArray($this->todayTrend);
+        }
+        if (\is_array($this->yesterdayTrend)) {
+            Model::validateArray($this->yesterdayTrend);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avgTrend) {
-            $res['AvgTrend'] = [];
-            if (null !== $this->avgTrend && \is_array($this->avgTrend)) {
-                $n = 0;
-                foreach ($this->avgTrend as $item) {
-                    $res['AvgTrend'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->avgTrend)) {
+                $res['AvgTrend'] = [];
+                $n1              = 0;
+                foreach ($this->avgTrend as $item1) {
+                    $res['AvgTrend'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->todayTrend) {
-            $res['TodayTrend'] = [];
-            if (null !== $this->todayTrend && \is_array($this->todayTrend)) {
-                $n = 0;
-                foreach ($this->todayTrend as $item) {
-                    $res['TodayTrend'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->todayTrend)) {
+                $res['TodayTrend'] = [];
+                $n1                = 0;
+                foreach ($this->todayTrend as $item1) {
+                    $res['TodayTrend'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->yesterdayTrend) {
-            $res['YesterdayTrend'] = [];
-            if (null !== $this->yesterdayTrend && \is_array($this->yesterdayTrend)) {
-                $n = 0;
-                foreach ($this->yesterdayTrend as $item) {
-                    $res['YesterdayTrend'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->yesterdayTrend)) {
+                $res['YesterdayTrend'] = [];
+                $n1                    = 0;
+                foreach ($this->yesterdayTrend as $item1) {
+                    $res['YesterdayTrend'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -75,38 +79,40 @@ class instanceStatusTrend extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceStatusTrend
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvgTrend'])) {
             if (!empty($map['AvgTrend'])) {
                 $model->avgTrend = [];
-                $n               = 0;
-                foreach ($map['AvgTrend'] as $item) {
-                    $model->avgTrend[$n++] = null !== $item ? avgTrend::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['AvgTrend'] as $item1) {
+                    $model->avgTrend[$n1++] = avgTrend::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TodayTrend'])) {
             if (!empty($map['TodayTrend'])) {
                 $model->todayTrend = [];
-                $n                 = 0;
-                foreach ($map['TodayTrend'] as $item) {
-                    $model->todayTrend[$n++] = null !== $item ? todayTrend::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['TodayTrend'] as $item1) {
+                    $model->todayTrend[$n1++] = todayTrend::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['YesterdayTrend'])) {
             if (!empty($map['YesterdayTrend'])) {
                 $model->yesterdayTrend = [];
-                $n                     = 0;
-                foreach ($map['YesterdayTrend'] as $item) {
-                    $model->yesterdayTrend[$n++] = null !== $item ? yesterdayTrend::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['YesterdayTrend'] as $item1) {
+                    $model->yesterdayTrend[$n1++] = yesterdayTrend::fromMap($item1);
                 }
             }
         }

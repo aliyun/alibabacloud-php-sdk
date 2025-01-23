@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDIAlarmRuleRequest extends Model
 {
     /**
-     * @description The alert rule ID.
-     *
-     * This parameter is required.
-     * @example 34994
-     *
      * @var int
      */
     public $DIAlarmRuleId;
@@ -23,9 +18,10 @@ class GetDIAlarmRuleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIAlarmRuleId) {
@@ -35,11 +31,11 @@ class GetDIAlarmRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDIAlarmRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

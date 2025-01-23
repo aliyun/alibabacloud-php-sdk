@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableLevelResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableLevelResponseBody\tableLevelInfo\levelList;
-use AlibabaCloud\Tea\Model;
 
 class tableLevelInfo extends Model
 {
     /**
-     * @description The list of table levels.
-     *
      * @var levelList[]
      */
     public $levelList;
-
     /**
-     * @description The total number of table levels returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -31,20 +24,25 @@ class tableLevelInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->levelList)) {
+            Model::validateArray($this->levelList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->levelList) {
-            $res['LevelList'] = [];
-            if (null !== $this->levelList && \is_array($this->levelList)) {
-                $n = 0;
-                foreach ($this->levelList as $item) {
-                    $res['LevelList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->levelList)) {
+                $res['LevelList'] = [];
+                $n1               = 0;
+                foreach ($this->levelList as $item1) {
+                    $res['LevelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -52,23 +50,24 @@ class tableLevelInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableLevelInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LevelList'])) {
             if (!empty($map['LevelList'])) {
                 $model->levelList = [];
-                $n                = 0;
-                foreach ($map['LevelList'] as $item) {
-                    $model->levelList[$n++] = null !== $item ? levelList::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['LevelList'] as $item1) {
+                    $model->levelList[$n1++] = levelList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Cluster extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c-d8a7523****
-     *
      * @var string
      */
     public $clusterBizId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $clusterId;
@@ -32,14 +23,16 @@ class Cluster extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterBizId) {
             $res['ClusterBizId'] = $this->clusterBizId;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -47,17 +40,18 @@ class Cluster extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Cluster
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterBizId'])) {
             $model->clusterBizId = $map['ClusterBizId'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

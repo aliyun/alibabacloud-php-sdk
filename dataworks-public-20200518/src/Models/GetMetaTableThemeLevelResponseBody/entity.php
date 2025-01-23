@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableThemeLevelResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableThemeLevelResponseBody\entity\level;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableThemeLevelResponseBody\entity\theme;
-use AlibabaCloud\Tea\Model;
 
 class entity extends Model
 {
     /**
-     * @description The information about the levels of the metatable.
-     *
      * @var level[]
      */
     public $level;
-
     /**
-     * @description The information about the themes of the metatable.
-     *
      * @var theme[]
      */
     public $theme;
@@ -30,26 +25,34 @@ class entity extends Model
 
     public function validate()
     {
+        if (\is_array($this->level)) {
+            Model::validateArray($this->level);
+        }
+        if (\is_array($this->theme)) {
+            Model::validateArray($this->theme);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->level) {
-            $res['Level'] = [];
-            if (null !== $this->level && \is_array($this->level)) {
-                $n = 0;
-                foreach ($this->level as $item) {
-                    $res['Level'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->level)) {
+                $res['Level'] = [];
+                $n1           = 0;
+                foreach ($this->level as $item1) {
+                    $res['Level'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->theme) {
-            $res['Theme'] = [];
-            if (null !== $this->theme && \is_array($this->theme)) {
-                $n = 0;
-                foreach ($this->theme as $item) {
-                    $res['Theme'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->theme)) {
+                $res['Theme'] = [];
+                $n1           = 0;
+                foreach ($this->theme as $item1) {
+                    $res['Theme'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -57,29 +60,30 @@ class entity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Level'])) {
             if (!empty($map['Level'])) {
                 $model->level = [];
-                $n            = 0;
-                foreach ($map['Level'] as $item) {
-                    $model->level[$n++] = null !== $item ? level::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Level'] as $item1) {
+                    $model->level[$n1++] = level::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Theme'])) {
             if (!empty($map['Theme'])) {
                 $model->theme = [];
-                $n            = 0;
-                foreach ($map['Theme'] as $item) {
-                    $model->theme[$n++] = null !== $item ? theme::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Theme'] as $item1) {
+                    $model->theme[$n1++] = theme::fromMap($item1);
                 }
             }
         }

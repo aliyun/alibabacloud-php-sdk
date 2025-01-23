@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetExtensionResponseBody\extension;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bindEventList extends Model
 {
     /**
-     * @description The code of the extension point event.
-     *
-     * @example commit-file
-     *
      * @var string
      */
     public $eventCode;
-
     /**
-     * @description The name of the extension point event.
-     *
      * @var string
      */
     public $eventName;
@@ -30,14 +23,16 @@ class bindEventList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventCode) {
             $res['EventCode'] = $this->eventCode;
         }
+
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
         }
@@ -45,17 +40,18 @@ class bindEventList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bindEventList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventCode'])) {
             $model->eventCode = $map['EventCode'];
         }
+
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
         }

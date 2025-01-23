@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GenerateDISyncTaskConfigForUpdatingResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The reason why the ID of the asynchronous thread fails to be generated. If the ID is successfully generated, no value is returned for this parameter.
-     *
-     * @example XXX is invalid.
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The ID of the asynchronous thread. You can call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. The parameters are used to update a real-time synchronization task in Data Integration.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $processId;
-
     /**
-     * @description Indicates whether the ID of the asynchronous thread is generated. Valid values:
-     *
-     *   success: indicates that the ID of the asynchronous thread is generated.
-     *   fail: indicates that the ID of the asynchronous thread fails to be generated. You can view the reason for the failure and troubleshoot the issue based on the reason.
-     *
-     * @example true
-     *
      * @var string
      */
     public $status;
@@ -45,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -63,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

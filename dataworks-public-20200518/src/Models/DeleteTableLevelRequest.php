@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTableLevelRequest extends Model
 {
     /**
-     * @description The ID of the table level that you want to delete. You can call the ListTableLevel operation to query the ID.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $levelId;
-
     /**
-     * @description The DataWorks workspace ID.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $projectId;
@@ -34,14 +23,16 @@ class DeleteTableLevelRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->levelId) {
             $res['LevelId'] = $this->levelId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -49,17 +40,18 @@ class DeleteTableLevelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTableLevelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LevelId'])) {
             $model->levelId = $map['LevelId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

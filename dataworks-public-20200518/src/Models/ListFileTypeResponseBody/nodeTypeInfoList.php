@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFileTypeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFileTypeResponseBody\nodeTypeInfoList\nodeTypeInfo;
-use AlibabaCloud\Tea\Model;
 
 class nodeTypeInfoList extends Model
 {
     /**
-     * @description The information about the node type.
-     *
      * @var nodeTypeInfo[]
      */
     public $nodeTypeInfo;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 127
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class nodeTypeInfoList extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodeTypeInfo)) {
+            Model::validateArray($this->nodeTypeInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeTypeInfo) {
-            $res['NodeTypeInfo'] = [];
-            if (null !== $this->nodeTypeInfo && \is_array($this->nodeTypeInfo)) {
-                $n = 0;
-                foreach ($this->nodeTypeInfo as $item) {
-                    $res['NodeTypeInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeTypeInfo)) {
+                $res['NodeTypeInfo'] = [];
+                $n1                  = 0;
+                foreach ($this->nodeTypeInfo as $item1) {
+                    $res['NodeTypeInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class nodeTypeInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeTypeInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeTypeInfo'])) {
             if (!empty($map['NodeTypeInfo'])) {
                 $model->nodeTypeInfo = [];
-                $n                   = 0;
-                foreach ($map['NodeTypeInfo'] as $item) {
-                    $model->nodeTypeInfo[$n++] = null !== $item ? nodeTypeInfo::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['NodeTypeInfo'] as $item1) {
+                    $model->nodeTypeInfo[$n1++] = nodeTypeInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

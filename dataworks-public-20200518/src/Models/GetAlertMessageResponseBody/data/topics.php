@@ -4,63 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetAlertMessageResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class topics extends Model
 {
     /**
-     * @description The ID of the instance that triggered the event.
-     *
-     * @example 12345
-     *
      * @var int
      */
     public $instanceId;
-
     /**
-     * @description The ID of the node that triggered the event.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $nodeId;
-
     /**
-     * @description The event ID.
-     *
-     * @example 412431
-     *
      * @var int
      */
     public $topicId;
-
     /**
-     * @description The name of the event.
-     *
      * @var string
      */
     public $topicName;
-
     /**
-     * @description The ID of the Alibaba Cloud account used by the event owner.
-     *
-     * @example 9527952795****
-     *
      * @var string
      */
     public $topicOwner;
-
     /**
-     * @description The status of the event. Valid values:
-     *
-     *   IGNORE
-     *   NEW
-     *   FIXING
-     *   RECOVER
-     *
-     * @example FIXING
-     *
      * @var string
      */
     public $topicStatus;
@@ -75,26 +43,32 @@ class topics extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->topicId) {
             $res['TopicId'] = $this->topicId;
         }
+
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
         }
+
         if (null !== $this->topicOwner) {
             $res['TopicOwner'] = $this->topicOwner;
         }
+
         if (null !== $this->topicStatus) {
             $res['TopicStatus'] = $this->topicStatus;
         }
@@ -102,29 +76,34 @@ class topics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['TopicId'])) {
             $model->topicId = $map['TopicId'];
         }
+
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
         }
+
         if (isset($map['TopicOwner'])) {
             $model->topicOwner = $map['TopicOwner'];
         }
+
         if (isset($map['TopicStatus'])) {
             $model->topicStatus = $map['TopicStatus'];
         }

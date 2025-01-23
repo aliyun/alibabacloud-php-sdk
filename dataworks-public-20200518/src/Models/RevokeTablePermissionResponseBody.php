@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokeTablePermissionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0bc1ec92159376****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the permissions are revoked.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $revokeSuccess;
@@ -32,14 +23,16 @@ class RevokeTablePermissionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->revokeSuccess) {
             $res['RevokeSuccess'] = $this->revokeSuccess;
         }
@@ -47,17 +40,18 @@ class RevokeTablePermissionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeTablePermissionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RevokeSuccess'])) {
             $model->revokeSuccess = $map['RevokeSuccess'];
         }

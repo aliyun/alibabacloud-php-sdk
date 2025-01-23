@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIJobRequest\resourceSettings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class realtimeResourceSettings extends Model
 {
     /**
-     * @description The identifier of the resource group for Data Integration used for real-time synchronization.
-     *
-     * @example S_res_group_111_222
-     *
      * @var string
      */
     public $resourceGroupIdentifier;
@@ -22,9 +18,10 @@ class realtimeResourceSettings extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupIdentifier) {
@@ -34,11 +31,11 @@ class realtimeResourceSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return realtimeResourceSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

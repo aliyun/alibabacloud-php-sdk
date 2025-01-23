@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceGroupResponseBody\group;
-use AlibabaCloud\Tea\Model;
 
 class GetDataServiceGroupResponseBody extends Model
 {
     /**
-     * @description The details of the business process.
-     *
      * @var group
      */
     public $group;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0000-ABCD-EF****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetDataServiceGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->group) {
+            $this->group->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->group) {
-            $res['Group'] = null !== $this->group ? $this->group->toMap() : null;
+            $res['Group'] = null !== $this->group ? $this->group->toArray($noStream) : $this->group;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetDataServiceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataServiceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Group'])) {
             $model->group = group::fromMap($map['Group']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

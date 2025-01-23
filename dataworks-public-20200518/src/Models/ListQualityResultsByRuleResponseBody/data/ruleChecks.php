@@ -4,388 +4,177 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByRuleResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByRuleResponseBody\data\ruleChecks\referenceValue;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByRuleResponseBody\data\ruleChecks\sampleValue;
-use AlibabaCloud\Tea\Model;
 
 class ruleChecks extends Model
 {
     /**
-     * @description The partition in the monitored data source table.
-     *
-     * @example ds=20200925
-     *
      * @var string
      */
     public $actualExpression;
-
     /**
-     * @description The time when the monitoring started.
-     *
-     * @example 1600704000000
-     *
      * @var int
      */
     public $beginTime;
-
     /**
-     * @description The data timestamp. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
-     *
-     * @example 1600704000000
-     *
      * @var int
      */
     public $bizDate;
-
     /**
-     * @description The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
-     *
-     *   1: indicates that the monitoring rule is a strong rule.
-     *   0: indicates that the monitoring rule is a weak rule. You can specify the strength of a monitoring rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $blockType;
-
     /**
-     * @description The monitoring result.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $checkResult;
-
     /**
-     * @description The status of the monitoring result.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $checkResultStatus;
-
     /**
-     * @description The checker ID.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $checkerId;
-
     /**
-     * @description The name of the checker.
-     *
-     * @example fulx
-     *
      * @var string
      */
     public $checkerName;
-
     /**
-     * @description The type of the checker.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $checkerType;
-
     /**
-     * @description The description of the monitoring rule.
-     *
      * @var string
      */
     public $comment;
-
     /**
-     * @description The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
-     *
-     * @example 0.6
-     *
      * @var float
      */
     public $criticalThreshold;
-
     /**
-     * @description The scheduling frequency. In most cases, the value of this parameter is YMD. This value indicates year, month, and day.
-     *
-     * @example YMD
-     *
      * @var string
      */
     public $dateType;
-
     /**
-     * @description Indicates whether the monitoring is discrete monitoring. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $discreteCheck;
-
     /**
-     * @description The time when the monitoring ended.
-     *
-     * @example 1600704000000
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description The ID of the partition filter expression.
-     *
-     * @example 14534343
-     *
      * @var int
      */
     public $entityId;
-
     /**
-     * @description The expected value.
-     *
-     * @example 90
-     *
      * @var float
      */
     public $expectValue;
-
     /**
-     * @description The node ID.
-     *
-     * @example 123112232
-     *
      * @var string
      */
     public $externalId;
-
     /**
-     * @description The type of the scheduling system. Only CWF scheduling systems are supported.
-     *
-     * @example CWF2
-     *
      * @var string
      */
     public $externalType;
-
     /**
-     * @description Indicates whether the monitoring is performed based on a fixed value. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $fixedCheck;
-
     /**
-     * @description The primary key ID.
-     *
-     * @example 2231123
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description Indicates whether the monitoring result is the same as the predicted result. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isPrediction;
-
     /**
-     * @description The lower limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specify.
-     *
-     * @example 2344
-     *
      * @var float
      */
     public $lowerValue;
-
     /**
-     * @description The partition filter expression.
-     *
-     * @example ds=$[yyyymmdd]
-     *
      * @var string
      */
     public $matchExpression;
-
     /**
-     * @description The method used to collect sample data, such as such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
-     *
-     * @example max
-     *
      * @var string
      */
     public $methodName;
-
     /**
-     * @description The comparison operator.
-     *
-     * @example >
-     *
      * @var string
      */
     public $op;
-
     /**
-     * @description Indicates whether the monitoring rule is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $open;
-
     /**
-     * @description The name of the compute engine or data source for which data quality is monitored.
-     *
-     * @example autotest
-     *
      * @var string
      */
     public $projectName;
-
     /**
-     * @description The field whose data quality is checked based on the monitoring rule. This field is a column in the data source table that is monitored.
-     *
-     * @example type
-     *
      * @var string
      */
     public $property;
-
     /**
-     * @description The historical sample values.
-     *
      * @var referenceValue[]
      */
     public $referenceValue;
-
     /**
-     * @description The string of the monitoring result.
-     *
-     * @example ResultString
-     *
      * @var string
      */
     public $resultString;
-
     /**
-     * @description The ID of the monitoring rule.
-     *
-     * @example 123421
-     *
      * @var int
      */
     public $ruleId;
-
     /**
-     * @description The name of the monitoring rule.
-     *
      * @var string
      */
     public $ruleName;
-
     /**
-     * @description The current sample values.
-     *
      * @var sampleValue[]
      */
     public $sampleValue;
-
     /**
-     * @description The name of the table that is monitored.
-     *
-     * @example dual
-     *
      * @var string
      */
     public $tableName;
-
     /**
-     * @description The monitoring task ID.
-     *
-     * @example 16008552981681a0d6****
-     *
      * @var string
      */
     public $taskId;
-
     /**
-     * @description The ID of the monitoring template.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $templateId;
-
     /**
-     * @description The name of the monitoring template.
-     *
      * @var string
      */
     public $templateName;
-
     /**
-     * @description The time that was taken to run the monitoring task.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $timeCost;
-
     /**
-     * @description The trend of the monitoring result.
-     *
-     * @example up
-     *
      * @var string
      */
     public $trend;
-
     /**
-     * @description The upper limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specify.
-     *
-     * @example 22200
-     *
      * @var float
      */
     public $upperValue;
-
     /**
-     * @description The threshold for a warning alert. The threshold specifies the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements.
-     *
-     * @example 0.1
-     *
      * @var float
      */
     public $warningThreshold;
-
     /**
-     * @description The filter condition of the monitoring task.
-     *
-     * @example type!=\\"type2\\"
-     *
      * @var string
      */
     public $whereCondition;
@@ -436,146 +225,194 @@ class ruleChecks extends Model
 
     public function validate()
     {
+        if (\is_array($this->referenceValue)) {
+            Model::validateArray($this->referenceValue);
+        }
+        if (\is_array($this->sampleValue)) {
+            Model::validateArray($this->sampleValue);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actualExpression) {
             $res['ActualExpression'] = $this->actualExpression;
         }
+
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
         }
+
         if (null !== $this->blockType) {
             $res['BlockType'] = $this->blockType;
         }
+
         if (null !== $this->checkResult) {
             $res['CheckResult'] = $this->checkResult;
         }
+
         if (null !== $this->checkResultStatus) {
             $res['CheckResultStatus'] = $this->checkResultStatus;
         }
+
         if (null !== $this->checkerId) {
             $res['CheckerId'] = $this->checkerId;
         }
+
         if (null !== $this->checkerName) {
             $res['CheckerName'] = $this->checkerName;
         }
+
         if (null !== $this->checkerType) {
             $res['CheckerType'] = $this->checkerType;
         }
+
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->criticalThreshold) {
             $res['CriticalThreshold'] = $this->criticalThreshold;
         }
+
         if (null !== $this->dateType) {
             $res['DateType'] = $this->dateType;
         }
+
         if (null !== $this->discreteCheck) {
             $res['DiscreteCheck'] = $this->discreteCheck;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
+
         if (null !== $this->expectValue) {
             $res['ExpectValue'] = $this->expectValue;
         }
+
         if (null !== $this->externalId) {
             $res['ExternalId'] = $this->externalId;
         }
+
         if (null !== $this->externalType) {
             $res['ExternalType'] = $this->externalType;
         }
+
         if (null !== $this->fixedCheck) {
             $res['FixedCheck'] = $this->fixedCheck;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->isPrediction) {
             $res['IsPrediction'] = $this->isPrediction;
         }
+
         if (null !== $this->lowerValue) {
             $res['LowerValue'] = $this->lowerValue;
         }
+
         if (null !== $this->matchExpression) {
             $res['MatchExpression'] = $this->matchExpression;
         }
+
         if (null !== $this->methodName) {
             $res['MethodName'] = $this->methodName;
         }
+
         if (null !== $this->op) {
             $res['Op'] = $this->op;
         }
+
         if (null !== $this->open) {
             $res['Open'] = $this->open;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->property) {
             $res['Property'] = $this->property;
         }
+
         if (null !== $this->referenceValue) {
-            $res['ReferenceValue'] = [];
-            if (null !== $this->referenceValue && \is_array($this->referenceValue)) {
-                $n = 0;
-                foreach ($this->referenceValue as $item) {
-                    $res['ReferenceValue'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->referenceValue)) {
+                $res['ReferenceValue'] = [];
+                $n1                    = 0;
+                foreach ($this->referenceValue as $item1) {
+                    $res['ReferenceValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->resultString) {
             $res['ResultString'] = $this->resultString;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->sampleValue) {
-            $res['SampleValue'] = [];
-            if (null !== $this->sampleValue && \is_array($this->sampleValue)) {
-                $n = 0;
-                foreach ($this->sampleValue as $item) {
-                    $res['SampleValue'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sampleValue)) {
+                $res['SampleValue'] = [];
+                $n1                 = 0;
+                foreach ($this->sampleValue as $item1) {
+                    $res['SampleValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->timeCost) {
             $res['TimeCost'] = $this->timeCost;
         }
+
         if (null !== $this->trend) {
             $res['Trend'] = $this->trend;
         }
+
         if (null !== $this->upperValue) {
             $res['UpperValue'] = $this->upperValue;
         }
+
         if (null !== $this->warningThreshold) {
             $res['WarningThreshold'] = $this->warningThreshold;
         }
+
         if (null !== $this->whereCondition) {
             $res['WhereCondition'] = $this->whereCondition;
         }
@@ -583,149 +420,190 @@ class ruleChecks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleChecks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActualExpression'])) {
             $model->actualExpression = $map['ActualExpression'];
         }
+
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
         }
+
         if (isset($map['BlockType'])) {
             $model->blockType = $map['BlockType'];
         }
+
         if (isset($map['CheckResult'])) {
             $model->checkResult = $map['CheckResult'];
         }
+
         if (isset($map['CheckResultStatus'])) {
             $model->checkResultStatus = $map['CheckResultStatus'];
         }
+
         if (isset($map['CheckerId'])) {
             $model->checkerId = $map['CheckerId'];
         }
+
         if (isset($map['CheckerName'])) {
             $model->checkerName = $map['CheckerName'];
         }
+
         if (isset($map['CheckerType'])) {
             $model->checkerType = $map['CheckerType'];
         }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['CriticalThreshold'])) {
             $model->criticalThreshold = $map['CriticalThreshold'];
         }
+
         if (isset($map['DateType'])) {
             $model->dateType = $map['DateType'];
         }
+
         if (isset($map['DiscreteCheck'])) {
             $model->discreteCheck = $map['DiscreteCheck'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
+
         if (isset($map['ExpectValue'])) {
             $model->expectValue = $map['ExpectValue'];
         }
+
         if (isset($map['ExternalId'])) {
             $model->externalId = $map['ExternalId'];
         }
+
         if (isset($map['ExternalType'])) {
             $model->externalType = $map['ExternalType'];
         }
+
         if (isset($map['FixedCheck'])) {
             $model->fixedCheck = $map['FixedCheck'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IsPrediction'])) {
             $model->isPrediction = $map['IsPrediction'];
         }
+
         if (isset($map['LowerValue'])) {
             $model->lowerValue = $map['LowerValue'];
         }
+
         if (isset($map['MatchExpression'])) {
             $model->matchExpression = $map['MatchExpression'];
         }
+
         if (isset($map['MethodName'])) {
             $model->methodName = $map['MethodName'];
         }
+
         if (isset($map['Op'])) {
             $model->op = $map['Op'];
         }
+
         if (isset($map['Open'])) {
             $model->open = $map['Open'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['Property'])) {
             $model->property = $map['Property'];
         }
+
         if (isset($map['ReferenceValue'])) {
             if (!empty($map['ReferenceValue'])) {
                 $model->referenceValue = [];
-                $n                     = 0;
-                foreach ($map['ReferenceValue'] as $item) {
-                    $model->referenceValue[$n++] = null !== $item ? referenceValue::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ReferenceValue'] as $item1) {
+                    $model->referenceValue[$n1++] = referenceValue::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ResultString'])) {
             $model->resultString = $map['ResultString'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['SampleValue'])) {
             if (!empty($map['SampleValue'])) {
                 $model->sampleValue = [];
-                $n                  = 0;
-                foreach ($map['SampleValue'] as $item) {
-                    $model->sampleValue[$n++] = null !== $item ? sampleValue::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['SampleValue'] as $item1) {
+                    $model->sampleValue[$n1++] = sampleValue::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['TimeCost'])) {
             $model->timeCost = $map['TimeCost'];
         }
+
         if (isset($map['Trend'])) {
             $model->trend = $map['Trend'];
         }
+
         if (isset($map['UpperValue'])) {
             $model->upperValue = $map['UpperValue'];
         }
+
         if (isset($map['WarningThreshold'])) {
             $model->warningThreshold = $map['WarningThreshold'];
         }
+
         if (isset($map['WhereCondition'])) {
             $model->whereCondition = $map['WhereCondition'];
         }

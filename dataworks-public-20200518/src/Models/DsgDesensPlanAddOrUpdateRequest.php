@@ -4,15 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanAddOrUpdateRequest\desensRules;
-use AlibabaCloud\Tea\Model;
 
 class DsgDesensPlanAddOrUpdateRequest extends Model
 {
     /**
-     * @description A collection of data masking rules that you want to add or modify.
-     *
-     * This parameter is required.
      * @var desensRules[]
      */
     public $desensRules;
@@ -22,17 +19,21 @@ class DsgDesensPlanAddOrUpdateRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->desensRules)) {
+            Model::validateArray($this->desensRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desensRules) {
-            $res['DesensRules'] = [];
-            if (null !== $this->desensRules && \is_array($this->desensRules)) {
-                $n = 0;
-                foreach ($this->desensRules as $item) {
-                    $res['DesensRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->desensRules)) {
+                $res['DesensRules'] = [];
+                $n1                 = 0;
+                foreach ($this->desensRules as $item1) {
+                    $res['DesensRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -40,20 +41,20 @@ class DsgDesensPlanAddOrUpdateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DsgDesensPlanAddOrUpdateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesensRules'])) {
             if (!empty($map['DesensRules'])) {
                 $model->desensRules = [];
-                $n                  = 0;
-                foreach ($map['DesensRules'] as $item) {
-                    $model->desensRules[$n++] = null !== $item ? desensRules::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['DesensRules'] as $item1) {
+                    $model->desensRules[$n1++] = desensRules::fromMap($item1);
                 }
             }
         }

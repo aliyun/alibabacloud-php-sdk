@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceStatusCountRequest extends Model
 {
     /**
-     * @description The data timestamp of instances.
-     *
-     * This parameter is required.
-     * @example 2020-01-01
-     *
      * @var string
      */
     public $bizDate;
-
     /**
-     * @description The runtime environment. Valid values: PROD and DEV.
-     *
-     * This parameter is required.
-     * @example PROD
-     *
      * @var string
      */
     public $projectEnv;
-
     /**
-     * @description The workspace ID.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $projectId;
@@ -45,17 +28,20 @@ class GetInstanceStatusCountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
         }
+
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -63,20 +49,22 @@ class GetInstanceStatusCountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceStatusCountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
         }
+
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

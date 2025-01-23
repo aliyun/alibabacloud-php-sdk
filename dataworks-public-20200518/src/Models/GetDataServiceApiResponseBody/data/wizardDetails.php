@@ -4,39 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiResponseBody\data\wizardDetails\wizardConnection;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiResponseBody\data\wizardDetails\wizardRequestParameters;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiResponseBody\data\wizardDetails\wizardResponseParameters;
-use AlibabaCloud\Tea\Model;
 
 class wizardDetails extends Model
 {
     /**
-     * @description Indicates whether the entries were returned by page.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isPagedResponse;
-
     /**
-     * @description The data source information of the API generated in wizard mode.
-     *
      * @var wizardConnection
      */
     public $wizardConnection;
-
     /**
-     * @description The request parameters of the API generated in wizard mode.
-     *
      * @var wizardRequestParameters[]
      */
     public $wizardRequestParameters;
-
     /**
-     * @description The response parameters of the API generated in wizard mode.
-     *
      * @var wizardResponseParameters[]
      */
     public $wizardResponseParameters;
@@ -49,32 +36,45 @@ class wizardDetails extends Model
 
     public function validate()
     {
+        if (null !== $this->wizardConnection) {
+            $this->wizardConnection->validate();
+        }
+        if (\is_array($this->wizardRequestParameters)) {
+            Model::validateArray($this->wizardRequestParameters);
+        }
+        if (\is_array($this->wizardResponseParameters)) {
+            Model::validateArray($this->wizardResponseParameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isPagedResponse) {
             $res['IsPagedResponse'] = $this->isPagedResponse;
         }
+
         if (null !== $this->wizardConnection) {
-            $res['WizardConnection'] = null !== $this->wizardConnection ? $this->wizardConnection->toMap() : null;
+            $res['WizardConnection'] = null !== $this->wizardConnection ? $this->wizardConnection->toArray($noStream) : $this->wizardConnection;
         }
+
         if (null !== $this->wizardRequestParameters) {
-            $res['WizardRequestParameters'] = [];
-            if (null !== $this->wizardRequestParameters && \is_array($this->wizardRequestParameters)) {
-                $n = 0;
-                foreach ($this->wizardRequestParameters as $item) {
-                    $res['WizardRequestParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->wizardRequestParameters)) {
+                $res['WizardRequestParameters'] = [];
+                $n1                             = 0;
+                foreach ($this->wizardRequestParameters as $item1) {
+                    $res['WizardRequestParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->wizardResponseParameters) {
-            $res['WizardResponseParameters'] = [];
-            if (null !== $this->wizardResponseParameters && \is_array($this->wizardResponseParameters)) {
-                $n = 0;
-                foreach ($this->wizardResponseParameters as $item) {
-                    $res['WizardResponseParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->wizardResponseParameters)) {
+                $res['WizardResponseParameters'] = [];
+                $n1                              = 0;
+                foreach ($this->wizardResponseParameters as $item1) {
+                    $res['WizardResponseParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -82,35 +82,38 @@ class wizardDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return wizardDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsPagedResponse'])) {
             $model->isPagedResponse = $map['IsPagedResponse'];
         }
+
         if (isset($map['WizardConnection'])) {
             $model->wizardConnection = wizardConnection::fromMap($map['WizardConnection']);
         }
+
         if (isset($map['WizardRequestParameters'])) {
             if (!empty($map['WizardRequestParameters'])) {
                 $model->wizardRequestParameters = [];
-                $n                              = 0;
-                foreach ($map['WizardRequestParameters'] as $item) {
-                    $model->wizardRequestParameters[$n++] = null !== $item ? wizardRequestParameters::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['WizardRequestParameters'] as $item1) {
+                    $model->wizardRequestParameters[$n1++] = wizardRequestParameters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['WizardResponseParameters'])) {
             if (!empty($map['WizardResponseParameters'])) {
                 $model->wizardResponseParameters = [];
-                $n                               = 0;
-                foreach ($map['WizardResponseParameters'] as $item) {
-                    $model->wizardResponseParameters[$n++] = null !== $item ? wizardResponseParameters::fromMap($item) : $item;
+                $n1                              = 0;
+                foreach ($map['WizardResponseParameters'] as $item1) {
+                    $model->wizardResponseParameters[$n1++] = wizardResponseParameters::fromMap($item1);
                 }
             }
         }

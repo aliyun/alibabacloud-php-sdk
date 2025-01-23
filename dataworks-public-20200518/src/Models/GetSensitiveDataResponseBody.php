@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSensitiveDataResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0000-ABCD-EFG****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the sensitive data returned. The information includes totalCount and sensDatas. sensDatas includes the following parameters:
-     *
-     *   guid: the ID of the metadata of the tenant. For example, the ID of the metadata in the MaxCompute compute engine is in the Project name.Table name.Column name format.
-     *   sensType: the type of the sensitive data.
-     *   sensLevel: the sensitivity level of the sensitive data
-     *
      * @var mixed[]
      */
     public $sensitiveData;
@@ -34,34 +23,50 @@ class GetSensitiveDataResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->sensitiveData)) {
+            Model::validateArray($this->sensitiveData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sensitiveData) {
-            $res['SensitiveData'] = $this->sensitiveData;
+            if (\is_array($this->sensitiveData)) {
+                $res['SensitiveData'] = [];
+                foreach ($this->sensitiveData as $key1 => $value1) {
+                    $res['SensitiveData'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSensitiveDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SensitiveData'])) {
-            $model->sensitiveData = $map['SensitiveData'];
+            if (!empty($map['SensitiveData'])) {
+                $model->sensitiveData = [];
+                foreach ($map['SensitiveData'] as $key1 => $value1) {
+                    $model->sensitiveData[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

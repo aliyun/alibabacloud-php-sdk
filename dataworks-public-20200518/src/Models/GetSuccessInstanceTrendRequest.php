@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSuccessInstanceTrendRequest extends Model
 {
     /**
-     * @description The DataWorks workspace ID.
-     *
-     * This parameter is required.
-     * @example 9527
-     *
      * @var int
      */
     public $projectId;
@@ -23,9 +18,10 @@ class GetSuccessInstanceTrendRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectId) {
@@ -35,11 +31,11 @@ class GetSuccessInstanceTrendRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSuccessInstanceTrendRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApisResponseBody\data\apis\registrationDetails;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class registrationErrorCodes extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example 1001
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description The error message.
-     *
-     * @example fail to call
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description The solution used to fix the error.
-     *
-     * @example retry
-     *
      * @var string
      */
     public $errorSolution;
@@ -42,17 +28,20 @@ class registrationErrorCodes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->errorSolution) {
             $res['ErrorSolution'] = $this->errorSolution;
         }
@@ -60,20 +49,22 @@ class registrationErrorCodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return registrationErrorCodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['ErrorSolution'])) {
             $model->errorSolution = $map['ErrorSolution'];
         }

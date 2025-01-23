@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceResponseBody\instanceConsumeTimeRank\consumeTimeRank;
-use AlibabaCloud\Tea\Model;
 
 class instanceConsumeTimeRank extends Model
 {
     /**
-     * @description The ranking data of the running durations of the instances.
-     *
      * @var consumeTimeRank[]
      */
     public $consumeTimeRank;
-
     /**
-     * @description The timestamp at which the ranking of the running durations of the instances was updated.
-     *
-     * @example 1600963200000
-     *
      * @var int
      */
     public $updateTime;
@@ -31,20 +24,25 @@ class instanceConsumeTimeRank extends Model
 
     public function validate()
     {
+        if (\is_array($this->consumeTimeRank)) {
+            Model::validateArray($this->consumeTimeRank);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumeTimeRank) {
-            $res['ConsumeTimeRank'] = [];
-            if (null !== $this->consumeTimeRank && \is_array($this->consumeTimeRank)) {
-                $n = 0;
-                foreach ($this->consumeTimeRank as $item) {
-                    $res['ConsumeTimeRank'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->consumeTimeRank)) {
+                $res['ConsumeTimeRank'] = [];
+                $n1                     = 0;
+                foreach ($this->consumeTimeRank as $item1) {
+                    $res['ConsumeTimeRank'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -52,23 +50,24 @@ class instanceConsumeTimeRank extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceConsumeTimeRank
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsumeTimeRank'])) {
             if (!empty($map['ConsumeTimeRank'])) {
                 $model->consumeTimeRank = [];
-                $n                      = 0;
-                foreach ($map['ConsumeTimeRank'] as $item) {
-                    $model->consumeTimeRank[$n++] = null !== $item ? consumeTimeRank::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['ConsumeTimeRank'] as $item1) {
+                    $model->consumeTimeRank[$n1++] = consumeTimeRank::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

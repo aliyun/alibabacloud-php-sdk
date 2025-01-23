@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetRemindResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class baselines extends Model
 {
     /**
-     * @description The baseline ID.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $baselineId;
-
     /**
-     * @description The name of the baseline.
-     *
      * @var string
      */
     public $baselineName;
@@ -30,14 +23,16 @@ class baselines extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baselineId) {
             $res['BaselineId'] = $this->baselineId;
         }
+
         if (null !== $this->baselineName) {
             $res['BaselineName'] = $this->baselineName;
         }
@@ -45,17 +40,18 @@ class baselines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return baselines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaselineId'])) {
             $model->baselineId = $map['BaselineId'];
         }
+
         if (isset($map['BaselineName'])) {
             $model->baselineName = $map['BaselineName'];
         }

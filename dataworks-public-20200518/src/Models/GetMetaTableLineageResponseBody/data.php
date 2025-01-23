@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableLineageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableLineageResponseBody\data\dataEntityList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the table.
-     *
      * @var dataEntityList[]
      */
     public $dataEntityList;
-
     /**
-     * @description Indicates whether the next page exists.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $hasNext;
-
     /**
-     * @description The logic of paging. If the value true is returned for the HasNext parameter and a value is returned for the NextPrimaryKey parameter in the response of the previous request, you must use the value of the NextPrimaryKey parameter for the next request.
-     *
-     * @example odps | retail_e_commerce_2 | retail_e_commerce_2 | dws_ec_trd__cate_commodity_gmv_kpy_fy
-     *
      * @var string
      */
     public $nextPrimaryKey;
@@ -41,23 +29,29 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataEntityList)) {
+            Model::validateArray($this->dataEntityList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataEntityList) {
-            $res['DataEntityList'] = [];
-            if (null !== $this->dataEntityList && \is_array($this->dataEntityList)) {
-                $n = 0;
-                foreach ($this->dataEntityList as $item) {
-                    $res['DataEntityList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataEntityList)) {
+                $res['DataEntityList'] = [];
+                $n1                    = 0;
+                foreach ($this->dataEntityList as $item1) {
+                    $res['DataEntityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->hasNext) {
             $res['HasNext'] = $this->hasNext;
         }
+
         if (null !== $this->nextPrimaryKey) {
             $res['NextPrimaryKey'] = $this->nextPrimaryKey;
         }
@@ -65,26 +59,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataEntityList'])) {
             if (!empty($map['DataEntityList'])) {
                 $model->dataEntityList = [];
-                $n                     = 0;
-                foreach ($map['DataEntityList'] as $item) {
-                    $model->dataEntityList[$n++] = null !== $item ? dataEntityList::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['DataEntityList'] as $item1) {
+                    $model->dataEntityList[$n1++] = dataEntityList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['HasNext'])) {
             $model->hasNext = $map['HasNext'];
         }
+
         if (isset($map['NextPrimaryKey'])) {
             $model->nextPrimaryKey = $map['NextPrimaryKey'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceFolderResponseBody\folder;
-use AlibabaCloud\Tea\Model;
 
 class GetDataServiceFolderResponseBody extends Model
 {
     /**
-     * @description The details of the folder.
-     *
      * @var folder
      */
     public $folder;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0000-ABCD-EF****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetDataServiceFolderResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->folder) {
+            $this->folder->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folder) {
-            $res['Folder'] = null !== $this->folder ? $this->folder->toMap() : null;
+            $res['Folder'] = null !== $this->folder ? $this->folder->toArray($noStream) : $this->folder;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetDataServiceFolderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataServiceFolderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Folder'])) {
             $model->folder = folder::fromMap($map['Folder']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
