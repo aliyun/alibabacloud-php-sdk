@@ -23,12 +23,17 @@ class ListRoutesRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+    /**
+     * @var string
+     */
     public $sortBy;
     protected $_name = [
-        'networkId'  => 'NetworkId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sortBy'     => 'SortBy',
+        'networkId'       => 'NetworkId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sortBy'          => 'SortBy',
     ];
 
     public function validate()
@@ -49,6 +54,10 @@ class ListRoutesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->sortBy) {
@@ -76,6 +85,10 @@ class ListRoutesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['SortBy'])) {
