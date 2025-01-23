@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaBackupPlansResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaBackupPlansResponseBody\hanaBackupPlans\hanaBackupPlan;
-use AlibabaCloud\Tea\Model;
 
 class hanaBackupPlans extends Model
 {
@@ -19,17 +19,21 @@ class hanaBackupPlans extends Model
 
     public function validate()
     {
+        if (\is_array($this->hanaBackupPlan)) {
+            Model::validateArray($this->hanaBackupPlan);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hanaBackupPlan) {
-            $res['HanaBackupPlan'] = [];
-            if (null !== $this->hanaBackupPlan && \is_array($this->hanaBackupPlan)) {
-                $n = 0;
-                foreach ($this->hanaBackupPlan as $item) {
-                    $res['HanaBackupPlan'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hanaBackupPlan)) {
+                $res['HanaBackupPlan'] = [];
+                $n1                    = 0;
+                foreach ($this->hanaBackupPlan as $item1) {
+                    $res['HanaBackupPlan'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class hanaBackupPlans extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hanaBackupPlans
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HanaBackupPlan'])) {
             if (!empty($map['HanaBackupPlan'])) {
                 $model->hanaBackupPlan = [];
-                $n                     = 0;
-                foreach ($map['HanaBackupPlan'] as $item) {
-                    $model->hanaBackupPlan[$n++] = null !== $item ? hanaBackupPlan::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['HanaBackupPlan'] as $item1) {
+                    $model->hanaBackupPlan[$n1++] = hanaBackupPlan::fromMap($item1);
                 }
             }
         }

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteBackupClientResourceRequest extends Model
 {
     /**
-     * @description The IDs of HBR clients. The value can be a JSON array that consists of up to 100 client IDs. Separate the IDs with commas (,).
-     *
-     * This parameter is required.
-     * @example ["c-0007kyu045r0********", "c-000b6818umvo********"]
-     *
      * @var mixed[]
      */
     public $clientIds;
@@ -23,28 +18,42 @@ class DeleteBackupClientResourceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->clientIds)) {
+            Model::validateArray($this->clientIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIds) {
-            $res['ClientIds'] = $this->clientIds;
+            if (\is_array($this->clientIds)) {
+                $res['ClientIds'] = [];
+                foreach ($this->clientIds as $key1 => $value1) {
+                    $res['ClientIds'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBackupClientResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientIds'])) {
-            $model->clientIds = $map['ClientIds'];
+            if (!empty($map['ClientIds'])) {
+                $model->clientIds = [];
+                foreach ($map['ClientIds'] as $key1 => $value1) {
+                    $model->clientIds[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

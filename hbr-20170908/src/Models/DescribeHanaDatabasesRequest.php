@@ -4,52 +4,27 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHanaDatabasesRequest extends Model
 {
     /**
-     * @description The ID of the SAP HANA instance.
-     *
-     * This parameter is required.
-     * @example cl-000hpc******uv14x
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmw2azsegupmi
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The ID of the backup vault.
-     *
-     * @example v-00063fq******8xjr
-     *
      * @var string
      */
     public $vaultId;
@@ -63,23 +38,28 @@ class DescribeHanaDatabasesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -87,26 +67,30 @@ class DescribeHanaDatabasesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHanaDatabasesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }

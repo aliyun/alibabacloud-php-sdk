@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePolicyV2Request extends Model
 {
     /**
-     * @description The ID of the backup policy.
-     *
-     * @example po-000************2l6
-     *
      * @var string
      */
     public $policyId;
@@ -22,9 +18,10 @@ class DeletePolicyV2Request extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
@@ -34,11 +31,11 @@ class DeletePolicyV2Request extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePolicyV2Request
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

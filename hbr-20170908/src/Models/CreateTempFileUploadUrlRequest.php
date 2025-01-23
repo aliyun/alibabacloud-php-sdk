@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTempFileUploadUrlRequest extends Model
 {
     /**
-     * @description The name of the file to be uploaded.
-     *
-     * This parameter is required.
-     * @example file-list.txt
-     *
      * @var string
      */
     public $fileName;
@@ -23,9 +18,10 @@ class CreateTempFileUploadUrlRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
@@ -35,11 +31,11 @@ class CreateTempFileUploadUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTempFileUploadUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

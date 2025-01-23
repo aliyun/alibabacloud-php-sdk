@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class paths extends Model
 {
@@ -18,29 +18,43 @@ class paths extends Model
 
     public function validate()
     {
+        if (\is_array($this->path)) {
+            Model::validateArray($this->path);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->path) {
-            $res['Path'] = $this->path;
+            if (\is_array($this->path)) {
+                $res['Path'] = [];
+                $n1          = 0;
+                foreach ($this->path as $item1) {
+                    $res['Path'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return paths
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Path'])) {
             if (!empty($map['Path'])) {
-                $model->path = $map['Path'];
+                $model->path = [];
+                $n1          = 0;
+                foreach ($map['Path'] as $item1) {
+                    $model->path[$n1++] = $item1;
+                }
             }
         }
 

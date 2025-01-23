@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartHanaDatabaseAsyncRequest extends Model
 {
     /**
-     * @description The ID of the SAP HANA instance.
-     *
-     * This parameter is required.
-     * @example cl-000a9ipe******sme
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The database name.
-     *
-     * This parameter is required.
-     * @example HXE
-     *
      * @var string
      */
     public $databaseName;
-
     /**
-     * @description The ID of the backup vault.
-     *
-     * This parameter is required.
-     * @example v-0000hrh******vhr3i
-     *
      * @var string
      */
     public $vaultId;
@@ -45,17 +28,20 @@ class StartHanaDatabaseAsyncRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
+
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -63,20 +49,22 @@ class StartHanaDatabaseAsyncRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartHanaDatabaseAsyncRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }
+
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }

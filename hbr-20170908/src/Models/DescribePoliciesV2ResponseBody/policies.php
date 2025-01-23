@@ -4,80 +4,40 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePoliciesV2ResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePoliciesV2ResponseBody\policies\rules;
-use AlibabaCloud\Tea\Model;
 
 class policies extends Model
 {
     /**
-     * @description The time when the backup policy was created. The value is a UNIX timestamp. Unit: seconds.
-     *
-     * @example 1650248136
-     *
      * @var int
      */
     public $createdTime;
-
     /**
-     * @description The number of data sources that are bound to the backup policy.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $policyBindingCount;
-
     /**
-     * @description The description of the backup policy.
-     *
-     * @example Data is backed up at 10:00:00 every day and replicated to the China (Shanghai) region for geo-redundancy.
-     *
      * @var string
      */
     public $policyDescription;
-
     /**
-     * @description The ID of the backup policy.
-     *
-     * @example po-000************bkz
-     *
      * @var string
      */
     public $policyId;
-
     /**
-     * @description The name of the backup policy.
-     *
-     * @example Daily Local Backup + Remote Backup
-     *
      * @var string
      */
     public $policyName;
-
     /**
-     * @description The policy type. Valid values:
-     *
-     *   **STANDARD**: the general backup policy. This type of policy applies to backups other than Elastic Compute Service (ECS) instance backup.
-     *   **UDM_ECS_ONLY**: the ECS instance backup policy. This type of policy applies only to ECS instance backup.
-     *
-     * @example STANDARD
-     *
      * @var string
      */
     public $policyType;
-
     /**
-     * @description The rules in the backup policy.
-     *
      * @var rules[]
      */
     public $rules;
-
     /**
-     * @description The time when the backup policy was updated. The value is a UNIX timestamp. Unit: seconds.
-     *
-     * @example 1662080404
-     *
      * @var int
      */
     public $updatedTime;
@@ -94,38 +54,49 @@ class policies extends Model
 
     public function validate()
     {
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->policyBindingCount) {
             $res['PolicyBindingCount'] = $this->policyBindingCount;
         }
+
         if (null !== $this->policyDescription) {
             $res['PolicyDescription'] = $this->policyDescription;
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
+
         if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rules)) {
+                $res['Rules'] = [];
+                $n1           = 0;
+                foreach ($this->rules as $item1) {
+                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->updatedTime) {
             $res['UpdatedTime'] = $this->updatedTime;
         }
@@ -133,41 +104,48 @@ class policies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['PolicyBindingCount'])) {
             $model->policyBindingCount = $map['PolicyBindingCount'];
         }
+
         if (isset($map['PolicyDescription'])) {
             $model->policyDescription = $map['PolicyDescription'];
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }
+
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Rules'] as $item1) {
+                    $model->rules[$n1++] = rules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UpdatedTime'])) {
             $model->updatedTime = $map['UpdatedTime'];
         }

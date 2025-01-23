@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHanaBackupSettingRequest extends Model
 {
     /**
-     * @description The ID of the SAP HANA instance.
-     *
-     * This parameter is required.
-     * @example cl-00068btz******oku
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The name of the database.
-     *
-     * @example SYSTEMDB
-     *
      * @var string
      */
     public $databaseName;
-
     /**
-     * @description The ID of the backup vault.
-     *
-     * @example v-000css******za5uyqr
-     *
      * @var string
      */
     public $vaultId;
@@ -43,17 +28,20 @@ class DescribeHanaBackupSettingRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
+
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -61,20 +49,22 @@ class DescribeHanaBackupSettingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHanaBackupSettingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }
+
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }

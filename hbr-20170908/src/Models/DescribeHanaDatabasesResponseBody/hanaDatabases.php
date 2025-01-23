@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaDatabasesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaDatabasesResponseBody\hanaDatabases\hanaDatabase;
-use AlibabaCloud\Tea\Model;
 
 class hanaDatabases extends Model
 {
@@ -19,17 +19,21 @@ class hanaDatabases extends Model
 
     public function validate()
     {
+        if (\is_array($this->hanaDatabase)) {
+            Model::validateArray($this->hanaDatabase);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hanaDatabase) {
-            $res['HanaDatabase'] = [];
-            if (null !== $this->hanaDatabase && \is_array($this->hanaDatabase)) {
-                $n = 0;
-                foreach ($this->hanaDatabase as $item) {
-                    $res['HanaDatabase'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hanaDatabase)) {
+                $res['HanaDatabase'] = [];
+                $n1                  = 0;
+                foreach ($this->hanaDatabase as $item1) {
+                    $res['HanaDatabase'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class hanaDatabases extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hanaDatabases
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HanaDatabase'])) {
             if (!empty($map['HanaDatabase'])) {
                 $model->hanaDatabase = [];
-                $n                   = 0;
-                foreach ($map['HanaDatabase'] as $item) {
-                    $model->hanaDatabase[$n++] = null !== $item ? hanaDatabase::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['HanaDatabase'] as $item1) {
+                    $model->hanaDatabase[$n1++] = hanaDatabase::fromMap($item1);
                 }
             }
         }

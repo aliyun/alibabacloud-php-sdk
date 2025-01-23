@@ -4,104 +4,48 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupClientsRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBackupClientsRequest extends Model
 {
     /**
-     * @description The IDs of HBR clients.
-     *
-     * @example ["c-*********************"]
-     *
      * @var string[]
      */
     public $clientIds;
-
     /**
-     * @description The type of the HBR client. Valid values:
-     *
-     *   **ECS_CLIENT**: HBR client for Elastic Compute Service (ECS) file backup
-     *   **CONTAINER_CLIENT**: HBR client for container backup
-     *
-     * This parameter is required.
-     * @example ECS_CLIENT
-     *
      * @var string
      */
     public $clientType;
-
     /**
-     * @description The ID of the cluster for the backup.
-     *
-     * @example cl-000ge4wa61b4d337xblq
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
-     *
-     * @example hbrcrossrole
-     *
      * @var string
      */
     public $crossAccountRoleName;
-
     /**
-     * @description Specifies whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-     *
-     *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
-     *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
-     *
-     * @example CROSS_ACCOUNT
-     *
      * @var string
      */
     public $crossAccountType;
-
     /**
-     * @description The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
-     *
-     * @example 129374672382xxxx
-     *
      * @var int
      */
     public $crossAccountUserId;
-
     /**
-     * @description The IDs of ECS instances.
-     *
-     * @example ["i-*********************"]
-     *
      * @var string[]
      */
     public $instanceIds;
-
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The tags.
-     *
-     * @example 33738719#
-     *
      * @var tag[]
      */
     public $tag;
@@ -120,44 +64,75 @@ class DescribeBackupClientsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->clientIds)) {
+            Model::validateArray($this->clientIds);
+        }
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIds) {
-            $res['ClientIds'] = $this->clientIds;
+            if (\is_array($this->clientIds)) {
+                $res['ClientIds'] = [];
+                $n1               = 0;
+                foreach ($this->clientIds as $item1) {
+                    $res['ClientIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->crossAccountRoleName) {
             $res['CrossAccountRoleName'] = $this->crossAccountRoleName;
         }
+
         if (null !== $this->crossAccountType) {
             $res['CrossAccountType'] = $this->crossAccountType;
         }
+
         if (null !== $this->crossAccountUserId) {
             $res['CrossAccountUserId'] = $this->crossAccountUserId;
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1                 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -165,51 +140,68 @@ class DescribeBackupClientsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupClientsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientIds'])) {
             if (!empty($map['ClientIds'])) {
-                $model->clientIds = $map['ClientIds'];
+                $model->clientIds = [];
+                $n1               = 0;
+                foreach ($map['ClientIds'] as $item1) {
+                    $model->clientIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['CrossAccountRoleName'])) {
             $model->crossAccountRoleName = $map['CrossAccountRoleName'];
         }
+
         if (isset($map['CrossAccountType'])) {
             $model->crossAccountType = $map['CrossAccountType'];
         }
+
         if (isset($map['CrossAccountUserId'])) {
             $model->crossAccountUserId = $map['CrossAccountUserId'];
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1                 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

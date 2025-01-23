@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeCrossAccountsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeCrossAccountsResponseBody\crossAccounts\crossAccount;
-use AlibabaCloud\Tea\Model;
 
 class crossAccounts extends Model
 {
@@ -19,17 +19,21 @@ class crossAccounts extends Model
 
     public function validate()
     {
+        if (\is_array($this->crossAccount)) {
+            Model::validateArray($this->crossAccount);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->crossAccount) {
-            $res['CrossAccount'] = [];
-            if (null !== $this->crossAccount && \is_array($this->crossAccount)) {
-                $n = 0;
-                foreach ($this->crossAccount as $item) {
-                    $res['CrossAccount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->crossAccount)) {
+                $res['CrossAccount'] = [];
+                $n1                  = 0;
+                foreach ($this->crossAccount as $item1) {
+                    $res['CrossAccount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class crossAccounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return crossAccounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CrossAccount'])) {
             if (!empty($map['CrossAccount'])) {
                 $model->crossAccount = [];
-                $n                   = 0;
-                foreach ($map['CrossAccount'] as $item) {
-                    $model->crossAccount[$n++] = null !== $item ? crossAccount::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['CrossAccount'] as $item1) {
+                    $model->crossAccount[$n1++] = crossAccount::fromMap($item1);
                 }
             }
         }

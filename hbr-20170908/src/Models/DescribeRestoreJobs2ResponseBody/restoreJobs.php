@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRestoreJobs2ResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRestoreJobs2ResponseBody\restoreJobs\restoreJob;
-use AlibabaCloud\Tea\Model;
 
 class restoreJobs extends Model
 {
@@ -19,17 +19,21 @@ class restoreJobs extends Model
 
     public function validate()
     {
+        if (\is_array($this->restoreJob)) {
+            Model::validateArray($this->restoreJob);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->restoreJob) {
-            $res['RestoreJob'] = [];
-            if (null !== $this->restoreJob && \is_array($this->restoreJob)) {
-                $n = 0;
-                foreach ($this->restoreJob as $item) {
-                    $res['RestoreJob'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->restoreJob)) {
+                $res['RestoreJob'] = [];
+                $n1                = 0;
+                foreach ($this->restoreJob as $item1) {
+                    $res['RestoreJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class restoreJobs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return restoreJobs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RestoreJob'])) {
             if (!empty($map['RestoreJob'])) {
                 $model->restoreJob = [];
-                $n                 = 0;
-                foreach ($map['RestoreJob'] as $item) {
-                    $model->restoreJob[$n++] = null !== $item ? restoreJob::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['RestoreJob'] as $item1) {
+                    $model->restoreJob[$n1++] = restoreJob::fromMap($item1);
                 }
             }
         }

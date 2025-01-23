@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteBackupClientResourceShrinkRequest extends Model
 {
     /**
-     * @description The IDs of HBR clients. The value can be a JSON array that consists of up to 100 client IDs. Separate the IDs with commas (,).
-     *
-     * This parameter is required.
-     * @example ["c-0007kyu045r0********", "c-000b6818umvo********"]
-     *
      * @var string
      */
     public $clientIdsShrink;
@@ -23,9 +18,10 @@ class DeleteBackupClientResourceShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIdsShrink) {
@@ -35,11 +31,11 @@ class DeleteBackupClientResourceShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBackupClientResourceShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

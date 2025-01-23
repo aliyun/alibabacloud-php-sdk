@@ -4,32 +4,15 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault\tags;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag key of the backup vault. Valid values of N: 1 to 20.
-     *
-     *   The tag key cannot start with `aliyun` or `acs:`.
-     *   The tag key cannot contain `http://` or `https://`.
-     *   The tag key cannot be an empty string.
-     *
-     * @example aaa
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The tag value of the backup vault. Valid values of N: 1 to 20.
-     *
-     *   The tag value cannot start with `aliyun` or `acs:`.
-     *   The tag value cannot contain `http://` or `https://`.
-     *   The tag value cannot be an empty string.
-     *
-     * @example a1
-     *
      * @var string
      */
     public $value;
@@ -40,14 +23,16 @@ class tag extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -55,17 +40,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan\otsDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableNames extends Model
 {
@@ -18,29 +18,43 @@ class tableNames extends Model
 
     public function validate()
     {
+        if (\is_array($this->tableName)) {
+            Model::validateArray($this->tableName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
+            if (\is_array($this->tableName)) {
+                $res['TableName'] = [];
+                $n1               = 0;
+                foreach ($this->tableName as $item1) {
+                    $res['TableName'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableNames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TableName'])) {
             if (!empty($map['TableName'])) {
-                $model->tableName = $map['TableName'];
+                $model->tableName = [];
+                $n1               = 0;
+                foreach ($map['TableName'] as $item1) {
+                    $model->tableName[$n1++] = $item1;
+                }
             }
         }
 

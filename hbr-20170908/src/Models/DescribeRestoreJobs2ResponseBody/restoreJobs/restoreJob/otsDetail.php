@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRestoreJobs2ResponseBody\restoreJobs\restoreJob;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class otsDetail extends Model
 {
     /**
-     * @description The number of channels processed by each Tablestore restore job.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $batchChannelCount;
-
     /**
-     * @description Indicates whether the existing Tablestore restore job was overwritten.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $overwriteExisting;
@@ -32,14 +23,16 @@ class otsDetail extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchChannelCount) {
             $res['BatchChannelCount'] = $this->batchChannelCount;
         }
+
         if (null !== $this->overwriteExisting) {
             $res['OverwriteExisting'] = $this->overwriteExisting;
         }
@@ -47,17 +40,18 @@ class otsDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return otsDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchChannelCount'])) {
             $model->batchChannelCount = $map['BatchChannelCount'];
         }
+
         if (isset($map['OverwriteExisting'])) {
             $model->overwriteExisting = $map['OverwriteExisting'];
         }

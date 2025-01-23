@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePolicyBindingRequest extends Model
 {
     /**
-     * @description The IDs of the data sources that you want to disassociate from the backup policy.
-     *
      * @var string[]
      */
     public $dataSourceIds;
-
     /**
-     * @description The ID of the backup policy.
-     *
-     * This parameter is required.
-     * @example po-000************hgp
-     *
      * @var string
      */
     public $policyId;
-
     /**
-     * @description The type of the data source. Valid values:
-     *
-     *   **UDM_ECS**: ECS instance backup
-     *
-     * @example UDM_ECS
-     *
      * @var string
      */
     public $sourceType;
@@ -43,17 +28,29 @@ class DeletePolicyBindingRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataSourceIds)) {
+            Model::validateArray($this->dataSourceIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceIds) {
-            $res['DataSourceIds'] = $this->dataSourceIds;
+            if (\is_array($this->dataSourceIds)) {
+                $res['DataSourceIds'] = [];
+                $n1                   = 0;
+                foreach ($this->dataSourceIds as $item1) {
+                    $res['DataSourceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -61,22 +58,28 @@ class DeletePolicyBindingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePolicyBindingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceIds'])) {
             if (!empty($map['DataSourceIds'])) {
-                $model->dataSourceIds = $map['DataSourceIds'];
+                $model->dataSourceIds = [];
+                $n1                   = 0;
+                foreach ($map['DataSourceIds'] as $item1) {
+                    $model->dataSourceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

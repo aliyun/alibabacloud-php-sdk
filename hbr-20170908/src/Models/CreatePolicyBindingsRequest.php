@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreatePolicyBindingsRequest\policyBindingList;
-use AlibabaCloud\Tea\Model;
 
 class CreatePolicyBindingsRequest extends Model
 {
     /**
-     * @description The data sources that you want to bind to the backup policy.
-     *
      * @var policyBindingList[]
      */
     public $policyBindingList;
-
     /**
-     * @description The ID of the backup policy.
-     *
-     * @example po-000************8ep
-     *
      * @var string
      */
     public $policyId;
@@ -31,20 +24,25 @@ class CreatePolicyBindingsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->policyBindingList)) {
+            Model::validateArray($this->policyBindingList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyBindingList) {
-            $res['PolicyBindingList'] = [];
-            if (null !== $this->policyBindingList && \is_array($this->policyBindingList)) {
-                $n = 0;
-                foreach ($this->policyBindingList as $item) {
-                    $res['PolicyBindingList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policyBindingList)) {
+                $res['PolicyBindingList'] = [];
+                $n1                       = 0;
+                foreach ($this->policyBindingList as $item1) {
+                    $res['PolicyBindingList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
@@ -52,23 +50,24 @@ class CreatePolicyBindingsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePolicyBindingsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyBindingList'])) {
             if (!empty($map['PolicyBindingList'])) {
                 $model->policyBindingList = [];
-                $n                        = 0;
-                foreach ($map['PolicyBindingList'] as $item) {
-                    $model->policyBindingList[$n++] = null !== $item ? policyBindingList::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['PolicyBindingList'] as $item1) {
+                    $model->policyBindingList[$n1++] = policyBindingList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteClientRequest extends Model
 {
     /**
-     * @description The ID of the client.
-     *
-     * @example c-000************f3h
-     *
      * @var string
      */
     public $clientId;
-
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acf************kwy
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The ID of the backup vault.
-     *
-     * @example v-000************gs3
-     *
      * @var string
      */
     public $vaultId;
@@ -42,17 +28,20 @@ class DeleteClientRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -60,20 +49,22 @@ class DeleteClientRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteClientRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }
