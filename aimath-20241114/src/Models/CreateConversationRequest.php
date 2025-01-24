@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIMath\V20241114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateConversationRequest extends Model
 {
@@ -12,38 +12,23 @@ class CreateConversationRequest extends Model
      * @var string
      */
     public $exerciseAnalysis;
-
     /**
      * @var string
      */
     public $exerciseAnswer;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $exerciseContent;
-
     /**
      * @var string
      */
     public $exerciseType;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 2r560eHAbsknrfHXVZO4L
-     *
      * @var string
      */
     public $outerBizId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example wx-xx-yy
-     *
      * @var string
      */
     public $userId;
@@ -58,26 +43,32 @@ class CreateConversationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exerciseAnalysis) {
             $res['ExerciseAnalysis'] = $this->exerciseAnalysis;
         }
+
         if (null !== $this->exerciseAnswer) {
             $res['ExerciseAnswer'] = $this->exerciseAnswer;
         }
+
         if (null !== $this->exerciseContent) {
             $res['ExerciseContent'] = $this->exerciseContent;
         }
+
         if (null !== $this->exerciseType) {
             $res['ExerciseType'] = $this->exerciseType;
         }
+
         if (null !== $this->outerBizId) {
             $res['OuterBizId'] = $this->outerBizId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -85,29 +76,34 @@ class CreateConversationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateConversationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExerciseAnalysis'])) {
             $model->exerciseAnalysis = $map['ExerciseAnalysis'];
         }
+
         if (isset($map['ExerciseAnswer'])) {
             $model->exerciseAnswer = $map['ExerciseAnswer'];
         }
+
         if (isset($map['ExerciseContent'])) {
             $model->exerciseContent = $map['ExerciseContent'];
         }
+
         if (isset($map['ExerciseType'])) {
             $model->exerciseType = $map['ExerciseType'];
         }
+
         if (isset($map['OuterBizId'])) {
             $model->outerBizId = $map['OuterBizId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\AIMath\V20241114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChatMessageRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example hello world！
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 723b7f0f-c28a-4123-86e7-094d3d3863f8
-     *
      * @var string
      */
     public $conversationId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example c28a-4123-86e7
-     *
      * @var string
      */
     public $userId;
@@ -42,17 +28,20 @@ class ChatMessageRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -60,20 +49,22 @@ class ChatMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChatMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

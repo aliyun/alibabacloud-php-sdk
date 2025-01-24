@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AIMath\V20241114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenAnalysisRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $exerciseContent;
@@ -20,9 +18,10 @@ class GenAnalysisRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exerciseContent) {
@@ -32,11 +31,11 @@ class GenAnalysisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenAnalysisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

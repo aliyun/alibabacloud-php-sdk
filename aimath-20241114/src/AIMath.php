@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIMath\V20241114;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AIMath\V20241114\Models\ChatMessageRequest;
 use AlibabaCloud\SDK\AIMath\V20241114\Models\ChatMessageResponse;
 use AlibabaCloud\SDK\AIMath\V20241114\Models\CreateConversationRequest;
@@ -22,11 +21,10 @@ use AlibabaCloud\SDK\AIMath\V20241114\Models\UpdateAnalysisRequest;
 use AlibabaCloud\SDK\AIMath\V20241114\Models\UpdateAnalysisResponse;
 use AlibabaCloud\SDK\AIMath\V20241114\Models\UpdateStepRequest;
 use AlibabaCloud\SDK\AIMath\V20241114\Models\UpdateStepResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class AIMath extends OpenApiClient
 {
@@ -51,39 +49,47 @@ class AIMath extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 聊天消息API
-     *  *
-     * @param ChatMessageRequest $request ChatMessageRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 聊天消息API.
      *
-     * @return ChatMessageResponse ChatMessageResponse
+     * @param request - ChatMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChatMessageResponse
+     *
+     * @param ChatMessageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ChatMessageResponse
      */
     public function chatMessageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->conversationId)) {
-            $body['ConversationId'] = $request->conversationId;
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ChatMessage',
@@ -96,16 +102,22 @@ class AIMath extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChatMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChatMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChatMessageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 聊天消息API
-     *  *
-     * @param ChatMessageRequest $request ChatMessageRequest
+     * 聊天消息API.
      *
-     * @return ChatMessageResponse ChatMessageResponse
+     * @param request - ChatMessageRequest
+     * @returns ChatMessageResponse
+     *
+     * @param ChatMessageRequest $request
+     *
+     * @return ChatMessageResponse
      */
     public function chatMessage($request)
     {
@@ -115,37 +127,47 @@ class AIMath extends OpenApiClient
     }
 
     /**
-     * @summary 创建试题相应的对话。
-     *  *
-     * @param CreateConversationRequest $request CreateConversationRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 创建试题相应的对话。
      *
-     * @return CreateConversationResponse CreateConversationResponse
+     * @param request - CreateConversationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateConversationResponse
+     *
+     * @param CreateConversationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateConversationResponse
      */
     public function createConversationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->exerciseAnalysis)) {
-            $body['ExerciseAnalysis'] = $request->exerciseAnalysis;
+        if (null !== $request->exerciseAnalysis) {
+            @$body['ExerciseAnalysis'] = $request->exerciseAnalysis;
         }
-        if (!Utils::isUnset($request->exerciseAnswer)) {
-            $body['ExerciseAnswer'] = $request->exerciseAnswer;
+
+        if (null !== $request->exerciseAnswer) {
+            @$body['ExerciseAnswer'] = $request->exerciseAnswer;
         }
-        if (!Utils::isUnset($request->exerciseContent)) {
-            $body['ExerciseContent'] = $request->exerciseContent;
+
+        if (null !== $request->exerciseContent) {
+            @$body['ExerciseContent'] = $request->exerciseContent;
         }
-        if (!Utils::isUnset($request->exerciseType)) {
-            $body['ExerciseType'] = $request->exerciseType;
+
+        if (null !== $request->exerciseType) {
+            @$body['ExerciseType'] = $request->exerciseType;
         }
-        if (!Utils::isUnset($request->outerBizId)) {
-            $body['OuterBizId'] = $request->outerBizId;
+
+        if (null !== $request->outerBizId) {
+            @$body['OuterBizId'] = $request->outerBizId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateConversation',
@@ -158,16 +180,22 @@ class AIMath extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateConversationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建试题相应的对话。
-     *  *
-     * @param CreateConversationRequest $request CreateConversationRequest
+     * 创建试题相应的对话。
      *
-     * @return CreateConversationResponse CreateConversationResponse
+     * @param request - CreateConversationRequest
+     * @returns CreateConversationResponse
+     *
+     * @param CreateConversationRequest $request
+     *
+     * @return CreateConversationResponse
      */
     public function createConversation($request)
     {
@@ -177,28 +205,35 @@ class AIMath extends OpenApiClient
     }
 
     /**
-     * @summary 创建关联的对话，输入试题code即可开启对话
-     *  *
-     * @param CreateRelatedConversationRequest $request CreateRelatedConversationRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 创建关联的对话，输入试题code即可开启对话.
      *
-     * @return CreateRelatedConversationResponse CreateRelatedConversationResponse
+     * @param request - CreateRelatedConversationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRelatedConversationResponse
+     *
+     * @param CreateRelatedConversationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateRelatedConversationResponse
      */
     public function createRelatedConversationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->exerciseCode)) {
-            $body['ExerciseCode'] = $request->exerciseCode;
+        if (null !== $request->exerciseCode) {
+            @$body['ExerciseCode'] = $request->exerciseCode;
         }
-        if (!Utils::isUnset($request->outerBizId)) {
-            $body['OuterBizId'] = $request->outerBizId;
+
+        if (null !== $request->outerBizId) {
+            @$body['OuterBizId'] = $request->outerBizId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRelatedConversation',
@@ -211,16 +246,22 @@ class AIMath extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRelatedConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRelatedConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRelatedConversationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建关联的对话，输入试题code即可开启对话
-     *  *
-     * @param CreateRelatedConversationRequest $request CreateRelatedConversationRequest
+     * 创建关联的对话，输入试题code即可开启对话.
      *
-     * @return CreateRelatedConversationResponse CreateRelatedConversationResponse
+     * @param request - CreateRelatedConversationRequest
+     * @returns CreateRelatedConversationResponse
+     *
+     * @param CreateRelatedConversationRequest $request
+     *
+     * @return CreateRelatedConversationResponse
      */
     public function createRelatedConversation($request)
     {
@@ -230,22 +271,27 @@ class AIMath extends OpenApiClient
     }
 
     /**
-     * @summary 生成解题分析
-     *  *
-     * @param GenAnalysisRequest $request GenAnalysisRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 生成解题分析.
      *
-     * @return GenAnalysisResponse GenAnalysisResponse
+     * @param request - GenAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenAnalysisResponse
+     *
+     * @param GenAnalysisRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GenAnalysisResponse
      */
     public function genAnalysisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->exerciseContent)) {
-            $body['ExerciseContent'] = $request->exerciseContent;
+        if (null !== $request->exerciseContent) {
+            @$body['ExerciseContent'] = $request->exerciseContent;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenAnalysis',
@@ -258,16 +304,22 @@ class AIMath extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 生成解题分析
-     *  *
-     * @param GenAnalysisRequest $request GenAnalysisRequest
+     * 生成解题分析.
      *
-     * @return GenAnalysisResponse GenAnalysisResponse
+     * @param request - GenAnalysisRequest
+     * @returns GenAnalysisResponse
+     *
+     * @param GenAnalysisRequest $request
+     *
+     * @return GenAnalysisResponse
      */
     public function genAnalysis($request)
     {
@@ -277,22 +329,27 @@ class AIMath extends OpenApiClient
     }
 
     /**
-     * @summary 生成数学解题步骤
-     *  *
-     * @param GenStepRequest $request GenStepRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 生成数学解题步骤.
      *
-     * @return GenStepResponse GenStepResponse
+     * @param request - GenStepRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenStepResponse
+     *
+     * @param GenStepRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GenStepResponse
      */
     public function genStepWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->exerciseCode)) {
-            $body['ExerciseCode'] = $request->exerciseCode;
+        if (null !== $request->exerciseCode) {
+            @$body['ExerciseCode'] = $request->exerciseCode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenStep',
@@ -305,16 +362,22 @@ class AIMath extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenStepResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenStepResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenStepResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 生成数学解题步骤
-     *  *
-     * @param GenStepRequest $request GenStepRequest
+     * 生成数学解题步骤.
      *
-     * @return GenStepResponse GenStepResponse
+     * @param request - GenStepRequest
+     * @returns GenStepResponse
+     *
+     * @param GenStepRequest $request
+     *
+     * @return GenStepResponse
      */
     public function genStep($request)
     {
@@ -324,25 +387,31 @@ class AIMath extends OpenApiClient
     }
 
     /**
-     * @summary 全局确认修订完成
-     *  *
-     * @param GlobalConfirmRequest $request GlobalConfirmRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 全局确认修订完成.
      *
-     * @return GlobalConfirmResponse GlobalConfirmResponse
+     * @param request - GlobalConfirmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GlobalConfirmResponse
+     *
+     * @param GlobalConfirmRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GlobalConfirmResponse
      */
     public function globalConfirmWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->exerciseCode)) {
-            $body['ExerciseCode'] = $request->exerciseCode;
+        if (null !== $request->exerciseCode) {
+            @$body['ExerciseCode'] = $request->exerciseCode;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GlobalConfirm',
@@ -355,16 +424,22 @@ class AIMath extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GlobalConfirmResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GlobalConfirmResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GlobalConfirmResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 全局确认修订完成
-     *  *
-     * @param GlobalConfirmRequest $request GlobalConfirmRequest
+     * 全局确认修订完成.
      *
-     * @return GlobalConfirmResponse GlobalConfirmResponse
+     * @param request - GlobalConfirmRequest
+     * @returns GlobalConfirmResponse
+     *
+     * @param GlobalConfirmRequest $request
+     *
+     * @return GlobalConfirmResponse
      */
     public function globalConfirm($request)
     {
@@ -374,28 +449,35 @@ class AIMath extends OpenApiClient
     }
 
     /**
-     * @summary 修订解题分析
-     *  *
-     * @param UpdateAnalysisRequest $request UpdateAnalysisRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 修订解题分析.
      *
-     * @return UpdateAnalysisResponse UpdateAnalysisResponse
+     * @param request - UpdateAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAnalysisResponse
+     *
+     * @param UpdateAnalysisRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateAnalysisResponse
      */
     public function updateAnalysisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentCode)) {
-            $body['ContentCode'] = $request->contentCode;
+
+        if (null !== $request->contentCode) {
+            @$body['ContentCode'] = $request->contentCode;
         }
-        if (!Utils::isUnset($request->exerciseCode)) {
-            $body['ExerciseCode'] = $request->exerciseCode;
+
+        if (null !== $request->exerciseCode) {
+            @$body['ExerciseCode'] = $request->exerciseCode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAnalysis',
@@ -408,16 +490,22 @@ class AIMath extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修订解题分析
-     *  *
-     * @param UpdateAnalysisRequest $request UpdateAnalysisRequest
+     * 修订解题分析.
      *
-     * @return UpdateAnalysisResponse UpdateAnalysisResponse
+     * @param request - UpdateAnalysisRequest
+     * @returns UpdateAnalysisResponse
+     *
+     * @param UpdateAnalysisRequest $request
+     *
+     * @return UpdateAnalysisResponse
      */
     public function updateAnalysis($request)
     {
@@ -427,28 +515,35 @@ class AIMath extends OpenApiClient
     }
 
     /**
-     * @summary 修订解题步骤
-     *  *
-     * @param UpdateStepRequest $request UpdateStepRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 修订解题步骤.
      *
-     * @return UpdateStepResponse UpdateStepResponse
+     * @param request - UpdateStepRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateStepResponse
+     *
+     * @param UpdateStepRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateStepResponse
      */
     public function updateStepWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentCode)) {
-            $body['ContentCode'] = $request->contentCode;
+
+        if (null !== $request->contentCode) {
+            @$body['ContentCode'] = $request->contentCode;
         }
-        if (!Utils::isUnset($request->exerciseCode)) {
-            $body['ExerciseCode'] = $request->exerciseCode;
+
+        if (null !== $request->exerciseCode) {
+            @$body['ExerciseCode'] = $request->exerciseCode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateStep',
@@ -461,16 +556,22 @@ class AIMath extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateStepResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateStepResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateStepResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修订解题步骤
-     *  *
-     * @param UpdateStepRequest $request UpdateStepRequest
+     * 修订解题步骤.
      *
-     * @return UpdateStepResponse UpdateStepResponse
+     * @param request - UpdateStepRequest
+     * @returns UpdateStepResponse
+     *
+     * @param UpdateStepRequest $request
+     *
+     * @return UpdateStepResponse
      */
     public function updateStep($request)
     {

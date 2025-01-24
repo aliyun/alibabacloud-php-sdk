@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\AIMath\V20241114\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GlobalConfirmRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example Ex_pop_1731848070815_funI
-     *
      * @var string
      */
     public $exerciseCode;
-
     /**
-     * @example 2024-11-18
-     *
      * @var string
      */
     public $tag;
@@ -30,14 +23,16 @@ class GlobalConfirmRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exerciseCode) {
             $res['ExerciseCode'] = $this->exerciseCode;
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
@@ -45,17 +40,18 @@ class GlobalConfirmRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GlobalConfirmRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExerciseCode'])) {
             $model->exerciseCode = $map['ExerciseCode'];
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
