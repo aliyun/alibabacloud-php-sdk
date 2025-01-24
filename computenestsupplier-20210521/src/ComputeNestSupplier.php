@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\AddServiceSharedAccoun
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\AddServiceSharedAccountsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ApproveServiceUsageRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ApproveServiceUsageResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CancelServiceRegistrationRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CancelServiceRegistrationResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ContinueDeployServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ContinueDeployServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest;
@@ -65,6 +67,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceDep
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceDeployDetailsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceRegistrationsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceRegistrationsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceSharedAccountsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceSharedAccountsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesRequest;
@@ -113,9 +117,13 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceInstanceS
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceShrinkRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateSharedAccountPermissionRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateSharedAccountPermissionResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpgradeServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpgradeServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpgradeServiceInstanceShrinkRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\WithdrawServiceRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\WithdrawServiceResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -305,6 +313,78 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->approveServiceUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Cancel service registration.
+     *
+     * @remarks
+     * Only service registration in the Submitted status can be canceled.
+     *
+     * @param request - CancelServiceRegistrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelServiceRegistrationResponse
+     *
+     * @param CancelServiceRegistrationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CancelServiceRegistrationResponse
+     */
+    public function cancelServiceRegistrationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->registrationId) {
+            @$query['RegistrationId'] = $request->registrationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelServiceRegistration',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelServiceRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CancelServiceRegistrationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Cancel service registration.
+     *
+     * @remarks
+     * Only service registration in the Submitted status can be canceled.
+     *
+     * @param request - CancelServiceRegistrationRequest
+     * @returns CancelServiceRegistrationResponse
+     *
+     * @param CancelServiceRegistrationRequest $request
+     *
+     * @return CancelServiceRegistrationResponse
+     */
+    public function cancelServiceRegistration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelServiceRegistrationWithOptions($request, $runtime);
     }
 
     /**
@@ -2338,6 +2418,76 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * Query service registrations.
+     *
+     * @param request - ListServiceRegistrationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceRegistrationsResponse
+     *
+     * @param ListServiceRegistrationsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListServiceRegistrationsResponse
+     */
+    public function listServiceRegistrationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceRegistrations',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListServiceRegistrationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Query service registrations.
+     *
+     * @param request - ListServiceRegistrationsRequest
+     * @returns ListServiceRegistrationsResponse
+     *
+     * @param ListServiceRegistrationsRequest $request
+     *
+     * @return ListServiceRegistrationsResponse
+     */
+    public function listServiceRegistrations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceRegistrationsWithOptions($request, $runtime);
+    }
+
+    /**
      * 调用ListServiceSharedAccounts查看服务共享账号列表。
      *
      * @param request - ListServiceSharedAccountsRequest
@@ -4014,6 +4164,84 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * Update Service Sharing Permissions.
+     *
+     * @param request - UpdateSharedAccountPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSharedAccountPermissionResponse
+     *
+     * @param UpdateSharedAccountPermissionRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateSharedAccountPermissionResponse
+     */
+    public function updateSharedAccountPermissionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->permission) {
+            @$query['Permission'] = $request->permission;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->userAliUid) {
+            @$query['UserAliUid'] = $request->userAliUid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSharedAccountPermission',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSharedAccountPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateSharedAccountPermissionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Update Service Sharing Permissions.
+     *
+     * @param request - UpdateSharedAccountPermissionRequest
+     * @returns UpdateSharedAccountPermissionResponse
+     *
+     * @param UpdateSharedAccountPermissionRequest $request
+     *
+     * @return UpdateSharedAccountPermissionResponse
+     */
+    public function updateSharedAccountPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSharedAccountPermissionWithOptions($request, $runtime);
+    }
+
+    /**
      * Upgrades a service instance.
      *
      * @param tmpReq - UpgradeServiceInstanceRequest
@@ -4095,5 +4323,75 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Withdraw service version.
+     *
+     * @param request - WithdrawServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns WithdrawServiceResponse
+     *
+     * @param WithdrawServiceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return WithdrawServiceResponse
+     */
+    public function withdrawServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'WithdrawService',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return WithdrawServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return WithdrawServiceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Withdraw service version.
+     *
+     * @param request - WithdrawServiceRequest
+     * @returns WithdrawServiceResponse
+     *
+     * @param WithdrawServiceRequest $request
+     *
+     * @return WithdrawServiceResponse
+     */
+    public function withdrawService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->withdrawServiceWithOptions($request, $runtime);
     }
 }
