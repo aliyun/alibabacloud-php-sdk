@@ -776,6 +776,10 @@ class Hbr extends OpenApiClient
             @$query['ChangeListPath'] = $request->changeListPath;
         }
 
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
         if (null !== $request->createTime) {
             @$query['CreateTime'] = $request->createTime;
         }
@@ -849,6 +853,10 @@ class Hbr extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->dataSourceId) {
+            @$body['DataSourceId'] = $request->dataSourceId;
+        }
+
         if (null !== $request->exclude) {
             @$body['Exclude'] = $request->exclude;
         }

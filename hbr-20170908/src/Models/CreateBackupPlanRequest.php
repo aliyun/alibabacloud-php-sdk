@@ -22,6 +22,10 @@ class CreateBackupPlanRequest extends Model
      */
     public $changeListPath;
     /**
+     * @var string
+     */
+    public $clusterId;
+    /**
      * @var int
      */
     public $createTime;
@@ -37,6 +41,10 @@ class CreateBackupPlanRequest extends Model
      * @var int
      */
     public $crossAccountUserId;
+    /**
+     * @var string
+     */
+    public $dataSourceId;
     /**
      * @var mixed[]
      */
@@ -133,10 +141,12 @@ class CreateBackupPlanRequest extends Model
         'backupType'           => 'BackupType',
         'bucket'               => 'Bucket',
         'changeListPath'       => 'ChangeListPath',
+        'clusterId'            => 'ClusterId',
         'createTime'           => 'CreateTime',
         'crossAccountRoleName' => 'CrossAccountRoleName',
         'crossAccountType'     => 'CrossAccountType',
         'crossAccountUserId'   => 'CrossAccountUserId',
+        'dataSourceId'         => 'DataSourceId',
         'destDataSourceDetail' => 'DestDataSourceDetail',
         'destDataSourceId'     => 'DestDataSourceId',
         'destSourceType'       => 'DestSourceType',
@@ -197,6 +207,10 @@ class CreateBackupPlanRequest extends Model
             $res['ChangeListPath'] = $this->changeListPath;
         }
 
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -211,6 +225,10 @@ class CreateBackupPlanRequest extends Model
 
         if (null !== $this->crossAccountUserId) {
             $res['CrossAccountUserId'] = $this->crossAccountUserId;
+        }
+
+        if (null !== $this->dataSourceId) {
+            $res['DataSourceId'] = $this->dataSourceId;
         }
 
         if (null !== $this->destDataSourceDetail) {
@@ -350,6 +368,10 @@ class CreateBackupPlanRequest extends Model
             $model->changeListPath = $map['ChangeListPath'];
         }
 
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -364,6 +386,10 @@ class CreateBackupPlanRequest extends Model
 
         if (isset($map['CrossAccountUserId'])) {
             $model->crossAccountUserId = $map['CrossAccountUserId'];
+        }
+
+        if (isset($map['DataSourceId'])) {
+            $model->dataSourceId = $map['DataSourceId'];
         }
 
         if (isset($map['DestDataSourceDetail'])) {
