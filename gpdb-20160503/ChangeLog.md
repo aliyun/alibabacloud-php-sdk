@@ -1,3 +1,12 @@
+2025-01-24 Version: 2.6.0
+- Support API CancelCreateIndexJob.
+- Support API CreateIndex.
+- Support API DeleteIndex.
+- Support API DescribeCreateIndexJob.
+- Support API DescribeIndex.
+- Support API ListIndices.
+
+
 2025-01-22 Version: 2.5.0
 - Support API CloneDBInstance.
 - Support API ModifyDBInstanceDeploymentMode.

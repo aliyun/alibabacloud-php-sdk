@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionRespo
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\BindDBResourceGroupWithRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\BindDBResourceGroupWithRoleResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\BindDBResourceGroupWithRoleShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelCreateIndexJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelCreateIndexJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUpsertCollectionDataJobRequest;
@@ -44,6 +46,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExternalDataServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExternalDataServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateHadoopDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateHadoopDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateIndexRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceRequest;
@@ -89,6 +93,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteExternalDataServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteExternalDataServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteHadoopDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteHadoopDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteIndexRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceRequest;
@@ -117,6 +123,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCollectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCreateIndexJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCreateIndexJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataBackupsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataBackupsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataReDistributeInfoRequest;
@@ -188,6 +196,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeIMVInfosRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeIMVInfosResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeIndexRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsRequest;
@@ -271,6 +281,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataServicesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataServicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataSourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataSourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesRequest;
@@ -640,6 +652,92 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->bindDBResourceGroupWithRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消创建索引任务
+     *
+     * @param request - CancelCreateIndexJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelCreateIndexJobResponse
+     *
+     * @param CancelCreateIndexJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CancelCreateIndexJobResponse
+     */
+    public function cancelCreateIndexJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelCreateIndexJob',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelCreateIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CancelCreateIndexJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 取消创建索引任务
+     *
+     * @param request - CancelCreateIndexJobRequest
+     * @returns CancelCreateIndexJobResponse
+     *
+     * @param CancelCreateIndexJobRequest $request
+     *
+     * @return CancelCreateIndexJobResponse
+     */
+    public function cancelCreateIndexJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelCreateIndexJobWithOptions($request, $runtime);
     }
 
     /**
@@ -2214,6 +2312,100 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createHadoopDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建索引.
+     *
+     * @param request - CreateIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateIndexResponse
+     *
+     * @param CreateIndexRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateIndexResponse
+     */
+    public function createIndexWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->indexConfig) {
+            @$query['IndexConfig'] = $request->indexConfig;
+        }
+
+        if (null !== $request->indexField) {
+            @$query['IndexField'] = $request->indexField;
+        }
+
+        if (null !== $request->indexName) {
+            @$query['IndexName'] = $request->indexName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIndex',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateIndexResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建索引.
+     *
+     * @param request - CreateIndexRequest
+     * @returns CreateIndexResponse
+     *
+     * @param CreateIndexRequest $request
+     *
+     * @return CreateIndexResponse
+     */
+    public function createIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIndexWithOptions($request, $runtime);
     }
 
     /**
@@ -4005,6 +4197,92 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 删除索引.
+     *
+     * @param request - DeleteIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIndexResponse
+     *
+     * @param DeleteIndexRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteIndexResponse
+     */
+    public function deleteIndexWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->indexName) {
+            @$query['IndexName'] = $request->indexName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIndex',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteIndexResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除索引.
+     *
+     * @param request - DeleteIndexRequest
+     * @returns DeleteIndexResponse
+     *
+     * @param DeleteIndexRequest $request
+     *
+     * @return DeleteIndexResponse
+     */
+    public function deleteIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIndexWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete JDBC data source.
      *
      * @param request - DeleteJDBCDataSourceRequest
@@ -5020,6 +5298,92 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取创建索引任务
+     *
+     * @param request - DescribeCreateIndexJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCreateIndexJobResponse
+     *
+     * @param DescribeCreateIndexJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeCreateIndexJobResponse
+     */
+    public function describeCreateIndexJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCreateIndexJob',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCreateIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeCreateIndexJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取创建索引任务
+     *
+     * @param request - DescribeCreateIndexJobRequest
+     * @returns DescribeCreateIndexJobResponse
+     *
+     * @param DescribeCreateIndexJobRequest $request
+     *
+     * @return DescribeCreateIndexJobResponse
+     */
+    public function describeCreateIndexJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCreateIndexJobWithOptions($request, $runtime);
     }
 
     /**
@@ -7734,6 +8098,92 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeIMVInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取索引详情.
+     *
+     * @param request - DescribeIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeIndexResponse
+     *
+     * @param DescribeIndexRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeIndexResponse
+     */
+    public function describeIndexWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->indexName) {
+            @$query['IndexName'] = $request->indexName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIndex',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeIndexResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取索引详情.
+     *
+     * @param request - DescribeIndexRequest
+     * @returns DescribeIndexResponse
+     *
+     * @param DescribeIndexRequest $request
+     *
+     * @return DescribeIndexResponse
+     */
+    public function describeIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIndexWithOptions($request, $runtime);
     }
 
     /**
@@ -11062,6 +11512,88 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listExternalDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取索引列表.
+     *
+     * @param request - ListIndicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIndicesResponse
+     *
+     * @param ListIndicesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListIndicesResponse
+     */
+    public function listIndicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIndices',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListIndicesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取索引列表.
+     *
+     * @param request - ListIndicesRequest
+     * @returns ListIndicesResponse
+     *
+     * @param ListIndicesRequest $request
+     *
+     * @return ListIndicesResponse
+     */
+    public function listIndices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIndicesWithOptions($request, $runtime);
     }
 
     /**
