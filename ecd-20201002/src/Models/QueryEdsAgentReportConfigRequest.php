@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryEdsAgentReportConfigRequest extends Model
 {
@@ -12,12 +12,10 @@ class QueryEdsAgentReportConfigRequest extends Model
      * @var int
      */
     public $aliUid;
-
     /**
      * @var string
      */
     public $desktopId;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class QueryEdsAgentReportConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
+
         if (null !== $this->ecsInstanceId) {
             $res['EcsInstanceId'] = $this->ecsInstanceId;
         }
@@ -48,20 +49,22 @@ class QueryEdsAgentReportConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryEdsAgentReportConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
+
         if (isset($map['EcsInstanceId'])) {
             $model->ecsInstanceId = $map['EcsInstanceId'];
         }

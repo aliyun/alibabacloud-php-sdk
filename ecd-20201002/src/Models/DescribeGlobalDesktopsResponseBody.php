@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeGlobalDesktopsResponseBody\desktops;
-use AlibabaCloud\Tea\Model;
 
 class DescribeGlobalDesktopsResponseBody extends Model
 {
@@ -13,17 +13,11 @@ class DescribeGlobalDesktopsResponseBody extends Model
      * @var desktops[]
      */
     public $desktops;
-
     /**
-     * @example eyJkZWZhdWx0IjpbIjIwMjItMDgtMTdUM****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example 4686A731-D601-548C-83E2-4CB6371E****
-     *
      * @var string
      */
     public $requestId;
@@ -35,23 +29,29 @@ class DescribeGlobalDesktopsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->desktops)) {
+            Model::validateArray($this->desktops);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktops) {
-            $res['Desktops'] = [];
-            if (null !== $this->desktops && \is_array($this->desktops)) {
-                $n = 0;
-                foreach ($this->desktops as $item) {
-                    $res['Desktops'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->desktops)) {
+                $res['Desktops'] = [];
+                $n1              = 0;
+                foreach ($this->desktops as $item1) {
+                    $res['Desktops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,26 +59,28 @@ class DescribeGlobalDesktopsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGlobalDesktopsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Desktops'])) {
             if (!empty($map['Desktops'])) {
                 $model->desktops = [];
-                $n               = 0;
-                foreach ($map['Desktops'] as $item) {
-                    $model->desktops[$n++] = null !== $item ? desktops::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Desktops'] as $item1) {
+                    $model->desktops[$n1++] = desktops::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
