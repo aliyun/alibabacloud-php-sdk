@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveFilePermissionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4636DBE0-BBB4-4076-8B8E-94D21A9A3CFB
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RemoveFilePermissionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RemoveFilePermissionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveFilePermissionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

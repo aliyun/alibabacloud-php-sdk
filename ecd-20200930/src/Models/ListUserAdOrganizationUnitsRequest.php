@@ -4,53 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUserAdOrganizationUnitsRequest extends Model
 {
     /**
-     * @description The string that you enter for fuzzy search.
-     *
-     * @example develop
-     *
      * @var string
      */
     public $filter;
-
     /**
-     * @description The maximum number of entries to return on each page. Valid values: 1 to 500. Default value: 500.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no next request exists. You must specify the token that is obtained from the previous query as the value of NextToken.
-     *
-     * @example CAAAAA==
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The enterprise AD office network ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou+dir-485361****
-     *
      * @var string
      */
     public $officeSiteId;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -64,23 +38,28 @@ class ListUserAdOrganizationUnitsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -88,26 +67,30 @@ class ListUserAdOrganizationUnitsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserAdOrganizationUnitsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

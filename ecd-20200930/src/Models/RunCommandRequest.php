@@ -4,76 +4,35 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunCommandRequest extends Model
 {
     /**
-     * @description The content of the command. The command content can be plaintext or Base64-encoded.\\
-     * This parameter is required.
-     * @example ipconfig
-     *
      * @var string
      */
     public $commandContent;
-
     /**
-     * @description The encoding mode of the command content. Valid values:
-     *
-     *   PlainText: The command content is not encoded.
-     *   Base64: The command content is Base64-encoded.
-     *
-     * Default value: PlainText. If the specified value of this parameter is invalid, PlainText is used by default.
-     * @example Base64
-     *
      * @var string
      */
     public $contentEncoding;
-
     /**
-     * @description The ID of cloud desktop N. Valid values of N: 1 to 50.\\
-     * This parameter is required.
      * @var string[]
      */
     public $desktopId;
-
     /**
-     * @description The ID of the end user. If you specify a value, you run the command as the end user that is granted specific permissions. Note: The end user has sessions on a cloud computer. That is, when the cloud computer is started, the end user logs on to an Alibaba Cloud Workspace client and connects to the cloud computer, and the cloud computer is not preempted by another end user during the connection. This parameter is not available for Linux cloud computers.
-     *
-     * @example User1
-     *
      * @var string
      */
     public $endUserId;
-
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The timeout period for the command to run. Unit: seconds. Default value: 60.\\
-     * A timeout error occurs if the command cannot be run because the process slows down or because a specific module or the Cloud Assistant client does not exist. When a timeout error occurs, the command process is forcibly terminated.
-     * @example 3600
-     *
      * @var int
      */
     public $timeout;
-
     /**
-     * @description The language of the O\\&M command. Valid values:
-     *
-     *   RunBatScript
-     *   RunPowerShellScript
-     *
-     * This parameter is required.
-     * @example RunPowerShellScript
-     *
      * @var string
      */
     public $type;
@@ -89,29 +48,45 @@ class RunCommandRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->desktopId)) {
+            Model::validateArray($this->desktopId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
         }
+
         if (null !== $this->contentEncoding) {
             $res['ContentEncoding'] = $this->contentEncoding;
         }
+
         if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+            if (\is_array($this->desktopId)) {
+                $res['DesktopId'] = [];
+                $n1               = 0;
+                foreach ($this->desktopId as $item1) {
+                    $res['DesktopId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -119,34 +94,44 @@ class RunCommandRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunCommandRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
         }
+
         if (isset($map['ContentEncoding'])) {
             $model->contentEncoding = $map['ContentEncoding'];
         }
+
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
+                $model->desktopId = [];
+                $n1               = 0;
+                foreach ($map['DesktopId'] as $item1) {
+                    $model->desktopId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

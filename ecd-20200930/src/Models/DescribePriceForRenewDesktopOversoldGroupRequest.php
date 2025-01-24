@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePriceForRenewDesktopOversoldGroupRequest extends Model
 {
@@ -12,12 +12,10 @@ class DescribePriceForRenewDesktopOversoldGroupRequest extends Model
      * @var string
      */
     public $oversoldGroupId;
-
     /**
      * @var int
      */
     public $period;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class DescribePriceForRenewDesktopOversoldGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->oversoldGroupId) {
             $res['OversoldGroupId'] = $this->oversoldGroupId;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
@@ -48,20 +49,22 @@ class DescribePriceForRenewDesktopOversoldGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePriceForRenewDesktopOversoldGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OversoldGroupId'])) {
             $model->oversoldGroupId = $map['OversoldGroupId'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }

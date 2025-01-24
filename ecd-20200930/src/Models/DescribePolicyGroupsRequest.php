@@ -4,90 +4,89 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePolicyGroupsRequest extends Model
 {
     /**
-     * @description The number of entries per page.
-     *
-     *   Valid values: 1 to 100
-     *   Default value: 10
-     *
-     * @example 10
-     *
+     * @var string[]
+     */
+    public $externalPolicyGroupIds;
+    /**
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The policy IDs. You can specify one or more policy IDs.
-     *
-     * @example system-all-enabled-policy
-     *
      * @var string[]
      */
     public $policyGroupId;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The effective scope of the policy. Valid values:
-     *
-     *   GLOBAL: The policy takes effect globally.
-     *   IP: The policy takes effect based on the IP address.
-     *   ALL: The policy takes effect without limits.
-     *
-     * Default value: GLOBAL.
-     * @example ALL
-     *
      * @var string
      */
     public $scope;
     protected $_name = [
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'policyGroupId' => 'PolicyGroupId',
-        'regionId'      => 'RegionId',
-        'scope'         => 'Scope',
+        'externalPolicyGroupIds' => 'ExternalPolicyGroupIds',
+        'maxResults'             => 'MaxResults',
+        'nextToken'              => 'NextToken',
+        'policyGroupId'          => 'PolicyGroupId',
+        'regionId'               => 'RegionId',
+        'scope'                  => 'Scope',
     ];
 
     public function validate()
     {
+        if (\is_array($this->externalPolicyGroupIds)) {
+            Model::validateArray($this->externalPolicyGroupIds);
+        }
+        if (\is_array($this->policyGroupId)) {
+            Model::validateArray($this->policyGroupId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->externalPolicyGroupIds) {
+            if (\is_array($this->externalPolicyGroupIds)) {
+                $res['ExternalPolicyGroupIds'] = [];
+                $n1                            = 0;
+                foreach ($this->externalPolicyGroupIds as $item1) {
+                    $res['ExternalPolicyGroupIds'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->policyGroupId) {
-            $res['PolicyGroupId'] = $this->policyGroupId;
+            if (\is_array($this->policyGroupId)) {
+                $res['PolicyGroupId'] = [];
+                $n1                   = 0;
+                foreach ($this->policyGroupId as $item1) {
+                    $res['PolicyGroupId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
@@ -95,28 +94,46 @@ class DescribePolicyGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePolicyGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalPolicyGroupIds'])) {
+            if (!empty($map['ExternalPolicyGroupIds'])) {
+                $model->externalPolicyGroupIds = [];
+                $n1                            = 0;
+                foreach ($map['ExternalPolicyGroupIds'] as $item1) {
+                    $model->externalPolicyGroupIds[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PolicyGroupId'])) {
             if (!empty($map['PolicyGroupId'])) {
-                $model->policyGroupId = $map['PolicyGroupId'];
+                $model->policyGroupId = [];
+                $n1                   = 0;
+                foreach ($map['PolicyGroupId'] as $item1) {
+                    $model->policyGroupId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }

@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MigrateDesktopsRequest extends Model
 {
     /**
-     * @description The IDs of the cloud computers. You can specify 1 to 100 IDs.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $desktopId;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the destination office network.
-     *
-     * This parameter is required.
-     * @example cn-shenzhen+dir-388505****
-     *
      * @var string
      */
     public $targetOfficeSiteId;
@@ -43,17 +28,29 @@ class MigrateDesktopsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->desktopId)) {
+            Model::validateArray($this->desktopId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+            if (\is_array($this->desktopId)) {
+                $res['DesktopId'] = [];
+                $n1               = 0;
+                foreach ($this->desktopId as $item1) {
+                    $res['DesktopId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->targetOfficeSiteId) {
             $res['TargetOfficeSiteId'] = $this->targetOfficeSiteId;
         }
@@ -61,22 +58,28 @@ class MigrateDesktopsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MigrateDesktopsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
+                $model->desktopId = [];
+                $n1               = 0;
+                foreach ($map['DesktopId'] as $item1) {
+                    $model->desktopId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TargetOfficeSiteId'])) {
             $model->targetOfficeSiteId = $map['TargetOfficeSiteId'];
         }

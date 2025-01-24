@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDesktopTimerResponseBody extends Model
 {
     /**
-     * @description The IDs of the cloud computers for which you successfully configure the scheduled task.
-     *
      * @var string[]
      */
     public $desktopIds;
-
     /**
-     * @description The request ID.
-     *
-     * @example 4638719F-3CAB-5704-BD54-55617BFF****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,25 @@ class ModifyDesktopTimerResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->desktopIds)) {
+            Model::validateArray($this->desktopIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopIds) {
-            $res['DesktopIds'] = $this->desktopIds;
+            if (\is_array($this->desktopIds)) {
+                $res['DesktopIds'] = [];
+                $n1                = 0;
+                foreach ($this->desktopIds as $item1) {
+                    $res['DesktopIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +49,24 @@ class ModifyDesktopTimerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDesktopTimerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopIds'])) {
             if (!empty($map['DesktopIds'])) {
-                $model->desktopIds = $map['DesktopIds'];
+                $model->desktopIds = [];
+                $n1                = 0;
+                foreach ($map['DesktopIds'] as $item1) {
+                    $model->desktopIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

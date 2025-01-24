@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeBundlesResponseBody\bundles;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class desktopTypeAttribute extends Model
 {
     /**
-     * @description The number of vCPUs.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $cpuCount;
-
     /**
-     * @description The number of GPUs.
-     *
-     * @example 0.5
-     *
      * @var float
      */
     public $gpuCount;
-
     /**
-     * @description The GPU type.
-     *
-     * @example NVIDIA T4
-     *
      * @var string
      */
     public $gpuSpec;
-
     /**
-     * @description The memory size. Unit: MiB.
-     *
-     * @example 47104
-     *
      * @var int
      */
     public $memorySize;
@@ -52,20 +33,24 @@ class desktopTypeAttribute extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpuCount) {
             $res['CpuCount'] = $this->cpuCount;
         }
+
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
         }
+
         if (null !== $this->gpuSpec) {
             $res['GpuSpec'] = $this->gpuSpec;
         }
+
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
         }
@@ -73,23 +58,26 @@ class desktopTypeAttribute extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return desktopTypeAttribute
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CpuCount'])) {
             $model->cpuCount = $map['CpuCount'];
         }
+
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
         }
+
         if (isset($map['GpuSpec'])) {
             $model->gpuSpec = $map['GpuSpec'];
         }
+
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
         }

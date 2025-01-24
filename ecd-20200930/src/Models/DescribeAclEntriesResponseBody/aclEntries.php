@@ -4,43 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeAclEntriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aclEntries extends Model
 {
     /**
-     * @description The ACL type.
-     *
-     * Valid values:
-     *
-     *   allow: whitelist
-     *   disable: blacklist
-     *
-     * @example allow
-     *
      * @var string
      */
     public $policy;
-
     /**
-     * @description The ID of the instance to which the ACL applies, such as an office network ID or a cloud computer ID.
-     *
-     * @example ecd-fsafeweh***
-     *
      * @var string
      */
     public $sourceId;
-
     /**
-     * @description The granularity of the ACL.
-     *
-     * Valid values:
-     *
-     *   desktop: cloud computer
-     *   vpc: office network
-     *
-     * @example desktop
-     *
      * @var string
      */
     public $sourceType;
@@ -52,17 +28,20 @@ class aclEntries extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
+
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -70,20 +49,22 @@ class aclEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aclEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
+
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

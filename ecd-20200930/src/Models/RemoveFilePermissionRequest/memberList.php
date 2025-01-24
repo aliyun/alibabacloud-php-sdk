@@ -4,77 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionRequest\memberList\cdsIdentity;
-use AlibabaCloud\Tea\Model;
 
 class memberList extends Model
 {
     /**
-     * @description The permission information.
-     *
-     * This parameter is required.
      * @var cdsIdentity
      */
     public $cdsIdentity;
-
     /**
-     * @description The role ID. You can configure permissions on roles or actions. This parameter is used to specify the permissions on roles, which conflicts with the ActionList parameter. When you configure both the parameters, this parameter shall prevail.
-     *
-     * Valid values:
-     *
-     *   SystemFileEditorWithoutShareLink
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploaderAndDownloaderWithShareLink
-     *
-     * <!-- -->
-     *
-     *   SystemFileDownloader
-     *
-     * <!-- -->
-     *
-     *   SystemFileEditorWithoutDelete
-     *
-     * <!-- -->
-     *
-     *   SystemFileOwner
-     *
-     * <!-- -->
-     *
-     *   SystemFileDownloaderWithShareLink
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploaderAndViewer
-     *
-     * <!-- -->
-     *
-     *   SystemFileViewer
-     *
-     * <!-- -->
-     *
-     *   SystemFileEditor
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploaderWithShareLink
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploader
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploaderAndDownloader
-     *
-     * <!-- -->
-     *
-     *   SystemFileMetaViewer
-     *
-     * This parameter is required.
-     * @example SystemFileUploaderAndDownloader
-     *
      * @var string
      */
     public $roleId;
@@ -85,14 +24,19 @@ class memberList extends Model
 
     public function validate()
     {
+        if (null !== $this->cdsIdentity) {
+            $this->cdsIdentity->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cdsIdentity) {
-            $res['CdsIdentity'] = null !== $this->cdsIdentity ? $this->cdsIdentity->toMap() : null;
+            $res['CdsIdentity'] = null !== $this->cdsIdentity ? $this->cdsIdentity->toArray($noStream) : $this->cdsIdentity;
         }
+
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
@@ -100,17 +44,18 @@ class memberList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return memberList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsIdentity'])) {
             $model->cdsIdentity = cdsIdentity::fromMap($map['CdsIdentity']);
         }
+
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }

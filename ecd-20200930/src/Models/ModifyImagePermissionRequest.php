@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyImagePermissionRequest extends Model
 {
     /**
-     * @description The IDs of Alibaba Cloud accounts to which to share the image that will be created based on the image template. You can specify up to 20 account IDs.
-     *
      * @var int[]
      */
     public $addAccount;
-
     /**
-     * @description The IDs of the images.
-     *
-     * This parameter is required.
-     * @example m-gx2x1dhsmusr2****
-     *
      * @var string
      */
     public $imageId;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of Alibaba Cloud account N from which you want to unshare the custom image. Valid values of N: 1 to 10. If the value of N is greater than 10, this parameter is ignored.
-     *
      * @var int[]
      */
     public $removeAccount;
@@ -50,49 +33,82 @@ class ModifyImagePermissionRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->addAccount)) {
+            Model::validateArray($this->addAccount);
+        }
+        if (\is_array($this->removeAccount)) {
+            Model::validateArray($this->removeAccount);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addAccount) {
-            $res['AddAccount'] = $this->addAccount;
+            if (\is_array($this->addAccount)) {
+                $res['AddAccount'] = [];
+                $n1                = 0;
+                foreach ($this->addAccount as $item1) {
+                    $res['AddAccount'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->removeAccount) {
-            $res['RemoveAccount'] = $this->removeAccount;
+            if (\is_array($this->removeAccount)) {
+                $res['RemoveAccount'] = [];
+                $n1                   = 0;
+                foreach ($this->removeAccount as $item1) {
+                    $res['RemoveAccount'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyImagePermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddAccount'])) {
             if (!empty($map['AddAccount'])) {
-                $model->addAccount = $map['AddAccount'];
+                $model->addAccount = [];
+                $n1                = 0;
+                foreach ($map['AddAccount'] as $item1) {
+                    $model->addAccount[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RemoveAccount'])) {
             if (!empty($map['RemoveAccount'])) {
-                $model->removeAccount = $map['RemoveAccount'];
+                $model->removeAccount = [];
+                $n1                   = 0;
+                foreach ($map['RemoveAccount'] as $item1) {
+                    $model->removeAccount[$n1++] = $item1;
+                }
             }
         }
 

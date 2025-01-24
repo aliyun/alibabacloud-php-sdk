@@ -4,64 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateNASFileSystemRequest extends Model
 {
     /**
-     * @description Description of the NAS file system.
-     *
-     * @example testDescription
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description Whether the file system is encrypted. Uses KMS service-managed keys to encrypt the file system\\"s on-disk data. No decryption is required when reading and writing encrypted data. Possible values and their meanings:
-     *
-     * Default value: 0
-     * @example 0
-     *
      * @var string
      */
     public $encryptType;
-
     /**
-     * @description Name of the NAS file system.
-     * - Can include numbers, underscores (_), or hyphens (-).
-     * @example testNAS
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description Workspace ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou+dir-363353****
-     *
      * @var string
      */
     public $officeSiteId;
-
     /**
-     * @description Region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description Storage specification type of the NAS file system. Allowed values:
-     *
-     * Default value: Capacity
-     * @example Capacity
-     *
      * @var string
      */
     public $storageType;
@@ -76,26 +43,32 @@ class CreateNASFileSystemRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
@@ -103,29 +76,34 @@ class CreateNASFileSystemRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNASFileSystemRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }

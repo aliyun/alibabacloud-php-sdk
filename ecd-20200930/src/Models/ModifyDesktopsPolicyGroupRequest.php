@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDesktopsPolicyGroupRequest extends Model
 {
     /**
-     * @description The ID of the cloud desktop. You can specify one or more desktop IDs. The value is a JSON array.
-     *
-     * This parameter is required.
-     * @example ecd-ia2zw38bi6cm7****
-     *
      * @var string[]
      */
     public $desktopId;
-
     /**
-     * @description The ID of the policy.
-     *
-     * @example pg-gx2x1dhsmthe9****
-     *
      * @var string
      */
     public $policyGroupId;
-
     /**
-     * @description 策略ID列表。
-     *
      * @var string[]
      */
     public $policyGroupIds;
-
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -52,20 +33,42 @@ class ModifyDesktopsPolicyGroupRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->desktopId)) {
+            Model::validateArray($this->desktopId);
+        }
+        if (\is_array($this->policyGroupIds)) {
+            Model::validateArray($this->policyGroupIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+            if (\is_array($this->desktopId)) {
+                $res['DesktopId'] = [];
+                $n1               = 0;
+                foreach ($this->desktopId as $item1) {
+                    $res['DesktopId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
+
         if (null !== $this->policyGroupIds) {
-            $res['PolicyGroupIds'] = $this->policyGroupIds;
+            if (\is_array($this->policyGroupIds)) {
+                $res['PolicyGroupIds'] = [];
+                $n1                    = 0;
+                foreach ($this->policyGroupIds as $item1) {
+                    $res['PolicyGroupIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -73,27 +76,38 @@ class ModifyDesktopsPolicyGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDesktopsPolicyGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
+                $model->desktopId = [];
+                $n1               = 0;
+                foreach ($map['DesktopId'] as $item1) {
+                    $model->desktopId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
+
         if (isset($map['PolicyGroupIds'])) {
             if (!empty($map['PolicyGroupIds'])) {
-                $model->policyGroupIds = $map['PolicyGroupIds'];
+                $model->policyGroupIds = [];
+                $n1                    = 0;
+                foreach ($map['PolicyGroupIds'] as $item1) {
+                    $model->policyGroupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

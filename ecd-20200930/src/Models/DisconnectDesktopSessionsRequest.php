@@ -4,34 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DisconnectDesktopSessionsRequest\sessions;
-use AlibabaCloud\Tea\Model;
 
 class DisconnectDesktopSessionsRequest extends Model
 {
     /**
-     * @description Specifies whether to perform precheck. If you perform precheck, the system does not disconnect from desktop sessions. Only the sessions that do not meet specific conditions are returned.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $preCheck;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The session details.
-     *
-     * This parameter is required.
      * @var sessions[]
      */
     public $sessions;
@@ -43,23 +29,29 @@ class DisconnectDesktopSessionsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->sessions)) {
+            Model::validateArray($this->sessions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->preCheck) {
             $res['PreCheck'] = $this->preCheck;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->sessions) {
-            $res['Sessions'] = [];
-            if (null !== $this->sessions && \is_array($this->sessions)) {
-                $n = 0;
-                foreach ($this->sessions as $item) {
-                    $res['Sessions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sessions)) {
+                $res['Sessions'] = [];
+                $n1              = 0;
+                foreach ($this->sessions as $item1) {
+                    $res['Sessions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -67,26 +59,28 @@ class DisconnectDesktopSessionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisconnectDesktopSessionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PreCheck'])) {
             $model->preCheck = $map['PreCheck'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
                 $model->sessions = [];
-                $n               = 0;
-                foreach ($map['Sessions'] as $item) {
-                    $model->sessions[$n++] = null !== $item ? sessions::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Sessions'] as $item1) {
+                    $model->sessions[$n1++] = sessions::fromMap($item1);
                 }
             }
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDevicesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDevicesResponseBody\devices\endUserList;
-use AlibabaCloud\Tea\Model;
 
 class devices extends Model
 {
     /**
-     * @description The ID of the device. The serial number (SN) of the hardware client or the UUID of the software client.
-     *
-     * @example 5F52817BE267A43C608D245070D2****
-     *
      * @var string
      */
     public $deviceId;
-
     /**
-     * @description The users who are bound to the device.
-     *
      * @var endUserList[]
      */
     public $endUserList;
@@ -31,20 +24,25 @@ class devices extends Model
 
     public function validate()
     {
+        if (\is_array($this->endUserList)) {
+            Model::validateArray($this->endUserList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+
         if (null !== $this->endUserList) {
-            $res['EndUserList'] = [];
-            if (null !== $this->endUserList && \is_array($this->endUserList)) {
-                $n = 0;
-                foreach ($this->endUserList as $item) {
-                    $res['EndUserList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->endUserList)) {
+                $res['EndUserList'] = [];
+                $n1                 = 0;
+                foreach ($this->endUserList as $item1) {
+                    $res['EndUserList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class devices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return devices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+
         if (isset($map['EndUserList'])) {
             if (!empty($map['EndUserList'])) {
                 $model->endUserList = [];
-                $n                  = 0;
-                foreach ($map['EndUserList'] as $item) {
-                    $model->endUserList[$n++] = null !== $item ? endUserList::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['EndUserList'] as $item1) {
+                    $model->endUserList[$n1++] = endUserList::fromMap($item1);
                 }
             }
         }

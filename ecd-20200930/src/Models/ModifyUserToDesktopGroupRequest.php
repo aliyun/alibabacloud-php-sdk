@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyUserToDesktopGroupRequest extends Model
 {
     /**
-     * @description The ID of the cloud computer pool whose end users you want to change.
-     *
-     * This parameter is required.
-     * @example dg-2i8qxpv6t1a03****
-     *
      * @var string
      */
     public $desktopGroupId;
-
     /**
-     * @description The IDs of the end users that you want to add. You can configure 1 to 500 IDs.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $newEndUserIds;
-
     /**
-     * @description The IDs of the end users that you want to remove. You can configure 1 to 500 IDs.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $oldEndUserIds;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -52,20 +33,42 @@ class ModifyUserToDesktopGroupRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->newEndUserIds)) {
+            Model::validateArray($this->newEndUserIds);
+        }
+        if (\is_array($this->oldEndUserIds)) {
+            Model::validateArray($this->oldEndUserIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
+
         if (null !== $this->newEndUserIds) {
-            $res['NewEndUserIds'] = $this->newEndUserIds;
+            if (\is_array($this->newEndUserIds)) {
+                $res['NewEndUserIds'] = [];
+                $n1                   = 0;
+                foreach ($this->newEndUserIds as $item1) {
+                    $res['NewEndUserIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->oldEndUserIds) {
-            $res['OldEndUserIds'] = $this->oldEndUserIds;
+            if (\is_array($this->oldEndUserIds)) {
+                $res['OldEndUserIds'] = [];
+                $n1                   = 0;
+                foreach ($this->oldEndUserIds as $item1) {
+                    $res['OldEndUserIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -73,27 +76,38 @@ class ModifyUserToDesktopGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyUserToDesktopGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
+
         if (isset($map['NewEndUserIds'])) {
             if (!empty($map['NewEndUserIds'])) {
-                $model->newEndUserIds = $map['NewEndUserIds'];
+                $model->newEndUserIds = [];
+                $n1                   = 0;
+                foreach ($map['NewEndUserIds'] as $item1) {
+                    $model->newEndUserIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OldEndUserIds'])) {
             if (!empty($map['OldEndUserIds'])) {
-                $model->oldEndUserIds = $map['OldEndUserIds'];
+                $model->oldEndUserIds = [];
+                $n1                   = 0;
+                foreach ($map['OldEndUserIds'] as $item1) {
+                    $model->oldEndUserIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

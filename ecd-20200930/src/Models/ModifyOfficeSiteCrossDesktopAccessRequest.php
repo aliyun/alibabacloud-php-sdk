@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the communication between cloud computers in an office network. If you enable the communication between cloud computers in an office network, the cloud computers can access each other.
-     *
-     * This parameter is required.
-     * @example false
-     *
      * @var bool
      */
     public $enableCrossDesktopAccess;
-
     /**
-     * @description The office network ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou+dir-068266****
-     *
      * @var string
      */
     public $officeSiteId;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -45,17 +28,20 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableCrossDesktopAccess) {
             $res['EnableCrossDesktopAccess'] = $this->enableCrossDesktopAccess;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -63,20 +49,22 @@ class ModifyOfficeSiteCrossDesktopAccessRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyOfficeSiteCrossDesktopAccessRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableCrossDesktopAccess'])) {
             $model->enableCrossDesktopAccess = $map['EnableCrossDesktopAccess'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopyImageResponseBody extends Model
 {
     /**
-     * @description The ID of the image that is being copied.
-     *
-     * @example m-2g65ljy3ynrdq****
-     *
      * @var string
      */
     public $imageId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 28A40F12-F340-442B-A35F-46EF6A03****
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CopyImageResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CopyImageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopyImageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

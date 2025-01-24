@@ -4,42 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainResolveRule extends Model
 {
     /**
-     * @description The description of the DNS rule.
-     *
-     * @example description policy
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The domain name.
-     *
-     * @example *.igetget.com
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @description Specifies whether to allow the DNS rule.
-     *
-     * Valid values:
-     *
-     *   allow
-     *
-     * <!-- -->
-     *
-     *   block
-     *
-     * <!-- -->
-     * @example block
-     *
      * @var string
      */
     public $policy;
@@ -51,17 +28,20 @@ class domainResolveRule extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
@@ -69,20 +49,22 @@ class domainResolveRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainResolveRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }

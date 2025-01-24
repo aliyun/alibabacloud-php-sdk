@@ -1,3 +1,30 @@
+2025-01-24 Version: 4.2.4
+- Update API CreateDesktopGroup: add param DataDiskCategory.
+- Update API CreateDesktopGroup: add param DataDiskPerLevel.
+- Update API CreateDesktopGroup: add param DataDiskSize.
+- Update API CreateDesktopGroup: add param DefaultLanguage.
+- Update API CreateDesktopGroup: add param DesktopType.
+- Update API CreateDesktopGroup: add param ExclusiveType.
+- Update API CreateDesktopGroup: add param GroupAmount.
+- Update API CreateDesktopGroup: add param Hostname.
+- Update API CreateDesktopGroup: add param ImageId.
+- Update API CreateDesktopGroup: add param MultiResource.
+- Update API CreateDesktopGroup: add param SessionType.
+- Update API CreateDesktopGroup: add param SnapshotPolicyId.
+- Update API CreateDesktopGroup: add param SystemDiskCategory.
+- Update API CreateDesktopGroup: add param SystemDiskPerLevel.
+- Update API CreateDesktopGroup: add param SystemDiskSize.
+- Update API CreateDesktopGroup: add param TimerGroupId.
+- Update API CreateDesktopGroup: update param BundleId.
+- Update API CreateDesktopGroup: update response param.
+- Update API DescribeDesktopGroups: add param DesktopGroupIds.
+- Update API DescribeDesktopGroups: add param MultiResource.
+- Update API DescribeDesktopTypes: add param SupportMinSessionCount.
+- Update API DescribeDesktopTypes: add param ZoneId.
+- Update API DescribeDesktopTypes: update response param.
+- Update API DescribeDesktops: add param MultiResource.
+
+
 2025-01-15 Version: 4.2.3
 - Update API ApplyAutoSnapshotPolicy: update param DesktopId.
 - Update API DescribeBundles: update response param.

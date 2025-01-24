@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAndBindNasFileSystemResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F7E4322D-D679-5ACB-A909-490D2F0E****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateAndBindNasFileSystemResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateAndBindNasFileSystemResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAndBindNasFileSystemResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,33 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserProfilePathRulesResponseBody\userProfilePathRule\rules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class whitePaths extends Model
 {
     /**
-     * @description The path.
-     *
-     * @example games
-     *
      * @var string
      */
     public $path;
-
     /**
-     * @description The path type.
-     *
-     * Valid values:
-     *
-     *   file
-     *
-     * <!-- -->
-     *
-     *   folder
-     *
-     * <!-- -->
-     * @example folder
-     *
      * @var string
      */
     public $type;
@@ -41,14 +23,16 @@ class whitePaths extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -56,17 +40,18 @@ class whitePaths extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return whitePaths
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

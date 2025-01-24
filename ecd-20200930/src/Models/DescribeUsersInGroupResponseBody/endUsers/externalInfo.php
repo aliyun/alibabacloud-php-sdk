@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersInGroupResponseBody\endUsers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class externalInfo extends Model
 {
     /**
-     * @description The external name.
-     *
-     * @example nameDemo
-     *
      * @var string
      */
     public $externalName;
-
     /**
-     * @description The employee ID.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $jobNumber;
@@ -32,14 +23,16 @@ class externalInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->externalName) {
             $res['ExternalName'] = $this->externalName;
         }
+
         if (null !== $this->jobNumber) {
             $res['JobNumber'] = $this->jobNumber;
         }
@@ -47,17 +40,18 @@ class externalInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return externalInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExternalName'])) {
             $model->externalName = $map['ExternalName'];
         }
+
         if (isset($map['JobNumber'])) {
             $model->jobNumber = $map['JobNumber'];
         }

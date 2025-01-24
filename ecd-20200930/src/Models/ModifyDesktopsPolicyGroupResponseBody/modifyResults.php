@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopsPolicyGroupResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modifyResults extends Model
 {
     /**
-     * @description The result of the modification. A value of success indicates that the policy is modified. If the policy failed to be modified, an error message is returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The ID of the cloud desktop.
-     *
-     * @example ecd-7w78ozhjcwa3u****
-     *
      * @var string
      */
     public $desktopId;
-
     /**
-     * @description The error message returned if the request failed. This parameter is not returned if the value of Code is success.``
-     *
-     * @example The specified param DesktopId ecd-ia2zw38bi6cm7**** is not found.
-     *
      * @var string
      */
     public $message;
@@ -42,17 +28,20 @@ class modifyResults extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -60,20 +49,22 @@ class modifyResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modifyResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

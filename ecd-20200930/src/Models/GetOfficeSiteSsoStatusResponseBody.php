@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOfficeSiteSsoStatusResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether SSO is enabled.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $ssoStatus;
@@ -32,14 +23,16 @@ class GetOfficeSiteSsoStatusResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->ssoStatus) {
             $res['SsoStatus'] = $this->ssoStatus;
         }
@@ -47,17 +40,18 @@ class GetOfficeSiteSsoStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOfficeSiteSsoStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SsoStatus'])) {
             $model->ssoStatus = $map['SsoStatus'];
         }

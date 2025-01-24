@@ -4,62 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeNASFileSystemsRequest extends Model
 {
     /**
-     * @description The IDs of the NAS file system.
-     *
-     * @example 04f314****
-     *
      * @var string[]
      */
     public $fileSystemId;
-
     /**
-     * @description Specifies whether to filter NAS file systems that only support the user profile management (UPM) feature.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $matchCompatibleProfile;
-
     /**
-     * @description The number of entries to return on each page.
-     *
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The token that determines the start point of the query.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The ID of the workspace.
-     *
-     * @example cn-hangzhou+dir-363353****
-     *
      * @var string
      */
     public $officeSiteId;
-
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -74,26 +43,41 @@ class DescribeNASFileSystemsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->fileSystemId)) {
+            Model::validateArray($this->fileSystemId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSystemId) {
-            $res['FileSystemId'] = $this->fileSystemId;
+            if (\is_array($this->fileSystemId)) {
+                $res['FileSystemId'] = [];
+                $n1                  = 0;
+                foreach ($this->fileSystemId as $item1) {
+                    $res['FileSystemId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->matchCompatibleProfile) {
             $res['MatchCompatibleProfile'] = $this->matchCompatibleProfile;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -101,31 +85,40 @@ class DescribeNASFileSystemsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNASFileSystemsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             if (!empty($map['FileSystemId'])) {
-                $model->fileSystemId = $map['FileSystemId'];
+                $model->fileSystemId = [];
+                $n1                  = 0;
+                foreach ($map['FileSystemId'] as $item1) {
+                    $model->fileSystemId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MatchCompatibleProfile'])) {
             $model->matchCompatibleProfile = $map['MatchCompatibleProfile'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

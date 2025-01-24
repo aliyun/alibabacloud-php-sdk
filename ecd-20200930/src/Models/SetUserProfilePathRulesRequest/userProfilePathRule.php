@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\SetUserProfilePathRulesRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetUserProfilePathRulesRequest\userProfilePathRule\blackPath;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetUserProfilePathRulesRequest\userProfilePathRule\whitePaths;
-use AlibabaCloud\Tea\Model;
 
 class userProfilePathRule extends Model
 {
     /**
-     * @description The directory in the blacklist.
-     *
      * @var blackPath
      */
     public $blackPath;
-
     /**
-     * @description The directories that you want to configure in the whitelist.
-     *
      * @var whitePaths[]
      */
     public $whitePaths;
@@ -30,20 +25,28 @@ class userProfilePathRule extends Model
 
     public function validate()
     {
+        if (null !== $this->blackPath) {
+            $this->blackPath->validate();
+        }
+        if (\is_array($this->whitePaths)) {
+            Model::validateArray($this->whitePaths);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blackPath) {
-            $res['BlackPath'] = null !== $this->blackPath ? $this->blackPath->toMap() : null;
+            $res['BlackPath'] = null !== $this->blackPath ? $this->blackPath->toArray($noStream) : $this->blackPath;
         }
+
         if (null !== $this->whitePaths) {
-            $res['WhitePaths'] = [];
-            if (null !== $this->whitePaths && \is_array($this->whitePaths)) {
-                $n = 0;
-                foreach ($this->whitePaths as $item) {
-                    $res['WhitePaths'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->whitePaths)) {
+                $res['WhitePaths'] = [];
+                $n1                = 0;
+                foreach ($this->whitePaths as $item1) {
+                    $res['WhitePaths'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -51,23 +54,24 @@ class userProfilePathRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userProfilePathRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlackPath'])) {
             $model->blackPath = blackPath::fromMap($map['BlackPath']);
         }
+
         if (isset($map['WhitePaths'])) {
             if (!empty($map['WhitePaths'])) {
                 $model->whitePaths = [];
-                $n                 = 0;
-                foreach ($map['WhitePaths'] as $item) {
-                    $model->whitePaths[$n++] = null !== $item ? whitePaths::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['WhitePaths'] as $item1) {
+                    $model->whitePaths[$n1++] = whitePaths::fromMap($item1);
                 }
             }
         }

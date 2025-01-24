@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DownloadCdsFileResponseBody\downloadFileModel;
-use AlibabaCloud\Tea\Model;
 
 class DownloadCdsFileResponseBody extends Model
 {
@@ -13,24 +13,15 @@ class DownloadCdsFileResponseBody extends Model
      * @var downloadFileModel
      */
     public $downloadFileModel;
-
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example E3ED9519-DD73-5C86-9C0A-43C9281C****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -43,20 +34,27 @@ class DownloadCdsFileResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->downloadFileModel) {
+            $this->downloadFileModel->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downloadFileModel) {
-            $res['DownloadFileModel'] = null !== $this->downloadFileModel ? $this->downloadFileModel->toMap() : null;
+            $res['DownloadFileModel'] = null !== $this->downloadFileModel ? $this->downloadFileModel->toArray($noStream) : $this->downloadFileModel;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -64,23 +62,26 @@ class DownloadCdsFileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DownloadCdsFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadFileModel'])) {
             $model->downloadFileModel = downloadFileModel::fromMap($map['DownloadFileModel']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

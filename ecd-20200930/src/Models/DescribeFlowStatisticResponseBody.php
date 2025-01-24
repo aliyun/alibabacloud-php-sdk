@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowStatisticResponseBody\desktopFlowStatistic;
-use AlibabaCloud\Tea\Model;
 
 class DescribeFlowStatisticResponseBody extends Model
 {
     /**
-     * @description The number of available cloud computers in the office network.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $desktopCount;
-
     /**
-     * @description The traffic statistics.
-     *
      * @var desktopFlowStatistic[]
      */
     public $desktopFlowStatistic;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 269BDB16-2CD8-4865-84BD-11C40BC2****
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class DescribeFlowStatisticResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->desktopFlowStatistic)) {
+            Model::validateArray($this->desktopFlowStatistic);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopCount) {
             $res['DesktopCount'] = $this->desktopCount;
         }
+
         if (null !== $this->desktopFlowStatistic) {
-            $res['DesktopFlowStatistic'] = [];
-            if (null !== $this->desktopFlowStatistic && \is_array($this->desktopFlowStatistic)) {
-                $n = 0;
-                foreach ($this->desktopFlowStatistic as $item) {
-                    $res['DesktopFlowStatistic'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->desktopFlowStatistic)) {
+                $res['DesktopFlowStatistic'] = [];
+                $n1                          = 0;
+                foreach ($this->desktopFlowStatistic as $item1) {
+                    $res['DesktopFlowStatistic'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class DescribeFlowStatisticResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeFlowStatisticResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopCount'])) {
             $model->desktopCount = $map['DesktopCount'];
         }
+
         if (isset($map['DesktopFlowStatistic'])) {
             if (!empty($map['DesktopFlowStatistic'])) {
                 $model->desktopFlowStatistic = [];
-                $n                           = 0;
-                foreach ($map['DesktopFlowStatistic'] as $item) {
-                    $model->desktopFlowStatistic[$n++] = null !== $item ? desktopFlowStatistic::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['DesktopFlowStatistic'] as $item1) {
+                    $model->desktopFlowStatistic[$n1++] = desktopFlowStatistic::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

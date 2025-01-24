@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersInGroupResponseBody\endUsers\userSetPropertiesModels;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class propertyValues extends Model
 {
     /**
-     * @description The property value.
-     *
-     * @example value
-     *
      * @var string
      */
     public $propertyValue;
-
     /**
-     * @description The ID of the property value.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $propertyValueId;
@@ -32,14 +23,16 @@ class propertyValues extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyValue) {
             $res['PropertyValue'] = $this->propertyValue;
         }
+
         if (null !== $this->propertyValueId) {
             $res['PropertyValueId'] = $this->propertyValueId;
         }
@@ -47,17 +40,18 @@ class propertyValues extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return propertyValues
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyValue'])) {
             $model->propertyValue = $map['PropertyValue'];
         }
+
         if (isset($map['PropertyValueId'])) {
             $model->propertyValueId = $map['PropertyValueId'];
         }

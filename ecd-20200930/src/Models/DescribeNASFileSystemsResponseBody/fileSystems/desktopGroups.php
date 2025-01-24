@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody\fileSystems;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class desktopGroups extends Model
 {
     /**
-     * @description The ID of the desktop group.
-     *
-     * @example dg-9eeyf15b25nyl****
-     *
      * @var string
      */
     public $desktopGroupId;
-
     /**
-     * @description The name of the desktop group.
-     *
-     * @example test_dg
-     *
      * @var string
      */
     public $desktopGroupName;
@@ -32,14 +23,16 @@ class desktopGroups extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
+
         if (null !== $this->desktopGroupName) {
             $res['DesktopGroupName'] = $this->desktopGroupName;
         }
@@ -47,17 +40,18 @@ class desktopGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return desktopGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
+
         if (isset($map['DesktopGroupName'])) {
             $model->desktopGroupName = $map['DesktopGroupName'];
         }

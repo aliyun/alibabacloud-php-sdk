@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApplyCoordinatePrivilegeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example C43EEAC3-84F8-5C1E-A067-4751C3D1422E
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ApplyCoordinatePrivilegeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ApplyCoordinatePrivilegeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplyCoordinatePrivilegeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

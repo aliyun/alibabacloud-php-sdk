@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApplyAutoSnapshotPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 63740E03-1B4B-5A18-AC27-2745A4F2****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ApplyAutoSnapshotPolicyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ApplyAutoSnapshotPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplyAutoSnapshotPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
