@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\serviceInspection;
+namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\contentExtraction;
 
 use AlibabaCloud\Dara\Model;
 
-class inspectionContents extends Model
+class extractionContents extends Model
 {
     /**
      * @var string

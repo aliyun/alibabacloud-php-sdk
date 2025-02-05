@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTranscriptionPhrasesRequest extends Model
 {
     /**
-     * @example custom fruit phrases list
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example fruit_phrase
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example {"苹果":3,"西瓜":3}
-     *
      * @var string
      */
     public $wordWeights;
@@ -40,17 +28,20 @@ class CreateTranscriptionPhrasesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->wordWeights) {
             $res['WordWeights'] = $this->wordWeights;
         }
@@ -58,20 +49,22 @@ class CreateTranscriptionPhrasesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTranscriptionPhrasesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['WordWeights'])) {
             $model->wordWeights = $map['WordWeights'];
         }

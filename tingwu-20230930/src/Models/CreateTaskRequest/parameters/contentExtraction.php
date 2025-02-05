@@ -5,18 +5,14 @@
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\serviceInspection\inspectionContents;
+use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\contentExtraction\extractionContents;
 
-class serviceInspection extends Model
+class contentExtraction extends Model
 {
     /**
-     * @var inspectionContents[]
+     * @var extractionContents[]
      */
-    public $inspectionContents;
-    /**
-     * @var string
-     */
-    public $inspectionIntroduction;
+    public $extractionContents;
     /**
      * @var string
      */
@@ -26,16 +22,15 @@ class serviceInspection extends Model
      */
     public $speakerMap;
     protected $_name = [
-        'inspectionContents'     => 'InspectionContents',
-        'inspectionIntroduction' => 'InspectionIntroduction',
-        'sceneIntroduction'      => 'SceneIntroduction',
-        'speakerMap'             => 'SpeakerMap',
+        'extractionContents' => 'ExtractionContents',
+        'sceneIntroduction'  => 'SceneIntroduction',
+        'speakerMap'         => 'SpeakerMap',
     ];
 
     public function validate()
     {
-        if (\is_array($this->inspectionContents)) {
-            Model::validateArray($this->inspectionContents);
+        if (\is_array($this->extractionContents)) {
+            Model::validateArray($this->extractionContents);
         }
         if (\is_array($this->speakerMap)) {
             Model::validateArray($this->speakerMap);
@@ -46,18 +41,14 @@ class serviceInspection extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->inspectionContents) {
-            if (\is_array($this->inspectionContents)) {
-                $res['InspectionContents'] = [];
+        if (null !== $this->extractionContents) {
+            if (\is_array($this->extractionContents)) {
+                $res['ExtractionContents'] = [];
                 $n1                        = 0;
-                foreach ($this->inspectionContents as $item1) {
-                    $res['InspectionContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->extractionContents as $item1) {
+                    $res['ExtractionContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
-        }
-
-        if (null !== $this->inspectionIntroduction) {
-            $res['InspectionIntroduction'] = $this->inspectionIntroduction;
         }
 
         if (null !== $this->sceneIntroduction) {
@@ -84,18 +75,14 @@ class serviceInspection extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InspectionContents'])) {
-            if (!empty($map['InspectionContents'])) {
-                $model->inspectionContents = [];
+        if (isset($map['ExtractionContents'])) {
+            if (!empty($map['ExtractionContents'])) {
+                $model->extractionContents = [];
                 $n1                        = 0;
-                foreach ($map['InspectionContents'] as $item1) {
-                    $model->inspectionContents[$n1++] = inspectionContents::fromMap($item1);
+                foreach ($map['ExtractionContents'] as $item1) {
+                    $model->extractionContents[$n1++] = extractionContents::fromMap($item1);
                 }
             }
-        }
-
-        if (isset($map['InspectionIntroduction'])) {
-            $model->inspectionIntroduction = $map['InspectionIntroduction'];
         }
 
         if (isset($map['SceneIntroduction'])) {
