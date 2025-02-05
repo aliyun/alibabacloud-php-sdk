@@ -25,6 +25,10 @@ class CreateResourceInstancesRequest extends Model
      */
     public $ecsInstanceType;
     /**
+     * @var string[]
+     */
+    public $labels;
+    /**
      * @var int
      */
     public $systemDiskSize;
@@ -41,6 +45,7 @@ class CreateResourceInstancesRequest extends Model
         'chargeType'       => 'ChargeType',
         'ecsInstanceCount' => 'EcsInstanceCount',
         'ecsInstanceType'  => 'EcsInstanceType',
+        'labels'           => 'Labels',
         'systemDiskSize'   => 'SystemDiskSize',
         'userData'         => 'UserData',
         'zone'             => 'Zone',
@@ -48,6 +53,9 @@ class CreateResourceInstancesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
         parent::validate();
     }
 
@@ -68,6 +76,15 @@ class CreateResourceInstancesRequest extends Model
 
         if (null !== $this->ecsInstanceType) {
             $res['EcsInstanceType'] = $this->ecsInstanceType;
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    $res['Labels'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->systemDiskSize) {
@@ -107,6 +124,15 @@ class CreateResourceInstancesRequest extends Model
 
         if (isset($map['EcsInstanceType'])) {
             $model->ecsInstanceType = $map['EcsInstanceType'];
+        }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                foreach ($map['Labels'] as $key1 => $value1) {
+                    $model->labels[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['SystemDiskSize'])) {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListResourceInstancesRequest extends Model
+class ListResourceInstancesShrinkRequest extends Model
 {
     /**
      * @var string
@@ -33,9 +33,9 @@ class ListResourceInstancesRequest extends Model
      */
     public $instanceStatus;
     /**
-     * @var string[]
+     * @var string
      */
-    public $label;
+    public $labelShrink;
     /**
      * @var string
      */
@@ -59,7 +59,7 @@ class ListResourceInstancesRequest extends Model
         'instanceId'     => 'InstanceId',
         'instanceName'   => 'InstanceName',
         'instanceStatus' => 'InstanceStatus',
-        'label'          => 'Label',
+        'labelShrink'    => 'Label',
         'order'          => 'Order',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
@@ -68,9 +68,6 @@ class ListResourceInstancesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->label)) {
-            Model::validateArray($this->label);
-        }
         parent::validate();
     }
 
@@ -101,13 +98,8 @@ class ListResourceInstancesRequest extends Model
             $res['InstanceStatus'] = $this->instanceStatus;
         }
 
-        if (null !== $this->label) {
-            if (\is_array($this->label)) {
-                $res['Label'] = [];
-                foreach ($this->label as $key1 => $value1) {
-                    $res['Label'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->labelShrink) {
+            $res['Label'] = $this->labelShrink;
         }
 
         if (null !== $this->order) {
@@ -162,12 +154,7 @@ class ListResourceInstancesRequest extends Model
         }
 
         if (isset($map['Label'])) {
-            if (!empty($map['Label'])) {
-                $model->label = [];
-                foreach ($map['Label'] as $key1 => $value1) {
-                    $model->label[$key1] = $value1;
-                }
-            }
+            $model->labelShrink = $map['Label'];
         }
 
         if (isset($map['Order'])) {

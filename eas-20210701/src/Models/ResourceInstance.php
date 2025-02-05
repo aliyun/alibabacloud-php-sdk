@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ResourceInstance\labels;
 
 class ResourceInstance extends Model
 {
@@ -89,6 +90,10 @@ class ResourceInstance extends Model
      */
     public $instanceUsedMemory;
     /**
+     * @var labels[]
+     */
+    public $labels;
+    /**
      * @var string
      */
     public $region;
@@ -121,6 +126,7 @@ class ResourceInstance extends Model
         'instanceUsedGpu'        => 'InstanceUsedGpu',
         'instanceUsedGpuMemory'  => 'InstanceUsedGpuMemory',
         'instanceUsedMemory'     => 'InstanceUsedMemory',
+        'labels'                 => 'Labels',
         'region'                 => 'Region',
         'resourceId'             => 'ResourceId',
         'zone'                   => 'Zone',
@@ -128,6 +134,9 @@ class ResourceInstance extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
         parent::validate();
     }
 
@@ -212,6 +221,16 @@ class ResourceInstance extends Model
 
         if (null !== $this->instanceUsedMemory) {
             $res['InstanceUsedMemory'] = $this->instanceUsedMemory;
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1            = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->region) {
@@ -315,6 +334,16 @@ class ResourceInstance extends Model
 
         if (isset($map['InstanceUsedMemory'])) {
             $model->instanceUsedMemory = $map['InstanceUsedMemory'];
+        }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n1            = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1++] = labels::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['Region'])) {

@@ -26,6 +26,10 @@ class CreateResourceRequest extends Model
      */
     public $ecsInstanceType;
     /**
+     * @var string[]
+     */
+    public $labels;
+    /**
      * @var string
      */
     public $resourceType;
@@ -46,6 +50,7 @@ class CreateResourceRequest extends Model
         'chargeType'                 => 'ChargeType',
         'ecsInstanceCount'           => 'EcsInstanceCount',
         'ecsInstanceType'            => 'EcsInstanceType',
+        'labels'                     => 'Labels',
         'resourceType'               => 'ResourceType',
         'selfManagedResourceOptions' => 'SelfManagedResourceOptions',
         'systemDiskSize'             => 'SystemDiskSize',
@@ -54,6 +59,9 @@ class CreateResourceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
         if (null !== $this->selfManagedResourceOptions) {
             $this->selfManagedResourceOptions->validate();
         }
@@ -77,6 +85,15 @@ class CreateResourceRequest extends Model
 
         if (null !== $this->ecsInstanceType) {
             $res['EcsInstanceType'] = $this->ecsInstanceType;
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    $res['Labels'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->resourceType) {
@@ -120,6 +137,15 @@ class CreateResourceRequest extends Model
 
         if (isset($map['EcsInstanceType'])) {
             $model->ecsInstanceType = $map['EcsInstanceType'];
+        }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                foreach ($map['Labels'] as $key1 => $value1) {
+                    $model->labels[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['ResourceType'])) {

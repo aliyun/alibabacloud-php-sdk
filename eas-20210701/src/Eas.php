@@ -55,6 +55,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceDLinkResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstanceLabelRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstanceLabelResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstanceLabelShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteResourceLogResponse;
@@ -114,6 +117,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstanceWorkerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstanceWorkerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceServicesRequest;
@@ -147,6 +151,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceInstanceLabelRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceInstanceLabelResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceInstanceLabelShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceInstanceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceInstanceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceRequest;
@@ -925,6 +932,10 @@ class Eas extends OpenApiClient
             @$body['EcsInstanceType'] = $request->ecsInstanceType;
         }
 
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
+        }
+
         if (null !== $request->resourceType) {
             @$body['ResourceType'] = $request->resourceType;
         }
@@ -1018,6 +1029,10 @@ class Eas extends OpenApiClient
 
         if (null !== $request->ecsInstanceType) {
             @$body['EcsInstanceType'] = $request->ecsInstanceType;
+        }
+
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
 
         if (null !== $request->systemDiskSize) {
@@ -1955,6 +1970,90 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->deleteResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime);
+    }
+
+    /**
+     * 删除资源组实例标签.
+     *
+     * @param tmpReq - DeleteResourceInstanceLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteResourceInstanceLabelResponse
+     *
+     * @param string                             $ClusterId
+     * @param string                             $ResourceId
+     * @param DeleteResourceInstanceLabelRequest $tmpReq
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteResourceInstanceLabelResponse
+     */
+    public function deleteResourceInstanceLabelWithOptions($ClusterId, $ResourceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteResourceInstanceLabelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
+        }
+
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->allInstances) {
+            @$query['AllInstances'] = $request->allInstances;
+        }
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->keysShrink) {
+            @$query['Keys'] = $request->keysShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteResourceInstanceLabel',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/label',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteResourceInstanceLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteResourceInstanceLabelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除资源组实例标签.
+     *
+     * @param request - DeleteResourceInstanceLabelRequest
+     * @returns DeleteResourceInstanceLabelResponse
+     *
+     * @param string                             $ClusterId
+     * @param string                             $ResourceId
+     * @param DeleteResourceInstanceLabelRequest $request
+     *
+     * @return DeleteResourceInstanceLabelResponse
+     */
+    public function deleteResourceInstanceLabel($ClusterId, $ResourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteResourceInstanceLabelWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4460,22 +4559,28 @@ class Eas extends OpenApiClient
     /**
      * Queries a list of instances in a dedicated resource group.
      *
-     * @param request - ListResourceInstancesRequest
+     * @param tmpReq - ListResourceInstancesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns ListResourceInstancesResponse
      *
      * @param string                       $ClusterId
      * @param string                       $ResourceId
-     * @param ListResourceInstancesRequest $request
+     * @param ListResourceInstancesRequest $tmpReq
      * @param string[]                     $headers
      * @param RuntimeOptions               $runtime
      *
      * @return ListResourceInstancesResponse
      */
-    public function listResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
+    public function listResourceInstancesWithOptions($ClusterId, $ResourceId, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListResourceInstancesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->label) {
+            $request->labelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->label, 'Label', 'json');
+        }
+
         $query = [];
         if (null !== $request->chargeType) {
             @$query['ChargeType'] = $request->chargeType;
@@ -4499,6 +4604,10 @@ class Eas extends OpenApiClient
 
         if (null !== $request->instanceStatus) {
             @$query['InstanceStatus'] = $request->instanceStatus;
+        }
+
+        if (null !== $request->labelShrink) {
+            @$query['Label'] = $request->labelShrink;
         }
 
         if (null !== $request->order) {
@@ -6081,6 +6190,88 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->updateResourceInstanceWithOptions($ClusterId, $ResourceId, $InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新资源组实例标签.
+     *
+     * @param tmpReq - UpdateResourceInstanceLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateResourceInstanceLabelResponse
+     *
+     * @param string                             $ClusterId
+     * @param string                             $ResourceId
+     * @param UpdateResourceInstanceLabelRequest $tmpReq
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateResourceInstanceLabelResponse
+     */
+    public function updateResourceInstanceLabelWithOptions($ClusterId, $ResourceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateResourceInstanceLabelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->allInstances) {
+            @$query['AllInstances'] = $request->allInstances;
+        }
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        $body = [];
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateResourceInstanceLabel',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/label',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateResourceInstanceLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateResourceInstanceLabelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新资源组实例标签.
+     *
+     * @param request - UpdateResourceInstanceLabelRequest
+     * @returns UpdateResourceInstanceLabelResponse
+     *
+     * @param string                             $ClusterId
+     * @param string                             $ResourceId
+     * @param UpdateResourceInstanceLabelRequest $request
+     *
+     * @return UpdateResourceInstanceLabelResponse
+     */
+    public function updateResourceInstanceLabel($ClusterId, $ResourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateResourceInstanceLabelWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
