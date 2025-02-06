@@ -15,6 +15,10 @@ class DescribeActivationCodesRequest extends Model
     /**
      * @var string
      */
+    public $macAddress;
+    /**
+     * @var string
+     */
     public $ownerAccount;
     /**
      * @var int
@@ -36,14 +40,20 @@ class DescribeActivationCodesRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+    /**
+     * @var string
+     */
+    public $systemIdentifier;
     protected $_name = [
         'aliyunOrderId'        => 'AliyunOrderId',
+        'macAddress'           => 'MacAddress',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'systemIdentifier'     => 'SystemIdentifier',
     ];
 
     public function validate()
@@ -56,6 +66,10 @@ class DescribeActivationCodesRequest extends Model
         $res = [];
         if (null !== $this->aliyunOrderId) {
             $res['AliyunOrderId'] = $this->aliyunOrderId;
+        }
+
+        if (null !== $this->macAddress) {
+            $res['MacAddress'] = $this->macAddress;
         }
 
         if (null !== $this->ownerAccount) {
@@ -82,6 +96,10 @@ class DescribeActivationCodesRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
+        if (null !== $this->systemIdentifier) {
+            $res['SystemIdentifier'] = $this->systemIdentifier;
+        }
+
         return $res;
     }
 
@@ -95,6 +113,10 @@ class DescribeActivationCodesRequest extends Model
         $model = new self();
         if (isset($map['AliyunOrderId'])) {
             $model->aliyunOrderId = $map['AliyunOrderId'];
+        }
+
+        if (isset($map['MacAddress'])) {
+            $model->macAddress = $map['MacAddress'];
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -119,6 +141,10 @@ class DescribeActivationCodesRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SystemIdentifier'])) {
+            $model->systemIdentifier = $map['SystemIdentifier'];
         }
 
         return $model;
