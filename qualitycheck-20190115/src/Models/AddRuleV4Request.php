@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddRuleV4Request extends Model
 {
     /**
-     * @description baseMeAgentId
-     *
      * @var int
      */
     public $baseMeAgentId;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isCopy;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $jsonStrForRule;
@@ -36,17 +28,20 @@ class AddRuleV4Request extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->isCopy) {
             $res['IsCopy'] = $this->isCopy;
         }
+
         if (null !== $this->jsonStrForRule) {
             $res['JsonStrForRule'] = $this->jsonStrForRule;
         }
@@ -54,20 +49,22 @@ class AddRuleV4Request extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddRuleV4Request
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['IsCopy'])) {
             $model->isCopy = $map['IsCopy'];
         }
+
         if (isset($map['JsonStrForRule'])) {
             $model->jsonStrForRule = $map['JsonStrForRule'];
         }

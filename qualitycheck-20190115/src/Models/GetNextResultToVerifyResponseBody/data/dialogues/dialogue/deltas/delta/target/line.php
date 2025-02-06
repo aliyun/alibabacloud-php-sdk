@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyResponseBody\data\dialogues\dialogue\deltas\delta\target;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class line extends Model
 {
@@ -18,29 +18,43 @@ class line extends Model
 
     public function validate()
     {
+        if (\is_array($this->line)) {
+            Model::validateArray($this->line);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->line) {
-            $res['Line'] = $this->line;
+            if (\is_array($this->line)) {
+                $res['Line'] = [];
+                $n1          = 0;
+                foreach ($this->line as $item1) {
+                    $res['Line'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return line
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Line'])) {
             if (!empty($map['Line'])) {
-                $model->line = $map['Line'];
+                $model->line = [];
+                $n1          = 0;
+                foreach ($map['Line'] as $item1) {
+                    $model->line[$n1++] = $item1;
+                }
             }
         }
 

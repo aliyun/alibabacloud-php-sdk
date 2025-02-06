@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\rules\ruleBasicInfo\businessCategories;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class businessCategoryBasicInfo extends Model
 {
     /**
-     * @example 264971810
-     *
      * @var int
      */
     public $bid;
-
     /**
      * @var string
      */
     public $businessName;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $serviceType;
@@ -34,17 +28,20 @@ class businessCategoryBasicInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bid) {
             $res['Bid'] = $this->bid;
         }
+
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
         }
+
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
         }
@@ -52,20 +49,22 @@ class businessCategoryBasicInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return businessCategoryBasicInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bid'])) {
             $model->bid = $map['Bid'];
         }
+
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
         }
+
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
         }

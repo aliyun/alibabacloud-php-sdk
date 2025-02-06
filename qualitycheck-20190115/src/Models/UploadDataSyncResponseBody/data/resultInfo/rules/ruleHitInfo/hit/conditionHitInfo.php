@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules\ruleHitInfo\hit;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules\ruleHitInfo\hit\conditionHitInfo\hitCids;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules\ruleHitInfo\hit\conditionHitInfo\hitKeyWords;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules\ruleHitInfo\hit\conditionHitInfo\phrase;
-use AlibabaCloud\Tea\Model;
 
 class conditionHitInfo extends Model
 {
@@ -15,12 +15,10 @@ class conditionHitInfo extends Model
      * @var hitCids
      */
     public $hitCids;
-
     /**
      * @var hitKeyWords
      */
     public $hitKeyWords;
-
     /**
      * @var phrase
      */
@@ -33,38 +31,52 @@ class conditionHitInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->hitCids) {
+            $this->hitCids->validate();
+        }
+        if (null !== $this->hitKeyWords) {
+            $this->hitKeyWords->validate();
+        }
+        if (null !== $this->phrase) {
+            $this->phrase->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hitCids) {
-            $res['HitCids'] = null !== $this->hitCids ? $this->hitCids->toMap() : null;
+            $res['HitCids'] = null !== $this->hitCids ? $this->hitCids->toArray($noStream) : $this->hitCids;
         }
+
         if (null !== $this->hitKeyWords) {
-            $res['HitKeyWords'] = null !== $this->hitKeyWords ? $this->hitKeyWords->toMap() : null;
+            $res['HitKeyWords'] = null !== $this->hitKeyWords ? $this->hitKeyWords->toArray($noStream) : $this->hitKeyWords;
         }
+
         if (null !== $this->phrase) {
-            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toMap() : null;
+            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toArray($noStream) : $this->phrase;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditionHitInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitCids'])) {
             $model->hitCids = hitCids::fromMap($map['HitCids']);
         }
+
         if (isset($map['HitKeyWords'])) {
             $model->hitKeyWords = hitKeyWords::fromMap($map['HitKeyWords']);
         }
+
         if (isset($map['Phrase'])) {
             $model->phrase = phrase::fromMap($map['Phrase']);
         }

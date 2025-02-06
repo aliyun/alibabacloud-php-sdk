@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigResponseBody\data\skillGroupConfig;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->skillGroupConfig)) {
+            Model::validateArray($this->skillGroupConfig);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->skillGroupConfig) {
-            $res['SkillGroupConfig'] = [];
-            if (null !== $this->skillGroupConfig && \is_array($this->skillGroupConfig)) {
-                $n = 0;
-                foreach ($this->skillGroupConfig as $item) {
-                    $res['SkillGroupConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->skillGroupConfig)) {
+                $res['SkillGroupConfig'] = [];
+                $n1                      = 0;
+                foreach ($this->skillGroupConfig as $item1) {
+                    $res['SkillGroupConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SkillGroupConfig'])) {
             if (!empty($map['SkillGroupConfig'])) {
                 $model->skillGroupConfig = [];
-                $n                       = 0;
-                foreach ($map['SkillGroupConfig'] as $item) {
-                    $model->skillGroupConfig[$n++] = null !== $item ? skillGroupConfig::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['SkillGroupConfig'] as $item1) {
+                    $model->skillGroupConfig[$n1++] = skillGroupConfig::fromMap($item1);
                 }
             }
         }

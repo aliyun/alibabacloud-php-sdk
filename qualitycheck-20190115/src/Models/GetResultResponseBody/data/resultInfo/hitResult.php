@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult;
 
 class hitResult extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult[]
+     * @var hitResult[]
      */
     public $hitResult;
     protected $_name = [
@@ -18,17 +19,21 @@ class hitResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->hitResult)) {
+            Model::validateArray($this->hitResult);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hitResult) {
-            $res['HitResult'] = [];
-            if (null !== $this->hitResult && \is_array($this->hitResult)) {
-                $n = 0;
-                foreach ($this->hitResult as $item) {
-                    $res['HitResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hitResult)) {
+                $res['HitResult'] = [];
+                $n1               = 0;
+                foreach ($this->hitResult as $item1) {
+                    $res['HitResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class hitResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hitResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitResult'])) {
             if (!empty($map['HitResult'])) {
                 $model->hitResult = [];
-                $n                = 0;
-                foreach ($map['HitResult'] as $item) {
-                    $model->hitResult[$n++] = null !== $item ? \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['HitResult'] as $item1) {
+                    $model->hitResult[$n1++] = self::fromMap($item1);
                 }
             }
         }

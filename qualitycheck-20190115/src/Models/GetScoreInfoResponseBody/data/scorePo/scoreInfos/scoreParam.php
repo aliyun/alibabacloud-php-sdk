@@ -4,32 +4,23 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponseBody\data\scorePo\scoreInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scoreParam extends Model
 {
     /**
-     * @example 32
-     *
      * @var int
      */
     public $scoreNum;
-
     /**
-     * @example 3422
-     *
      * @var int
      */
     public $scoreSubId;
-
     /**
      * @var string
      */
     public $scoreSubName;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $scoreType;
@@ -42,20 +33,24 @@ class scoreParam extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scoreNum) {
             $res['ScoreNum'] = $this->scoreNum;
         }
+
         if (null !== $this->scoreSubId) {
             $res['ScoreSubId'] = $this->scoreSubId;
         }
+
         if (null !== $this->scoreSubName) {
             $res['ScoreSubName'] = $this->scoreSubName;
         }
+
         if (null !== $this->scoreType) {
             $res['ScoreType'] = $this->scoreType;
         }
@@ -63,23 +58,26 @@ class scoreParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scoreParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScoreNum'])) {
             $model->scoreNum = $map['ScoreNum'];
         }
+
         if (isset($map['ScoreSubId'])) {
             $model->scoreSubId = $map['ScoreSubId'];
         }
+
         if (isset($map['ScoreSubName'])) {
             $model->scoreSubName = $map['ScoreSubName'];
         }
+
         if (isset($map['ScoreType'])) {
             $model->scoreType = $map['ScoreType'];
         }

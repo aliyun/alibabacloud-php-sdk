@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadDataV4Request extends Model
 {
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $baseMeAgentId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $jsonStr;
@@ -30,14 +23,16 @@ class UploadDataV4Request extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->jsonStr) {
             $res['JsonStr'] = $this->jsonStr;
         }
@@ -45,17 +40,18 @@ class UploadDataV4Request extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadDataV4Request
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['JsonStr'])) {
             $model->jsonStr = $map['JsonStr'];
         }

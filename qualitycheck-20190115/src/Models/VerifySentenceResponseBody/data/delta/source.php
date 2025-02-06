@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceResponseBody\data\delta;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceResponseBody\data\delta\source\line;
-use AlibabaCloud\Tea\Model;
 
 class source extends Model
 {
@@ -13,10 +13,7 @@ class source extends Model
      * @var line
      */
     public $line;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $position;
@@ -27,14 +24,19 @@ class source extends Model
 
     public function validate()
     {
+        if (null !== $this->line) {
+            $this->line->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->line) {
-            $res['Line'] = null !== $this->line ? $this->line->toMap() : null;
+            $res['Line'] = null !== $this->line ? $this->line->toArray($noStream) : $this->line;
         }
+
         if (null !== $this->position) {
             $res['Position'] = $this->position;
         }
@@ -42,17 +44,18 @@ class source extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return source
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Line'])) {
             $model->line = line::fromMap($map['Line']);
         }
+
         if (isset($map['Position'])) {
             $model->position = $map['Position'];
         }

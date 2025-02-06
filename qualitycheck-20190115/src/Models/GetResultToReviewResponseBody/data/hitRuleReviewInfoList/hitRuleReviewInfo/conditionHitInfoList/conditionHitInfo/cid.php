@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo\conditionHitInfoList\conditionHitInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cid extends Model
 {
@@ -18,29 +18,43 @@ class cid extends Model
 
     public function validate()
     {
+        if (\is_array($this->cid)) {
+            Model::validateArray($this->cid);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cid) {
-            $res['Cid'] = $this->cid;
+            if (\is_array($this->cid)) {
+                $res['Cid'] = [];
+                $n1         = 0;
+                foreach ($this->cid as $item1) {
+                    $res['Cid'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cid
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cid'])) {
             if (!empty($map['Cid'])) {
-                $model->cid = $map['Cid'];
+                $model->cid = [];
+                $n1         = 0;
+                foreach ($map['Cid'] as $item1) {
+                    $model->cid[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,180 +4,111 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRulesCountListRequest extends Model
 {
     /**
-     * @description baseMeAgentId
-     *
      * @var int
      */
     public $baseMeAgentId;
-
     /**
      * @var string
      */
     public $businessName;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $businessRange;
-
     /**
      * @var string
      */
     public $categoryName;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $countTotal;
-
     /**
-     * @example 63
-     *
      * @var string
      */
     public $createEmpid;
-
     /**
-     * @example 63
-     *
      * @var int
      */
     public $createUserId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @example 2022-10-08 23:59:59
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @example 63
-     *
      * @var string
      */
     public $lastUpdateEmpid;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
      * @var string[]
      */
     public $requireInfos;
-
     /**
-     * @example 123
-     *
      * @var int
      */
     public $rid;
-
     /**
-     * @example 123
-     *
      * @var string
      */
     public $ruleIdOrRuleName;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $ruleScoreSingleType;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $ruleType;
-
     /**
-     * @example 123
-     *
      * @var int
      */
     public $schemeId;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $sourceType;
-
     /**
-     * @example 2022-10-07 00:00:00
-     *
      * @var string
      */
     public $startTime;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
-
     /**
      * @var string
      */
     public $typeName;
-
     /**
-     * @example 2022-10-08 23:59:59
-     *
      * @var string
      */
     public $updateEndTime;
-
     /**
-     * @example 2022-10-07 00:00:00
-     *
      * @var string
      */
     public $updateStartTime;
-
     /**
-     * @example 63
-     *
      * @var int
      */
     public $updateUserId;
@@ -212,86 +143,121 @@ class GetRulesCountListRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->requireInfos)) {
+            Model::validateArray($this->requireInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
         }
+
         if (null !== $this->businessRange) {
             $res['BusinessRange'] = $this->businessRange;
         }
+
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
+
         if (null !== $this->countTotal) {
             $res['CountTotal'] = $this->countTotal;
         }
+
         if (null !== $this->createEmpid) {
             $res['CreateEmpid'] = $this->createEmpid;
         }
+
         if (null !== $this->createUserId) {
             $res['CreateUserId'] = $this->createUserId;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->lastUpdateEmpid) {
             $res['LastUpdateEmpid'] = $this->lastUpdateEmpid;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requireInfos) {
-            $res['RequireInfos'] = $this->requireInfos;
+            if (\is_array($this->requireInfos)) {
+                $res['RequireInfos'] = [];
+                $n1                  = 0;
+                foreach ($this->requireInfos as $item1) {
+                    $res['RequireInfos'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
+
         if (null !== $this->ruleIdOrRuleName) {
             $res['RuleIdOrRuleName'] = $this->ruleIdOrRuleName;
         }
+
         if (null !== $this->ruleScoreSingleType) {
             $res['RuleScoreSingleType'] = $this->ruleScoreSingleType;
         }
+
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
+
         if (null !== $this->schemeId) {
             $res['SchemeId'] = $this->schemeId;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
+
         if (null !== $this->updateEndTime) {
             $res['UpdateEndTime'] = $this->updateEndTime;
         }
+
         if (null !== $this->updateStartTime) {
             $res['UpdateStartTime'] = $this->updateStartTime;
         }
+
         if (null !== $this->updateUserId) {
             $res['UpdateUserId'] = $this->updateUserId;
         }
@@ -299,91 +265,120 @@ class GetRulesCountListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRulesCountListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
         }
+
         if (isset($map['BusinessRange'])) {
             $model->businessRange = $map['BusinessRange'];
         }
+
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }
+
         if (isset($map['CountTotal'])) {
             $model->countTotal = $map['CountTotal'];
         }
+
         if (isset($map['CreateEmpid'])) {
             $model->createEmpid = $map['CreateEmpid'];
         }
+
         if (isset($map['CreateUserId'])) {
             $model->createUserId = $map['CreateUserId'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['LastUpdateEmpid'])) {
             $model->lastUpdateEmpid = $map['LastUpdateEmpid'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequireInfos'])) {
             if (!empty($map['RequireInfos'])) {
-                $model->requireInfos = $map['RequireInfos'];
+                $model->requireInfos = [];
+                $n1                  = 0;
+                foreach ($map['RequireInfos'] as $item1) {
+                    $model->requireInfos[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
+
         if (isset($map['RuleIdOrRuleName'])) {
             $model->ruleIdOrRuleName = $map['RuleIdOrRuleName'];
         }
+
         if (isset($map['RuleScoreSingleType'])) {
             $model->ruleScoreSingleType = $map['RuleScoreSingleType'];
         }
+
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
+
         if (isset($map['SchemeId'])) {
             $model->schemeId = $map['SchemeId'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }
+
         if (isset($map['UpdateEndTime'])) {
             $model->updateEndTime = $map['UpdateEndTime'];
         }
+
         if (isset($map['UpdateStartTime'])) {
             $model->updateStartTime = $map['UpdateStartTime'];
         }
+
         if (isset($map['UpdateUserId'])) {
             $model->updateUserId = $map['UpdateUserId'];
         }

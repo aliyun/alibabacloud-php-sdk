@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigResponseBody\data\skillGroupConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigResponseBody\data\skillGroupConfig\skillGroupScreens\skillGroupScreen;
-use AlibabaCloud\Tea\Model;
 
 class skillGroupScreens extends Model
 {
@@ -19,17 +19,21 @@ class skillGroupScreens extends Model
 
     public function validate()
     {
+        if (\is_array($this->skillGroupScreen)) {
+            Model::validateArray($this->skillGroupScreen);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->skillGroupScreen) {
-            $res['SkillGroupScreen'] = [];
-            if (null !== $this->skillGroupScreen && \is_array($this->skillGroupScreen)) {
-                $n = 0;
-                foreach ($this->skillGroupScreen as $item) {
-                    $res['SkillGroupScreen'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->skillGroupScreen)) {
+                $res['SkillGroupScreen'] = [];
+                $n1                      = 0;
+                foreach ($this->skillGroupScreen as $item1) {
+                    $res['SkillGroupScreen'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class skillGroupScreens extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return skillGroupScreens
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SkillGroupScreen'])) {
             if (!empty($map['SkillGroupScreen'])) {
                 $model->skillGroupScreen = [];
-                $n                       = 0;
-                foreach ($map['SkillGroupScreen'] as $item) {
-                    $model->skillGroupScreen[$n++] = null !== $item ? skillGroupScreen::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['SkillGroupScreen'] as $item1) {
+                    $model->skillGroupScreen[$n1++] = skillGroupScreen::fromMap($item1);
                 }
             }
         }

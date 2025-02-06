@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\agents\agent;
-use AlibabaCloud\Tea\Model;
 
 class agents extends Model
 {
@@ -19,17 +19,21 @@ class agents extends Model
 
     public function validate()
     {
+        if (\is_array($this->agent)) {
+            Model::validateArray($this->agent);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agent) {
-            $res['Agent'] = [];
-            if (null !== $this->agent && \is_array($this->agent)) {
-                $n = 0;
-                foreach ($this->agent as $item) {
-                    $res['Agent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->agent)) {
+                $res['Agent'] = [];
+                $n1           = 0;
+                foreach ($this->agent as $item1) {
+                    $res['Agent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class agents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return agents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Agent'])) {
             if (!empty($map['Agent'])) {
                 $model->agent = [];
-                $n            = 0;
-                foreach ($map['Agent'] as $item) {
-                    $model->agent[$n++] = null !== $item ? agent::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Agent'] as $item1) {
+                    $model->agent[$n1++] = agent::fromMap($item1);
                 }
             }
         }

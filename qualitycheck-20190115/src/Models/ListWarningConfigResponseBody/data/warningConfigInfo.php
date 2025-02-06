@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data\warningConfigInfo\channels;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data\warningConfigInfo\ridList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data\warningConfigInfo\ruleList;
-use AlibabaCloud\Tea\Model;
 
 class warningConfigInfo extends Model
 {
@@ -15,46 +15,31 @@ class warningConfigInfo extends Model
      * @var channels
      */
     public $channels;
-
     /**
-     * @example 32
-     *
      * @var int
      */
     public $configId;
-
     /**
      * @var string
      */
     public $configName;
-
     /**
-     * @example 2019-10-29T15:30Z
-     *
      * @var string
      */
     public $createTime;
-
     /**
      * @var ridList
      */
     public $ridList;
-
     /**
      * @var ruleList
      */
     public $ruleList;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
-
     /**
-     * @example 2019-10-29T17:24Z
-     *
      * @var string
      */
     public $updateTime;
@@ -71,32 +56,49 @@ class warningConfigInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->channels) {
+            $this->channels->validate();
+        }
+        if (null !== $this->ridList) {
+            $this->ridList->validate();
+        }
+        if (null !== $this->ruleList) {
+            $this->ruleList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channels) {
-            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
+            $res['Channels'] = null !== $this->channels ? $this->channels->toArray($noStream) : $this->channels;
         }
+
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->configName) {
             $res['ConfigName'] = $this->configName;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->ridList) {
-            $res['RidList'] = null !== $this->ridList ? $this->ridList->toMap() : null;
+            $res['RidList'] = null !== $this->ridList ? $this->ridList->toArray($noStream) : $this->ridList;
         }
+
         if (null !== $this->ruleList) {
-            $res['RuleList'] = null !== $this->ruleList ? $this->ruleList->toMap() : null;
+            $res['RuleList'] = null !== $this->ruleList ? $this->ruleList->toArray($noStream) : $this->ruleList;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -104,35 +106,42 @@ class warningConfigInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return warningConfigInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channels'])) {
             $model->channels = channels::fromMap($map['Channels']);
         }
+
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['ConfigName'])) {
             $model->configName = $map['ConfigName'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['RidList'])) {
             $model->ridList = ridList::fromMap($map['RidList']);
         }
+
         if (isset($map['RuleList'])) {
             $model->ruleList = ruleList::fromMap($map['RuleList']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

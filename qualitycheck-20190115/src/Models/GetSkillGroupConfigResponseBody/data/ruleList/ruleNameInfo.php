@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigResponseBody\data\ruleList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleNameInfo extends Model
 {
     /**
-     * @example 222
-     *
      * @var int
      */
     public $rid;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $ruleName;
@@ -28,14 +23,16 @@ class ruleNameInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -43,17 +40,18 @@ class ruleNameInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleNameInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

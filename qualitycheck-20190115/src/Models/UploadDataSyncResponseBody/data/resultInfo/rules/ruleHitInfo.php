@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules\ruleHitInfo\conditionInfo;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules\ruleHitInfo\hit;
-use AlibabaCloud\Tea\Model;
 
 class ruleHitInfo extends Model
 {
@@ -14,22 +14,15 @@ class ruleHitInfo extends Model
      * @var conditionInfo
      */
     public $conditionInfo;
-
     /**
      * @var hit
      */
     public $hit;
-
     /**
-     * @example 801
-     *
      * @var string
      */
     public $rid;
-
     /**
-     * @example 88888888
-     *
      * @var string
      */
     public $tid;
@@ -42,20 +35,30 @@ class ruleHitInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->conditionInfo) {
+            $this->conditionInfo->validate();
+        }
+        if (null !== $this->hit) {
+            $this->hit->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditionInfo) {
-            $res['ConditionInfo'] = null !== $this->conditionInfo ? $this->conditionInfo->toMap() : null;
+            $res['ConditionInfo'] = null !== $this->conditionInfo ? $this->conditionInfo->toArray($noStream) : $this->conditionInfo;
         }
+
         if (null !== $this->hit) {
-            $res['Hit'] = null !== $this->hit ? $this->hit->toMap() : null;
+            $res['Hit'] = null !== $this->hit ? $this->hit->toArray($noStream) : $this->hit;
         }
+
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -63,23 +66,26 @@ class ruleHitInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleHitInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionInfo'])) {
             $model->conditionInfo = conditionInfo::fromMap($map['ConditionInfo']);
         }
+
         if (isset($map['Hit'])) {
             $model->hit = hit::fromMap($map['Hit']);
         }
+
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

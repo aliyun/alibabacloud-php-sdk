@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSessionGroupResponseBody\data\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reviewerList extends Model
 {
@@ -18,29 +18,43 @@ class reviewerList extends Model
 
     public function validate()
     {
+        if (\is_array($this->reviewerList)) {
+            Model::validateArray($this->reviewerList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reviewerList) {
-            $res['ReviewerList'] = $this->reviewerList;
+            if (\is_array($this->reviewerList)) {
+                $res['ReviewerList'] = [];
+                $n1                  = 0;
+                foreach ($this->reviewerList as $item1) {
+                    $res['ReviewerList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reviewerList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReviewerList'])) {
             if (!empty($map['ReviewerList'])) {
-                $model->reviewerList = $map['ReviewerList'];
+                $model->reviewerList = [];
+                $n1                  = 0;
+                foreach ($map['ReviewerList'] as $item1) {
+                    $model->reviewerList[$n1++] = $item1;
+                }
             }
         }
 

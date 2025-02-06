@@ -4,31 +4,22 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultResponseBody\data\hitResult\hits;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class keyWords extends Model
 {
     /**
-     * @example 66666
-     *
      * @var string
      */
     public $cid;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $from;
-
     /**
-     * @example 5
-     *
      * @var int
      */
     public $to;
-
     /**
      * @var string
      */
@@ -42,20 +33,24 @@ class keyWords extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cid) {
             $res['Cid'] = $this->cid;
         }
+
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
+
         if (null !== $this->val) {
             $res['Val'] = $this->val;
         }
@@ -63,23 +58,26 @@ class keyWords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return keyWords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cid'])) {
             $model->cid = $map['Cid'];
         }
+
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }
+
         if (isset($map['Val'])) {
             $model->val = $map['Val'];
         }

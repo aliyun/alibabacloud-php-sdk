@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo;
-use AlibabaCloud\Tea\Model;
 
 class conditions extends Model
 {
@@ -19,17 +19,21 @@ class conditions extends Model
 
     public function validate()
     {
+        if (\is_array($this->conditionBasicInfo)) {
+            Model::validateArray($this->conditionBasicInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditionBasicInfo) {
-            $res['ConditionBasicInfo'] = [];
-            if (null !== $this->conditionBasicInfo && \is_array($this->conditionBasicInfo)) {
-                $n = 0;
-                foreach ($this->conditionBasicInfo as $item) {
-                    $res['ConditionBasicInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditionBasicInfo)) {
+                $res['ConditionBasicInfo'] = [];
+                $n1                        = 0;
+                foreach ($this->conditionBasicInfo as $item1) {
+                    $res['ConditionBasicInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class conditions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionBasicInfo'])) {
             if (!empty($map['ConditionBasicInfo'])) {
                 $model->conditionBasicInfo = [];
-                $n                         = 0;
-                foreach ($map['ConditionBasicInfo'] as $item) {
-                    $model->conditionBasicInfo[$n++] = null !== $item ? conditionBasicInfo::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['ConditionBasicInfo'] as $item1) {
+                    $model->conditionBasicInfo[$n1++] = conditionBasicInfo::fromMap($item1);
                 }
             }
         }

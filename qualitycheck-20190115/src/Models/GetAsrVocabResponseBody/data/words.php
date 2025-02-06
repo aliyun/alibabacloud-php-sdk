@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAsrVocabResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAsrVocabResponseBody\data\words\word;
-use AlibabaCloud\Tea\Model;
 
 class words extends Model
 {
@@ -19,17 +19,21 @@ class words extends Model
 
     public function validate()
     {
+        if (\is_array($this->word)) {
+            Model::validateArray($this->word);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->word) {
-            $res['Word'] = [];
-            if (null !== $this->word && \is_array($this->word)) {
-                $n = 0;
-                foreach ($this->word as $item) {
-                    $res['Word'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->word)) {
+                $res['Word'] = [];
+                $n1          = 0;
+                foreach ($this->word as $item1) {
+                    $res['Word'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class words extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return words
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Word'])) {
             if (!empty($map['Word'])) {
                 $model->word = [];
-                $n           = 0;
-                foreach ($map['Word'] as $item) {
-                    $model->word[$n++] = null !== $item ? word::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Word'] as $item1) {
+                    $model->word[$n1++] = word::fromMap($item1);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data\schemeList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schemeList extends Model
 {
@@ -12,10 +12,7 @@ class schemeList extends Model
      * @var string
      */
     public $name;
-
     /**
-     * @example 158
-     *
      * @var int
      */
     public $schemeId;
@@ -26,14 +23,16 @@ class schemeList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->schemeId) {
             $res['SchemeId'] = $this->schemeId;
         }
@@ -41,17 +40,18 @@ class schemeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schemeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SchemeId'])) {
             $model->schemeId = $map['SchemeId'];
         }

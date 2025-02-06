@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleCategoryResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleCountInfo extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $select;
-
     /**
-     * @example 22
-     *
      * @var int
      */
     public $type;
-
     /**
      * @var string
      */
@@ -34,17 +28,20 @@ class ruleCountInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->select) {
             $res['Select'] = $this->select;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
@@ -52,20 +49,22 @@ class ruleCountInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleCountInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Select'])) {
             $model->select = $map['Select'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }

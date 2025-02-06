@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class agent extends Model
 {
     /**
-     * @example 28240****15643
-     *
      * @var string
      */
     public $id;
-
     /**
      * @var string
      */
     public $name;
-
     /**
      * @var string
      */
@@ -32,17 +28,20 @@ class agent extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->skillGroup) {
             $res['SkillGroup'] = $this->skillGroup;
         }
@@ -50,20 +49,22 @@ class agent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return agent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SkillGroup'])) {
             $model->skillGroup = $map['SkillGroup'];
         }

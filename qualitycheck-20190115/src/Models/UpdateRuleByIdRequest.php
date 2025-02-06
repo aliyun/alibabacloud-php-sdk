@@ -4,43 +4,27 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateRuleByIdRequest extends Model
 {
     /**
-     * @description baseMeAgentId
-     *
      * @var int
      */
     public $baseMeAgentId;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isCopy;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $jsonStrForRule;
-
     /**
-     * @example 1
-     *
      * @var bool
      */
     public $returnRelatedSchemes;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $ruleId;
@@ -54,23 +38,28 @@ class UpdateRuleByIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->isCopy) {
             $res['IsCopy'] = $this->isCopy;
         }
+
         if (null !== $this->jsonStrForRule) {
             $res['JsonStrForRule'] = $this->jsonStrForRule;
         }
+
         if (null !== $this->returnRelatedSchemes) {
             $res['ReturnRelatedSchemes'] = $this->returnRelatedSchemes;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -78,26 +67,30 @@ class UpdateRuleByIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateRuleByIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['IsCopy'])) {
             $model->isCopy = $map['IsCopy'];
         }
+
         if (isset($map['JsonStrForRule'])) {
             $model->jsonStrForRule = $map['JsonStrForRule'];
         }
+
         if (isset($map['ReturnRelatedSchemes'])) {
             $model->returnRelatedSchemes = $map['ReturnRelatedSchemes'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

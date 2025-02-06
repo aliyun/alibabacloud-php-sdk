@@ -4,117 +4,77 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeResponseBody\data\schemeCheckTypeList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RulesInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1616113198000
-     *
      * @var string
      */
     public $createTime;
-
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $createUserName;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $dataType;
-
     /**
      * @var string
      */
     public $description;
-
     /**
      * @var string
      */
     public $initScore;
-
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $name;
-
     /**
      * @var string[]
      */
     public $ruleIds;
-
     /**
      * @var RulesInfo[]
      */
     public $ruleList;
-
     /**
      * @var schemeCheckTypeList[]
      */
     public $schemeCheckTypeList;
-
     /**
-     * @example 112**
-     *
      * @var int
      */
     public $schemeId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $schemeTemplateId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $templateType;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
-
     /**
-     * @example 1616113198000
-     *
      * @var string
      */
     public $updateTime;
-
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $updateUserName;
-
     /**
-     * @example 1616113198000
-     *
      * @var int
      */
     public $version;
@@ -140,71 +100,103 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->ruleIds)) {
+            Model::validateArray($this->ruleIds);
+        }
+        if (\is_array($this->ruleList)) {
+            Model::validateArray($this->ruleList);
+        }
+        if (\is_array($this->schemeCheckTypeList)) {
+            Model::validateArray($this->schemeCheckTypeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->createUserName) {
             $res['CreateUserName'] = $this->createUserName;
         }
+
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->initScore) {
             $res['InitScore'] = $this->initScore;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = $this->ruleIds;
+            if (\is_array($this->ruleIds)) {
+                $res['RuleIds'] = [];
+                $n1             = 0;
+                foreach ($this->ruleIds as $item1) {
+                    $res['RuleIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ruleList) {
-            $res['RuleList'] = [];
-            if (null !== $this->ruleList && \is_array($this->ruleList)) {
-                $n = 0;
-                foreach ($this->ruleList as $item) {
-                    $res['RuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ruleList)) {
+                $res['RuleList'] = [];
+                $n1              = 0;
+                foreach ($this->ruleList as $item1) {
+                    $res['RuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->schemeCheckTypeList) {
-            $res['SchemeCheckTypeList'] = [];
-            if (null !== $this->schemeCheckTypeList && \is_array($this->schemeCheckTypeList)) {
-                $n = 0;
-                foreach ($this->schemeCheckTypeList as $item) {
-                    $res['SchemeCheckTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->schemeCheckTypeList)) {
+                $res['SchemeCheckTypeList'] = [];
+                $n1                         = 0;
+                foreach ($this->schemeCheckTypeList as $item1) {
+                    $res['SchemeCheckTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->schemeId) {
             $res['SchemeId'] = $this->schemeId;
         }
+
         if (null !== $this->schemeTemplateId) {
             $res['SchemeTemplateId'] = $this->schemeTemplateId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->updateUserName) {
             $res['UpdateUserName'] = $this->updateUserName;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -212,76 +204,96 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['CreateUserName'])) {
             $model->createUserName = $map['CreateUserName'];
         }
+
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InitScore'])) {
             $model->initScore = $map['InitScore'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RuleIds'])) {
             if (!empty($map['RuleIds'])) {
-                $model->ruleIds = $map['RuleIds'];
+                $model->ruleIds = [];
+                $n1             = 0;
+                foreach ($map['RuleIds'] as $item1) {
+                    $model->ruleIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n               = 0;
-                foreach ($map['RuleList'] as $item) {
-                    $model->ruleList[$n++] = null !== $item ? RulesInfo::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['RuleList'] as $item1) {
+                    $model->ruleList[$n1++] = RulesInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SchemeCheckTypeList'])) {
             if (!empty($map['SchemeCheckTypeList'])) {
                 $model->schemeCheckTypeList = [];
-                $n                          = 0;
-                foreach ($map['SchemeCheckTypeList'] as $item) {
-                    $model->schemeCheckTypeList[$n++] = null !== $item ? schemeCheckTypeList::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['SchemeCheckTypeList'] as $item1) {
+                    $model->schemeCheckTypeList[$n1++] = schemeCheckTypeList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SchemeId'])) {
             $model->schemeId = $map['SchemeId'];
         }
+
         if (isset($map['SchemeTemplateId'])) {
             $model->schemeTemplateId = $map['SchemeTemplateId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['UpdateUserName'])) {
             $model->updateUserName = $map['UpdateUserName'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

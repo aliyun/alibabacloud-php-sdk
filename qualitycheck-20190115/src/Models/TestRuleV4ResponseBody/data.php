@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4ResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4ResponseBody\data\hitRuleReviewInfoList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4ResponseBody\data\hitTaskFlowList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4ResponseBody\data\unhitRuleReviewInfoList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,12 +15,10 @@ class data extends Model
      * @var hitRuleReviewInfoList[]
      */
     public $hitRuleReviewInfoList;
-
     /**
      * @var hitTaskFlowList[]
      */
     public $hitTaskFlowList;
-
     /**
      * @var unhitRuleReviewInfoList[]
      */
@@ -33,35 +31,47 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->hitRuleReviewInfoList)) {
+            Model::validateArray($this->hitRuleReviewInfoList);
+        }
+        if (\is_array($this->hitTaskFlowList)) {
+            Model::validateArray($this->hitTaskFlowList);
+        }
+        if (\is_array($this->unhitRuleReviewInfoList)) {
+            Model::validateArray($this->unhitRuleReviewInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hitRuleReviewInfoList) {
-            $res['HitRuleReviewInfoList'] = [];
-            if (null !== $this->hitRuleReviewInfoList && \is_array($this->hitRuleReviewInfoList)) {
-                $n = 0;
-                foreach ($this->hitRuleReviewInfoList as $item) {
-                    $res['HitRuleReviewInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hitRuleReviewInfoList)) {
+                $res['HitRuleReviewInfoList'] = [];
+                $n1                           = 0;
+                foreach ($this->hitRuleReviewInfoList as $item1) {
+                    $res['HitRuleReviewInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->hitTaskFlowList) {
-            $res['HitTaskFlowList'] = [];
-            if (null !== $this->hitTaskFlowList && \is_array($this->hitTaskFlowList)) {
-                $n = 0;
-                foreach ($this->hitTaskFlowList as $item) {
-                    $res['HitTaskFlowList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hitTaskFlowList)) {
+                $res['HitTaskFlowList'] = [];
+                $n1                     = 0;
+                foreach ($this->hitTaskFlowList as $item1) {
+                    $res['HitTaskFlowList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->unhitRuleReviewInfoList) {
-            $res['UnhitRuleReviewInfoList'] = [];
-            if (null !== $this->unhitRuleReviewInfoList && \is_array($this->unhitRuleReviewInfoList)) {
-                $n = 0;
-                foreach ($this->unhitRuleReviewInfoList as $item) {
-                    $res['UnhitRuleReviewInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->unhitRuleReviewInfoList)) {
+                $res['UnhitRuleReviewInfoList'] = [];
+                $n1                             = 0;
+                foreach ($this->unhitRuleReviewInfoList as $item1) {
+                    $res['UnhitRuleReviewInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -69,38 +79,40 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitRuleReviewInfoList'])) {
             if (!empty($map['HitRuleReviewInfoList'])) {
                 $model->hitRuleReviewInfoList = [];
-                $n                            = 0;
-                foreach ($map['HitRuleReviewInfoList'] as $item) {
-                    $model->hitRuleReviewInfoList[$n++] = null !== $item ? hitRuleReviewInfoList::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['HitRuleReviewInfoList'] as $item1) {
+                    $model->hitRuleReviewInfoList[$n1++] = hitRuleReviewInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['HitTaskFlowList'])) {
             if (!empty($map['HitTaskFlowList'])) {
                 $model->hitTaskFlowList = [];
-                $n                      = 0;
-                foreach ($map['HitTaskFlowList'] as $item) {
-                    $model->hitTaskFlowList[$n++] = null !== $item ? hitTaskFlowList::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['HitTaskFlowList'] as $item1) {
+                    $model->hitTaskFlowList[$n1++] = hitTaskFlowList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UnhitRuleReviewInfoList'])) {
             if (!empty($map['UnhitRuleReviewInfoList'])) {
                 $model->unhitRuleReviewInfoList = [];
-                $n                              = 0;
-                foreach ($map['UnhitRuleReviewInfoList'] as $item) {
-                    $model->unhitRuleReviewInfoList[$n++] = null !== $item ? unhitRuleReviewInfoList::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['UnhitRuleReviewInfoList'] as $item1) {
+                    $model->unhitRuleReviewInfoList[$n1++] = unhitRuleReviewInfoList::fromMap($item1);
                 }
             }
         }

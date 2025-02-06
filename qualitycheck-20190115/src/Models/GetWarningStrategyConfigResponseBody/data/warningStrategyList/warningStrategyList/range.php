@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigResponseBody\data\warningStrategyList\warningStrategyList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class range extends Model
 {
@@ -12,7 +12,6 @@ class range extends Model
      * @var int
      */
     public $rangeNum;
-
     /**
      * @var int
      */
@@ -24,14 +23,16 @@ class range extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rangeNum) {
             $res['RangeNum'] = $this->rangeNum;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -39,17 +40,18 @@ class range extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return range
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RangeNum'])) {
             $model->rangeNum = $map['RangeNum'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data\dataConfig\assignConfigs\assignConfig\assignConfigContests\assignConfigContest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listObject extends Model
 {
@@ -18,29 +18,43 @@ class listObject extends Model
 
     public function validate()
     {
+        if (\is_array($this->listObject)) {
+            Model::validateArray($this->listObject);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listObject) {
-            $res['ListObject'] = $this->listObject;
+            if (\is_array($this->listObject)) {
+                $res['ListObject'] = [];
+                $n1                = 0;
+                foreach ($this->listObject as $item1) {
+                    $res['ListObject'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListObject'])) {
             if (!empty($map['ListObject'])) {
-                $model->listObject = $map['ListObject'];
+                $model->listObject = [];
+                $n1                = 0;
+                foreach ($map['ListObject'] as $item1) {
+                    $model->listObject[$n1++] = $item1;
+                }
             }
         }
 

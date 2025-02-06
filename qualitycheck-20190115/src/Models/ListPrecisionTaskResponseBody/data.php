@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskResponseBody\data\precisionTask;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->precisionTask)) {
+            Model::validateArray($this->precisionTask);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->precisionTask) {
-            $res['PrecisionTask'] = [];
-            if (null !== $this->precisionTask && \is_array($this->precisionTask)) {
-                $n = 0;
-                foreach ($this->precisionTask as $item) {
-                    $res['PrecisionTask'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->precisionTask)) {
+                $res['PrecisionTask'] = [];
+                $n1                   = 0;
+                foreach ($this->precisionTask as $item1) {
+                    $res['PrecisionTask'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrecisionTask'])) {
             if (!empty($map['PrecisionTask'])) {
                 $model->precisionTask = [];
-                $n                    = 0;
-                foreach ($map['PrecisionTask'] as $item) {
-                    $model->precisionTask[$n++] = null !== $item ? precisionTask::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['PrecisionTask'] as $item1) {
+                    $model->precisionTask[$n1++] = precisionTask::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules\ruleHitInfo\hit\conditionHitInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules\ruleHitInfo\hit\conditionHitInfo\hitKeyWords\hitKeyWord;
-use AlibabaCloud\Tea\Model;
 
 class hitKeyWords extends Model
 {
@@ -19,17 +19,21 @@ class hitKeyWords extends Model
 
     public function validate()
     {
+        if (\is_array($this->hitKeyWord)) {
+            Model::validateArray($this->hitKeyWord);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hitKeyWord) {
-            $res['HitKeyWord'] = [];
-            if (null !== $this->hitKeyWord && \is_array($this->hitKeyWord)) {
-                $n = 0;
-                foreach ($this->hitKeyWord as $item) {
-                    $res['HitKeyWord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hitKeyWord)) {
+                $res['HitKeyWord'] = [];
+                $n1                = 0;
+                foreach ($this->hitKeyWord as $item1) {
+                    $res['HitKeyWord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class hitKeyWords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hitKeyWords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitKeyWord'])) {
             if (!empty($map['HitKeyWord'])) {
                 $model->hitKeyWord = [];
-                $n                 = 0;
-                foreach ($map['HitKeyWord'] as $item) {
-                    $model->hitKeyWord[$n++] = null !== $item ? hitKeyWord::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['HitKeyWord'] as $item1) {
+                    $model->hitKeyWord[$n1++] = hitKeyWord::fromMap($item1);
                 }
             }
         }

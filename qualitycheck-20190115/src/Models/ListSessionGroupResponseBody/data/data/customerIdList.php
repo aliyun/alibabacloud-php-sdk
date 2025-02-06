@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSessionGroupResponseBody\data\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customerIdList extends Model
 {
@@ -18,29 +18,43 @@ class customerIdList extends Model
 
     public function validate()
     {
+        if (\is_array($this->customerIdList)) {
+            Model::validateArray($this->customerIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customerIdList) {
-            $res['CustomerIdList'] = $this->customerIdList;
+            if (\is_array($this->customerIdList)) {
+                $res['CustomerIdList'] = [];
+                $n1                    = 0;
+                foreach ($this->customerIdList as $item1) {
+                    $res['CustomerIdList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customerIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomerIdList'])) {
             if (!empty($map['CustomerIdList'])) {
-                $model->customerIdList = $map['CustomerIdList'];
+                $model->customerIdList = [];
+                $n1                    = 0;
+                foreach ($map['CustomerIdList'] as $item1) {
+                    $model->customerIdList[$n1++] = $item1;
+                }
             }
         }
 

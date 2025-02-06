@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewTypeIdList\reviewTypeIdList;
 
 class reviewTypeIdList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewTypeIdList\reviewTypeIdList[]
+     * @var reviewTypeIdList[]
      */
     public $reviewTypeIdList;
     protected $_name = [
@@ -18,17 +19,21 @@ class reviewTypeIdList extends Model
 
     public function validate()
     {
+        if (\is_array($this->reviewTypeIdList)) {
+            Model::validateArray($this->reviewTypeIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reviewTypeIdList) {
-            $res['ReviewTypeIdList'] = [];
-            if (null !== $this->reviewTypeIdList && \is_array($this->reviewTypeIdList)) {
-                $n = 0;
-                foreach ($this->reviewTypeIdList as $item) {
-                    $res['ReviewTypeIdList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reviewTypeIdList)) {
+                $res['ReviewTypeIdList'] = [];
+                $n1                      = 0;
+                foreach ($this->reviewTypeIdList as $item1) {
+                    $res['ReviewTypeIdList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class reviewTypeIdList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reviewTypeIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReviewTypeIdList'])) {
             if (!empty($map['ReviewTypeIdList'])) {
                 $model->reviewTypeIdList = [];
-                $n                       = 0;
-                foreach ($map['ReviewTypeIdList'] as $item) {
-                    $model->reviewTypeIdList[$n++] = null !== $item ? \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewTypeIdList\reviewTypeIdList::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['ReviewTypeIdList'] as $item1) {
+                    $model->reviewTypeIdList[$n1++] = self::fromMap($item1);
                 }
             }
         }

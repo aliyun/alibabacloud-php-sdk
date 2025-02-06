@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceResponseBody\data\delta;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->delta)) {
+            Model::validateArray($this->delta);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->delta) {
-            $res['Delta'] = [];
-            if (null !== $this->delta && \is_array($this->delta)) {
-                $n = 0;
-                foreach ($this->delta as $item) {
-                    $res['Delta'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->delta)) {
+                $res['Delta'] = [];
+                $n1           = 0;
+                foreach ($this->delta as $item1) {
+                    $res['Delta'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Delta'])) {
             if (!empty($map['Delta'])) {
                 $model->delta = [];
-                $n            = 0;
-                foreach ($map['Delta'] as $item) {
-                    $model->delta[$n++] = null !== $item ? delta::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Delta'] as $item1) {
+                    $model->delta[$n1++] = delta::fromMap($item1);
                 }
             }
         }

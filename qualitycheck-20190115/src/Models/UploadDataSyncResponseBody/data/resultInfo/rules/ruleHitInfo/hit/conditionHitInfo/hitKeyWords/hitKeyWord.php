@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules\ruleHitInfo\hit\conditionHitInfo\hitKeyWords;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hitKeyWord extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $from;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pid;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $tid;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $to;
-
     /**
      * @var string
      */
@@ -50,23 +38,28 @@ class hitKeyWord extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
+
         if (null !== $this->val) {
             $res['Val'] = $this->val;
         }
@@ -74,26 +67,30 @@ class hitKeyWord extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hitKeyWord
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }
+
         if (isset($map['Val'])) {
             $model->val = $map['Val'];
         }

@@ -4,78 +4,54 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo\complainHistories;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo\conditionHitInfoList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo\reviewInfo;
-use AlibabaCloud\Tea\Model;
 
 class hitRuleReviewInfo extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $autoReview;
-
     /**
      * @var complainHistories
      */
     public $complainHistories;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $complainable;
-
     /**
      * @var conditionHitInfoList
      */
     public $conditionHitInfoList;
-
     /**
      * @var reviewInfo
      */
     public $reviewInfo;
-
     /**
-     * @example 451
-     *
      * @var int
      */
     public $rid;
-
     /**
      * @var string
      */
     public $ruleName;
-
     /**
-     * @example xxx
-     *
      * @var int
      */
     public $scoreId;
-
     /**
-     * @example -10
-     *
      * @var int
      */
     public $scoreNum;
-
     /**
-     * @example xxx
-     *
      * @var int
      */
     public $scoreSubId;
-
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $scoreSubName;
@@ -95,41 +71,61 @@ class hitRuleReviewInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->complainHistories) {
+            $this->complainHistories->validate();
+        }
+        if (null !== $this->conditionHitInfoList) {
+            $this->conditionHitInfoList->validate();
+        }
+        if (null !== $this->reviewInfo) {
+            $this->reviewInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoReview) {
             $res['AutoReview'] = $this->autoReview;
         }
+
         if (null !== $this->complainHistories) {
-            $res['ComplainHistories'] = null !== $this->complainHistories ? $this->complainHistories->toMap() : null;
+            $res['ComplainHistories'] = null !== $this->complainHistories ? $this->complainHistories->toArray($noStream) : $this->complainHistories;
         }
+
         if (null !== $this->complainable) {
             $res['Complainable'] = $this->complainable;
         }
+
         if (null !== $this->conditionHitInfoList) {
-            $res['ConditionHitInfoList'] = null !== $this->conditionHitInfoList ? $this->conditionHitInfoList->toMap() : null;
+            $res['ConditionHitInfoList'] = null !== $this->conditionHitInfoList ? $this->conditionHitInfoList->toArray($noStream) : $this->conditionHitInfoList;
         }
+
         if (null !== $this->reviewInfo) {
-            $res['ReviewInfo'] = null !== $this->reviewInfo ? $this->reviewInfo->toMap() : null;
+            $res['ReviewInfo'] = null !== $this->reviewInfo ? $this->reviewInfo->toArray($noStream) : $this->reviewInfo;
         }
+
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->scoreId) {
             $res['ScoreId'] = $this->scoreId;
         }
+
         if (null !== $this->scoreNum) {
             $res['ScoreNum'] = $this->scoreNum;
         }
+
         if (null !== $this->scoreSubId) {
             $res['ScoreSubId'] = $this->scoreSubId;
         }
+
         if (null !== $this->scoreSubName) {
             $res['ScoreSubName'] = $this->scoreSubName;
         }
@@ -137,44 +133,54 @@ class hitRuleReviewInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hitRuleReviewInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoReview'])) {
             $model->autoReview = $map['AutoReview'];
         }
+
         if (isset($map['ComplainHistories'])) {
             $model->complainHistories = complainHistories::fromMap($map['ComplainHistories']);
         }
+
         if (isset($map['Complainable'])) {
             $model->complainable = $map['Complainable'];
         }
+
         if (isset($map['ConditionHitInfoList'])) {
             $model->conditionHitInfoList = conditionHitInfoList::fromMap($map['ConditionHitInfoList']);
         }
+
         if (isset($map['ReviewInfo'])) {
             $model->reviewInfo = reviewInfo::fromMap($map['ReviewInfo']);
         }
+
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['ScoreId'])) {
             $model->scoreId = $map['ScoreId'];
         }
+
         if (isset($map['ScoreNum'])) {
             $model->scoreNum = $map['ScoreNum'];
         }
+
         if (isset($map['ScoreSubId'])) {
             $model->scoreSubId = $map['ScoreSubId'];
         }
+
         if (isset($map['ScoreSubName'])) {
             $model->scoreSubName = $map['ScoreSubName'];
         }
