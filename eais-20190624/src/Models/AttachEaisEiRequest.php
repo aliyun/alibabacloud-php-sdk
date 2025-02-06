@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachEaisEiRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example i-bp14ws9hbt1oe0u9****
-     *
      * @var string
      */
     public $clientInstanceId;
-
     /**
-     * @example eais-hzu00xufs1c8j5nn****
-     *
      * @var string
      */
     public $eiInstanceId;
-
     /**
-     * @example eais.ei-a6.2xlarge
-     *
      * @var string
      */
     public $eiInstanceType;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -48,20 +33,24 @@ class AttachEaisEiRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientInstanceId) {
             $res['ClientInstanceId'] = $this->clientInstanceId;
         }
+
         if (null !== $this->eiInstanceId) {
             $res['EiInstanceId'] = $this->eiInstanceId;
         }
+
         if (null !== $this->eiInstanceType) {
             $res['EiInstanceType'] = $this->eiInstanceType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -69,23 +58,26 @@ class AttachEaisEiRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachEaisEiRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientInstanceId'])) {
             $model->clientInstanceId = $map['ClientInstanceId'];
         }
+
         if (isset($map['EiInstanceId'])) {
             $model->eiInstanceId = $map['EiInstanceId'];
         }
+
         if (isset($map['EiInstanceType'])) {
             $model->eiInstanceType = $map['EiInstanceType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
