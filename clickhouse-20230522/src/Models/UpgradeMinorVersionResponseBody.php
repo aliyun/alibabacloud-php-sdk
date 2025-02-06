@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\UpgradeMinorVersionResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class UpgradeMinorVersionResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class UpgradeMinorVersionResponseBody extends Model
      * @var data
      */
     public $data;
-
     /**
-     * @example FE242962-6DA3-5FC8-9691-37B62A3210F7
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class UpgradeMinorVersionResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class UpgradeMinorVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeMinorVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

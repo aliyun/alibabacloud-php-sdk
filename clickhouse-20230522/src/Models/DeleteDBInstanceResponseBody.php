@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteDBInstanceResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class DeleteDBInstanceResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class DeleteDBInstanceResponseBody extends Model
      * @var data
      */
     public $data;
-
     /**
-     * @example D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class DeleteDBInstanceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class DeleteDBInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDBInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

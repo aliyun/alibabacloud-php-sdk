@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstancesResponseBody\data\DBInstances;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,24 +13,15 @@ class data extends Model
      * @var DBInstances[]
      */
     public $DBInstances;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $totalCount;
@@ -43,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBInstances)) {
+            Model::validateArray($this->DBInstances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstances) {
-            $res['DBInstances'] = [];
-            if (null !== $this->DBInstances && \is_array($this->DBInstances)) {
-                $n = 0;
-                foreach ($this->DBInstances as $item) {
-                    $res['DBInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBInstances)) {
+                $res['DBInstances'] = [];
+                $n1                 = 0;
+                foreach ($this->DBInstances as $item1) {
+                    $res['DBInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -70,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstances'])) {
             if (!empty($map['DBInstances'])) {
                 $model->DBInstances = [];
-                $n                  = 0;
-                foreach ($map['DBInstances'] as $item) {
-                    $model->DBInstances[$n++] = null !== $item ? DBInstances::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['DBInstances'] as $item1) {
+                    $model->DBInstances[$n1++] = DBInstances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeEndpointsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeEndpointsResponseBody\data\endpoints;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,10 +13,7 @@ class data extends Model
      * @var endpoints[]
      */
     public $endpoints;
-
     /**
-     * @example VPC
-     *
      * @var string
      */
     public $instanceNetworkType;
@@ -27,20 +24,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpoints) {
-            $res['Endpoints'] = [];
-            if (null !== $this->endpoints && \is_array($this->endpoints)) {
-                $n = 0;
-                foreach ($this->endpoints as $item) {
-                    $res['Endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->endpoints)) {
+                $res['Endpoints'] = [];
+                $n1               = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['Endpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
@@ -48,23 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
-                $n                = 0;
-                foreach ($map['Endpoints'] as $item) {
-                    $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Endpoints'] as $item1) {
+                    $model->endpoints[$n1++] = endpoints::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
         }

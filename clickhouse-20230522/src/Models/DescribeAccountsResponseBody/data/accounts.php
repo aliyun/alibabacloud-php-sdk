@@ -4,32 +4,23 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accounts extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $account;
-
     /**
-     * @example NormalAccount
-     *
      * @var string
      */
     public $accountType;
-
     /**
      * @var string
      */
     public $description;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $status;
@@ -42,20 +33,24 @@ class accounts extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->account) {
             $res['Account'] = $this->account;
         }
+
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -63,23 +58,26 @@ class accounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
         }
+
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

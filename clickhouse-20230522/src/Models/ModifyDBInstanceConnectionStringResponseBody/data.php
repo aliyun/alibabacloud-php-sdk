@@ -4,37 +4,22 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConnectionStringResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The endpoint of the cluster.
-     *
-     * @example cc-2ze34****-clickhouse..clickhouseserver.pre.rds.aliyuncs.com
-     *
      * @var string
      */
     public $connectionString;
-
     /**
-     * @description The cluster ID.
-     *
-     * @example cc-xxxxx
-     *
      * @var int
      */
     public $DBInstanceID;
-
     /**
-     * @description The cluster name.
-     *
-     * @example cc-xxxxx
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
      * @var string
      */
@@ -48,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
+
         if (null !== $this->DBInstanceID) {
             $res['DBInstanceID'] = $this->DBInstanceID;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->disabledPorts) {
             $res['DisabledPorts'] = $this->disabledPorts;
         }
@@ -69,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
+
         if (isset($map['DBInstanceID'])) {
             $model->DBInstanceID = $map['DBInstanceID'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['DisabledPorts'])) {
             $model->disabledPorts = $map['DisabledPorts'];
         }

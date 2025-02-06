@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\KillProcessResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of queries that are terminated.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The cluster ID.
-     *
-     * @example cc-xxxxxxx
-     *
      * @var int
      */
     public $DBInstanceID;
-
     /**
-     * @description The cluster name.
-     *
-     * @example cc-xxxxxxx
-     *
      * @var string
      */
     public $DBInstanceName;
@@ -42,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->DBInstanceID) {
             $res['DBInstanceID'] = $this->DBInstanceID;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
@@ -60,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['DBInstanceID'])) {
             $model->DBInstanceID = $map['DBInstanceID'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }

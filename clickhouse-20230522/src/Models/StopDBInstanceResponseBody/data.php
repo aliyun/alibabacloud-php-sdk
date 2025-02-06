@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\StopDBInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example cc-bp100p4q1g9z3****
-     *
      * @var int
      */
     public $DBInstanceID;
-
     /**
      * @var string
      */
     public $DBInstanceName;
-
     /**
-     * @example 100000785
-     *
      * @var int
      */
     public $taskId;
@@ -34,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceID) {
             $res['DBInstanceID'] = $this->DBInstanceID;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -52,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceID'])) {
             $model->DBInstanceID = $map['DBInstanceID'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

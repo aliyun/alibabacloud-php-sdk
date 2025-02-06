@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAccountAuthorityRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example test1
-     *
      * @var string
      */
     public $account;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cc-bp100p4q1g9z3****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -42,17 +28,20 @@ class DescribeAccountAuthorityRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->account) {
             $res['Account'] = $this->account;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -60,20 +49,22 @@ class DescribeAccountAuthorityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccountAuthorityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
