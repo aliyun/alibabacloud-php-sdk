@@ -71,6 +71,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallTagsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignShrinkRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateChatMediaUrlRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateChatMediaUrlResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateContactFlowRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCustomCallTaggingRequest;
@@ -393,6 +395,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ProcessAliMeCallbackOfStagingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ProcessAliMeCallbackOfStagingResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ProcessCustomIMCallbackRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ProcessCustomIMCallbackResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PublishContactFlowRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PublishContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ReadyForServiceRequest;
@@ -2776,6 +2780,68 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - CreateChatMediaUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateChatMediaUrlResponse
+     *
+     * @param CreateChatMediaUrlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateChatMediaUrlResponse
+     */
+    public function createChatMediaUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mimeType) {
+            @$body['MimeType'] = $request->mimeType;
+        }
+
+        if (null !== $request->requestId) {
+            @$body['RequestId'] = $request->requestId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateChatMediaUrl',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateChatMediaUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateChatMediaUrlResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateChatMediaUrlRequest
+     * @returns CreateChatMediaUrlResponse
+     *
+     * @param CreateChatMediaUrlRequest $request
+     *
+     * @return CreateChatMediaUrlResponse
+     */
+    public function createChatMediaUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createChatMediaUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -13614,6 +13680,88 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->processAliMeCallbackOfStagingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ProcessCustomIMCallbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ProcessCustomIMCallbackResponse
+     *
+     * @param ProcessCustomIMCallbackRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ProcessCustomIMCallbackResponse
+     */
+    public function processCustomIMCallbackWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accessChannelId) {
+            @$body['AccessChannelId'] = $request->accessChannelId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->messageContent) {
+            @$body['MessageContent'] = $request->messageContent;
+        }
+
+        if (null !== $request->requestId) {
+            @$body['RequestId'] = $request->requestId;
+        }
+
+        if (null !== $request->senderAvatarMediaId) {
+            @$body['SenderAvatarMediaId'] = $request->senderAvatarMediaId;
+        }
+
+        if (null !== $request->senderId) {
+            @$body['SenderId'] = $request->senderId;
+        }
+
+        if (null !== $request->senderName) {
+            @$body['SenderName'] = $request->senderName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ProcessCustomIMCallback',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ProcessCustomIMCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ProcessCustomIMCallbackResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ProcessCustomIMCallbackRequest
+     * @returns ProcessCustomIMCallbackResponse
+     *
+     * @param ProcessCustomIMCallbackRequest $request
+     *
+     * @return ProcessCustomIMCallbackResponse
+     */
+    public function processCustomIMCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->processCustomIMCallbackWithOptions($request, $runtime);
     }
 
     /**
