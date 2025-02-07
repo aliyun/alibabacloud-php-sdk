@@ -4,60 +4,32 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\ListListenerCertificatesResponseBody\certificates;
-use AlibabaCloud\Tea\Model;
 
 class ListListenerCertificatesResponseBody extends Model
 {
     /**
-     * @description The server certificates.
-     *
      * @var string[]
      */
     public $certificateIds;
-
     /**
-     * @description The certificates.
-     *
      * @var certificates[]
      */
     public $certificates;
-
     /**
-     * @description The number of entries returned per page. Valid values: **1** to **100**. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-     *
-     *   You do not need to specify this parameter for the first request.
-     *   You must specify the token that is obtained from the previous query as the value of NextToken.
-     *
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example 2198BD6D-9EBB-5E1C-9C48-E0ABB79CF831
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -72,32 +44,50 @@ class ListListenerCertificatesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->certificateIds)) {
+            Model::validateArray($this->certificateIds);
+        }
+        if (\is_array($this->certificates)) {
+            Model::validateArray($this->certificates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateIds) {
-            $res['CertificateIds'] = $this->certificateIds;
-        }
-        if (null !== $this->certificates) {
-            $res['Certificates'] = [];
-            if (null !== $this->certificates && \is_array($this->certificates)) {
-                $n = 0;
-                foreach ($this->certificates as $item) {
-                    $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->certificateIds)) {
+                $res['CertificateIds'] = [];
+                $n1                    = 0;
+                foreach ($this->certificateIds as $item1) {
+                    $res['CertificateIds'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->certificates) {
+            if (\is_array($this->certificates)) {
+                $res['Certificates'] = [];
+                $n1                  = 0;
+                foreach ($this->certificates as $item1) {
+                    $res['Certificates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -105,37 +95,46 @@ class ListListenerCertificatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListListenerCertificatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateIds'])) {
             if (!empty($map['CertificateIds'])) {
-                $model->certificateIds = $map['CertificateIds'];
-            }
-        }
-        if (isset($map['Certificates'])) {
-            if (!empty($map['Certificates'])) {
-                $model->certificates = [];
-                $n                   = 0;
-                foreach ($map['Certificates'] as $item) {
-                    $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
+                $model->certificateIds = [];
+                $n1                    = 0;
+                foreach ($map['CertificateIds'] as $item1) {
+                    $model->certificateIds[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['Certificates'])) {
+            if (!empty($map['Certificates'])) {
+                $model->certificates = [];
+                $n1                  = 0;
+                foreach ($map['Certificates'] as $item1) {
+                    $model->certificates[$n1++] = certificates::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

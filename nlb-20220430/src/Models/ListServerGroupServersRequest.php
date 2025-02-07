@@ -4,60 +4,31 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListServerGroupServersRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The token that is used for the next query. Valid values:
-     *
-     *   If this is your first query or no next query is to be sent, ignore this parameter.
-     *   If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
-     *
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The region ID of the NLB instance.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the server group.
-     *
-     * @example sgp-atstuj3rtoptyui****
-     *
      * @var string
      */
     public $serverGroupId;
-
     /**
-     * @description The IDs of the servers.
-     *
      * @var string[]
      */
     public $serverIds;
-
     /**
-     * @description The IP addresses of the servers.
-     *
      * @var string[]
      */
     public $serverIps;
@@ -72,61 +43,98 @@ class ListServerGroupServersRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->serverIds)) {
+            Model::validateArray($this->serverIds);
+        }
+        if (\is_array($this->serverIps)) {
+            Model::validateArray($this->serverIps);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
         }
+
         if (null !== $this->serverIds) {
-            $res['ServerIds'] = $this->serverIds;
+            if (\is_array($this->serverIds)) {
+                $res['ServerIds'] = [];
+                $n1               = 0;
+                foreach ($this->serverIds as $item1) {
+                    $res['ServerIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->serverIps) {
-            $res['ServerIps'] = $this->serverIps;
+            if (\is_array($this->serverIps)) {
+                $res['ServerIps'] = [];
+                $n1               = 0;
+                foreach ($this->serverIps as $item1) {
+                    $res['ServerIps'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServerGroupServersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
         }
+
         if (isset($map['ServerIds'])) {
             if (!empty($map['ServerIds'])) {
-                $model->serverIds = $map['ServerIds'];
+                $model->serverIds = [];
+                $n1               = 0;
+                foreach ($map['ServerIds'] as $item1) {
+                    $model->serverIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ServerIps'])) {
             if (!empty($map['ServerIps'])) {
-                $model->serverIps = $map['ServerIps'];
+                $model->serverIps = [];
+                $n1               = 0;
+                foreach ($map['ServerIps'] as $item1) {
+                    $model->serverIps[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\AddServersToServerGroupRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\AddServersToServerGroupResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\AssociateAdditionalCertificatesWithListenerRequest;
@@ -106,12 +105,10 @@ use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateServerGroupAttributeRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateServerGroupAttributeResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateServerGroupServersAttributeRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\UpdateServerGroupServersAttributeResponse;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Nlb extends OpenApiClient
 {
@@ -136,47 +133,58 @@ class Nlb extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds backend servers to a specified server group.
-     *  *
-     * @param AddServersToServerGroupRequest $request AddServersToServerGroupRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Adds backend servers to a specified server group.
      *
-     * @return AddServersToServerGroupResponse AddServersToServerGroupResponse
+     * @param request - AddServersToServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddServersToServerGroupResponse
+     *
+     * @param AddServersToServerGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddServersToServerGroupResponse
      */
     public function addServersToServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $body['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$body['ServerGroupId'] = $request->serverGroupId;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->servers)) {
-            $bodyFlat['Servers'] = $request->servers;
+        if (null !== $request->servers) {
+            @$bodyFlat['Servers'] = $request->servers;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddServersToServerGroup',
@@ -189,16 +197,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddServersToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddServersToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddServersToServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds backend servers to a specified server group.
-     *  *
-     * @param AddServersToServerGroupRequest $request AddServersToServerGroupRequest
+     * Adds backend servers to a specified server group.
      *
-     * @return AddServersToServerGroupResponse AddServersToServerGroupResponse
+     * @param request - AddServersToServerGroupRequest
+     * @returns AddServersToServerGroupResponse
+     *
+     * @param AddServersToServerGroupRequest $request
+     *
+     * @return AddServersToServerGroupResponse
      */
     public function addServersToServerGroup($request)
     {
@@ -208,38 +222,48 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Associates additional certificates with a listener that uses SSL over TCP.
-     *  *
-     * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+     * Associates additional certificates with a listener that uses SSL over TCP.
+     *
+     * @remarks
+     * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
      * *   If the listener is in the **Associating** state, the additional certificates are being associated.
      * *   If the listener is in the **Associated** state, the additional certificates are associated.
-     *  *
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
+     * @param request - AssociateAdditionalCertificatesWithListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssociateAdditionalCertificatesWithListenerResponse
+     *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->additionalCertificateIds)) {
-            $body['AdditionalCertificateIds'] = $request->additionalCertificateIds;
+        if (null !== $request->additionalCertificateIds) {
+            @$body['AdditionalCertificateIds'] = $request->additionalCertificateIds;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $body['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$body['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AssociateAdditionalCertificatesWithListener',
@@ -252,20 +276,27 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates additional certificates with a listener that uses SSL over TCP.
-     *  *
-     * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+     * Associates additional certificates with a listener that uses SSL over TCP.
+     *
+     * @remarks
+     * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
      * *   If the listener is in the **Associating** state, the additional certificates are being associated.
      * *   If the listener is in the **Associated** state, the additional certificates are associated.
-     *  *
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
+     * @param request - AssociateAdditionalCertificatesWithListenerRequest
+     * @returns AssociateAdditionalCertificatesWithListenerResponse
+     *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request
+     *
+     * @return AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListener($request)
     {
@@ -275,34 +306,43 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary 绑定带宽包
-     *  *
-     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request AttachCommonBandwidthPackageToLoadBalancerRequest
-     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
+     * Associates an Internet Shared Bandwidth instance with a Network Load Balancer (NLB) instance.
      *
-     * @return AttachCommonBandwidthPackageToLoadBalancerResponse AttachCommonBandwidthPackageToLoadBalancerResponse
+     * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
+     *
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
      */
     public function attachCommonBandwidthPackageToLoadBalancerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bandwidthPackageId)) {
-            $body['BandwidthPackageId'] = $request->bandwidthPackageId;
+        if (null !== $request->bandwidthPackageId) {
+            @$body['BandwidthPackageId'] = $request->bandwidthPackageId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AttachCommonBandwidthPackageToLoadBalancer',
@@ -315,16 +355,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 绑定带宽包
-     *  *
-     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request AttachCommonBandwidthPackageToLoadBalancerRequest
+     * Associates an Internet Shared Bandwidth instance with a Network Load Balancer (NLB) instance.
      *
-     * @return AttachCommonBandwidthPackageToLoadBalancerResponse AttachCommonBandwidthPackageToLoadBalancerResponse
+     * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
+     * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
+     *
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
+     *
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
      */
     public function attachCommonBandwidthPackageToLoadBalancer($request)
     {
@@ -334,36 +380,46 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
-     *  *
-     * @description Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
-     *  *
-     * @param CancelShiftLoadBalancerZonesRequest $request CancelShiftLoadBalancerZonesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
      *
-     * @return CancelShiftLoadBalancerZonesResponse CancelShiftLoadBalancerZonesResponse
+     * @remarks
+     * Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+     *
+     * @param request - CancelShiftLoadBalancerZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelShiftLoadBalancerZonesResponse
+     *
+     * @param CancelShiftLoadBalancerZonesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CancelShiftLoadBalancerZonesResponse
      */
     public function cancelShiftLoadBalancerZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $body['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$body['ZoneMappings'] = $request->zoneMappings;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CancelShiftLoadBalancerZones',
@@ -376,18 +432,25 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelShiftLoadBalancerZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
-     *  *
-     * @description Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
-     *  *
-     * @param CancelShiftLoadBalancerZonesRequest $request CancelShiftLoadBalancerZonesRequest
+     * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
      *
-     * @return CancelShiftLoadBalancerZonesResponse CancelShiftLoadBalancerZonesResponse
+     * @remarks
+     * Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+     *
+     * @param request - CancelShiftLoadBalancerZonesRequest
+     * @returns CancelShiftLoadBalancerZonesResponse
+     *
+     * @param CancelShiftLoadBalancerZonesRequest $request
+     *
+     * @return CancelShiftLoadBalancerZonesResponse
      */
     public function cancelShiftLoadBalancerZones($request)
     {
@@ -397,93 +460,121 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param CreateListenerRequest $tmpReq  CreateListenerRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
      *
-     * @return CreateListenerResponse CreateListenerResponse
+     * @param tmpReq - CreateListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateListenerResponse
+     *
+     * @param CreateListenerRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateListenerResponse
      */
     public function createListenerWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateListenerShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->proxyProtocolV2Config)) {
-            $request->proxyProtocolV2ConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->proxyProtocolV2Config, 'ProxyProtocolV2Config', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->proxyProtocolV2Config) {
+            $request->proxyProtocolV2ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->proxyProtocolV2Config, 'ProxyProtocolV2Config', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->alpnEnabled)) {
-            $body['AlpnEnabled'] = $request->alpnEnabled;
+        if (null !== $request->alpnEnabled) {
+            @$body['AlpnEnabled'] = $request->alpnEnabled;
         }
-        if (!Utils::isUnset($request->alpnPolicy)) {
-            $body['AlpnPolicy'] = $request->alpnPolicy;
+
+        if (null !== $request->alpnPolicy) {
+            @$body['AlpnPolicy'] = $request->alpnPolicy;
         }
-        if (!Utils::isUnset($request->caCertificateIds)) {
-            $body['CaCertificateIds'] = $request->caCertificateIds;
+
+        if (null !== $request->caCertificateIds) {
+            @$body['CaCertificateIds'] = $request->caCertificateIds;
         }
-        if (!Utils::isUnset($request->caEnabled)) {
-            $body['CaEnabled'] = $request->caEnabled;
+
+        if (null !== $request->caEnabled) {
+            @$body['CaEnabled'] = $request->caEnabled;
         }
-        if (!Utils::isUnset($request->certificateIds)) {
-            $body['CertificateIds'] = $request->certificateIds;
+
+        if (null !== $request->certificateIds) {
+            @$body['CertificateIds'] = $request->certificateIds;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->cps)) {
-            $body['Cps'] = $request->cps;
+
+        if (null !== $request->cps) {
+            @$body['Cps'] = $request->cps;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endPort)) {
-            $body['EndPort'] = $request->endPort;
+
+        if (null !== $request->endPort) {
+            @$body['EndPort'] = $request->endPort;
         }
-        if (!Utils::isUnset($request->idleTimeout)) {
-            $body['IdleTimeout'] = $request->idleTimeout;
+
+        if (null !== $request->idleTimeout) {
+            @$body['IdleTimeout'] = $request->idleTimeout;
         }
-        if (!Utils::isUnset($request->listenerDescription)) {
-            $body['ListenerDescription'] = $request->listenerDescription;
+
+        if (null !== $request->listenerDescription) {
+            @$body['ListenerDescription'] = $request->listenerDescription;
         }
-        if (!Utils::isUnset($request->listenerPort)) {
-            $body['ListenerPort'] = $request->listenerPort;
+
+        if (null !== $request->listenerPort) {
+            @$body['ListenerPort'] = $request->listenerPort;
         }
-        if (!Utils::isUnset($request->listenerProtocol)) {
-            $body['ListenerProtocol'] = $request->listenerProtocol;
+
+        if (null !== $request->listenerProtocol) {
+            @$body['ListenerProtocol'] = $request->listenerProtocol;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->mss)) {
-            $body['Mss'] = $request->mss;
+
+        if (null !== $request->mss) {
+            @$body['Mss'] = $request->mss;
         }
-        if (!Utils::isUnset($request->proxyProtocolEnabled)) {
-            $body['ProxyProtocolEnabled'] = $request->proxyProtocolEnabled;
+
+        if (null !== $request->proxyProtocolEnabled) {
+            @$body['ProxyProtocolEnabled'] = $request->proxyProtocolEnabled;
         }
-        if (!Utils::isUnset($request->proxyProtocolV2ConfigShrink)) {
-            $body['ProxyProtocolV2Config'] = $request->proxyProtocolV2ConfigShrink;
+
+        if (null !== $request->proxyProtocolV2ConfigShrink) {
+            @$body['ProxyProtocolV2Config'] = $request->proxyProtocolV2ConfigShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->secSensorEnabled)) {
-            $body['SecSensorEnabled'] = $request->secSensorEnabled;
+
+        if (null !== $request->secSensorEnabled) {
+            @$body['SecSensorEnabled'] = $request->secSensorEnabled;
         }
-        if (!Utils::isUnset($request->securityPolicyId)) {
-            $body['SecurityPolicyId'] = $request->securityPolicyId;
+
+        if (null !== $request->securityPolicyId) {
+            @$body['SecurityPolicyId'] = $request->securityPolicyId;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $body['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$body['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->startPort)) {
-            $body['StartPort'] = $request->startPort;
+
+        if (null !== $request->startPort) {
+            @$body['StartPort'] = $request->startPort;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateListener',
@@ -496,16 +587,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param CreateListenerRequest $request CreateListenerRequest
+     * Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
      *
-     * @return CreateListenerResponse CreateListenerResponse
+     * @param request - CreateListenerRequest
+     * @returns CreateListenerResponse
+     *
+     * @param CreateListenerRequest $request
+     *
+     * @return CreateListenerResponse
      */
     public function createListener($request)
     {
@@ -515,71 +612,92 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Network Load Balancer (NLB) instance in a specified region.
-     *  *
-     * @description *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
+     * Creates a Network Load Balancer (NLB) instance in a specified region.
+     *
+     * @remarks
+     *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
      * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
      *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
      *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
-     *  *
-     * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
+     * @param request - CreateLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLoadBalancerResponse
+     *
+     * @param CreateLoadBalancerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateLoadBalancerResponse
      */
     public function createLoadBalancerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $body['AddressIpVersion'] = $request->addressIpVersion;
+        if (null !== $request->addressIpVersion) {
+            @$body['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->addressType)) {
-            $body['AddressType'] = $request->addressType;
+
+        if (null !== $request->addressType) {
+            @$body['AddressType'] = $request->addressType;
         }
-        if (!Utils::isUnset($request->bandwidthPackageId)) {
-            $body['BandwidthPackageId'] = $request->bandwidthPackageId;
+
+        if (null !== $request->bandwidthPackageId) {
+            @$body['BandwidthPackageId'] = $request->bandwidthPackageId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->deletionProtectionConfig)) {
-            $bodyFlat['DeletionProtectionConfig'] = $request->deletionProtectionConfig;
+        if (null !== $request->deletionProtectionConfig) {
+            @$bodyFlat['DeletionProtectionConfig'] = $request->deletionProtectionConfig;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerBillingConfig)) {
-            $bodyFlat['LoadBalancerBillingConfig'] = $request->loadBalancerBillingConfig;
+
+        if (null !== $request->loadBalancerBillingConfig) {
+            @$bodyFlat['LoadBalancerBillingConfig'] = $request->loadBalancerBillingConfig;
         }
-        if (!Utils::isUnset($request->loadBalancerName)) {
-            $body['LoadBalancerName'] = $request->loadBalancerName;
+
+        if (null !== $request->loadBalancerName) {
+            @$body['LoadBalancerName'] = $request->loadBalancerName;
         }
-        if (!Utils::isUnset($request->loadBalancerType)) {
-            $body['LoadBalancerType'] = $request->loadBalancerType;
+
+        if (null !== $request->loadBalancerType) {
+            @$body['LoadBalancerType'] = $request->loadBalancerType;
         }
-        if (!Utils::isUnset($request->modificationProtectionConfig)) {
-            $bodyFlat['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
+
+        if (null !== $request->modificationProtectionConfig) {
+            @$bodyFlat['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $bodyFlat['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$bodyFlat['ZoneMappings'] = $request->zoneMappings;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateLoadBalancer',
@@ -592,21 +710,28 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Network Load Balancer (NLB) instance in a specified region.
-     *  *
-     * @description *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
+     * Creates a Network Load Balancer (NLB) instance in a specified region.
+     *
+     * @remarks
+     *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
      * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
      *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
      *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
-     *  *
-     * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      *
-     * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
+     * @param request - CreateLoadBalancerRequest
+     * @returns CreateLoadBalancerResponse
+     *
+     * @param CreateLoadBalancerRequest $request
+     *
+     * @return CreateLoadBalancerResponse
      */
     public function createLoadBalancer($request)
     {
@@ -616,43 +741,55 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom security policy for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param CreateSecurityPolicyRequest $request CreateSecurityPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a custom security policy for a TCP/SSL listener.
      *
-     * @return CreateSecurityPolicyResponse CreateSecurityPolicyResponse
+     * @param request - CreateSecurityPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSecurityPolicyResponse
+     *
+     * @param CreateSecurityPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSecurityPolicyResponse
      */
     public function createSecurityPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ciphers)) {
-            $body['Ciphers'] = $request->ciphers;
+        if (null !== $request->ciphers) {
+            @$body['Ciphers'] = $request->ciphers;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityPolicyName)) {
-            $body['SecurityPolicyName'] = $request->securityPolicyName;
+
+        if (null !== $request->securityPolicyName) {
+            @$body['SecurityPolicyName'] = $request->securityPolicyName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->tlsVersions)) {
-            $body['TlsVersions'] = $request->tlsVersions;
+
+        if (null !== $request->tlsVersions) {
+            @$body['TlsVersions'] = $request->tlsVersions;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateSecurityPolicy',
@@ -665,16 +802,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom security policy for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param CreateSecurityPolicyRequest $request CreateSecurityPolicyRequest
+     * Creates a custom security policy for a TCP/SSL listener.
      *
-     * @return CreateSecurityPolicyResponse CreateSecurityPolicyResponse
+     * @param request - CreateSecurityPolicyRequest
+     * @returns CreateSecurityPolicyResponse
+     *
+     * @param CreateSecurityPolicyRequest $request
+     *
+     * @return CreateSecurityPolicyResponse
      */
     public function createSecurityPolicy($request)
     {
@@ -684,75 +827,97 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a server group in a region.
-     *  *
-     * @description *   **protocol** specifies the protocol used to forward requests to the backend servers.
+     * Creates a server group in a region.
+     *
+     * @remarks
+     *   **protocol** specifies the protocol used to forward requests to the backend servers.
      * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
      * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
      *     *   If the task is in the **Succeeded** status, the server group is created.
      *     *   If the task is in the **Processing** status, the server group is being created.
-     *  *
-     * @param CreateServerGroupRequest $request CreateServerGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServerGroupResponse CreateServerGroupResponse
+     * @param request - CreateServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServerGroupResponse
+     *
+     * @param CreateServerGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateServerGroupResponse
      */
     public function createServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->addressIPVersion)) {
-            $body['AddressIPVersion'] = $request->addressIPVersion;
+        if (null !== $request->addressIPVersion) {
+            @$body['AddressIPVersion'] = $request->addressIPVersion;
         }
-        if (!Utils::isUnset($request->anyPortEnabled)) {
-            $body['AnyPortEnabled'] = $request->anyPortEnabled;
+
+        if (null !== $request->anyPortEnabled) {
+            @$body['AnyPortEnabled'] = $request->anyPortEnabled;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionDrainEnabled)) {
-            $body['ConnectionDrainEnabled'] = $request->connectionDrainEnabled;
+
+        if (null !== $request->connectionDrainEnabled) {
+            @$body['ConnectionDrainEnabled'] = $request->connectionDrainEnabled;
         }
-        if (!Utils::isUnset($request->connectionDrainTimeout)) {
-            $body['ConnectionDrainTimeout'] = $request->connectionDrainTimeout;
+
+        if (null !== $request->connectionDrainTimeout) {
+            @$body['ConnectionDrainTimeout'] = $request->connectionDrainTimeout;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->healthCheckConfig)) {
-            $bodyFlat['HealthCheckConfig'] = $request->healthCheckConfig;
+        if (null !== $request->healthCheckConfig) {
+            @$bodyFlat['HealthCheckConfig'] = $request->healthCheckConfig;
         }
-        if (!Utils::isUnset($request->preserveClientIpEnabled)) {
-            $body['PreserveClientIpEnabled'] = $request->preserveClientIpEnabled;
+
+        if (null !== $request->preserveClientIpEnabled) {
+            @$body['PreserveClientIpEnabled'] = $request->preserveClientIpEnabled;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $body['Protocol'] = $request->protocol;
+
+        if (null !== $request->protocol) {
+            @$body['Protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->scheduler)) {
-            $body['Scheduler'] = $request->scheduler;
+
+        if (null !== $request->scheduler) {
+            @$body['Scheduler'] = $request->scheduler;
         }
-        if (!Utils::isUnset($request->serverGroupName)) {
-            $body['ServerGroupName'] = $request->serverGroupName;
+
+        if (null !== $request->serverGroupName) {
+            @$body['ServerGroupName'] = $request->serverGroupName;
         }
-        if (!Utils::isUnset($request->serverGroupType)) {
-            $body['ServerGroupType'] = $request->serverGroupType;
+
+        if (null !== $request->serverGroupType) {
+            @$body['ServerGroupType'] = $request->serverGroupType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateServerGroup',
@@ -765,22 +930,29 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a server group in a region.
-     *  *
-     * @description *   **protocol** specifies the protocol used to forward requests to the backend servers.
+     * Creates a server group in a region.
+     *
+     * @remarks
+     *   **protocol** specifies the protocol used to forward requests to the backend servers.
      * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
      * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
      *     *   If the task is in the **Succeeded** status, the server group is created.
      *     *   If the task is in the **Processing** status, the server group is being created.
-     *  *
-     * @param CreateServerGroupRequest $request CreateServerGroupRequest
      *
-     * @return CreateServerGroupResponse CreateServerGroupResponse
+     * @param request - CreateServerGroupRequest
+     * @returns CreateServerGroupResponse
+     *
+     * @param CreateServerGroupRequest $request
+     *
+     * @return CreateServerGroupResponse
      */
     public function createServerGroup($request)
     {
@@ -790,31 +962,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary 删除监听
-     *  *
-     * @param DeleteListenerRequest $request DeleteListenerRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a Network Load Balancer (NLB) listener.
      *
-     * @return DeleteListenerResponse DeleteListenerResponse
+     * @param request - DeleteListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteListenerResponse
+     *
+     * @param DeleteListenerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteListenerResponse
      */
     public function deleteListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $body['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$body['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteListener',
@@ -827,16 +1007,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除监听
-     *  *
-     * @param DeleteListenerRequest $request DeleteListenerRequest
+     * Deletes a Network Load Balancer (NLB) listener.
      *
-     * @return DeleteListenerResponse DeleteListenerResponse
+     * @param request - DeleteListenerRequest
+     * @returns DeleteListenerResponse
+     *
+     * @param DeleteListenerRequest $request
+     *
+     * @return DeleteListenerResponse
      */
     public function deleteListener($request)
     {
@@ -846,31 +1032,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary 删除负载均衡
-     *  *
-     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes a Network Load Balancer (NLB) instance.
      *
-     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
+     * @param request - DeleteLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLoadBalancerResponse
+     *
+     * @param DeleteLoadBalancerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteLoadBalancer',
@@ -883,16 +1077,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除负载均衡
-     *  *
-     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
+     * Deletes a Network Load Balancer (NLB) instance.
      *
-     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
+     * @param request - DeleteLoadBalancerRequest
+     * @returns DeleteLoadBalancerResponse
+     *
+     * @param DeleteLoadBalancerRequest $request
+     *
+     * @return DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancer($request)
     {
@@ -902,31 +1102,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary 删除安全策略
-     *  *
-     * @param DeleteSecurityPolicyRequest $request DeleteSecurityPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom TLS security policy from a Network Load Balancer (NLB) instance.
      *
-     * @return DeleteSecurityPolicyResponse DeleteSecurityPolicyResponse
+     * @param request - DeleteSecurityPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSecurityPolicyResponse
+     *
+     * @param DeleteSecurityPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteSecurityPolicyResponse
      */
     public function deleteSecurityPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityPolicyId)) {
-            $body['SecurityPolicyId'] = $request->securityPolicyId;
+
+        if (null !== $request->securityPolicyId) {
+            @$body['SecurityPolicyId'] = $request->securityPolicyId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteSecurityPolicy',
@@ -939,16 +1147,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除安全策略
-     *  *
-     * @param DeleteSecurityPolicyRequest $request DeleteSecurityPolicyRequest
+     * Deletes a custom TLS security policy from a Network Load Balancer (NLB) instance.
      *
-     * @return DeleteSecurityPolicyResponse DeleteSecurityPolicyResponse
+     * @param request - DeleteSecurityPolicyRequest
+     * @returns DeleteSecurityPolicyResponse
+     *
+     * @param DeleteSecurityPolicyRequest $request
+     *
+     * @return DeleteSecurityPolicyResponse
      */
     public function deleteSecurityPolicy($request)
     {
@@ -958,33 +1172,42 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary DeleteServerGroup
-     *  *
-     * @description You can delete server groups that are not associated with listeners.
-     *  *
-     * @param DeleteServerGroupRequest $request DeleteServerGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a Network Load Balancer (NLB) server group.
      *
-     * @return DeleteServerGroupResponse DeleteServerGroupResponse
+     * @remarks
+     * You can delete server groups that are not associated with listeners.
+     *
+     * @param request - DeleteServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteServerGroupResponse
+     *
+     * @param DeleteServerGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteServerGroupResponse
      */
     public function deleteServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $body['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$body['ServerGroupId'] = $request->serverGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteServerGroup',
@@ -997,18 +1220,25 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary DeleteServerGroup
-     *  *
-     * @description You can delete server groups that are not associated with listeners.
-     *  *
-     * @param DeleteServerGroupRequest $request DeleteServerGroupRequest
+     * Deletes a Network Load Balancer (NLB) server group.
      *
-     * @return DeleteServerGroupResponse DeleteServerGroupResponse
+     * @remarks
+     * You can delete server groups that are not associated with listeners.
+     *
+     * @param request - DeleteServerGroupRequest
+     * @returns DeleteServerGroupResponse
+     *
+     * @param DeleteServerGroupRequest $request
+     *
+     * @return DeleteServerGroupResponse
      */
     public function deleteServerGroup($request)
     {
@@ -1018,22 +1248,27 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary 查询秒级监控存储配置
-     *  *
-     * @param DescribeHdMonitorRegionConfigRequest $request DescribeHdMonitorRegionConfigRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 查询秒级监控存储配置.
      *
-     * @return DescribeHdMonitorRegionConfigResponse DescribeHdMonitorRegionConfigResponse
+     * @param request - DescribeHdMonitorRegionConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHdMonitorRegionConfigResponse
+     *
+     * @param DescribeHdMonitorRegionConfigRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHdMonitorRegionConfigResponse
      */
     public function describeHdMonitorRegionConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHdMonitorRegionConfig',
@@ -1046,16 +1281,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHdMonitorRegionConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询秒级监控存储配置
-     *  *
-     * @param DescribeHdMonitorRegionConfigRequest $request DescribeHdMonitorRegionConfigRequest
+     * 查询秒级监控存储配置.
      *
-     * @return DescribeHdMonitorRegionConfigResponse DescribeHdMonitorRegionConfigResponse
+     * @param request - DescribeHdMonitorRegionConfigRequest
+     * @returns DescribeHdMonitorRegionConfigResponse
+     *
+     * @param DescribeHdMonitorRegionConfigRequest $request
+     *
+     * @return DescribeHdMonitorRegionConfigResponse
      */
     public function describeHdMonitorRegionConfig($request)
     {
@@ -1065,30 +1306,37 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries regions that support Network Load Balancer (NLB) instances.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries regions that support Network Load Balancer (NLB) instances.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $query['ServiceCode'] = $request->serviceCode;
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -1101,16 +1349,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries regions that support Network Load Balancer (NLB) instances.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries regions that support Network Load Balancer (NLB) instances.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1120,31 +1374,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries zones in a region that supports Network Load Balancer (NLB).
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the zones of a region in which a Network Load Balancer (NLB) instance is deployed.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $query['ServiceCode'] = $request->serviceCode;
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeZones',
@@ -1157,16 +1419,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries zones in a region that supports Network Load Balancer (NLB).
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * Queries the zones of a region in which a Network Load Balancer (NLB) instance is deployed.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -1176,34 +1444,43 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary 解绑带宽包
-     *  *
-     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request DetachCommonBandwidthPackageFromLoadBalancerRequest
-     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     * Disassociates a Network Load Balancer (NLB) instance from an Internet Shared Bandwidth instance.
      *
-     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse DetachCommonBandwidthPackageFromLoadBalancerResponse
+     * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
+     *
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
      */
     public function detachCommonBandwidthPackageFromLoadBalancerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bandwidthPackageId)) {
-            $body['BandwidthPackageId'] = $request->bandwidthPackageId;
+        if (null !== $request->bandwidthPackageId) {
+            @$body['BandwidthPackageId'] = $request->bandwidthPackageId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetachCommonBandwidthPackageFromLoadBalancer',
@@ -1216,16 +1493,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 解绑带宽包
-     *  *
-     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request DetachCommonBandwidthPackageFromLoadBalancerRequest
+     * Disassociates a Network Load Balancer (NLB) instance from an Internet Shared Bandwidth instance.
      *
-     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse DetachCommonBandwidthPackageFromLoadBalancerResponse
+     * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
+     * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
+     *
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
+     *
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
      */
     public function detachCommonBandwidthPackageFromLoadBalancer($request)
     {
@@ -1235,31 +1518,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Changes the network type of an IPv6 Network Load Balancer (NLB) instance from Internet-facing to internal-facing.
-     *  *
-     * @param DisableLoadBalancerIpv6InternetRequest $request DisableLoadBalancerIpv6InternetRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Changes the public IPv6 address of a dual-stack Network Load Balancer (NLB) instance to a private IPv6 address.
      *
-     * @return DisableLoadBalancerIpv6InternetResponse DisableLoadBalancerIpv6InternetResponse
+     * @param request - DisableLoadBalancerIpv6InternetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableLoadBalancerIpv6InternetResponse
+     *
+     * @param DisableLoadBalancerIpv6InternetRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DisableLoadBalancerIpv6InternetResponse
      */
     public function disableLoadBalancerIpv6InternetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DisableLoadBalancerIpv6Internet',
@@ -1272,16 +1563,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableLoadBalancerIpv6InternetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the network type of an IPv6 Network Load Balancer (NLB) instance from Internet-facing to internal-facing.
-     *  *
-     * @param DisableLoadBalancerIpv6InternetRequest $request DisableLoadBalancerIpv6InternetRequest
+     * Changes the public IPv6 address of a dual-stack Network Load Balancer (NLB) instance to a private IPv6 address.
      *
-     * @return DisableLoadBalancerIpv6InternetResponse DisableLoadBalancerIpv6InternetResponse
+     * @param request - DisableLoadBalancerIpv6InternetRequest
+     * @returns DisableLoadBalancerIpv6InternetResponse
+     *
+     * @param DisableLoadBalancerIpv6InternetRequest $request
+     *
+     * @return DisableLoadBalancerIpv6InternetResponse
      */
     public function disableLoadBalancerIpv6Internet($request)
     {
@@ -1291,38 +1588,48 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates additional certificates from a listener that uses SSL over TCP.
-     *  *
-     * @description **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+     * Disassociates additional certificates from a listener that uses SSL over TCP.
+     *
+     * @remarks
+     * *DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
      * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
      * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-     *  *
-     * @param DisassociateAdditionalCertificatesWithListenerRequest $request DisassociateAdditionalCertificatesWithListenerRequest
-     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisassociateAdditionalCertificatesWithListenerResponse DisassociateAdditionalCertificatesWithListenerResponse
+     * @param request - DisassociateAdditionalCertificatesWithListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisassociateAdditionalCertificatesWithListenerResponse
+     *
+     * @param DisassociateAdditionalCertificatesWithListenerRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return DisassociateAdditionalCertificatesWithListenerResponse
      */
     public function disassociateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->additionalCertificateIds)) {
-            $body['AdditionalCertificateIds'] = $request->additionalCertificateIds;
+        if (null !== $request->additionalCertificateIds) {
+            @$body['AdditionalCertificateIds'] = $request->additionalCertificateIds;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $body['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$body['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DisassociateAdditionalCertificatesWithListener',
@@ -1335,20 +1642,27 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisassociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisassociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisassociateAdditionalCertificatesWithListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates additional certificates from a listener that uses SSL over TCP.
-     *  *
-     * @description **DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
+     * Disassociates additional certificates from a listener that uses SSL over TCP.
+     *
+     * @remarks
+     * *DisassociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
      * *   If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated.
      * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-     *  *
-     * @param DisassociateAdditionalCertificatesWithListenerRequest $request DisassociateAdditionalCertificatesWithListenerRequest
      *
-     * @return DisassociateAdditionalCertificatesWithListenerResponse DisassociateAdditionalCertificatesWithListenerResponse
+     * @param request - DisassociateAdditionalCertificatesWithListenerRequest
+     * @returns DisassociateAdditionalCertificatesWithListenerResponse
+     *
+     * @param DisassociateAdditionalCertificatesWithListenerRequest $request
+     *
+     * @return DisassociateAdditionalCertificatesWithListenerResponse
      */
     public function disassociateAdditionalCertificatesWithListener($request)
     {
@@ -1358,31 +1672,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
-     *  *
-     * @param EnableLoadBalancerIpv6InternetRequest $request EnableLoadBalancerIpv6InternetRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
      *
-     * @return EnableLoadBalancerIpv6InternetResponse EnableLoadBalancerIpv6InternetResponse
+     * @param request - EnableLoadBalancerIpv6InternetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableLoadBalancerIpv6InternetResponse
+     *
+     * @param EnableLoadBalancerIpv6InternetRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return EnableLoadBalancerIpv6InternetResponse
      */
     public function enableLoadBalancerIpv6InternetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EnableLoadBalancerIpv6Internet',
@@ -1395,16 +1717,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableLoadBalancerIpv6InternetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
-     *  *
-     * @param EnableLoadBalancerIpv6InternetRequest $request EnableLoadBalancerIpv6InternetRequest
+     * Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
      *
-     * @return EnableLoadBalancerIpv6InternetResponse EnableLoadBalancerIpv6InternetResponse
+     * @param request - EnableLoadBalancerIpv6InternetRequest
+     * @returns EnableLoadBalancerIpv6InternetResponse
+     *
+     * @param EnableLoadBalancerIpv6InternetRequest $request
+     *
+     * @return EnableLoadBalancerIpv6InternetResponse
      */
     public function enableLoadBalancerIpv6Internet($request)
     {
@@ -1414,25 +1742,31 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作流状态
-     *  *
-     * @param GetJobStatusRequest $request GetJobStatusRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the result of an asynchronous operation performed on a Network Load Balancer (NLB) instance.
      *
-     * @return GetJobStatusResponse GetJobStatusResponse
+     * @param request - GetJobStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetJobStatusResponse
+     *
+     * @param GetJobStatusRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetJobStatusResponse
      */
     public function getJobStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetJobStatus',
@@ -1445,16 +1779,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作流状态
-     *  *
-     * @param GetJobStatusRequest $request GetJobStatusRequest
+     * Queries the result of an asynchronous operation performed on a Network Load Balancer (NLB) instance.
      *
-     * @return GetJobStatusResponse GetJobStatusResponse
+     * @param request - GetJobStatusRequest
+     * @returns GetJobStatusResponse
+     *
+     * @param GetJobStatusRequest $request
+     *
+     * @return GetJobStatusResponse
      */
     public function getJobStatus($request)
     {
@@ -1464,31 +1804,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Network Load Balancer (NLB) listener.
-     *  *
-     * @param GetListenerAttributeRequest $request GetListenerAttributeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a Network Load Balancer (NLB) listener.
      *
-     * @return GetListenerAttributeResponse GetListenerAttributeResponse
+     * @param request - GetListenerAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetListenerAttributeResponse
+     *
+     * @param GetListenerAttributeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetListenerAttributeResponse
      */
     public function getListenerAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetListenerAttribute',
@@ -1501,16 +1849,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetListenerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a Network Load Balancer (NLB) listener.
-     *  *
-     * @param GetListenerAttributeRequest $request GetListenerAttributeRequest
+     * Queries the details of a Network Load Balancer (NLB) listener.
      *
-     * @return GetListenerAttributeResponse GetListenerAttributeResponse
+     * @param request - GetListenerAttributeRequest
+     * @returns GetListenerAttributeResponse
+     *
+     * @param GetListenerAttributeRequest $request
+     *
+     * @return GetListenerAttributeResponse
      */
     public function getListenerAttribute($request)
     {
@@ -1520,31 +1874,31 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the health check status of a Network Load Balancer (NLB) instance.
-     *  *
-     * @param GetListenerHealthStatusRequest $request GetListenerHealthStatusRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the health check status of a Network Load Balancer (NLB) listener.
      *
-     * @return GetListenerHealthStatusResponse GetListenerHealthStatusResponse
+     * @param request - GetListenerHealthStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetListenerHealthStatusResponse
+     *
+     * @param GetListenerHealthStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetListenerHealthStatusResponse
      */
     public function getListenerHealthStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetListenerHealthStatus',
@@ -1557,16 +1911,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetListenerHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetListenerHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetListenerHealthStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the health check status of a Network Load Balancer (NLB) instance.
-     *  *
-     * @param GetListenerHealthStatusRequest $request GetListenerHealthStatusRequest
+     * Queries the health check status of a Network Load Balancer (NLB) listener.
      *
-     * @return GetListenerHealthStatusResponse GetListenerHealthStatusResponse
+     * @param request - GetListenerHealthStatusRequest
+     * @returns GetListenerHealthStatusResponse
+     *
+     * @param GetListenerHealthStatusRequest $request
+     *
+     * @return GetListenerHealthStatusResponse
      */
     public function getListenerHealthStatus($request)
     {
@@ -1576,31 +1936,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a Network Load Balancer (NLB) instance.
-     *  *
-     * @param GetLoadBalancerAttributeRequest $request GetLoadBalancerAttributeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the details about a Network Load Balancer (NLB) instance.
      *
-     * @return GetLoadBalancerAttributeResponse GetLoadBalancerAttributeResponse
+     * @param request - GetLoadBalancerAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLoadBalancerAttributeResponse
+     *
+     * @param GetLoadBalancerAttributeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetLoadBalancerAttributeResponse
      */
     public function getLoadBalancerAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLoadBalancerAttribute',
@@ -1613,16 +1981,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLoadBalancerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about a Network Load Balancer (NLB) instance.
-     *  *
-     * @param GetLoadBalancerAttributeRequest $request GetLoadBalancerAttributeRequest
+     * Queries the details about a Network Load Balancer (NLB) instance.
      *
-     * @return GetLoadBalancerAttributeResponse GetLoadBalancerAttributeResponse
+     * @param request - GetLoadBalancerAttributeRequest
+     * @returns GetLoadBalancerAttributeResponse
+     *
+     * @param GetLoadBalancerAttributeRequest $request
+     *
+     * @return GetLoadBalancerAttributeResponse
      */
     public function getLoadBalancerAttribute($request)
     {
@@ -1632,34 +2006,47 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param ListListenerCertificatesRequest $request ListListenerCertificatesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the server certificate of a TCP/SSL listener.
      *
-     * @return ListListenerCertificatesResponse ListListenerCertificatesResponse
+     * @param request - ListListenerCertificatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListListenerCertificatesResponse
+     *
+     * @param ListListenerCertificatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListListenerCertificatesResponse
      */
     public function listListenerCertificatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->certType)) {
-            $body['CertType'] = $request->certType;
+        if (null !== $request->certType) {
+            @$body['CertType'] = $request->certType;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $body['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->certificateIds) {
+            @$body['CertificateIds'] = $request->certificateIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->listenerId) {
+            @$body['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListListenerCertificates',
@@ -1672,16 +2059,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListListenerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListListenerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListListenerCertificatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param ListListenerCertificatesRequest $request ListListenerCertificatesRequest
+     * Queries the server certificate of a TCP/SSL listener.
      *
-     * @return ListListenerCertificatesResponse ListListenerCertificatesResponse
+     * @param request - ListListenerCertificatesRequest
+     * @returns ListListenerCertificatesResponse
+     *
+     * @param ListListenerCertificatesRequest $request
+     *
+     * @return ListListenerCertificatesResponse
      */
     public function listListenerCertificates($request)
     {
@@ -1691,43 +2084,55 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries listeners added to a Network Load Balancer (NLB) instance.
-     *  *
-     * @param ListListenersRequest $request ListListenersRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries listeners added to a Network Load Balancer (NLB) instance.
      *
-     * @return ListListenersResponse ListListenersResponse
+     * @param request - ListListenersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListListenersResponse
+     *
+     * @param ListListenersRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListListenersResponse
      */
     public function listListenersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listenerIds)) {
-            $query['ListenerIds'] = $request->listenerIds;
+        if (null !== $request->listenerIds) {
+            @$query['ListenerIds'] = $request->listenerIds;
         }
-        if (!Utils::isUnset($request->listenerProtocol)) {
-            $query['ListenerProtocol'] = $request->listenerProtocol;
+
+        if (null !== $request->listenerProtocol) {
+            @$query['ListenerProtocol'] = $request->listenerProtocol;
         }
-        if (!Utils::isUnset($request->loadBalancerIds)) {
-            $query['LoadBalancerIds'] = $request->loadBalancerIds;
+
+        if (null !== $request->loadBalancerIds) {
+            @$query['LoadBalancerIds'] = $request->loadBalancerIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->secSensorEnabled)) {
-            $query['SecSensorEnabled'] = $request->secSensorEnabled;
+
+        if (null !== $request->secSensorEnabled) {
+            @$query['SecSensorEnabled'] = $request->secSensorEnabled;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListListeners',
@@ -1740,16 +2145,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListListenersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListListenersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListListenersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries listeners added to a Network Load Balancer (NLB) instance.
-     *  *
-     * @param ListListenersRequest $request ListListenersRequest
+     * Queries listeners added to a Network Load Balancer (NLB) instance.
      *
-     * @return ListListenersResponse ListListenersResponse
+     * @param request - ListListenersRequest
+     * @returns ListListenersResponse
+     *
+     * @param ListListenersRequest $request
+     *
+     * @return ListListenersResponse
      */
     public function listListeners($request)
     {
@@ -1759,67 +2170,87 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries Network Load Balancer (NLB) instances in a region based on specified conditions.
-     *  *
-     * @param ListLoadBalancersRequest $request ListLoadBalancersRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the basic information about a Network Load Balancer (NLB) instance.
      *
-     * @return ListLoadBalancersResponse ListLoadBalancersResponse
+     * @param request - ListLoadBalancersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLoadBalancersResponse
+     *
+     * @param ListLoadBalancersRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListLoadBalancersResponse
      */
     public function listLoadBalancersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $query['AddressIpVersion'] = $request->addressIpVersion;
+        if (null !== $request->addressIpVersion) {
+            @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->addressType)) {
-            $query['AddressType'] = $request->addressType;
+
+        if (null !== $request->addressType) {
+            @$query['AddressType'] = $request->addressType;
         }
-        if (!Utils::isUnset($request->DNSName)) {
-            $query['DNSName'] = $request->DNSName;
+
+        if (null !== $request->DNSName) {
+            @$query['DNSName'] = $request->DNSName;
         }
-        if (!Utils::isUnset($request->ipv6AddressType)) {
-            $query['Ipv6AddressType'] = $request->ipv6AddressType;
+
+        if (null !== $request->ipv6AddressType) {
+            @$query['Ipv6AddressType'] = $request->ipv6AddressType;
         }
-        if (!Utils::isUnset($request->loadBalancerBusinessStatus)) {
-            $query['LoadBalancerBusinessStatus'] = $request->loadBalancerBusinessStatus;
+
+        if (null !== $request->loadBalancerBusinessStatus) {
+            @$query['LoadBalancerBusinessStatus'] = $request->loadBalancerBusinessStatus;
         }
-        if (!Utils::isUnset($request->loadBalancerIds)) {
-            $query['LoadBalancerIds'] = $request->loadBalancerIds;
+
+        if (null !== $request->loadBalancerIds) {
+            @$query['LoadBalancerIds'] = $request->loadBalancerIds;
         }
-        if (!Utils::isUnset($request->loadBalancerNames)) {
-            $query['LoadBalancerNames'] = $request->loadBalancerNames;
+
+        if (null !== $request->loadBalancerNames) {
+            @$query['LoadBalancerNames'] = $request->loadBalancerNames;
         }
-        if (!Utils::isUnset($request->loadBalancerStatus)) {
-            $query['LoadBalancerStatus'] = $request->loadBalancerStatus;
+
+        if (null !== $request->loadBalancerStatus) {
+            @$query['LoadBalancerStatus'] = $request->loadBalancerStatus;
         }
-        if (!Utils::isUnset($request->loadBalancerType)) {
-            $query['LoadBalancerType'] = $request->loadBalancerType;
+
+        if (null !== $request->loadBalancerType) {
+            @$query['LoadBalancerType'] = $request->loadBalancerType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpcIds)) {
-            $query['VpcIds'] = $request->vpcIds;
+
+        if (null !== $request->vpcIds) {
+            @$query['VpcIds'] = $request->vpcIds;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLoadBalancers',
@@ -1832,16 +2263,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLoadBalancersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Network Load Balancer (NLB) instances in a region based on specified conditions.
-     *  *
-     * @param ListLoadBalancersRequest $request ListLoadBalancersRequest
+     * Queries the basic information about a Network Load Balancer (NLB) instance.
      *
-     * @return ListLoadBalancersResponse ListLoadBalancersResponse
+     * @param request - ListLoadBalancersRequest
+     * @returns ListLoadBalancersResponse
+     *
+     * @param ListLoadBalancersRequest $request
+     *
+     * @return ListLoadBalancersResponse
      */
     public function listLoadBalancers($request)
     {
@@ -1851,42 +2288,53 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the TLS security policies set for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param ListSecurityPolicyRequest $request ListSecurityPolicyRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the TLS security policies set for a Network Load Balancer (NLB) instance.
      *
-     * @return ListSecurityPolicyResponse ListSecurityPolicyResponse
+     * @param request - ListSecurityPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSecurityPolicyResponse
+     *
+     * @param ListSecurityPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListSecurityPolicyResponse
      */
     public function listSecurityPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityPolicyIds)) {
-            $body['SecurityPolicyIds'] = $request->securityPolicyIds;
+
+        if (null !== $request->securityPolicyIds) {
+            @$body['SecurityPolicyIds'] = $request->securityPolicyIds;
         }
-        if (!Utils::isUnset($request->securityPolicyNames)) {
-            $body['SecurityPolicyNames'] = $request->securityPolicyNames;
+
+        if (null !== $request->securityPolicyNames) {
+            @$body['SecurityPolicyNames'] = $request->securityPolicyNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListSecurityPolicy',
@@ -1899,16 +2347,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the TLS security policies set for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param ListSecurityPolicyRequest $request ListSecurityPolicyRequest
+     * Queries the TLS security policies set for a Network Load Balancer (NLB) instance.
      *
-     * @return ListSecurityPolicyResponse ListSecurityPolicyResponse
+     * @param request - ListSecurityPolicyRequest
+     * @returns ListSecurityPolicyResponse
+     *
+     * @param ListSecurityPolicyRequest $request
+     *
+     * @return ListSecurityPolicyResponse
      */
     public function listSecurityPolicy($request)
     {
@@ -1918,37 +2372,47 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the backend servers in a specified server group.
-     *  *
-     * @param ListServerGroupServersRequest $request ListServerGroupServersRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries servers in a server group of a Network Load Balancer (NLB) instance.
      *
-     * @return ListServerGroupServersResponse ListServerGroupServersResponse
+     * @param request - ListServerGroupServersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServerGroupServersResponse
+     *
+     * @param ListServerGroupServersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListServerGroupServersResponse
      */
     public function listServerGroupServersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $body['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$body['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->serverIds)) {
-            $body['ServerIds'] = $request->serverIds;
+
+        if (null !== $request->serverIds) {
+            @$body['ServerIds'] = $request->serverIds;
         }
-        if (!Utils::isUnset($request->serverIps)) {
-            $body['ServerIps'] = $request->serverIps;
+
+        if (null !== $request->serverIps) {
+            @$body['ServerIps'] = $request->serverIps;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListServerGroupServers',
@@ -1961,16 +2425,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServerGroupServersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListServerGroupServersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServerGroupServersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the backend servers in a specified server group.
-     *  *
-     * @param ListServerGroupServersRequest $request ListServerGroupServersRequest
+     * Queries servers in a server group of a Network Load Balancer (NLB) instance.
      *
-     * @return ListServerGroupServersResponse ListServerGroupServersResponse
+     * @param request - ListServerGroupServersRequest
+     * @returns ListServerGroupServersResponse
+     *
+     * @param ListServerGroupServersRequest $request
+     *
+     * @return ListServerGroupServersResponse
      */
     public function listServerGroupServers($request)
     {
@@ -1980,48 +2450,61 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the server groups of a Network Load Balancer (NLB) instance.
-     *  *
-     * @param ListServerGroupsRequest $request ListServerGroupsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the server groups of a Network Load Balancer (NLB) instance.
      *
-     * @return ListServerGroupsResponse ListServerGroupsResponse
+     * @param request - ListServerGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServerGroupsResponse
+     *
+     * @param ListServerGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListServerGroupsResponse
      */
     public function listServerGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serverGroupIds)) {
-            $body['ServerGroupIds'] = $request->serverGroupIds;
+
+        if (null !== $request->serverGroupIds) {
+            @$body['ServerGroupIds'] = $request->serverGroupIds;
         }
-        if (!Utils::isUnset($request->serverGroupNames)) {
-            $body['ServerGroupNames'] = $request->serverGroupNames;
+
+        if (null !== $request->serverGroupNames) {
+            @$body['ServerGroupNames'] = $request->serverGroupNames;
         }
-        if (!Utils::isUnset($request->serverGroupType)) {
-            $body['ServerGroupType'] = $request->serverGroupType;
+
+        if (null !== $request->serverGroupType) {
+            @$body['ServerGroupType'] = $request->serverGroupType;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListServerGroups',
@@ -2034,16 +2517,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the server groups of a Network Load Balancer (NLB) instance.
-     *  *
-     * @param ListServerGroupsRequest $request ListServerGroupsRequest
+     * Queries the server groups of a Network Load Balancer (NLB) instance.
      *
-     * @return ListServerGroupsResponse ListServerGroupsResponse
+     * @param request - ListServerGroupsRequest
+     * @returns ListServerGroupsResponse
+     *
+     * @param ListServerGroupsRequest $request
+     *
+     * @return ListServerGroupsResponse
      */
     public function listServerGroups($request)
     {
@@ -2053,22 +2542,27 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the default TLS policy.
-     *  *
-     * @param ListSystemSecurityPolicyRequest $request ListSystemSecurityPolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the default TLS policy.
      *
-     * @return ListSystemSecurityPolicyResponse ListSystemSecurityPolicyResponse
+     * @param request - ListSystemSecurityPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSystemSecurityPolicyResponse
+     *
+     * @param ListSystemSecurityPolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListSystemSecurityPolicyResponse
      */
     public function listSystemSecurityPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListSystemSecurityPolicy',
@@ -2081,16 +2575,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSystemSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSystemSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSystemSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the default TLS policy.
-     *  *
-     * @param ListSystemSecurityPolicyRequest $request ListSystemSecurityPolicyRequest
+     * Queries the default TLS policy.
      *
-     * @return ListSystemSecurityPolicyResponse ListSystemSecurityPolicyResponse
+     * @param request - ListSystemSecurityPolicyRequest
+     * @returns ListSystemSecurityPolicyResponse
+     *
+     * @param ListSystemSecurityPolicyRequest $request
+     *
+     * @return ListSystemSecurityPolicyResponse
      */
     public function listSystemSecurityPolicy($request)
     {
@@ -2100,39 +2600,50 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags of a resource.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the tags of a resource.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $bodyFlat['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$bodyFlat['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $bodyFlat['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$bodyFlat['Tag'] = $request->tag;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -2145,16 +2656,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tags of a resource.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries the tags of a resource.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2164,41 +2681,51 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Associates a security group with a Network Load Balancer (NLB) instance.
-     *  *
-     * @description *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/25553.html).
+     * Associates a security group with a Network Load Balancer (NLB) instance.
+     *
+     * @remarks
+     *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/25553.html).
      * *   An NLB instance can be associated with up to four security groups.
      * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation.
      * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
      *     *   If the task is in the **Succeeded** state, the security group is associated.
      *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
-     *  *
-     * @param LoadBalancerJoinSecurityGroupRequest $request LoadBalancerJoinSecurityGroupRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return LoadBalancerJoinSecurityGroupResponse LoadBalancerJoinSecurityGroupResponse
+     * @param request - LoadBalancerJoinSecurityGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LoadBalancerJoinSecurityGroupResponse
+     *
+     * @param LoadBalancerJoinSecurityGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return LoadBalancerJoinSecurityGroupResponse
      */
     public function loadBalancerJoinSecurityGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityGroupIds)) {
-            $body['SecurityGroupIds'] = $request->securityGroupIds;
+
+        if (null !== $request->securityGroupIds) {
+            @$body['SecurityGroupIds'] = $request->securityGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'LoadBalancerJoinSecurityGroup',
@@ -2211,23 +2738,30 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LoadBalancerJoinSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LoadBalancerJoinSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LoadBalancerJoinSecurityGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates a security group with a Network Load Balancer (NLB) instance.
-     *  *
-     * @description *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/25553.html).
+     * Associates a security group with a Network Load Balancer (NLB) instance.
+     *
+     * @remarks
+     *   Make sure that you have created a security group. For more information about how to create a security group, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/25553.html).
      * *   An NLB instance can be associated with up to four security groups.
      * *   You can query the security groups that are associated with an NLB instance by calling the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation.
      * *   LoadBalancerJoinSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
      *     *   If the task is in the **Succeeded** state, the security group is associated.
      *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
-     *  *
-     * @param LoadBalancerJoinSecurityGroupRequest $request LoadBalancerJoinSecurityGroupRequest
      *
-     * @return LoadBalancerJoinSecurityGroupResponse LoadBalancerJoinSecurityGroupResponse
+     * @param request - LoadBalancerJoinSecurityGroupRequest
+     * @returns LoadBalancerJoinSecurityGroupResponse
+     *
+     * @param LoadBalancerJoinSecurityGroupRequest $request
+     *
+     * @return LoadBalancerJoinSecurityGroupResponse
      */
     public function loadBalancerJoinSecurityGroup($request)
     {
@@ -2237,38 +2771,48 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates a security group from a Network Load Balancer (NLB) instance.
-     *  *
-     * @description LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+     * Disassociates a Network Load Balancer (NLB) instance from a security group.
+     *
+     * @remarks
+     * LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
      * *   If the task is in the **Succeeded** state, the security group is disassociated.
      * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
-     *  *
-     * @param LoadBalancerLeaveSecurityGroupRequest $request LoadBalancerLeaveSecurityGroupRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return LoadBalancerLeaveSecurityGroupResponse LoadBalancerLeaveSecurityGroupResponse
+     * @param request - LoadBalancerLeaveSecurityGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LoadBalancerLeaveSecurityGroupResponse
+     *
+     * @param LoadBalancerLeaveSecurityGroupRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return LoadBalancerLeaveSecurityGroupResponse
      */
     public function loadBalancerLeaveSecurityGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityGroupIds)) {
-            $body['SecurityGroupIds'] = $request->securityGroupIds;
+
+        if (null !== $request->securityGroupIds) {
+            @$body['SecurityGroupIds'] = $request->securityGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'LoadBalancerLeaveSecurityGroup',
@@ -2281,20 +2825,27 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates a security group from a Network Load Balancer (NLB) instance.
-     *  *
-     * @description LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
+     * Disassociates a Network Load Balancer (NLB) instance from a security group.
+     *
+     * @remarks
+     * LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the status of a task.
      * *   If the task is in the **Succeeded** state, the security group is disassociated.
      * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
-     *  *
-     * @param LoadBalancerLeaveSecurityGroupRequest $request LoadBalancerLeaveSecurityGroupRequest
      *
-     * @return LoadBalancerLeaveSecurityGroupResponse LoadBalancerLeaveSecurityGroupResponse
+     * @param request - LoadBalancerLeaveSecurityGroupRequest
+     * @returns LoadBalancerLeaveSecurityGroupResponse
+     *
+     * @param LoadBalancerLeaveSecurityGroupRequest $request
+     *
+     * @return LoadBalancerLeaveSecurityGroupResponse
      */
     public function loadBalancerLeaveSecurityGroup($request)
     {
@@ -2304,31 +2855,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Modify the group of resource.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modify the group of resource.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $body['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$body['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MoveResourceGroup',
@@ -2341,16 +2900,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modify the group of resource.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * Modify the group of resource.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -2360,34 +2925,43 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Removes backend servers from a server group of a Network Load Balancer (NLB) instance.
-     *  *
-     * @param RemoveServersFromServerGroupRequest $request RemoveServersFromServerGroupRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Deletes server groups from a Network Load Balancer (NLB) instance.
      *
-     * @return RemoveServersFromServerGroupResponse RemoveServersFromServerGroupResponse
+     * @param request - RemoveServersFromServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveServersFromServerGroupResponse
+     *
+     * @param RemoveServersFromServerGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RemoveServersFromServerGroupResponse
      */
     public function removeServersFromServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $body['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$body['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->servers)) {
-            $body['Servers'] = $request->servers;
+
+        if (null !== $request->servers) {
+            @$body['Servers'] = $request->servers;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RemoveServersFromServerGroup',
@@ -2400,16 +2974,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveServersFromServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveServersFromServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveServersFromServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes backend servers from a server group of a Network Load Balancer (NLB) instance.
-     *  *
-     * @param RemoveServersFromServerGroupRequest $request RemoveServersFromServerGroupRequest
+     * Deletes server groups from a Network Load Balancer (NLB) instance.
      *
-     * @return RemoveServersFromServerGroupResponse RemoveServersFromServerGroupResponse
+     * @param request - RemoveServersFromServerGroupRequest
+     * @returns RemoveServersFromServerGroupResponse
+     *
+     * @param RemoveServersFromServerGroupRequest $request
+     *
+     * @return RemoveServersFromServerGroupResponse
      */
     public function removeServersFromServerGroup($request)
     {
@@ -2419,28 +2999,35 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary 配置秒级监控存储
-     *  *
-     * @param SetHdMonitorRegionConfigRequest $request SetHdMonitorRegionConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 配置秒级监控存储.
      *
-     * @return SetHdMonitorRegionConfigResponse SetHdMonitorRegionConfigResponse
+     * @param request - SetHdMonitorRegionConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetHdMonitorRegionConfigResponse
+     *
+     * @param SetHdMonitorRegionConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SetHdMonitorRegionConfigResponse
      */
     public function setHdMonitorRegionConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logProject)) {
-            $query['LogProject'] = $request->logProject;
+        if (null !== $request->logProject) {
+            @$query['LogProject'] = $request->logProject;
         }
-        if (!Utils::isUnset($request->metricStore)) {
-            $query['MetricStore'] = $request->metricStore;
+
+        if (null !== $request->metricStore) {
+            @$query['MetricStore'] = $request->metricStore;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetHdMonitorRegionConfig',
@@ -2453,16 +3040,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetHdMonitorRegionConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 配置秒级监控存储
-     *  *
-     * @param SetHdMonitorRegionConfigRequest $request SetHdMonitorRegionConfigRequest
+     * 配置秒级监控存储.
      *
-     * @return SetHdMonitorRegionConfigResponse SetHdMonitorRegionConfigResponse
+     * @param request - SetHdMonitorRegionConfigRequest
+     * @returns SetHdMonitorRegionConfigResponse
+     *
+     * @param SetHdMonitorRegionConfigRequest $request
+     *
+     * @return SetHdMonitorRegionConfigResponse
      */
     public function setHdMonitorRegionConfig($request)
     {
@@ -2472,31 +3065,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Enables a listener for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param StartListenerRequest $request StartListenerRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Enables a Network Load Balancer (NLB) listener.
      *
-     * @return StartListenerResponse StartListenerResponse
+     * @param request - StartListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartListenerResponse
+     *
+     * @param StartListenerRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartListenerResponse
      */
     public function startListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $body['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$body['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartListener',
@@ -2509,16 +3110,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables a listener for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param StartListenerRequest $request StartListenerRequest
+     * Enables a Network Load Balancer (NLB) listener.
      *
-     * @return StartListenerResponse StartListenerResponse
+     * @param request - StartListenerRequest
+     * @returns StartListenerResponse
+     *
+     * @param StartListenerRequest $request
+     *
+     * @return StartListenerResponse
      */
     public function startListener($request)
     {
@@ -2528,36 +3135,46 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
-     *  *
-     * @description > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
-     *  *
-     * @param StartShiftLoadBalancerZonesRequest $request StartShiftLoadBalancerZonesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Removes the elastic IP address (EIP) or virtual IP address (VIP) from a zone.
      *
-     * @return StartShiftLoadBalancerZonesResponse StartShiftLoadBalancerZonesResponse
+     * @remarks
+     * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+     *
+     * @param request - StartShiftLoadBalancerZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartShiftLoadBalancerZonesResponse
+     *
+     * @param StartShiftLoadBalancerZonesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return StartShiftLoadBalancerZonesResponse
      */
     public function startShiftLoadBalancerZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $body['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$body['ZoneMappings'] = $request->zoneMappings;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartShiftLoadBalancerZones',
@@ -2570,18 +3187,25 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartShiftLoadBalancerZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
-     *  *
-     * @description > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
-     *  *
-     * @param StartShiftLoadBalancerZonesRequest $request StartShiftLoadBalancerZonesRequest
+     * Removes the elastic IP address (EIP) or virtual IP address (VIP) from a zone.
      *
-     * @return StartShiftLoadBalancerZonesResponse StartShiftLoadBalancerZonesResponse
+     * @remarks
+     * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+     *
+     * @param request - StartShiftLoadBalancerZonesRequest
+     * @returns StartShiftLoadBalancerZonesResponse
+     *
+     * @param StartShiftLoadBalancerZonesRequest $request
+     *
+     * @return StartShiftLoadBalancerZonesResponse
      */
     public function startShiftLoadBalancerZones($request)
     {
@@ -2591,31 +3215,39 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Disables a listener for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param StopListenerRequest $request StopListenerRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Stops a listener of a Network Load Balancer (NLB) instance.
      *
-     * @return StopListenerResponse StopListenerResponse
+     * @param request - StopListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopListenerResponse
+     *
+     * @param StopListenerRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopListenerResponse
      */
     public function stopListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $body['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$body['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StopListener',
@@ -2628,16 +3260,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables a listener for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param StopListenerRequest $request StopListenerRequest
+     * Stops a listener of a Network Load Balancer (NLB) instance.
      *
-     * @return StopListenerResponse StopListenerResponse
+     * @param request - StopListenerRequest
+     * @returns StopListenerResponse
+     *
+     * @param StopListenerRequest $request
+     *
+     * @return StopListenerResponse
      */
     public function stopListener($request)
     {
@@ -2647,39 +3285,50 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to specified resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to specified resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $bodyFlat['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$bodyFlat['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $bodyFlat['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$bodyFlat['Tag'] = $request->tag;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -2692,16 +3341,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to specified resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to specified resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2711,42 +3366,54 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->all)) {
-            $body['All'] = $request->all;
+        if (null !== $request->all) {
+            @$body['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $bodyFlat['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$bodyFlat['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $bodyFlat['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$bodyFlat['TagKey'] = $request->tagKey;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -2759,16 +3426,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from resources.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2778,78 +3451,101 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Updates the attributes of a listener, such as the name and the idle connection timeout period.
-     *  *
-     * @param UpdateListenerAttributeRequest $tmpReq  UpdateListenerAttributeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Updates the attributes of a listener, such as the name and the idle connection timeout period.
      *
-     * @return UpdateListenerAttributeResponse UpdateListenerAttributeResponse
+     * @param tmpReq - UpdateListenerAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateListenerAttributeResponse
+     *
+     * @param UpdateListenerAttributeRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateListenerAttributeResponse
      */
     public function updateListenerAttributeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateListenerAttributeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->proxyProtocolV2Config)) {
-            $request->proxyProtocolV2ConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->proxyProtocolV2Config, 'ProxyProtocolV2Config', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->proxyProtocolV2Config) {
+            $request->proxyProtocolV2ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->proxyProtocolV2Config, 'ProxyProtocolV2Config', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->alpnEnabled)) {
-            $body['AlpnEnabled'] = $request->alpnEnabled;
+        if (null !== $request->alpnEnabled) {
+            @$body['AlpnEnabled'] = $request->alpnEnabled;
         }
-        if (!Utils::isUnset($request->alpnPolicy)) {
-            $body['AlpnPolicy'] = $request->alpnPolicy;
+
+        if (null !== $request->alpnPolicy) {
+            @$body['AlpnPolicy'] = $request->alpnPolicy;
         }
-        if (!Utils::isUnset($request->caCertificateIds)) {
-            $body['CaCertificateIds'] = $request->caCertificateIds;
+
+        if (null !== $request->caCertificateIds) {
+            @$body['CaCertificateIds'] = $request->caCertificateIds;
         }
-        if (!Utils::isUnset($request->caEnabled)) {
-            $body['CaEnabled'] = $request->caEnabled;
+
+        if (null !== $request->caEnabled) {
+            @$body['CaEnabled'] = $request->caEnabled;
         }
-        if (!Utils::isUnset($request->certificateIds)) {
-            $body['CertificateIds'] = $request->certificateIds;
+
+        if (null !== $request->certificateIds) {
+            @$body['CertificateIds'] = $request->certificateIds;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->cps)) {
-            $body['Cps'] = $request->cps;
+
+        if (null !== $request->cps) {
+            @$body['Cps'] = $request->cps;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->idleTimeout)) {
-            $body['IdleTimeout'] = $request->idleTimeout;
+
+        if (null !== $request->idleTimeout) {
+            @$body['IdleTimeout'] = $request->idleTimeout;
         }
-        if (!Utils::isUnset($request->listenerDescription)) {
-            $body['ListenerDescription'] = $request->listenerDescription;
+
+        if (null !== $request->listenerDescription) {
+            @$body['ListenerDescription'] = $request->listenerDescription;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $body['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$body['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->mss)) {
-            $body['Mss'] = $request->mss;
+
+        if (null !== $request->mss) {
+            @$body['Mss'] = $request->mss;
         }
-        if (!Utils::isUnset($request->proxyProtocolEnabled)) {
-            $body['ProxyProtocolEnabled'] = $request->proxyProtocolEnabled;
+
+        if (null !== $request->proxyProtocolEnabled) {
+            @$body['ProxyProtocolEnabled'] = $request->proxyProtocolEnabled;
         }
-        if (!Utils::isUnset($request->proxyProtocolV2ConfigShrink)) {
-            $body['ProxyProtocolV2Config'] = $request->proxyProtocolV2ConfigShrink;
+
+        if (null !== $request->proxyProtocolV2ConfigShrink) {
+            @$body['ProxyProtocolV2Config'] = $request->proxyProtocolV2ConfigShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->secSensorEnabled)) {
-            $body['SecSensorEnabled'] = $request->secSensorEnabled;
+
+        if (null !== $request->secSensorEnabled) {
+            @$body['SecSensorEnabled'] = $request->secSensorEnabled;
         }
-        if (!Utils::isUnset($request->securityPolicyId)) {
-            $body['SecurityPolicyId'] = $request->securityPolicyId;
+
+        if (null !== $request->securityPolicyId) {
+            @$body['SecurityPolicyId'] = $request->securityPolicyId;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $body['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$body['ServerGroupId'] = $request->serverGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateListenerAttribute',
@@ -2862,16 +3558,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateListenerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the attributes of a listener, such as the name and the idle connection timeout period.
-     *  *
-     * @param UpdateListenerAttributeRequest $request UpdateListenerAttributeRequest
+     * Updates the attributes of a listener, such as the name and the idle connection timeout period.
      *
-     * @return UpdateListenerAttributeResponse UpdateListenerAttributeResponse
+     * @param request - UpdateListenerAttributeRequest
+     * @returns UpdateListenerAttributeResponse
+     *
+     * @param UpdateListenerAttributeRequest $request
+     *
+     * @return UpdateListenerAttributeResponse
      */
     public function updateListenerAttribute($request)
     {
@@ -2881,43 +3583,54 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Changes the network type of the IPv4 address of a Network Load Balancer (NLB) instance.
-     *  *
-     * @description *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+     * Changes the network type of the IPv4 address for a Network Load Balancer (NLB) instance.
+     *
+     * @remarks
+     *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
      * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the **AddressType** value of an NLB instance after you change the network type.
      * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the task status:
      *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
      *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
-     *  *
-     * @param UpdateLoadBalancerAddressTypeConfigRequest $request UpdateLoadBalancerAddressTypeConfigRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerAddressTypeConfigResponse UpdateLoadBalancerAddressTypeConfigResponse
+     * @param request - UpdateLoadBalancerAddressTypeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLoadBalancerAddressTypeConfigResponse
+     *
+     * @param UpdateLoadBalancerAddressTypeConfigRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateLoadBalancerAddressTypeConfigResponse
      */
     public function updateLoadBalancerAddressTypeConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->addressType)) {
-            $body['AddressType'] = $request->addressType;
+        if (null !== $request->addressType) {
+            @$body['AddressType'] = $request->addressType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $body['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$body['ZoneMappings'] = $request->zoneMappings;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLoadBalancerAddressTypeConfig',
@@ -2930,22 +3643,29 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the network type of the IPv4 address of a Network Load Balancer (NLB) instance.
-     *  *
-     * @description *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+     * Changes the network type of the IPv4 address for a Network Load Balancer (NLB) instance.
+     *
+     * @remarks
+     *   Make sure that an NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
      * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the **AddressType** value of an NLB instance after you change the network type.
      * *   **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the task status:
      *     *   If the task is in the **Succeeded** state, the network type of the IPv4 address of the NLB instance is changed.
      *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
-     *  *
-     * @param UpdateLoadBalancerAddressTypeConfigRequest $request UpdateLoadBalancerAddressTypeConfigRequest
      *
-     * @return UpdateLoadBalancerAddressTypeConfigResponse UpdateLoadBalancerAddressTypeConfigResponse
+     * @param request - UpdateLoadBalancerAddressTypeConfigRequest
+     * @returns UpdateLoadBalancerAddressTypeConfigResponse
+     *
+     * @param UpdateLoadBalancerAddressTypeConfigRequest $request
+     *
+     * @return UpdateLoadBalancerAddressTypeConfigResponse
      */
     public function updateLoadBalancerAddressTypeConfig($request)
     {
@@ -2955,40 +3675,51 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Updates the attributes, including the name, of a Network Load Balancer (NLB) instance.
-     *  *
-     * @param UpdateLoadBalancerAttributeRequest $request UpdateLoadBalancerAttributeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Updates the attributes, including the name, of a Network Load Balancer (NLB) instance.
      *
-     * @return UpdateLoadBalancerAttributeResponse UpdateLoadBalancerAttributeResponse
+     * @param request - UpdateLoadBalancerAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLoadBalancerAttributeResponse
+     *
+     * @param UpdateLoadBalancerAttributeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateLoadBalancerAttributeResponse
      */
     public function updateLoadBalancerAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->cps)) {
-            $body['Cps'] = $request->cps;
+
+        if (null !== $request->cps) {
+            @$body['Cps'] = $request->cps;
         }
-        if (!Utils::isUnset($request->crossZoneEnabled)) {
-            $body['CrossZoneEnabled'] = $request->crossZoneEnabled;
+
+        if (null !== $request->crossZoneEnabled) {
+            @$body['CrossZoneEnabled'] = $request->crossZoneEnabled;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->loadBalancerName)) {
-            $body['LoadBalancerName'] = $request->loadBalancerName;
+
+        if (null !== $request->loadBalancerName) {
+            @$body['LoadBalancerName'] = $request->loadBalancerName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLoadBalancerAttribute',
@@ -3001,16 +3732,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLoadBalancerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the attributes, including the name, of a Network Load Balancer (NLB) instance.
-     *  *
-     * @param UpdateLoadBalancerAttributeRequest $request UpdateLoadBalancerAttributeRequest
+     * Updates the attributes, including the name, of a Network Load Balancer (NLB) instance.
      *
-     * @return UpdateLoadBalancerAttributeResponse UpdateLoadBalancerAttributeResponse
+     * @param request - UpdateLoadBalancerAttributeRequest
+     * @returns UpdateLoadBalancerAttributeResponse
+     *
+     * @param UpdateLoadBalancerAttributeRequest $request
+     *
+     * @return UpdateLoadBalancerAttributeResponse
      */
     public function updateLoadBalancerAttribute($request)
     {
@@ -3020,45 +3757,58 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
-     *  *
-     * @description > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
-     *  *
-     * @param UpdateLoadBalancerProtectionRequest $request UpdateLoadBalancerProtectionRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the deletion protection feature.
      *
-     * @return UpdateLoadBalancerProtectionResponse UpdateLoadBalancerProtectionResponse
+     * @remarks
+     * > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+     *
+     * @param request - UpdateLoadBalancerProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLoadBalancerProtectionResponse
+     *
+     * @param UpdateLoadBalancerProtectionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateLoadBalancerProtectionResponse
      */
     public function updateLoadBalancerProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->deletionProtectionEnabled)) {
-            $body['DeletionProtectionEnabled'] = $request->deletionProtectionEnabled;
+
+        if (null !== $request->deletionProtectionEnabled) {
+            @$body['DeletionProtectionEnabled'] = $request->deletionProtectionEnabled;
         }
-        if (!Utils::isUnset($request->deletionProtectionReason)) {
-            $body['DeletionProtectionReason'] = $request->deletionProtectionReason;
+
+        if (null !== $request->deletionProtectionReason) {
+            @$body['DeletionProtectionReason'] = $request->deletionProtectionReason;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->modificationProtectionReason)) {
-            $body['ModificationProtectionReason'] = $request->modificationProtectionReason;
+
+        if (null !== $request->modificationProtectionReason) {
+            @$body['ModificationProtectionReason'] = $request->modificationProtectionReason;
         }
-        if (!Utils::isUnset($request->modificationProtectionStatus)) {
-            $body['ModificationProtectionStatus'] = $request->modificationProtectionStatus;
+
+        if (null !== $request->modificationProtectionStatus) {
+            @$body['ModificationProtectionStatus'] = $request->modificationProtectionStatus;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLoadBalancerProtection',
@@ -3071,18 +3821,25 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLoadBalancerProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLoadBalancerProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLoadBalancerProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables deletion protection and the configuration read-only mode for a Network Load Balancer (NLB) instance.
-     *  *
-     * @description > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
-     *  *
-     * @param UpdateLoadBalancerProtectionRequest $request UpdateLoadBalancerProtectionRequest
+     * Enables or disables the deletion protection feature.
      *
-     * @return UpdateLoadBalancerProtectionResponse UpdateLoadBalancerProtectionResponse
+     * @remarks
+     * > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+     *
+     * @param request - UpdateLoadBalancerProtectionRequest
+     * @returns UpdateLoadBalancerProtectionResponse
+     *
+     * @param UpdateLoadBalancerProtectionRequest $request
+     *
+     * @return UpdateLoadBalancerProtectionResponse
      */
     public function updateLoadBalancerProtection($request)
     {
@@ -3092,42 +3849,52 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the zones and zone attributes of a Network Load Balancer (NLB) instance.
-     *  *
-     * @description When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
+     * Modifies the zones and zone attributes of a Network Load Balancer (NLB) instance.
+     *
+     * @remarks
+     * When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
      * Prerequisites
      * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
      * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
      * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
      *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
      *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
-     *  *
-     * @param UpdateLoadBalancerZonesRequest $request UpdateLoadBalancerZonesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerZonesResponse UpdateLoadBalancerZonesResponse
+     * @param request - UpdateLoadBalancerZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLoadBalancerZonesResponse
+     *
+     * @param UpdateLoadBalancerZonesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateLoadBalancerZonesResponse
      */
     public function updateLoadBalancerZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $body['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$body['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $body['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$body['ZoneMappings'] = $request->zoneMappings;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLoadBalancerZones',
@@ -3140,24 +3907,31 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLoadBalancerZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the zones and zone attributes of a Network Load Balancer (NLB) instance.
-     *  *
-     * @description When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
+     * Modifies the zones and zone attributes of a Network Load Balancer (NLB) instance.
+     *
+     * @remarks
+     * When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
      * Prerequisites
      * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
      * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
      * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
      *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
      *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
-     *  *
-     * @param UpdateLoadBalancerZonesRequest $request UpdateLoadBalancerZonesRequest
      *
-     * @return UpdateLoadBalancerZonesResponse UpdateLoadBalancerZonesResponse
+     * @param request - UpdateLoadBalancerZonesRequest
+     * @returns UpdateLoadBalancerZonesResponse
+     *
+     * @param UpdateLoadBalancerZonesRequest $request
+     *
+     * @return UpdateLoadBalancerZonesResponse
      */
     public function updateLoadBalancerZones($request)
     {
@@ -3167,40 +3941,51 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a security policy for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param UpdateSecurityPolicyAttributeRequest $request UpdateSecurityPolicyAttributeRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a security policy for a Network Load Balancer (NLB) instance.
      *
-     * @return UpdateSecurityPolicyAttributeResponse UpdateSecurityPolicyAttributeResponse
+     * @param request - UpdateSecurityPolicyAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSecurityPolicyAttributeResponse
+     *
+     * @param UpdateSecurityPolicyAttributeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateSecurityPolicyAttributeResponse
      */
     public function updateSecurityPolicyAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ciphers)) {
-            $body['Ciphers'] = $request->ciphers;
+        if (null !== $request->ciphers) {
+            @$body['Ciphers'] = $request->ciphers;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityPolicyId)) {
-            $body['SecurityPolicyId'] = $request->securityPolicyId;
+
+        if (null !== $request->securityPolicyId) {
+            @$body['SecurityPolicyId'] = $request->securityPolicyId;
         }
-        if (!Utils::isUnset($request->securityPolicyName)) {
-            $body['SecurityPolicyName'] = $request->securityPolicyName;
+
+        if (null !== $request->securityPolicyName) {
+            @$body['SecurityPolicyName'] = $request->securityPolicyName;
         }
-        if (!Utils::isUnset($request->tlsVersions)) {
-            $body['TlsVersions'] = $request->tlsVersions;
+
+        if (null !== $request->tlsVersions) {
+            @$body['TlsVersions'] = $request->tlsVersions;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateSecurityPolicyAttribute',
@@ -3213,16 +3998,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSecurityPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSecurityPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSecurityPolicyAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a security policy for a Network Load Balancer (NLB) instance.
-     *  *
-     * @param UpdateSecurityPolicyAttributeRequest $request UpdateSecurityPolicyAttributeRequest
+     * Modifies the configurations of a security policy for a Network Load Balancer (NLB) instance.
      *
-     * @return UpdateSecurityPolicyAttributeResponse UpdateSecurityPolicyAttributeResponse
+     * @param request - UpdateSecurityPolicyAttributeRequest
+     * @returns UpdateSecurityPolicyAttributeResponse
+     *
+     * @param UpdateSecurityPolicyAttributeRequest $request
+     *
+     * @return UpdateSecurityPolicyAttributeResponse
      */
     public function updateSecurityPolicyAttribute($request)
     {
@@ -3232,51 +4023,66 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a server group of Network Load Balancer (NLB).
-     *  *
-     * @param UpdateServerGroupAttributeRequest $request UpdateServerGroupAttributeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a Network Load Balancer (NLB) server group.
      *
-     * @return UpdateServerGroupAttributeResponse UpdateServerGroupAttributeResponse
+     * @param request - UpdateServerGroupAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateServerGroupAttributeResponse
+     *
+     * @param UpdateServerGroupAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateServerGroupAttributeResponse
      */
     public function updateServerGroupAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionDrainEnabled)) {
-            $body['ConnectionDrainEnabled'] = $request->connectionDrainEnabled;
+
+        if (null !== $request->connectionDrainEnabled) {
+            @$body['ConnectionDrainEnabled'] = $request->connectionDrainEnabled;
         }
-        if (!Utils::isUnset($request->connectionDrainTimeout)) {
-            $body['ConnectionDrainTimeout'] = $request->connectionDrainTimeout;
+
+        if (null !== $request->connectionDrainTimeout) {
+            @$body['ConnectionDrainTimeout'] = $request->connectionDrainTimeout;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->healthCheckConfig)) {
-            $bodyFlat['HealthCheckConfig'] = $request->healthCheckConfig;
+        if (null !== $request->healthCheckConfig) {
+            @$bodyFlat['HealthCheckConfig'] = $request->healthCheckConfig;
         }
-        if (!Utils::isUnset($request->preserveClientIpEnabled)) {
-            $body['PreserveClientIpEnabled'] = $request->preserveClientIpEnabled;
+
+        if (null !== $request->preserveClientIpEnabled) {
+            @$body['PreserveClientIpEnabled'] = $request->preserveClientIpEnabled;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->scheduler)) {
-            $body['Scheduler'] = $request->scheduler;
+
+        if (null !== $request->scheduler) {
+            @$body['Scheduler'] = $request->scheduler;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $body['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$body['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->serverGroupName)) {
-            $body['ServerGroupName'] = $request->serverGroupName;
+
+        if (null !== $request->serverGroupName) {
+            @$body['ServerGroupName'] = $request->serverGroupName;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateServerGroupAttribute',
@@ -3289,16 +4095,22 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateServerGroupAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a server group of Network Load Balancer (NLB).
-     *  *
-     * @param UpdateServerGroupAttributeRequest $request UpdateServerGroupAttributeRequest
+     * Modifies the configurations of a Network Load Balancer (NLB) server group.
      *
-     * @return UpdateServerGroupAttributeResponse UpdateServerGroupAttributeResponse
+     * @param request - UpdateServerGroupAttributeRequest
+     * @returns UpdateServerGroupAttributeResponse
+     *
+     * @param UpdateServerGroupAttributeRequest $request
+     *
+     * @return UpdateServerGroupAttributeResponse
      */
     public function updateServerGroupAttribute($request)
     {
@@ -3308,42 +4120,52 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of backend servers in a server group, such as the weight and description.
-     *  *
-     * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Modifies the weights and descriptions of backend servers in a server group of a Network Load Balancer (NLB) instance.
+     *
+     * @remarks
+     * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/445895.html) operation to query the status of a server group.
      *     *   If a server group is in the **Configuring** state, the server group is being modified.
      *     *   If a server group is in the **Available** state, the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/445896.html) operation to query the status of a backend server.
      *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
      *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-     *  *
-     * @param UpdateServerGroupServersAttributeRequest $request UpdateServerGroupServersAttributeRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServerGroupServersAttributeResponse UpdateServerGroupServersAttributeResponse
+     * @param request - UpdateServerGroupServersAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateServerGroupServersAttributeResponse
+     *
+     * @param UpdateServerGroupServersAttributeRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateServerGroupServersAttributeResponse
      */
     public function updateServerGroupServersAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $body['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$body['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->servers)) {
-            $body['Servers'] = $request->servers;
+
+        if (null !== $request->servers) {
+            @$body['Servers'] = $request->servers;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateServerGroupServersAttribute',
@@ -3356,24 +4178,31 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateServerGroupServersAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateServerGroupServersAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateServerGroupServersAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of backend servers in a server group, such as the weight and description.
-     *  *
-     * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Modifies the weights and descriptions of backend servers in a server group of a Network Load Balancer (NLB) instance.
+     *
+     * @remarks
+     * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/445895.html) operation to query the status of a server group.
      *     *   If a server group is in the **Configuring** state, the server group is being modified.
      *     *   If a server group is in the **Available** state, the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/445896.html) operation to query the status of a backend server.
      *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
      *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-     *  *
-     * @param UpdateServerGroupServersAttributeRequest $request UpdateServerGroupServersAttributeRequest
      *
-     * @return UpdateServerGroupServersAttributeResponse UpdateServerGroupServersAttributeResponse
+     * @param request - UpdateServerGroupServersAttributeRequest
+     * @returns UpdateServerGroupServersAttributeResponse
+     *
+     * @param UpdateServerGroupServersAttributeRequest $request
+     *
+     * @return UpdateServerGroupServersAttributeResponse
      */
     public function updateServerGroupServersAttribute($request)
     {

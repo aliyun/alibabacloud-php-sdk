@@ -4,22 +4,11 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models\GetListenerHealthStatusResponseBody\listenerHealthStatus\serverGroupInfos\nonNormalServers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reason extends Model
 {
     /**
-     * @description The reason why the **status** is abnormal. Valid values:
-     *
-     *   **CONNECT_TIMEOUT**: The NLB instance failed to connect to the backend server within the specified period of time.
-     *   **CONNECT_FAILED**: The NLB instance failed to connect to the backend server.
-     *   **RECV_RESPONSE_TIMEOUT**: The NLB instance failed to receive a response from the backend server within the specified period of time.
-     *   **CONNECT_INTERRUPT**: The connection between the health check and the backend servers was interrupted.
-     *   **HTTP_CODE_NOT_MATCH**: The HTTP status code from the backend servers was not the expected one.
-     *   **HTTP_INVALID_HEADER**: The format of the response from the backend servers is invalid.
-     *
-     * @example CONNECT_TIMEOUT
-     *
      * @var string
      */
     public $reasonCode;
@@ -29,9 +18,10 @@ class reason extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reasonCode) {
@@ -41,11 +31,11 @@ class reason extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reason
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

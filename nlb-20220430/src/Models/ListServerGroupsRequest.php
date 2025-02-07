@@ -4,89 +4,44 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\ListServerGroupsRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class ListServerGroupsRequest extends Model
 {
     /**
-     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-     *
-     *   You do not need to specify this parameter for the first request.
-     *   You must specify the token that is obtained from the previous query as the value of NextToken.
-     *
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The region ID of the NLB instance.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the resource group to which the server group belongs.
-     *
-     * @example rg-atstuj3rtop****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The server group ID. You can specify up to 20 server group IDs in each call.
-     *
      * @var string[]
      */
     public $serverGroupIds;
-
     /**
-     * @description The names of the server groups to be queried. You can specify up to 20 names in each call.
-     *
      * @var string[]
      */
     public $serverGroupNames;
-
     /**
-     * @description The type of server group. Valid values:
-     *
-     *   **Instance** : allows you to add servers of the **Ecs**, **Ens**, and **Eci** types.
-     *   **Ip**: allows you to add servers by specifying IP addresses.
-     *
-     * @example Instance
-     *
      * @var string
      */
     public $serverGroupType;
-
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;
-
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the server group belongs.
-     *
-     * @example vpc-bp15zckdt37pq72zv****
-     *
      * @var string
      */
     public $vpcId;
@@ -104,41 +59,71 @@ class ListServerGroupsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->serverGroupIds)) {
+            Model::validateArray($this->serverGroupIds);
+        }
+        if (\is_array($this->serverGroupNames)) {
+            Model::validateArray($this->serverGroupNames);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->serverGroupIds) {
-            $res['ServerGroupIds'] = $this->serverGroupIds;
-        }
-        if (null !== $this->serverGroupNames) {
-            $res['ServerGroupNames'] = $this->serverGroupNames;
-        }
-        if (null !== $this->serverGroupType) {
-            $res['ServerGroupType'] = $this->serverGroupType;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serverGroupIds)) {
+                $res['ServerGroupIds'] = [];
+                $n1                    = 0;
+                foreach ($this->serverGroupIds as $item1) {
+                    $res['ServerGroupIds'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->serverGroupNames) {
+            if (\is_array($this->serverGroupNames)) {
+                $res['ServerGroupNames'] = [];
+                $n1                      = 0;
+                foreach ($this->serverGroupNames as $item1) {
+                    $res['ServerGroupNames'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->serverGroupType) {
+            $res['ServerGroupType'] = $this->serverGroupType;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -146,48 +131,64 @@ class ListServerGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServerGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ServerGroupIds'])) {
             if (!empty($map['ServerGroupIds'])) {
-                $model->serverGroupIds = $map['ServerGroupIds'];
-            }
-        }
-        if (isset($map['ServerGroupNames'])) {
-            if (!empty($map['ServerGroupNames'])) {
-                $model->serverGroupNames = $map['ServerGroupNames'];
-            }
-        }
-        if (isset($map['ServerGroupType'])) {
-            $model->serverGroupType = $map['ServerGroupType'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $model->serverGroupIds = [];
+                $n1                    = 0;
+                foreach ($map['ServerGroupIds'] as $item1) {
+                    $model->serverGroupIds[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['ServerGroupNames'])) {
+            if (!empty($map['ServerGroupNames'])) {
+                $model->serverGroupNames = [];
+                $n1                      = 0;
+                foreach ($map['ServerGroupNames'] as $item1) {
+                    $model->serverGroupNames[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['ServerGroupType'])) {
+            $model->serverGroupType = $map['ServerGroupType'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models\GetLoadBalancerAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class operationLocks extends Model
 {
     /**
-     * @description The reason why the NLB instance is locked.
-     *
-     * @example security
-     *
      * @var string
      */
     public $lockReason;
-
     /**
-     * @description The type of the lock. Valid values:
-     *
-     *   **SecurityLocked**: The NLB instance is locked due to security reasons.
-     *   **RelatedResourceLocked**: The NLB instance is locked due to other resources associated with the NLB instance.
-     *   **FinancialLocked**: The NLB instance is locked due to overdue payments.
-     *   **ResidualLocked**: The NLB instance is locked because the associated resources have overdue payments and the resources are released.
-     *
-     * @example SecurityLocked
-     *
      * @var string
      */
     public $lockType;
@@ -37,14 +23,16 @@ class operationLocks extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
         }
+
         if (null !== $this->lockType) {
             $res['LockType'] = $this->lockType;
         }
@@ -52,17 +40,18 @@ class operationLocks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operationLocks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
         }
+
         if (isset($map['LockType'])) {
             $model->lockType = $map['LockType'];
         }

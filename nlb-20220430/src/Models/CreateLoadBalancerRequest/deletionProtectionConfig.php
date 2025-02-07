@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models\CreateLoadBalancerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deletionProtectionConfig extends Model
 {
     /**
-     * @description Specifies whether to enable deletion protection. Valid values:
-     *
-     *   **true**: yes
-     *   **false** (default): no
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description The reason why the deletion protection feature is enabled or disabled. The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The value must start with a letter.
-     *
-     * @example The instance is running
-     *
      * @var string
      */
     public $reason;
@@ -35,14 +23,16 @@ class deletionProtectionConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -50,17 +40,18 @@ class deletionProtectionConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deletionProtectionConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
