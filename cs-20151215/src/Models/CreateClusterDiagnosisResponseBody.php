@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateClusterDiagnosisResponseBody extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example c5cdf7e3938bc4f8eb0e44b21a80f****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The diagnostic ID.
-     *
-     * @example 6f719f23098240818eb26fe3a37d****
-     *
      * @var string
      */
     public $diagnosisId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 687C5BAA-D103-4993-884B-C35E4314****
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class CreateClusterDiagnosisResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
+
         if (null !== $this->diagnosisId) {
             $res['diagnosis_id'] = $this->diagnosisId;
         }
+
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class CreateClusterDiagnosisResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateClusterDiagnosisResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
+
         if (isset($map['diagnosis_id'])) {
             $model->diagnosisId = $map['diagnosis_id'];
         }
+
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }

@@ -4,85 +4,39 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodepoolInfo extends Model
 {
     /**
-     * @description The time when the node pool was created.
-     *
-     * @example 2020-09-27T19:14:09.156823496+08:00
-     *
      * @var string
      */
     public $created;
-
     /**
-     * @description Specifies whether the node pool is a default node pool. A Container Service for Kubernetes (ACK) cluster generally has only one default node pool. Valid values:
-     *
-     *   `true`
-     *   `false`:
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isDefault;
-
     /**
-     * @description The name of the node pool.
-     *
-     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). It cannot start with a hyphen (-).
-     * @example default-nodepool
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The node pool ID.
-     *
-     * @example np615c0e0966124216a0412e10afe0****
-     *
      * @var string
      */
     public $nodepoolId;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-acfmyvw3wjm****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The type of node pool. Valid values:
-     *
-     *   `edge`: edge node pool.
-     *   `ess`: node pool in the cloud.
-     *
-     * @example ess
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The time when the node pool was last updated.
-     *
-     * @example 2020-09-27T20:37:46+08:00
-     *
      * @var string
      */
     public $updated;
@@ -99,32 +53,40 @@ class nodepoolInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->created) {
             $res['created'] = $this->created;
         }
+
         if (null !== $this->isDefault) {
             $res['is_default'] = $this->isDefault;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->nodepoolId) {
             $res['nodepool_id'] = $this->nodepoolId;
         }
+
         if (null !== $this->regionId) {
             $res['region_id'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resource_group_id'] = $this->resourceGroupId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
         }
@@ -132,35 +94,42 @@ class nodepoolInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodepoolInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['created'])) {
             $model->created = $map['created'];
         }
+
         if (isset($map['is_default'])) {
             $model->isDefault = $map['is_default'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['nodepool_id'])) {
             $model->nodepoolId = $map['nodepool_id'];
         }
+
         if (isset($map['region_id'])) {
             $model->regionId = $map['region_id'];
         }
+
         if (isset($map['resource_group_id'])) {
             $model->resourceGroupId = $map['resource_group_id'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyNodePoolNodeConfigRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rollingPolicy extends Model
 {
     /**
-     * @description The maximum number of unavailable nodes.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $maxParallelism;
@@ -22,9 +18,10 @@ class rollingPolicy extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxParallelism) {
@@ -34,11 +31,11 @@ class rollingPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rollingPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

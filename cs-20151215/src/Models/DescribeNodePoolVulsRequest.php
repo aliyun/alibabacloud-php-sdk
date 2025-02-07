@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeNodePoolVulsRequest extends Model
 {
     /**
-     * @description The priority to fix the vulnerability. Separate multiple priorities with commas (,). Valid values:
-     *
-     *   `asap`: high
-     *   `later`: medium
-     *   `nntf`: low
-     *
-     * @example asap
-     *
      * @var string
      */
     public $necessity;
@@ -26,9 +18,10 @@ class DescribeNodePoolVulsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->necessity) {
@@ -38,11 +31,11 @@ class DescribeNodePoolVulsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNodePoolVulsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

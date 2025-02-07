@@ -4,37 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsResponseBody\events;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The severity level of the event. Valid values:
-     *
-     *   info
-     *   warning
-     *   error
-     *
-     * @example info
-     *
      * @var string
      */
     public $level;
-
     /**
-     * @description The details of the event.
-     *
-     * @example Start to upgrade NodePool nodePool/nodePool-A
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The status of the event.
-     *
-     * @example Started
-     *
      * @var string
      */
     public $reason;
@@ -46,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->reason) {
             $res['reason'] = $this->reason;
         }
@@ -64,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['reason'])) {
             $model->reason = $map['reason'];
         }

@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class body extends Model
 {
     /**
-     * @description The custom component settings that you want to use. The value is a JSON string.
-     *
-     * @example {\\"IngressDashboardEnabled\\":\\"true\\",\\"sls_project_name\\":\\"your_sls_project_name\\"}"}
-     *
      * @var string
      */
     public $config;
-
     /**
-     * @description The component name.
-     *
-     * This parameter is required.
-     * @example ags-metrics-collector
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The component version.
-     *
-     * This parameter is required.
-     * @example v1.0.0.2-cc3b2d6-aliyun
-     *
      * @var string
      */
     public $version;
@@ -44,17 +28,20 @@ class body extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -62,20 +49,22 @@ class body extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

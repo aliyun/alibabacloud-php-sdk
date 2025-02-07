@@ -4,157 +4,67 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesResponse;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class body extends Model
 {
     /**
-     * @description The UID of the Alibaba Cloud account that is used to deploy the policy instance.
-     *
-     * @example 16298168****
-     *
      * @var string
      */
     public $aliUid;
-
     /**
-     * @description The ID of the cluster.
-     *
-     * @example c8155823d057948c69a****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The name of the policy instance.
-     *
-     * @example no-env-var-secrets-****
-     *
      * @var string
      */
     public $instanceName;
-
     /**
-     * @description The name of the policy.
-     *
-     * @example ACKPSPCapabilities
-     *
      * @var string
      */
     public $policyName;
-
     /**
-     * @description The type of policy.
-     *
-     * @example k8s-general
-     *
      * @var string
      */
     public $policyCategory;
-
     /**
-     * @description The description of the policy template.
-     *
-     * @example Restricts secrets used in pod envs
-     *
      * @var string
      */
     public $policyDescription;
-
     /**
-     * @description The parameters of the policy instance.
-     *
-     * @example "restrictedNamespaces": [ "test" ]
-     *
      * @var string
      */
     public $policyParameters;
-
     /**
-     * @description The severity level of the policy instance.
-     *
-     * @example low
-     *
      * @var string
      */
     public $policySeverity;
-
     /**
-     * @description The applicable scope of the policy instance.
-     *
-     * A value of \\* indicates all namespaces in the cluster. This is the default value.
-     *
-     * Multiple namespaces are separated by commas (,).
-     * @example *
-     *
      * @var string
      */
     public $policyScope;
-
     /**
-     * @description The action of the policy. Valid values:
-     *
-     *   `deny`: Deployments that match the policy are denied.
-     *   `warn`: Alerts are generated for deployments that match the policy.
-     *
-     * @example deny
-     *
      * @var string
      */
     public $policyAction;
-
     /**
-     * @description Creation time (deprecated, do not use).
-     *
-     * @example 2024-10-29T18:09:12+08:00
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $created;
-
     /**
-     * @description Update time (deprecated, do not use).
-     *
-     * @example 2024-10-29T18:09:12+08:00
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $updated;
-
     /**
-     * @description Resource ID (deprecated, do not use).
-     *
-     * @example 123456***
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description Violation count processing in the cluster (deprecated, do not use).
-     *
-     * @example 0
-     *
-     * @deprecated
-     *
      * @var int
      */
     public $totalViolations;
-
     /**
-     * @description Deletion status (deprecated, do not use).
-     *
-     * @example 0
-     *
-     * @deprecated
-     *
      * @var int
      */
     public $isDeleted;
@@ -178,53 +88,68 @@ class body extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliUid) {
             $res['ali_uid'] = $this->aliUid;
         }
+
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
+
         if (null !== $this->instanceName) {
             $res['instance_name'] = $this->instanceName;
         }
+
         if (null !== $this->policyName) {
             $res['policy_name'] = $this->policyName;
         }
+
         if (null !== $this->policyCategory) {
             $res['policy_category'] = $this->policyCategory;
         }
+
         if (null !== $this->policyDescription) {
             $res['policy_description'] = $this->policyDescription;
         }
+
         if (null !== $this->policyParameters) {
             $res['policy_parameters'] = $this->policyParameters;
         }
+
         if (null !== $this->policySeverity) {
             $res['policy_severity'] = $this->policySeverity;
         }
+
         if (null !== $this->policyScope) {
             $res['policy_scope'] = $this->policyScope;
         }
+
         if (null !== $this->policyAction) {
             $res['policy_action'] = $this->policyAction;
         }
+
         if (null !== $this->created) {
             $res['Created'] = $this->created;
         }
+
         if (null !== $this->updated) {
             $res['Updated'] = $this->updated;
         }
+
         if (null !== $this->resourceId) {
             $res['resource_id'] = $this->resourceId;
         }
+
         if (null !== $this->totalViolations) {
             $res['total_violations'] = $this->totalViolations;
         }
+
         if (null !== $this->isDeleted) {
             $res['is_deleted'] = $this->isDeleted;
         }
@@ -232,56 +157,70 @@ class body extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ali_uid'])) {
             $model->aliUid = $map['ali_uid'];
         }
+
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
+
         if (isset($map['instance_name'])) {
             $model->instanceName = $map['instance_name'];
         }
+
         if (isset($map['policy_name'])) {
             $model->policyName = $map['policy_name'];
         }
+
         if (isset($map['policy_category'])) {
             $model->policyCategory = $map['policy_category'];
         }
+
         if (isset($map['policy_description'])) {
             $model->policyDescription = $map['policy_description'];
         }
+
         if (isset($map['policy_parameters'])) {
             $model->policyParameters = $map['policy_parameters'];
         }
+
         if (isset($map['policy_severity'])) {
             $model->policySeverity = $map['policy_severity'];
         }
+
         if (isset($map['policy_scope'])) {
             $model->policyScope = $map['policy_scope'];
         }
+
         if (isset($map['policy_action'])) {
             $model->policyAction = $map['policy_action'];
         }
+
         if (isset($map['Created'])) {
             $model->created = $map['Created'];
         }
+
         if (isset($map['Updated'])) {
             $model->updated = $map['Updated'];
         }
+
         if (isset($map['resource_id'])) {
             $model->resourceId = $map['resource_id'];
         }
+
         if (isset($map['total_violations'])) {
             $model->totalViolations = $map['total_violations'];
         }
+
         if (isset($map['is_deleted'])) {
             $model->isDeleted = $map['is_deleted'];
         }

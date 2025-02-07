@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyClusterAddonRequest extends Model
 {
     /**
-     * @description The custom parameter settings that you want to use.
-     *
-     * @example {"CpuRequest":"800m"}
-     *
      * @var string
      */
     public $config;
@@ -22,9 +18,10 @@ class ModifyClusterAddonRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
@@ -34,11 +31,11 @@ class ModifyClusterAddonRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyClusterAddonRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

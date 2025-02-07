@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\Nodepool;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class interconnectConfig extends Model
 {
     /**
-     * @example 10
-     *
-     * @deprecated
-     *
      * @var int
      */
     public $bandwidth;
-
     /**
-     * @example ccn-qm5i0i0q9yi*******
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $ccnId;
-
     /**
-     * @example cn-shanghai
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $ccnRegionId;
-
     /**
-     * @example cen-ey9k9nfhz0f*******
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $cenId;
-
     /**
-     * @example 1
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $improvedPeriod;
@@ -62,23 +38,28 @@ class interconnectConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidth) {
             $res['bandwidth'] = $this->bandwidth;
         }
+
         if (null !== $this->ccnId) {
             $res['ccn_id'] = $this->ccnId;
         }
+
         if (null !== $this->ccnRegionId) {
             $res['ccn_region_id'] = $this->ccnRegionId;
         }
+
         if (null !== $this->cenId) {
             $res['cen_id'] = $this->cenId;
         }
+
         if (null !== $this->improvedPeriod) {
             $res['improved_period'] = $this->improvedPeriod;
         }
@@ -86,26 +67,30 @@ class interconnectConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return interconnectConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bandwidth'])) {
             $model->bandwidth = $map['bandwidth'];
         }
+
         if (isset($map['ccn_id'])) {
             $model->ccnId = $map['ccn_id'];
         }
+
         if (isset($map['ccn_region_id'])) {
             $model->ccnRegionId = $map['ccn_region_id'];
         }
+
         if (isset($map['cen_id'])) {
             $model->cenId = $map['cen_id'];
         }
+
         if (isset($map['improved_period'])) {
             $model->improvedPeriod = $map['improved_period'];
         }

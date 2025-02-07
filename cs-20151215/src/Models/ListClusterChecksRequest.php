@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClusterChecksRequest extends Model
 {
     /**
-     * @description The targets to check.
-     *
-     * @example ngw-bp19ay6nnvd4cexxxx
-     *
      * @var string
      */
     public $target;
-
     /**
-     * @description The check method.
-     *
-     * @example ClusterUpgrade
-     *
      * @var string
      */
     public $type;
@@ -32,14 +23,16 @@ class ListClusterChecksRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->target) {
             $res['target'] = $this->target;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -47,17 +40,18 @@ class ListClusterChecksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClusterChecksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['target'])) {
             $model->target = $map['target'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

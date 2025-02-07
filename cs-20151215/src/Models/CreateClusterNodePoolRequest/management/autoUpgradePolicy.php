@@ -4,41 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\management;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class autoUpgradePolicy extends Model
 {
     /**
-     * @description Specifies whether to allow auto update of the kubelet. This parameter takes effect only if `auto_upgrade` is set to true. Valid values:
-     *
-     *   `true`: allows auto update of the kubelet.
-     *   `false`: does not allow auto update of the kubelet.
-     *
-     * If `auto_upgrade` is set to true, the default value of this parameter is `true`. If `auto_upgrade` is set to false, the default value of this parameter is `false`.
-     * @example true
-     *
      * @var bool
      */
     public $autoUpgradeKubelet;
-
     /**
-     * @description Specifies whether to allow auto update of the OS. This parameter takes effect only if `auto_upgrade` is set to true. Valid values:
-     *
-     *   `true`: allows auto update of the OS.
-     *   `false`: does not allow auto update of the OS.
-     *
-     * Default value: `false`.
      * @var bool
      */
     public $autoUpgradeOs;
-
     /**
-     * @description Specifies whether to allow auto update of the runtime. This parameter takes effect only if `auto_upgrade` is set to true. Valid values:
-     *
-     *   `true`: allows auto update of the runtime.
-     *   `false`: does not allow auto update of the runtime.
-     *
-     * Default value: `false`.
      * @var bool
      */
     public $autoUpgradeRuntime;
@@ -50,17 +28,20 @@ class autoUpgradePolicy extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoUpgradeKubelet) {
             $res['auto_upgrade_kubelet'] = $this->autoUpgradeKubelet;
         }
+
         if (null !== $this->autoUpgradeOs) {
             $res['auto_upgrade_os'] = $this->autoUpgradeOs;
         }
+
         if (null !== $this->autoUpgradeRuntime) {
             $res['auto_upgrade_runtime'] = $this->autoUpgradeRuntime;
         }
@@ -68,20 +49,22 @@ class autoUpgradePolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoUpgradePolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['auto_upgrade_kubelet'])) {
             $model->autoUpgradeKubelet = $map['auto_upgrade_kubelet'];
         }
+
         if (isset($map['auto_upgrade_os'])) {
             $model->autoUpgradeOs = $map['auto_upgrade_os'];
         }
+
         if (isset($map['auto_upgrade_runtime'])) {
             $model->autoUpgradeRuntime = $map['auto_upgrade_runtime'];
         }

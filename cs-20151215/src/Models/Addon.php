@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Addon extends Model
 {
     /**
-     * @example {\"IngressSlbNetworkType\":\"internet\"}
-     *
      * @var string
      */
     public $config;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $disabled;
-
     /**
-     * @example nginx-ingress-controller
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example v1.9.3-aliyun.1
-     *
      * @var string
      */
     public $version;
@@ -44,20 +33,24 @@ class Addon extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
+
         if (null !== $this->disabled) {
             $res['disabled'] = $this->disabled;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -65,23 +58,26 @@ class Addon extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Addon
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
+
         if (isset($map['disabled'])) {
             $model->disabled = $map['disabled'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

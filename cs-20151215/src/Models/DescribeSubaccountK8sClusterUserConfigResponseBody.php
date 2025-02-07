@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSubaccountK8sClusterUserConfigResponseBody extends Model
 {
     /**
-     * @description The cluster kubeconfig file. For more information about the content of the kubeconfig file, see [Configure cluster credentials](https://help.aliyun.com/document_detail/86494.html).
-     *
-     * This parameter is required.
-     * @example apiVersion: v1****
-     *
      * @var string
      */
     public $config;
-
     /**
-     * @description The expiration date of the kubeconfig file. The value is the UTC time displayed in RFC3339 format.
-     *
-     * @example 2024-03-10T09:56:17Z
-     *
      * @var string
      */
     public $expiration;
@@ -33,14 +23,16 @@ class DescribeSubaccountK8sClusterUserConfigResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
+
         if (null !== $this->expiration) {
             $res['expiration'] = $this->expiration;
         }
@@ -48,17 +40,18 @@ class DescribeSubaccountK8sClusterUserConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSubaccountK8sClusterUserConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
+
         if (isset($map['expiration'])) {
             $model->expiration = $map['expiration'];
         }

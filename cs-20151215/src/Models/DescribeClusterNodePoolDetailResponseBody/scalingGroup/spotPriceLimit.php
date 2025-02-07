@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class spotPriceLimit extends Model
 {
     /**
-     * @description The instance type of the preemptible instances.
-     *
-     * @example ecs.c6.large
-     *
      * @var string
      */
     public $instanceType;
-
     /**
-     * @description The price cap of a preemptible instance of the type.
-     *
-     * Unit: USD/hour.
-     * @example 0.39
-     *
      * @var string
      */
     public $priceLimit;
@@ -33,14 +23,16 @@ class spotPriceLimit extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['instance_type'] = $this->instanceType;
         }
+
         if (null !== $this->priceLimit) {
             $res['price_limit'] = $this->priceLimit;
         }
@@ -48,17 +40,18 @@ class spotPriceLimit extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spotPriceLimit
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instance_type'])) {
             $model->instanceType = $map['instance_type'];
         }
+
         if (isset($map['price_limit'])) {
             $model->priceLimit = $map['price_limit'];
         }

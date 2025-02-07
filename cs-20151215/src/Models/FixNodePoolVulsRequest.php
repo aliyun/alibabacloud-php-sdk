@@ -4,37 +4,24 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsRequest\rolloutPolicy;
-use AlibabaCloud\Tea\Model;
 
 class FixNodePoolVulsRequest extends Model
 {
     /**
-     * @description Specifies whether to allow the nodes to restart.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoRestart;
-
     /**
-     * @description The names of the nodes to be patched.
-     *
      * @var string[]
      */
     public $nodes;
-
     /**
-     * @description The batch patching policy.
-     *
      * @var rolloutPolicy
      */
     public $rolloutPolicy;
-
     /**
-     * @description The list of vulnerabilities.
-     *
      * @var string[]
      */
     public $vuls;
@@ -47,49 +34,85 @@ class FixNodePoolVulsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        if (null !== $this->rolloutPolicy) {
+            $this->rolloutPolicy->validate();
+        }
+        if (\is_array($this->vuls)) {
+            Model::validateArray($this->vuls);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRestart) {
             $res['auto_restart'] = $this->autoRestart;
         }
+
         if (null !== $this->nodes) {
-            $res['nodes'] = $this->nodes;
+            if (\is_array($this->nodes)) {
+                $res['nodes'] = [];
+                $n1           = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['nodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->rolloutPolicy) {
-            $res['rollout_policy'] = null !== $this->rolloutPolicy ? $this->rolloutPolicy->toMap() : null;
+            $res['rollout_policy'] = null !== $this->rolloutPolicy ? $this->rolloutPolicy->toArray($noStream) : $this->rolloutPolicy;
         }
+
         if (null !== $this->vuls) {
-            $res['vuls'] = $this->vuls;
+            if (\is_array($this->vuls)) {
+                $res['vuls'] = [];
+                $n1          = 0;
+                foreach ($this->vuls as $item1) {
+                    $res['vuls'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FixNodePoolVulsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['auto_restart'])) {
             $model->autoRestart = $map['auto_restart'];
         }
+
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
-                $model->nodes = $map['nodes'];
+                $model->nodes = [];
+                $n1           = 0;
+                foreach ($map['nodes'] as $item1) {
+                    $model->nodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['rollout_policy'])) {
             $model->rolloutPolicy = rolloutPolicy::fromMap($map['rollout_policy']);
         }
+
         if (isset($map['vuls'])) {
             if (!empty($map['vuls'])) {
-                $model->vuls = $map['vuls'];
+                $model->vuls = [];
+                $n1          = 0;
+                foreach ($map['vuls'] as $item1) {
+                    $model->vuls[$n1++] = $item1;
+                }
             }
         }
 

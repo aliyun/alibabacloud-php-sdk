@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAlertContactGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var int[]
      */
     public $contactGroupIds;
@@ -20,29 +18,43 @@ class DeleteAlertContactGroupRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->contactGroupIds)) {
+            Model::validateArray($this->contactGroupIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupIds) {
-            $res['contact_group_ids'] = $this->contactGroupIds;
+            if (\is_array($this->contactGroupIds)) {
+                $res['contact_group_ids'] = [];
+                $n1                       = 0;
+                foreach ($this->contactGroupIds as $item1) {
+                    $res['contact_group_ids'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAlertContactGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['contact_group_ids'])) {
             if (!empty($map['contact_group_ids'])) {
-                $model->contactGroupIds = $map['contact_group_ids'];
+                $model->contactGroupIds = [];
+                $n1                     = 0;
+                foreach ($map['contact_group_ids'] as $item1) {
+                    $model->contactGroupIds[$n1++] = $item1;
+                }
             }
         }
 

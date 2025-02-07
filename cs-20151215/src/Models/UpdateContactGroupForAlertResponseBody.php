@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateContactGroupForAlertResponseBody extends Model
 {
@@ -12,7 +12,6 @@ class UpdateContactGroupForAlertResponseBody extends Model
      * @var string
      */
     public $msg;
-
     /**
      * @var bool
      */
@@ -24,14 +23,16 @@ class UpdateContactGroupForAlertResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->msg) {
             $res['msg'] = $this->msg;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -39,17 +40,18 @@ class UpdateContactGroupForAlertResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateContactGroupForAlertResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['msg'])) {
             $model->msg = $map['msg'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

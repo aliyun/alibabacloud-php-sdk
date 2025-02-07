@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolRequest\operations;
-use AlibabaCloud\Tea\Model;
 
 class RepairClusterNodePoolRequest extends Model
 {
     /**
-     * @description Specifies whether to restart the instance of the node.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoRestart;
-
     /**
-     * @description The list of nodes. If you do not specify nodes, all nodes in the node pool are selected.
-     *
      * @var string[]
      */
     public $nodes;
-
     /**
      * @var operations[]
      */
@@ -37,23 +29,38 @@ class RepairClusterNodePoolRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        if (\is_array($this->operations)) {
+            Model::validateArray($this->operations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRestart) {
             $res['auto_restart'] = $this->autoRestart;
         }
+
         if (null !== $this->nodes) {
-            $res['nodes'] = $this->nodes;
+            if (\is_array($this->nodes)) {
+                $res['nodes'] = [];
+                $n1           = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['nodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->operations) {
-            $res['operations'] = [];
-            if (null !== $this->operations && \is_array($this->operations)) {
-                $n = 0;
-                foreach ($this->operations as $item) {
-                    $res['operations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operations)) {
+                $res['operations'] = [];
+                $n1                = 0;
+                foreach ($this->operations as $item1) {
+                    $res['operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -61,28 +68,34 @@ class RepairClusterNodePoolRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RepairClusterNodePoolRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['auto_restart'])) {
             $model->autoRestart = $map['auto_restart'];
         }
+
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
-                $model->nodes = $map['nodes'];
+                $model->nodes = [];
+                $n1           = 0;
+                foreach ($map['nodes'] as $item1) {
+                    $model->nodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['operations'])) {
             if (!empty($map['operations'])) {
                 $model->operations = [];
-                $n                 = 0;
-                foreach ($map['operations'] as $item) {
-                    $model->operations[$n++] = null !== $item ? operations::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['operations'] as $item1) {
+                    $model->operations[$n1++] = operations::fromMap($item1);
                 }
             }
         }

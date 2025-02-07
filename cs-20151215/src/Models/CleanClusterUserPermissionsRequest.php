@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CleanClusterUserPermissionsRequest extends Model
 {
     /**
-     * @description Specifies whether to forcefully delete the specified kubeconfig files. Valid values:
-     *
-     *   false (default): checks the cluster access records within the previous seven days before deleting the kubeconfig files. The kubeconfig files are not deleted if cluster access records are found or fail to be retrieved.
-     *   true: forcefully deletes the kubeconfig files without checking the cluster access records.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $force;
@@ -25,9 +18,10 @@ class CleanClusterUserPermissionsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->force) {
@@ -37,11 +31,11 @@ class CleanClusterUserPermissionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CleanClusterUserPermissionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

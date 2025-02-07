@@ -4,35 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateClusterDiagnosisRequest extends Model
 {
     /**
-     * @description The parameter used to specify the diagnostic object. Examples of parameters for different types of diagnostic objects:
-     *
-     * {"namespace": "kube-system", "name": "nginx-ingress-lb"}
-     * @example {"namespace": "kube-system", "name": "csi-plugin-2cg9f"}
-     *
      * @var mixed[]
      */
     public $target;
-
     /**
-     * @description The type of the diagnostic.
-     *
-     * Valid values:
-     *
-     *   node
-     *   ingress
-     *   cluster
-     *   memory
-     *   pod
-     *   service
-     *   network
-     *
-     * @example node
-     *
      * @var string
      */
     public $type;
@@ -43,14 +23,24 @@ class CreateClusterDiagnosisRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->target)) {
+            Model::validateArray($this->target);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->target) {
-            $res['target'] = $this->target;
+            if (\is_array($this->target)) {
+                $res['target'] = [];
+                foreach ($this->target as $key1 => $value1) {
+                    $res['target'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -58,17 +48,23 @@ class CreateClusterDiagnosisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateClusterDiagnosisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['target'])) {
-            $model->target = $map['target'];
+            if (!empty($map['target'])) {
+                $model->target = [];
+                foreach ($map['target'] as $key1 => $value1) {
+                    $model->target[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

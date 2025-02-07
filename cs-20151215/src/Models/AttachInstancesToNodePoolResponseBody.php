@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachInstancesToNodePoolResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example D7631D83-6E98-1949-B665-766A62xxxxxx
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The task ID.
-     *
-     * @example T-5a54309c80282e39ea00002f
-     *
      * @var string
      */
     public $taskId;
@@ -32,14 +23,16 @@ class AttachInstancesToNodePoolResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -47,17 +40,18 @@ class AttachInstancesToNodePoolResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachInstancesToNodePoolResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }

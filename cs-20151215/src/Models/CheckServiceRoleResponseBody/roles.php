@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class roles extends Model
 {
     /**
-     * @description Specifies whether the service role is granted required permissions.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $granted;
-
     /**
-     * @description The message returned if the service role is not granted required permissions.
-     *
-     * @example The role does not exist: AliyunCSManagedAutoScalerRole
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The service role name.
-     *
-     * @example AliyunCSManagedAutoScalerRole
-     *
      * @var string
      */
     public $name;
@@ -42,17 +28,20 @@ class roles extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->granted) {
             $res['granted'] = $this->granted;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -60,20 +49,22 @@ class roles extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roles
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['granted'])) {
             $model->granted = $map['granted'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

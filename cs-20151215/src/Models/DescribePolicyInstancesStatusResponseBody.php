@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesStatusResponseBody\policyInstances;
-use AlibabaCloud\Tea\Model;
 
 class DescribePolicyInstancesStatusResponseBody extends Model
 {
     /**
-     * @description The number of policy instances that are deployed in the cluster at different severity levels.
-     *
-     * @example { "high": 11,     "medium": 1  }
-     *
      * @var mixed[]
      */
     public $instancesSeverityCount;
-
     /**
-     * @description The number of policy instances of each policy type.
-     *
      * @var policyInstances[]
      */
     public $policyInstances;
@@ -31,20 +24,33 @@ class DescribePolicyInstancesStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->instancesSeverityCount)) {
+            Model::validateArray($this->instancesSeverityCount);
+        }
+        if (\is_array($this->policyInstances)) {
+            Model::validateArray($this->policyInstances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instancesSeverityCount) {
-            $res['instances_severity_count'] = $this->instancesSeverityCount;
+            if (\is_array($this->instancesSeverityCount)) {
+                $res['instances_severity_count'] = [];
+                foreach ($this->instancesSeverityCount as $key1 => $value1) {
+                    $res['instances_severity_count'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->policyInstances) {
-            $res['policy_instances'] = [];
-            if (null !== $this->policyInstances && \is_array($this->policyInstances)) {
-                $n = 0;
-                foreach ($this->policyInstances as $item) {
-                    $res['policy_instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policyInstances)) {
+                $res['policy_instances'] = [];
+                $n1                      = 0;
+                foreach ($this->policyInstances as $item1) {
+                    $res['policy_instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +58,29 @@ class DescribePolicyInstancesStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePolicyInstancesStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instances_severity_count'])) {
-            $model->instancesSeverityCount = $map['instances_severity_count'];
+            if (!empty($map['instances_severity_count'])) {
+                $model->instancesSeverityCount = [];
+                foreach ($map['instances_severity_count'] as $key1 => $value1) {
+                    $model->instancesSeverityCount[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['policy_instances'])) {
             if (!empty($map['policy_instances'])) {
                 $model->policyInstances = [];
-                $n                      = 0;
-                foreach ($map['policy_instances'] as $item) {
-                    $model->policyInstances[$n++] = null !== $item ? policyInstances::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['policy_instances'] as $item1) {
+                    $model->policyInstances[$n1++] = policyInstances::fromMap($item1);
                 }
             }
         }

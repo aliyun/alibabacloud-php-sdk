@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeClusterAddonsUpgradeStatusShrinkRequest extends Model
 {
     /**
-     * @description The list of component names.
-     *
-     * This parameter is required.
      * @var string
      */
     public $componentIdsShrink;
@@ -21,9 +18,10 @@ class DescribeClusterAddonsUpgradeStatusShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->componentIdsShrink) {
@@ -33,11 +31,11 @@ class DescribeClusterAddonsUpgradeStatusShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterAddonsUpgradeStatusShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

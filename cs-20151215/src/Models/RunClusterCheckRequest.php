@@ -4,32 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunClusterCheckRequest extends Model
 {
     /**
-     * @description The cluster check items.
-     *
      * @var string[]
      */
     public $options;
-
     /**
-     * @description The target to be checked.
-     *
-     * @example np1f6779297c4444a3a1cdd29be8e5****
-     *
      * @var string
      */
     public $target;
-
     /**
-     * @description The check method.
-     *
-     * This parameter is required.
-     * @example ClusterUpgrade
-     *
      * @var string
      */
     public $type;
@@ -41,17 +28,28 @@ class RunClusterCheckRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->options)) {
+            Model::validateArray($this->options);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->options) {
-            $res['options'] = $this->options;
+            if (\is_array($this->options)) {
+                $res['options'] = [];
+                foreach ($this->options as $key1 => $value1) {
+                    $res['options'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->target) {
             $res['target'] = $this->target;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -59,20 +57,27 @@ class RunClusterCheckRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunClusterCheckRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['options'])) {
-            $model->options = $map['options'];
+            if (!empty($map['options'])) {
+                $model->options = [];
+                foreach ($map['options'] as $key1 => $value1) {
+                    $model->options[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['target'])) {
             $model->target = $map['target'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

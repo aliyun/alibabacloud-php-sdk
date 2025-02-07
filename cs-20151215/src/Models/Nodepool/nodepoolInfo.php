@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\Nodepool;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodepoolInfo extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example np-test
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example rg-acfmyvw3wjm****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @example ess
-     *
      * @var string
      */
     public $type;
@@ -38,17 +28,20 @@ class nodepoolInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resource_group_id'] = $this->resourceGroupId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -56,20 +49,22 @@ class nodepoolInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodepoolInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['resource_group_id'])) {
             $model->resourceGroupId = $map['resource_group_id'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

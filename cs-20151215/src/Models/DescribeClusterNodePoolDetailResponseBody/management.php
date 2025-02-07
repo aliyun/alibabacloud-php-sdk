@@ -4,80 +4,43 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\management\autoRepairPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\management\autoUpgradePolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\management\autoVulFixPolicy;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\management\upgradeConfig;
-use AlibabaCloud\Tea\Model;
 
 class management extends Model
 {
     /**
-     * @description Indicates whether auto repair is enabled. This parameter takes effect only when `enable=true` is specified. Valid values:
-     *
-     *   `true`: Auto repair is enabled.
-     *   `false`: Auto repair is disabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoRepair;
-
     /**
-     * @description Automatic repair node policy.
-     *
      * @var autoRepairPolicy
      */
     public $autoRepairPolicy;
-
     /**
-     * @description Whether to automatically upgrade.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoUpgrade;
-
     /**
-     * @description Automatic upgrade policy.
-     *
      * @var autoUpgradePolicy
      */
     public $autoUpgradePolicy;
-
     /**
-     * @description Whether to automatically fix CVEs.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoVulFix;
-
     /**
-     * @description Automatically repair CVE policies.
-     *
      * @var autoVulFixPolicy
      */
     public $autoVulFixPolicy;
-
     /**
-     * @description Indicates whether the managed node pool feature is enabled. Valid values:
-     *
-     *   `true`: The managed node pool feature is enabled.
-     *   `false`: The managed node pool feature is disabled. Other parameters in this section take effect only when `enable=true` is specified.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
-
     /**
-     * @description The configuration of auto update. The configuration takes effect only when `enable=true` is specified.
-     *
      * @var upgradeConfig
      */
     public $upgradeConfig;
@@ -94,68 +57,95 @@ class management extends Model
 
     public function validate()
     {
+        if (null !== $this->autoRepairPolicy) {
+            $this->autoRepairPolicy->validate();
+        }
+        if (null !== $this->autoUpgradePolicy) {
+            $this->autoUpgradePolicy->validate();
+        }
+        if (null !== $this->autoVulFixPolicy) {
+            $this->autoVulFixPolicy->validate();
+        }
+        if (null !== $this->upgradeConfig) {
+            $this->upgradeConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRepair) {
             $res['auto_repair'] = $this->autoRepair;
         }
+
         if (null !== $this->autoRepairPolicy) {
-            $res['auto_repair_policy'] = null !== $this->autoRepairPolicy ? $this->autoRepairPolicy->toMap() : null;
+            $res['auto_repair_policy'] = null !== $this->autoRepairPolicy ? $this->autoRepairPolicy->toArray($noStream) : $this->autoRepairPolicy;
         }
+
         if (null !== $this->autoUpgrade) {
             $res['auto_upgrade'] = $this->autoUpgrade;
         }
+
         if (null !== $this->autoUpgradePolicy) {
-            $res['auto_upgrade_policy'] = null !== $this->autoUpgradePolicy ? $this->autoUpgradePolicy->toMap() : null;
+            $res['auto_upgrade_policy'] = null !== $this->autoUpgradePolicy ? $this->autoUpgradePolicy->toArray($noStream) : $this->autoUpgradePolicy;
         }
+
         if (null !== $this->autoVulFix) {
             $res['auto_vul_fix'] = $this->autoVulFix;
         }
+
         if (null !== $this->autoVulFixPolicy) {
-            $res['auto_vul_fix_policy'] = null !== $this->autoVulFixPolicy ? $this->autoVulFixPolicy->toMap() : null;
+            $res['auto_vul_fix_policy'] = null !== $this->autoVulFixPolicy ? $this->autoVulFixPolicy->toArray($noStream) : $this->autoVulFixPolicy;
         }
+
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->upgradeConfig) {
-            $res['upgrade_config'] = null !== $this->upgradeConfig ? $this->upgradeConfig->toMap() : null;
+            $res['upgrade_config'] = null !== $this->upgradeConfig ? $this->upgradeConfig->toArray($noStream) : $this->upgradeConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return management
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['auto_repair'])) {
             $model->autoRepair = $map['auto_repair'];
         }
+
         if (isset($map['auto_repair_policy'])) {
             $model->autoRepairPolicy = autoRepairPolicy::fromMap($map['auto_repair_policy']);
         }
+
         if (isset($map['auto_upgrade'])) {
             $model->autoUpgrade = $map['auto_upgrade'];
         }
+
         if (isset($map['auto_upgrade_policy'])) {
             $model->autoUpgradePolicy = autoUpgradePolicy::fromMap($map['auto_upgrade_policy']);
         }
+
         if (isset($map['auto_vul_fix'])) {
             $model->autoVulFix = $map['auto_vul_fix'];
         }
+
         if (isset($map['auto_vul_fix_policy'])) {
             $model->autoVulFixPolicy = autoVulFixPolicy::fromMap($map['auto_vul_fix_policy']);
         }
+
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['upgrade_config'])) {
             $model->upgradeConfig = upgradeConfig::fromMap($map['upgrade_config']);
         }

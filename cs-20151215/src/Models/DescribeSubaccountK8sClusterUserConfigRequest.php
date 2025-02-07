@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSubaccountK8sClusterUserConfigRequest extends Model
 {
     /**
-     * @description Specifies whether to obtain the kubeconfig file used to connect to the cluster over the internal network. Valid values:
-     *
-     *   `true`: Obtain the kubeconfig file used to connect to the cluster over the internal network.
-     *   `false`: Obtain the kubeconfig file used to connect to the cluster over the Internet.
-     *
-     * Default value: `false`.
-     * @example true
-     *
      * @var bool
      */
     public $privateIpAddress;
-
     /**
-     * @description The validity period of the temporary kubeconfig file. Unit: minutes.
-     *
-     * > If you leave this parameter empty, the system sets a longer validity period and returns the value in the expiration parameter of the response.
-     * @example 15
-     *
      * @var int
      */
     public $temporaryDurationMinutes;
@@ -37,14 +23,16 @@ class DescribeSubaccountK8sClusterUserConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
+
         if (null !== $this->temporaryDurationMinutes) {
             $res['TemporaryDurationMinutes'] = $this->temporaryDurationMinutes;
         }
@@ -52,17 +40,18 @@ class DescribeSubaccountK8sClusterUserConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSubaccountK8sClusterUserConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
+
         if (isset($map['TemporaryDurationMinutes'])) {
             $model->temporaryDurationMinutes = $map['TemporaryDurationMinutes'];
         }

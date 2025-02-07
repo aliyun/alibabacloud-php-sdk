@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeClusterResponseBody extends Model
 {
     /**
-     * @description Cluster ID.
-     *
-     * @example c82e6987e2961451182edacd74faf****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description Request ID.
-     *
-     * @example 0527ac9a-c899-4341-a21a-****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Task ID.
-     *
-     * @example T-5faa48fb31b6b8078d00****
-     *
      * @var string
      */
     public $taskId;
@@ -42,17 +28,20 @@ class UpgradeClusterResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
+
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -60,20 +49,22 @@ class UpgradeClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
+
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }
