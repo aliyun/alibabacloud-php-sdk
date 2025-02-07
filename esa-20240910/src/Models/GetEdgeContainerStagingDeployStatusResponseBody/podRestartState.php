@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class podRestartState extends Model
 {
     /**
-     * @description The reason for the last restart.
-     *
-     * @example OOMKilled
-     *
      * @var string
      */
     public $lastTerminatedReason;
-
     /**
-     * @description The number of times that the container restarted.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $restartCount;
@@ -32,14 +23,16 @@ class podRestartState extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lastTerminatedReason) {
             $res['LastTerminatedReason'] = $this->lastTerminatedReason;
         }
+
         if (null !== $this->restartCount) {
             $res['RestartCount'] = $this->restartCount;
         }
@@ -47,17 +40,18 @@ class podRestartState extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return podRestartState
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LastTerminatedReason'])) {
             $model->lastTerminatedReason = $map['LastTerminatedReason'];
         }
+
         if (isset($map['RestartCount'])) {
             $model->restartCount = $map['RestartCount'];
         }

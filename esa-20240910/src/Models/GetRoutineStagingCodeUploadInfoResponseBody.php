@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRoutineStagingCodeUploadInfoResponseBody extends Model
 {
     /**
-     * @description The code version.
-     *
-     * @example 1710120201067203242
-     *
      * @var string
      */
     public $codeVersion;
-
     /**
-     * @description The configuration information that can be used to upload to OSS.
-     *
-     * @example {
-     * }
      * @var mixed[]
      */
     public $ossPostConfig;
-
     /**
-     * @description The request ID.
-     *
-     * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,28 @@ class GetRoutineStagingCodeUploadInfoResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->ossPostConfig)) {
+            Model::validateArray($this->ossPostConfig);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codeVersion) {
             $res['CodeVersion'] = $this->codeVersion;
         }
+
         if (null !== $this->ossPostConfig) {
-            $res['OssPostConfig'] = $this->ossPostConfig;
+            if (\is_array($this->ossPostConfig)) {
+                $res['OssPostConfig'] = [];
+                foreach ($this->ossPostConfig as $key1 => $value1) {
+                    $res['OssPostConfig'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +57,27 @@ class GetRoutineStagingCodeUploadInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRoutineStagingCodeUploadInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeVersion'])) {
             $model->codeVersion = $map['CodeVersion'];
         }
+
         if (isset($map['OssPostConfig'])) {
-            $model->ossPostConfig = $map['OssPostConfig'];
+            if (!empty($map['OssPostConfig'])) {
+                $model->ossPostConfig = [];
+                foreach ($map['OssPostConfig'] as $key1 => $value1) {
+                    $model->ossPostConfig[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

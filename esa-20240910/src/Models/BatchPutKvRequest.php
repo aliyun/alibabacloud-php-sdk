@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchPutKvRequest\kvList;
-use AlibabaCloud\Tea\Model;
 
 class BatchPutKvRequest extends Model
 {
     /**
-     * @description The key-value pairs that you want to configure at a time. The total size can be up to 2 MB (2 × 1000 × 1000).
-     *
-     * This parameter is required.
      * @var kvList[]
      */
     public $kvList;
-
     /**
-     * @description The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
-     *
-     * This parameter is required.
-     * @example test_namespace
-     *
      * @var string
      */
     public $namespace;
@@ -33,20 +24,25 @@ class BatchPutKvRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->kvList)) {
+            Model::validateArray($this->kvList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kvList) {
-            $res['KvList'] = [];
-            if (null !== $this->kvList && \is_array($this->kvList)) {
-                $n = 0;
-                foreach ($this->kvList as $item) {
-                    $res['KvList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->kvList)) {
+                $res['KvList'] = [];
+                $n1            = 0;
+                foreach ($this->kvList as $item1) {
+                    $res['KvList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -54,23 +50,24 @@ class BatchPutKvRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchPutKvRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KvList'])) {
             if (!empty($map['KvList'])) {
                 $model->kvList = [];
-                $n             = 0;
-                foreach ($map['KvList'] as $item) {
-                    $model->kvList[$n++] = null !== $item ? kvList::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['KvList'] as $item1) {
+                    $model->kvList[$n1++] = kvList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

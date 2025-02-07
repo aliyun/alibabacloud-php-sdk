@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageResponseBody\quotas\siteUsage;
-use AlibabaCloud\Tea\Model;
 
 class quotas extends Model
 {
     /**
-     * @description The quota name.
-     *
-     * @example redirect_rules|rule_quota
-     *
      * @var string
      */
     public $quotaName;
-
     /**
-     * @description The quota value.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $quotaValue;
-
     /**
-     * @description The usage of the quota in each website associated with the plan.
-     *
      * @var siteUsage[]
      */
     public $siteUsage;
-
     /**
-     * @description The quota usage.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $usage;
@@ -51,26 +34,33 @@ class quotas extends Model
 
     public function validate()
     {
+        if (\is_array($this->siteUsage)) {
+            Model::validateArray($this->siteUsage);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quotaName) {
             $res['QuotaName'] = $this->quotaName;
         }
+
         if (null !== $this->quotaValue) {
             $res['QuotaValue'] = $this->quotaValue;
         }
+
         if (null !== $this->siteUsage) {
-            $res['SiteUsage'] = [];
-            if (null !== $this->siteUsage && \is_array($this->siteUsage)) {
-                $n = 0;
-                foreach ($this->siteUsage as $item) {
-                    $res['SiteUsage'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->siteUsage)) {
+                $res['SiteUsage'] = [];
+                $n1               = 0;
+                foreach ($this->siteUsage as $item1) {
+                    $res['SiteUsage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -78,29 +68,32 @@ class quotas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quotas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QuotaName'])) {
             $model->quotaName = $map['QuotaName'];
         }
+
         if (isset($map['QuotaValue'])) {
             $model->quotaValue = $map['QuotaValue'];
         }
+
         if (isset($map['SiteUsage'])) {
             if (!empty($map['SiteUsage'])) {
                 $model->siteUsage = [];
-                $n                = 0;
-                foreach ($map['SiteUsage'] as $item) {
-                    $model->siteUsage[$n++] = null !== $item ? siteUsage::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['SiteUsage'] as $item1) {
+                    $model->siteUsage[$n1++] = siteUsage::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

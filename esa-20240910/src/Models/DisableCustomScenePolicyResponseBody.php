@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableCustomScenePolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the disabled policy.
-     *
-     * @example 100001
-     *
      * @var int
      */
     public $policyId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DisableCustomScenePolicyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DisableCustomScenePolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableCustomScenePolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

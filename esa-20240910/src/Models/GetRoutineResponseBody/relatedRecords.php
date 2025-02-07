@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relatedRecords extends Model
 {
     /**
-     * @description The record ID.
-     *
-     * @example 509348423011904
-     *
      * @var int
      */
     public $recordId;
-
     /**
-     * @description The record name.
-     *
-     * @example test-record-1.example.com
-     *
      * @var string
      */
     public $recordName;
-
     /**
-     * @description The website ID.
-     *
-     * @example 54362329990032
-     *
      * @var int
      */
     public $siteId;
-
     /**
-     * @description The website name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $siteName;
@@ -52,20 +33,24 @@ class relatedRecords extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
+
         if (null !== $this->recordName) {
             $res['RecordName'] = $this->recordName;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
+
         if (null !== $this->siteName) {
             $res['SiteName'] = $this->siteName;
         }
@@ -73,23 +58,26 @@ class relatedRecords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedRecords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
+
         if (isset($map['RecordName'])) {
             $model->recordName = $map['RecordName'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
+
         if (isset($map['SiteName'])) {
             $model->siteName = $map['SiteName'];
         }

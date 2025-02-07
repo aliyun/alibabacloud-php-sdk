@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig\appPackage\packageSigns;
-use AlibabaCloud\Tea\Model;
 
 class appPackage extends Model
 {
@@ -19,17 +19,21 @@ class appPackage extends Model
 
     public function validate()
     {
+        if (\is_array($this->packageSigns)) {
+            Model::validateArray($this->packageSigns);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->packageSigns) {
-            $res['PackageSigns'] = [];
-            if (null !== $this->packageSigns && \is_array($this->packageSigns)) {
-                $n = 0;
-                foreach ($this->packageSigns as $item) {
-                    $res['PackageSigns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->packageSigns)) {
+                $res['PackageSigns'] = [];
+                $n1                  = 0;
+                foreach ($this->packageSigns as $item1) {
+                    $res['PackageSigns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class appPackage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appPackage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PackageSigns'])) {
             if (!empty($map['PackageSigns'])) {
                 $model->packageSigns = [];
-                $n                   = 0;
-                foreach ($map['PackageSigns'] as $item) {
-                    $model->packageSigns[$n++] = null !== $item ? packageSigns::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['PackageSigns'] as $item1) {
+                    $model->packageSigns[$n1++] = packageSigns::fromMap($item1);
                 }
             }
         }

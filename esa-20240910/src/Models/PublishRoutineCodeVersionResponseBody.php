@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishRoutineCodeVersionResponseBody extends Model
 {
     /**
-     * @description The code version.
-     *
-     * @example 1710120201067203242
-     *
      * @var string
      */
     public $codeVersion;
-
     /**
-     * @description The request ID.
-     *
-     * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class PublishRoutineCodeVersionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codeVersion) {
             $res['CodeVersion'] = $this->codeVersion;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class PublishRoutineCodeVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishRoutineCodeVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeVersion'])) {
             $model->codeVersion = $map['CodeVersion'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

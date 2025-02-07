@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ossDelivery extends Model
 {
     /**
-     * @description The ID of your Alibaba Cloud account.
-     *
-     * @example 1234***
-     *
      * @var string
      */
     public $aliuid;
-
     /**
-     * @description The name of the OSS bucket.
-     *
-     * @example test_rlog
-     *
      * @var string
      */
     public $bucketName;
-
     /**
-     * @description The prefix of the path in which you want to store logs.
-     *
-     * @example logriver-test/log
-     *
      * @var string
      */
     public $prefixPath;
-
     /**
-     * @description The region in which the bucket is located.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $region;
@@ -52,20 +33,24 @@ class ossDelivery extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliuid) {
             $res['Aliuid'] = $this->aliuid;
         }
+
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
+
         if (null !== $this->prefixPath) {
             $res['PrefixPath'] = $this->prefixPath;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -73,23 +58,26 @@ class ossDelivery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ossDelivery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Aliuid'])) {
             $model->aliuid = $map['Aliuid'];
         }
+
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
+
         if (isset($map['PrefixPath'])) {
             $model->prefixPath = $map['PrefixPath'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

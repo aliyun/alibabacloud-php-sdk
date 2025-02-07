@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListWafTemplateRulesShrinkRequest extends Model
 {
     /**
-     * @description The WAF rule category, which is used to filter template rules of a specific category.
-     *
-     * @example http_anti_scan
-     *
      * @var string
      */
     public $phase;
-
     /**
-     * @description The query parameter, which is used to filter template rules based on criteria such as the rule type.
-     *
-     * @example http_anti_scan
-     *
      * @var string
      */
     public $queryArgsShrink;
-
     /**
-     * @description 站点ID，可通过调用[ListSites](https://help.aliyun.com/document_detail/2850189.html)接口获取。
-     *
-     * @example 1
-     *
      * @var int
      */
     public $siteId;
@@ -42,17 +28,20 @@ class ListWafTemplateRulesShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
+
         if (null !== $this->queryArgsShrink) {
             $res['QueryArgs'] = $this->queryArgsShrink;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -60,20 +49,22 @@ class ListWafTemplateRulesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWafTemplateRulesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
+
         if (isset($map['QueryArgs'])) {
             $model->queryArgsShrink = $map['QueryArgs'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

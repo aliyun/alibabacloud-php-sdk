@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsResponseBody\originPools\origins;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authConf extends Model
 {
@@ -12,22 +12,18 @@ class authConf extends Model
      * @var string
      */
     public $accessKey;
-
     /**
      * @var string
      */
     public $authType;
-
     /**
      * @var string
      */
     public $region;
-
     /**
      * @var string
      */
     public $secretKey;
-
     /**
      * @var string
      */
@@ -42,23 +38,28 @@ class authConf extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessKey) {
             $res['AccessKey'] = $this->accessKey;
         }
+
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->secretKey) {
             $res['SecretKey'] = $this->secretKey;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -66,26 +67,30 @@ class authConf extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authConf
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessKey'])) {
             $model->accessKey = $map['AccessKey'];
         }
+
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['SecretKey'])) {
             $model->secretKey = $map['SecretKey'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

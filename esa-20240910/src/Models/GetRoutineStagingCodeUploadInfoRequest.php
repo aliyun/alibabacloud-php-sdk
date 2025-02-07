@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRoutineStagingCodeUploadInfoRequest extends Model
 {
     /**
-     * @description The code description.
-     *
-     * @example the description of code
-     *
      * @var string
      */
     public $codeDescription;
-
     /**
-     * @description The routine name.
-     *
-     * This parameter is required.
-     * @example GetRoutineStagingCodeUploadInfo
-     *
      * @var string
      */
     public $name;
@@ -33,14 +23,16 @@ class GetRoutineStagingCodeUploadInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codeDescription) {
             $res['CodeDescription'] = $this->codeDescription;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -48,17 +40,18 @@ class GetRoutineStagingCodeUploadInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRoutineStagingCodeUploadInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeDescription'])) {
             $model->codeDescription = $map['CodeDescription'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

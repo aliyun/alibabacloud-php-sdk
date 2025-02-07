@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WafRuleMatch extends Model
 {
@@ -12,32 +12,26 @@ class WafRuleMatch extends Model
      * @var bool
      */
     public $convertToLower;
-
     /**
-     * @var \AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleMatch[]
+     * @var WafRuleMatch[]
      */
     public $criteria;
-
     /**
      * @var string
      */
     public $logic;
-
     /**
      * @var string
      */
     public $matchOperator;
-
     /**
      * @var string
      */
     public $matchType;
-
     /**
      * @var mixed
      */
     public $matchValue;
-
     /**
      * @var bool
      */
@@ -54,35 +48,45 @@ class WafRuleMatch extends Model
 
     public function validate()
     {
+        if (\is_array($this->criteria)) {
+            Model::validateArray($this->criteria);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->convertToLower) {
             $res['ConvertToLower'] = $this->convertToLower;
         }
+
         if (null !== $this->criteria) {
-            $res['Criteria'] = [];
-            if (null !== $this->criteria && \is_array($this->criteria)) {
-                $n = 0;
-                foreach ($this->criteria as $item) {
-                    $res['Criteria'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->criteria)) {
+                $res['Criteria'] = [];
+                $n1              = 0;
+                foreach ($this->criteria as $item1) {
+                    $res['Criteria'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
         }
+
         if (null !== $this->matchOperator) {
             $res['MatchOperator'] = $this->matchOperator;
         }
+
         if (null !== $this->matchType) {
             $res['MatchType'] = $this->matchType;
         }
+
         if (null !== $this->matchValue) {
             $res['MatchValue'] = $this->matchValue;
         }
+
         if (null !== $this->negate) {
             $res['Negate'] = $this->negate;
         }
@@ -90,38 +94,44 @@ class WafRuleMatch extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WafRuleMatch
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConvertToLower'])) {
             $model->convertToLower = $map['ConvertToLower'];
         }
+
         if (isset($map['Criteria'])) {
             if (!empty($map['Criteria'])) {
                 $model->criteria = [];
-                $n               = 0;
-                foreach ($map['Criteria'] as $item) {
-                    $model->criteria[$n++] = null !== $item ? self::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Criteria'] as $item1) {
+                    $model->criteria[$n1++] = self::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
         }
+
         if (isset($map['MatchOperator'])) {
             $model->matchOperator = $map['MatchOperator'];
         }
+
         if (isset($map['MatchType'])) {
             $model->matchType = $map['MatchType'];
         }
+
         if (isset($map['MatchValue'])) {
             $model->matchValue = $map['MatchValue'];
         }
+
         if (isset($map['Negate'])) {
             $model->negate = $map['Negate'];
         }

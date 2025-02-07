@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppVersionResponseBody\version;
-use AlibabaCloud\Tea\Model;
 
 class GetEdgeContainerAppVersionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the version.
-     *
      * @var version
      */
     public $version;
@@ -31,32 +24,38 @@ class GetEdgeContainerAppVersionResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->version) {
+            $this->version->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->version) {
-            $res['Version'] = null !== $this->version ? $this->version->toMap() : null;
+            $res['Version'] = null !== $this->version ? $this->version->toArray($noStream) : $this->version;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEdgeContainerAppVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Version'])) {
             $model->version = version::fromMap($map['Version']);
         }

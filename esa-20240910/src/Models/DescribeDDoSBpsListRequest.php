@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDDoSBpsListRequest extends Model
 {
@@ -12,28 +12,15 @@ class DescribeDDoSBpsListRequest extends Model
      * @var string
      */
     public $coverage;
-
     /**
-     * @example 2023-05-18T06:19:42Z
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 70966210986912
-     *
      * @var int
      */
     public $siteId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 2023-05-14T17:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -46,20 +33,24 @@ class DescribeDDoSBpsListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coverage) {
             $res['Coverage'] = $this->coverage;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -67,23 +58,26 @@ class DescribeDDoSBpsListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDDoSBpsListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Coverage'])) {
             $model->coverage = $map['Coverage'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

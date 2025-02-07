@@ -4,40 +4,25 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListWafPhasesResponseBody\phases;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafBatchRuleShared;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig;
-use AlibabaCloud\Tea\Model;
 
 class rulesets extends Model
 {
     /**
-     * @description The ID of the WAF ruleset.[](~~2850233~~)
-     *
-     * @example 10000001
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the WAF ruleset.
-     *
-     * @example example
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The rule configurations in the WAF ruleset.
-     *
      * @var WafRuleConfig[]
      */
     public $rules;
-
     /**
-     * @description The configurations shared by the rules in the WAF ruleset.
-     *
      * @var WafBatchRuleShared
      */
     public $shared;
@@ -50,56 +35,69 @@ class rulesets extends Model
 
     public function validate()
     {
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
+        }
+        if (null !== $this->shared) {
+            $this->shared->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rules)) {
+                $res['Rules'] = [];
+                $n1           = 0;
+                foreach ($this->rules as $item1) {
+                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->shared) {
-            $res['Shared'] = null !== $this->shared ? $this->shared->toMap() : null;
+            $res['Shared'] = null !== $this->shared ? $this->shared->toArray($noStream) : $this->shared;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rulesets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? WafRuleConfig::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Rules'] as $item1) {
+                    $model->rules[$n1++] = WafRuleConfig::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Shared'])) {
             $model->shared = WafBatchRuleShared::fromMap($map['Shared']);
         }

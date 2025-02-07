@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateWaitingRoomResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 85H66C7B-671A-4297-9187-2C4477247A74
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateWaitingRoomResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateWaitingRoomResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateWaitingRoomResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

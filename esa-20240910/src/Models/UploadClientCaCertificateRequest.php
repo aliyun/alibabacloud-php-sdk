@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadClientCaCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example -----BEGIN CERTIFICATE-----
-     *
      * @var string
      */
     public $certificate;
-
     /**
-     * @example yourCertName
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234567890123
-     *
      * @var int
      */
     public $siteId;
@@ -40,17 +28,20 @@ class UploadClientCaCertificateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificate) {
             $res['Certificate'] = $this->certificate;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -58,20 +49,22 @@ class UploadClientCaCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadClientCaCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Certificate'])) {
             $model->certificate = $map['Certificate'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

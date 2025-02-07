@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOriginPoolRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example GetOriginPool
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $siteId;
@@ -30,14 +23,16 @@ class GetOriginPoolRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -45,17 +40,18 @@ class GetOriginPoolRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOriginPoolRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

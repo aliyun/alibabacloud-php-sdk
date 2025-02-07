@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsRequest\recordList;
-use AlibabaCloud\Tea\Model;
 
 class BatchCreateRecordsRequest extends Model
 {
     /**
-     * @description The list of DNS records to be created.
-     *
-     * This parameter is required.
      * @var recordList[]
      */
     public $recordList;
-
     /**
-     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-     *
-     * This parameter is required.
-     * @example 1234567890123
-     *
      * @var int
      */
     public $siteId;
@@ -33,20 +24,25 @@ class BatchCreateRecordsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->recordList)) {
+            Model::validateArray($this->recordList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordList) {
-            $res['RecordList'] = [];
-            if (null !== $this->recordList && \is_array($this->recordList)) {
-                $n = 0;
-                foreach ($this->recordList as $item) {
-                    $res['RecordList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordList)) {
+                $res['RecordList'] = [];
+                $n1                = 0;
+                foreach ($this->recordList as $item1) {
+                    $res['RecordList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -54,23 +50,24 @@ class BatchCreateRecordsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchCreateRecordsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordList'])) {
             if (!empty($map['RecordList'])) {
                 $model->recordList = [];
-                $n                 = 0;
-                foreach ($map['RecordList'] as $item) {
-                    $model->recordList[$n++] = null !== $item ? recordList::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['RecordList'] as $item1) {
+                    $model->recordList[$n1++] = recordList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

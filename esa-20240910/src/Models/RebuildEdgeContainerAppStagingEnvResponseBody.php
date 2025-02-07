@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RebuildEdgeContainerAppStagingEnvResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RebuildEdgeContainerAppStagingEnvResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RebuildEdgeContainerAppStagingEnvResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RebuildEdgeContainerAppStagingEnvResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

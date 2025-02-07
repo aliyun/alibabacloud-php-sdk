@@ -4,31 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetHttpDDoSAttackProtectionRequest extends Model
 {
     /**
-     * @description The level of HTTP DDoS attack protection. Valid values:
-     *
-     *   **very weak**: very loose.
-     *   **weak**: loose.
-     *   **default**: normal.
-     *   **hard**: strict.
-     *
-     * This parameter is required.
-     * @example default
-     *
      * @var string
      */
     public $globalMode;
-
     /**
-     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-     *
-     * This parameter is required.
-     * @example 123456****
-     *
      * @var int
      */
     public $siteId;
@@ -39,14 +23,16 @@ class SetHttpDDoSAttackProtectionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->globalMode) {
             $res['GlobalMode'] = $this->globalMode;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -54,17 +40,18 @@ class SetHttpDDoSAttackProtectionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetHttpDDoSAttackProtectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalMode'])) {
             $model->globalMode = $map['GlobalMode'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

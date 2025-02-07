@@ -4,38 +4,19 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserLogDeliveryQuotaResponseBody extends Model
 {
     /**
-     * @description The log category. Valid values:
-     *
-     *   dcdn_log_access_l1 (default): access logs.
-     *   dcdn_log_er: Edge Routine logs.
-     *   dcdn_log_waf: firewall logs.
-     *   dcdn_log_ipa: TCP/UDP proxy logs.
-     *
-     * @example dcdn_log_access_l1
-     *
      * @var string
      */
     public $businessType;
-
     /**
-     * @description The remaining quota.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $freeQuota;
-
     /**
-     * @description The request ID.
-     *
-     * @example 34DCBC8A-****-****-****-6DAA11D7DDBD
-     *
      * @var string
      */
     public $requestId;
@@ -47,17 +28,20 @@ class GetUserLogDeliveryQuotaResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
+
         if (null !== $this->freeQuota) {
             $res['FreeQuota'] = $this->freeQuota;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,20 +49,22 @@ class GetUserLogDeliveryQuotaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserLogDeliveryQuotaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
+
         if (isset($map['FreeQuota'])) {
             $model->freeQuota = $map['FreeQuota'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

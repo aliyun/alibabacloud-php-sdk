@@ -4,68 +4,35 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetListResponseBody extends Model
 {
     /**
-     * @description The description of the custom list.
-     *
-     * @example a custom list
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the custom list.[](~~2850217~~)
-     *
-     * @example 40000001
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The items in the custom list, which are displayed as an array.
-     *
      * @var string[]
      */
     public $items;
-
     /**
-     * @description The type of the custom list.
-     *
-     * @example ip
-     *
      * @var string
      */
     public $kind;
-
     /**
-     * @description The name of the custom list.
-     *
-     * This parameter is required.
-     * @example example
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The request ID.
-     *
-     * @example 36af3fcc-43d0-441c-86b1-428951dc8225
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The time when the custom list was last modified.
-     *
-     * @example 2024-01-01T00:00:00Z
-     *
      * @var string
      */
     public $updateTime;
@@ -81,29 +48,45 @@ class GetListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = $this->items;
+            if (\is_array($this->items)) {
+                $res['Items'] = [];
+                $n1           = 0;
+                foreach ($this->items as $item1) {
+                    $res['Items'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->kind) {
             $res['Kind'] = $this->kind;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -111,34 +94,44 @@ class GetListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
-                $model->items = $map['Items'];
+                $model->items = [];
+                $n1           = 0;
+                foreach ($map['Items'] as $item1) {
+                    $model->items[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Kind'])) {
             $model->kind = $map['Kind'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

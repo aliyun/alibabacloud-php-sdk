@@ -4,39 +4,24 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerRegionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerRegionsResponseBody\regions\subRegions;
-use AlibabaCloud\Tea\Model;
 
 class regions extends Model
 {
     /**
-     * @description The Chinese name of the region.
-     *
      * @var string
      */
     public $regionCnName;
-
     /**
-     * @description The code of the region.
-     *
-     * @example SEAS
-     *
      * @var string
      */
     public $regionCode;
-
     /**
-     * @description The English name of the region.
-     *
-     * @example South East Asia
-     *
      * @var string
      */
     public $regionEnName;
-
     /**
-     * @description The subregions of the region.
-     *
      * @var subRegions[]
      */
     public $subRegions;
@@ -49,26 +34,33 @@ class regions extends Model
 
     public function validate()
     {
+        if (\is_array($this->subRegions)) {
+            Model::validateArray($this->subRegions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionCnName) {
             $res['RegionCnName'] = $this->regionCnName;
         }
+
         if (null !== $this->regionCode) {
             $res['RegionCode'] = $this->regionCode;
         }
+
         if (null !== $this->regionEnName) {
             $res['RegionEnName'] = $this->regionEnName;
         }
+
         if (null !== $this->subRegions) {
-            $res['SubRegions'] = [];
-            if (null !== $this->subRegions && \is_array($this->subRegions)) {
-                $n = 0;
-                foreach ($this->subRegions as $item) {
-                    $res['SubRegions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subRegions)) {
+                $res['SubRegions'] = [];
+                $n1                = 0;
+                foreach ($this->subRegions as $item1) {
+                    $res['SubRegions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -76,29 +68,32 @@ class regions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionCnName'])) {
             $model->regionCnName = $map['RegionCnName'];
         }
+
         if (isset($map['RegionCode'])) {
             $model->regionCode = $map['RegionCode'];
         }
+
         if (isset($map['RegionEnName'])) {
             $model->regionEnName = $map['RegionEnName'];
         }
+
         if (isset($map['SubRegions'])) {
             if (!empty($map['SubRegions'])) {
                 $model->subRegions = [];
-                $n                 = 0;
-                foreach ($map['SubRegions'] as $item) {
-                    $model->subRegions[$n++] = null !== $item ? subRegions::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['SubRegions'] as $item1) {
+                    $model->subRegions[$n1++] = subRegions::fromMap($item1);
                 }
             }
         }

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserDeliveryTaskRequest extends Model
 {
     /**
-     * @description The name of the delivery task.
-     *
-     * This parameter is required.
-     * @example test_project
-     *
      * @var string
      */
     public $taskName;
@@ -23,9 +18,10 @@ class GetUserDeliveryTaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskName) {
@@ -35,11 +31,11 @@ class GetUserDeliveryTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserDeliveryTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetEdgeContainerLogsRequest extends Model
 {
     /**
-     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
-     *
-     * This parameter is required.
-     * @example app-88068867578379****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The number of log entries to output.
-     *
-     * This parameter is required.
-     * @example 500
-     *
      * @var int
      */
     public $lines;
@@ -34,14 +23,16 @@ class GetEdgeContainerLogsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->lines) {
             $res['Lines'] = $this->lines;
         }
@@ -49,17 +40,18 @@ class GetEdgeContainerLogsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEdgeContainerLogsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Lines'])) {
             $model->lines = $map['Lines'];
         }

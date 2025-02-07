@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota;
-use AlibabaCloud\Tea\Model;
 
 class GetWafQuotaResponseBody extends Model
 {
     /**
-     * @description The quota information returned.
-     *
      * @var quota
      */
     public $quota;
-
     /**
-     * @description The request ID.
-     *
-     * @example 36af3fcc-43d0-441c-86b1-428951dc8225
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetWafQuotaResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->quota) {
+            $this->quota->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quota) {
-            $res['Quota'] = null !== $this->quota ? $this->quota->toMap() : null;
+            $res['Quota'] = null !== $this->quota ? $this->quota->toArray($noStream) : $this->quota;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetWafQuotaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWafQuotaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Quota'])) {
             $model->quota = quota::fromMap($map['Quota']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

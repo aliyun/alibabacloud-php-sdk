@@ -4,28 +4,18 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApplyCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example www.example.com,blog.example.com
-     *
      * @var string
      */
     public $domains;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234567890123
-     *
      * @var int
      */
     public $siteId;
-
     /**
      * @var string
      */
@@ -38,17 +28,20 @@ class ApplyCertificateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domains) {
             $res['Domains'] = $this->domains;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -56,20 +49,22 @@ class ApplyCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplyCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domains'])) {
             $model->domains = $map['Domains'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

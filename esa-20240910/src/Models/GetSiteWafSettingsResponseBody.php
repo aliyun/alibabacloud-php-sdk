@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSiteWafSettingsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 36af3fcc-43d0-441c-86b1-428951dc8225
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The WAF configurations of the website.
-     *
      * @var WafSiteSettings
      */
     public $settings;
@@ -30,32 +23,38 @@ class GetSiteWafSettingsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->settings) {
+            $this->settings->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->settings) {
-            $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
+            $res['Settings'] = null !== $this->settings ? $this->settings->toArray($noStream) : $this->settings;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSiteWafSettingsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Settings'])) {
             $model->settings = WafSiteSettings::fromMap($map['Settings']);
         }

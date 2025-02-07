@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteEdgeContainerAppVersionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example b021e538-9dde-46ed-a1f2-9469da8f3e77
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteEdgeContainerAppVersionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteEdgeContainerAppVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteEdgeContainerAppVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

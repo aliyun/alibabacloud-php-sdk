@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\BatchGetExpressionFieldsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class expressions extends Model
 {
     /**
-     * @description The content of the regular expression.
-     *
-     * @example ip.src eq 1.1.1.1
-     *
      * @var string
      */
     public $expression;
-
     /**
-     * @description The ID of the regular expression.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $id;
@@ -32,14 +23,16 @@ class expressions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -47,17 +40,18 @@ class expressions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return expressions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

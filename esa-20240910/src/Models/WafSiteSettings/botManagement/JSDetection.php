@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\botManagement;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JSDetection extends Model
 {
@@ -18,9 +18,10 @@ class JSDetection extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
@@ -30,11 +31,11 @@ class JSDetection extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JSDetection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

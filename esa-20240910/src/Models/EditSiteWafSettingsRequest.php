@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EditSiteWafSettingsRequest extends Model
 {
     /**
-     * @description The WAF configuration of the website in the JSON format.
-     *
      * @var WafSiteSettings
      */
     public $settings;
-
     /**
-     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $siteId;
-
     /**
-     * @description The version of the website.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $siteVersion;
@@ -40,17 +28,23 @@ class EditSiteWafSettingsRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->settings) {
+            $this->settings->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->settings) {
-            $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
+            $res['Settings'] = null !== $this->settings ? $this->settings->toArray($noStream) : $this->settings;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
+
         if (null !== $this->siteVersion) {
             $res['SiteVersion'] = $this->siteVersion;
         }
@@ -58,20 +52,22 @@ class EditSiteWafSettingsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EditSiteWafSettingsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Settings'])) {
             $model->settings = WafSiteSettings::fromMap($map['Settings']);
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
+
         if (isset($map['SiteVersion'])) {
             $model->siteVersion = $map['SiteVersion'];
         }

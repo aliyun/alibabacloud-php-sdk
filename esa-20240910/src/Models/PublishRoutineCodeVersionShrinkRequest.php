@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishRoutineCodeVersionShrinkRequest extends Model
 {
     /**
-     * @description The regions for canary release.
-     *
      * @var string
      */
     public $canaryAreaListShrink;
-
     /**
-     * @description The version number for canary release.
-     *
-     * @example 1710120201067203242
-     *
      * @var string
      */
     public $canaryCodeVersion;
-
     /**
-     * @description The code version to be released.
-     *
-     * @example 1710120201067203242
-     *
      * @var string
      */
     public $codeVersion;
-
     /**
-     * @description The environment name.
-     *
-     * This parameter is required.
-     * @example production
-     *
      * @var string
      */
     public $env;
-
     /**
-     * @description The routine name.
-     *
-     * This parameter is required.
-     * @example PublishRoutineCodeVersion
-     *
      * @var string
      */
     public $name;
@@ -62,23 +38,28 @@ class PublishRoutineCodeVersionShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canaryAreaListShrink) {
             $res['CanaryAreaList'] = $this->canaryAreaListShrink;
         }
+
         if (null !== $this->canaryCodeVersion) {
             $res['CanaryCodeVersion'] = $this->canaryCodeVersion;
         }
+
         if (null !== $this->codeVersion) {
             $res['CodeVersion'] = $this->codeVersion;
         }
+
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -86,26 +67,30 @@ class PublishRoutineCodeVersionShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishRoutineCodeVersionShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanaryAreaList'])) {
             $model->canaryAreaListShrink = $map['CanaryAreaList'];
         }
+
         if (isset($map['CanaryCodeVersion'])) {
             $model->canaryCodeVersion = $map['CanaryCodeVersion'];
         }
+
         if (isset($map['CodeVersion'])) {
             $model->codeVersion = $map['CodeVersion'];
         }
+
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

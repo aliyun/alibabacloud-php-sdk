@@ -4,10 +4,11 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateVersionManagementRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateVersionManagementResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsRequest;
@@ -39,8 +40,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CheckUserProjectNameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckUserProjectNameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCacheRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCacheRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateClientCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCompressionRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppRecordRequest;
@@ -50,21 +55,40 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpRequestHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpRequestHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpRequestHeaderModificationRuleShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpResponseHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpResponseHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpResponseHeaderModificationRuleShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpsApplicationConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpsApplicationConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpsBasicConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpsBasicConfigurationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateLoadBalancerRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateLoadBalancerResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateLoadBalancerShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginPoolRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginPoolShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginProtectionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreatePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreatePageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRedirectRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRedirectRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRewriteUrlRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRewriteUrlRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRouteRequest;
@@ -94,12 +118,18 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeactivateVersionManagementRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeactivateVersionManagementResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCacheRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCacheRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCaCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCaCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCompressionRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRecordRequest;
@@ -108,20 +138,36 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpRequestHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpRequestHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpResponseHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpResponseHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsApplicationConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsApplicationConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsBasicConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsBasicConfigurationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteLoadBalancerRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteLoadBalancerResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginPoolRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginProtectionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeletePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeletePageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRecordResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRedirectRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRedirectRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRewriteUrlRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRewriteUrlRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRecordRequest;
@@ -173,6 +219,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveSpecificationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheTagRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheTagResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateRequest;
@@ -183,6 +233,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateHostnamesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCnameFlatteningRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCnameFlatteningResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCompressionRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCompressionRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetDevelopmentModeRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetDevelopmentModeResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppStatusRequest;
@@ -197,6 +253,16 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusReq
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpRequestHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpRequestHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpResponseHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpResponseHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpsApplicationConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpsApplicationConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpsBasicConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpsBasicConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetIPv6Request;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetIPv6Response;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvAccountResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceResponse;
@@ -204,10 +270,16 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetLoadBalancerRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetLoadBalancerResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetManagedTransformRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetManagedTransformResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPurgeQuotaRequest;
@@ -216,6 +288,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetRealtimeDeliveryFieldRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRealtimeDeliveryFieldResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRecordResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRedirectRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRedirectRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineStagingCodeUploadInfoRequest;
@@ -224,6 +300,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineStagingEnvIpResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineUserInfoResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetScheduledPreloadJobRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetScheduledPreloadJobResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSeoBypassRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSeoBypassResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteCurrentNSRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteCurrentNSResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteCustomLogRequest;
@@ -232,10 +310,14 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteLogDeliveryQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteLogDeliveryQuotaResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteNameExclusiveRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteNameExclusiveResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteWafSettingsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteWafSettingsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetTieredCacheRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetTieredCacheResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUploadTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUploadTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserDeliveryTaskRequest;
@@ -249,6 +331,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCertificatesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCiphersRequest;
@@ -257,6 +341,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCaCertificatesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCaCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCompressionRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCompressionRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppsRequest;
@@ -268,6 +354,14 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutinePlansResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpRequestHeaderModificationRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpRequestHeaderModificationRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpResponseHeaderModificationRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpResponseHeaderModificationRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpsApplicationConfigurationsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpsApplicationConfigurationsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpsBasicConfigurationsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpsBasicConfigurationsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageRequest;
@@ -277,17 +371,27 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListKvsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListListsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListListsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListListsShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerOriginStatusRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerOriginStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerRegionsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerRegionsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancersRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancersResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListManagedRulesGroupsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListManagedRulesGroupsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRedirectRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRedirectRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCanaryAreasResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineOptionalSpecsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadExecutionsRequest;
@@ -363,10 +467,40 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheTagRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheTagResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCnameFlatteningRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCnameFlatteningResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCompressionRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateDevelopmentModeRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateDevelopmentModeResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpRequestHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpRequestHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpRequestHeaderModificationRuleShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpResponseHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpResponseHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpResponseHeaderModificationRuleShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpsApplicationConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpsApplicationConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpsBasicConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpsBasicConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateIPv6Request;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateIPv6Response;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateManagedTransformRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateManagedTransformResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginPoolRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginPoolShrinkRequest;
@@ -374,13 +508,21 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionIpWhiteListReque
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionIpWhiteListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRecordShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRedirectRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRedirectRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRewriteUrlRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRewriteUrlRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateScheduledPreloadExecutionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSeoBypassRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSeoBypassResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteAccessTypeRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteAccessTypeResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteCoverageRequest;
@@ -392,8 +534,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteNameExclusiveRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteNameExclusiveResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTieredCacheRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTieredCacheResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskStatusRequest;
@@ -419,12 +565,11 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class ESA extends OpenApiClient
 {
@@ -449,30 +594,35 @@ class ESA extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Activates a client certificate.
-     *  *
-     * @param ActivateClientCertificateRequest $request ActivateClientCertificateRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Activates a client certificate.
      *
-     * @return ActivateClientCertificateResponse ActivateClientCertificateResponse
+     * @param request - ActivateClientCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ActivateClientCertificateResponse
+     *
+     * @param ActivateClientCertificateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ActivateClientCertificateResponse
      */
     public function activateClientCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ActivateClientCertificate',
@@ -485,16 +635,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ActivateClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ActivateClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ActivateClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates a client certificate.
-     *  *
-     * @param ActivateClientCertificateRequest $request ActivateClientCertificateRequest
+     * Activates a client certificate.
      *
-     * @return ActivateClientCertificateResponse ActivateClientCertificateResponse
+     * @param request - ActivateClientCertificateRequest
+     * @returns ActivateClientCertificateResponse
+     *
+     * @param ActivateClientCertificateRequest $request
+     *
+     * @return ActivateClientCertificateResponse
      */
     public function activateClientCertificate($request)
     {
@@ -504,19 +660,81 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 申请免费证书
-     *  *
-     * @param ApplyCertificateRequest $request ApplyCertificateRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 开启版本管理.
      *
-     * @return ApplyCertificateResponse ApplyCertificateResponse
+     * @param request - ActivateVersionManagementRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ActivateVersionManagementResponse
+     *
+     * @param ActivateVersionManagementRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ActivateVersionManagementResponse
+     */
+    public function activateVersionManagementWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ActivateVersionManagement',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ActivateVersionManagementResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ActivateVersionManagementResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 开启版本管理.
+     *
+     * @param request - ActivateVersionManagementRequest
+     * @returns ActivateVersionManagementResponse
+     *
+     * @param ActivateVersionManagementRequest $request
+     *
+     * @return ActivateVersionManagementResponse
+     */
+    public function activateVersionManagement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->activateVersionManagementWithOptions($request, $runtime);
+    }
+
+    /**
+     * 申请免费证书.
+     *
+     * @param request - ApplyCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApplyCertificateResponse
+     *
+     * @param ApplyCertificateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ApplyCertificateResponse
      */
     public function applyCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ApplyCertificate',
@@ -529,16 +747,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ApplyCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 申请免费证书
-     *  *
-     * @param ApplyCertificateRequest $request ApplyCertificateRequest
+     * 申请免费证书.
      *
-     * @return ApplyCertificateResponse ApplyCertificateResponse
+     * @param request - ApplyCertificateRequest
+     * @returns ApplyCertificateResponse
+     *
+     * @param ApplyCertificateRequest $request
+     *
+     * @return ApplyCertificateResponse
      */
     public function applyCertificate($request)
     {
@@ -548,33 +772,41 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Adds DNS records of different record types at a time..
-     *  *
-     * @description This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
-     * Successful and failed records along with error messages are listed in the response.
-     *  *
-     * @param BatchCreateRecordsRequest $tmpReq  BatchCreateRecordsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Adds DNS records of different record types at a time..
      *
-     * @return BatchCreateRecordsResponse BatchCreateRecordsResponse
+     * @remarks
+     * This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
+     * Successful and failed records along with error messages are listed in the response.
+     *
+     * @param tmpReq - BatchCreateRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchCreateRecordsResponse
+     *
+     * @param BatchCreateRecordsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BatchCreateRecordsResponse
      */
     public function batchCreateRecordsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchCreateRecordsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->recordList)) {
-            $request->recordListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recordList, 'RecordList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->recordList) {
+            $request->recordListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recordList, 'RecordList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->recordListShrink)) {
-            $query['RecordList'] = $request->recordListShrink;
+        if (null !== $request->recordListShrink) {
+            @$query['RecordList'] = $request->recordListShrink;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchCreateRecords',
@@ -587,19 +819,26 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchCreateRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchCreateRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchCreateRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds DNS records of different record types at a time..
-     *  *
-     * @description This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
-     * Successful and failed records along with error messages are listed in the response.
-     *  *
-     * @param BatchCreateRecordsRequest $request BatchCreateRecordsRequest
+     * Adds DNS records of different record types at a time..
      *
-     * @return BatchCreateRecordsResponse BatchCreateRecordsResponse
+     * @remarks
+     * This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
+     * Successful and failed records along with error messages are listed in the response.
+     *
+     * @param request - BatchCreateRecordsRequest
+     * @returns BatchCreateRecordsResponse
+     *
+     * @param BatchCreateRecordsRequest $request
+     *
+     * @return BatchCreateRecordsResponse
      */
     public function batchCreateRecords($request)
     {
@@ -609,32 +848,39 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes key-value pairs from a namespace at a time based on keys.
-     *  *
-     * @param BatchDeleteKvRequest $tmpReq  BatchDeleteKvRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes key-value pairs from a namespace at a time based on keys.
      *
-     * @return BatchDeleteKvResponse BatchDeleteKvResponse
+     * @param tmpReq - BatchDeleteKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchDeleteKvResponse
+     *
+     * @param BatchDeleteKvRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BatchDeleteKvResponse
      */
     public function batchDeleteKvWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchDeleteKvShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->keys)) {
-            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->keysShrink)) {
-            $body['Keys'] = $request->keysShrink;
+        if (null !== $request->keysShrink) {
+            @$body['Keys'] = $request->keysShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchDeleteKv',
@@ -647,16 +893,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchDeleteKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchDeleteKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchDeleteKvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes key-value pairs from a namespace at a time based on keys.
-     *  *
-     * @param BatchDeleteKvRequest $request BatchDeleteKvRequest
+     * Deletes key-value pairs from a namespace at a time based on keys.
      *
-     * @return BatchDeleteKvResponse BatchDeleteKvResponse
+     * @param request - BatchDeleteKvRequest
+     * @returns BatchDeleteKvResponse
+     *
+     * @param BatchDeleteKvRequest $request
+     *
+     * @return BatchDeleteKvResponse
      */
     public function batchDeleteKv($request)
     {
@@ -666,9 +918,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
-     *  *
-     * @description This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
+     * Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
+     *
+     * @remarks
+     * This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
      *     func TestBatchDeleteWithHighCapacity() error {
      *     	// Initialize the configurations.
      *     	cfg := new(openapi.Config)
@@ -703,24 +956,30 @@ class ESA extends OpenApiClient
      *     	}
      *     	return nil
      *     }
-     *  *
-     * @param BatchDeleteKvWithHighCapacityRequest $request BatchDeleteKvWithHighCapacityRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteKvWithHighCapacityResponse BatchDeleteKvWithHighCapacityResponse
+     * @param request - BatchDeleteKvWithHighCapacityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchDeleteKvWithHighCapacityResponse
+     *
+     * @param BatchDeleteKvWithHighCapacityRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return BatchDeleteKvWithHighCapacityResponse
      */
     public function batchDeleteKvWithHighCapacityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchDeleteKvWithHighCapacity',
@@ -733,14 +992,18 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchDeleteKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchDeleteKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchDeleteKvWithHighCapacityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
-     *  *
-     * @description This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
+     * Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
+     *
+     * @remarks
+     * This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
      *     func TestBatchDeleteWithHighCapacity() error {
      *     	// Initialize the configurations.
      *     	cfg := new(openapi.Config)
@@ -775,10 +1038,13 @@ class ESA extends OpenApiClient
      *     	}
      *     	return nil
      *     }
-     *  *
-     * @param BatchDeleteKvWithHighCapacityRequest $request BatchDeleteKvWithHighCapacityRequest
      *
-     * @return BatchDeleteKvWithHighCapacityResponse BatchDeleteKvWithHighCapacityResponse
+     * @param request - BatchDeleteKvWithHighCapacityRequest
+     * @returns BatchDeleteKvWithHighCapacityResponse
+     *
+     * @param BatchDeleteKvWithHighCapacityRequest $request
+     *
+     * @return BatchDeleteKvWithHighCapacityResponse
      */
     public function batchDeleteKvWithHighCapacity($request)
     {
@@ -801,12 +1067,14 @@ class ESA extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -834,13 +1102,13 @@ class ESA extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $batchDeleteKvWithHighCapacityReq = new BatchDeleteKvWithHighCapacityRequest([]);
-        OpenApiUtilClient::convert($request, $batchDeleteKvWithHighCapacityReq);
-        if (!Utils::isUnset($request->urlObject)) {
+        Utils::convert($request, $batchDeleteKvWithHighCapacityReq);
+        if (null !== $request->urlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -867,35 +1135,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Batch queries the objects that match specific expressions.
-     *  *
-     * @param BatchGetExpressionFieldsRequest $tmpReq  BatchGetExpressionFieldsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Batch queries the objects that match specific expressions.
      *
-     * @return BatchGetExpressionFieldsResponse BatchGetExpressionFieldsResponse
+     * @param tmpReq - BatchGetExpressionFieldsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchGetExpressionFieldsResponse
+     *
+     * @param BatchGetExpressionFieldsRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BatchGetExpressionFieldsResponse
      */
     public function batchGetExpressionFieldsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchGetExpressionFieldsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->expressions)) {
-            $request->expressionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->expressions, 'Expressions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->expressions) {
+            $request->expressionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->expressions, 'Expressions', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->expressionsShrink)) {
-            $body['Expressions'] = $request->expressionsShrink;
+        if (null !== $request->expressionsShrink) {
+            @$body['Expressions'] = $request->expressionsShrink;
         }
-        if (!Utils::isUnset($request->phase)) {
-            $body['Phase'] = $request->phase;
+
+        if (null !== $request->phase) {
+            @$body['Phase'] = $request->phase;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchGetExpressionFields',
@@ -908,16 +1184,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchGetExpressionFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchGetExpressionFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetExpressionFieldsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Batch queries the objects that match specific expressions.
-     *  *
-     * @param BatchGetExpressionFieldsRequest $request BatchGetExpressionFieldsRequest
+     * Batch queries the objects that match specific expressions.
      *
-     * @return BatchGetExpressionFieldsResponse BatchGetExpressionFieldsResponse
+     * @param request - BatchGetExpressionFieldsRequest
+     * @returns BatchGetExpressionFieldsResponse
+     *
+     * @param BatchGetExpressionFieldsRequest $request
+     *
+     * @return BatchGetExpressionFieldsResponse
      */
     public function batchGetExpressionFields($request)
     {
@@ -927,32 +1209,39 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Configures key-value pairs for a namespace at a time based on specified keys.
-     *  *
-     * @param BatchPutKvRequest $tmpReq  BatchPutKvRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Configures key-value pairs for a namespace at a time based on specified keys.
      *
-     * @return BatchPutKvResponse BatchPutKvResponse
+     * @param tmpReq - BatchPutKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchPutKvResponse
+     *
+     * @param BatchPutKvRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BatchPutKvResponse
      */
     public function batchPutKvWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchPutKvShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->kvList)) {
-            $request->kvListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->kvList, 'KvList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->kvList) {
+            $request->kvListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->kvList, 'KvList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->kvListShrink)) {
-            $body['KvList'] = $request->kvListShrink;
+        if (null !== $request->kvListShrink) {
+            @$body['KvList'] = $request->kvListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchPutKv',
@@ -965,16 +1254,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchPutKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchPutKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchPutKvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures key-value pairs for a namespace at a time based on specified keys.
-     *  *
-     * @param BatchPutKvRequest $request BatchPutKvRequest
+     * Configures key-value pairs for a namespace at a time based on specified keys.
      *
-     * @return BatchPutKvResponse BatchPutKvResponse
+     * @param request - BatchPutKvRequest
+     * @returns BatchPutKvResponse
+     *
+     * @param BatchPutKvRequest $request
+     *
+     * @return BatchPutKvResponse
      */
     public function batchPutKv($request)
     {
@@ -984,9 +1279,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
-     *  *
-     * @description This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
+     * Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
+     *
+     * @remarks
+     * This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
      *     func TestBatchPutKvWithHighCapacity() error {
      *     	// Initialize the configurations.
      *     	cfg := new(openapi.Config)
@@ -1029,24 +1325,30 @@ class ESA extends OpenApiClient
      *     	}
      *     	return nil
      *     }
-     *  *
-     * @param BatchPutKvWithHighCapacityRequest $request BatchPutKvWithHighCapacityRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchPutKvWithHighCapacityResponse BatchPutKvWithHighCapacityResponse
+     * @param request - BatchPutKvWithHighCapacityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchPutKvWithHighCapacityResponse
+     *
+     * @param BatchPutKvWithHighCapacityRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return BatchPutKvWithHighCapacityResponse
      */
     public function batchPutKvWithHighCapacityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchPutKvWithHighCapacity',
@@ -1059,14 +1361,18 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchPutKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchPutKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchPutKvWithHighCapacityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
-     *  *
-     * @description This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
+     * Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
+     *
+     * @remarks
+     * This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
      *     func TestBatchPutKvWithHighCapacity() error {
      *     	// Initialize the configurations.
      *     	cfg := new(openapi.Config)
@@ -1109,10 +1415,13 @@ class ESA extends OpenApiClient
      *     	}
      *     	return nil
      *     }
-     *  *
-     * @param BatchPutKvWithHighCapacityRequest $request BatchPutKvWithHighCapacityRequest
      *
-     * @return BatchPutKvWithHighCapacityResponse BatchPutKvWithHighCapacityResponse
+     * @param request - BatchPutKvWithHighCapacityRequest
+     * @returns BatchPutKvWithHighCapacityResponse
+     *
+     * @param BatchPutKvWithHighCapacityRequest $request
+     *
+     * @return BatchPutKvWithHighCapacityResponse
      */
     public function batchPutKvWithHighCapacity($request)
     {
@@ -1135,12 +1444,14 @@ class ESA extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -1168,13 +1479,13 @@ class ESA extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $batchPutKvWithHighCapacityReq = new BatchPutKvWithHighCapacityRequest([]);
-        OpenApiUtilClient::convert($request, $batchPutKvWithHighCapacityReq);
-        if (!Utils::isUnset($request->urlObject)) {
+        Utils::convert($request, $batchPutKvWithHighCapacityReq);
+        if (null !== $request->urlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -1201,39 +1512,49 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Blocks URLs.
-     *  *
-     * @param BlockObjectRequest $tmpReq  BlockObjectRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Blocks URLs.
      *
-     * @return BlockObjectResponse BlockObjectResponse
+     * @param tmpReq - BlockObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BlockObjectResponse
+     *
+     * @param BlockObjectRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return BlockObjectResponse
      */
     public function blockObjectWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BlockObjectShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->content)) {
-            $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->contentShrink)) {
-            $query['Content'] = $request->contentShrink;
+        if (null !== $request->contentShrink) {
+            @$query['Content'] = $request->contentShrink;
         }
-        if (!Utils::isUnset($request->extension)) {
-            $query['Extension'] = $request->extension;
+
+        if (null !== $request->extension) {
+            @$query['Extension'] = $request->extension;
         }
-        if (!Utils::isUnset($request->maxage)) {
-            $query['Maxage'] = $request->maxage;
+
+        if (null !== $request->maxage) {
+            @$query['Maxage'] = $request->maxage;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BlockObject',
@@ -1246,16 +1567,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BlockObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BlockObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BlockObjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Blocks URLs.
-     *  *
-     * @param BlockObjectRequest $request BlockObjectRequest
+     * Blocks URLs.
      *
-     * @return BlockObjectResponse BlockObjectResponse
+     * @param request - BlockObjectRequest
+     * @returns BlockObjectResponse
+     *
+     * @param BlockObjectRequest $request
+     *
+     * @return BlockObjectResponse
      */
     public function blockObject($request)
     {
@@ -1265,22 +1592,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether a specified website name is available.
-     *  *
-     * @param CheckSiteNameRequest $request CheckSiteNameRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Checks whether a specified website name is available.
      *
-     * @return CheckSiteNameResponse CheckSiteNameResponse
+     * @param request - CheckSiteNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckSiteNameResponse
+     *
+     * @param CheckSiteNameRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CheckSiteNameResponse
      */
     public function checkSiteNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteName)) {
-            $query['SiteName'] = $request->siteName;
+        if (null !== $request->siteName) {
+            @$query['SiteName'] = $request->siteName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckSiteName',
@@ -1293,16 +1625,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckSiteNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckSiteNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckSiteNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether a specified website name is available.
-     *  *
-     * @param CheckSiteNameRequest $request CheckSiteNameRequest
+     * Checks whether a specified website name is available.
      *
-     * @return CheckSiteNameResponse CheckSiteNameResponse
+     * @param request - CheckSiteNameRequest
+     * @returns CheckSiteNameResponse
+     *
+     * @param CheckSiteNameRequest $request
+     *
+     * @return CheckSiteNameResponse
      */
     public function checkSiteName($request)
     {
@@ -1312,19 +1650,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Checks the name of a real-time log delivery task.
-     *  *
-     * @param CheckSiteProjectNameRequest $request CheckSiteProjectNameRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Checks the name of a real-time log delivery task.
      *
-     * @return CheckSiteProjectNameResponse CheckSiteProjectNameResponse
+     * @param request - CheckSiteProjectNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckSiteProjectNameResponse
+     *
+     * @param CheckSiteProjectNameRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckSiteProjectNameResponse
      */
     public function checkSiteProjectNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckSiteProjectName',
@@ -1337,16 +1679,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckSiteProjectNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckSiteProjectNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckSiteProjectNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks the name of a real-time log delivery task.
-     *  *
-     * @param CheckSiteProjectNameRequest $request CheckSiteProjectNameRequest
+     * Checks the name of a real-time log delivery task.
      *
-     * @return CheckSiteProjectNameResponse CheckSiteProjectNameResponse
+     * @param request - CheckSiteProjectNameRequest
+     * @returns CheckSiteProjectNameResponse
+     *
+     * @param CheckSiteProjectNameRequest $request
+     *
+     * @return CheckSiteProjectNameResponse
      */
     public function checkSiteProjectName($request)
     {
@@ -1356,19 +1704,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Checks the name of a real-time log delivery task by account.
-     *  *
-     * @param CheckUserProjectNameRequest $request CheckUserProjectNameRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Checks the name of a real-time log delivery task by account.
      *
-     * @return CheckUserProjectNameResponse CheckUserProjectNameResponse
+     * @param request - CheckUserProjectNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckUserProjectNameResponse
+     *
+     * @param CheckUserProjectNameRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckUserProjectNameResponse
      */
     public function checkUserProjectNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckUserProjectName',
@@ -1381,16 +1733,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckUserProjectNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckUserProjectNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckUserProjectNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks the name of a real-time log delivery task by account.
-     *  *
-     * @param CheckUserProjectNameRequest $request CheckUserProjectNameRequest
+     * Checks the name of a real-time log delivery task by account.
      *
-     * @return CheckUserProjectNameResponse CheckUserProjectNameResponse
+     * @param request - CheckUserProjectNameRequest
+     * @returns CheckUserProjectNameResponse
+     *
+     * @param CheckUserProjectNameRequest $request
+     *
+     * @return CheckUserProjectNameResponse
      */
     public function checkUserProjectName($request)
     {
@@ -1400,25 +1758,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Commits the unstable code in the staging environment to generate an official code version.
-     *  *
-     * @param CommitRoutineStagingCodeRequest $request CommitRoutineStagingCodeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Commits the unstable code in the staging environment to generate an official code version.
      *
-     * @return CommitRoutineStagingCodeResponse CommitRoutineStagingCodeResponse
+     * @param request - CommitRoutineStagingCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CommitRoutineStagingCodeResponse
+     *
+     * @param CommitRoutineStagingCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CommitRoutineStagingCodeResponse
      */
     public function commitRoutineStagingCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->codeDescription)) {
-            $body['CodeDescription'] = $request->codeDescription;
+        if (null !== $request->codeDescription) {
+            @$body['CodeDescription'] = $request->codeDescription;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CommitRoutineStagingCode',
@@ -1431,16 +1795,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CommitRoutineStagingCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CommitRoutineStagingCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CommitRoutineStagingCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Commits the unstable code in the staging environment to generate an official code version.
-     *  *
-     * @param CommitRoutineStagingCodeRequest $request CommitRoutineStagingCodeRequest
+     * Commits the unstable code in the staging environment to generate an official code version.
      *
-     * @return CommitRoutineStagingCodeResponse CommitRoutineStagingCodeResponse
+     * @param request - CommitRoutineStagingCodeRequest
+     * @returns CommitRoutineStagingCodeResponse
+     *
+     * @param CommitRoutineStagingCodeRequest $request
+     *
+     * @return CommitRoutineStagingCodeResponse
      */
     public function commitRoutineStagingCode($request)
     {
@@ -1450,33 +1820,195 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 创建客户端证书
-     *  *
-     * @param CreateClientCertificateRequest $request CreateClientCertificateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 新增站点缓存配置.
      *
-     * @return CreateClientCertificateResponse CreateClientCertificateResponse
+     * @param request - CreateCacheRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCacheRuleResponse
+     *
+     * @param CreateCacheRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateCacheRuleResponse
+     */
+    public function createCacheRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->additionalCacheablePorts) {
+            @$query['AdditionalCacheablePorts'] = $request->additionalCacheablePorts;
+        }
+
+        if (null !== $request->browserCacheMode) {
+            @$query['BrowserCacheMode'] = $request->browserCacheMode;
+        }
+
+        if (null !== $request->browserCacheTtl) {
+            @$query['BrowserCacheTtl'] = $request->browserCacheTtl;
+        }
+
+        if (null !== $request->bypassCache) {
+            @$query['BypassCache'] = $request->bypassCache;
+        }
+
+        if (null !== $request->cacheDeceptionArmor) {
+            @$query['CacheDeceptionArmor'] = $request->cacheDeceptionArmor;
+        }
+
+        if (null !== $request->cacheReserveEligibility) {
+            @$query['CacheReserveEligibility'] = $request->cacheReserveEligibility;
+        }
+
+        if (null !== $request->checkPresenceCookie) {
+            @$query['CheckPresenceCookie'] = $request->checkPresenceCookie;
+        }
+
+        if (null !== $request->checkPresenceHeader) {
+            @$query['CheckPresenceHeader'] = $request->checkPresenceHeader;
+        }
+
+        if (null !== $request->edgeCacheMode) {
+            @$query['EdgeCacheMode'] = $request->edgeCacheMode;
+        }
+
+        if (null !== $request->edgeCacheTtl) {
+            @$query['EdgeCacheTtl'] = $request->edgeCacheTtl;
+        }
+
+        if (null !== $request->edgeStatusCodeCacheTtl) {
+            @$query['EdgeStatusCodeCacheTtl'] = $request->edgeStatusCodeCacheTtl;
+        }
+
+        if (null !== $request->includeCookie) {
+            @$query['IncludeCookie'] = $request->includeCookie;
+        }
+
+        if (null !== $request->includeHeader) {
+            @$query['IncludeHeader'] = $request->includeHeader;
+        }
+
+        if (null !== $request->queryString) {
+            @$query['QueryString'] = $request->queryString;
+        }
+
+        if (null !== $request->queryStringMode) {
+            @$query['QueryStringMode'] = $request->queryStringMode;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->serveStale) {
+            @$query['ServeStale'] = $request->serveStale;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->sortQueryStringForCache) {
+            @$query['SortQueryStringForCache'] = $request->sortQueryStringForCache;
+        }
+
+        if (null !== $request->userDeviceType) {
+            @$query['UserDeviceType'] = $request->userDeviceType;
+        }
+
+        if (null !== $request->userGeo) {
+            @$query['UserGeo'] = $request->userGeo;
+        }
+
+        if (null !== $request->userLanguage) {
+            @$query['UserLanguage'] = $request->userLanguage;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCacheRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCacheRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateCacheRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增站点缓存配置.
+     *
+     * @param request - CreateCacheRuleRequest
+     * @returns CreateCacheRuleResponse
+     *
+     * @param CreateCacheRuleRequest $request
+     *
+     * @return CreateCacheRuleResponse
+     */
+    public function createCacheRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCacheRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建客户端证书.
+     *
+     * @param request - CreateClientCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateClientCertificateResponse
+     *
+     * @param CreateClientCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateClientCertificateResponse
      */
     public function createClientCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->CSR)) {
-            $body['CSR'] = $request->CSR;
+        if (null !== $request->CSR) {
+            @$body['CSR'] = $request->CSR;
         }
-        if (!Utils::isUnset($request->pkeyType)) {
-            $body['PkeyType'] = $request->pkeyType;
+
+        if (null !== $request->pkeyType) {
+            @$body['PkeyType'] = $request->pkeyType;
         }
-        if (!Utils::isUnset($request->validityDays)) {
-            $body['ValidityDays'] = $request->validityDays;
+
+        if (null !== $request->validityDays) {
+            @$body['ValidityDays'] = $request->validityDays;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateClientCertificate',
@@ -1489,16 +2021,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建客户端证书
-     *  *
-     * @param CreateClientCertificateRequest $request CreateClientCertificateRequest
+     * 创建客户端证书.
      *
-     * @return CreateClientCertificateResponse CreateClientCertificateResponse
+     * @param request - CreateClientCertificateRequest
+     * @returns CreateClientCertificateResponse
+     *
+     * @param CreateClientCertificateRequest $request
+     *
+     * @return CreateClientCertificateResponse
      */
     public function createClientCertificate($request)
     {
@@ -1508,34 +2046,125 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
-     *  *
-     * @param CreateCustomScenePolicyRequest $request CreateCustomScenePolicyRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 新增压缩规则.
      *
-     * @return CreateCustomScenePolicyResponse CreateCustomScenePolicyResponse
+     * @param request - CreateCompressionRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCompressionRuleResponse
+     *
+     * @param CreateCompressionRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateCompressionRuleResponse
+     */
+    public function createCompressionRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brotli) {
+            @$query['Brotli'] = $request->brotli;
+        }
+
+        if (null !== $request->gzip) {
+            @$query['Gzip'] = $request->gzip;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCompressionRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCompressionRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateCompressionRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增压缩规则.
+     *
+     * @param request - CreateCompressionRuleRequest
+     * @returns CreateCompressionRuleResponse
+     *
+     * @param CreateCompressionRuleRequest $request
+     *
+     * @return CreateCompressionRuleResponse
+     */
+    public function createCompressionRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCompressionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
+     *
+     * @param request - CreateCustomScenePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCustomScenePolicyResponse
+     *
+     * @param CreateCustomScenePolicyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateCustomScenePolicyResponse
      */
     public function createCustomScenePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->objects)) {
-            $query['Objects'] = $request->objects;
+
+        if (null !== $request->objects) {
+            @$query['Objects'] = $request->objects;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->template)) {
-            $query['Template'] = $request->template;
+
+        if (null !== $request->template) {
+            @$query['Template'] = $request->template;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCustomScenePolicy',
@@ -1548,16 +2177,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCustomScenePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
-     *  *
-     * @param CreateCustomScenePolicyRequest $request CreateCustomScenePolicyRequest
+     * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
      *
-     * @return CreateCustomScenePolicyResponse CreateCustomScenePolicyResponse
+     * @param request - CreateCustomScenePolicyRequest
+     * @returns CreateCustomScenePolicyResponse
+     *
+     * @param CreateCustomScenePolicyRequest $request
+     *
+     * @return CreateCustomScenePolicyResponse
      */
     public function createCustomScenePolicy($request)
     {
@@ -1567,61 +2202,79 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
-     *  *
-     * @param CreateEdgeContainerAppRequest $request CreateEdgeContainerAppRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
      *
-     * @return CreateEdgeContainerAppResponse CreateEdgeContainerAppResponse
+     * @param request - CreateEdgeContainerAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateEdgeContainerAppResponse
+     *
+     * @param CreateEdgeContainerAppRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateEdgeContainerAppResponse
      */
     public function createEdgeContainerAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->healthCheckFailTimes)) {
-            $body['HealthCheckFailTimes'] = $request->healthCheckFailTimes;
+        if (null !== $request->healthCheckFailTimes) {
+            @$body['HealthCheckFailTimes'] = $request->healthCheckFailTimes;
         }
-        if (!Utils::isUnset($request->healthCheckHost)) {
-            $body['HealthCheckHost'] = $request->healthCheckHost;
+
+        if (null !== $request->healthCheckHost) {
+            @$body['HealthCheckHost'] = $request->healthCheckHost;
         }
-        if (!Utils::isUnset($request->healthCheckHttpCode)) {
-            $body['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
+
+        if (null !== $request->healthCheckHttpCode) {
+            @$body['HealthCheckHttpCode'] = $request->healthCheckHttpCode;
         }
-        if (!Utils::isUnset($request->healthCheckInterval)) {
-            $body['HealthCheckInterval'] = $request->healthCheckInterval;
+
+        if (null !== $request->healthCheckInterval) {
+            @$body['HealthCheckInterval'] = $request->healthCheckInterval;
         }
-        if (!Utils::isUnset($request->healthCheckMethod)) {
-            $body['HealthCheckMethod'] = $request->healthCheckMethod;
+
+        if (null !== $request->healthCheckMethod) {
+            @$body['HealthCheckMethod'] = $request->healthCheckMethod;
         }
-        if (!Utils::isUnset($request->healthCheckPort)) {
-            $body['HealthCheckPort'] = $request->healthCheckPort;
+
+        if (null !== $request->healthCheckPort) {
+            @$body['HealthCheckPort'] = $request->healthCheckPort;
         }
-        if (!Utils::isUnset($request->healthCheckSuccTimes)) {
-            $body['HealthCheckSuccTimes'] = $request->healthCheckSuccTimes;
+
+        if (null !== $request->healthCheckSuccTimes) {
+            @$body['HealthCheckSuccTimes'] = $request->healthCheckSuccTimes;
         }
-        if (!Utils::isUnset($request->healthCheckTimeout)) {
-            $body['HealthCheckTimeout'] = $request->healthCheckTimeout;
+
+        if (null !== $request->healthCheckTimeout) {
+            @$body['HealthCheckTimeout'] = $request->healthCheckTimeout;
         }
-        if (!Utils::isUnset($request->healthCheckType)) {
-            $body['HealthCheckType'] = $request->healthCheckType;
+
+        if (null !== $request->healthCheckType) {
+            @$body['HealthCheckType'] = $request->healthCheckType;
         }
-        if (!Utils::isUnset($request->healthCheckURI)) {
-            $body['HealthCheckURI'] = $request->healthCheckURI;
+
+        if (null !== $request->healthCheckURI) {
+            @$body['HealthCheckURI'] = $request->healthCheckURI;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->remarks)) {
-            $body['Remarks'] = $request->remarks;
+
+        if (null !== $request->remarks) {
+            @$body['Remarks'] = $request->remarks;
         }
-        if (!Utils::isUnset($request->servicePort)) {
-            $body['ServicePort'] = $request->servicePort;
+
+        if (null !== $request->servicePort) {
+            @$body['ServicePort'] = $request->servicePort;
         }
-        if (!Utils::isUnset($request->targetPort)) {
-            $body['TargetPort'] = $request->targetPort;
+
+        if (null !== $request->targetPort) {
+            @$body['TargetPort'] = $request->targetPort;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEdgeContainerApp',
@@ -1634,16 +2287,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateEdgeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEdgeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeContainerAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
-     *  *
-     * @param CreateEdgeContainerAppRequest $request CreateEdgeContainerAppRequest
+     * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
      *
-     * @return CreateEdgeContainerAppResponse CreateEdgeContainerAppResponse
+     * @param request - CreateEdgeContainerAppRequest
+     * @returns CreateEdgeContainerAppResponse
+     *
+     * @param CreateEdgeContainerAppRequest $request
+     *
+     * @return CreateEdgeContainerAppResponse
      */
     public function createEdgeContainerApp($request)
     {
@@ -1653,28 +2312,35 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
-     *  *
-     * @param CreateEdgeContainerAppRecordRequest $request CreateEdgeContainerAppRecordRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
      *
-     * @return CreateEdgeContainerAppRecordResponse CreateEdgeContainerAppRecordResponse
+     * @param request - CreateEdgeContainerAppRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateEdgeContainerAppRecordResponse
+     *
+     * @param CreateEdgeContainerAppRecordRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateEdgeContainerAppRecordResponse
      */
     public function createEdgeContainerAppRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->recordName)) {
-            $body['RecordName'] = $request->recordName;
+
+        if (null !== $request->recordName) {
+            @$body['RecordName'] = $request->recordName;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEdgeContainerAppRecord',
@@ -1687,16 +2353,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateEdgeContainerAppRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEdgeContainerAppRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeContainerAppRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
-     *  *
-     * @param CreateEdgeContainerAppRecordRequest $request CreateEdgeContainerAppRecordRequest
+     * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
      *
-     * @return CreateEdgeContainerAppRecordResponse CreateEdgeContainerAppRecordResponse
+     * @param request - CreateEdgeContainerAppRecordRequest
+     * @returns CreateEdgeContainerAppRecordResponse
+     *
+     * @param CreateEdgeContainerAppRecordRequest $request
+     *
+     * @return CreateEdgeContainerAppRecordResponse
      */
     public function createEdgeContainerAppRecord($request)
     {
@@ -1706,36 +2378,45 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a version for a containerized application. You can iterate the application based on the version.
-     *  *
-     * @param CreateEdgeContainerAppVersionRequest $tmpReq  CreateEdgeContainerAppVersionRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Creates a version for a containerized application. You can iterate the application based on the version.
      *
-     * @return CreateEdgeContainerAppVersionResponse CreateEdgeContainerAppVersionResponse
+     * @param tmpReq - CreateEdgeContainerAppVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateEdgeContainerAppVersionResponse
+     *
+     * @param CreateEdgeContainerAppVersionRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateEdgeContainerAppVersionResponse
      */
     public function createEdgeContainerAppVersionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateEdgeContainerAppVersionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->containers)) {
-            $request->containersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->containers, 'Containers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->containers) {
+            $request->containersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->containers, 'Containers', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->containersShrink)) {
-            $body['Containers'] = $request->containersShrink;
+
+        if (null !== $request->containersShrink) {
+            @$body['Containers'] = $request->containersShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->remarks)) {
-            $body['Remarks'] = $request->remarks;
+
+        if (null !== $request->remarks) {
+            @$body['Remarks'] = $request->remarks;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEdgeContainerAppVersion',
@@ -1748,16 +2429,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeContainerAppVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a version for a containerized application. You can iterate the application based on the version.
-     *  *
-     * @param CreateEdgeContainerAppVersionRequest $request CreateEdgeContainerAppVersionRequest
+     * Creates a version for a containerized application. You can iterate the application based on the version.
      *
-     * @return CreateEdgeContainerAppVersionResponse CreateEdgeContainerAppVersionResponse
+     * @param request - CreateEdgeContainerAppVersionRequest
+     * @returns CreateEdgeContainerAppVersionResponse
+     *
+     * @param CreateEdgeContainerAppVersionRequest $request
+     *
+     * @return CreateEdgeContainerAppVersionResponse
      */
     public function createEdgeContainerAppVersion($request)
     {
@@ -1767,25 +2454,423 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Create a namespace in your Alibaba Cloud account.
-     *  *
-     * @param CreateKvNamespaceRequest $request CreateKvNamespaceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 新增HTTP请求头规则.
      *
-     * @return CreateKvNamespaceResponse CreateKvNamespaceResponse
+     * @param tmpReq - CreateHttpRequestHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateHttpRequestHeaderModificationRuleResponse
+     *
+     * @param CreateHttpRequestHeaderModificationRuleRequest $tmpReq
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return CreateHttpRequestHeaderModificationRuleResponse
+     */
+    public function createHttpRequestHeaderModificationRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateHttpRequestHeaderModificationRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->requestHeaderModification) {
+            $request->requestHeaderModificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requestHeaderModification, 'RequestHeaderModification', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->requestHeaderModificationShrink) {
+            @$query['RequestHeaderModification'] = $request->requestHeaderModificationShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHttpRequestHeaderModificationRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateHttpRequestHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateHttpRequestHeaderModificationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增HTTP请求头规则.
+     *
+     * @param request - CreateHttpRequestHeaderModificationRuleRequest
+     * @returns CreateHttpRequestHeaderModificationRuleResponse
+     *
+     * @param CreateHttpRequestHeaderModificationRuleRequest $request
+     *
+     * @return CreateHttpRequestHeaderModificationRuleResponse
+     */
+    public function createHttpRequestHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHttpRequestHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增HTTP响应头规则.
+     *
+     * @param tmpReq - CreateHttpResponseHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateHttpResponseHeaderModificationRuleResponse
+     *
+     * @param CreateHttpResponseHeaderModificationRuleRequest $tmpReq
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return CreateHttpResponseHeaderModificationRuleResponse
+     */
+    public function createHttpResponseHeaderModificationRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateHttpResponseHeaderModificationRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->responseHeaderModification) {
+            $request->responseHeaderModificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->responseHeaderModification, 'ResponseHeaderModification', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->responseHeaderModificationShrink) {
+            @$query['ResponseHeaderModification'] = $request->responseHeaderModificationShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHttpResponseHeaderModificationRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateHttpResponseHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateHttpResponseHeaderModificationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增HTTP响应头规则.
+     *
+     * @param request - CreateHttpResponseHeaderModificationRuleRequest
+     * @returns CreateHttpResponseHeaderModificationRuleResponse
+     *
+     * @param CreateHttpResponseHeaderModificationRuleRequest $request
+     *
+     * @return CreateHttpResponseHeaderModificationRuleResponse
+     */
+    public function createHttpResponseHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHttpResponseHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增站点HTTPS应用配置.
+     *
+     * @param request - CreateHttpsApplicationConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateHttpsApplicationConfigurationResponse
+     *
+     * @param CreateHttpsApplicationConfigurationRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return CreateHttpsApplicationConfigurationResponse
+     */
+    public function createHttpsApplicationConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->altSvc) {
+            @$query['AltSvc'] = $request->altSvc;
+        }
+
+        if (null !== $request->altSvcClear) {
+            @$query['AltSvcClear'] = $request->altSvcClear;
+        }
+
+        if (null !== $request->altSvcMa) {
+            @$query['AltSvcMa'] = $request->altSvcMa;
+        }
+
+        if (null !== $request->altSvcPersist) {
+            @$query['AltSvcPersist'] = $request->altSvcPersist;
+        }
+
+        if (null !== $request->hsts) {
+            @$query['Hsts'] = $request->hsts;
+        }
+
+        if (null !== $request->hstsIncludeSubdomains) {
+            @$query['HstsIncludeSubdomains'] = $request->hstsIncludeSubdomains;
+        }
+
+        if (null !== $request->hstsMaxAge) {
+            @$query['HstsMaxAge'] = $request->hstsMaxAge;
+        }
+
+        if (null !== $request->hstsPreload) {
+            @$query['HstsPreload'] = $request->hstsPreload;
+        }
+
+        if (null !== $request->httpsForce) {
+            @$query['HttpsForce'] = $request->httpsForce;
+        }
+
+        if (null !== $request->httpsForceCode) {
+            @$query['HttpsForceCode'] = $request->httpsForceCode;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHttpsApplicationConfiguration',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateHttpsApplicationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateHttpsApplicationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增站点HTTPS应用配置.
+     *
+     * @param request - CreateHttpsApplicationConfigurationRequest
+     * @returns CreateHttpsApplicationConfigurationResponse
+     *
+     * @param CreateHttpsApplicationConfigurationRequest $request
+     *
+     * @return CreateHttpsApplicationConfigurationResponse
+     */
+    public function createHttpsApplicationConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHttpsApplicationConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增站点HTTPS基础配置.
+     *
+     * @param request - CreateHttpsBasicConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateHttpsBasicConfigurationResponse
+     *
+     * @param CreateHttpsBasicConfigurationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateHttpsBasicConfigurationResponse
+     */
+    public function createHttpsBasicConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ciphersuite) {
+            @$query['Ciphersuite'] = $request->ciphersuite;
+        }
+
+        if (null !== $request->ciphersuiteGroup) {
+            @$query['CiphersuiteGroup'] = $request->ciphersuiteGroup;
+        }
+
+        if (null !== $request->http2) {
+            @$query['Http2'] = $request->http2;
+        }
+
+        if (null !== $request->http3) {
+            @$query['Http3'] = $request->http3;
+        }
+
+        if (null !== $request->https) {
+            @$query['Https'] = $request->https;
+        }
+
+        if (null !== $request->ocspStapling) {
+            @$query['OcspStapling'] = $request->ocspStapling;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->tls10) {
+            @$query['Tls10'] = $request->tls10;
+        }
+
+        if (null !== $request->tls11) {
+            @$query['Tls11'] = $request->tls11;
+        }
+
+        if (null !== $request->tls12) {
+            @$query['Tls12'] = $request->tls12;
+        }
+
+        if (null !== $request->tls13) {
+            @$query['Tls13'] = $request->tls13;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHttpsBasicConfiguration',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateHttpsBasicConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateHttpsBasicConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增站点HTTPS基础配置.
+     *
+     * @param request - CreateHttpsBasicConfigurationRequest
+     * @returns CreateHttpsBasicConfigurationResponse
+     *
+     * @param CreateHttpsBasicConfigurationRequest $request
+     *
+     * @return CreateHttpsBasicConfigurationResponse
+     */
+    public function createHttpsBasicConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHttpsBasicConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Create a namespace in your Alibaba Cloud account.
+     *
+     * @param request - CreateKvNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateKvNamespaceResponse
+     *
+     * @param CreateKvNamespaceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateKvNamespaceResponse
      */
     public function createKvNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateKvNamespace',
@@ -1798,16 +2883,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateKvNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Create a namespace in your Alibaba Cloud account.
-     *  *
-     * @param CreateKvNamespaceRequest $request CreateKvNamespaceRequest
+     * Create a namespace in your Alibaba Cloud account.
      *
-     * @return CreateKvNamespaceResponse CreateKvNamespaceResponse
+     * @param request - CreateKvNamespaceRequest
+     * @returns CreateKvNamespaceResponse
+     *
+     * @param CreateKvNamespaceRequest $request
+     *
+     * @return CreateKvNamespaceResponse
      */
     public function createKvNamespace($request)
     {
@@ -1817,36 +2908,45 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
-     *  *
-     * @param CreateListRequest $tmpReq  CreateListRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
      *
-     * @return CreateListResponse CreateListResponse
+     * @param tmpReq - CreateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateListResponse
+     *
+     * @param CreateListRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateListResponse
      */
     public function createListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->items)) {
-            $request->itemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->items, 'Items', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->items) {
+            $request->itemsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->items, 'Items', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->itemsShrink)) {
-            $body['Items'] = $request->itemsShrink;
+
+        if (null !== $request->itemsShrink) {
+            @$body['Items'] = $request->itemsShrink;
         }
-        if (!Utils::isUnset($request->kind)) {
-            $body['Kind'] = $request->kind;
+
+        if (null !== $request->kind) {
+            @$body['Kind'] = $request->kind;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateList',
@@ -1859,16 +2959,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
-     *  *
-     * @param CreateListRequest $request CreateListRequest
+     * Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
      *
-     * @return CreateListResponse CreateListResponse
+     * @param request - CreateListRequest
+     * @returns CreateListResponse
+     *
+     * @param CreateListRequest $request
+     *
+     * @return CreateListResponse
      */
     public function createList($request)
     {
@@ -1878,36 +2984,185 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 新增源地址池
-     *  *
-     * @param CreateOriginPoolRequest $tmpReq  CreateOriginPoolRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 新增负载均衡器.
      *
-     * @return CreateOriginPoolResponse CreateOriginPoolResponse
+     * @param tmpReq - CreateLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLoadBalancerResponse
+     *
+     * @param CreateLoadBalancerRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateLoadBalancerResponse
+     */
+    public function createLoadBalancerWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateLoadBalancerShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->adaptiveRouting) {
+            $request->adaptiveRoutingShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->adaptiveRouting, 'AdaptiveRouting', 'json');
+        }
+
+        if (null !== $tmpReq->defaultPools) {
+            $request->defaultPoolsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->defaultPools, 'DefaultPools', 'json');
+        }
+
+        if (null !== $tmpReq->monitor) {
+            $request->monitorShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->monitor, 'Monitor', 'json');
+        }
+
+        if (null !== $tmpReq->randomSteering) {
+            $request->randomSteeringShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->randomSteering, 'RandomSteering', 'json');
+        }
+
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        if (null !== $tmpReq->sessionAffinityAttributes) {
+            $request->sessionAffinityAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sessionAffinityAttributes, 'SessionAffinityAttributes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->adaptiveRoutingShrink) {
+            @$query['AdaptiveRouting'] = $request->adaptiveRoutingShrink;
+        }
+
+        if (null !== $request->defaultPoolsShrink) {
+            @$query['DefaultPools'] = $request->defaultPoolsShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->fallbackPool) {
+            @$query['FallbackPool'] = $request->fallbackPool;
+        }
+
+        if (null !== $request->monitorShrink) {
+            @$query['Monitor'] = $request->monitorShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->randomSteeringShrink) {
+            @$query['RandomSteering'] = $request->randomSteeringShrink;
+        }
+
+        if (null !== $request->regionPools) {
+            @$query['RegionPools'] = $request->regionPools;
+        }
+
+        if (null !== $request->rulesShrink) {
+            @$query['Rules'] = $request->rulesShrink;
+        }
+
+        if (null !== $request->sessionAffinity) {
+            @$query['SessionAffinity'] = $request->sessionAffinity;
+        }
+
+        if (null !== $request->sessionAffinityAttributesShrink) {
+            @$query['SessionAffinityAttributes'] = $request->sessionAffinityAttributesShrink;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->steeringPolicy) {
+            @$query['SteeringPolicy'] = $request->steeringPolicy;
+        }
+
+        if (null !== $request->subRegionPools) {
+            @$query['SubRegionPools'] = $request->subRegionPools;
+        }
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLoadBalancer',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增负载均衡器.
+     *
+     * @param request - CreateLoadBalancerRequest
+     * @returns CreateLoadBalancerResponse
+     *
+     * @param CreateLoadBalancerRequest $request
+     *
+     * @return CreateLoadBalancerResponse
+     */
+    public function createLoadBalancer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLoadBalancerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增源地址池.
+     *
+     * @param tmpReq - CreateOriginPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOriginPoolResponse
+     *
+     * @param CreateOriginPoolRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateOriginPoolResponse
      */
     public function createOriginPoolWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateOriginPoolShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->origins)) {
-            $request->originsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->origins, 'Origins', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->origins) {
+            $request->originsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->origins, 'Origins', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->originsShrink)) {
-            $query['Origins'] = $request->originsShrink;
+
+        if (null !== $request->originsShrink) {
+            @$query['Origins'] = $request->originsShrink;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateOriginPool',
@@ -1920,16 +3175,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOriginPoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增源地址池
-     *  *
-     * @param CreateOriginPoolRequest $request CreateOriginPoolRequest
+     * 新增源地址池.
      *
-     * @return CreateOriginPoolResponse CreateOriginPoolResponse
+     * @param request - CreateOriginPoolRequest
+     * @returns CreateOriginPoolResponse
+     *
+     * @param CreateOriginPoolRequest $request
+     *
+     * @return CreateOriginPoolResponse
      */
     public function createOriginPool($request)
     {
@@ -1939,22 +3200,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Enables origin protection.
-     *  *
-     * @param CreateOriginProtectionRequest $request CreateOriginProtectionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Enables origin protection.
      *
-     * @return CreateOriginProtectionResponse CreateOriginProtectionResponse
+     * @param request - CreateOriginProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOriginProtectionResponse
+     *
+     * @param CreateOriginProtectionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateOriginProtectionResponse
      */
     public function createOriginProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateOriginProtection',
@@ -1967,16 +3233,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOriginProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables origin protection.
-     *  *
-     * @param CreateOriginProtectionRequest $request CreateOriginProtectionRequest
+     * Enables origin protection.
      *
-     * @return CreateOriginProtectionResponse CreateOriginProtectionResponse
+     * @param request - CreateOriginProtectionRequest
+     * @returns CreateOriginProtectionResponse
+     *
+     * @param CreateOriginProtectionRequest $request
+     *
+     * @return CreateOriginProtectionResponse
      */
     public function createOriginProtection($request)
     {
@@ -1986,31 +3258,141 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
-     *  *
-     * @param CreatePageRequest $request CreatePageRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 新增站点回源规则配置.
      *
-     * @return CreatePageResponse CreatePageResponse
+     * @param request - CreateOriginRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOriginRuleResponse
+     *
+     * @param CreateOriginRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateOriginRuleResponse
+     */
+    public function createOriginRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dnsRecord) {
+            @$query['DnsRecord'] = $request->dnsRecord;
+        }
+
+        if (null !== $request->originHost) {
+            @$query['OriginHost'] = $request->originHost;
+        }
+
+        if (null !== $request->originHttpPort) {
+            @$query['OriginHttpPort'] = $request->originHttpPort;
+        }
+
+        if (null !== $request->originHttpsPort) {
+            @$query['OriginHttpsPort'] = $request->originHttpsPort;
+        }
+
+        if (null !== $request->originScheme) {
+            @$query['OriginScheme'] = $request->originScheme;
+        }
+
+        if (null !== $request->originSni) {
+            @$query['OriginSni'] = $request->originSni;
+        }
+
+        if (null !== $request->range) {
+            @$query['Range'] = $request->range;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOriginRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOriginRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateOriginRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增站点回源规则配置.
+     *
+     * @param request - CreateOriginRuleRequest
+     * @returns CreateOriginRuleResponse
+     *
+     * @param CreateOriginRuleRequest $request
+     *
+     * @return CreateOriginRuleResponse
+     */
+    public function createOriginRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOriginRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
+     *
+     * @param request - CreatePageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePageResponse
+     *
+     * @param CreatePageRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreatePageResponse
      */
     public function createPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $body['ContentType'] = $request->contentType;
+
+        if (null !== $request->contentType) {
+            @$body['ContentType'] = $request->contentType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreatePage',
@@ -2023,16 +3405,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
-     *  *
-     * @param CreatePageRequest $request CreatePageRequest
+     * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
      *
-     * @return CreatePageResponse CreatePageResponse
+     * @param request - CreatePageRequest
+     * @returns CreatePageResponse
+     *
+     * @param CreatePageRequest $request
+     *
+     * @return CreatePageResponse
      */
     public function createPage($request)
     {
@@ -2042,60 +3430,77 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a DNS record for a specific website.
-     *  *
-     * @param CreateRecordRequest $tmpReq  CreateRecordRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Creates a DNS record for a specific website.
      *
-     * @return CreateRecordResponse CreateRecordResponse
+     * @param tmpReq - CreateRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRecordResponse
+     *
+     * @param CreateRecordRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateRecordResponse
      */
     public function createRecordWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateRecordShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->authConf)) {
-            $request->authConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->authConf, 'AuthConf', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->authConf) {
+            $request->authConfShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->authConf, 'AuthConf', 'json');
         }
-        if (!Utils::isUnset($tmpReq->data)) {
-            $request->dataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->data, 'Data', 'json');
+
+        if (null !== $tmpReq->data) {
+            $request->dataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->data, 'Data', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->authConfShrink)) {
-            $query['AuthConf'] = $request->authConfShrink;
+        if (null !== $request->authConfShrink) {
+            @$query['AuthConf'] = $request->authConfShrink;
         }
-        if (!Utils::isUnset($request->bizName)) {
-            $query['BizName'] = $request->bizName;
+
+        if (null !== $request->bizName) {
+            @$query['BizName'] = $request->bizName;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->dataShrink)) {
-            $query['Data'] = $request->dataShrink;
+
+        if (null !== $request->dataShrink) {
+            @$query['Data'] = $request->dataShrink;
         }
-        if (!Utils::isUnset($request->hostPolicy)) {
-            $query['HostPolicy'] = $request->hostPolicy;
+
+        if (null !== $request->hostPolicy) {
+            @$query['HostPolicy'] = $request->hostPolicy;
         }
-        if (!Utils::isUnset($request->proxied)) {
-            $query['Proxied'] = $request->proxied;
+
+        if (null !== $request->proxied) {
+            @$query['Proxied'] = $request->proxied;
         }
-        if (!Utils::isUnset($request->recordName)) {
-            $query['RecordName'] = $request->recordName;
+
+        if (null !== $request->recordName) {
+            @$query['RecordName'] = $request->recordName;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRecord',
@@ -2108,16 +3513,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a DNS record for a specific website.
-     *  *
-     * @param CreateRecordRequest $request CreateRecordRequest
+     * Creates a DNS record for a specific website.
      *
-     * @return CreateRecordResponse CreateRecordResponse
+     * @param request - CreateRecordRequest
+     * @returns CreateRecordResponse
+     *
+     * @param CreateRecordRequest $request
+     *
+     * @return CreateRecordResponse
      */
     public function createRecord($request)
     {
@@ -2127,28 +3538,215 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a routine.
-     *  *
-     * @param CreateRoutineRequest $request CreateRoutineRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 新增重定向规则.
      *
-     * @return CreateRoutineResponse CreateRoutineResponse
+     * @param request - CreateRedirectRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRedirectRuleResponse
+     *
+     * @param CreateRedirectRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateRedirectRuleResponse
+     */
+    public function createRedirectRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->reserveQueryString) {
+            @$query['ReserveQueryString'] = $request->reserveQueryString;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->statusCode) {
+            @$query['StatusCode'] = $request->statusCode;
+        }
+
+        if (null !== $request->targetUrl) {
+            @$query['TargetUrl'] = $request->targetUrl;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRedirectRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRedirectRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateRedirectRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增重定向规则.
+     *
+     * @param request - CreateRedirectRuleRequest
+     * @returns CreateRedirectRuleResponse
+     *
+     * @param CreateRedirectRuleRequest $request
+     *
+     * @return CreateRedirectRuleResponse
+     */
+    public function createRedirectRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRedirectRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增重写Url规则.
+     *
+     * @param request - CreateRewriteUrlRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRewriteUrlRuleResponse
+     *
+     * @param CreateRewriteUrlRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateRewriteUrlRuleResponse
+     */
+    public function createRewriteUrlRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->queryString) {
+            @$query['QueryString'] = $request->queryString;
+        }
+
+        if (null !== $request->rewriteQueryStringType) {
+            @$query['RewriteQueryStringType'] = $request->rewriteQueryStringType;
+        }
+
+        if (null !== $request->rewriteUriType) {
+            @$query['RewriteUriType'] = $request->rewriteUriType;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->uri) {
+            @$query['Uri'] = $request->uri;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRewriteUrlRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRewriteUrlRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateRewriteUrlRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增重写Url规则.
+     *
+     * @param request - CreateRewriteUrlRuleRequest
+     * @returns CreateRewriteUrlRuleResponse
+     *
+     * @param CreateRewriteUrlRuleRequest $request
+     *
+     * @return CreateRewriteUrlRuleResponse
+     */
+    public function createRewriteUrlRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRewriteUrlRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a routine.
+     *
+     * @param request - CreateRoutineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRoutineResponse
+     *
+     * @param CreateRoutineRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateRoutineResponse
      */
     public function createRoutineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->specName)) {
-            $body['SpecName'] = $request->specName;
+
+        if (null !== $request->specName) {
+            @$body['SpecName'] = $request->specName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRoutine',
@@ -2161,16 +3759,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRoutineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a routine.
-     *  *
-     * @param CreateRoutineRequest $request CreateRoutineRequest
+     * Creates a routine.
      *
-     * @return CreateRoutineResponse CreateRoutineResponse
+     * @param request - CreateRoutineRequest
+     * @returns CreateRoutineResponse
+     *
+     * @param CreateRoutineRequest $request
+     *
+     * @return CreateRoutineResponse
      */
     public function createRoutine($request)
     {
@@ -2180,28 +3784,35 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
-     *  *
-     * @param CreateRoutineRelatedRecordRequest $request CreateRoutineRelatedRecordRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
      *
-     * @return CreateRoutineRelatedRecordResponse CreateRoutineRelatedRecordResponse
+     * @param request - CreateRoutineRelatedRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRoutineRelatedRecordResponse
+     *
+     * @param CreateRoutineRelatedRecordRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateRoutineRelatedRecordResponse
      */
     public function createRoutineRelatedRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->recordName)) {
-            $body['RecordName'] = $request->recordName;
+
+        if (null !== $request->recordName) {
+            @$body['RecordName'] = $request->recordName;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRoutineRelatedRecord',
@@ -2214,16 +3825,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRoutineRelatedRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRoutineRelatedRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRoutineRelatedRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
-     *  *
-     * @param CreateRoutineRelatedRecordRequest $request CreateRoutineRelatedRecordRequest
+     * Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
      *
-     * @return CreateRoutineRelatedRecordResponse CreateRoutineRelatedRecordResponse
+     * @param request - CreateRoutineRelatedRecordRequest
+     * @returns CreateRoutineRelatedRecordResponse
+     *
+     * @param CreateRoutineRelatedRecordRequest $request
+     *
+     * @return CreateRoutineRelatedRecordResponse
      */
     public function createRoutineRelatedRecord($request)
     {
@@ -2233,31 +3850,39 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
-     *  *
-     * @param CreateRoutineRelatedRouteRequest $request CreateRoutineRelatedRouteRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
      *
-     * @return CreateRoutineRelatedRouteResponse CreateRoutineRelatedRouteResponse
+     * @param request - CreateRoutineRelatedRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRoutineRelatedRouteResponse
+     *
+     * @param CreateRoutineRelatedRouteRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateRoutineRelatedRouteResponse
      */
     public function createRoutineRelatedRouteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->byPass)) {
-            $body['ByPass'] = $request->byPass;
+        if (null !== $request->byPass) {
+            @$body['ByPass'] = $request->byPass;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->route)) {
-            $body['Route'] = $request->route;
+
+        if (null !== $request->route) {
+            @$body['Route'] = $request->route;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRoutineRelatedRoute',
@@ -2270,16 +3895,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRoutineRelatedRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRoutineRelatedRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRoutineRelatedRouteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
-     *  *
-     * @param CreateRoutineRelatedRouteRequest $request CreateRoutineRelatedRouteRequest
+     * Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
      *
-     * @return CreateRoutineRelatedRouteResponse CreateRoutineRelatedRouteResponse
+     * @param request - CreateRoutineRelatedRouteRequest
+     * @returns CreateRoutineRelatedRouteResponse
+     *
+     * @param CreateRoutineRelatedRouteRequest $request
+     *
+     * @return CreateRoutineRelatedRouteResponse
      */
     public function createRoutineRelatedRoute($request)
     {
@@ -2289,32 +3920,39 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates scheduled prefetch plans.
-     *  *
-     * @param CreateScheduledPreloadExecutionsRequest $tmpReq  CreateScheduledPreloadExecutionsRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Creates scheduled prefetch plans.
      *
-     * @return CreateScheduledPreloadExecutionsResponse CreateScheduledPreloadExecutionsResponse
+     * @param tmpReq - CreateScheduledPreloadExecutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateScheduledPreloadExecutionsResponse
+     *
+     * @param CreateScheduledPreloadExecutionsRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateScheduledPreloadExecutionsResponse
      */
     public function createScheduledPreloadExecutionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateScheduledPreloadExecutionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->executions)) {
-            $request->executionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executions, 'Executions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->executions) {
+            $request->executionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executions, 'Executions', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->executionsShrink)) {
-            $body['Executions'] = $request->executionsShrink;
+        if (null !== $request->executionsShrink) {
+            @$body['Executions'] = $request->executionsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateScheduledPreloadExecutions',
@@ -2327,16 +3965,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateScheduledPreloadExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateScheduledPreloadExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateScheduledPreloadExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates scheduled prefetch plans.
-     *  *
-     * @param CreateScheduledPreloadExecutionsRequest $request CreateScheduledPreloadExecutionsRequest
+     * Creates scheduled prefetch plans.
      *
-     * @return CreateScheduledPreloadExecutionsResponse CreateScheduledPreloadExecutionsResponse
+     * @param request - CreateScheduledPreloadExecutionsRequest
+     * @returns CreateScheduledPreloadExecutionsResponse
+     *
+     * @param CreateScheduledPreloadExecutionsRequest $request
+     *
+     * @return CreateScheduledPreloadExecutionsResponse
      */
     public function createScheduledPreloadExecutions($request)
     {
@@ -2346,34 +3990,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Adds a scheduled prefetch task.
-     *  *
-     * @param CreateScheduledPreloadJobRequest $request CreateScheduledPreloadJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Adds a scheduled prefetch task.
      *
-     * @return CreateScheduledPreloadJobResponse CreateScheduledPreloadJobResponse
+     * @param request - CreateScheduledPreloadJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateScheduledPreloadJobResponse
+     *
+     * @param CreateScheduledPreloadJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateScheduledPreloadJobResponse
      */
     public function createScheduledPreloadJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->insertWay)) {
-            $body['InsertWay'] = $request->insertWay;
+        if (null !== $request->insertWay) {
+            @$body['InsertWay'] = $request->insertWay;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ossUrl)) {
-            $body['OssUrl'] = $request->ossUrl;
+
+        if (null !== $request->ossUrl) {
+            @$body['OssUrl'] = $request->ossUrl;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->urlList)) {
-            $body['UrlList'] = $request->urlList;
+
+        if (null !== $request->urlList) {
+            @$body['UrlList'] = $request->urlList;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateScheduledPreloadJob',
@@ -2386,16 +4039,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateScheduledPreloadJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateScheduledPreloadJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateScheduledPreloadJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a scheduled prefetch task.
-     *  *
-     * @param CreateScheduledPreloadJobRequest $request CreateScheduledPreloadJobRequest
+     * Adds a scheduled prefetch task.
      *
-     * @return CreateScheduledPreloadJobResponse CreateScheduledPreloadJobResponse
+     * @param request - CreateScheduledPreloadJobRequest
+     * @returns CreateScheduledPreloadJobResponse
+     *
+     * @param CreateScheduledPreloadJobRequest $request
+     *
+     * @return CreateScheduledPreloadJobResponse
      */
     public function createScheduledPreloadJob($request)
     {
@@ -2405,37 +4064,47 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Adds a website.
-     *  *
-     * @description *   Make sure that you have an available plan before you add a website.
-     * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
-     *  *
-     * @param CreateSiteRequest $request CreateSiteRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Adds a website.
      *
-     * @return CreateSiteResponse CreateSiteResponse
+     * @remarks
+     *   Make sure that you have an available plan before you add a website.
+     * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
+     *
+     * @param request - CreateSiteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSiteResponse
+     *
+     * @param CreateSiteRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateSiteResponse
      */
     public function createSiteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessType)) {
-            $query['AccessType'] = $request->accessType;
+        if (null !== $request->accessType) {
+            @$query['AccessType'] = $request->accessType;
         }
-        if (!Utils::isUnset($request->coverage)) {
-            $query['Coverage'] = $request->coverage;
+
+        if (null !== $request->coverage) {
+            @$query['Coverage'] = $request->coverage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->siteName)) {
-            $query['SiteName'] = $request->siteName;
+
+        if (null !== $request->siteName) {
+            @$query['SiteName'] = $request->siteName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSite',
@@ -2448,19 +4117,26 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSiteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSiteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSiteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a website.
-     *  *
-     * @description *   Make sure that you have an available plan before you add a website.
-     * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
-     *  *
-     * @param CreateSiteRequest $request CreateSiteRequest
+     * Adds a website.
      *
-     * @return CreateSiteResponse CreateSiteResponse
+     * @remarks
+     *   Make sure that you have an available plan before you add a website.
+     * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
+     *
+     * @param request - CreateSiteRequest
+     * @returns CreateSiteResponse
+     *
+     * @param CreateSiteRequest $request
+     *
+     * @return CreateSiteResponse
      */
     public function createSite($request)
     {
@@ -2470,46 +4146,58 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
-     *  *
-     * @description *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
+     * Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+     *
+     * @remarks
+     *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
      * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
      * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
-     *  *
-     * @param CreateSiteCustomLogRequest $tmpReq  CreateSiteCustomLogRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSiteCustomLogResponse CreateSiteCustomLogResponse
+     * @param tmpReq - CreateSiteCustomLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSiteCustomLogResponse
+     *
+     * @param CreateSiteCustomLogRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSiteCustomLogResponse
      */
     public function createSiteCustomLogWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateSiteCustomLogShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cookies)) {
-            $request->cookiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cookies, 'Cookies', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cookies) {
+            $request->cookiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cookies, 'Cookies', 'json');
         }
-        if (!Utils::isUnset($tmpReq->requestHeaders)) {
-            $request->requestHeadersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->requestHeaders, 'RequestHeaders', 'json');
+
+        if (null !== $tmpReq->requestHeaders) {
+            $request->requestHeadersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requestHeaders, 'RequestHeaders', 'json');
         }
-        if (!Utils::isUnset($tmpReq->responseHeaders)) {
-            $request->responseHeadersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->responseHeaders, 'ResponseHeaders', 'json');
+
+        if (null !== $tmpReq->responseHeaders) {
+            $request->responseHeadersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->responseHeaders, 'ResponseHeaders', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cookiesShrink)) {
-            $body['Cookies'] = $request->cookiesShrink;
+        if (null !== $request->cookiesShrink) {
+            @$body['Cookies'] = $request->cookiesShrink;
         }
-        if (!Utils::isUnset($request->requestHeadersShrink)) {
-            $body['RequestHeaders'] = $request->requestHeadersShrink;
+
+        if (null !== $request->requestHeadersShrink) {
+            @$body['RequestHeaders'] = $request->requestHeadersShrink;
         }
-        if (!Utils::isUnset($request->responseHeadersShrink)) {
-            $body['ResponseHeaders'] = $request->responseHeadersShrink;
+
+        if (null !== $request->responseHeadersShrink) {
+            @$body['ResponseHeaders'] = $request->responseHeadersShrink;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateSiteCustomLog',
@@ -2522,20 +4210,27 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSiteCustomLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSiteCustomLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSiteCustomLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
-     *  *
-     * @description *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
+     * Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+     *
+     * @remarks
+     *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
      * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
      * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
-     *  *
-     * @param CreateSiteCustomLogRequest $request CreateSiteCustomLogRequest
      *
-     * @return CreateSiteCustomLogResponse CreateSiteCustomLogResponse
+     * @param request - CreateSiteCustomLogRequest
+     * @returns CreateSiteCustomLogResponse
+     *
+     * @param CreateSiteCustomLogRequest $request
+     *
+     * @return CreateSiteCustomLogResponse
      */
     public function createSiteCustomLog($request)
     {
@@ -2545,72 +4240,93 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a real-time log delivery task.
-     *  *
-     * @param CreateSiteDeliveryTaskRequest $tmpReq  CreateSiteDeliveryTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a real-time log delivery task.
      *
-     * @return CreateSiteDeliveryTaskResponse CreateSiteDeliveryTaskResponse
+     * @param tmpReq - CreateSiteDeliveryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSiteDeliveryTaskResponse
+     *
+     * @param CreateSiteDeliveryTaskRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSiteDeliveryTaskResponse
      */
     public function createSiteDeliveryTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateSiteDeliveryTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->httpDelivery)) {
-            $request->httpDeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpDelivery, 'HttpDelivery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->httpDelivery) {
+            $request->httpDeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->httpDelivery, 'HttpDelivery', 'json');
         }
-        if (!Utils::isUnset($tmpReq->kafkaDelivery)) {
-            $request->kafkaDeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->kafkaDelivery, 'KafkaDelivery', 'json');
+
+        if (null !== $tmpReq->kafkaDelivery) {
+            $request->kafkaDeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->kafkaDelivery, 'KafkaDelivery', 'json');
         }
-        if (!Utils::isUnset($tmpReq->ossDelivery)) {
-            $request->ossDeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ossDelivery, 'OssDelivery', 'json');
+
+        if (null !== $tmpReq->ossDelivery) {
+            $request->ossDeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ossDelivery, 'OssDelivery', 'json');
         }
-        if (!Utils::isUnset($tmpReq->s3Delivery)) {
-            $request->s3DeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->s3Delivery, 'S3Delivery', 'json');
+
+        if (null !== $tmpReq->s3Delivery) {
+            $request->s3DeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->s3Delivery, 'S3Delivery', 'json');
         }
-        if (!Utils::isUnset($tmpReq->slsDelivery)) {
-            $request->slsDeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->slsDelivery, 'SlsDelivery', 'json');
+
+        if (null !== $tmpReq->slsDelivery) {
+            $request->slsDeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->slsDelivery, 'SlsDelivery', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $body['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$body['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->dataCenter)) {
-            $body['DataCenter'] = $request->dataCenter;
+
+        if (null !== $request->dataCenter) {
+            @$body['DataCenter'] = $request->dataCenter;
         }
-        if (!Utils::isUnset($request->deliveryType)) {
-            $body['DeliveryType'] = $request->deliveryType;
+
+        if (null !== $request->deliveryType) {
+            @$body['DeliveryType'] = $request->deliveryType;
         }
-        if (!Utils::isUnset($request->discardRate)) {
-            $body['DiscardRate'] = $request->discardRate;
+
+        if (null !== $request->discardRate) {
+            @$body['DiscardRate'] = $request->discardRate;
         }
-        if (!Utils::isUnset($request->fieldName)) {
-            $body['FieldName'] = $request->fieldName;
+
+        if (null !== $request->fieldName) {
+            @$body['FieldName'] = $request->fieldName;
         }
-        if (!Utils::isUnset($request->httpDeliveryShrink)) {
-            $body['HttpDelivery'] = $request->httpDeliveryShrink;
+
+        if (null !== $request->httpDeliveryShrink) {
+            @$body['HttpDelivery'] = $request->httpDeliveryShrink;
         }
-        if (!Utils::isUnset($request->kafkaDeliveryShrink)) {
-            $body['KafkaDelivery'] = $request->kafkaDeliveryShrink;
+
+        if (null !== $request->kafkaDeliveryShrink) {
+            @$body['KafkaDelivery'] = $request->kafkaDeliveryShrink;
         }
-        if (!Utils::isUnset($request->ossDeliveryShrink)) {
-            $body['OssDelivery'] = $request->ossDeliveryShrink;
+
+        if (null !== $request->ossDeliveryShrink) {
+            @$body['OssDelivery'] = $request->ossDeliveryShrink;
         }
-        if (!Utils::isUnset($request->s3DeliveryShrink)) {
-            $body['S3Delivery'] = $request->s3DeliveryShrink;
+
+        if (null !== $request->s3DeliveryShrink) {
+            @$body['S3Delivery'] = $request->s3DeliveryShrink;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->slsDeliveryShrink)) {
-            $body['SlsDelivery'] = $request->slsDeliveryShrink;
+
+        if (null !== $request->slsDeliveryShrink) {
+            @$body['SlsDelivery'] = $request->slsDeliveryShrink;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateSiteDeliveryTask',
@@ -2623,16 +4339,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSiteDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSiteDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSiteDeliveryTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a real-time log delivery task.
-     *  *
-     * @param CreateSiteDeliveryTaskRequest $request CreateSiteDeliveryTaskRequest
+     * Creates a real-time log delivery task.
      *
-     * @return CreateSiteDeliveryTaskResponse CreateSiteDeliveryTaskResponse
+     * @param request - CreateSiteDeliveryTaskRequest
+     * @returns CreateSiteDeliveryTaskResponse
+     *
+     * @param CreateSiteDeliveryTaskRequest $request
+     *
+     * @return CreateSiteDeliveryTaskResponse
      */
     public function createSiteDeliveryTask($request)
     {
@@ -2642,9 +4364,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a log delivery task to ship logs to the specified destination.
-     *  *
-     * @description This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
+     * Creates a log delivery task to ship logs to the specified destination.
+     *
+     * @remarks
+     * This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
      * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
      * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
      * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
@@ -2653,71 +4376,92 @@ class ESA extends OpenApiClient
      * *   If you enable encryption or authentication, properly configure corresponding parameters.
      * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
      * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
-     *  *
-     * @param CreateUserDeliveryTaskRequest $tmpReq  CreateUserDeliveryTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserDeliveryTaskResponse CreateUserDeliveryTaskResponse
+     * @param tmpReq - CreateUserDeliveryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateUserDeliveryTaskResponse
+     *
+     * @param CreateUserDeliveryTaskRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateUserDeliveryTaskResponse
      */
     public function createUserDeliveryTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateUserDeliveryTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->httpDelivery)) {
-            $request->httpDeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpDelivery, 'HttpDelivery', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->httpDelivery) {
+            $request->httpDeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->httpDelivery, 'HttpDelivery', 'json');
         }
-        if (!Utils::isUnset($tmpReq->kafkaDelivery)) {
-            $request->kafkaDeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->kafkaDelivery, 'KafkaDelivery', 'json');
+
+        if (null !== $tmpReq->kafkaDelivery) {
+            $request->kafkaDeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->kafkaDelivery, 'KafkaDelivery', 'json');
         }
-        if (!Utils::isUnset($tmpReq->ossDelivery)) {
-            $request->ossDeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ossDelivery, 'OssDelivery', 'json');
+
+        if (null !== $tmpReq->ossDelivery) {
+            $request->ossDeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ossDelivery, 'OssDelivery', 'json');
         }
-        if (!Utils::isUnset($tmpReq->s3Delivery)) {
-            $request->s3DeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->s3Delivery, 'S3Delivery', 'json');
+
+        if (null !== $tmpReq->s3Delivery) {
+            $request->s3DeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->s3Delivery, 'S3Delivery', 'json');
         }
-        if (!Utils::isUnset($tmpReq->slsDelivery)) {
-            $request->slsDeliveryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->slsDelivery, 'SlsDelivery', 'json');
+
+        if (null !== $tmpReq->slsDelivery) {
+            $request->slsDeliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->slsDelivery, 'SlsDelivery', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $body['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$body['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->dataCenter)) {
-            $body['DataCenter'] = $request->dataCenter;
+
+        if (null !== $request->dataCenter) {
+            @$body['DataCenter'] = $request->dataCenter;
         }
-        if (!Utils::isUnset($request->deliveryType)) {
-            $body['DeliveryType'] = $request->deliveryType;
+
+        if (null !== $request->deliveryType) {
+            @$body['DeliveryType'] = $request->deliveryType;
         }
-        if (!Utils::isUnset($request->details)) {
-            $body['Details'] = $request->details;
+
+        if (null !== $request->details) {
+            @$body['Details'] = $request->details;
         }
-        if (!Utils::isUnset($request->discardRate)) {
-            $body['DiscardRate'] = $request->discardRate;
+
+        if (null !== $request->discardRate) {
+            @$body['DiscardRate'] = $request->discardRate;
         }
-        if (!Utils::isUnset($request->fieldName)) {
-            $body['FieldName'] = $request->fieldName;
+
+        if (null !== $request->fieldName) {
+            @$body['FieldName'] = $request->fieldName;
         }
-        if (!Utils::isUnset($request->httpDeliveryShrink)) {
-            $body['HttpDelivery'] = $request->httpDeliveryShrink;
+
+        if (null !== $request->httpDeliveryShrink) {
+            @$body['HttpDelivery'] = $request->httpDeliveryShrink;
         }
-        if (!Utils::isUnset($request->kafkaDeliveryShrink)) {
-            $body['KafkaDelivery'] = $request->kafkaDeliveryShrink;
+
+        if (null !== $request->kafkaDeliveryShrink) {
+            @$body['KafkaDelivery'] = $request->kafkaDeliveryShrink;
         }
-        if (!Utils::isUnset($request->ossDeliveryShrink)) {
-            $body['OssDelivery'] = $request->ossDeliveryShrink;
+
+        if (null !== $request->ossDeliveryShrink) {
+            @$body['OssDelivery'] = $request->ossDeliveryShrink;
         }
-        if (!Utils::isUnset($request->s3DeliveryShrink)) {
-            $body['S3Delivery'] = $request->s3DeliveryShrink;
+
+        if (null !== $request->s3DeliveryShrink) {
+            @$body['S3Delivery'] = $request->s3DeliveryShrink;
         }
-        if (!Utils::isUnset($request->slsDeliveryShrink)) {
-            $body['SlsDelivery'] = $request->slsDeliveryShrink;
+
+        if (null !== $request->slsDeliveryShrink) {
+            @$body['SlsDelivery'] = $request->slsDeliveryShrink;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateUserDeliveryTask',
@@ -2730,14 +4474,18 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateUserDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserDeliveryTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a log delivery task to ship logs to the specified destination.
-     *  *
-     * @description This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
+     * Creates a log delivery task to ship logs to the specified destination.
+     *
+     * @remarks
+     * This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
      * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
      * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
      * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
@@ -2746,10 +4494,13 @@ class ESA extends OpenApiClient
      * *   If you enable encryption or authentication, properly configure corresponding parameters.
      * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
      * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
-     *  *
-     * @param CreateUserDeliveryTaskRequest $request CreateUserDeliveryTaskRequest
      *
-     * @return CreateUserDeliveryTaskResponse CreateUserDeliveryTaskResponse
+     * @param request - CreateUserDeliveryTaskRequest
+     * @returns CreateUserDeliveryTaskResponse
+     *
+     * @param CreateUserDeliveryTaskRequest $request
+     *
+     * @return CreateUserDeliveryTaskResponse
      */
     public function createUserDeliveryTask($request)
     {
@@ -2759,75 +4510,97 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a waiting room for a website.
-     *  *
-     * @param CreateWaitingRoomRequest $tmpReq  CreateWaitingRoomRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a waiting room for a website.
      *
-     * @return CreateWaitingRoomResponse CreateWaitingRoomResponse
+     * @param tmpReq - CreateWaitingRoomRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWaitingRoomResponse
+     *
+     * @param CreateWaitingRoomRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateWaitingRoomResponse
      */
     public function createWaitingRoomWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateWaitingRoomShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hostNameAndPath)) {
-            $request->hostNameAndPathShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hostNameAndPath, 'HostNameAndPath', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hostNameAndPath) {
+            $request->hostNameAndPathShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hostNameAndPath, 'HostNameAndPath', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->cookieName)) {
-            $query['CookieName'] = $request->cookieName;
+        if (null !== $request->cookieName) {
+            @$query['CookieName'] = $request->cookieName;
         }
-        if (!Utils::isUnset($request->customPageHtml)) {
-            $query['CustomPageHtml'] = $request->customPageHtml;
+
+        if (null !== $request->customPageHtml) {
+            @$query['CustomPageHtml'] = $request->customPageHtml;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->disableSessionRenewalEnable)) {
-            $query['DisableSessionRenewalEnable'] = $request->disableSessionRenewalEnable;
+
+        if (null !== $request->disableSessionRenewalEnable) {
+            @$query['DisableSessionRenewalEnable'] = $request->disableSessionRenewalEnable;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->hostNameAndPathShrink)) {
-            $query['HostNameAndPath'] = $request->hostNameAndPathShrink;
+
+        if (null !== $request->hostNameAndPathShrink) {
+            @$query['HostNameAndPath'] = $request->hostNameAndPathShrink;
         }
-        if (!Utils::isUnset($request->jsonResponseEnable)) {
-            $query['JsonResponseEnable'] = $request->jsonResponseEnable;
+
+        if (null !== $request->jsonResponseEnable) {
+            @$query['JsonResponseEnable'] = $request->jsonResponseEnable;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->newUsersPerMinute)) {
-            $query['NewUsersPerMinute'] = $request->newUsersPerMinute;
+
+        if (null !== $request->newUsersPerMinute) {
+            @$query['NewUsersPerMinute'] = $request->newUsersPerMinute;
         }
-        if (!Utils::isUnset($request->queueAllEnable)) {
-            $query['QueueAllEnable'] = $request->queueAllEnable;
+
+        if (null !== $request->queueAllEnable) {
+            @$query['QueueAllEnable'] = $request->queueAllEnable;
         }
-        if (!Utils::isUnset($request->queuingMethod)) {
-            $query['QueuingMethod'] = $request->queuingMethod;
+
+        if (null !== $request->queuingMethod) {
+            @$query['QueuingMethod'] = $request->queuingMethod;
         }
-        if (!Utils::isUnset($request->queuingStatusCode)) {
-            $query['QueuingStatusCode'] = $request->queuingStatusCode;
+
+        if (null !== $request->queuingStatusCode) {
+            @$query['QueuingStatusCode'] = $request->queuingStatusCode;
         }
-        if (!Utils::isUnset($request->sessionDuration)) {
-            $query['SessionDuration'] = $request->sessionDuration;
+
+        if (null !== $request->sessionDuration) {
+            @$query['SessionDuration'] = $request->sessionDuration;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->totalActiveUsers)) {
-            $query['TotalActiveUsers'] = $request->totalActiveUsers;
+
+        if (null !== $request->totalActiveUsers) {
+            @$query['TotalActiveUsers'] = $request->totalActiveUsers;
         }
-        if (!Utils::isUnset($request->waitingRoomType)) {
-            $query['WaitingRoomType'] = $request->waitingRoomType;
+
+        if (null !== $request->waitingRoomType) {
+            @$query['WaitingRoomType'] = $request->waitingRoomType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateWaitingRoom',
@@ -2840,16 +4613,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWaitingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWaitingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWaitingRoomResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a waiting room for a website.
-     *  *
-     * @param CreateWaitingRoomRequest $request CreateWaitingRoomRequest
+     * Creates a waiting room for a website.
      *
-     * @return CreateWaitingRoomResponse CreateWaitingRoomResponse
+     * @param request - CreateWaitingRoomRequest
+     * @returns CreateWaitingRoomResponse
+     *
+     * @param CreateWaitingRoomRequest $request
+     *
+     * @return CreateWaitingRoomResponse
      */
     public function createWaitingRoom($request)
     {
@@ -2859,79 +4638,103 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a waiting room event.
-     *  *
-     * @param CreateWaitingRoomEventRequest $request CreateWaitingRoomEventRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a waiting room event.
      *
-     * @return CreateWaitingRoomEventResponse CreateWaitingRoomEventResponse
+     * @param request - CreateWaitingRoomEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWaitingRoomEventResponse
+     *
+     * @param CreateWaitingRoomEventRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateWaitingRoomEventResponse
      */
     public function createWaitingRoomEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customPageHtml)) {
-            $query['CustomPageHtml'] = $request->customPageHtml;
+        if (null !== $request->customPageHtml) {
+            @$query['CustomPageHtml'] = $request->customPageHtml;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->disableSessionRenewalEnable)) {
-            $query['DisableSessionRenewalEnable'] = $request->disableSessionRenewalEnable;
+
+        if (null !== $request->disableSessionRenewalEnable) {
+            @$query['DisableSessionRenewalEnable'] = $request->disableSessionRenewalEnable;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->jsonResponseEnable)) {
-            $query['JsonResponseEnable'] = $request->jsonResponseEnable;
+
+        if (null !== $request->jsonResponseEnable) {
+            @$query['JsonResponseEnable'] = $request->jsonResponseEnable;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->newUsersPerMinute)) {
-            $query['NewUsersPerMinute'] = $request->newUsersPerMinute;
+
+        if (null !== $request->newUsersPerMinute) {
+            @$query['NewUsersPerMinute'] = $request->newUsersPerMinute;
         }
-        if (!Utils::isUnset($request->preQueueEnable)) {
-            $query['PreQueueEnable'] = $request->preQueueEnable;
+
+        if (null !== $request->preQueueEnable) {
+            @$query['PreQueueEnable'] = $request->preQueueEnable;
         }
-        if (!Utils::isUnset($request->preQueueStartTime)) {
-            $query['PreQueueStartTime'] = $request->preQueueStartTime;
+
+        if (null !== $request->preQueueStartTime) {
+            @$query['PreQueueStartTime'] = $request->preQueueStartTime;
         }
-        if (!Utils::isUnset($request->queuingMethod)) {
-            $query['QueuingMethod'] = $request->queuingMethod;
+
+        if (null !== $request->queuingMethod) {
+            @$query['QueuingMethod'] = $request->queuingMethod;
         }
-        if (!Utils::isUnset($request->queuingStatusCode)) {
-            $query['QueuingStatusCode'] = $request->queuingStatusCode;
+
+        if (null !== $request->queuingStatusCode) {
+            @$query['QueuingStatusCode'] = $request->queuingStatusCode;
         }
-        if (!Utils::isUnset($request->randomPreQueueEnable)) {
-            $query['RandomPreQueueEnable'] = $request->randomPreQueueEnable;
+
+        if (null !== $request->randomPreQueueEnable) {
+            @$query['RandomPreQueueEnable'] = $request->randomPreQueueEnable;
         }
-        if (!Utils::isUnset($request->sessionDuration)) {
-            $query['SessionDuration'] = $request->sessionDuration;
+
+        if (null !== $request->sessionDuration) {
+            @$query['SessionDuration'] = $request->sessionDuration;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->totalActiveUsers)) {
-            $query['TotalActiveUsers'] = $request->totalActiveUsers;
+
+        if (null !== $request->totalActiveUsers) {
+            @$query['TotalActiveUsers'] = $request->totalActiveUsers;
         }
-        if (!Utils::isUnset($request->waitingRoomId)) {
-            $query['WaitingRoomId'] = $request->waitingRoomId;
+
+        if (null !== $request->waitingRoomId) {
+            @$query['WaitingRoomId'] = $request->waitingRoomId;
         }
-        if (!Utils::isUnset($request->waitingRoomType)) {
-            $query['WaitingRoomType'] = $request->waitingRoomType;
+
+        if (null !== $request->waitingRoomType) {
+            @$query['WaitingRoomType'] = $request->waitingRoomType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateWaitingRoomEvent',
@@ -2944,16 +4747,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWaitingRoomEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWaitingRoomEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWaitingRoomEventResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a waiting room event.
-     *  *
-     * @param CreateWaitingRoomEventRequest $request CreateWaitingRoomEventRequest
+     * Creates a waiting room event.
      *
-     * @return CreateWaitingRoomEventResponse CreateWaitingRoomEventResponse
+     * @param request - CreateWaitingRoomEventRequest
+     * @returns CreateWaitingRoomEventResponse
+     *
+     * @param CreateWaitingRoomEventRequest $request
+     *
+     * @return CreateWaitingRoomEventResponse
      */
     public function createWaitingRoomEvent($request)
     {
@@ -2963,34 +4772,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a waiting room bypass rule.
-     *  *
-     * @param CreateWaitingRoomRuleRequest $request CreateWaitingRoomRuleRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a waiting room bypass rule.
      *
-     * @return CreateWaitingRoomRuleResponse CreateWaitingRoomRuleResponse
+     * @param request - CreateWaitingRoomRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWaitingRoomRuleResponse
+     *
+     * @param CreateWaitingRoomRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateWaitingRoomRuleResponse
      */
     public function createWaitingRoomRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->rule)) {
-            $query['Rule'] = $request->rule;
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
         }
-        if (!Utils::isUnset($request->ruleEnable)) {
-            $query['RuleEnable'] = $request->ruleEnable;
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->waitingRoomId)) {
-            $query['WaitingRoomId'] = $request->waitingRoomId;
+
+        if (null !== $request->waitingRoomId) {
+            @$query['WaitingRoomId'] = $request->waitingRoomId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateWaitingRoomRule',
@@ -3003,16 +4821,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWaitingRoomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWaitingRoomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWaitingRoomRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a waiting room bypass rule.
-     *  *
-     * @param CreateWaitingRoomRuleRequest $request CreateWaitingRoomRuleRequest
+     * Creates a waiting room bypass rule.
      *
-     * @return CreateWaitingRoomRuleResponse CreateWaitingRoomRuleResponse
+     * @param request - CreateWaitingRoomRuleRequest
+     * @returns CreateWaitingRoomRuleResponse
+     *
+     * @param CreateWaitingRoomRuleRequest $request
+     *
+     * @return CreateWaitingRoomRuleResponse
      */
     public function createWaitingRoomRule($request)
     {
@@ -3022,19 +4846,143 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a certificate for a website.
-     *  *
-     * @param DeleteCertificateRequest $request DeleteCertificateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 关闭版本管理.
      *
-     * @return DeleteCertificateResponse DeleteCertificateResponse
+     * @param request - DeactivateVersionManagementRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeactivateVersionManagementResponse
+     *
+     * @param DeactivateVersionManagementRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeactivateVersionManagementResponse
+     */
+    public function deactivateVersionManagementWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeactivateVersionManagement',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeactivateVersionManagementResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeactivateVersionManagementResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭版本管理.
+     *
+     * @param request - DeactivateVersionManagementRequest
+     * @returns DeactivateVersionManagementResponse
+     *
+     * @param DeactivateVersionManagementRequest $request
+     *
+     * @return DeactivateVersionManagementResponse
+     */
+    public function deactivateVersionManagement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deactivateVersionManagementWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除缓存配置.
+     *
+     * @param request - DeleteCacheRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCacheRuleResponse
+     *
+     * @param DeleteCacheRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteCacheRuleResponse
+     */
+    public function deleteCacheRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCacheRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCacheRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteCacheRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除缓存配置.
+     *
+     * @param request - DeleteCacheRuleRequest
+     * @returns DeleteCacheRuleResponse
+     *
+     * @param DeleteCacheRuleRequest $request
+     *
+     * @return DeleteCacheRuleResponse
+     */
+    public function deleteCacheRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCacheRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a certificate for a website.
+     *
+     * @param request - DeleteCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCertificateResponse
+     *
+     * @param DeleteCertificateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteCertificateResponse
      */
     public function deleteCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCertificate',
@@ -3047,16 +4995,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a certificate for a website.
-     *  *
-     * @param DeleteCertificateRequest $request DeleteCertificateRequest
+     * Deletes a certificate for a website.
      *
-     * @return DeleteCertificateResponse DeleteCertificateResponse
+     * @param request - DeleteCertificateRequest
+     * @returns DeleteCertificateResponse
+     *
+     * @param DeleteCertificateRequest $request
+     *
+     * @return DeleteCertificateResponse
      */
     public function deleteCertificate($request)
     {
@@ -3066,19 +5020,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a client CA certificate.
-     *  *
-     * @param DeleteClientCaCertificateRequest $request DeleteClientCaCertificateRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Deletes a client CA certificate.
      *
-     * @return DeleteClientCaCertificateResponse DeleteClientCaCertificateResponse
+     * @param request - DeleteClientCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteClientCaCertificateResponse
+     *
+     * @param DeleteClientCaCertificateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteClientCaCertificateResponse
      */
     public function deleteClientCaCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteClientCaCertificate',
@@ -3091,16 +5049,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteClientCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteClientCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteClientCaCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a client CA certificate.
-     *  *
-     * @param DeleteClientCaCertificateRequest $request DeleteClientCaCertificateRequest
+     * Deletes a client CA certificate.
      *
-     * @return DeleteClientCaCertificateResponse DeleteClientCaCertificateResponse
+     * @param request - DeleteClientCaCertificateRequest
+     * @returns DeleteClientCaCertificateResponse
+     *
+     * @param DeleteClientCaCertificateRequest $request
+     *
+     * @return DeleteClientCaCertificateResponse
      */
     public function deleteClientCaCertificate($request)
     {
@@ -3110,19 +5074,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除客户端证书
-     *  *
-     * @param DeleteClientCertificateRequest $request DeleteClientCertificateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除客户端证书.
      *
-     * @return DeleteClientCertificateResponse DeleteClientCertificateResponse
+     * @param request - DeleteClientCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteClientCertificateResponse
+     *
+     * @param DeleteClientCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteClientCertificateResponse
      */
     public function deleteClientCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteClientCertificate',
@@ -3135,16 +5103,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除客户端证书
-     *  *
-     * @param DeleteClientCertificateRequest $request DeleteClientCertificateRequest
+     * 删除客户端证书.
      *
-     * @return DeleteClientCertificateResponse DeleteClientCertificateResponse
+     * @param request - DeleteClientCertificateRequest
+     * @returns DeleteClientCertificateResponse
+     *
+     * @param DeleteClientCertificateRequest $request
+     *
+     * @return DeleteClientCertificateResponse
      */
     public function deleteClientCertificate($request)
     {
@@ -3154,22 +5128,89 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scenario-specific custom policy.
-     *  *
-     * @param DeleteCustomScenePolicyRequest $request DeleteCustomScenePolicyRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes the compression rule configuration for a website.
      *
-     * @return DeleteCustomScenePolicyResponse DeleteCustomScenePolicyResponse
+     * @param request - DeleteCompressionRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCompressionRuleResponse
+     *
+     * @param DeleteCompressionRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCompressionRuleResponse
+     */
+    public function deleteCompressionRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCompressionRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCompressionRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteCompressionRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the compression rule configuration for a website.
+     *
+     * @param request - DeleteCompressionRuleRequest
+     * @returns DeleteCompressionRuleResponse
+     *
+     * @param DeleteCompressionRuleRequest $request
+     *
+     * @return DeleteCompressionRuleResponse
+     */
+    public function deleteCompressionRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCompressionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a scenario-specific custom policy.
+     *
+     * @param request - DeleteCustomScenePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomScenePolicyResponse
+     *
+     * @param DeleteCustomScenePolicyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteCustomScenePolicyResponse
      */
     public function deleteCustomScenePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCustomScenePolicy',
@@ -3182,16 +5223,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCustomScenePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a scenario-specific custom policy.
-     *  *
-     * @param DeleteCustomScenePolicyRequest $request DeleteCustomScenePolicyRequest
+     * Deletes a scenario-specific custom policy.
      *
-     * @return DeleteCustomScenePolicyResponse DeleteCustomScenePolicyResponse
+     * @param request - DeleteCustomScenePolicyRequest
+     * @returns DeleteCustomScenePolicyResponse
+     *
+     * @param DeleteCustomScenePolicyRequest $request
+     *
+     * @return DeleteCustomScenePolicyResponse
      */
     public function deleteCustomScenePolicy($request)
     {
@@ -3201,22 +5248,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a containerized application.
-     *  *
-     * @param DeleteEdgeContainerAppRequest $request DeleteEdgeContainerAppRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Deletes a containerized application.
      *
-     * @return DeleteEdgeContainerAppResponse DeleteEdgeContainerAppResponse
+     * @param request - DeleteEdgeContainerAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEdgeContainerAppResponse
+     *
+     * @param DeleteEdgeContainerAppRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteEdgeContainerAppResponse
      */
     public function deleteEdgeContainerAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEdgeContainerApp',
@@ -3229,16 +5281,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEdgeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEdgeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEdgeContainerAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a containerized application.
-     *  *
-     * @param DeleteEdgeContainerAppRequest $request DeleteEdgeContainerAppRequest
+     * Deletes a containerized application.
      *
-     * @return DeleteEdgeContainerAppResponse DeleteEdgeContainerAppResponse
+     * @param request - DeleteEdgeContainerAppRequest
+     * @returns DeleteEdgeContainerAppResponse
+     *
+     * @param DeleteEdgeContainerAppRequest $request
+     *
+     * @return DeleteEdgeContainerAppResponse
      */
     public function deleteEdgeContainerApp($request)
     {
@@ -3248,28 +5306,35 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
-     *  *
-     * @param DeleteEdgeContainerAppRecordRequest $request DeleteEdgeContainerAppRecordRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
      *
-     * @return DeleteEdgeContainerAppRecordResponse DeleteEdgeContainerAppRecordResponse
+     * @param request - DeleteEdgeContainerAppRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEdgeContainerAppRecordResponse
+     *
+     * @param DeleteEdgeContainerAppRecordRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteEdgeContainerAppRecordResponse
      */
     public function deleteEdgeContainerAppRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->recordName)) {
-            $body['RecordName'] = $request->recordName;
+
+        if (null !== $request->recordName) {
+            @$body['RecordName'] = $request->recordName;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteEdgeContainerAppRecord',
@@ -3282,16 +5347,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEdgeContainerAppRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEdgeContainerAppRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEdgeContainerAppRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
-     *  *
-     * @param DeleteEdgeContainerAppRecordRequest $request DeleteEdgeContainerAppRecordRequest
+     * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
      *
-     * @return DeleteEdgeContainerAppRecordResponse DeleteEdgeContainerAppRecordResponse
+     * @param request - DeleteEdgeContainerAppRecordRequest
+     * @returns DeleteEdgeContainerAppRecordResponse
+     *
+     * @param DeleteEdgeContainerAppRecordRequest $request
+     *
+     * @return DeleteEdgeContainerAppRecordResponse
      */
     public function deleteEdgeContainerAppRecord($request)
     {
@@ -3301,25 +5372,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a version of a containerized application.
-     *  *
-     * @param DeleteEdgeContainerAppVersionRequest $request DeleteEdgeContainerAppVersionRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Deletes a version of a containerized application.
      *
-     * @return DeleteEdgeContainerAppVersionResponse DeleteEdgeContainerAppVersionResponse
+     * @param request - DeleteEdgeContainerAppVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEdgeContainerAppVersionResponse
+     *
+     * @param DeleteEdgeContainerAppVersionRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteEdgeContainerAppVersionResponse
      */
     public function deleteEdgeContainerAppVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEdgeContainerAppVersion',
@@ -3332,16 +5409,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEdgeContainerAppVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a version of a containerized application.
-     *  *
-     * @param DeleteEdgeContainerAppVersionRequest $request DeleteEdgeContainerAppVersionRequest
+     * Deletes a version of a containerized application.
      *
-     * @return DeleteEdgeContainerAppVersionResponse DeleteEdgeContainerAppVersionResponse
+     * @param request - DeleteEdgeContainerAppVersionRequest
+     * @returns DeleteEdgeContainerAppVersionResponse
+     *
+     * @param DeleteEdgeContainerAppVersionRequest $request
+     *
+     * @return DeleteEdgeContainerAppVersionResponse
      */
     public function deleteEdgeContainerAppVersion($request)
     {
@@ -3351,19 +5434,271 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a key-value pair from a namespace.
-     *  *
-     * @param DeleteKvRequest $request DeleteKvRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Deletes the configuration of modifying HTTP request headers for a website.
      *
-     * @return DeleteKvResponse DeleteKvResponse
+     * @param request - DeleteHttpRequestHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteHttpRequestHeaderModificationRuleResponse
+     *
+     * @param DeleteHttpRequestHeaderModificationRuleRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DeleteHttpRequestHeaderModificationRuleResponse
+     */
+    public function deleteHttpRequestHeaderModificationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHttpRequestHeaderModificationRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteHttpRequestHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteHttpRequestHeaderModificationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the configuration of modifying HTTP request headers for a website.
+     *
+     * @param request - DeleteHttpRequestHeaderModificationRuleRequest
+     * @returns DeleteHttpRequestHeaderModificationRuleResponse
+     *
+     * @param DeleteHttpRequestHeaderModificationRuleRequest $request
+     *
+     * @return DeleteHttpRequestHeaderModificationRuleResponse
+     */
+    public function deleteHttpRequestHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHttpRequestHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the configuration of modifying HTTP response headers for a website.
+     *
+     * @param request - DeleteHttpResponseHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteHttpResponseHeaderModificationRuleResponse
+     *
+     * @param DeleteHttpResponseHeaderModificationRuleRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DeleteHttpResponseHeaderModificationRuleResponse
+     */
+    public function deleteHttpResponseHeaderModificationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHttpResponseHeaderModificationRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteHttpResponseHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteHttpResponseHeaderModificationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the configuration of modifying HTTP response headers for a website.
+     *
+     * @param request - DeleteHttpResponseHeaderModificationRuleRequest
+     * @returns DeleteHttpResponseHeaderModificationRuleResponse
+     *
+     * @param DeleteHttpResponseHeaderModificationRuleRequest $request
+     *
+     * @return DeleteHttpResponseHeaderModificationRuleResponse
+     */
+    public function deleteHttpResponseHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHttpResponseHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除HTTPS应用配置.
+     *
+     * @param request - DeleteHttpsApplicationConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteHttpsApplicationConfigurationResponse
+     *
+     * @param DeleteHttpsApplicationConfigurationRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DeleteHttpsApplicationConfigurationResponse
+     */
+    public function deleteHttpsApplicationConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHttpsApplicationConfiguration',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteHttpsApplicationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteHttpsApplicationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除HTTPS应用配置.
+     *
+     * @param request - DeleteHttpsApplicationConfigurationRequest
+     * @returns DeleteHttpsApplicationConfigurationResponse
+     *
+     * @param DeleteHttpsApplicationConfigurationRequest $request
+     *
+     * @return DeleteHttpsApplicationConfigurationResponse
+     */
+    public function deleteHttpsApplicationConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHttpsApplicationConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除HTTPS基础配置.
+     *
+     * @param request - DeleteHttpsBasicConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteHttpsBasicConfigurationResponse
+     *
+     * @param DeleteHttpsBasicConfigurationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteHttpsBasicConfigurationResponse
+     */
+    public function deleteHttpsBasicConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHttpsBasicConfiguration',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteHttpsBasicConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteHttpsBasicConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除HTTPS基础配置.
+     *
+     * @param request - DeleteHttpsBasicConfigurationRequest
+     * @returns DeleteHttpsBasicConfigurationResponse
+     *
+     * @param DeleteHttpsBasicConfigurationRequest $request
+     *
+     * @return DeleteHttpsBasicConfigurationResponse
+     */
+    public function deleteHttpsBasicConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHttpsBasicConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a key-value pair from a namespace.
+     *
+     * @param request - DeleteKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteKvResponse
+     *
+     * @param DeleteKvRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DeleteKvResponse
      */
     public function deleteKvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteKv',
@@ -3376,16 +5711,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteKvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a key-value pair from a namespace.
-     *  *
-     * @param DeleteKvRequest $request DeleteKvRequest
+     * Deletes a key-value pair from a namespace.
      *
-     * @return DeleteKvResponse DeleteKvResponse
+     * @param request - DeleteKvRequest
+     * @returns DeleteKvResponse
+     *
+     * @param DeleteKvRequest $request
+     *
+     * @return DeleteKvResponse
      */
     public function deleteKv($request)
     {
@@ -3395,22 +5736,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a namespace from an Alibaba Cloud account.
-     *  *
-     * @param DeleteKvNamespaceRequest $request DeleteKvNamespaceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a namespace from an Alibaba Cloud account.
      *
-     * @return DeleteKvNamespaceResponse DeleteKvNamespaceResponse
+     * @param request - DeleteKvNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteKvNamespaceResponse
+     *
+     * @param DeleteKvNamespaceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteKvNamespaceResponse
      */
     public function deleteKvNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteKvNamespace',
@@ -3423,16 +5769,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteKvNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a namespace from an Alibaba Cloud account.
-     *  *
-     * @param DeleteKvNamespaceRequest $request DeleteKvNamespaceRequest
+     * Deletes a namespace from an Alibaba Cloud account.
      *
-     * @return DeleteKvNamespaceResponse DeleteKvNamespaceResponse
+     * @param request - DeleteKvNamespaceRequest
+     * @returns DeleteKvNamespaceResponse
+     *
+     * @param DeleteKvNamespaceRequest $request
+     *
+     * @return DeleteKvNamespaceResponse
      */
     public function deleteKvNamespace($request)
     {
@@ -3442,22 +5794,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom list that is no longer needed.
-     *  *
-     * @param DeleteListRequest $request DeleteListRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom list that is no longer needed.
      *
-     * @return DeleteListResponse DeleteListResponse
+     * @param request - DeleteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteListResponse
+     *
+     * @param DeleteListRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteListResponse
      */
     public function deleteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteList',
@@ -3470,16 +5827,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom list that is no longer needed.
-     *  *
-     * @param DeleteListRequest $request DeleteListRequest
+     * Deletes a custom list that is no longer needed.
      *
-     * @return DeleteListResponse DeleteListResponse
+     * @param request - DeleteListRequest
+     * @returns DeleteListResponse
+     *
+     * @param DeleteListRequest $request
+     *
+     * @return DeleteListResponse
      */
     public function deleteList($request)
     {
@@ -3489,25 +5852,93 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除源地址池
-     *  *
-     * @param DeleteOriginPoolRequest $request DeleteOriginPoolRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除负载均衡器.
      *
-     * @return DeleteOriginPoolResponse DeleteOriginPoolResponse
+     * @param request - DeleteLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLoadBalancerResponse
+     *
+     * @param DeleteLoadBalancerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteLoadBalancerResponse
+     */
+    public function deleteLoadBalancerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLoadBalancer',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除负载均衡器.
+     *
+     * @param request - DeleteLoadBalancerRequest
+     * @returns DeleteLoadBalancerResponse
+     *
+     * @param DeleteLoadBalancerRequest $request
+     *
+     * @return DeleteLoadBalancerResponse
+     */
+    public function deleteLoadBalancer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLoadBalancerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除源地址池.
+     *
+     * @param request - DeleteOriginPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteOriginPoolResponse
+     *
+     * @param DeleteOriginPoolRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteOriginPoolResponse
      */
     public function deleteOriginPoolWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteOriginPool',
@@ -3520,16 +5951,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteOriginPoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除源地址池
-     *  *
-     * @param DeleteOriginPoolRequest $request DeleteOriginPoolRequest
+     * 删除源地址池.
      *
-     * @return DeleteOriginPoolResponse DeleteOriginPoolResponse
+     * @param request - DeleteOriginPoolRequest
+     * @returns DeleteOriginPoolResponse
+     *
+     * @param DeleteOriginPoolRequest $request
+     *
+     * @return DeleteOriginPoolResponse
      */
     public function deleteOriginPool($request)
     {
@@ -3539,22 +5976,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Disables origin protection.
-     *  *
-     * @param DeleteOriginProtectionRequest $request DeleteOriginProtectionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Disables origin protection.
      *
-     * @return DeleteOriginProtectionResponse DeleteOriginProtectionResponse
+     * @param request - DeleteOriginProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteOriginProtectionResponse
+     *
+     * @param DeleteOriginProtectionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteOriginProtectionResponse
      */
     public function deleteOriginProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteOriginProtection',
@@ -3567,16 +6009,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteOriginProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables origin protection.
-     *  *
-     * @param DeleteOriginProtectionRequest $request DeleteOriginProtectionRequest
+     * Disables origin protection.
      *
-     * @return DeleteOriginProtectionResponse DeleteOriginProtectionResponse
+     * @param request - DeleteOriginProtectionRequest
+     * @returns DeleteOriginProtectionResponse
+     *
+     * @param DeleteOriginProtectionRequest $request
+     *
+     * @return DeleteOriginProtectionResponse
      */
     public function deleteOriginProtection($request)
     {
@@ -3586,22 +6034,89 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom error page that is no longer needed.
-     *  *
-     * @param DeletePageRequest $request DeletePageRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 删除回源规则配置.
      *
-     * @return DeletePageResponse DeletePageResponse
+     * @param request - DeleteOriginRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteOriginRuleResponse
+     *
+     * @param DeleteOriginRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteOriginRuleResponse
+     */
+    public function deleteOriginRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOriginRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteOriginRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteOriginRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除回源规则配置.
+     *
+     * @param request - DeleteOriginRuleRequest
+     * @returns DeleteOriginRuleResponse
+     *
+     * @param DeleteOriginRuleRequest $request
+     *
+     * @return DeleteOriginRuleResponse
+     */
+    public function deleteOriginRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOriginRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a custom error page that is no longer needed.
+     *
+     * @param request - DeletePageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePageResponse
+     *
+     * @param DeletePageRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeletePageResponse
      */
     public function deletePageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeletePage',
@@ -3614,16 +6129,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom error page that is no longer needed.
-     *  *
-     * @param DeletePageRequest $request DeletePageRequest
+     * Deletes a custom error page that is no longer needed.
      *
-     * @return DeletePageResponse DeletePageResponse
+     * @param request - DeletePageRequest
+     * @returns DeletePageResponse
+     *
+     * @param DeletePageRequest $request
+     *
+     * @return DeletePageResponse
      */
     public function deletePage($request)
     {
@@ -3633,22 +6154,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a DNS record of a website based on the specified RecordId.
-     *  *
-     * @param DeleteRecordRequest $request DeleteRecordRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes a DNS record of a website based on the specified RecordId.
      *
-     * @return DeleteRecordResponse DeleteRecordResponse
+     * @param request - DeleteRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRecordResponse
+     *
+     * @param DeleteRecordRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteRecordResponse
      */
     public function deleteRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteRecord',
@@ -3661,16 +6187,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a DNS record of a website based on the specified RecordId.
-     *  *
-     * @param DeleteRecordRequest $request DeleteRecordRequest
+     * Deletes a DNS record of a website based on the specified RecordId.
      *
-     * @return DeleteRecordResponse DeleteRecordResponse
+     * @param request - DeleteRecordRequest
+     * @returns DeleteRecordResponse
+     *
+     * @param DeleteRecordRequest $request
+     *
+     * @return DeleteRecordResponse
      */
     public function deleteRecord($request)
     {
@@ -3680,22 +6212,151 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a routine in Edge Routine.
-     *  *
-     * @param DeleteRoutineRequest $request DeleteRoutineRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a URL redirect rule for a website.
      *
-     * @return DeleteRoutineResponse DeleteRoutineResponse
+     * @param request - DeleteRedirectRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRedirectRuleResponse
+     *
+     * @param DeleteRedirectRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteRedirectRuleResponse
+     */
+    public function deleteRedirectRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRedirectRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRedirectRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteRedirectRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a URL redirect rule for a website.
+     *
+     * @param request - DeleteRedirectRuleRequest
+     * @returns DeleteRedirectRuleResponse
+     *
+     * @param DeleteRedirectRuleRequest $request
+     *
+     * @return DeleteRedirectRuleResponse
+     */
+    public function deleteRedirectRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRedirectRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a URL rewrite rule for a website.
+     *
+     * @param request - DeleteRewriteUrlRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRewriteUrlRuleResponse
+     *
+     * @param DeleteRewriteUrlRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteRewriteUrlRuleResponse
+     */
+    public function deleteRewriteUrlRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRewriteUrlRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRewriteUrlRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteRewriteUrlRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a URL rewrite rule for a website.
+     *
+     * @param request - DeleteRewriteUrlRuleRequest
+     * @returns DeleteRewriteUrlRuleResponse
+     *
+     * @param DeleteRewriteUrlRuleRequest $request
+     *
+     * @return DeleteRewriteUrlRuleResponse
+     */
+    public function deleteRewriteUrlRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRewriteUrlRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a routine in Edge Routine.
+     *
+     * @param request - DeleteRoutineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRoutineResponse
+     *
+     * @param DeleteRoutineRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteRoutineResponse
      */
     public function deleteRoutineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRoutine',
@@ -3708,16 +6369,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRoutineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a routine in Edge Routine.
-     *  *
-     * @param DeleteRoutineRequest $request DeleteRoutineRequest
+     * Deletes a routine in Edge Routine.
      *
-     * @return DeleteRoutineResponse DeleteRoutineResponse
+     * @param request - DeleteRoutineRequest
+     * @returns DeleteRoutineResponse
+     *
+     * @param DeleteRoutineRequest $request
+     *
+     * @return DeleteRoutineResponse
      */
     public function deleteRoutine($request)
     {
@@ -3727,25 +6394,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a code version of a routine.
-     *  *
-     * @param DeleteRoutineCodeVersionRequest $request DeleteRoutineCodeVersionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes a code version of a routine.
      *
-     * @return DeleteRoutineCodeVersionResponse DeleteRoutineCodeVersionResponse
+     * @param request - DeleteRoutineCodeVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRoutineCodeVersionResponse
+     *
+     * @param DeleteRoutineCodeVersionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteRoutineCodeVersionResponse
      */
     public function deleteRoutineCodeVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->codeVersion)) {
-            $body['CodeVersion'] = $request->codeVersion;
+        if (null !== $request->codeVersion) {
+            @$body['CodeVersion'] = $request->codeVersion;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRoutineCodeVersion',
@@ -3758,16 +6431,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRoutineCodeVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRoutineCodeVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRoutineCodeVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a code version of a routine.
-     *  *
-     * @param DeleteRoutineCodeVersionRequest $request DeleteRoutineCodeVersionRequest
+     * Deletes a code version of a routine.
      *
-     * @return DeleteRoutineCodeVersionResponse DeleteRoutineCodeVersionResponse
+     * @param request - DeleteRoutineCodeVersionRequest
+     * @returns DeleteRoutineCodeVersionResponse
+     *
+     * @param DeleteRoutineCodeVersionRequest $request
+     *
+     * @return DeleteRoutineCodeVersionResponse
      */
     public function deleteRoutineCodeVersion($request)
     {
@@ -3777,33 +6456,41 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a record that is associated with a routine.
-     *  *
-     * @param DeleteRoutineRelatedRecordRequest $request DeleteRoutineRelatedRecordRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes a record that is associated with a routine.
      *
-     * @return DeleteRoutineRelatedRecordResponse DeleteRoutineRelatedRecordResponse
+     * @param request - DeleteRoutineRelatedRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRoutineRelatedRecordResponse
+     *
+     * @param DeleteRoutineRelatedRecordRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteRoutineRelatedRecordResponse
      */
     public function deleteRoutineRelatedRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->recordId)) {
-            $body['RecordId'] = $request->recordId;
+
+        if (null !== $request->recordId) {
+            @$body['RecordId'] = $request->recordId;
         }
-        if (!Utils::isUnset($request->recordName)) {
-            $body['RecordName'] = $request->recordName;
+
+        if (null !== $request->recordName) {
+            @$body['RecordName'] = $request->recordName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRoutineRelatedRecord',
@@ -3816,16 +6503,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRoutineRelatedRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRoutineRelatedRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRoutineRelatedRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a record that is associated with a routine.
-     *  *
-     * @param DeleteRoutineRelatedRecordRequest $request DeleteRoutineRelatedRecordRequest
+     * Deletes a record that is associated with a routine.
      *
-     * @return DeleteRoutineRelatedRecordResponse DeleteRoutineRelatedRecordResponse
+     * @param request - DeleteRoutineRelatedRecordRequest
+     * @returns DeleteRoutineRelatedRecordResponse
+     *
+     * @param DeleteRoutineRelatedRecordRequest $request
+     *
+     * @return DeleteRoutineRelatedRecordResponse
      */
     public function deleteRoutineRelatedRecord($request)
     {
@@ -3835,31 +6528,39 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a route that is associated with a routine.
-     *  *
-     * @param DeleteRoutineRelatedRouteRequest $request DeleteRoutineRelatedRouteRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Deletes a route that is associated with a routine.
      *
-     * @return DeleteRoutineRelatedRouteResponse DeleteRoutineRelatedRouteResponse
+     * @param request - DeleteRoutineRelatedRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRoutineRelatedRouteResponse
+     *
+     * @param DeleteRoutineRelatedRouteRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteRoutineRelatedRouteResponse
      */
     public function deleteRoutineRelatedRouteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->route)) {
-            $body['Route'] = $request->route;
+
+        if (null !== $request->route) {
+            @$body['Route'] = $request->route;
         }
-        if (!Utils::isUnset($request->routeId)) {
-            $body['RouteId'] = $request->routeId;
+
+        if (null !== $request->routeId) {
+            @$body['RouteId'] = $request->routeId;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRoutineRelatedRoute',
@@ -3872,16 +6573,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRoutineRelatedRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRoutineRelatedRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRoutineRelatedRouteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a route that is associated with a routine.
-     *  *
-     * @param DeleteRoutineRelatedRouteRequest $request DeleteRoutineRelatedRouteRequest
+     * Deletes a route that is associated with a routine.
      *
-     * @return DeleteRoutineRelatedRouteResponse DeleteRoutineRelatedRouteResponse
+     * @param request - DeleteRoutineRelatedRouteRequest
+     * @returns DeleteRoutineRelatedRouteResponse
+     *
+     * @param DeleteRoutineRelatedRouteRequest $request
+     *
+     * @return DeleteRoutineRelatedRouteResponse
      */
     public function deleteRoutineRelatedRoute($request)
     {
@@ -3891,22 +6598,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scheduled prefetch plan based on the plan ID.
-     *  *
-     * @param DeleteScheduledPreloadExecutionRequest $request DeleteScheduledPreloadExecutionRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Deletes a scheduled prefetch plan based on the plan ID.
      *
-     * @return DeleteScheduledPreloadExecutionResponse DeleteScheduledPreloadExecutionResponse
+     * @param request - DeleteScheduledPreloadExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteScheduledPreloadExecutionResponse
+     *
+     * @param DeleteScheduledPreloadExecutionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteScheduledPreloadExecutionResponse
      */
     public function deleteScheduledPreloadExecutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteScheduledPreloadExecution',
@@ -3919,16 +6631,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteScheduledPreloadExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteScheduledPreloadExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteScheduledPreloadExecutionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a scheduled prefetch plan based on the plan ID.
-     *  *
-     * @param DeleteScheduledPreloadExecutionRequest $request DeleteScheduledPreloadExecutionRequest
+     * Deletes a scheduled prefetch plan based on the plan ID.
      *
-     * @return DeleteScheduledPreloadExecutionResponse DeleteScheduledPreloadExecutionResponse
+     * @param request - DeleteScheduledPreloadExecutionRequest
+     * @returns DeleteScheduledPreloadExecutionResponse
+     *
+     * @param DeleteScheduledPreloadExecutionRequest $request
+     *
+     * @return DeleteScheduledPreloadExecutionResponse
      */
     public function deleteScheduledPreloadExecution($request)
     {
@@ -3938,22 +6656,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a specified scheduled prefetch task based on the task ID.
-     *  *
-     * @param DeleteScheduledPreloadJobRequest $request DeleteScheduledPreloadJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Deletes a specified scheduled prefetch task based on the task ID.
      *
-     * @return DeleteScheduledPreloadJobResponse DeleteScheduledPreloadJobResponse
+     * @param request - DeleteScheduledPreloadJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteScheduledPreloadJobResponse
+     *
+     * @param DeleteScheduledPreloadJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteScheduledPreloadJobResponse
      */
     public function deleteScheduledPreloadJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteScheduledPreloadJob',
@@ -3966,16 +6689,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteScheduledPreloadJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteScheduledPreloadJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteScheduledPreloadJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a specified scheduled prefetch task based on the task ID.
-     *  *
-     * @param DeleteScheduledPreloadJobRequest $request DeleteScheduledPreloadJobRequest
+     * Deletes a specified scheduled prefetch task based on the task ID.
      *
-     * @return DeleteScheduledPreloadJobResponse DeleteScheduledPreloadJobResponse
+     * @param request - DeleteScheduledPreloadJobRequest
+     * @returns DeleteScheduledPreloadJobResponse
+     *
+     * @param DeleteScheduledPreloadJobRequest $request
+     *
+     * @return DeleteScheduledPreloadJobResponse
      */
     public function deleteScheduledPreloadJob($request)
     {
@@ -3985,28 +6714,35 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a website based on the specified website ID.
-     *  *
-     * @param DeleteSiteRequest $request DeleteSiteRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a website based on the specified website ID.
      *
-     * @return DeleteSiteResponse DeleteSiteResponse
+     * @param request - DeleteSiteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSiteResponse
+     *
+     * @param DeleteSiteRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteSiteResponse
      */
     public function deleteSiteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSite',
@@ -4019,16 +6755,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSiteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSiteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSiteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a website based on the specified website ID.
-     *  *
-     * @param DeleteSiteRequest $request DeleteSiteRequest
+     * Deletes a website based on the specified website ID.
      *
-     * @return DeleteSiteResponse DeleteSiteResponse
+     * @param request - DeleteSiteRequest
+     * @returns DeleteSiteResponse
+     *
+     * @param DeleteSiteRequest $request
+     *
+     * @return DeleteSiteResponse
      */
     public function deleteSite($request)
     {
@@ -4038,25 +6780,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a real-time log delivery task.
-     *  *
-     * @param DeleteSiteDeliveryTaskRequest $request DeleteSiteDeliveryTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Deletes a real-time log delivery task.
      *
-     * @return DeleteSiteDeliveryTaskResponse DeleteSiteDeliveryTaskResponse
+     * @param request - DeleteSiteDeliveryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSiteDeliveryTaskResponse
+     *
+     * @param DeleteSiteDeliveryTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteSiteDeliveryTaskResponse
      */
     public function deleteSiteDeliveryTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteSiteDeliveryTask',
@@ -4069,16 +6817,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSiteDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSiteDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSiteDeliveryTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a real-time log delivery task.
-     *  *
-     * @param DeleteSiteDeliveryTaskRequest $request DeleteSiteDeliveryTaskRequest
+     * Deletes a real-time log delivery task.
      *
-     * @return DeleteSiteDeliveryTaskResponse DeleteSiteDeliveryTaskResponse
+     * @param request - DeleteSiteDeliveryTaskRequest
+     * @returns DeleteSiteDeliveryTaskResponse
+     *
+     * @param DeleteSiteDeliveryTaskRequest $request
+     *
+     * @return DeleteSiteDeliveryTaskResponse
      */
     public function deleteSiteDeliveryTask($request)
     {
@@ -4088,27 +6842,33 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a log delivery task from your Alibaba Cloud account.
-     *  *
-     * @description ******>
+     * Deletes a log delivery task from your Alibaba Cloud account.
+     *
+     * @remarks
+     * *****>
      * *   Deleted tasks cannot be restored. Proceed with caution.
      * *   To call this operation, you must have an account that has the required permissions.
      * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
-     *  *
-     * @param DeleteUserDeliveryTaskRequest $request DeleteUserDeliveryTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserDeliveryTaskResponse DeleteUserDeliveryTaskResponse
+     * @param request - DeleteUserDeliveryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteUserDeliveryTaskResponse
+     *
+     * @param DeleteUserDeliveryTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteUserDeliveryTaskResponse
      */
     public function deleteUserDeliveryTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteUserDeliveryTask',
@@ -4121,21 +6881,28 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteUserDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserDeliveryTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a log delivery task from your Alibaba Cloud account.
-     *  *
-     * @description ******>
+     * Deletes a log delivery task from your Alibaba Cloud account.
+     *
+     * @remarks
+     * *****>
      * *   Deleted tasks cannot be restored. Proceed with caution.
      * *   To call this operation, you must have an account that has the required permissions.
      * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
-     *  *
-     * @param DeleteUserDeliveryTaskRequest $request DeleteUserDeliveryTaskRequest
      *
-     * @return DeleteUserDeliveryTaskResponse DeleteUserDeliveryTaskResponse
+     * @param request - DeleteUserDeliveryTaskRequest
+     * @returns DeleteUserDeliveryTaskResponse
+     *
+     * @param DeleteUserDeliveryTaskRequest $request
+     *
+     * @return DeleteUserDeliveryTaskResponse
      */
     public function deleteUserDeliveryTask($request)
     {
@@ -4145,25 +6912,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a waiting room.
-     *  *
-     * @param DeleteWaitingRoomRequest $request DeleteWaitingRoomRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a waiting room.
      *
-     * @return DeleteWaitingRoomResponse DeleteWaitingRoomResponse
+     * @param request - DeleteWaitingRoomRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWaitingRoomResponse
+     *
+     * @param DeleteWaitingRoomRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteWaitingRoomResponse
      */
     public function deleteWaitingRoomWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->waitingRoomId)) {
-            $query['WaitingRoomId'] = $request->waitingRoomId;
+
+        if (null !== $request->waitingRoomId) {
+            @$query['WaitingRoomId'] = $request->waitingRoomId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWaitingRoom',
@@ -4176,16 +6949,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWaitingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWaitingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWaitingRoomResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a waiting room.
-     *  *
-     * @param DeleteWaitingRoomRequest $request DeleteWaitingRoomRequest
+     * Deletes a waiting room.
      *
-     * @return DeleteWaitingRoomResponse DeleteWaitingRoomResponse
+     * @param request - DeleteWaitingRoomRequest
+     * @returns DeleteWaitingRoomResponse
+     *
+     * @param DeleteWaitingRoomRequest $request
+     *
+     * @return DeleteWaitingRoomResponse
      */
     public function deleteWaitingRoom($request)
     {
@@ -4195,25 +6974,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a waiting room event.
-     *  *
-     * @param DeleteWaitingRoomEventRequest $request DeleteWaitingRoomEventRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Deletes a waiting room event.
      *
-     * @return DeleteWaitingRoomEventResponse DeleteWaitingRoomEventResponse
+     * @param request - DeleteWaitingRoomEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWaitingRoomEventResponse
+     *
+     * @param DeleteWaitingRoomEventRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteWaitingRoomEventResponse
      */
     public function deleteWaitingRoomEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->waitingRoomEventId)) {
-            $query['WaitingRoomEventId'] = $request->waitingRoomEventId;
+
+        if (null !== $request->waitingRoomEventId) {
+            @$query['WaitingRoomEventId'] = $request->waitingRoomEventId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWaitingRoomEvent',
@@ -4226,16 +7011,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWaitingRoomEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWaitingRoomEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWaitingRoomEventResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a waiting room event.
-     *  *
-     * @param DeleteWaitingRoomEventRequest $request DeleteWaitingRoomEventRequest
+     * Deletes a waiting room event.
      *
-     * @return DeleteWaitingRoomEventResponse DeleteWaitingRoomEventResponse
+     * @param request - DeleteWaitingRoomEventRequest
+     * @returns DeleteWaitingRoomEventResponse
+     *
+     * @param DeleteWaitingRoomEventRequest $request
+     *
+     * @return DeleteWaitingRoomEventResponse
      */
     public function deleteWaitingRoomEvent($request)
     {
@@ -4245,25 +7036,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a waiting room bypass rule.
-     *  *
-     * @param DeleteWaitingRoomRuleRequest $request DeleteWaitingRoomRuleRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a waiting room bypass rule.
      *
-     * @return DeleteWaitingRoomRuleResponse DeleteWaitingRoomRuleResponse
+     * @param request - DeleteWaitingRoomRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWaitingRoomRuleResponse
+     *
+     * @param DeleteWaitingRoomRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteWaitingRoomRuleResponse
      */
     public function deleteWaitingRoomRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->waitingRoomRuleId)) {
-            $query['WaitingRoomRuleId'] = $request->waitingRoomRuleId;
+
+        if (null !== $request->waitingRoomRuleId) {
+            @$query['WaitingRoomRuleId'] = $request->waitingRoomRuleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWaitingRoomRule',
@@ -4276,16 +7073,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWaitingRoomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWaitingRoomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWaitingRoomRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a waiting room bypass rule.
-     *  *
-     * @param DeleteWaitingRoomRuleRequest $request DeleteWaitingRoomRuleRequest
+     * Deletes a waiting room bypass rule.
      *
-     * @return DeleteWaitingRoomRuleResponse DeleteWaitingRoomRuleResponse
+     * @param request - DeleteWaitingRoomRuleRequest
+     * @returns DeleteWaitingRoomRuleResponse
+     *
+     * @param DeleteWaitingRoomRuleRequest $request
+     *
+     * @return DeleteWaitingRoomRuleResponse
      */
     public function deleteWaitingRoomRule($request)
     {
@@ -4295,28 +7098,35 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a scenario-specific policy.
-     *  *
-     * @param DescribeCustomScenePoliciesRequest $request DescribeCustomScenePoliciesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of a scenario-specific policy.
      *
-     * @return DescribeCustomScenePoliciesResponse DescribeCustomScenePoliciesResponse
+     * @param request - DescribeCustomScenePoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCustomScenePoliciesResponse
+     *
+     * @param DescribeCustomScenePoliciesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeCustomScenePoliciesResponse
      */
     public function describeCustomScenePoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCustomScenePolicies',
@@ -4329,16 +7139,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCustomScenePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCustomScenePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCustomScenePoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of a scenario-specific policy.
-     *  *
-     * @param DescribeCustomScenePoliciesRequest $request DescribeCustomScenePoliciesRequest
+     * Queries the configurations of a scenario-specific policy.
      *
-     * @return DescribeCustomScenePoliciesResponse DescribeCustomScenePoliciesResponse
+     * @param request - DescribeCustomScenePoliciesRequest
+     * @returns DescribeCustomScenePoliciesResponse
+     *
+     * @param DescribeCustomScenePoliciesRequest $request
+     *
+     * @return DescribeCustomScenePoliciesResponse
      */
     public function describeCustomScenePolicies($request)
     {
@@ -4348,37 +7164,47 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries DDoS attack events.
-     *  *
-     * @param DescribeDDoSAllEventListRequest $request DescribeDDoSAllEventListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries DDoS attack events.
      *
-     * @return DescribeDDoSAllEventListResponse DescribeDDoSAllEventListResponse
+     * @param request - DescribeDDoSAllEventListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDoSAllEventListResponse
+     *
+     * @param DescribeDDoSAllEventListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDDoSAllEventListResponse
      */
     public function describeDDoSAllEventListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDoSAllEventList',
@@ -4391,16 +7217,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDoSAllEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDoSAllEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDoSAllEventListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries DDoS attack events.
-     *  *
-     * @param DescribeDDoSAllEventListRequest $request DescribeDDoSAllEventListRequest
+     * Queries DDoS attack events.
      *
-     * @return DescribeDDoSAllEventListResponse DescribeDDoSAllEventListResponse
+     * @param request - DescribeDDoSAllEventListRequest
+     * @returns DescribeDDoSAllEventListResponse
+     *
+     * @param DescribeDDoSAllEventListRequest $request
+     *
+     * @return DescribeDDoSAllEventListResponse
      */
     public function describeDDoSAllEventList($request)
     {
@@ -4410,19 +7242,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询DCDN DDoS用户bps、pps数据
-     *  *
-     * @param DescribeDDoSBpsListRequest $request DescribeDDoSBpsListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询DCDN DDoS用户bps、pps数据.
      *
-     * @return DescribeDDoSBpsListResponse DescribeDDoSBpsListResponse
+     * @param request - DescribeDDoSBpsListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDoSBpsListResponse
+     *
+     * @param DescribeDDoSBpsListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDDoSBpsListResponse
      */
     public function describeDDoSBpsListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDoSBpsList',
@@ -4435,16 +7271,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDoSBpsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDoSBpsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDoSBpsListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询DCDN DDoS用户bps、pps数据
-     *  *
-     * @param DescribeDDoSBpsListRequest $request DescribeDDoSBpsListRequest
+     * 查询DCDN DDoS用户bps、pps数据.
      *
-     * @return DescribeDDoSBpsListResponse DescribeDDoSBpsListResponse
+     * @param request - DescribeDDoSBpsListRequest
+     * @returns DescribeDDoSBpsListResponse
+     *
+     * @param DescribeDDoSBpsListRequest $request
+     *
+     * @return DescribeDDoSBpsListResponse
      */
     public function describeDDoSBpsList($request)
     {
@@ -4454,34 +7296,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary ddos分析七层qps走势图接口
-     *  *
-     * @param DescribeDDoSL7QpsListRequest $request DescribeDDoSL7QpsListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * ddos分析七层qps走势图接口.
      *
-     * @return DescribeDDoSL7QpsListResponse DescribeDDoSL7QpsListResponse
+     * @param request - DescribeDDoSL7QpsListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDoSL7QpsListResponse
+     *
+     * @param DescribeDDoSL7QpsListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDDoSL7QpsListResponse
      */
     public function describeDDoSL7QpsListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDoSL7QpsList',
@@ -4494,16 +7345,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDoSL7QpsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDoSL7QpsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDoSL7QpsListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary ddos分析七层qps走势图接口
-     *  *
-     * @param DescribeDDoSL7QpsListRequest $request DescribeDDoSL7QpsListRequest
+     * ddos分析七层qps走势图接口.
      *
-     * @return DescribeDDoSL7QpsListResponse DescribeDDoSL7QpsListResponse
+     * @param request - DescribeDDoSL7QpsListRequest
+     * @returns DescribeDDoSL7QpsListResponse
+     *
+     * @param DescribeDDoSL7QpsListRequest $request
+     *
+     * @return DescribeDDoSL7QpsListResponse
      */
     public function describeDDoSL7QpsList($request)
     {
@@ -4513,22 +7370,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration of smart HTTP DDoS protection for a website.
-     *  *
-     * @param DescribeHttpDDoSAttackIntelligentProtectionRequest $request DescribeHttpDDoSAttackIntelligentProtectionRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration of smart HTTP DDoS protection for a website.
      *
-     * @return DescribeHttpDDoSAttackIntelligentProtectionResponse DescribeHttpDDoSAttackIntelligentProtectionResponse
+     * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHttpDDoSAttackIntelligentProtectionResponse
+     *
+     * @param DescribeHttpDDoSAttackIntelligentProtectionRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return DescribeHttpDDoSAttackIntelligentProtectionResponse
      */
     public function describeHttpDDoSAttackIntelligentProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHttpDDoSAttackIntelligentProtection',
@@ -4541,16 +7403,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHttpDDoSAttackIntelligentProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHttpDDoSAttackIntelligentProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHttpDDoSAttackIntelligentProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configuration of smart HTTP DDoS protection for a website.
-     *  *
-     * @param DescribeHttpDDoSAttackIntelligentProtectionRequest $request DescribeHttpDDoSAttackIntelligentProtectionRequest
+     * Queries the configuration of smart HTTP DDoS protection for a website.
      *
-     * @return DescribeHttpDDoSAttackIntelligentProtectionResponse DescribeHttpDDoSAttackIntelligentProtectionResponse
+     * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
+     * @returns DescribeHttpDDoSAttackIntelligentProtectionResponse
+     *
+     * @param DescribeHttpDDoSAttackIntelligentProtectionRequest $request
+     *
+     * @return DescribeHttpDDoSAttackIntelligentProtectionResponse
      */
     public function describeHttpDDoSAttackIntelligentProtection($request)
     {
@@ -4560,22 +7428,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of HTTP DDoS attack protection.
-     *  *
-     * @param DescribeHttpDDoSAttackProtectionRequest $request DescribeHttpDDoSAttackProtectionRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of HTTP DDoS attack protection.
      *
-     * @return DescribeHttpDDoSAttackProtectionResponse DescribeHttpDDoSAttackProtectionResponse
+     * @param request - DescribeHttpDDoSAttackProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHttpDDoSAttackProtectionResponse
+     *
+     * @param DescribeHttpDDoSAttackProtectionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeHttpDDoSAttackProtectionResponse
      */
     public function describeHttpDDoSAttackProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHttpDDoSAttackProtection',
@@ -4588,16 +7461,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHttpDDoSAttackProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHttpDDoSAttackProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHttpDDoSAttackProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of HTTP DDoS attack protection.
-     *  *
-     * @param DescribeHttpDDoSAttackProtectionRequest $request DescribeHttpDDoSAttackProtectionRequest
+     * Queries the configurations of HTTP DDoS attack protection.
      *
-     * @return DescribeHttpDDoSAttackProtectionResponse DescribeHttpDDoSAttackProtectionResponse
+     * @param request - DescribeHttpDDoSAttackProtectionRequest
+     * @returns DescribeHttpDDoSAttackProtectionResponse
+     *
+     * @param DescribeHttpDDoSAttackProtectionRequest $request
+     *
+     * @return DescribeHttpDDoSAttackProtectionResponse
      */
     public function describeHttpDDoSAttackProtection($request)
     {
@@ -4607,11 +7486,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Edge KV is activated in your Alibaba Cloud account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries whether Edge KV is activated in your Alibaba Cloud account.
      *
-     * @return DescribeKvAccountStatusResponse DescribeKvAccountStatusResponse
+     * @param request - DescribeKvAccountStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeKvAccountStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeKvAccountStatusResponse
      */
     public function describeKvAccountStatusWithOptions($runtime)
     {
@@ -4627,14 +7510,19 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeKvAccountStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeKvAccountStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeKvAccountStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether Edge KV is activated in your Alibaba Cloud account.
-     *  *
-     * @return DescribeKvAccountStatusResponse DescribeKvAccountStatusResponse
+     * Queries whether Edge KV is activated in your Alibaba Cloud account.
+     *
+     * @returns DescribeKvAccountStatusResponse
+     *
+     * @return DescribeKvAccountStatusResponse
      */
     public function describeKvAccountStatus()
     {
@@ -4644,19 +7532,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of prefetch tasks by time, task status, or prefetch URL.
-     *  *
-     * @param DescribePreloadTasksRequest $request DescribePreloadTasksRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of prefetch tasks by time, task status, or prefetch URL.
      *
-     * @return DescribePreloadTasksResponse DescribePreloadTasksResponse
+     * @param request - DescribePreloadTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePreloadTasksResponse
+     *
+     * @param DescribePreloadTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribePreloadTasksResponse
      */
     public function describePreloadTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePreloadTasks',
@@ -4669,16 +7561,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePreloadTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePreloadTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePreloadTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of prefetch tasks by time, task status, or prefetch URL.
-     *  *
-     * @param DescribePreloadTasksRequest $request DescribePreloadTasksRequest
+     * Queries the details of prefetch tasks by time, task status, or prefetch URL.
      *
-     * @return DescribePreloadTasksResponse DescribePreloadTasksResponse
+     * @param request - DescribePreloadTasksRequest
+     * @returns DescribePreloadTasksResponse
+     *
+     * @param DescribePreloadTasksRequest $request
+     *
+     * @return DescribePreloadTasksResponse
      */
     public function describePreloadTasks($request)
     {
@@ -4688,19 +7586,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of purge tasks.
-     *  *
-     * @param DescribePurgeTasksRequest $request DescribePurgeTasksRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the details of purge tasks.
      *
-     * @return DescribePurgeTasksResponse DescribePurgeTasksResponse
+     * @param request - DescribePurgeTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePurgeTasksResponse
+     *
+     * @param DescribePurgeTasksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribePurgeTasksResponse
      */
     public function describePurgeTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePurgeTasks',
@@ -4713,16 +7615,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePurgeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePurgeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePurgeTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of purge tasks.
-     *  *
-     * @param DescribePurgeTasksRequest $request DescribePurgeTasksRequest
+     * Queries the details of purge tasks.
      *
-     * @return DescribePurgeTasksResponse DescribePurgeTasksResponse
+     * @param request - DescribePurgeTasksRequest
+     * @returns DescribePurgeTasksResponse
+     *
+     * @param DescribePurgeTasksRequest $request
+     *
+     * @return DescribePurgeTasksResponse
      */
     public function describePurgeTasks($request)
     {
@@ -4732,22 +7640,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Disables a scenario-specific policy.
-     *  *
-     * @param DisableCustomScenePolicyRequest $request DisableCustomScenePolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Disables a scenario-specific policy.
      *
-     * @return DisableCustomScenePolicyResponse DisableCustomScenePolicyResponse
+     * @param request - DisableCustomScenePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableCustomScenePolicyResponse
+     *
+     * @param DisableCustomScenePolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DisableCustomScenePolicyResponse
      */
     public function disableCustomScenePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableCustomScenePolicy',
@@ -4760,16 +7673,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableCustomScenePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables a scenario-specific policy.
-     *  *
-     * @param DisableCustomScenePolicyRequest $request DisableCustomScenePolicyRequest
+     * Disables a scenario-specific policy.
      *
-     * @return DisableCustomScenePolicyResponse DisableCustomScenePolicyResponse
+     * @param request - DisableCustomScenePolicyRequest
+     * @returns DisableCustomScenePolicyResponse
+     *
+     * @param DisableCustomScenePolicyRequest $request
+     *
+     * @return DisableCustomScenePolicyResponse
      */
     public function disableCustomScenePolicy($request)
     {
@@ -4779,35 +7698,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
-     *  *
-     * @param EditSiteWafSettingsRequest $tmpReq  EditSiteWafSettingsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
      *
-     * @return EditSiteWafSettingsResponse EditSiteWafSettingsResponse
+     * @param tmpReq - EditSiteWafSettingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EditSiteWafSettingsResponse
+     *
+     * @param EditSiteWafSettingsRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EditSiteWafSettingsResponse
      */
     public function editSiteWafSettingsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EditSiteWafSettingsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->settings)) {
-            $request->settingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->settings, 'Settings', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->settings) {
+            $request->settingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->settings, 'Settings', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->settingsShrink)) {
-            $body['Settings'] = $request->settingsShrink;
+        if (null !== $request->settingsShrink) {
+            @$body['Settings'] = $request->settingsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EditSiteWafSettings',
@@ -4820,16 +7747,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EditSiteWafSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EditSiteWafSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EditSiteWafSettingsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
-     *  *
-     * @param EditSiteWafSettingsRequest $request EditSiteWafSettingsRequest
+     * Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
      *
-     * @return EditSiteWafSettingsResponse EditSiteWafSettingsResponse
+     * @param request - EditSiteWafSettingsRequest
+     * @returns EditSiteWafSettingsResponse
+     *
+     * @param EditSiteWafSettingsRequest $request
+     *
+     * @return EditSiteWafSettingsResponse
      */
     public function editSiteWafSettings($request)
     {
@@ -4839,22 +7772,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Enables a scenario-specific policy.
-     *  *
-     * @param EnableCustomScenePolicyRequest $request EnableCustomScenePolicyRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Enables a scenario-specific policy.
      *
-     * @return EnableCustomScenePolicyResponse EnableCustomScenePolicyResponse
+     * @param request - EnableCustomScenePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableCustomScenePolicyResponse
+     *
+     * @param EnableCustomScenePolicyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableCustomScenePolicyResponse
      */
     public function enableCustomScenePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableCustomScenePolicy',
@@ -4867,16 +7805,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableCustomScenePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables a scenario-specific policy.
-     *  *
-     * @param EnableCustomScenePolicyRequest $request EnableCustomScenePolicyRequest
+     * Enables a scenario-specific policy.
      *
-     * @return EnableCustomScenePolicyResponse EnableCustomScenePolicyResponse
+     * @param request - EnableCustomScenePolicyRequest
+     * @returns EnableCustomScenePolicyResponse
+     *
+     * @param EnableCustomScenePolicyRequest $request
+     *
+     * @return EnableCustomScenePolicyResponse
      */
     public function enableCustomScenePolicy($request)
     {
@@ -4886,19 +7830,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Exports all DNS records of a website domain as a TXT file.
-     *  *
-     * @param ExportRecordsRequest $request ExportRecordsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Exports all DNS records of a website domain as a TXT file.
      *
-     * @return ExportRecordsResponse ExportRecordsResponse
+     * @param request - ExportRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportRecordsResponse
+     *
+     * @param ExportRecordsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ExportRecordsResponse
      */
     public function exportRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExportRecords',
@@ -4911,16 +7859,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Exports all DNS records of a website domain as a TXT file.
-     *  *
-     * @param ExportRecordsRequest $request ExportRecordsRequest
+     * Exports all DNS records of a website domain as a TXT file.
      *
-     * @return ExportRecordsResponse ExportRecordsResponse
+     * @param request - ExportRecordsRequest
+     * @returns ExportRecordsResponse
+     *
+     * @param ExportRecordsRequest $request
+     *
+     * @return ExportRecordsResponse
      */
     public function exportRecords($request)
     {
@@ -4930,11 +7884,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the available specifications of cache reserve instances.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the available specifications of cache reserve instances.
      *
-     * @return GetCacheReserveSpecificationResponse GetCacheReserveSpecificationResponse
+     * @param request - GetCacheReserveSpecificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCacheReserveSpecificationResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCacheReserveSpecificationResponse
      */
     public function getCacheReserveSpecificationWithOptions($runtime)
     {
@@ -4950,14 +7908,19 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCacheReserveSpecificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCacheReserveSpecificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCacheReserveSpecificationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the available specifications of cache reserve instances.
-     *  *
-     * @return GetCacheReserveSpecificationResponse GetCacheReserveSpecificationResponse
+     * Queries the available specifications of cache reserve instances.
+     *
+     * @returns GetCacheReserveSpecificationResponse
+     *
+     * @return GetCacheReserveSpecificationResponse
      */
     public function getCacheReserveSpecification()
     {
@@ -4967,19 +7930,131 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries certificate information about a website.
-     *  *
-     * @param GetCertificateRequest $request GetCertificateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询单条缓存配置.
      *
-     * @return GetCertificateResponse GetCertificateResponse
+     * @param request - GetCacheRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCacheRuleResponse
+     *
+     * @param GetCacheRuleRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetCacheRuleResponse
+     */
+    public function getCacheRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCacheRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCacheRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetCacheRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单条缓存配置.
+     *
+     * @param request - GetCacheRuleRequest
+     * @returns GetCacheRuleResponse
+     *
+     * @param GetCacheRuleRequest $request
+     *
+     * @return GetCacheRuleResponse
+     */
+    public function getCacheRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCacheRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
+     *
+     * @param request - GetCacheTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCacheTagResponse
+     *
+     * @param GetCacheTagRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetCacheTagResponse
+     */
+    public function getCacheTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCacheTag',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCacheTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetCacheTagResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
+     *
+     * @param request - GetCacheTagRequest
+     * @returns GetCacheTagResponse
+     *
+     * @param GetCacheTagRequest $request
+     *
+     * @return GetCacheTagResponse
+     */
+    public function getCacheTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCacheTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries certificate information about a website.
+     *
+     * @param request - GetCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCertificateResponse
+     *
+     * @param GetCertificateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetCertificateResponse
      */
     public function getCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCertificate',
@@ -4992,16 +8067,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries certificate information about a website.
-     *  *
-     * @param GetCertificateRequest $request GetCertificateRequest
+     * Queries certificate information about a website.
      *
-     * @return GetCertificateResponse GetCertificateResponse
+     * @param request - GetCertificateRequest
+     * @returns GetCertificateResponse
+     *
+     * @param GetCertificateRequest $request
+     *
+     * @return GetCertificateResponse
      */
     public function getCertificate($request)
     {
@@ -5011,19 +8092,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询证书quota及用量
-     *  *
-     * @param GetCertificateQuotaRequest $request GetCertificateQuotaRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询证书quota及用量.
      *
-     * @return GetCertificateQuotaResponse GetCertificateQuotaResponse
+     * @param request - GetCertificateQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCertificateQuotaResponse
+     *
+     * @param GetCertificateQuotaRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCertificateQuotaResponse
      */
     public function getCertificateQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCertificateQuota',
@@ -5036,16 +8121,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCertificateQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCertificateQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCertificateQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询证书quota及用量
-     *  *
-     * @param GetCertificateQuotaRequest $request GetCertificateQuotaRequest
+     * 查询证书quota及用量.
      *
-     * @return GetCertificateQuotaResponse GetCertificateQuotaResponse
+     * @param request - GetCertificateQuotaRequest
+     * @returns GetCertificateQuotaResponse
+     *
+     * @param GetCertificateQuotaRequest $request
+     *
+     * @return GetCertificateQuotaResponse
      */
     public function getCertificateQuota($request)
     {
@@ -5055,19 +8146,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取客户端CA证书信息
-     *  *
-     * @param GetClientCaCertificateRequest $request GetClientCaCertificateRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取客户端CA证书信息.
      *
-     * @return GetClientCaCertificateResponse GetClientCaCertificateResponse
+     * @param request - GetClientCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetClientCaCertificateResponse
+     *
+     * @param GetClientCaCertificateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetClientCaCertificateResponse
      */
     public function getClientCaCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetClientCaCertificate',
@@ -5080,16 +8175,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetClientCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClientCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClientCaCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取客户端CA证书信息
-     *  *
-     * @param GetClientCaCertificateRequest $request GetClientCaCertificateRequest
+     * 获取客户端CA证书信息.
      *
-     * @return GetClientCaCertificateResponse GetClientCaCertificateResponse
+     * @param request - GetClientCaCertificateRequest
+     * @returns GetClientCaCertificateResponse
+     *
+     * @param GetClientCaCertificateRequest $request
+     *
+     * @return GetClientCaCertificateResponse
      */
     public function getClientCaCertificate($request)
     {
@@ -5099,19 +8200,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a client certificate.
-     *  *
-     * @param GetClientCertificateRequest $request GetClientCertificateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries information about a client certificate.
      *
-     * @return GetClientCertificateResponse GetClientCertificateResponse
+     * @param request - GetClientCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetClientCertificateResponse
+     *
+     * @param GetClientCertificateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetClientCertificateResponse
      */
     public function getClientCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetClientCertificate',
@@ -5124,16 +8229,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about a client certificate.
-     *  *
-     * @param GetClientCertificateRequest $request GetClientCertificateRequest
+     * Queries information about a client certificate.
      *
-     * @return GetClientCertificateResponse GetClientCertificateResponse
+     * @param request - GetClientCertificateRequest
+     * @returns GetClientCertificateResponse
+     *
+     * @param GetClientCertificateRequest $request
+     *
+     * @return GetClientCertificateResponse
      */
     public function getClientCertificate($request)
     {
@@ -5143,19 +8254,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
-     *  *
-     * @param GetClientCertificateHostnamesRequest $request GetClientCertificateHostnamesRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
      *
-     * @return GetClientCertificateHostnamesResponse GetClientCertificateHostnamesResponse
+     * @param request - GetClientCertificateHostnamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetClientCertificateHostnamesResponse
+     *
+     * @param GetClientCertificateHostnamesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetClientCertificateHostnamesResponse
      */
     public function getClientCertificateHostnamesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetClientCertificateHostnames',
@@ -5168,16 +8283,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetClientCertificateHostnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClientCertificateHostnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClientCertificateHostnamesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
-     *  *
-     * @param GetClientCertificateHostnamesRequest $request GetClientCertificateHostnamesRequest
+     * Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
      *
-     * @return GetClientCertificateHostnamesResponse GetClientCertificateHostnamesResponse
+     * @param request - GetClientCertificateHostnamesRequest
+     * @returns GetClientCertificateHostnamesResponse
+     *
+     * @param GetClientCertificateHostnamesRequest $request
+     *
+     * @return GetClientCertificateHostnamesResponse
      */
     public function getClientCertificateHostnames($request)
     {
@@ -5187,22 +8308,189 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
-     *  *
-     * @param GetEdgeContainerAppRequest $request GetEdgeContainerAppRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the CNAME flattening configuration of a website.
      *
-     * @return GetEdgeContainerAppResponse GetEdgeContainerAppResponse
+     * @param request - GetCnameFlatteningRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCnameFlatteningResponse
+     *
+     * @param GetCnameFlatteningRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetCnameFlatteningResponse
+     */
+    public function getCnameFlatteningWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCnameFlattening',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCnameFlatteningResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetCnameFlatteningResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the CNAME flattening configuration of a website.
+     *
+     * @param request - GetCnameFlatteningRequest
+     * @returns GetCnameFlatteningResponse
+     *
+     * @param GetCnameFlatteningRequest $request
+     *
+     * @return GetCnameFlatteningResponse
+     */
+    public function getCnameFlattening($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCnameFlatteningWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询压缩规则详情.
+     *
+     * @param request - GetCompressionRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCompressionRuleResponse
+     *
+     * @param GetCompressionRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetCompressionRuleResponse
+     */
+    public function getCompressionRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCompressionRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCompressionRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetCompressionRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询压缩规则详情.
+     *
+     * @param request - GetCompressionRuleRequest
+     * @returns GetCompressionRuleResponse
+     *
+     * @param GetCompressionRuleRequest $request
+     *
+     * @return GetCompressionRuleResponse
+     */
+    public function getCompressionRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCompressionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the development mode configuration of your website.
+     *
+     * @param request - GetDevelopmentModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDevelopmentModeResponse
+     *
+     * @param GetDevelopmentModeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDevelopmentModeResponse
+     */
+    public function getDevelopmentModeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDevelopmentMode',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDevelopmentModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetDevelopmentModeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the development mode configuration of your website.
+     *
+     * @param request - GetDevelopmentModeRequest
+     * @returns GetDevelopmentModeResponse
+     *
+     * @param GetDevelopmentModeRequest $request
+     *
+     * @return GetDevelopmentModeResponse
+     */
+    public function getDevelopmentMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDevelopmentModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information about a containerized application, including basic application configurations and health check configurations.
+     *
+     * @param request - GetEdgeContainerAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEdgeContainerAppResponse
+     *
+     * @param GetEdgeContainerAppRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetEdgeContainerAppResponse
      */
     public function getEdgeContainerAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEdgeContainerApp',
@@ -5215,16 +8503,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEdgeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEdgeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeContainerAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
-     *  *
-     * @param GetEdgeContainerAppRequest $request GetEdgeContainerAppRequest
+     * Queries the information about a containerized application, including basic application configurations and health check configurations.
      *
-     * @return GetEdgeContainerAppResponse GetEdgeContainerAppResponse
+     * @param request - GetEdgeContainerAppRequest
+     * @returns GetEdgeContainerAppResponse
+     *
+     * @param GetEdgeContainerAppRequest $request
+     *
+     * @return GetEdgeContainerAppResponse
      */
     public function getEdgeContainerApp($request)
     {
@@ -5234,25 +8528,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
-     *  *
-     * @param GetEdgeContainerAppStatusRequest $request GetEdgeContainerAppStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
      *
-     * @return GetEdgeContainerAppStatusResponse GetEdgeContainerAppStatusResponse
+     * @param request - GetEdgeContainerAppStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEdgeContainerAppStatusResponse
+     *
+     * @param GetEdgeContainerAppStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetEdgeContainerAppStatusResponse
      */
     public function getEdgeContainerAppStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->publishEnv)) {
-            $query['PublishEnv'] = $request->publishEnv;
+
+        if (null !== $request->publishEnv) {
+            @$query['PublishEnv'] = $request->publishEnv;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEdgeContainerAppStatus',
@@ -5265,16 +8565,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEdgeContainerAppStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEdgeContainerAppStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeContainerAppStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
-     *  *
-     * @param GetEdgeContainerAppStatusRequest $request GetEdgeContainerAppStatusRequest
+     * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
      *
-     * @return GetEdgeContainerAppStatusResponse GetEdgeContainerAppStatusResponse
+     * @param request - GetEdgeContainerAppStatusRequest
+     * @returns GetEdgeContainerAppStatusResponse
+     *
+     * @param GetEdgeContainerAppStatusRequest $request
+     *
+     * @return GetEdgeContainerAppStatusResponse
      */
     public function getEdgeContainerAppStatus($request)
     {
@@ -5284,19 +8590,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
-     *  *
-     * @param GetEdgeContainerAppVersionRequest $request GetEdgeContainerAppVersionRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
      *
-     * @return GetEdgeContainerAppVersionResponse GetEdgeContainerAppVersionResponse
+     * @param request - GetEdgeContainerAppVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEdgeContainerAppVersionResponse
+     *
+     * @param GetEdgeContainerAppVersionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetEdgeContainerAppVersionResponse
      */
     public function getEdgeContainerAppVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEdgeContainerAppVersion',
@@ -5309,16 +8619,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeContainerAppVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
-     *  *
-     * @param GetEdgeContainerAppVersionRequest $request GetEdgeContainerAppVersionRequest
+     * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
      *
-     * @return GetEdgeContainerAppVersionResponse GetEdgeContainerAppVersionResponse
+     * @param request - GetEdgeContainerAppVersionRequest
+     * @returns GetEdgeContainerAppVersionResponse
+     *
+     * @param GetEdgeContainerAppVersionRequest $request
+     *
+     * @return GetEdgeContainerAppVersionResponse
      */
     public function getEdgeContainerAppVersion($request)
     {
@@ -5328,19 +8644,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries regions where a containerized application is deployed based on the application ID.
-     *  *
-     * @param GetEdgeContainerDeployRegionsRequest $request GetEdgeContainerDeployRegionsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries regions where a containerized application is deployed based on the application ID.
      *
-     * @return GetEdgeContainerDeployRegionsResponse GetEdgeContainerDeployRegionsResponse
+     * @param request - GetEdgeContainerDeployRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEdgeContainerDeployRegionsResponse
+     *
+     * @param GetEdgeContainerDeployRegionsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetEdgeContainerDeployRegionsResponse
      */
     public function getEdgeContainerDeployRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEdgeContainerDeployRegions',
@@ -5353,16 +8673,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEdgeContainerDeployRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEdgeContainerDeployRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeContainerDeployRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries regions where a containerized application is deployed based on the application ID.
-     *  *
-     * @param GetEdgeContainerDeployRegionsRequest $request GetEdgeContainerDeployRegionsRequest
+     * Queries regions where a containerized application is deployed based on the application ID.
      *
-     * @return GetEdgeContainerDeployRegionsResponse GetEdgeContainerDeployRegionsResponse
+     * @param request - GetEdgeContainerDeployRegionsRequest
+     * @returns GetEdgeContainerDeployRegionsResponse
+     *
+     * @param GetEdgeContainerDeployRegionsRequest $request
+     *
+     * @return GetEdgeContainerDeployRegionsResponse
      */
     public function getEdgeContainerDeployRegions($request)
     {
@@ -5372,19 +8698,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries Edge Container logs.
-     *  *
-     * @param GetEdgeContainerLogsRequest $request GetEdgeContainerLogsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries Edge Container logs.
      *
-     * @return GetEdgeContainerLogsResponse GetEdgeContainerLogsResponse
+     * @param request - GetEdgeContainerLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEdgeContainerLogsResponse
+     *
+     * @param GetEdgeContainerLogsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetEdgeContainerLogsResponse
      */
     public function getEdgeContainerLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEdgeContainerLogs',
@@ -5397,16 +8727,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEdgeContainerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEdgeContainerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeContainerLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Edge Container logs.
-     *  *
-     * @param GetEdgeContainerLogsRequest $request GetEdgeContainerLogsRequest
+     * Queries Edge Container logs.
      *
-     * @return GetEdgeContainerLogsResponse GetEdgeContainerLogsResponse
+     * @param request - GetEdgeContainerLogsRequest
+     * @returns GetEdgeContainerLogsResponse
+     *
+     * @param GetEdgeContainerLogsRequest $request
+     *
+     * @return GetEdgeContainerLogsResponse
      */
     public function getEdgeContainerLogs($request)
     {
@@ -5416,19 +8752,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the deployment status of an application in the staging environment by using the application ID.
-     *  *
-     * @param GetEdgeContainerStagingDeployStatusRequest $request GetEdgeContainerStagingDeployStatusRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Queries the deployment status of an application in the staging environment by using the application ID.
      *
-     * @return GetEdgeContainerStagingDeployStatusResponse GetEdgeContainerStagingDeployStatusResponse
+     * @param request - GetEdgeContainerStagingDeployStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEdgeContainerStagingDeployStatusResponse
+     *
+     * @param GetEdgeContainerStagingDeployStatusRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetEdgeContainerStagingDeployStatusResponse
      */
     public function getEdgeContainerStagingDeployStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEdgeContainerStagingDeployStatus',
@@ -5441,16 +8781,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEdgeContainerStagingDeployStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEdgeContainerStagingDeployStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeContainerStagingDeployStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the deployment status of an application in the staging environment by using the application ID.
-     *  *
-     * @param GetEdgeContainerStagingDeployStatusRequest $request GetEdgeContainerStagingDeployStatusRequest
+     * Queries the deployment status of an application in the staging environment by using the application ID.
      *
-     * @return GetEdgeContainerStagingDeployStatusResponse GetEdgeContainerStagingDeployStatusResponse
+     * @param request - GetEdgeContainerStagingDeployStatusRequest
+     * @returns GetEdgeContainerStagingDeployStatusResponse
+     *
+     * @param GetEdgeContainerStagingDeployStatusRequest $request
+     *
+     * @return GetEdgeContainerStagingDeployStatusResponse
      */
     public function getEdgeContainerStagingDeployStatus($request)
     {
@@ -5460,22 +8806,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the terminal information of a containerized application.
-     *  *
-     * @param GetEdgeContainerTerminalRequest $request GetEdgeContainerTerminalRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the terminal information of a containerized application.
      *
-     * @return GetEdgeContainerTerminalResponse GetEdgeContainerTerminalResponse
+     * @param request - GetEdgeContainerTerminalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEdgeContainerTerminalResponse
+     *
+     * @param GetEdgeContainerTerminalRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetEdgeContainerTerminalResponse
      */
     public function getEdgeContainerTerminalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEdgeContainerTerminal',
@@ -5488,16 +8839,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEdgeContainerTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEdgeContainerTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeContainerTerminalResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the terminal information of a containerized application.
-     *  *
-     * @param GetEdgeContainerTerminalRequest $request GetEdgeContainerTerminalRequest
+     * Queries the terminal information of a containerized application.
      *
-     * @return GetEdgeContainerTerminalResponse GetEdgeContainerTerminalResponse
+     * @param request - GetEdgeContainerTerminalRequest
+     * @returns GetEdgeContainerTerminalResponse
+     *
+     * @param GetEdgeContainerTerminalRequest $request
+     *
+     * @return GetEdgeContainerTerminalResponse
      */
     public function getEdgeContainerTerminal($request)
     {
@@ -5507,19 +8864,293 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the value of a key in a key-value pair.
-     *  *
-     * @param GetKvRequest   $request GetKvRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration details of an HTTP request header modification rule for a website.
      *
-     * @return GetKvResponse GetKvResponse
+     * @param request - GetHttpRequestHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHttpRequestHeaderModificationRuleResponse
+     *
+     * @param GetHttpRequestHeaderModificationRuleRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GetHttpRequestHeaderModificationRuleResponse
+     */
+    public function getHttpRequestHeaderModificationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHttpRequestHeaderModificationRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHttpRequestHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetHttpRequestHeaderModificationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration details of an HTTP request header modification rule for a website.
+     *
+     * @param request - GetHttpRequestHeaderModificationRuleRequest
+     * @returns GetHttpRequestHeaderModificationRuleResponse
+     *
+     * @param GetHttpRequestHeaderModificationRuleRequest $request
+     *
+     * @return GetHttpRequestHeaderModificationRuleResponse
+     */
+    public function getHttpRequestHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHttpRequestHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the configuration details of an HTTP response header modification rule for a website.
+     *
+     * @param request - GetHttpResponseHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHttpResponseHeaderModificationRuleResponse
+     *
+     * @param GetHttpResponseHeaderModificationRuleRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GetHttpResponseHeaderModificationRuleResponse
+     */
+    public function getHttpResponseHeaderModificationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHttpResponseHeaderModificationRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHttpResponseHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetHttpResponseHeaderModificationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration details of an HTTP response header modification rule for a website.
+     *
+     * @param request - GetHttpResponseHeaderModificationRuleRequest
+     * @returns GetHttpResponseHeaderModificationRuleResponse
+     *
+     * @param GetHttpResponseHeaderModificationRuleRequest $request
+     *
+     * @return GetHttpResponseHeaderModificationRuleResponse
+     */
+    public function getHttpResponseHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHttpResponseHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询单条HTTPS应用配置.
+     *
+     * @param request - GetHttpsApplicationConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHttpsApplicationConfigurationResponse
+     *
+     * @param GetHttpsApplicationConfigurationRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetHttpsApplicationConfigurationResponse
+     */
+    public function getHttpsApplicationConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHttpsApplicationConfiguration',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHttpsApplicationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetHttpsApplicationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单条HTTPS应用配置.
+     *
+     * @param request - GetHttpsApplicationConfigurationRequest
+     * @returns GetHttpsApplicationConfigurationResponse
+     *
+     * @param GetHttpsApplicationConfigurationRequest $request
+     *
+     * @return GetHttpsApplicationConfigurationResponse
+     */
+    public function getHttpsApplicationConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHttpsApplicationConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询单条HTTPS基础配置.
+     *
+     * @param request - GetHttpsBasicConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHttpsBasicConfigurationResponse
+     *
+     * @param GetHttpsBasicConfigurationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetHttpsBasicConfigurationResponse
+     */
+    public function getHttpsBasicConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHttpsBasicConfiguration',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHttpsBasicConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetHttpsBasicConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单条HTTPS基础配置.
+     *
+     * @param request - GetHttpsBasicConfigurationRequest
+     * @returns GetHttpsBasicConfigurationResponse
+     *
+     * @param GetHttpsBasicConfigurationRequest $request
+     *
+     * @return GetHttpsBasicConfigurationResponse
+     */
+    public function getHttpsBasicConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHttpsBasicConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询站点IPv6配置.
+     *
+     * @param request - GetIPv6Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetIPv6Response
+     *
+     * @param GetIPv6Request $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetIPv6Response
+     */
+    public function getIPv6WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIPv6',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetIPv6Response::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetIPv6Response::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点IPv6配置.
+     *
+     * @param request - GetIPv6Request
+     * @returns GetIPv6Response
+     *
+     * @param GetIPv6Request $request
+     *
+     * @return GetIPv6Response
+     */
+    public function getIPv6($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIPv6WithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the value of a key in a key-value pair.
+     *
+     * @param request - GetKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetKvResponse
+     *
+     * @param GetKvRequest   $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetKvResponse
      */
     public function getKvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetKv',
@@ -5532,16 +9163,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetKvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the value of a key in a key-value pair.
-     *  *
-     * @param GetKvRequest $request GetKvRequest
+     * Queries the value of a key in a key-value pair.
      *
-     * @return GetKvResponse GetKvResponse
+     * @param request - GetKvRequest
+     * @returns GetKvResponse
+     *
+     * @param GetKvRequest $request
+     *
+     * @return GetKvResponse
      */
     public function getKv($request)
     {
@@ -5551,11 +9188,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
      *
-     * @return GetKvAccountResponse GetKvAccountResponse
+     * @param request - GetKvAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetKvAccountResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetKvAccountResponse
      */
     public function getKvAccountWithOptions($runtime)
     {
@@ -5571,14 +9212,19 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetKvAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetKvAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetKvAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
-     *  *
-     * @return GetKvAccountResponse GetKvAccountResponse
+     * Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
+     *
+     * @returns GetKvAccountResponse
+     *
+     * @return GetKvAccountResponse
      */
     public function getKvAccount()
     {
@@ -5588,19 +9234,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a namespace in your Alibaba Cloud account.
-     *  *
-     * @param GetKvNamespaceRequest $request GetKvNamespaceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a namespace in your Alibaba Cloud account.
      *
-     * @return GetKvNamespaceResponse GetKvNamespaceResponse
+     * @param request - GetKvNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetKvNamespaceResponse
+     *
+     * @param GetKvNamespaceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetKvNamespaceResponse
      */
     public function getKvNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetKvNamespace',
@@ -5613,16 +9263,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetKvNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a namespace in your Alibaba Cloud account.
-     *  *
-     * @param GetKvNamespaceRequest $request GetKvNamespaceRequest
+     * Queries the information about a namespace in your Alibaba Cloud account.
      *
-     * @return GetKvNamespaceResponse GetKvNamespaceResponse
+     * @param request - GetKvNamespaceRequest
+     * @returns GetKvNamespaceResponse
+     *
+     * @param GetKvNamespaceRequest $request
+     *
+     * @return GetKvNamespaceResponse
      */
     public function getKvNamespace($request)
     {
@@ -5632,22 +9288,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a custom list, such as the name, description, type, and content.
-     *  *
-     * @param GetListRequest $request GetListRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a custom list, such as the name, description, type, and content.
      *
-     * @return GetListResponse GetListResponse
+     * @param request - GetListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetListResponse
+     *
+     * @param GetListRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetListResponse
      */
     public function getListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetList',
@@ -5660,16 +9321,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a custom list, such as the name, description, type, and content.
-     *  *
-     * @param GetListRequest $request GetListRequest
+     * Queries the details of a custom list, such as the name, description, type, and content.
      *
-     * @return GetListResponse GetListResponse
+     * @param request - GetListRequest
+     * @returns GetListResponse
+     *
+     * @param GetListRequest $request
+     *
+     * @return GetListResponse
      */
     public function getList($request)
     {
@@ -5679,19 +9346,131 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询特定源地址池
-     *  *
-     * @param GetOriginPoolRequest $request GetOriginPoolRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询特定负载均衡器.
      *
-     * @return GetOriginPoolResponse GetOriginPoolResponse
+     * @param request - GetLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLoadBalancerResponse
+     *
+     * @param GetLoadBalancerRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetLoadBalancerResponse
+     */
+    public function getLoadBalancerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLoadBalancer',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询特定负载均衡器.
+     *
+     * @param request - GetLoadBalancerRequest
+     * @returns GetLoadBalancerResponse
+     *
+     * @param GetLoadBalancerRequest $request
+     *
+     * @return GetLoadBalancerResponse
+     */
+    public function getLoadBalancer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLoadBalancerWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query the configuration of managed transforms for your website.
+     *
+     * @param request - GetManagedTransformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetManagedTransformResponse
+     *
+     * @param GetManagedTransformRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetManagedTransformResponse
+     */
+    public function getManagedTransformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetManagedTransform',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetManagedTransformResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetManagedTransformResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Query the configuration of managed transforms for your website.
+     *
+     * @param request - GetManagedTransformRequest
+     * @returns GetManagedTransformResponse
+     *
+     * @param GetManagedTransformRequest $request
+     *
+     * @return GetManagedTransformResponse
+     */
+    public function getManagedTransform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getManagedTransformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询特定源地址池.
+     *
+     * @param request - GetOriginPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOriginPoolResponse
+     *
+     * @param GetOriginPoolRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetOriginPoolResponse
      */
     public function getOriginPoolWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOriginPool',
@@ -5704,16 +9483,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOriginPoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询特定源地址池
-     *  *
-     * @param GetOriginPoolRequest $request GetOriginPoolRequest
+     * 查询特定源地址池.
      *
-     * @return GetOriginPoolResponse GetOriginPoolResponse
+     * @param request - GetOriginPoolRequest
+     * @returns GetOriginPoolResponse
+     *
+     * @param GetOriginPoolRequest $request
+     *
+     * @return GetOriginPoolResponse
      */
     public function getOriginPool($request)
     {
@@ -5723,19 +9508,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
-     *  *
-     * @param GetOriginProtectionRequest $request GetOriginProtectionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
      *
-     * @return GetOriginProtectionResponse GetOriginProtectionResponse
+     * @param request - GetOriginProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOriginProtectionResponse
+     *
+     * @param GetOriginProtectionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetOriginProtectionResponse
      */
     public function getOriginProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOriginProtection',
@@ -5748,16 +9537,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOriginProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
-     *  *
-     * @param GetOriginProtectionRequest $request GetOriginProtectionRequest
+     * Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
      *
-     * @return GetOriginProtectionResponse GetOriginProtectionResponse
+     * @param request - GetOriginProtectionRequest
+     * @returns GetOriginProtectionResponse
+     *
+     * @param GetOriginProtectionRequest $request
+     *
+     * @return GetOriginProtectionResponse
      */
     public function getOriginProtection($request)
     {
@@ -5767,22 +9562,81 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a custom error page based on the error page ID.
-     *  *
-     * @param GetPageRequest $request GetPageRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询单条回源规则配置.
      *
-     * @return GetPageResponse GetPageResponse
+     * @param request - GetOriginRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOriginRuleResponse
+     *
+     * @param GetOriginRuleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetOriginRuleResponse
+     */
+    public function getOriginRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOriginRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOriginRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetOriginRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单条回源规则配置.
+     *
+     * @param request - GetOriginRuleRequest
+     * @returns GetOriginRuleResponse
+     *
+     * @param GetOriginRuleRequest $request
+     *
+     * @return GetOriginRuleResponse
+     */
+    public function getOriginRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOriginRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a custom error page based on the error page ID.
+     *
+     * @param request - GetPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPageResponse
+     *
+     * @param GetPageRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetPageResponse
      */
     public function getPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPage',
@@ -5795,16 +9649,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a custom error page based on the error page ID.
-     *  *
-     * @param GetPageRequest $request GetPageRequest
+     * Queries the details of a custom error page based on the error page ID.
      *
-     * @return GetPageResponse GetPageResponse
+     * @param request - GetPageRequest
+     * @returns GetPageResponse
+     *
+     * @param GetPageRequest $request
+     *
+     * @return GetPageResponse
      */
     public function getPage($request)
     {
@@ -5814,19 +9674,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quotas and quota usage for different cache purge options.
-     *  *
-     * @param GetPurgeQuotaRequest $request GetPurgeQuotaRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the quotas and quota usage for different cache purge options.
      *
-     * @return GetPurgeQuotaResponse GetPurgeQuotaResponse
+     * @param request - GetPurgeQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPurgeQuotaResponse
+     *
+     * @param GetPurgeQuotaRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPurgeQuotaResponse
      */
     public function getPurgeQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPurgeQuota',
@@ -5839,16 +9703,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPurgeQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPurgeQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPurgeQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quotas and quota usage for different cache purge options.
-     *  *
-     * @param GetPurgeQuotaRequest $request GetPurgeQuotaRequest
+     * Queries the quotas and quota usage for different cache purge options.
      *
-     * @return GetPurgeQuotaResponse GetPurgeQuotaResponse
+     * @param request - GetPurgeQuotaRequest
+     * @returns GetPurgeQuotaResponse
+     *
+     * @param GetPurgeQuotaRequest $request
+     *
+     * @return GetPurgeQuotaResponse
      */
     public function getPurgeQuota($request)
     {
@@ -5858,19 +9728,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the fields in real-time logs based on the log category.
-     *  *
-     * @param GetRealtimeDeliveryFieldRequest $request GetRealtimeDeliveryFieldRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the fields in real-time logs based on the log category.
      *
-     * @return GetRealtimeDeliveryFieldResponse GetRealtimeDeliveryFieldResponse
+     * @param request - GetRealtimeDeliveryFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRealtimeDeliveryFieldResponse
+     *
+     * @param GetRealtimeDeliveryFieldRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetRealtimeDeliveryFieldResponse
      */
     public function getRealtimeDeliveryFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRealtimeDeliveryField',
@@ -5883,16 +9757,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRealtimeDeliveryFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRealtimeDeliveryFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRealtimeDeliveryFieldResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the fields in real-time logs based on the log category.
-     *  *
-     * @param GetRealtimeDeliveryFieldRequest $request GetRealtimeDeliveryFieldRequest
+     * Queries the fields in real-time logs based on the log category.
      *
-     * @return GetRealtimeDeliveryFieldResponse GetRealtimeDeliveryFieldResponse
+     * @param request - GetRealtimeDeliveryFieldRequest
+     * @returns GetRealtimeDeliveryFieldResponse
+     *
+     * @param GetRealtimeDeliveryFieldRequest $request
+     *
+     * @return GetRealtimeDeliveryFieldResponse
      */
     public function getRealtimeDeliveryField($request)
     {
@@ -5902,19 +9782,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
-     *  *
-     * @param GetRecordRequest $request GetRecordRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
      *
-     * @return GetRecordResponse GetRecordResponse
+     * @param request - GetRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRecordResponse
+     *
+     * @param GetRecordRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetRecordResponse
      */
     public function getRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRecord',
@@ -5927,16 +9811,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
-     *  *
-     * @param GetRecordRequest $request GetRecordRequest
+     * Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
      *
-     * @return GetRecordResponse GetRecordResponse
+     * @param request - GetRecordRequest
+     * @returns GetRecordResponse
+     *
+     * @param GetRecordRequest $request
+     *
+     * @return GetRecordResponse
      */
     public function getRecord($request)
     {
@@ -5946,22 +9836,135 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
-     *  *
-     * @param GetRoutineRequest $request GetRoutineRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration details of a URL redirect rule for a website.
      *
-     * @return GetRoutineResponse GetRoutineResponse
+     * @param request - GetRedirectRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRedirectRuleResponse
+     *
+     * @param GetRedirectRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRedirectRuleResponse
+     */
+    public function getRedirectRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRedirectRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRedirectRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetRedirectRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration details of a URL redirect rule for a website.
+     *
+     * @param request - GetRedirectRuleRequest
+     * @returns GetRedirectRuleResponse
+     *
+     * @param GetRedirectRuleRequest $request
+     *
+     * @return GetRedirectRuleResponse
+     */
+    public function getRedirectRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRedirectRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the configuration details of a URL rewrite rule.
+     *
+     * @param request - GetRewriteUrlRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRewriteUrlRuleResponse
+     *
+     * @param GetRewriteUrlRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRewriteUrlRuleResponse
+     */
+    public function getRewriteUrlRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRewriteUrlRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRewriteUrlRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetRewriteUrlRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration details of a URL rewrite rule.
+     *
+     * @param request - GetRewriteUrlRuleRequest
+     * @returns GetRewriteUrlRuleResponse
+     *
+     * @param GetRewriteUrlRuleRequest $request
+     *
+     * @return GetRewriteUrlRuleResponse
+     */
+    public function getRewriteUrlRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRewriteUrlRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
+     *
+     * @param request - GetRoutineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRoutineResponse
+     *
+     * @param GetRoutineRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetRoutineResponse
      */
     public function getRoutineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRoutine',
@@ -5974,16 +9977,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRoutineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
-     *  *
-     * @param GetRoutineRequest $request GetRoutineRequest
+     * Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
      *
-     * @return GetRoutineResponse GetRoutineResponse
+     * @param request - GetRoutineRequest
+     * @returns GetRoutineResponse
+     *
+     * @param GetRoutineRequest $request
+     *
+     * @return GetRoutineResponse
      */
     public function getRoutine($request)
     {
@@ -5993,28 +10002,35 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
-     *  *
-     * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-     * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
-     *  *
-     * @param GetRoutineStagingCodeUploadInfoRequest $request GetRoutineStagingCodeUploadInfoRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
      *
-     * @return GetRoutineStagingCodeUploadInfoResponse GetRoutineStagingCodeUploadInfoResponse
+     * @remarks
+     *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
+     * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+     *
+     * @param request - GetRoutineStagingCodeUploadInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRoutineStagingCodeUploadInfoResponse
+     *
+     * @param GetRoutineStagingCodeUploadInfoRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetRoutineStagingCodeUploadInfoResponse
      */
     public function getRoutineStagingCodeUploadInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->codeDescription)) {
-            $body['CodeDescription'] = $request->codeDescription;
+        if (null !== $request->codeDescription) {
+            @$body['CodeDescription'] = $request->codeDescription;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRoutineStagingCodeUploadInfo',
@@ -6027,19 +10043,26 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRoutineStagingCodeUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRoutineStagingCodeUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRoutineStagingCodeUploadInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
-     *  *
-     * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-     * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
-     *  *
-     * @param GetRoutineStagingCodeUploadInfoRequest $request GetRoutineStagingCodeUploadInfoRequest
+     * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
      *
-     * @return GetRoutineStagingCodeUploadInfoResponse GetRoutineStagingCodeUploadInfoResponse
+     * @remarks
+     *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
+     * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+     *
+     * @param request - GetRoutineStagingCodeUploadInfoRequest
+     * @returns GetRoutineStagingCodeUploadInfoResponse
+     *
+     * @param GetRoutineStagingCodeUploadInfoRequest $request
+     *
+     * @return GetRoutineStagingCodeUploadInfoResponse
      */
     public function getRoutineStagingCodeUploadInfo($request)
     {
@@ -6049,11 +10072,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP addresses of staging environments for Edge Routine.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the IP addresses of staging environments for Edge Routine.
      *
-     * @return GetRoutineStagingEnvIpResponse GetRoutineStagingEnvIpResponse
+     * @param request - GetRoutineStagingEnvIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRoutineStagingEnvIpResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetRoutineStagingEnvIpResponse
      */
     public function getRoutineStagingEnvIpWithOptions($runtime)
     {
@@ -6069,14 +10096,19 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRoutineStagingEnvIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRoutineStagingEnvIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRoutineStagingEnvIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the IP addresses of staging environments for Edge Routine.
-     *  *
-     * @return GetRoutineStagingEnvIpResponse GetRoutineStagingEnvIpResponse
+     * Queries the IP addresses of staging environments for Edge Routine.
+     *
+     * @returns GetRoutineStagingEnvIpResponse
+     *
+     * @return GetRoutineStagingEnvIpResponse
      */
     public function getRoutineStagingEnvIp()
     {
@@ -6086,11 +10118,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
      *
-     * @return GetRoutineUserInfoResponse GetRoutineUserInfoResponse
+     * @param request - GetRoutineUserInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRoutineUserInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetRoutineUserInfoResponse
      */
     public function getRoutineUserInfoWithOptions($runtime)
     {
@@ -6106,14 +10142,19 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRoutineUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRoutineUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRoutineUserInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
-     *  *
-     * @return GetRoutineUserInfoResponse GetRoutineUserInfoResponse
+     * Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
+     *
+     * @returns GetRoutineUserInfoResponse
+     *
+     * @return GetRoutineUserInfoResponse
      */
     public function getRoutineUserInfo()
     {
@@ -6123,19 +10164,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries a specified scheduled prefetch task based on the task ID.
-     *  *
-     * @param GetScheduledPreloadJobRequest $request GetScheduledPreloadJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries a specified scheduled prefetch task based on the task ID.
      *
-     * @return GetScheduledPreloadJobResponse GetScheduledPreloadJobResponse
+     * @param request - GetScheduledPreloadJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetScheduledPreloadJobResponse
+     *
+     * @param GetScheduledPreloadJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetScheduledPreloadJobResponse
      */
     public function getScheduledPreloadJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetScheduledPreloadJob',
@@ -6148,16 +10193,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetScheduledPreloadJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetScheduledPreloadJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetScheduledPreloadJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a specified scheduled prefetch task based on the task ID.
-     *  *
-     * @param GetScheduledPreloadJobRequest $request GetScheduledPreloadJobRequest
+     * Queries a specified scheduled prefetch task based on the task ID.
      *
-     * @return GetScheduledPreloadJobResponse GetScheduledPreloadJobResponse
+     * @param request - GetScheduledPreloadJobRequest
+     * @returns GetScheduledPreloadJobResponse
+     *
+     * @param GetScheduledPreloadJobRequest $request
+     *
+     * @return GetScheduledPreloadJobResponse
      */
     public function getScheduledPreloadJob($request)
     {
@@ -6167,19 +10218,77 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a website based on the website ID.
-     *  *
-     * @param GetSiteRequest $request GetSiteRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration for search engine crawler of a website.
      *
-     * @return GetSiteResponse GetSiteResponse
+     * @param request - GetSeoBypassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSeoBypassResponse
+     *
+     * @param GetSeoBypassRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetSeoBypassResponse
+     */
+    public function getSeoBypassWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSeoBypass',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSeoBypassResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSeoBypassResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration for search engine crawler of a website.
+     *
+     * @param request - GetSeoBypassRequest
+     * @returns GetSeoBypassResponse
+     *
+     * @param GetSeoBypassRequest $request
+     *
+     * @return GetSeoBypassResponse
+     */
+    public function getSeoBypass($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSeoBypassWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries information about a website based on the website ID.
+     *
+     * @param request - GetSiteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSiteResponse
+     *
+     * @param GetSiteRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSiteResponse
      */
     public function getSiteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSite',
@@ -6192,16 +10301,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSiteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSiteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSiteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about a website based on the website ID.
-     *  *
-     * @param GetSiteRequest $request GetSiteRequest
+     * Queries information about a website based on the website ID.
      *
-     * @return GetSiteResponse GetSiteResponse
+     * @param request - GetSiteRequest
+     * @returns GetSiteResponse
+     *
+     * @param GetSiteRequest $request
+     *
+     * @return GetSiteResponse
      */
     public function getSite($request)
     {
@@ -6211,19 +10326,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the nameservers configured for a website.
-     *  *
-     * @param GetSiteCurrentNSRequest $request GetSiteCurrentNSRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the nameservers configured for a website.
      *
-     * @return GetSiteCurrentNSResponse GetSiteCurrentNSResponse
+     * @param request - GetSiteCurrentNSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSiteCurrentNSResponse
+     *
+     * @param GetSiteCurrentNSRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSiteCurrentNSResponse
      */
     public function getSiteCurrentNSWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSiteCurrentNS',
@@ -6236,16 +10355,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSiteCurrentNSResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSiteCurrentNSResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSiteCurrentNSResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the nameservers configured for a website.
-     *  *
-     * @param GetSiteCurrentNSRequest $request GetSiteCurrentNSRequest
+     * Queries the nameservers configured for a website.
      *
-     * @return GetSiteCurrentNSResponse GetSiteCurrentNSResponse
+     * @param request - GetSiteCurrentNSRequest
+     * @returns GetSiteCurrentNSResponse
+     *
+     * @param GetSiteCurrentNSRequest $request
+     *
+     * @return GetSiteCurrentNSResponse
      */
     public function getSiteCurrentNS($request)
     {
@@ -6255,22 +10380,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration of custom log fields for a website.
-     *  *
-     * @description *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
-     * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
-     *  *
-     * @param GetSiteCustomLogRequest $request GetSiteCustomLogRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration of custom log fields for a website.
      *
-     * @return GetSiteCustomLogResponse GetSiteCustomLogResponse
+     * @remarks
+     *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
+     * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
+     *
+     * @param request - GetSiteCustomLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSiteCustomLogResponse
+     *
+     * @param GetSiteCustomLogRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSiteCustomLogResponse
      */
     public function getSiteCustomLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSiteCustomLog',
@@ -6283,19 +10413,26 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSiteCustomLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSiteCustomLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSiteCustomLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configuration of custom log fields for a website.
-     *  *
-     * @description *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
-     * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
-     *  *
-     * @param GetSiteCustomLogRequest $request GetSiteCustomLogRequest
+     * Queries the configuration of custom log fields for a website.
      *
-     * @return GetSiteCustomLogResponse GetSiteCustomLogResponse
+     * @remarks
+     *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
+     * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
+     *
+     * @param request - GetSiteCustomLogRequest
+     * @returns GetSiteCustomLogResponse
+     *
+     * @param GetSiteCustomLogRequest $request
+     *
+     * @return GetSiteCustomLogResponse
      */
     public function getSiteCustomLog($request)
     {
@@ -6305,19 +10442,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries a real-time log delivery task.
-     *  *
-     * @param GetSiteDeliveryTaskRequest $request GetSiteDeliveryTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a real-time log delivery task.
      *
-     * @return GetSiteDeliveryTaskResponse GetSiteDeliveryTaskResponse
+     * @param request - GetSiteDeliveryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSiteDeliveryTaskResponse
+     *
+     * @param GetSiteDeliveryTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSiteDeliveryTaskResponse
      */
     public function getSiteDeliveryTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSiteDeliveryTask',
@@ -6330,16 +10471,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSiteDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSiteDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSiteDeliveryTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a real-time log delivery task.
-     *  *
-     * @param GetSiteDeliveryTaskRequest $request GetSiteDeliveryTaskRequest
+     * Queries a real-time log delivery task.
      *
-     * @return GetSiteDeliveryTaskResponse GetSiteDeliveryTaskResponse
+     * @param request - GetSiteDeliveryTaskRequest
+     * @returns GetSiteDeliveryTaskResponse
+     *
+     * @param GetSiteDeliveryTaskRequest $request
+     *
+     * @return GetSiteDeliveryTaskResponse
      */
     public function getSiteDeliveryTask($request)
     {
@@ -6349,27 +10496,32 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
-     *  *
-     * @description You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
+     * Queries the remaining quota for delivering a specific category of real-time logs in a website.
+     *
+     * @remarks
+     * You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
      * **Take note of the following parameters:**
      * *   ``
      * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
      * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
      * **Response:**
      * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
-     *  *
-     * @param GetSiteLogDeliveryQuotaRequest $request GetSiteLogDeliveryQuotaRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSiteLogDeliveryQuotaResponse GetSiteLogDeliveryQuotaResponse
+     * @param request - GetSiteLogDeliveryQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSiteLogDeliveryQuotaResponse
+     *
+     * @param GetSiteLogDeliveryQuotaRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetSiteLogDeliveryQuotaResponse
      */
     public function getSiteLogDeliveryQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSiteLogDeliveryQuota',
@@ -6382,24 +10534,31 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSiteLogDeliveryQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSiteLogDeliveryQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSiteLogDeliveryQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
-     *  *
-     * @description You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
+     * Queries the remaining quota for delivering a specific category of real-time logs in a website.
+     *
+     * @remarks
+     * You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
      * **Take note of the following parameters:**
      * *   ``
      * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
      * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
      * **Response:**
      * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
-     *  *
-     * @param GetSiteLogDeliveryQuotaRequest $request GetSiteLogDeliveryQuotaRequest
      *
-     * @return GetSiteLogDeliveryQuotaResponse GetSiteLogDeliveryQuotaResponse
+     * @param request - GetSiteLogDeliveryQuotaRequest
+     * @returns GetSiteLogDeliveryQuotaResponse
+     *
+     * @param GetSiteLogDeliveryQuotaRequest $request
+     *
+     * @return GetSiteLogDeliveryQuotaResponse
      */
     public function getSiteLogDeliveryQuota($request)
     {
@@ -6409,28 +10568,89 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Web Application Firewall (WAF) configurations of a website.
-     *  *
-     * @param GetSiteWafSettingsRequest $request GetSiteWafSettingsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询站点名称独占配置.
      *
-     * @return GetSiteWafSettingsResponse GetSiteWafSettingsResponse
+     * @param request - GetSiteNameExclusiveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSiteNameExclusiveResponse
+     *
+     * @param GetSiteNameExclusiveRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSiteNameExclusiveResponse
+     */
+    public function getSiteNameExclusiveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSiteNameExclusive',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSiteNameExclusiveResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSiteNameExclusiveResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点名称独占配置.
+     *
+     * @param request - GetSiteNameExclusiveRequest
+     * @returns GetSiteNameExclusiveResponse
+     *
+     * @param GetSiteNameExclusiveRequest $request
+     *
+     * @return GetSiteNameExclusiveResponse
+     */
+    public function getSiteNameExclusive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSiteNameExclusiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the Web Application Firewall (WAF) configurations of a website.
+     *
+     * @param request - GetSiteWafSettingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSiteWafSettingsResponse
+     *
+     * @param GetSiteWafSettingsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetSiteWafSettingsResponse
      */
     public function getSiteWafSettingsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->path)) {
-            $query['Path'] = $request->path;
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSiteWafSettings',
@@ -6443,16 +10663,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSiteWafSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSiteWafSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSiteWafSettingsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Web Application Firewall (WAF) configurations of a website.
-     *  *
-     * @param GetSiteWafSettingsRequest $request GetSiteWafSettingsRequest
+     * Queries the Web Application Firewall (WAF) configurations of a website.
      *
-     * @return GetSiteWafSettingsResponse GetSiteWafSettingsResponse
+     * @param request - GetSiteWafSettingsRequest
+     * @returns GetSiteWafSettingsResponse
+     *
+     * @param GetSiteWafSettingsRequest $request
+     *
+     * @return GetSiteWafSettingsResponse
      */
     public function getSiteWafSettings($request)
     {
@@ -6462,19 +10688,77 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution status and running information of a file upload task based on the task ID.
-     *  *
-     * @param GetUploadTaskRequest $request GetUploadTaskRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the tiered cache configuration of your website.
      *
-     * @return GetUploadTaskResponse GetUploadTaskResponse
+     * @param request - GetTieredCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTieredCacheResponse
+     *
+     * @param GetTieredCacheRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetTieredCacheResponse
+     */
+    public function getTieredCacheWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTieredCache',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTieredCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetTieredCacheResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the tiered cache configuration of your website.
+     *
+     * @param request - GetTieredCacheRequest
+     * @returns GetTieredCacheResponse
+     *
+     * @param GetTieredCacheRequest $request
+     *
+     * @return GetTieredCacheResponse
+     */
+    public function getTieredCache($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTieredCacheWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the execution status and running information of a file upload task based on the task ID.
+     *
+     * @param request - GetUploadTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUploadTaskResponse
+     *
+     * @param GetUploadTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetUploadTaskResponse
      */
     public function getUploadTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUploadTask',
@@ -6487,16 +10771,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUploadTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUploadTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUploadTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the execution status and running information of a file upload task based on the task ID.
-     *  *
-     * @param GetUploadTaskRequest $request GetUploadTaskRequest
+     * Queries the execution status and running information of a file upload task based on the task ID.
      *
-     * @return GetUploadTaskResponse GetUploadTaskResponse
+     * @param request - GetUploadTaskRequest
+     * @returns GetUploadTaskResponse
+     *
+     * @param GetUploadTaskRequest $request
+     *
+     * @return GetUploadTaskResponse
      */
     public function getUploadTask($request)
     {
@@ -6506,23 +10796,28 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a log delivery task by account.
-     *  *
-     * @description *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
+     * Queries the information about a log delivery task by account.
+     *
+     * @remarks
+     *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
      * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
      * *   ****````
-     *  *
-     * @param GetUserDeliveryTaskRequest $request GetUserDeliveryTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserDeliveryTaskResponse GetUserDeliveryTaskResponse
+     * @param request - GetUserDeliveryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserDeliveryTaskResponse
+     *
+     * @param GetUserDeliveryTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetUserDeliveryTaskResponse
      */
     public function getUserDeliveryTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUserDeliveryTask',
@@ -6535,20 +10830,27 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserDeliveryTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a log delivery task by account.
-     *  *
-     * @description *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
+     * Queries the information about a log delivery task by account.
+     *
+     * @remarks
+     *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
      * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
      * *   ****````
-     *  *
-     * @param GetUserDeliveryTaskRequest $request GetUserDeliveryTaskRequest
      *
-     * @return GetUserDeliveryTaskResponse GetUserDeliveryTaskResponse
+     * @param request - GetUserDeliveryTaskRequest
+     * @returns GetUserDeliveryTaskResponse
+     *
+     * @param GetUserDeliveryTaskRequest $request
+     *
+     * @return GetUserDeliveryTaskResponse
      */
     public function getUserDeliveryTask($request)
     {
@@ -6558,21 +10860,26 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remaining log delivery quota of each log category in your account.
-     *  *
-     * @description This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
-     *  *
-     * @param GetUserLogDeliveryQuotaRequest $request GetUserLogDeliveryQuotaRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the remaining log delivery quota of each log category in your account.
      *
-     * @return GetUserLogDeliveryQuotaResponse GetUserLogDeliveryQuotaResponse
+     * @remarks
+     * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
+     *
+     * @param request - GetUserLogDeliveryQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserLogDeliveryQuotaResponse
+     *
+     * @param GetUserLogDeliveryQuotaRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetUserLogDeliveryQuotaResponse
      */
     public function getUserLogDeliveryQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUserLogDeliveryQuota',
@@ -6585,18 +10892,25 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserLogDeliveryQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserLogDeliveryQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserLogDeliveryQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the remaining log delivery quota of each log category in your account.
-     *  *
-     * @description This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
-     *  *
-     * @param GetUserLogDeliveryQuotaRequest $request GetUserLogDeliveryQuotaRequest
+     * Queries the remaining log delivery quota of each log category in your account.
      *
-     * @return GetUserLogDeliveryQuotaResponse GetUserLogDeliveryQuotaResponse
+     * @remarks
+     * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
+     *
+     * @param request - GetUserLogDeliveryQuotaRequest
+     * @returns GetUserLogDeliveryQuotaResponse
+     *
+     * @param GetUserLogDeliveryQuotaRequest $request
+     *
+     * @return GetUserLogDeliveryQuotaResponse
      */
     public function getUserLogDeliveryQuota($request)
     {
@@ -6606,11 +10920,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
      *
-     * @return GetWafBotAppKeyResponse GetWafBotAppKeyResponse
+     * @param request - GetWafBotAppKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWafBotAppKeyResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWafBotAppKeyResponse
      */
     public function getWafBotAppKeyWithOptions($runtime)
     {
@@ -6626,14 +10944,19 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWafBotAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWafBotAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWafBotAppKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
-     *  *
-     * @return GetWafBotAppKeyResponse GetWafBotAppKeyResponse
+     * Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
+     *
+     * @returns GetWafBotAppKeyResponse
+     *
+     * @return GetWafBotAppKeyResponse
      */
     public function getWafBotAppKey()
     {
@@ -6643,31 +10966,39 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
-     *  *
-     * @param GetWafFilterRequest $request GetWafFilterRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
      *
-     * @return GetWafFilterResponse GetWafFilterResponse
+     * @param request - GetWafFilterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWafFilterResponse
+     *
+     * @param GetWafFilterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetWafFilterResponse
      */
     public function getWafFilterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->phase)) {
-            $query['Phase'] = $request->phase;
+        if (null !== $request->phase) {
+            @$query['Phase'] = $request->phase;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetWafFilter',
@@ -6680,16 +11011,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWafFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWafFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWafFilterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
-     *  *
-     * @param GetWafFilterRequest $request GetWafFilterRequest
+     * Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
      *
-     * @return GetWafFilterResponse GetWafFilterResponse
+     * @param request - GetWafFilterRequest
+     * @returns GetWafFilterResponse
+     *
+     * @param GetWafFilterRequest $request
+     *
+     * @return GetWafFilterResponse
      */
     public function getWafFilter($request)
     {
@@ -6699,22 +11036,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
-     *  *
-     * @param GetWafQuotaRequest $request GetWafQuotaRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
      *
-     * @return GetWafQuotaResponse GetWafQuotaResponse
+     * @param request - GetWafQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWafQuotaResponse
+     *
+     * @param GetWafQuotaRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetWafQuotaResponse
      */
     public function getWafQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->paths)) {
-            $query['Paths'] = $request->paths;
+        if (null !== $request->paths) {
+            @$query['Paths'] = $request->paths;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetWafQuota',
@@ -6727,16 +11069,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWafQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWafQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWafQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
-     *  *
-     * @param GetWafQuotaRequest $request GetWafQuotaRequest
+     * Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
      *
-     * @return GetWafQuotaResponse GetWafQuotaResponse
+     * @param request - GetWafQuotaRequest
+     * @returns GetWafQuotaResponse
+     *
+     * @param GetWafQuotaRequest $request
+     *
+     * @return GetWafQuotaResponse
      */
     public function getWafQuota($request)
     {
@@ -6746,19 +11094,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the cache reserve instances in your Alibaba Cloud account.
-     *  *
-     * @param ListCacheReserveInstancesRequest $request ListCacheReserveInstancesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the cache reserve instances in your Alibaba Cloud account.
      *
-     * @return ListCacheReserveInstancesResponse ListCacheReserveInstancesResponse
+     * @param request - ListCacheReserveInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCacheReserveInstancesResponse
+     *
+     * @param ListCacheReserveInstancesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListCacheReserveInstancesResponse
      */
     public function listCacheReserveInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCacheReserveInstances',
@@ -6771,16 +11123,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCacheReserveInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCacheReserveInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCacheReserveInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the cache reserve instances in your Alibaba Cloud account.
-     *  *
-     * @param ListCacheReserveInstancesRequest $request ListCacheReserveInstancesRequest
+     * Queries the cache reserve instances in your Alibaba Cloud account.
      *
-     * @return ListCacheReserveInstancesResponse ListCacheReserveInstancesResponse
+     * @param request - ListCacheReserveInstancesRequest
+     * @returns ListCacheReserveInstancesResponse
+     *
+     * @param ListCacheReserveInstancesRequest $request
+     *
+     * @return ListCacheReserveInstancesResponse
      */
     public function listCacheReserveInstances($request)
     {
@@ -6790,19 +11148,77 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点下证书列表
-     *  *
-     * @param ListCertificatesRequest $request ListCertificatesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询多条缓存配置.
      *
-     * @return ListCertificatesResponse ListCertificatesResponse
+     * @param request - ListCacheRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCacheRulesResponse
+     *
+     * @param ListCacheRulesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListCacheRulesResponse
+     */
+    public function listCacheRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCacheRules',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCacheRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListCacheRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多条缓存配置.
+     *
+     * @param request - ListCacheRulesRequest
+     * @returns ListCacheRulesResponse
+     *
+     * @param ListCacheRulesRequest $request
+     *
+     * @return ListCacheRulesResponse
+     */
+    public function listCacheRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCacheRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询站点下证书列表.
+     *
+     * @param request - ListCertificatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCertificatesResponse
+     *
+     * @param ListCertificatesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListCertificatesResponse
      */
     public function listCertificatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCertificates',
@@ -6815,16 +11231,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCertificatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询站点下证书列表
-     *  *
-     * @param ListCertificatesRequest $request ListCertificatesRequest
+     * 查询站点下证书列表.
      *
-     * @return ListCertificatesResponse ListCertificatesResponse
+     * @param request - ListCertificatesRequest
+     * @returns ListCertificatesResponse
+     *
+     * @param ListCertificatesRequest $request
+     *
+     * @return ListCertificatesResponse
      */
     public function listCertificates($request)
     {
@@ -6834,19 +11256,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询TLS密码套件列表
-     *  *
-     * @param ListCiphersRequest $request ListCiphersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 查询TLS密码套件列表.
      *
-     * @return ListCiphersResponse ListCiphersResponse
+     * @param request - ListCiphersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCiphersResponse
+     *
+     * @param ListCiphersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListCiphersResponse
      */
     public function listCiphersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCiphers',
@@ -6859,16 +11285,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCiphersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCiphersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCiphersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询TLS密码套件列表
-     *  *
-     * @param ListCiphersRequest $request ListCiphersRequest
+     * 查询TLS密码套件列表.
      *
-     * @return ListCiphersResponse ListCiphersResponse
+     * @param request - ListCiphersRequest
+     * @returns ListCiphersResponse
+     *
+     * @param ListCiphersRequest $request
+     *
+     * @return ListCiphersResponse
      */
     public function listCiphers($request)
     {
@@ -6878,19 +11310,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of client certificate authority (CA) certificates for a website.
-     *  *
-     * @param ListClientCaCertificatesRequest $request ListClientCaCertificatesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries a list of client certificate authority (CA) certificates for a website.
      *
-     * @return ListClientCaCertificatesResponse ListClientCaCertificatesResponse
+     * @param request - ListClientCaCertificatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListClientCaCertificatesResponse
+     *
+     * @param ListClientCaCertificatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListClientCaCertificatesResponse
      */
     public function listClientCaCertificatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListClientCaCertificates',
@@ -6903,16 +11339,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListClientCaCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClientCaCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClientCaCertificatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of client certificate authority (CA) certificates for a website.
-     *  *
-     * @param ListClientCaCertificatesRequest $request ListClientCaCertificatesRequest
+     * Queries a list of client certificate authority (CA) certificates for a website.
      *
-     * @return ListClientCaCertificatesResponse ListClientCaCertificatesResponse
+     * @param request - ListClientCaCertificatesRequest
+     * @returns ListClientCaCertificatesResponse
+     *
+     * @param ListClientCaCertificatesRequest $request
+     *
+     * @return ListClientCaCertificatesResponse
      */
     public function listClientCaCertificates($request)
     {
@@ -6922,19 +11364,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries client certificates configured for a website.
-     *  *
-     * @param ListClientCertificatesRequest $request ListClientCertificatesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries client certificates configured for a website.
      *
-     * @return ListClientCertificatesResponse ListClientCertificatesResponse
+     * @param request - ListClientCertificatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListClientCertificatesResponse
+     *
+     * @param ListClientCertificatesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListClientCertificatesResponse
      */
     public function listClientCertificatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListClientCertificates',
@@ -6947,16 +11393,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListClientCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClientCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClientCertificatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries client certificates configured for a website.
-     *  *
-     * @param ListClientCertificatesRequest $request ListClientCertificatesRequest
+     * Queries client certificates configured for a website.
      *
-     * @return ListClientCertificatesResponse ListClientCertificatesResponse
+     * @param request - ListClientCertificatesRequest
+     * @returns ListClientCertificatesResponse
+     *
+     * @param ListClientCertificatesRequest $request
+     *
+     * @return ListClientCertificatesResponse
      */
     public function listClientCertificates($request)
     {
@@ -6966,19 +11418,77 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Lists domain names that are associated with a containerized application.
-     *  *
-     * @param ListEdgeContainerAppRecordsRequest $request ListEdgeContainerAppRecordsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries compression rules that are configured for a website.
      *
-     * @return ListEdgeContainerAppRecordsResponse ListEdgeContainerAppRecordsResponse
+     * @param request - ListCompressionRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCompressionRulesResponse
+     *
+     * @param ListCompressionRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCompressionRulesResponse
+     */
+    public function listCompressionRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCompressionRules',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCompressionRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListCompressionRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries compression rules that are configured for a website.
+     *
+     * @param request - ListCompressionRulesRequest
+     * @returns ListCompressionRulesResponse
+     *
+     * @param ListCompressionRulesRequest $request
+     *
+     * @return ListCompressionRulesResponse
+     */
+    public function listCompressionRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCompressionRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists domain names that are associated with a containerized application.
+     *
+     * @param request - ListEdgeContainerAppRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEdgeContainerAppRecordsResponse
+     *
+     * @param ListEdgeContainerAppRecordsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListEdgeContainerAppRecordsResponse
      */
     public function listEdgeContainerAppRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEdgeContainerAppRecords',
@@ -6991,16 +11501,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEdgeContainerAppRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEdgeContainerAppRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEdgeContainerAppRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists domain names that are associated with a containerized application.
-     *  *
-     * @param ListEdgeContainerAppRecordsRequest $request ListEdgeContainerAppRecordsRequest
+     * Lists domain names that are associated with a containerized application.
      *
-     * @return ListEdgeContainerAppRecordsResponse ListEdgeContainerAppRecordsResponse
+     * @param request - ListEdgeContainerAppRecordsRequest
+     * @returns ListEdgeContainerAppRecordsResponse
+     *
+     * @param ListEdgeContainerAppRecordsRequest $request
+     *
+     * @return ListEdgeContainerAppRecordsResponse
      */
     public function listEdgeContainerAppRecords($request)
     {
@@ -7010,19 +11526,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Lists versions of all containerized applications.
-     *  *
-     * @param ListEdgeContainerAppVersionsRequest $request ListEdgeContainerAppVersionsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Lists versions of all containerized applications.
      *
-     * @return ListEdgeContainerAppVersionsResponse ListEdgeContainerAppVersionsResponse
+     * @param request - ListEdgeContainerAppVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEdgeContainerAppVersionsResponse
+     *
+     * @param ListEdgeContainerAppVersionsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListEdgeContainerAppVersionsResponse
      */
     public function listEdgeContainerAppVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEdgeContainerAppVersions',
@@ -7035,16 +11555,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEdgeContainerAppVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEdgeContainerAppVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEdgeContainerAppVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists versions of all containerized applications.
-     *  *
-     * @param ListEdgeContainerAppVersionsRequest $request ListEdgeContainerAppVersionsRequest
+     * Lists versions of all containerized applications.
      *
-     * @return ListEdgeContainerAppVersionsResponse ListEdgeContainerAppVersionsResponse
+     * @param request - ListEdgeContainerAppVersionsRequest
+     * @returns ListEdgeContainerAppVersionsResponse
+     *
+     * @param ListEdgeContainerAppVersionsRequest $request
+     *
+     * @return ListEdgeContainerAppVersionsResponse
      */
     public function listEdgeContainerAppVersions($request)
     {
@@ -7054,37 +11580,47 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries all containerized applications in your Alibaba Cloud account.
-     *  *
-     * @param ListEdgeContainerAppsRequest $request ListEdgeContainerAppsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries all containerized applications in your Alibaba Cloud account.
      *
-     * @return ListEdgeContainerAppsResponse ListEdgeContainerAppsResponse
+     * @param request - ListEdgeContainerAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEdgeContainerAppsResponse
+     *
+     * @param ListEdgeContainerAppsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListEdgeContainerAppsResponse
      */
     public function listEdgeContainerAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderKey)) {
-            $query['OrderKey'] = $request->orderKey;
+        if (null !== $request->orderKey) {
+            @$query['OrderKey'] = $request->orderKey;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->searchType)) {
-            $query['SearchType'] = $request->searchType;
+
+        if (null !== $request->searchType) {
+            @$query['SearchType'] = $request->searchType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEdgeContainerApps',
@@ -7097,16 +11633,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEdgeContainerAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEdgeContainerAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEdgeContainerAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all containerized applications in your Alibaba Cloud account.
-     *  *
-     * @param ListEdgeContainerAppsRequest $request ListEdgeContainerAppsRequest
+     * Queries all containerized applications in your Alibaba Cloud account.
      *
-     * @return ListEdgeContainerAppsResponse ListEdgeContainerAppsResponse
+     * @param request - ListEdgeContainerAppsRequest
+     * @returns ListEdgeContainerAppsResponse
+     *
+     * @param ListEdgeContainerAppsRequest $request
+     *
+     * @return ListEdgeContainerAppsResponse
      */
     public function listEdgeContainerApps($request)
     {
@@ -7116,19 +11658,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the records that are associated with Edge Container for a website.
-     *  *
-     * @param ListEdgeContainerRecordsRequest $request ListEdgeContainerRecordsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the records that are associated with Edge Container for a website.
      *
-     * @return ListEdgeContainerRecordsResponse ListEdgeContainerRecordsResponse
+     * @param request - ListEdgeContainerRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEdgeContainerRecordsResponse
+     *
+     * @param ListEdgeContainerRecordsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListEdgeContainerRecordsResponse
      */
     public function listEdgeContainerRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEdgeContainerRecords',
@@ -7141,16 +11687,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEdgeContainerRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEdgeContainerRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEdgeContainerRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the records that are associated with Edge Container for a website.
-     *  *
-     * @param ListEdgeContainerRecordsRequest $request ListEdgeContainerRecordsRequest
+     * Queries the records that are associated with Edge Container for a website.
      *
-     * @return ListEdgeContainerRecordsResponse ListEdgeContainerRecordsResponse
+     * @param request - ListEdgeContainerRecordsRequest
+     * @returns ListEdgeContainerRecordsResponse
+     *
+     * @param ListEdgeContainerRecordsRequest $request
+     *
+     * @return ListEdgeContainerRecordsResponse
      */
     public function listEdgeContainerRecords($request)
     {
@@ -7160,11 +11712,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries Edge Routine plans.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries Edge Routine plans.
      *
-     * @return ListEdgeRoutinePlansResponse ListEdgeRoutinePlansResponse
+     * @param request - ListEdgeRoutinePlansRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEdgeRoutinePlansResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListEdgeRoutinePlansResponse
      */
     public function listEdgeRoutinePlansWithOptions($runtime)
     {
@@ -7180,14 +11736,19 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEdgeRoutinePlansResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEdgeRoutinePlansResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEdgeRoutinePlansResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Edge Routine plans.
-     *  *
-     * @return ListEdgeRoutinePlansResponse ListEdgeRoutinePlansResponse
+     * Queries Edge Routine plans.
+     *
+     * @returns ListEdgeRoutinePlansResponse
+     *
+     * @return ListEdgeRoutinePlansResponse
      */
     public function listEdgeRoutinePlans()
     {
@@ -7197,21 +11758,26 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the records that are associated with Edge Routine routes for a website.
-     *  *
-     * @description >  You can call this operation 100 times per second.
-     *  *
-     * @param ListEdgeRoutineRecordsRequest $request ListEdgeRoutineRecordsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the records that are associated with Edge Routine routes for a website.
      *
-     * @return ListEdgeRoutineRecordsResponse ListEdgeRoutineRecordsResponse
+     * @remarks
+     * >  You can call this operation 100 times per second.
+     *
+     * @param request - ListEdgeRoutineRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEdgeRoutineRecordsResponse
+     *
+     * @param ListEdgeRoutineRecordsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListEdgeRoutineRecordsResponse
      */
     public function listEdgeRoutineRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEdgeRoutineRecords',
@@ -7224,18 +11790,25 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEdgeRoutineRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEdgeRoutineRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEdgeRoutineRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the records that are associated with Edge Routine routes for a website.
-     *  *
-     * @description >  You can call this operation 100 times per second.
-     *  *
-     * @param ListEdgeRoutineRecordsRequest $request ListEdgeRoutineRecordsRequest
+     * Queries the records that are associated with Edge Routine routes for a website.
      *
-     * @return ListEdgeRoutineRecordsResponse ListEdgeRoutineRecordsResponse
+     * @remarks
+     * >  You can call this operation 100 times per second.
+     *
+     * @param request - ListEdgeRoutineRecordsRequest
+     * @returns ListEdgeRoutineRecordsResponse
+     *
+     * @param ListEdgeRoutineRecordsRequest $request
+     *
+     * @return ListEdgeRoutineRecordsResponse
      */
     public function listEdgeRoutineRecords($request)
     {
@@ -7245,19 +11818,239 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quota details in a subscription plan.
-     *  *
-     * @param ListInstanceQuotasRequest $request ListInstanceQuotasRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询HTTP请求头规则列表.
      *
-     * @return ListInstanceQuotasResponse ListInstanceQuotasResponse
+     * @param request - ListHttpRequestHeaderModificationRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHttpRequestHeaderModificationRulesResponse
+     *
+     * @param ListHttpRequestHeaderModificationRulesRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListHttpRequestHeaderModificationRulesResponse
+     */
+    public function listHttpRequestHeaderModificationRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHttpRequestHeaderModificationRules',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHttpRequestHeaderModificationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListHttpRequestHeaderModificationRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询HTTP请求头规则列表.
+     *
+     * @param request - ListHttpRequestHeaderModificationRulesRequest
+     * @returns ListHttpRequestHeaderModificationRulesResponse
+     *
+     * @param ListHttpRequestHeaderModificationRulesRequest $request
+     *
+     * @return ListHttpRequestHeaderModificationRulesResponse
+     */
+    public function listHttpRequestHeaderModificationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHttpRequestHeaderModificationRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询HTTP响应头规则列表.
+     *
+     * @param request - ListHttpResponseHeaderModificationRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHttpResponseHeaderModificationRulesResponse
+     *
+     * @param ListHttpResponseHeaderModificationRulesRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return ListHttpResponseHeaderModificationRulesResponse
+     */
+    public function listHttpResponseHeaderModificationRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHttpResponseHeaderModificationRules',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHttpResponseHeaderModificationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListHttpResponseHeaderModificationRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询HTTP响应头规则列表.
+     *
+     * @param request - ListHttpResponseHeaderModificationRulesRequest
+     * @returns ListHttpResponseHeaderModificationRulesResponse
+     *
+     * @param ListHttpResponseHeaderModificationRulesRequest $request
+     *
+     * @return ListHttpResponseHeaderModificationRulesResponse
+     */
+    public function listHttpResponseHeaderModificationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHttpResponseHeaderModificationRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询多条HTTPS应用配置.
+     *
+     * @param request - ListHttpsApplicationConfigurationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHttpsApplicationConfigurationsResponse
+     *
+     * @param ListHttpsApplicationConfigurationsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListHttpsApplicationConfigurationsResponse
+     */
+    public function listHttpsApplicationConfigurationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHttpsApplicationConfigurations',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHttpsApplicationConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListHttpsApplicationConfigurationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多条HTTPS应用配置.
+     *
+     * @param request - ListHttpsApplicationConfigurationsRequest
+     * @returns ListHttpsApplicationConfigurationsResponse
+     *
+     * @param ListHttpsApplicationConfigurationsRequest $request
+     *
+     * @return ListHttpsApplicationConfigurationsResponse
+     */
+    public function listHttpsApplicationConfigurations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHttpsApplicationConfigurationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询多条HTTPS基础配置.
+     *
+     * @param request - ListHttpsBasicConfigurationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHttpsBasicConfigurationsResponse
+     *
+     * @param ListHttpsBasicConfigurationsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListHttpsBasicConfigurationsResponse
+     */
+    public function listHttpsBasicConfigurationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHttpsBasicConfigurations',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHttpsBasicConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListHttpsBasicConfigurationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多条HTTPS基础配置.
+     *
+     * @param request - ListHttpsBasicConfigurationsRequest
+     * @returns ListHttpsBasicConfigurationsResponse
+     *
+     * @param ListHttpsBasicConfigurationsRequest $request
+     *
+     * @return ListHttpsBasicConfigurationsResponse
+     */
+    public function listHttpsBasicConfigurations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHttpsBasicConfigurationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the quota details in a subscription plan.
+     *
+     * @param request - ListInstanceQuotasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstanceQuotasResponse
+     *
+     * @param ListInstanceQuotasRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInstanceQuotasResponse
      */
     public function listInstanceQuotasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceQuotas',
@@ -7270,16 +12063,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstanceQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstanceQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstanceQuotasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quota details in a subscription plan.
-     *  *
-     * @param ListInstanceQuotasRequest $request ListInstanceQuotasRequest
+     * Queries the quota details in a subscription plan.
      *
-     * @return ListInstanceQuotasResponse ListInstanceQuotasResponse
+     * @param request - ListInstanceQuotasRequest
+     * @returns ListInstanceQuotasResponse
+     *
+     * @param ListInstanceQuotasRequest $request
+     *
+     * @return ListInstanceQuotasResponse
      */
     public function listInstanceQuotas($request)
     {
@@ -7289,19 +12088,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries quotas and the actual usage in a plan based on the website or plan ID.
-     *  *
-     * @param ListInstanceQuotasWithUsageRequest $request ListInstanceQuotasWithUsageRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries quotas and the actual usage in a plan based on the website or plan ID.
      *
-     * @return ListInstanceQuotasWithUsageResponse ListInstanceQuotasWithUsageResponse
+     * @param request - ListInstanceQuotasWithUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstanceQuotasWithUsageResponse
+     *
+     * @param ListInstanceQuotasWithUsageRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListInstanceQuotasWithUsageResponse
      */
     public function listInstanceQuotasWithUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceQuotasWithUsage',
@@ -7314,16 +12117,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstanceQuotasWithUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstanceQuotasWithUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstanceQuotasWithUsageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries quotas and the actual usage in a plan based on the website or plan ID.
-     *  *
-     * @param ListInstanceQuotasWithUsageRequest $request ListInstanceQuotasWithUsageRequest
+     * Queries quotas and the actual usage in a plan based on the website or plan ID.
      *
-     * @return ListInstanceQuotasWithUsageResponse ListInstanceQuotasWithUsageResponse
+     * @param request - ListInstanceQuotasWithUsageRequest
+     * @returns ListInstanceQuotasWithUsageResponse
+     *
+     * @param ListInstanceQuotasWithUsageRequest $request
+     *
+     * @return ListInstanceQuotasWithUsageResponse
      */
     public function listInstanceQuotasWithUsage($request)
     {
@@ -7333,19 +12142,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Lists all key-value pairs in a namespace in your Alibaba Cloud account.
-     *  *
-     * @param ListKvsRequest $request ListKvsRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Lists all key-value pairs in a namespace in your Alibaba Cloud account.
      *
-     * @return ListKvsResponse ListKvsResponse
+     * @param request - ListKvsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListKvsResponse
+     *
+     * @param ListKvsRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListKvsResponse
      */
     public function listKvsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListKvs',
@@ -7358,16 +12171,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListKvsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListKvsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListKvsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists all key-value pairs in a namespace in your Alibaba Cloud account.
-     *  *
-     * @param ListKvsRequest $request ListKvsRequest
+     * Lists all key-value pairs in a namespace in your Alibaba Cloud account.
      *
-     * @return ListKvsResponse ListKvsResponse
+     * @param request - ListKvsRequest
+     * @returns ListKvsResponse
+     *
+     * @param ListKvsRequest $request
+     *
+     * @return ListKvsResponse
      */
     public function listKvs($request)
     {
@@ -7377,33 +12196,41 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
-     *  *
-     * @param ListListsRequest $tmpReq  ListListsRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
      *
-     * @return ListListsResponse ListListsResponse
+     * @param tmpReq - ListListsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListListsResponse
+     *
+     * @param ListListsRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListListsResponse
      */
     public function listListsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListListsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queryArgs)) {
-            $request->queryArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryArgs) {
+            $request->queryArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryArgsShrink)) {
-            $query['QueryArgs'] = $request->queryArgsShrink;
+
+        if (null !== $request->queryArgsShrink) {
+            @$query['QueryArgs'] = $request->queryArgsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLists',
@@ -7416,16 +12243,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListListsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListListsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListListsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
-     *  *
-     * @param ListListsRequest $request ListListsRequest
+     * Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
      *
-     * @return ListListsResponse ListListsResponse
+     * @param request - ListListsRequest
+     * @returns ListListsResponse
+     *
+     * @param ListListsRequest $request
+     *
+     * @return ListListsResponse
      */
     public function listLists($request)
     {
@@ -7435,21 +12268,80 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
-     *  *
-     * @description When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
-     *  *
-     * @param ListLoadBalancerRegionsRequest $request ListLoadBalancerRegionsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询负载均衡器里各源站状态
      *
-     * @return ListLoadBalancerRegionsResponse ListLoadBalancerRegionsResponse
+     * @param request - ListLoadBalancerOriginStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLoadBalancerOriginStatusResponse
+     *
+     * @param ListLoadBalancerOriginStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListLoadBalancerOriginStatusResponse
+     */
+    public function listLoadBalancerOriginStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLoadBalancerOriginStatus',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLoadBalancerOriginStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListLoadBalancerOriginStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询负载均衡器里各源站状态
+     *
+     * @param request - ListLoadBalancerOriginStatusRequest
+     * @returns ListLoadBalancerOriginStatusResponse
+     *
+     * @param ListLoadBalancerOriginStatusRequest $request
+     *
+     * @return ListLoadBalancerOriginStatusResponse
+     */
+    public function listLoadBalancerOriginStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLoadBalancerOriginStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
+     *
+     * @remarks
+     * When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
+     *
+     * @param request - ListLoadBalancerRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLoadBalancerRegionsResponse
+     *
+     * @param ListLoadBalancerRegionsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListLoadBalancerRegionsResponse
      */
     public function listLoadBalancerRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLoadBalancerRegions',
@@ -7462,18 +12354,25 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLoadBalancerRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLoadBalancerRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLoadBalancerRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
-     *  *
-     * @description When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
-     *  *
-     * @param ListLoadBalancerRegionsRequest $request ListLoadBalancerRegionsRequest
+     * Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
      *
-     * @return ListLoadBalancerRegionsResponse ListLoadBalancerRegionsResponse
+     * @remarks
+     * When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
+     *
+     * @param request - ListLoadBalancerRegionsRequest
+     * @returns ListLoadBalancerRegionsResponse
+     *
+     * @param ListLoadBalancerRegionsRequest $request
+     *
+     * @return ListLoadBalancerRegionsResponse
      */
     public function listLoadBalancerRegions($request)
     {
@@ -7483,25 +12382,85 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries all WAF managed rule groups in your Alibaba Cloud account.
-     *  *
-     * @param ListManagedRulesGroupsRequest $request ListManagedRulesGroupsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询负载均衡器列表.
      *
-     * @return ListManagedRulesGroupsResponse ListManagedRulesGroupsResponse
+     * @param request - ListLoadBalancersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLoadBalancersResponse
+     *
+     * @param ListLoadBalancersRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListLoadBalancersResponse
+     */
+    public function listLoadBalancersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLoadBalancers',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListLoadBalancersResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询负载均衡器列表.
+     *
+     * @param request - ListLoadBalancersRequest
+     * @returns ListLoadBalancersResponse
+     *
+     * @param ListLoadBalancersRequest $request
+     *
+     * @return ListLoadBalancersResponse
+     */
+    public function listLoadBalancers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLoadBalancersWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries all WAF managed rule groups in your Alibaba Cloud account.
+     *
+     * @param request - ListManagedRulesGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListManagedRulesGroupsResponse
+     *
+     * @param ListManagedRulesGroupsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListManagedRulesGroupsResponse
      */
     public function listManagedRulesGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListManagedRulesGroups',
@@ -7514,16 +12473,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListManagedRulesGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListManagedRulesGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListManagedRulesGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all WAF managed rule groups in your Alibaba Cloud account.
-     *  *
-     * @param ListManagedRulesGroupsRequest $request ListManagedRulesGroupsRequest
+     * Queries all WAF managed rule groups in your Alibaba Cloud account.
      *
-     * @return ListManagedRulesGroupsResponse ListManagedRulesGroupsResponse
+     * @param request - ListManagedRulesGroupsRequest
+     * @returns ListManagedRulesGroupsResponse
+     *
+     * @param ListManagedRulesGroupsRequest $request
+     *
+     * @return ListManagedRulesGroupsResponse
      */
     public function listManagedRulesGroups($request)
     {
@@ -7533,19 +12498,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询源地址池列表
-     *  *
-     * @param ListOriginPoolsRequest $request ListOriginPoolsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询源地址池列表.
      *
-     * @return ListOriginPoolsResponse ListOriginPoolsResponse
+     * @param request - ListOriginPoolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOriginPoolsResponse
+     *
+     * @param ListOriginPoolsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListOriginPoolsResponse
      */
     public function listOriginPoolsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOriginPools',
@@ -7558,16 +12527,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOriginPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOriginPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOriginPoolsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询源地址池列表
-     *  *
-     * @param ListOriginPoolsRequest $request ListOriginPoolsRequest
+     * 查询源地址池列表.
      *
-     * @return ListOriginPoolsResponse ListOriginPoolsResponse
+     * @param request - ListOriginPoolsRequest
+     * @returns ListOriginPoolsResponse
+     *
+     * @param ListOriginPoolsRequest $request
+     *
+     * @return ListOriginPoolsResponse
      */
     public function listOriginPools($request)
     {
@@ -7577,33 +12552,95 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
-     *  *
-     * @param ListPagesRequest $tmpReq  ListPagesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 查询多条回源规则配置.
      *
-     * @return ListPagesResponse ListPagesResponse
+     * @param request - ListOriginRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOriginRulesResponse
+     *
+     * @param ListOriginRulesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListOriginRulesResponse
+     */
+    public function listOriginRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOriginRules',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOriginRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListOriginRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多条回源规则配置.
+     *
+     * @param request - ListOriginRulesRequest
+     * @returns ListOriginRulesResponse
+     *
+     * @param ListOriginRulesRequest $request
+     *
+     * @return ListOriginRulesResponse
+     */
+    public function listOriginRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOriginRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
+     *
+     * @param tmpReq - ListPagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPagesResponse
+     *
+     * @param ListPagesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListPagesResponse
      */
     public function listPagesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListPagesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queryArgs)) {
-            $request->queryArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryArgs) {
+            $request->queryArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryArgsShrink)) {
-            $query['QueryArgs'] = $request->queryArgsShrink;
+
+        if (null !== $request->queryArgsShrink) {
+            @$query['QueryArgs'] = $request->queryArgsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPages',
@@ -7616,16 +12653,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
-     *  *
-     * @param ListPagesRequest $request ListPagesRequest
+     * Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
      *
-     * @return ListPagesResponse ListPagesResponse
+     * @param request - ListPagesRequest
+     * @returns ListPagesResponse
+     *
+     * @param ListPagesRequest $request
+     *
+     * @return ListPagesResponse
      */
     public function listPages($request)
     {
@@ -7635,21 +12678,26 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
-     *  *
-     * @description The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
-     *  *
-     * @param ListRecordsRequest $request ListRecordsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
      *
-     * @return ListRecordsResponse ListRecordsResponse
+     * @remarks
+     * The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
+     *
+     * @param request - ListRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRecordsResponse
+     *
+     * @param ListRecordsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRecordsResponse
      */
     public function listRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRecords',
@@ -7662,18 +12710,25 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
-     *  *
-     * @description The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
-     *  *
-     * @param ListRecordsRequest $request ListRecordsRequest
+     * Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
      *
-     * @return ListRecordsResponse ListRecordsResponse
+     * @remarks
+     * The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
+     *
+     * @param request - ListRecordsRequest
+     * @returns ListRecordsResponse
+     *
+     * @param ListRecordsRequest $request
+     *
+     * @return ListRecordsResponse
      */
     public function listRecords($request)
     {
@@ -7683,11 +12738,123 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Lists the regions to which Edge Routine code can be released for canary deployment.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询重定向规则列表.
      *
-     * @return ListRoutineCanaryAreasResponse ListRoutineCanaryAreasResponse
+     * @param request - ListRedirectRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRedirectRulesResponse
+     *
+     * @param ListRedirectRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListRedirectRulesResponse
+     */
+    public function listRedirectRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRedirectRules',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRedirectRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListRedirectRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询重定向规则列表.
+     *
+     * @param request - ListRedirectRulesRequest
+     * @returns ListRedirectRulesResponse
+     *
+     * @param ListRedirectRulesRequest $request
+     *
+     * @return ListRedirectRulesResponse
+     */
+    public function listRedirectRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRedirectRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询重写Url规则列表.
+     *
+     * @param request - ListRewriteUrlRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRewriteUrlRulesResponse
+     *
+     * @param ListRewriteUrlRulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListRewriteUrlRulesResponse
+     */
+    public function listRewriteUrlRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRewriteUrlRules',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRewriteUrlRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListRewriteUrlRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询重写Url规则列表.
+     *
+     * @param request - ListRewriteUrlRulesRequest
+     * @returns ListRewriteUrlRulesResponse
+     *
+     * @param ListRewriteUrlRulesRequest $request
+     *
+     * @return ListRewriteUrlRulesResponse
+     */
+    public function listRewriteUrlRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRewriteUrlRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the regions to which Edge Routine code can be released for canary deployment.
+     *
+     * @param request - ListRoutineCanaryAreasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRoutineCanaryAreasResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListRoutineCanaryAreasResponse
      */
     public function listRoutineCanaryAreasWithOptions($runtime)
     {
@@ -7703,14 +12870,19 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRoutineCanaryAreasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRoutineCanaryAreasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRoutineCanaryAreasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists the regions to which Edge Routine code can be released for canary deployment.
-     *  *
-     * @return ListRoutineCanaryAreasResponse ListRoutineCanaryAreasResponse
+     * Lists the regions to which Edge Routine code can be released for canary deployment.
+     *
+     * @returns ListRoutineCanaryAreasResponse
+     *
+     * @return ListRoutineCanaryAreasResponse
      */
     public function listRoutineCanaryAreas()
     {
@@ -7720,13 +12892,18 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
-     *  *
-     * @description You can call this operation to query the specifications that you can select for a routine.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
      *
-     * @return ListRoutineOptionalSpecsResponse ListRoutineOptionalSpecsResponse
+     * @remarks
+     * You can call this operation to query the specifications that you can select for a routine.
+     *
+     * @param request - ListRoutineOptionalSpecsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRoutineOptionalSpecsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListRoutineOptionalSpecsResponse
      */
     public function listRoutineOptionalSpecsWithOptions($runtime)
     {
@@ -7742,16 +12919,21 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRoutineOptionalSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRoutineOptionalSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRoutineOptionalSpecsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
-     *  *
-     * @description You can call this operation to query the specifications that you can select for a routine.
-     *  *
-     * @return ListRoutineOptionalSpecsResponse ListRoutineOptionalSpecsResponse
+     * Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
+     *
+     * @remarks
+     * You can call this operation to query the specifications that you can select for a routine.
+     * @returns ListRoutineOptionalSpecsResponse
+     *
+     * @return ListRoutineOptionalSpecsResponse
      */
     public function listRoutineOptionalSpecs()
     {
@@ -7761,19 +12943,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Lists the plans in a scheduled prefetch task by task ID.
-     *  *
-     * @param ListScheduledPreloadExecutionsRequest $request ListScheduledPreloadExecutionsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Lists the plans in a scheduled prefetch task by task ID.
      *
-     * @return ListScheduledPreloadExecutionsResponse ListScheduledPreloadExecutionsResponse
+     * @param request - ListScheduledPreloadExecutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListScheduledPreloadExecutionsResponse
+     *
+     * @param ListScheduledPreloadExecutionsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListScheduledPreloadExecutionsResponse
      */
     public function listScheduledPreloadExecutionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListScheduledPreloadExecutions',
@@ -7786,16 +12972,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListScheduledPreloadExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScheduledPreloadExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScheduledPreloadExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists the plans in a scheduled prefetch task by task ID.
-     *  *
-     * @param ListScheduledPreloadExecutionsRequest $request ListScheduledPreloadExecutionsRequest
+     * Lists the plans in a scheduled prefetch task by task ID.
      *
-     * @return ListScheduledPreloadExecutionsResponse ListScheduledPreloadExecutionsResponse
+     * @param request - ListScheduledPreloadExecutionsRequest
+     * @returns ListScheduledPreloadExecutionsResponse
+     *
+     * @param ListScheduledPreloadExecutionsRequest $request
+     *
+     * @return ListScheduledPreloadExecutionsResponse
      */
     public function listScheduledPreloadExecutions($request)
     {
@@ -7805,19 +12997,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the scheduled prefetch tasks for a website.
-     *  *
-     * @param ListScheduledPreloadJobsRequest $request ListScheduledPreloadJobsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the scheduled prefetch tasks for a website.
      *
-     * @return ListScheduledPreloadJobsResponse ListScheduledPreloadJobsResponse
+     * @param request - ListScheduledPreloadJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListScheduledPreloadJobsResponse
+     *
+     * @param ListScheduledPreloadJobsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListScheduledPreloadJobsResponse
      */
     public function listScheduledPreloadJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListScheduledPreloadJobs',
@@ -7830,16 +13026,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListScheduledPreloadJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScheduledPreloadJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScheduledPreloadJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the scheduled prefetch tasks for a website.
-     *  *
-     * @param ListScheduledPreloadJobsRequest $request ListScheduledPreloadJobsRequest
+     * Queries the scheduled prefetch tasks for a website.
      *
-     * @return ListScheduledPreloadJobsResponse ListScheduledPreloadJobsResponse
+     * @param request - ListScheduledPreloadJobsRequest
+     * @returns ListScheduledPreloadJobsResponse
+     *
+     * @param ListScheduledPreloadJobsRequest $request
+     *
+     * @return ListScheduledPreloadJobsResponse
      */
     public function listScheduledPreloadJobs($request)
     {
@@ -7849,19 +13051,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Lists all log delivery tasks that are in progress.
-     *  *
-     * @param ListSiteDeliveryTasksRequest $request ListSiteDeliveryTasksRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Lists all log delivery tasks that are in progress.
      *
-     * @return ListSiteDeliveryTasksResponse ListSiteDeliveryTasksResponse
+     * @param request - ListSiteDeliveryTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSiteDeliveryTasksResponse
+     *
+     * @param ListSiteDeliveryTasksRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListSiteDeliveryTasksResponse
      */
     public function listSiteDeliveryTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSiteDeliveryTasks',
@@ -7874,16 +13080,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSiteDeliveryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSiteDeliveryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSiteDeliveryTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists all log delivery tasks that are in progress.
-     *  *
-     * @param ListSiteDeliveryTasksRequest $request ListSiteDeliveryTasksRequest
+     * Lists all log delivery tasks that are in progress.
      *
-     * @return ListSiteDeliveryTasksResponse ListSiteDeliveryTasksResponse
+     * @param request - ListSiteDeliveryTasksRequest
+     * @returns ListSiteDeliveryTasksResponse
+     *
+     * @param ListSiteDeliveryTasksRequest $request
+     *
+     * @return ListSiteDeliveryTasksResponse
      */
     public function listSiteDeliveryTasks($request)
     {
@@ -7893,24 +13105,29 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about websites in your account, such as the name, status, and configuration of each website.
-     *  *
-     * @param ListSitesRequest $tmpReq  ListSitesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about websites in your account, such as the name, status, and configuration of each website.
      *
-     * @return ListSitesResponse ListSitesResponse
+     * @param tmpReq - ListSitesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSitesResponse
+     *
+     * @param ListSitesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListSitesResponse
      */
     public function listSitesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListSitesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tagFilter)) {
-            $request->tagFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagFilter, 'TagFilter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tagFilter) {
+            $request->tagFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagFilter, 'TagFilter', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSites',
@@ -7923,16 +13140,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSitesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSitesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSitesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about websites in your account, such as the name, status, and configuration of each website.
-     *  *
-     * @param ListSitesRequest $request ListSitesRequest
+     * Queries the information about websites in your account, such as the name, status, and configuration of each website.
      *
-     * @return ListSitesResponse ListSitesResponse
+     * @param request - ListSitesRequest
+     * @returns ListSitesResponse
+     *
+     * @param ListSitesRequest $request
+     *
+     * @return ListSitesResponse
      */
     public function listSites($request)
     {
@@ -7942,43 +13165,55 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags based on the region ID and resource type.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries tags based on the region ID and resource type.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxItem)) {
-            $query['MaxItem'] = $request->maxItem;
+        if (null !== $request->maxItem) {
+            @$query['MaxItem'] = $request->maxItem;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -7991,16 +13226,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tags based on the region ID and resource type.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries tags based on the region ID and resource type.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -8010,19 +13251,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
-     *  *
-     * @param ListUploadTasksRequest $request ListUploadTasksRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the execution status and running information of file upload tasks based on the task time and type.
      *
-     * @return ListUploadTasksResponse ListUploadTasksResponse
+     * @param request - ListUploadTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUploadTasksResponse
+     *
+     * @param ListUploadTasksRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListUploadTasksResponse
      */
     public function listUploadTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUploadTasks',
@@ -8035,16 +13280,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUploadTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUploadTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUploadTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
-     *  *
-     * @param ListUploadTasksRequest $request ListUploadTasksRequest
+     * Queries the execution status and running information of file upload tasks based on the task time and type.
      *
-     * @return ListUploadTasksResponse ListUploadTasksResponse
+     * @param request - ListUploadTasksRequest
+     * @returns ListUploadTasksResponse
+     *
+     * @param ListUploadTasksRequest $request
+     *
+     * @return ListUploadTasksResponse
      */
     public function listUploadTasks($request)
     {
@@ -8054,19 +13305,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
-     *  *
-     * @param ListUserDeliveryTasksRequest $request ListUserDeliveryTasksRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
      *
-     * @return ListUserDeliveryTasksResponse ListUserDeliveryTasksResponse
+     * @param request - ListUserDeliveryTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserDeliveryTasksResponse
+     *
+     * @param ListUserDeliveryTasksRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListUserDeliveryTasksResponse
      */
     public function listUserDeliveryTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserDeliveryTasks',
@@ -8079,16 +13334,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserDeliveryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserDeliveryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserDeliveryTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
-     *  *
-     * @param ListUserDeliveryTasksRequest $request ListUserDeliveryTasksRequest
+     * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
      *
-     * @return ListUserDeliveryTasksResponse ListUserDeliveryTasksResponse
+     * @param request - ListUserDeliveryTasksRequest
+     * @returns ListUserDeliveryTasksResponse
+     *
+     * @param ListUserDeliveryTasksRequest $request
+     *
+     * @return ListUserDeliveryTasksResponse
      */
     public function listUserDeliveryTasks($request)
     {
@@ -8098,19 +13359,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the plans that you purchased and the details of the plans.
-     *  *
-     * @param ListUserRatePlanInstancesRequest $request ListUserRatePlanInstancesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the plans that you purchased and the details of the plans.
      *
-     * @return ListUserRatePlanInstancesResponse ListUserRatePlanInstancesResponse
+     * @param request - ListUserRatePlanInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserRatePlanInstancesResponse
+     *
+     * @param ListUserRatePlanInstancesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListUserRatePlanInstancesResponse
      */
     public function listUserRatePlanInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserRatePlanInstances',
@@ -8123,16 +13388,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserRatePlanInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserRatePlanInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserRatePlanInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the plans that you purchased and the details of the plans.
-     *  *
-     * @param ListUserRatePlanInstancesRequest $request ListUserRatePlanInstancesRequest
+     * Queries the plans that you purchased and the details of the plans.
      *
-     * @return ListUserRatePlanInstancesResponse ListUserRatePlanInstancesResponse
+     * @param request - ListUserRatePlanInstancesRequest
+     * @returns ListUserRatePlanInstancesResponse
+     *
+     * @param ListUserRatePlanInstancesRequest $request
+     *
+     * @return ListUserRatePlanInstancesResponse
      */
     public function listUserRatePlanInstances($request)
     {
@@ -8142,48 +13413,61 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
-     *  *
-     * @param ListWafManagedRulesRequest $tmpReq  ListWafManagedRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
      *
-     * @return ListWafManagedRulesResponse ListWafManagedRulesResponse
+     * @param tmpReq - ListWafManagedRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWafManagedRulesResponse
+     *
+     * @param ListWafManagedRulesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListWafManagedRulesResponse
      */
     public function listWafManagedRulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListWafManagedRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queryArgs)) {
-            $request->queryArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryArgs) {
+            $request->queryArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attackType)) {
-            $query['AttackType'] = $request->attackType;
+        if (null !== $request->attackType) {
+            @$query['AttackType'] = $request->attackType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->protectionLevel)) {
-            $query['ProtectionLevel'] = $request->protectionLevel;
+
+        if (null !== $request->protectionLevel) {
+            @$query['ProtectionLevel'] = $request->protectionLevel;
         }
-        if (!Utils::isUnset($request->queryArgsShrink)) {
-            $query['QueryArgs'] = $request->queryArgsShrink;
+
+        if (null !== $request->queryArgsShrink) {
+            @$query['QueryArgs'] = $request->queryArgsShrink;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWafManagedRules',
@@ -8196,16 +13480,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWafManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWafManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWafManagedRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
-     *  *
-     * @param ListWafManagedRulesRequest $request ListWafManagedRulesRequest
+     * Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
      *
-     * @return ListWafManagedRulesResponse ListWafManagedRulesResponse
+     * @param request - ListWafManagedRulesRequest
+     * @returns ListWafManagedRulesResponse
+     *
+     * @param ListWafManagedRulesRequest $request
+     *
+     * @return ListWafManagedRulesResponse
      */
     public function listWafManagedRules($request)
     {
@@ -8215,25 +13505,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the WAF rule categories that are applied to a website and related rulesets.
-     *  *
-     * @param ListWafPhasesRequest $request ListWafPhasesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the WAF rule categories that are applied to a website and related rulesets.
      *
-     * @return ListWafPhasesResponse ListWafPhasesResponse
+     * @param request - ListWafPhasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWafPhasesResponse
+     *
+     * @param ListWafPhasesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWafPhasesResponse
      */
     public function listWafPhasesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWafPhases',
@@ -8246,16 +13542,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWafPhasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWafPhasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWafPhasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the WAF rule categories that are applied to a website and related rulesets.
-     *  *
-     * @param ListWafPhasesRequest $request ListWafPhasesRequest
+     * Queries the WAF rule categories that are applied to a website and related rulesets.
      *
-     * @return ListWafPhasesResponse ListWafPhasesResponse
+     * @param request - ListWafPhasesRequest
+     * @returns ListWafPhasesResponse
+     *
+     * @param ListWafPhasesRequest $request
+     *
+     * @return ListWafPhasesResponse
      */
     public function listWafPhases($request)
     {
@@ -8265,33 +13567,41 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
-     *  *
-     * @param ListWafTemplateRulesRequest $tmpReq  ListWafTemplateRulesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
      *
-     * @return ListWafTemplateRulesResponse ListWafTemplateRulesResponse
+     * @param tmpReq - ListWafTemplateRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWafTemplateRulesResponse
+     *
+     * @param ListWafTemplateRulesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListWafTemplateRulesResponse
      */
     public function listWafTemplateRulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListWafTemplateRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queryArgs)) {
-            $request->queryArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryArgs) {
+            $request->queryArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->phase)) {
-            $query['Phase'] = $request->phase;
+        if (null !== $request->phase) {
+            @$query['Phase'] = $request->phase;
         }
-        if (!Utils::isUnset($request->queryArgsShrink)) {
-            $query['QueryArgs'] = $request->queryArgsShrink;
+
+        if (null !== $request->queryArgsShrink) {
+            @$query['QueryArgs'] = $request->queryArgsShrink;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWafTemplateRules',
@@ -8304,16 +13614,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWafTemplateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWafTemplateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWafTemplateRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
-     *  *
-     * @param ListWafTemplateRulesRequest $request ListWafTemplateRulesRequest
+     * Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
      *
-     * @return ListWafTemplateRulesResponse ListWafTemplateRulesResponse
+     * @param request - ListWafTemplateRulesRequest
+     * @returns ListWafTemplateRulesResponse
+     *
+     * @param ListWafTemplateRulesRequest $request
+     *
+     * @return ListWafTemplateRulesResponse
      */
     public function listWafTemplateRules($request)
     {
@@ -8323,25 +13639,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage details of WAF rules.
-     *  *
-     * @param ListWafUsageOfRulesRequest $request ListWafUsageOfRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the usage details of WAF rules.
      *
-     * @return ListWafUsageOfRulesResponse ListWafUsageOfRulesResponse
+     * @param request - ListWafUsageOfRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWafUsageOfRulesResponse
+     *
+     * @param ListWafUsageOfRulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListWafUsageOfRulesResponse
      */
     public function listWafUsageOfRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->phase)) {
-            $query['Phase'] = $request->phase;
+        if (null !== $request->phase) {
+            @$query['Phase'] = $request->phase;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWafUsageOfRules',
@@ -8354,16 +13676,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWafUsageOfRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWafUsageOfRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWafUsageOfRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage details of WAF rules.
-     *  *
-     * @param ListWafUsageOfRulesRequest $request ListWafUsageOfRulesRequest
+     * Queries the usage details of WAF rules.
      *
-     * @return ListWafUsageOfRulesResponse ListWafUsageOfRulesResponse
+     * @param request - ListWafUsageOfRulesRequest
+     * @returns ListWafUsageOfRulesResponse
+     *
+     * @param ListWafUsageOfRulesRequest $request
+     *
+     * @return ListWafUsageOfRulesResponse
      */
     public function listWafUsageOfRules($request)
     {
@@ -8373,21 +13701,26 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about waiting room events for a waiting room.
-     *  *
-     * @description You can call this operation to query details of all waiting room events related to a waiting room in a website.
-     *  *
-     * @param ListWaitingRoomEventsRequest $request ListWaitingRoomEventsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the information about waiting room events for a waiting room.
      *
-     * @return ListWaitingRoomEventsResponse ListWaitingRoomEventsResponse
+     * @remarks
+     * You can call this operation to query details of all waiting room events related to a waiting room in a website.
+     *
+     * @param request - ListWaitingRoomEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWaitingRoomEventsResponse
+     *
+     * @param ListWaitingRoomEventsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListWaitingRoomEventsResponse
      */
     public function listWaitingRoomEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWaitingRoomEvents',
@@ -8400,18 +13733,25 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWaitingRoomEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWaitingRoomEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWaitingRoomEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about waiting room events for a waiting room.
-     *  *
-     * @description You can call this operation to query details of all waiting room events related to a waiting room in a website.
-     *  *
-     * @param ListWaitingRoomEventsRequest $request ListWaitingRoomEventsRequest
+     * Queries the information about waiting room events for a waiting room.
      *
-     * @return ListWaitingRoomEventsResponse ListWaitingRoomEventsResponse
+     * @remarks
+     * You can call this operation to query details of all waiting room events related to a waiting room in a website.
+     *
+     * @param request - ListWaitingRoomEventsRequest
+     * @returns ListWaitingRoomEventsResponse
+     *
+     * @param ListWaitingRoomEventsRequest $request
+     *
+     * @return ListWaitingRoomEventsResponse
      */
     public function listWaitingRoomEvents($request)
     {
@@ -8421,21 +13761,26 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the waiting room bypass rules configured for a waiting room.
-     *  *
-     * @description You can call this operation to query the waiting room bypass rules that are associated with a website.
-     *  *
-     * @param ListWaitingRoomRulesRequest $request ListWaitingRoomRulesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the waiting room bypass rules configured for a waiting room.
      *
-     * @return ListWaitingRoomRulesResponse ListWaitingRoomRulesResponse
+     * @remarks
+     * You can call this operation to query the waiting room bypass rules that are associated with a website.
+     *
+     * @param request - ListWaitingRoomRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWaitingRoomRulesResponse
+     *
+     * @param ListWaitingRoomRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListWaitingRoomRulesResponse
      */
     public function listWaitingRoomRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWaitingRoomRules',
@@ -8448,18 +13793,25 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWaitingRoomRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWaitingRoomRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWaitingRoomRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the waiting room bypass rules configured for a waiting room.
-     *  *
-     * @description You can call this operation to query the waiting room bypass rules that are associated with a website.
-     *  *
-     * @param ListWaitingRoomRulesRequest $request ListWaitingRoomRulesRequest
+     * Queries the waiting room bypass rules configured for a waiting room.
      *
-     * @return ListWaitingRoomRulesResponse ListWaitingRoomRulesResponse
+     * @remarks
+     * You can call this operation to query the waiting room bypass rules that are associated with a website.
+     *
+     * @param request - ListWaitingRoomRulesRequest
+     * @returns ListWaitingRoomRulesResponse
+     *
+     * @param ListWaitingRoomRulesRequest $request
+     *
+     * @return ListWaitingRoomRulesResponse
      */
     public function listWaitingRoomRules($request)
     {
@@ -8469,21 +13821,26 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all waiting rooms in a website.
-     *  *
-     * @description You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
-     *  *
-     * @param ListWaitingRoomsRequest $request ListWaitingRoomsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about all waiting rooms in a website.
      *
-     * @return ListWaitingRoomsResponse ListWaitingRoomsResponse
+     * @remarks
+     * You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+     *
+     * @param request - ListWaitingRoomsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWaitingRoomsResponse
+     *
+     * @param ListWaitingRoomsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListWaitingRoomsResponse
      */
     public function listWaitingRoomsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWaitingRooms',
@@ -8496,18 +13853,25 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWaitingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWaitingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWaitingRoomsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about all waiting rooms in a website.
-     *  *
-     * @description You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
-     *  *
-     * @param ListWaitingRoomsRequest $request ListWaitingRoomsRequest
+     * Queries the information about all waiting rooms in a website.
      *
-     * @return ListWaitingRoomsResponse ListWaitingRoomsResponse
+     * @remarks
+     * You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+     *
+     * @param request - ListWaitingRoomsRequest
+     * @returns ListWaitingRoomsResponse
+     *
+     * @param ListWaitingRoomsRequest $request
+     *
+     * @return ListWaitingRoomsResponse
      */
     public function listWaitingRooms($request)
     {
@@ -8517,36 +13881,45 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Prefetches cache.
-     *  *
-     * @param PreloadCachesRequest $tmpReq  PreloadCachesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Prefetches cache.
      *
-     * @return PreloadCachesResponse PreloadCachesResponse
+     * @param tmpReq - PreloadCachesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PreloadCachesResponse
+     *
+     * @param PreloadCachesRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PreloadCachesResponse
      */
     public function preloadCachesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PreloadCachesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->content)) {
-            $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
         }
-        if (!Utils::isUnset($tmpReq->headers)) {
-            $request->headersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->headers, 'Headers', 'json');
+
+        if (null !== $tmpReq->headers) {
+            $request->headersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->headers, 'Headers', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->contentShrink)) {
-            $query['Content'] = $request->contentShrink;
+        if (null !== $request->contentShrink) {
+            @$query['Content'] = $request->contentShrink;
         }
-        if (!Utils::isUnset($request->headersShrink)) {
-            $query['Headers'] = $request->headersShrink;
+
+        if (null !== $request->headersShrink) {
+            @$query['Headers'] = $request->headersShrink;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PreloadCaches',
@@ -8559,16 +13932,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PreloadCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PreloadCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PreloadCachesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Prefetches cache.
-     *  *
-     * @param PreloadCachesRequest $request PreloadCachesRequest
+     * Prefetches cache.
      *
-     * @return PreloadCachesResponse PreloadCachesResponse
+     * @param request - PreloadCachesRequest
+     * @returns PreloadCachesResponse
+     *
+     * @param PreloadCachesRequest $request
+     *
+     * @return PreloadCachesResponse
      */
     public function preloadCaches($request)
     {
@@ -8578,53 +13957,67 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Releases a specific version of a containerized application. You can call this operation to iterate an application.
-     *  *
-     * @param PublishEdgeContainerAppVersionRequest $tmpReq  PublishEdgeContainerAppVersionRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Releases a specific version of a containerized application. You can call this operation to iterate an application.
      *
-     * @return PublishEdgeContainerAppVersionResponse PublishEdgeContainerAppVersionResponse
+     * @param tmpReq - PublishEdgeContainerAppVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PublishEdgeContainerAppVersionResponse
+     *
+     * @param PublishEdgeContainerAppVersionRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return PublishEdgeContainerAppVersionResponse
      */
     public function publishEdgeContainerAppVersionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PublishEdgeContainerAppVersionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->regions)) {
-            $request->regionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regions, 'Regions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->regions) {
+            $request->regionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->regions, 'Regions', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->fullRelease)) {
-            $query['FullRelease'] = $request->fullRelease;
+        if (null !== $request->fullRelease) {
+            @$query['FullRelease'] = $request->fullRelease;
         }
-        if (!Utils::isUnset($request->publishType)) {
-            $query['PublishType'] = $request->publishType;
+
+        if (null !== $request->publishType) {
+            @$query['PublishType'] = $request->publishType;
         }
-        if (!Utils::isUnset($request->regionsShrink)) {
-            $query['Regions'] = $request->regionsShrink;
+
+        if (null !== $request->regionsShrink) {
+            @$query['Regions'] = $request->regionsShrink;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->percentage)) {
-            $body['Percentage'] = $request->percentage;
+
+        if (null !== $request->percentage) {
+            @$body['Percentage'] = $request->percentage;
         }
-        if (!Utils::isUnset($request->publishEnv)) {
-            $body['PublishEnv'] = $request->publishEnv;
+
+        if (null !== $request->publishEnv) {
+            @$body['PublishEnv'] = $request->publishEnv;
         }
-        if (!Utils::isUnset($request->remarks)) {
-            $body['Remarks'] = $request->remarks;
+
+        if (null !== $request->remarks) {
+            @$body['Remarks'] = $request->remarks;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PublishEdgeContainerAppVersion',
@@ -8637,16 +14030,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PublishEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishEdgeContainerAppVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases a specific version of a containerized application. You can call this operation to iterate an application.
-     *  *
-     * @param PublishEdgeContainerAppVersionRequest $request PublishEdgeContainerAppVersionRequest
+     * Releases a specific version of a containerized application. You can call this operation to iterate an application.
      *
-     * @return PublishEdgeContainerAppVersionResponse PublishEdgeContainerAppVersionResponse
+     * @param request - PublishEdgeContainerAppVersionRequest
+     * @returns PublishEdgeContainerAppVersionResponse
+     *
+     * @param PublishEdgeContainerAppVersionRequest $request
+     *
+     * @return PublishEdgeContainerAppVersionResponse
      */
     public function publishEdgeContainerAppVersion($request)
     {
@@ -8656,39 +14055,49 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
-     *  *
-     * @param PublishRoutineCodeVersionRequest $tmpReq  PublishRoutineCodeVersionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
      *
-     * @return PublishRoutineCodeVersionResponse PublishRoutineCodeVersionResponse
+     * @param tmpReq - PublishRoutineCodeVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PublishRoutineCodeVersionResponse
+     *
+     * @param PublishRoutineCodeVersionRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return PublishRoutineCodeVersionResponse
      */
     public function publishRoutineCodeVersionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PublishRoutineCodeVersionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->canaryAreaList)) {
-            $request->canaryAreaListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->canaryAreaList, 'CanaryAreaList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->canaryAreaList) {
+            $request->canaryAreaListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->canaryAreaList, 'CanaryAreaList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->canaryAreaListShrink)) {
-            $body['CanaryAreaList'] = $request->canaryAreaListShrink;
+        if (null !== $request->canaryAreaListShrink) {
+            @$body['CanaryAreaList'] = $request->canaryAreaListShrink;
         }
-        if (!Utils::isUnset($request->canaryCodeVersion)) {
-            $body['CanaryCodeVersion'] = $request->canaryCodeVersion;
+
+        if (null !== $request->canaryCodeVersion) {
+            @$body['CanaryCodeVersion'] = $request->canaryCodeVersion;
         }
-        if (!Utils::isUnset($request->codeVersion)) {
-            $body['CodeVersion'] = $request->codeVersion;
+
+        if (null !== $request->codeVersion) {
+            @$body['CodeVersion'] = $request->codeVersion;
         }
-        if (!Utils::isUnset($request->env)) {
-            $body['Env'] = $request->env;
+
+        if (null !== $request->env) {
+            @$body['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PublishRoutineCodeVersion',
@@ -8701,16 +14110,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PublishRoutineCodeVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishRoutineCodeVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishRoutineCodeVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
-     *  *
-     * @param PublishRoutineCodeVersionRequest $request PublishRoutineCodeVersionRequest
+     * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
      *
-     * @return PublishRoutineCodeVersionResponse PublishRoutineCodeVersionResponse
+     * @param request - PublishRoutineCodeVersionRequest
+     * @returns PublishRoutineCodeVersionResponse
+     *
+     * @param PublishRoutineCodeVersionRequest $request
+     *
+     * @return PublishRoutineCodeVersionResponse
      */
     public function publishRoutineCodeVersion($request)
     {
@@ -8720,39 +14135,49 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
-     *  *
-     * @param PurgeCachesRequest $tmpReq  PurgeCachesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
      *
-     * @return PurgeCachesResponse PurgeCachesResponse
+     * @param tmpReq - PurgeCachesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PurgeCachesResponse
+     *
+     * @param PurgeCachesRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PurgeCachesResponse
      */
     public function purgeCachesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PurgeCachesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->content)) {
-            $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->contentShrink)) {
-            $query['Content'] = $request->contentShrink;
+        if (null !== $request->contentShrink) {
+            @$query['Content'] = $request->contentShrink;
         }
-        if (!Utils::isUnset($request->edgeComputePurge)) {
-            $query['EdgeComputePurge'] = $request->edgeComputePurge;
+
+        if (null !== $request->edgeComputePurge) {
+            @$query['EdgeComputePurge'] = $request->edgeComputePurge;
         }
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PurgeCaches',
@@ -8765,16 +14190,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PurgeCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PurgeCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PurgeCachesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
-     *  *
-     * @param PurgeCachesRequest $request PurgeCachesRequest
+     * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
      *
-     * @return PurgeCachesResponse PurgeCachesResponse
+     * @param request - PurgeCachesRequest
+     * @returns PurgeCachesResponse
+     *
+     * @param PurgeCachesRequest $request
+     *
+     * @return PurgeCachesResponse
      */
     public function purgeCaches($request)
     {
@@ -8784,39 +14215,49 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Configures a key-value pair for a namespace. The request body can be up to 2 MB.
-     *  *
-     * @param PutKvRequest   $request PutKvRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Configures a key-value pair for a namespace. The request body can be up to 2 MB.
      *
-     * @return PutKvResponse PutKvResponse
+     * @param request - PutKvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PutKvResponse
+     *
+     * @param PutKvRequest   $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return PutKvResponse
      */
     public function putKvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->base64)) {
-            $query['Base64'] = $request->base64;
+        if (null !== $request->base64) {
+            @$query['Base64'] = $request->base64;
         }
-        if (!Utils::isUnset($request->expiration)) {
-            $query['Expiration'] = $request->expiration;
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->expirationTtl)) {
-            $query['ExpirationTtl'] = $request->expirationTtl;
+
+        if (null !== $request->expirationTtl) {
+            @$query['ExpirationTtl'] = $request->expirationTtl;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->value)) {
-            $body['Value'] = $request->value;
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PutKv',
@@ -8829,16 +14270,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PutKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PutKvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutKvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures a key-value pair for a namespace. The request body can be up to 2 MB.
-     *  *
-     * @param PutKvRequest $request PutKvRequest
+     * Configures a key-value pair for a namespace. The request body can be up to 2 MB.
      *
-     * @return PutKvResponse PutKvResponse
+     * @param request - PutKvRequest
+     * @returns PutKvResponse
+     *
+     * @param PutKvRequest $request
+     *
+     * @return PutKvResponse
      */
     public function putKv($request)
     {
@@ -8848,9 +14295,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
-     *  *
-     * @description This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
+     * Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
+     *
+     * @remarks
+     * This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
      *     func TestPutKvWithHighCapacity() {
      *     	// Initialize the configurations.
      *     	cfg := new(openapi.Config)
@@ -8886,27 +14334,34 @@ class ESA extends OpenApiClient
      *     	}
      *     	return nil
      *     }
-     *  *
-     * @param PutKvWithHighCapacityRequest $request PutKvWithHighCapacityRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutKvWithHighCapacityResponse PutKvWithHighCapacityResponse
+     * @param request - PutKvWithHighCapacityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PutKvWithHighCapacityResponse
+     *
+     * @param PutKvWithHighCapacityRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PutKvWithHighCapacityResponse
      */
     public function putKvWithHighCapacityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PutKvWithHighCapacity',
@@ -8919,14 +14374,18 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PutKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PutKvWithHighCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutKvWithHighCapacityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
-     *  *
-     * @description This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
+     * Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
+     *
+     * @remarks
+     * This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
      *     func TestPutKvWithHighCapacity() {
      *     	// Initialize the configurations.
      *     	cfg := new(openapi.Config)
@@ -8962,10 +14421,13 @@ class ESA extends OpenApiClient
      *     	}
      *     	return nil
      *     }
-     *  *
-     * @param PutKvWithHighCapacityRequest $request PutKvWithHighCapacityRequest
      *
-     * @return PutKvWithHighCapacityResponse PutKvWithHighCapacityResponse
+     * @param request - PutKvWithHighCapacityRequest
+     * @returns PutKvWithHighCapacityResponse
+     *
+     * @param PutKvWithHighCapacityRequest $request
+     *
+     * @return PutKvWithHighCapacityResponse
      */
     public function putKvWithHighCapacity($request)
     {
@@ -8988,12 +14450,14 @@ class ESA extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -9021,13 +14485,13 @@ class ESA extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $putKvWithHighCapacityReq = new PutKvWithHighCapacityRequest([]);
-        OpenApiUtilClient::convert($request, $putKvWithHighCapacityReq);
-        if (!Utils::isUnset($request->urlObject)) {
+        Utils::convert($request, $putKvWithHighCapacityReq);
+        if (null !== $request->urlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -9054,22 +14518,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Rebuilds the staging environment for containerized applications.
-     *  *
-     * @param RebuildEdgeContainerAppStagingEnvRequest $request RebuildEdgeContainerAppStagingEnvRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Rebuilds the staging environment for containerized applications.
      *
-     * @return RebuildEdgeContainerAppStagingEnvResponse RebuildEdgeContainerAppStagingEnvResponse
+     * @param request - RebuildEdgeContainerAppStagingEnvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RebuildEdgeContainerAppStagingEnvResponse
+     *
+     * @param RebuildEdgeContainerAppStagingEnvRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return RebuildEdgeContainerAppStagingEnvResponse
      */
     public function rebuildEdgeContainerAppStagingEnvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RebuildEdgeContainerAppStagingEnv',
@@ -9082,16 +14551,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RebuildEdgeContainerAppStagingEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RebuildEdgeContainerAppStagingEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RebuildEdgeContainerAppStagingEnvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Rebuilds the staging environment for containerized applications.
-     *  *
-     * @param RebuildEdgeContainerAppStagingEnvRequest $request RebuildEdgeContainerAppStagingEnvRequest
+     * Rebuilds the staging environment for containerized applications.
      *
-     * @return RebuildEdgeContainerAppStagingEnvResponse RebuildEdgeContainerAppStagingEnvResponse
+     * @param request - RebuildEdgeContainerAppStagingEnvRequest
+     * @returns RebuildEdgeContainerAppStagingEnvResponse
+     *
+     * @param RebuildEdgeContainerAppStagingEnvRequest $request
+     *
+     * @return RebuildEdgeContainerAppStagingEnvResponse
      */
     public function rebuildEdgeContainerAppStagingEnv($request)
     {
@@ -9101,22 +14576,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
-     *  *
-     * @param ResetScheduledPreloadJobRequest $request ResetScheduledPreloadJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
      *
-     * @return ResetScheduledPreloadJobResponse ResetScheduledPreloadJobResponse
+     * @param request - ResetScheduledPreloadJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetScheduledPreloadJobResponse
+     *
+     * @param ResetScheduledPreloadJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ResetScheduledPreloadJobResponse
      */
     public function resetScheduledPreloadJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetScheduledPreloadJob',
@@ -9129,16 +14609,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetScheduledPreloadJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetScheduledPreloadJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetScheduledPreloadJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
-     *  *
-     * @param ResetScheduledPreloadJobRequest $request ResetScheduledPreloadJobRequest
+     * Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
      *
-     * @return ResetScheduledPreloadJobResponse ResetScheduledPreloadJobResponse
+     * @param request - ResetScheduledPreloadJobRequest
+     * @returns ResetScheduledPreloadJobResponse
+     *
+     * @param ResetScheduledPreloadJobRequest $request
+     *
+     * @return ResetScheduledPreloadJobResponse
      */
     public function resetScheduledPreloadJob($request)
     {
@@ -9148,19 +14634,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Revokes an activated client certificate.
-     *  *
-     * @param RevokeClientCertificateRequest $request RevokeClientCertificateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Revokes an activated client certificate.
      *
-     * @return RevokeClientCertificateResponse RevokeClientCertificateResponse
+     * @param request - RevokeClientCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevokeClientCertificateResponse
+     *
+     * @param RevokeClientCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RevokeClientCertificateResponse
      */
     public function revokeClientCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RevokeClientCertificate',
@@ -9173,16 +14663,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevokeClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeClientCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes an activated client certificate.
-     *  *
-     * @param RevokeClientCertificateRequest $request RevokeClientCertificateRequest
+     * Revokes an activated client certificate.
      *
-     * @return RevokeClientCertificateResponse RevokeClientCertificateResponse
+     * @param request - RevokeClientCertificateRequest
+     * @returns RevokeClientCertificateResponse
+     *
+     * @param RevokeClientCertificateRequest $request
+     *
+     * @return RevokeClientCertificateResponse
      */
     public function revokeClientCertificate($request)
     {
@@ -9192,30 +14688,37 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Rolls back a version of a containerized application.
-     *  *
-     * @param RollbackEdgeContainerAppVersionRequest $request RollbackEdgeContainerAppVersionRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Rolls back a version of a containerized application.
      *
-     * @return RollbackEdgeContainerAppVersionResponse RollbackEdgeContainerAppVersionResponse
+     * @param request - RollbackEdgeContainerAppVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RollbackEdgeContainerAppVersionResponse
+     *
+     * @param RollbackEdgeContainerAppVersionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return RollbackEdgeContainerAppVersionResponse
      */
     public function rollbackEdgeContainerAppVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->remarks)) {
-            $body['Remarks'] = $request->remarks;
+
+        if (null !== $request->remarks) {
+            @$body['Remarks'] = $request->remarks;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RollbackEdgeContainerAppVersion',
@@ -9228,16 +14731,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RollbackEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RollbackEdgeContainerAppVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RollbackEdgeContainerAppVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Rolls back a version of a containerized application.
-     *  *
-     * @param RollbackEdgeContainerAppVersionRequest $request RollbackEdgeContainerAppVersionRequest
+     * Rolls back a version of a containerized application.
      *
-     * @return RollbackEdgeContainerAppVersionResponse RollbackEdgeContainerAppVersionResponse
+     * @param request - RollbackEdgeContainerAppVersionRequest
+     * @returns RollbackEdgeContainerAppVersionResponse
+     *
+     * @param RollbackEdgeContainerAppVersionRequest $request
+     *
+     * @return RollbackEdgeContainerAppVersionResponse
      */
     public function rollbackEdgeContainerAppVersion($request)
     {
@@ -9247,54 +14756,69 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Configures whether to enable certificates and update certificate information for a website.
-     *  *
-     * @param SetCertificateRequest $request SetCertificateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Configures whether to enable certificates and update certificate information for a website.
      *
-     * @return SetCertificateResponse SetCertificateResponse
+     * @param request - SetCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetCertificateResponse
+     *
+     * @param SetCertificateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SetCertificateResponse
      */
     public function setCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->casId)) {
-            $body['CasId'] = $request->casId;
+        if (null !== $request->casId) {
+            @$body['CasId'] = $request->casId;
         }
-        if (!Utils::isUnset($request->certificate)) {
-            $body['Certificate'] = $request->certificate;
+
+        if (null !== $request->certificate) {
+            @$body['Certificate'] = $request->certificate;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->privateKey)) {
-            $body['PrivateKey'] = $request->privateKey;
+
+        if (null !== $request->privateKey) {
+            @$body['PrivateKey'] = $request->privateKey;
         }
-        if (!Utils::isUnset($request->region)) {
-            $body['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$body['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->update)) {
-            $body['Update'] = $request->update;
+
+        if (null !== $request->update) {
+            @$body['Update'] = $request->update;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SetCertificate',
@@ -9307,16 +14831,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures whether to enable certificates and update certificate information for a website.
-     *  *
-     * @param SetCertificateRequest $request SetCertificateRequest
+     * Configures whether to enable certificates and update certificate information for a website.
      *
-     * @return SetCertificateResponse SetCertificateResponse
+     * @param request - SetCertificateRequest
+     * @returns SetCertificateResponse
+     *
+     * @param SetCertificateRequest $request
+     *
+     * @return SetCertificateResponse
      */
     public function setCertificate($request)
     {
@@ -9326,35 +14856,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
-     *  *
-     * @param SetClientCertificateHostnamesRequest $tmpReq  SetClientCertificateHostnamesRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
      *
-     * @return SetClientCertificateHostnamesResponse SetClientCertificateHostnamesResponse
+     * @param tmpReq - SetClientCertificateHostnamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetClientCertificateHostnamesResponse
+     *
+     * @param SetClientCertificateHostnamesRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SetClientCertificateHostnamesResponse
      */
     public function setClientCertificateHostnamesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SetClientCertificateHostnamesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hostnames)) {
-            $request->hostnamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hostnames, 'Hostnames', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hostnames) {
+            $request->hostnamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hostnames, 'Hostnames', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hostnamesShrink)) {
-            $body['Hostnames'] = $request->hostnamesShrink;
+        if (null !== $request->hostnamesShrink) {
+            @$body['Hostnames'] = $request->hostnamesShrink;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SetClientCertificateHostnames',
@@ -9367,16 +14905,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetClientCertificateHostnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetClientCertificateHostnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetClientCertificateHostnamesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
-     *  *
-     * @param SetClientCertificateHostnamesRequest $request SetClientCertificateHostnamesRequest
+     * Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
      *
-     * @return SetClientCertificateHostnamesResponse SetClientCertificateHostnamesResponse
+     * @param request - SetClientCertificateHostnamesRequest
+     * @returns SetClientCertificateHostnamesResponse
+     *
+     * @param SetClientCertificateHostnamesRequest $request
+     *
+     * @return SetClientCertificateHostnamesResponse
      */
     public function setClientCertificateHostnames($request)
     {
@@ -9386,28 +14930,35 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Configures smart HTTP DDoS protection.
-     *  *
-     * @param SetHttpDDoSAttackIntelligentProtectionRequest $request SetHttpDDoSAttackIntelligentProtectionRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Configures smart HTTP DDoS protection.
      *
-     * @return SetHttpDDoSAttackIntelligentProtectionResponse SetHttpDDoSAttackIntelligentProtectionResponse
+     * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetHttpDDoSAttackIntelligentProtectionResponse
+     *
+     * @param SetHttpDDoSAttackIntelligentProtectionRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SetHttpDDoSAttackIntelligentProtectionResponse
      */
     public function setHttpDDoSAttackIntelligentProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aiMode)) {
-            $query['AiMode'] = $request->aiMode;
+        if (null !== $request->aiMode) {
+            @$query['AiMode'] = $request->aiMode;
         }
-        if (!Utils::isUnset($request->aiTemplate)) {
-            $query['AiTemplate'] = $request->aiTemplate;
+
+        if (null !== $request->aiTemplate) {
+            @$query['AiTemplate'] = $request->aiTemplate;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetHttpDDoSAttackIntelligentProtection',
@@ -9420,16 +14971,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetHttpDDoSAttackIntelligentProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetHttpDDoSAttackIntelligentProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetHttpDDoSAttackIntelligentProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures smart HTTP DDoS protection.
-     *  *
-     * @param SetHttpDDoSAttackIntelligentProtectionRequest $request SetHttpDDoSAttackIntelligentProtectionRequest
+     * Configures smart HTTP DDoS protection.
      *
-     * @return SetHttpDDoSAttackIntelligentProtectionResponse SetHttpDDoSAttackIntelligentProtectionResponse
+     * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
+     * @returns SetHttpDDoSAttackIntelligentProtectionResponse
+     *
+     * @param SetHttpDDoSAttackIntelligentProtectionRequest $request
+     *
+     * @return SetHttpDDoSAttackIntelligentProtectionResponse
      */
     public function setHttpDDoSAttackIntelligentProtection($request)
     {
@@ -9439,25 +14996,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Configures HTTP DDoS attack protection for a website.
-     *  *
-     * @param SetHttpDDoSAttackProtectionRequest $request SetHttpDDoSAttackProtectionRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Configures HTTP DDoS attack protection for a website.
      *
-     * @return SetHttpDDoSAttackProtectionResponse SetHttpDDoSAttackProtectionResponse
+     * @param request - SetHttpDDoSAttackProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetHttpDDoSAttackProtectionResponse
+     *
+     * @param SetHttpDDoSAttackProtectionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetHttpDDoSAttackProtectionResponse
      */
     public function setHttpDDoSAttackProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->globalMode)) {
-            $query['GlobalMode'] = $request->globalMode;
+        if (null !== $request->globalMode) {
+            @$query['GlobalMode'] = $request->globalMode;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetHttpDDoSAttackProtection',
@@ -9470,16 +15033,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetHttpDDoSAttackProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetHttpDDoSAttackProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetHttpDDoSAttackProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures HTTP DDoS attack protection for a website.
-     *  *
-     * @param SetHttpDDoSAttackProtectionRequest $request SetHttpDDoSAttackProtectionRequest
+     * Configures HTTP DDoS attack protection for a website.
      *
-     * @return SetHttpDDoSAttackProtectionResponse SetHttpDDoSAttackProtectionResponse
+     * @param request - SetHttpDDoSAttackProtectionRequest
+     * @returns SetHttpDDoSAttackProtectionResponse
+     *
+     * @param SetHttpDDoSAttackProtectionRequest $request
+     *
+     * @return SetHttpDDoSAttackProtectionResponse
      */
     public function setHttpDDoSAttackProtection($request)
     {
@@ -9489,22 +15058,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Starts a scheduled prefetch plan based on the plan ID.
-     *  *
-     * @param StartScheduledPreloadExecutionRequest $request StartScheduledPreloadExecutionRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Starts a scheduled prefetch plan based on the plan ID.
      *
-     * @return StartScheduledPreloadExecutionResponse StartScheduledPreloadExecutionResponse
+     * @param request - StartScheduledPreloadExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartScheduledPreloadExecutionResponse
+     *
+     * @param StartScheduledPreloadExecutionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return StartScheduledPreloadExecutionResponse
      */
     public function startScheduledPreloadExecutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartScheduledPreloadExecution',
@@ -9517,16 +15091,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartScheduledPreloadExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartScheduledPreloadExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartScheduledPreloadExecutionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts a scheduled prefetch plan based on the plan ID.
-     *  *
-     * @param StartScheduledPreloadExecutionRequest $request StartScheduledPreloadExecutionRequest
+     * Starts a scheduled prefetch plan based on the plan ID.
      *
-     * @return StartScheduledPreloadExecutionResponse StartScheduledPreloadExecutionResponse
+     * @param request - StartScheduledPreloadExecutionRequest
+     * @returns StartScheduledPreloadExecutionResponse
+     *
+     * @param StartScheduledPreloadExecutionRequest $request
+     *
+     * @return StartScheduledPreloadExecutionResponse
      */
     public function startScheduledPreloadExecution($request)
     {
@@ -9536,22 +15116,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Stops a scheduled prefetch plan based on the plan ID.
-     *  *
-     * @param StopScheduledPreloadExecutionRequest $request StopScheduledPreloadExecutionRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Stops a scheduled prefetch plan based on the plan ID.
      *
-     * @return StopScheduledPreloadExecutionResponse StopScheduledPreloadExecutionResponse
+     * @param request - StopScheduledPreloadExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopScheduledPreloadExecutionResponse
+     *
+     * @param StopScheduledPreloadExecutionRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return StopScheduledPreloadExecutionResponse
      */
     public function stopScheduledPreloadExecutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopScheduledPreloadExecution',
@@ -9564,16 +15149,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopScheduledPreloadExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopScheduledPreloadExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopScheduledPreloadExecutionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops a scheduled prefetch plan based on the plan ID.
-     *  *
-     * @param StopScheduledPreloadExecutionRequest $request StopScheduledPreloadExecutionRequest
+     * Stops a scheduled prefetch plan based on the plan ID.
      *
-     * @return StopScheduledPreloadExecutionResponse StopScheduledPreloadExecutionResponse
+     * @param request - StopScheduledPreloadExecutionRequest
+     * @returns StopScheduledPreloadExecutionResponse
+     *
+     * @param StopScheduledPreloadExecutionRequest $request
+     *
+     * @return StopScheduledPreloadExecutionResponse
      */
     public function stopScheduledPreloadExecution($request)
     {
@@ -9583,40 +15174,51 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a resource tag based on a specified resource ID.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a resource tag based on a specified resource ID.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -9629,16 +15231,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a resource tag based on a specified resource ID.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Deletes a resource tag based on a specified resource ID.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -9648,37 +15256,415 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a custom scenario-specific policy.
-     *  *
-     * @param UpdateCustomScenePolicyRequest $request UpdateCustomScenePolicyRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 修改缓存配置.
      *
-     * @return UpdateCustomScenePolicyResponse UpdateCustomScenePolicyResponse
+     * @param request - UpdateCacheRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCacheRuleResponse
+     *
+     * @param UpdateCacheRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateCacheRuleResponse
+     */
+    public function updateCacheRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->additionalCacheablePorts) {
+            @$query['AdditionalCacheablePorts'] = $request->additionalCacheablePorts;
+        }
+
+        if (null !== $request->browserCacheMode) {
+            @$query['BrowserCacheMode'] = $request->browserCacheMode;
+        }
+
+        if (null !== $request->browserCacheTtl) {
+            @$query['BrowserCacheTtl'] = $request->browserCacheTtl;
+        }
+
+        if (null !== $request->bypassCache) {
+            @$query['BypassCache'] = $request->bypassCache;
+        }
+
+        if (null !== $request->cacheDeceptionArmor) {
+            @$query['CacheDeceptionArmor'] = $request->cacheDeceptionArmor;
+        }
+
+        if (null !== $request->cacheReserveEligibility) {
+            @$query['CacheReserveEligibility'] = $request->cacheReserveEligibility;
+        }
+
+        if (null !== $request->checkPresenceCookie) {
+            @$query['CheckPresenceCookie'] = $request->checkPresenceCookie;
+        }
+
+        if (null !== $request->checkPresenceHeader) {
+            @$query['CheckPresenceHeader'] = $request->checkPresenceHeader;
+        }
+
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->edgeCacheMode) {
+            @$query['EdgeCacheMode'] = $request->edgeCacheMode;
+        }
+
+        if (null !== $request->edgeCacheTtl) {
+            @$query['EdgeCacheTtl'] = $request->edgeCacheTtl;
+        }
+
+        if (null !== $request->edgeStatusCodeCacheTtl) {
+            @$query['EdgeStatusCodeCacheTtl'] = $request->edgeStatusCodeCacheTtl;
+        }
+
+        if (null !== $request->includeCookie) {
+            @$query['IncludeCookie'] = $request->includeCookie;
+        }
+
+        if (null !== $request->includeHeader) {
+            @$query['IncludeHeader'] = $request->includeHeader;
+        }
+
+        if (null !== $request->queryString) {
+            @$query['QueryString'] = $request->queryString;
+        }
+
+        if (null !== $request->queryStringMode) {
+            @$query['QueryStringMode'] = $request->queryStringMode;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->serveStale) {
+            @$query['ServeStale'] = $request->serveStale;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->sortQueryStringForCache) {
+            @$query['SortQueryStringForCache'] = $request->sortQueryStringForCache;
+        }
+
+        if (null !== $request->userDeviceType) {
+            @$query['UserDeviceType'] = $request->userDeviceType;
+        }
+
+        if (null !== $request->userGeo) {
+            @$query['UserGeo'] = $request->userGeo;
+        }
+
+        if (null !== $request->userLanguage) {
+            @$query['UserLanguage'] = $request->userLanguage;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCacheRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCacheRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateCacheRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改缓存配置.
+     *
+     * @param request - UpdateCacheRuleRequest
+     * @returns UpdateCacheRuleResponse
+     *
+     * @param UpdateCacheRuleRequest $request
+     *
+     * @return UpdateCacheRuleResponse
+     */
+    public function updateCacheRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCacheRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改站点缓存Tag配置.
+     *
+     * @param request - UpdateCacheTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCacheTagResponse
+     *
+     * @param UpdateCacheTagRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCacheTagResponse
+     */
+    public function updateCacheTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->caseInsensitive) {
+            @$query['CaseInsensitive'] = $request->caseInsensitive;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCacheTag',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCacheTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateCacheTagResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点缓存Tag配置.
+     *
+     * @param request - UpdateCacheTagRequest
+     * @returns UpdateCacheTagResponse
+     *
+     * @param UpdateCacheTagRequest $request
+     *
+     * @return UpdateCacheTagResponse
+     */
+    public function updateCacheTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCacheTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改站点cname拉平配置.
+     *
+     * @param request - UpdateCnameFlatteningRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCnameFlatteningResponse
+     *
+     * @param UpdateCnameFlatteningRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateCnameFlatteningResponse
+     */
+    public function updateCnameFlatteningWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flattenMode) {
+            @$query['FlattenMode'] = $request->flattenMode;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCnameFlattening',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCnameFlatteningResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateCnameFlatteningResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点cname拉平配置.
+     *
+     * @param request - UpdateCnameFlatteningRequest
+     * @returns UpdateCnameFlatteningResponse
+     *
+     * @param UpdateCnameFlatteningRequest $request
+     *
+     * @return UpdateCnameFlatteningResponse
+     */
+    public function updateCnameFlattening($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCnameFlatteningWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改压缩规则.
+     *
+     * @param request - UpdateCompressionRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCompressionRuleResponse
+     *
+     * @param UpdateCompressionRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateCompressionRuleResponse
+     */
+    public function updateCompressionRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brotli) {
+            @$query['Brotli'] = $request->brotli;
+        }
+
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->gzip) {
+            @$query['Gzip'] = $request->gzip;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCompressionRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCompressionRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateCompressionRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改压缩规则.
+     *
+     * @param request - UpdateCompressionRuleRequest
+     * @returns UpdateCompressionRuleResponse
+     *
+     * @param UpdateCompressionRuleRequest $request
+     *
+     * @return UpdateCompressionRuleResponse
+     */
+    public function updateCompressionRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCompressionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the configurations of a custom scenario-specific policy.
+     *
+     * @param request - UpdateCustomScenePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCustomScenePolicyResponse
+     *
+     * @param UpdateCustomScenePolicyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateCustomScenePolicyResponse
      */
     public function updateCustomScenePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->objects)) {
-            $query['Objects'] = $request->objects;
+
+        if (null !== $request->objects) {
+            @$query['Objects'] = $request->objects;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->template)) {
-            $query['Template'] = $request->template;
+
+        if (null !== $request->template) {
+            @$query['Template'] = $request->template;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateCustomScenePolicy',
@@ -9691,16 +15677,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCustomScenePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCustomScenePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a custom scenario-specific policy.
-     *  *
-     * @param UpdateCustomScenePolicyRequest $request UpdateCustomScenePolicyRequest
+     * Modifies the configurations of a custom scenario-specific policy.
      *
-     * @return UpdateCustomScenePolicyResponse UpdateCustomScenePolicyResponse
+     * @param request - UpdateCustomScenePolicyRequest
+     * @returns UpdateCustomScenePolicyResponse
+     *
+     * @param UpdateCustomScenePolicyRequest $request
+     *
+     * @return UpdateCustomScenePolicyResponse
      */
     public function updateCustomScenePolicy($request)
     {
@@ -9710,25 +15702,551 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Updates the name of a namespace in Edge KV.
-     *  *
-     * @param UpdateKvNamespaceRequest $request UpdateKvNamespaceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 修改站点开发者模式配置.
      *
-     * @return UpdateKvNamespaceResponse UpdateKvNamespaceResponse
+     * @param request - UpdateDevelopmentModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDevelopmentModeResponse
+     *
+     * @param UpdateDevelopmentModeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDevelopmentModeResponse
+     */
+    public function updateDevelopmentModeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDevelopmentMode',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDevelopmentModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateDevelopmentModeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点开发者模式配置.
+     *
+     * @param request - UpdateDevelopmentModeRequest
+     * @returns UpdateDevelopmentModeResponse
+     *
+     * @param UpdateDevelopmentModeRequest $request
+     *
+     * @return UpdateDevelopmentModeResponse
+     */
+    public function updateDevelopmentMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDevelopmentModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改HTTP请求头规则.
+     *
+     * @param tmpReq - UpdateHttpRequestHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateHttpRequestHeaderModificationRuleResponse
+     *
+     * @param UpdateHttpRequestHeaderModificationRuleRequest $tmpReq
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return UpdateHttpRequestHeaderModificationRuleResponse
+     */
+    public function updateHttpRequestHeaderModificationRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateHttpRequestHeaderModificationRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->requestHeaderModification) {
+            $request->requestHeaderModificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requestHeaderModification, 'RequestHeaderModification', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->requestHeaderModificationShrink) {
+            @$query['RequestHeaderModification'] = $request->requestHeaderModificationShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateHttpRequestHeaderModificationRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateHttpRequestHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateHttpRequestHeaderModificationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改HTTP请求头规则.
+     *
+     * @param request - UpdateHttpRequestHeaderModificationRuleRequest
+     * @returns UpdateHttpRequestHeaderModificationRuleResponse
+     *
+     * @param UpdateHttpRequestHeaderModificationRuleRequest $request
+     *
+     * @return UpdateHttpRequestHeaderModificationRuleResponse
+     */
+    public function updateHttpRequestHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHttpRequestHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改HTTP响应头规则.
+     *
+     * @param tmpReq - UpdateHttpResponseHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateHttpResponseHeaderModificationRuleResponse
+     *
+     * @param UpdateHttpResponseHeaderModificationRuleRequest $tmpReq
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return UpdateHttpResponseHeaderModificationRuleResponse
+     */
+    public function updateHttpResponseHeaderModificationRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateHttpResponseHeaderModificationRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->responseHeaderModification) {
+            $request->responseHeaderModificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->responseHeaderModification, 'ResponseHeaderModification', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->responseHeaderModificationShrink) {
+            @$query['ResponseHeaderModification'] = $request->responseHeaderModificationShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateHttpResponseHeaderModificationRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateHttpResponseHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateHttpResponseHeaderModificationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改HTTP响应头规则.
+     *
+     * @param request - UpdateHttpResponseHeaderModificationRuleRequest
+     * @returns UpdateHttpResponseHeaderModificationRuleResponse
+     *
+     * @param UpdateHttpResponseHeaderModificationRuleRequest $request
+     *
+     * @return UpdateHttpResponseHeaderModificationRuleResponse
+     */
+    public function updateHttpResponseHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHttpResponseHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改HTTPS应用配置.
+     *
+     * @param request - UpdateHttpsApplicationConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateHttpsApplicationConfigurationResponse
+     *
+     * @param UpdateHttpsApplicationConfigurationRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateHttpsApplicationConfigurationResponse
+     */
+    public function updateHttpsApplicationConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->altSvc) {
+            @$query['AltSvc'] = $request->altSvc;
+        }
+
+        if (null !== $request->altSvcClear) {
+            @$query['AltSvcClear'] = $request->altSvcClear;
+        }
+
+        if (null !== $request->altSvcMa) {
+            @$query['AltSvcMa'] = $request->altSvcMa;
+        }
+
+        if (null !== $request->altSvcPersist) {
+            @$query['AltSvcPersist'] = $request->altSvcPersist;
+        }
+
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->hsts) {
+            @$query['Hsts'] = $request->hsts;
+        }
+
+        if (null !== $request->hstsIncludeSubdomains) {
+            @$query['HstsIncludeSubdomains'] = $request->hstsIncludeSubdomains;
+        }
+
+        if (null !== $request->hstsMaxAge) {
+            @$query['HstsMaxAge'] = $request->hstsMaxAge;
+        }
+
+        if (null !== $request->hstsPreload) {
+            @$query['HstsPreload'] = $request->hstsPreload;
+        }
+
+        if (null !== $request->httpsForce) {
+            @$query['HttpsForce'] = $request->httpsForce;
+        }
+
+        if (null !== $request->httpsForceCode) {
+            @$query['HttpsForceCode'] = $request->httpsForceCode;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateHttpsApplicationConfiguration',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateHttpsApplicationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateHttpsApplicationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改HTTPS应用配置.
+     *
+     * @param request - UpdateHttpsApplicationConfigurationRequest
+     * @returns UpdateHttpsApplicationConfigurationResponse
+     *
+     * @param UpdateHttpsApplicationConfigurationRequest $request
+     *
+     * @return UpdateHttpsApplicationConfigurationResponse
+     */
+    public function updateHttpsApplicationConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHttpsApplicationConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改HTTPS基础配置.
+     *
+     * @param request - UpdateHttpsBasicConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateHttpsBasicConfigurationResponse
+     *
+     * @param UpdateHttpsBasicConfigurationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateHttpsBasicConfigurationResponse
+     */
+    public function updateHttpsBasicConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ciphersuite) {
+            @$query['Ciphersuite'] = $request->ciphersuite;
+        }
+
+        if (null !== $request->ciphersuiteGroup) {
+            @$query['CiphersuiteGroup'] = $request->ciphersuiteGroup;
+        }
+
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->http2) {
+            @$query['Http2'] = $request->http2;
+        }
+
+        if (null !== $request->http3) {
+            @$query['Http3'] = $request->http3;
+        }
+
+        if (null !== $request->https) {
+            @$query['Https'] = $request->https;
+        }
+
+        if (null !== $request->ocspStapling) {
+            @$query['OcspStapling'] = $request->ocspStapling;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->tls10) {
+            @$query['Tls10'] = $request->tls10;
+        }
+
+        if (null !== $request->tls11) {
+            @$query['Tls11'] = $request->tls11;
+        }
+
+        if (null !== $request->tls12) {
+            @$query['Tls12'] = $request->tls12;
+        }
+
+        if (null !== $request->tls13) {
+            @$query['Tls13'] = $request->tls13;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateHttpsBasicConfiguration',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateHttpsBasicConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateHttpsBasicConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改HTTPS基础配置.
+     *
+     * @param request - UpdateHttpsBasicConfigurationRequest
+     * @returns UpdateHttpsBasicConfigurationResponse
+     *
+     * @param UpdateHttpsBasicConfigurationRequest $request
+     *
+     * @return UpdateHttpsBasicConfigurationResponse
+     */
+    public function updateHttpsBasicConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHttpsBasicConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改站点IPv6配置.
+     *
+     * @param request - UpdateIPv6Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateIPv6Response
+     *
+     * @param UpdateIPv6Request $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateIPv6Response
+     */
+    public function updateIPv6WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIPv6',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateIPv6Response::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateIPv6Response::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点IPv6配置.
+     *
+     * @param request - UpdateIPv6Request
+     * @returns UpdateIPv6Response
+     *
+     * @param UpdateIPv6Request $request
+     *
+     * @return UpdateIPv6Response
+     */
+    public function updateIPv6($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIPv6WithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the name of a namespace in Edge KV.
+     *
+     * @param request - UpdateKvNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateKvNamespaceResponse
+     *
+     * @param UpdateKvNamespaceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateKvNamespaceResponse
      */
     public function updateKvNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateKvNamespace',
@@ -9741,16 +16259,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateKvNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the name of a namespace in Edge KV.
-     *  *
-     * @param UpdateKvNamespaceRequest $request UpdateKvNamespaceRequest
+     * Updates the name of a namespace in Edge KV.
      *
-     * @return UpdateKvNamespaceResponse UpdateKvNamespaceResponse
+     * @param request - UpdateKvNamespaceRequest
+     * @returns UpdateKvNamespaceResponse
+     *
+     * @param UpdateKvNamespaceRequest $request
+     *
+     * @return UpdateKvNamespaceResponse
      */
     public function updateKvNamespace($request)
     {
@@ -9760,36 +16284,331 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改监视器
-     *  *
-     * @param UpdateOriginPoolRequest $tmpReq  UpdateOriginPoolRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Updates a custom list.
      *
-     * @return UpdateOriginPoolResponse UpdateOriginPoolResponse
+     * @param tmpReq - UpdateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateListResponse
+     *
+     * @param UpdateListRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateListResponse
+     */
+    public function updateListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->items) {
+            $request->itemsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->items, 'Items', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->itemsShrink) {
+            @$body['Items'] = $request->itemsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateList',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateListResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a custom list.
+     *
+     * @param request - UpdateListRequest
+     * @returns UpdateListResponse
+     *
+     * @param UpdateListRequest $request
+     *
+     * @return UpdateListResponse
+     */
+    public function updateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改负载均衡器.
+     *
+     * @param tmpReq - UpdateLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLoadBalancerResponse
+     *
+     * @param UpdateLoadBalancerRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateLoadBalancerResponse
+     */
+    public function updateLoadBalancerWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateLoadBalancerShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->adaptiveRouting) {
+            $request->adaptiveRoutingShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->adaptiveRouting, 'AdaptiveRouting', 'json');
+        }
+
+        if (null !== $tmpReq->defaultPools) {
+            $request->defaultPoolsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->defaultPools, 'DefaultPools', 'json');
+        }
+
+        if (null !== $tmpReq->monitor) {
+            $request->monitorShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->monitor, 'Monitor', 'json');
+        }
+
+        if (null !== $tmpReq->randomSteering) {
+            $request->randomSteeringShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->randomSteering, 'RandomSteering', 'json');
+        }
+
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        if (null !== $tmpReq->sessionAffinityAttributes) {
+            $request->sessionAffinityAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sessionAffinityAttributes, 'SessionAffinityAttributes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->adaptiveRoutingShrink) {
+            @$query['AdaptiveRouting'] = $request->adaptiveRoutingShrink;
+        }
+
+        if (null !== $request->defaultPoolsShrink) {
+            @$query['DefaultPools'] = $request->defaultPoolsShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->fallbackPool) {
+            @$query['FallbackPool'] = $request->fallbackPool;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->monitorShrink) {
+            @$query['Monitor'] = $request->monitorShrink;
+        }
+
+        if (null !== $request->randomSteeringShrink) {
+            @$query['RandomSteering'] = $request->randomSteeringShrink;
+        }
+
+        if (null !== $request->regionPools) {
+            @$query['RegionPools'] = $request->regionPools;
+        }
+
+        if (null !== $request->rulesShrink) {
+            @$query['Rules'] = $request->rulesShrink;
+        }
+
+        if (null !== $request->sessionAffinity) {
+            @$query['SessionAffinity'] = $request->sessionAffinity;
+        }
+
+        if (null !== $request->sessionAffinityAttributesShrink) {
+            @$query['SessionAffinityAttributes'] = $request->sessionAffinityAttributesShrink;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->steeringPolicy) {
+            @$query['SteeringPolicy'] = $request->steeringPolicy;
+        }
+
+        if (null !== $request->subRegionPools) {
+            @$query['SubRegionPools'] = $request->subRegionPools;
+        }
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLoadBalancer',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改负载均衡器.
+     *
+     * @param request - UpdateLoadBalancerRequest
+     * @returns UpdateLoadBalancerResponse
+     *
+     * @param UpdateLoadBalancerRequest $request
+     *
+     * @return UpdateLoadBalancerResponse
+     */
+    public function updateLoadBalancer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLoadBalancerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改站点托管转换配置.
+     *
+     * @param request - UpdateManagedTransformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateManagedTransformResponse
+     *
+     * @param UpdateManagedTransformRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateManagedTransformResponse
+     */
+    public function updateManagedTransformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addClientGeolocationHeader) {
+            @$query['AddClientGeolocationHeader'] = $request->addClientGeolocationHeader;
+        }
+
+        if (null !== $request->addRealClientIpHeader) {
+            @$query['AddRealClientIpHeader'] = $request->addRealClientIpHeader;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateManagedTransform',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateManagedTransformResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateManagedTransformResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点托管转换配置.
+     *
+     * @param request - UpdateManagedTransformRequest
+     * @returns UpdateManagedTransformResponse
+     *
+     * @param UpdateManagedTransformRequest $request
+     *
+     * @return UpdateManagedTransformResponse
+     */
+    public function updateManagedTransform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateManagedTransformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改监视器.
+     *
+     * @param tmpReq - UpdateOriginPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateOriginPoolResponse
+     *
+     * @param UpdateOriginPoolRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateOriginPoolResponse
      */
     public function updateOriginPoolWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateOriginPoolShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->origins)) {
-            $request->originsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->origins, 'Origins', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->origins) {
+            $request->originsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->origins, 'Origins', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->originsShrink)) {
-            $query['Origins'] = $request->originsShrink;
+
+        if (null !== $request->originsShrink) {
+            @$query['Origins'] = $request->originsShrink;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateOriginPool',
@@ -9802,16 +16621,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateOriginPoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改监视器
-     *  *
-     * @param UpdateOriginPoolRequest $request UpdateOriginPoolRequest
+     * 修改监视器.
      *
-     * @return UpdateOriginPoolResponse UpdateOriginPoolResponse
+     * @param request - UpdateOriginPoolRequest
+     * @returns UpdateOriginPoolResponse
+     *
+     * @param UpdateOriginPoolRequest $request
+     *
+     * @return UpdateOriginPoolResponse
      */
     public function updateOriginPool($request)
     {
@@ -9821,25 +16646,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables IP convergence.
-     *  *
-     * @param UpdateOriginProtectionRequest $request UpdateOriginProtectionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Enables or disables IP convergence.
      *
-     * @return UpdateOriginProtectionResponse UpdateOriginProtectionResponse
+     * @param request - UpdateOriginProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateOriginProtectionResponse
+     *
+     * @param UpdateOriginProtectionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateOriginProtectionResponse
      */
     public function updateOriginProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->originConverge)) {
-            $query['OriginConverge'] = $request->originConverge;
+        if (null !== $request->originConverge) {
+            @$query['OriginConverge'] = $request->originConverge;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateOriginProtection',
@@ -9852,16 +16683,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateOriginProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateOriginProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables IP convergence.
-     *  *
-     * @param UpdateOriginProtectionRequest $request UpdateOriginProtectionRequest
+     * Enables or disables IP convergence.
      *
-     * @return UpdateOriginProtectionResponse UpdateOriginProtectionResponse
+     * @param request - UpdateOriginProtectionRequest
+     * @returns UpdateOriginProtectionResponse
+     *
+     * @param UpdateOriginProtectionRequest $request
+     *
+     * @return UpdateOriginProtectionResponse
      */
     public function updateOriginProtection($request)
     {
@@ -9871,22 +16708,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Updates the IP whitelist for origin protection used by a website to the latest version.
-     *  *
-     * @param UpdateOriginProtectionIpWhiteListRequest $request UpdateOriginProtectionIpWhiteListRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Updates the IP whitelist for origin protection used by a website to the latest version.
      *
-     * @return UpdateOriginProtectionIpWhiteListResponse UpdateOriginProtectionIpWhiteListResponse
+     * @param request - UpdateOriginProtectionIpWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateOriginProtectionIpWhiteListResponse
+     *
+     * @param UpdateOriginProtectionIpWhiteListRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateOriginProtectionIpWhiteListResponse
      */
     public function updateOriginProtectionIpWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateOriginProtectionIpWhiteList',
@@ -9899,16 +16741,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateOriginProtectionIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateOriginProtectionIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateOriginProtectionIpWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the IP whitelist for origin protection used by a website to the latest version.
-     *  *
-     * @param UpdateOriginProtectionIpWhiteListRequest $request UpdateOriginProtectionIpWhiteListRequest
+     * Updates the IP whitelist for origin protection used by a website to the latest version.
      *
-     * @return UpdateOriginProtectionIpWhiteListResponse UpdateOriginProtectionIpWhiteListResponse
+     * @param request - UpdateOriginProtectionIpWhiteListRequest
+     * @returns UpdateOriginProtectionIpWhiteListResponse
+     *
+     * @param UpdateOriginProtectionIpWhiteListRequest $request
+     *
+     * @return UpdateOriginProtectionIpWhiteListResponse
      */
     public function updateOriginProtectionIpWhiteList($request)
     {
@@ -9918,34 +16766,145 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
-     *  *
-     * @param UpdatePageRequest $request UpdatePageRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 修改站点回源规则配置.
      *
-     * @return UpdatePageResponse UpdatePageResponse
+     * @param request - UpdateOriginRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateOriginRuleResponse
+     *
+     * @param UpdateOriginRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateOriginRuleResponse
+     */
+    public function updateOriginRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->dnsRecord) {
+            @$query['DnsRecord'] = $request->dnsRecord;
+        }
+
+        if (null !== $request->originHost) {
+            @$query['OriginHost'] = $request->originHost;
+        }
+
+        if (null !== $request->originHttpPort) {
+            @$query['OriginHttpPort'] = $request->originHttpPort;
+        }
+
+        if (null !== $request->originHttpsPort) {
+            @$query['OriginHttpsPort'] = $request->originHttpsPort;
+        }
+
+        if (null !== $request->originScheme) {
+            @$query['OriginScheme'] = $request->originScheme;
+        }
+
+        if (null !== $request->originSni) {
+            @$query['OriginSni'] = $request->originSni;
+        }
+
+        if (null !== $request->range) {
+            @$query['Range'] = $request->range;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOriginRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateOriginRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateOriginRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点回源规则配置.
+     *
+     * @param request - UpdateOriginRuleRequest
+     * @returns UpdateOriginRuleResponse
+     *
+     * @param UpdateOriginRuleRequest $request
+     *
+     * @return UpdateOriginRuleResponse
+     */
+    public function updateOriginRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOriginRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
+     *
+     * @param request - UpdatePageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePageResponse
+     *
+     * @param UpdatePageRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdatePageResponse
      */
     public function updatePageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $body['ContentType'] = $request->contentType;
+
+        if (null !== $request->contentType) {
+            @$body['ContentType'] = $request->contentType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdatePage',
@@ -9958,16 +16917,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
-     *  *
-     * @param UpdatePageRequest $request UpdatePageRequest
+     * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
      *
-     * @return UpdatePageResponse UpdatePageResponse
+     * @param request - UpdatePageRequest
+     * @returns UpdatePageResponse
+     *
+     * @param UpdatePageRequest $request
+     *
+     * @return UpdatePageResponse
      */
     public function updatePage($request)
     {
@@ -9977,62 +16942,78 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Updates multiple types of DNS records and origin authentication configurations.
-     *  *
-     * @description This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
+     * Updates multiple types of DNS records and origin authentication configurations.
+     *
+     * @remarks
+     * This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
      * ### [](#)Usage notes
      * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
      * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
      * *   You must specify specific fields such as Flag and Tag for CAA records.
      * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
      * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
-     *  *
-     * @param UpdateRecordRequest $tmpReq  UpdateRecordRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRecordResponse UpdateRecordResponse
+     * @param tmpReq - UpdateRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRecordResponse
+     *
+     * @param UpdateRecordRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateRecordResponse
      */
     public function updateRecordWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateRecordShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->authConf)) {
-            $request->authConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->authConf, 'AuthConf', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->authConf) {
+            $request->authConfShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->authConf, 'AuthConf', 'json');
         }
-        if (!Utils::isUnset($tmpReq->data)) {
-            $request->dataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->data, 'Data', 'json');
+
+        if (null !== $tmpReq->data) {
+            $request->dataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->data, 'Data', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->authConfShrink)) {
-            $query['AuthConf'] = $request->authConfShrink;
+        if (null !== $request->authConfShrink) {
+            @$query['AuthConf'] = $request->authConfShrink;
         }
-        if (!Utils::isUnset($request->bizName)) {
-            $query['BizName'] = $request->bizName;
+
+        if (null !== $request->bizName) {
+            @$query['BizName'] = $request->bizName;
         }
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->dataShrink)) {
-            $query['Data'] = $request->dataShrink;
+
+        if (null !== $request->dataShrink) {
+            @$query['Data'] = $request->dataShrink;
         }
-        if (!Utils::isUnset($request->hostPolicy)) {
-            $query['HostPolicy'] = $request->hostPolicy;
+
+        if (null !== $request->hostPolicy) {
+            @$query['HostPolicy'] = $request->hostPolicy;
         }
-        if (!Utils::isUnset($request->proxied)) {
-            $query['Proxied'] = $request->proxied;
+
+        if (null !== $request->proxied) {
+            @$query['Proxied'] = $request->proxied;
         }
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateRecord',
@@ -10045,24 +17026,31 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates multiple types of DNS records and origin authentication configurations.
-     *  *
-     * @description This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
+     * Updates multiple types of DNS records and origin authentication configurations.
+     *
+     * @remarks
+     * This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
      * ### [](#)Usage notes
      * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
      * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
      * *   You must specify specific fields such as Flag and Tag for CAA records.
      * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
      * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
-     *  *
-     * @param UpdateRecordRequest $request UpdateRecordRequest
      *
-     * @return UpdateRecordResponse UpdateRecordResponse
+     * @param request - UpdateRecordRequest
+     * @returns UpdateRecordResponse
+     *
+     * @param UpdateRecordRequest $request
+     *
+     * @return UpdateRecordResponse
      */
     public function updateRecord($request)
     {
@@ -10072,36 +17060,225 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Updates a scheduled prefetch plan based on the plan ID.
-     *  *
-     * @param UpdateScheduledPreloadExecutionRequest $request UpdateScheduledPreloadExecutionRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 更新重定向规则.
      *
-     * @return UpdateScheduledPreloadExecutionResponse UpdateScheduledPreloadExecutionResponse
+     * @param request - UpdateRedirectRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRedirectRuleResponse
+     *
+     * @param UpdateRedirectRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateRedirectRuleResponse
+     */
+    public function updateRedirectRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->reserveQueryString) {
+            @$query['ReserveQueryString'] = $request->reserveQueryString;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->statusCode) {
+            @$query['StatusCode'] = $request->statusCode;
+        }
+
+        if (null !== $request->targetUrl) {
+            @$query['TargetUrl'] = $request->targetUrl;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRedirectRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRedirectRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateRedirectRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新重定向规则.
+     *
+     * @param request - UpdateRedirectRuleRequest
+     * @returns UpdateRedirectRuleResponse
+     *
+     * @param UpdateRedirectRuleRequest $request
+     *
+     * @return UpdateRedirectRuleResponse
+     */
+    public function updateRedirectRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRedirectRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改重写Url规则.
+     *
+     * @param request - UpdateRewriteUrlRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRewriteUrlRuleResponse
+     *
+     * @param UpdateRewriteUrlRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateRewriteUrlRuleResponse
+     */
+    public function updateRewriteUrlRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->queryString) {
+            @$query['QueryString'] = $request->queryString;
+        }
+
+        if (null !== $request->rewriteQueryStringType) {
+            @$query['RewriteQueryStringType'] = $request->rewriteQueryStringType;
+        }
+
+        if (null !== $request->rewriteUriType) {
+            @$query['RewriteUriType'] = $request->rewriteUriType;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->uri) {
+            @$query['Uri'] = $request->uri;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRewriteUrlRule',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRewriteUrlRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateRewriteUrlRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改重写Url规则.
+     *
+     * @param request - UpdateRewriteUrlRuleRequest
+     * @returns UpdateRewriteUrlRuleResponse
+     *
+     * @param UpdateRewriteUrlRuleRequest $request
+     *
+     * @return UpdateRewriteUrlRuleResponse
+     */
+    public function updateRewriteUrlRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRewriteUrlRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a scheduled prefetch plan based on the plan ID.
+     *
+     * @param request - UpdateScheduledPreloadExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateScheduledPreloadExecutionResponse
+     *
+     * @param UpdateScheduledPreloadExecutionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateScheduledPreloadExecutionResponse
      */
     public function updateScheduledPreloadExecutionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $body['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$body['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->sliceLen)) {
-            $body['SliceLen'] = $request->sliceLen;
+
+        if (null !== $request->sliceLen) {
+            @$body['SliceLen'] = $request->sliceLen;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateScheduledPreloadExecution',
@@ -10114,16 +17291,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateScheduledPreloadExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateScheduledPreloadExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateScheduledPreloadExecutionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a scheduled prefetch plan based on the plan ID.
-     *  *
-     * @param UpdateScheduledPreloadExecutionRequest $request UpdateScheduledPreloadExecutionRequest
+     * Updates a scheduled prefetch plan based on the plan ID.
      *
-     * @return UpdateScheduledPreloadExecutionResponse UpdateScheduledPreloadExecutionResponse
+     * @param request - UpdateScheduledPreloadExecutionRequest
+     * @returns UpdateScheduledPreloadExecutionResponse
+     *
+     * @param UpdateScheduledPreloadExecutionRequest $request
+     *
+     * @return UpdateScheduledPreloadExecutionResponse
      */
     public function updateScheduledPreloadExecution($request)
     {
@@ -10133,29 +17316,98 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Converts the DNS setup option of a website.
-     *  *
-     * @description When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
+     * 修改站点放行搜索引擎爬虫配置.
+     *
+     * @param request - UpdateSeoBypassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSeoBypassResponse
+     *
+     * @param UpdateSeoBypassRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateSeoBypassResponse
+     */
+    public function updateSeoBypassWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSeoBypass',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSeoBypassResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateSeoBypassResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点放行搜索引擎爬虫配置.
+     *
+     * @param request - UpdateSeoBypassRequest
+     * @returns UpdateSeoBypassResponse
+     *
+     * @param UpdateSeoBypassRequest $request
+     *
+     * @return UpdateSeoBypassResponse
+     */
+    public function updateSeoBypass($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSeoBypassWithOptions($request, $runtime);
+    }
+
+    /**
+     * Converts the DNS setup option of a website.
+     *
+     * @remarks
+     * When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
      * *   The website only has proxied A/AAAA and CNAME records.
      * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
-     *  *
-     * @param UpdateSiteAccessTypeRequest $request UpdateSiteAccessTypeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSiteAccessTypeResponse UpdateSiteAccessTypeResponse
+     * @param request - UpdateSiteAccessTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSiteAccessTypeResponse
+     *
+     * @param UpdateSiteAccessTypeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateSiteAccessTypeResponse
      */
     public function updateSiteAccessTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessType)) {
-            $query['AccessType'] = $request->accessType;
+        if (null !== $request->accessType) {
+            @$query['AccessType'] = $request->accessType;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSiteAccessType',
@@ -10168,20 +17420,27 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSiteAccessTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSiteAccessTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSiteAccessTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Converts the DNS setup option of a website.
-     *  *
-     * @description When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
+     * Converts the DNS setup option of a website.
+     *
+     * @remarks
+     * When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
      * *   The website only has proxied A/AAAA and CNAME records.
      * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
-     *  *
-     * @param UpdateSiteAccessTypeRequest $request UpdateSiteAccessTypeRequest
      *
-     * @return UpdateSiteAccessTypeResponse UpdateSiteAccessTypeResponse
+     * @param request - UpdateSiteAccessTypeRequest
+     * @returns UpdateSiteAccessTypeResponse
+     *
+     * @param UpdateSiteAccessTypeRequest $request
+     *
+     * @return UpdateSiteAccessTypeResponse
      */
     public function updateSiteAccessType($request)
     {
@@ -10191,25 +17450,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
-     *  *
-     * @param UpdateSiteCoverageRequest $request UpdateSiteCoverageRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
      *
-     * @return UpdateSiteCoverageResponse UpdateSiteCoverageResponse
+     * @param request - UpdateSiteCoverageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSiteCoverageResponse
+     *
+     * @param UpdateSiteCoverageRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateSiteCoverageResponse
      */
     public function updateSiteCoverageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->coverage)) {
-            $query['Coverage'] = $request->coverage;
+        if (null !== $request->coverage) {
+            @$query['Coverage'] = $request->coverage;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSiteCoverage',
@@ -10222,16 +17487,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSiteCoverageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSiteCoverageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSiteCoverageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
-     *  *
-     * @param UpdateSiteCoverageRequest $request UpdateSiteCoverageRequest
+     * Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
      *
-     * @return UpdateSiteCoverageResponse UpdateSiteCoverageResponse
+     * @param request - UpdateSiteCoverageRequest
+     * @returns UpdateSiteCoverageResponse
+     *
+     * @param UpdateSiteCoverageRequest $request
+     *
+     * @return UpdateSiteCoverageResponse
      */
     public function updateSiteCoverage($request)
     {
@@ -10241,42 +17512,53 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
-     *  *
-     * @param UpdateSiteCustomLogRequest $tmpReq  UpdateSiteCustomLogRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
      *
-     * @return UpdateSiteCustomLogResponse UpdateSiteCustomLogResponse
+     * @param tmpReq - UpdateSiteCustomLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSiteCustomLogResponse
+     *
+     * @param UpdateSiteCustomLogRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateSiteCustomLogResponse
      */
     public function updateSiteCustomLogWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateSiteCustomLogShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cookies)) {
-            $request->cookiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cookies, 'Cookies', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cookies) {
+            $request->cookiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cookies, 'Cookies', 'json');
         }
-        if (!Utils::isUnset($tmpReq->requestHeaders)) {
-            $request->requestHeadersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->requestHeaders, 'RequestHeaders', 'json');
+
+        if (null !== $tmpReq->requestHeaders) {
+            $request->requestHeadersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requestHeaders, 'RequestHeaders', 'json');
         }
-        if (!Utils::isUnset($tmpReq->responseHeaders)) {
-            $request->responseHeadersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->responseHeaders, 'ResponseHeaders', 'json');
+
+        if (null !== $tmpReq->responseHeaders) {
+            $request->responseHeadersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->responseHeaders, 'ResponseHeaders', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cookiesShrink)) {
-            $body['Cookies'] = $request->cookiesShrink;
+        if (null !== $request->cookiesShrink) {
+            @$body['Cookies'] = $request->cookiesShrink;
         }
-        if (!Utils::isUnset($request->requestHeadersShrink)) {
-            $body['RequestHeaders'] = $request->requestHeadersShrink;
+
+        if (null !== $request->requestHeadersShrink) {
+            @$body['RequestHeaders'] = $request->requestHeadersShrink;
         }
-        if (!Utils::isUnset($request->responseHeadersShrink)) {
-            $body['ResponseHeaders'] = $request->responseHeadersShrink;
+
+        if (null !== $request->responseHeadersShrink) {
+            @$body['ResponseHeaders'] = $request->responseHeadersShrink;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateSiteCustomLog',
@@ -10289,16 +17571,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSiteCustomLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSiteCustomLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSiteCustomLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
-     *  *
-     * @param UpdateSiteCustomLogRequest $request UpdateSiteCustomLogRequest
+     * Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
      *
-     * @return UpdateSiteCustomLogResponse UpdateSiteCustomLogResponse
+     * @param request - UpdateSiteCustomLogRequest
+     * @returns UpdateSiteCustomLogResponse
+     *
+     * @param UpdateSiteCustomLogRequest $request
+     *
+     * @return UpdateSiteCustomLogResponse
      */
     public function updateSiteCustomLog($request)
     {
@@ -10308,34 +17596,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a real-time log delivery task.
-     *  *
-     * @param UpdateSiteDeliveryTaskRequest $request UpdateSiteDeliveryTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies a real-time log delivery task.
      *
-     * @return UpdateSiteDeliveryTaskResponse UpdateSiteDeliveryTaskResponse
+     * @param request - UpdateSiteDeliveryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSiteDeliveryTaskResponse
+     *
+     * @param UpdateSiteDeliveryTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateSiteDeliveryTaskResponse
      */
     public function updateSiteDeliveryTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $body['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$body['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->discardRate)) {
-            $body['DiscardRate'] = $request->discardRate;
+
+        if (null !== $request->discardRate) {
+            @$body['DiscardRate'] = $request->discardRate;
         }
-        if (!Utils::isUnset($request->fieldName)) {
-            $body['FieldName'] = $request->fieldName;
+
+        if (null !== $request->fieldName) {
+            @$body['FieldName'] = $request->fieldName;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $body['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$body['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateSiteDeliveryTask',
@@ -10348,16 +17645,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSiteDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSiteDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSiteDeliveryTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a real-time log delivery task.
-     *  *
-     * @param UpdateSiteDeliveryTaskRequest $request UpdateSiteDeliveryTaskRequest
+     * Modifies a real-time log delivery task.
      *
-     * @return UpdateSiteDeliveryTaskResponse UpdateSiteDeliveryTaskResponse
+     * @param request - UpdateSiteDeliveryTaskRequest
+     * @returns UpdateSiteDeliveryTaskResponse
+     *
+     * @param UpdateSiteDeliveryTaskRequest $request
+     *
+     * @return UpdateSiteDeliveryTaskResponse
      */
     public function updateSiteDeliveryTask($request)
     {
@@ -10367,19 +17670,23 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Changes the status of a real-time log delivery task.
-     *  *
-     * @param UpdateSiteDeliveryTaskStatusRequest $request UpdateSiteDeliveryTaskStatusRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Changes the status of a real-time log delivery task.
      *
-     * @return UpdateSiteDeliveryTaskStatusResponse UpdateSiteDeliveryTaskStatusResponse
+     * @param request - UpdateSiteDeliveryTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSiteDeliveryTaskStatusResponse
+     *
+     * @param UpdateSiteDeliveryTaskStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateSiteDeliveryTaskStatusResponse
      */
     public function updateSiteDeliveryTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSiteDeliveryTaskStatus',
@@ -10392,16 +17699,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSiteDeliveryTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSiteDeliveryTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSiteDeliveryTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the status of a real-time log delivery task.
-     *  *
-     * @param UpdateSiteDeliveryTaskStatusRequest $request UpdateSiteDeliveryTaskStatusRequest
+     * Changes the status of a real-time log delivery task.
      *
-     * @return UpdateSiteDeliveryTaskStatusResponse UpdateSiteDeliveryTaskStatusResponse
+     * @param request - UpdateSiteDeliveryTaskStatusRequest
+     * @returns UpdateSiteDeliveryTaskStatusResponse
+     *
+     * @param UpdateSiteDeliveryTaskStatusRequest $request
+     *
+     * @return UpdateSiteDeliveryTaskStatusResponse
      */
     public function updateSiteDeliveryTaskStatus($request)
     {
@@ -10411,25 +17724,93 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Updates the custom nameserver names for a single website.
-     *  *
-     * @param UpdateSiteVanityNSRequest $request UpdateSiteVanityNSRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 修改站点名称独占配置.
      *
-     * @return UpdateSiteVanityNSResponse UpdateSiteVanityNSResponse
+     * @param request - UpdateSiteNameExclusiveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSiteNameExclusiveResponse
+     *
+     * @param UpdateSiteNameExclusiveRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateSiteNameExclusiveResponse
+     */
+    public function updateSiteNameExclusiveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSiteNameExclusive',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSiteNameExclusiveResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateSiteNameExclusiveResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点名称独占配置.
+     *
+     * @param request - UpdateSiteNameExclusiveRequest
+     * @returns UpdateSiteNameExclusiveResponse
+     *
+     * @param UpdateSiteNameExclusiveRequest $request
+     *
+     * @return UpdateSiteNameExclusiveResponse
+     */
+    public function updateSiteNameExclusive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSiteNameExclusiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the custom nameserver names for a single website.
+     *
+     * @param request - UpdateSiteVanityNSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSiteVanityNSResponse
+     *
+     * @param UpdateSiteVanityNSRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateSiteVanityNSResponse
      */
     public function updateSiteVanityNSWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->vanityNSList)) {
-            $query['VanityNSList'] = $request->vanityNSList;
+
+        if (null !== $request->vanityNSList) {
+            @$query['VanityNSList'] = $request->vanityNSList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSiteVanityNS',
@@ -10442,16 +17823,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSiteVanityNSResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSiteVanityNSResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSiteVanityNSResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the custom nameserver names for a single website.
-     *  *
-     * @param UpdateSiteVanityNSRequest $request UpdateSiteVanityNSRequest
+     * Updates the custom nameserver names for a single website.
      *
-     * @return UpdateSiteVanityNSResponse UpdateSiteVanityNSResponse
+     * @param request - UpdateSiteVanityNSRequest
+     * @returns UpdateSiteVanityNSResponse
+     *
+     * @param UpdateSiteVanityNSRequest $request
+     *
+     * @return UpdateSiteVanityNSResponse
      */
     public function updateSiteVanityNS($request)
     {
@@ -10461,34 +17848,105 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
-     *  *
-     * @param UpdateUserDeliveryTaskRequest $request UpdateUserDeliveryTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 修改站点多级缓存配置.
      *
-     * @return UpdateUserDeliveryTaskResponse UpdateUserDeliveryTaskResponse
+     * @param request - UpdateTieredCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTieredCacheResponse
+     *
+     * @param UpdateTieredCacheRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateTieredCacheResponse
+     */
+    public function updateTieredCacheWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cacheArchitectureMode) {
+            @$query['CacheArchitectureMode'] = $request->cacheArchitectureMode;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTieredCache',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTieredCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateTieredCacheResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点多级缓存配置.
+     *
+     * @param request - UpdateTieredCacheRequest
+     * @returns UpdateTieredCacheResponse
+     *
+     * @param UpdateTieredCacheRequest $request
+     *
+     * @return UpdateTieredCacheResponse
+     */
+    public function updateTieredCache($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTieredCacheWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
+     *
+     * @param request - UpdateUserDeliveryTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateUserDeliveryTaskResponse
+     *
+     * @param UpdateUserDeliveryTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateUserDeliveryTaskResponse
      */
     public function updateUserDeliveryTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $body['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$body['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->details)) {
-            $body['Details'] = $request->details;
+
+        if (null !== $request->details) {
+            @$body['Details'] = $request->details;
         }
-        if (!Utils::isUnset($request->discardRate)) {
-            $body['DiscardRate'] = $request->discardRate;
+
+        if (null !== $request->discardRate) {
+            @$body['DiscardRate'] = $request->discardRate;
         }
-        if (!Utils::isUnset($request->fieldName)) {
-            $body['FieldName'] = $request->fieldName;
+
+        if (null !== $request->fieldName) {
+            @$body['FieldName'] = $request->fieldName;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateUserDeliveryTask',
@@ -10501,16 +17959,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateUserDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserDeliveryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserDeliveryTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
-     *  *
-     * @param UpdateUserDeliveryTaskRequest $request UpdateUserDeliveryTaskRequest
+     * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
      *
-     * @return UpdateUserDeliveryTaskResponse UpdateUserDeliveryTaskResponse
+     * @param request - UpdateUserDeliveryTaskRequest
+     * @returns UpdateUserDeliveryTaskResponse
+     *
+     * @param UpdateUserDeliveryTaskRequest $request
+     *
+     * @return UpdateUserDeliveryTaskResponse
      */
     public function updateUserDeliveryTask($request)
     {
@@ -10520,22 +17984,27 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Changes the status of a delivery task in your Alibaba Cloud account.
-     *  *
-     * @description ## [](#)
-     * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
-     *  *
-     * @param UpdateUserDeliveryTaskStatusRequest $request UpdateUserDeliveryTaskStatusRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Changes the status of a delivery task in your Alibaba Cloud account.
      *
-     * @return UpdateUserDeliveryTaskStatusResponse UpdateUserDeliveryTaskStatusResponse
+     * @remarks
+     * ## [](#)
+     * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+     *
+     * @param request - UpdateUserDeliveryTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateUserDeliveryTaskStatusResponse
+     *
+     * @param UpdateUserDeliveryTaskStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateUserDeliveryTaskStatusResponse
      */
     public function updateUserDeliveryTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateUserDeliveryTaskStatus',
@@ -10548,19 +18017,26 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateUserDeliveryTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserDeliveryTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserDeliveryTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the status of a delivery task in your Alibaba Cloud account.
-     *  *
-     * @description ## [](#)
-     * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
-     *  *
-     * @param UpdateUserDeliveryTaskStatusRequest $request UpdateUserDeliveryTaskStatusRequest
+     * Changes the status of a delivery task in your Alibaba Cloud account.
      *
-     * @return UpdateUserDeliveryTaskStatusResponse UpdateUserDeliveryTaskStatusResponse
+     * @remarks
+     * ## [](#)
+     * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+     *
+     * @param request - UpdateUserDeliveryTaskStatusRequest
+     * @returns UpdateUserDeliveryTaskStatusResponse
+     *
+     * @param UpdateUserDeliveryTaskStatusRequest $request
+     *
+     * @return UpdateUserDeliveryTaskStatusResponse
      */
     public function updateUserDeliveryTaskStatus($request)
     {
@@ -10570,78 +18046,101 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a waiting room.
-     *  *
-     * @param UpdateWaitingRoomRequest $tmpReq  UpdateWaitingRoomRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a waiting room.
      *
-     * @return UpdateWaitingRoomResponse UpdateWaitingRoomResponse
+     * @param tmpReq - UpdateWaitingRoomRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWaitingRoomResponse
+     *
+     * @param UpdateWaitingRoomRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateWaitingRoomResponse
      */
     public function updateWaitingRoomWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateWaitingRoomShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hostNameAndPath)) {
-            $request->hostNameAndPathShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hostNameAndPath, 'HostNameAndPath', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hostNameAndPath) {
+            $request->hostNameAndPathShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hostNameAndPath, 'HostNameAndPath', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->cookieName)) {
-            $query['CookieName'] = $request->cookieName;
+        if (null !== $request->cookieName) {
+            @$query['CookieName'] = $request->cookieName;
         }
-        if (!Utils::isUnset($request->customPageHtml)) {
-            $query['CustomPageHtml'] = $request->customPageHtml;
+
+        if (null !== $request->customPageHtml) {
+            @$query['CustomPageHtml'] = $request->customPageHtml;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->disableSessionRenewalEnable)) {
-            $query['DisableSessionRenewalEnable'] = $request->disableSessionRenewalEnable;
+
+        if (null !== $request->disableSessionRenewalEnable) {
+            @$query['DisableSessionRenewalEnable'] = $request->disableSessionRenewalEnable;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->hostNameAndPathShrink)) {
-            $query['HostNameAndPath'] = $request->hostNameAndPathShrink;
+
+        if (null !== $request->hostNameAndPathShrink) {
+            @$query['HostNameAndPath'] = $request->hostNameAndPathShrink;
         }
-        if (!Utils::isUnset($request->jsonResponseEnable)) {
-            $query['JsonResponseEnable'] = $request->jsonResponseEnable;
+
+        if (null !== $request->jsonResponseEnable) {
+            @$query['JsonResponseEnable'] = $request->jsonResponseEnable;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->newUsersPerMinute)) {
-            $query['NewUsersPerMinute'] = $request->newUsersPerMinute;
+
+        if (null !== $request->newUsersPerMinute) {
+            @$query['NewUsersPerMinute'] = $request->newUsersPerMinute;
         }
-        if (!Utils::isUnset($request->queueAllEnable)) {
-            $query['QueueAllEnable'] = $request->queueAllEnable;
+
+        if (null !== $request->queueAllEnable) {
+            @$query['QueueAllEnable'] = $request->queueAllEnable;
         }
-        if (!Utils::isUnset($request->queuingMethod)) {
-            $query['QueuingMethod'] = $request->queuingMethod;
+
+        if (null !== $request->queuingMethod) {
+            @$query['QueuingMethod'] = $request->queuingMethod;
         }
-        if (!Utils::isUnset($request->queuingStatusCode)) {
-            $query['QueuingStatusCode'] = $request->queuingStatusCode;
+
+        if (null !== $request->queuingStatusCode) {
+            @$query['QueuingStatusCode'] = $request->queuingStatusCode;
         }
-        if (!Utils::isUnset($request->sessionDuration)) {
-            $query['SessionDuration'] = $request->sessionDuration;
+
+        if (null !== $request->sessionDuration) {
+            @$query['SessionDuration'] = $request->sessionDuration;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->totalActiveUsers)) {
-            $query['TotalActiveUsers'] = $request->totalActiveUsers;
+
+        if (null !== $request->totalActiveUsers) {
+            @$query['TotalActiveUsers'] = $request->totalActiveUsers;
         }
-        if (!Utils::isUnset($request->waitingRoomId)) {
-            $query['WaitingRoomId'] = $request->waitingRoomId;
+
+        if (null !== $request->waitingRoomId) {
+            @$query['WaitingRoomId'] = $request->waitingRoomId;
         }
-        if (!Utils::isUnset($request->waitingRoomType)) {
-            $query['WaitingRoomType'] = $request->waitingRoomType;
+
+        if (null !== $request->waitingRoomType) {
+            @$query['WaitingRoomType'] = $request->waitingRoomType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateWaitingRoom',
@@ -10654,16 +18153,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWaitingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWaitingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWaitingRoomResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a waiting room.
-     *  *
-     * @param UpdateWaitingRoomRequest $request UpdateWaitingRoomRequest
+     * Modifies the configurations of a waiting room.
      *
-     * @return UpdateWaitingRoomResponse UpdateWaitingRoomResponse
+     * @param request - UpdateWaitingRoomRequest
+     * @returns UpdateWaitingRoomResponse
+     *
+     * @param UpdateWaitingRoomRequest $request
+     *
+     * @return UpdateWaitingRoomResponse
      */
     public function updateWaitingRoom($request)
     {
@@ -10673,79 +18178,103 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a waiting room event.
-     *  *
-     * @param UpdateWaitingRoomEventRequest $request UpdateWaitingRoomEventRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a waiting room event.
      *
-     * @return UpdateWaitingRoomEventResponse UpdateWaitingRoomEventResponse
+     * @param request - UpdateWaitingRoomEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWaitingRoomEventResponse
+     *
+     * @param UpdateWaitingRoomEventRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateWaitingRoomEventResponse
      */
     public function updateWaitingRoomEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customPageHtml)) {
-            $query['CustomPageHtml'] = $request->customPageHtml;
+        if (null !== $request->customPageHtml) {
+            @$query['CustomPageHtml'] = $request->customPageHtml;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->disableSessionRenewalEnable)) {
-            $query['DisableSessionRenewalEnable'] = $request->disableSessionRenewalEnable;
+
+        if (null !== $request->disableSessionRenewalEnable) {
+            @$query['DisableSessionRenewalEnable'] = $request->disableSessionRenewalEnable;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->jsonResponseEnable)) {
-            $query['JsonResponseEnable'] = $request->jsonResponseEnable;
+
+        if (null !== $request->jsonResponseEnable) {
+            @$query['JsonResponseEnable'] = $request->jsonResponseEnable;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->newUsersPerMinute)) {
-            $query['NewUsersPerMinute'] = $request->newUsersPerMinute;
+
+        if (null !== $request->newUsersPerMinute) {
+            @$query['NewUsersPerMinute'] = $request->newUsersPerMinute;
         }
-        if (!Utils::isUnset($request->preQueueEnable)) {
-            $query['PreQueueEnable'] = $request->preQueueEnable;
+
+        if (null !== $request->preQueueEnable) {
+            @$query['PreQueueEnable'] = $request->preQueueEnable;
         }
-        if (!Utils::isUnset($request->preQueueStartTime)) {
-            $query['PreQueueStartTime'] = $request->preQueueStartTime;
+
+        if (null !== $request->preQueueStartTime) {
+            @$query['PreQueueStartTime'] = $request->preQueueStartTime;
         }
-        if (!Utils::isUnset($request->queuingMethod)) {
-            $query['QueuingMethod'] = $request->queuingMethod;
+
+        if (null !== $request->queuingMethod) {
+            @$query['QueuingMethod'] = $request->queuingMethod;
         }
-        if (!Utils::isUnset($request->queuingStatusCode)) {
-            $query['QueuingStatusCode'] = $request->queuingStatusCode;
+
+        if (null !== $request->queuingStatusCode) {
+            @$query['QueuingStatusCode'] = $request->queuingStatusCode;
         }
-        if (!Utils::isUnset($request->randomPreQueueEnable)) {
-            $query['RandomPreQueueEnable'] = $request->randomPreQueueEnable;
+
+        if (null !== $request->randomPreQueueEnable) {
+            @$query['RandomPreQueueEnable'] = $request->randomPreQueueEnable;
         }
-        if (!Utils::isUnset($request->sessionDuration)) {
-            $query['SessionDuration'] = $request->sessionDuration;
+
+        if (null !== $request->sessionDuration) {
+            @$query['SessionDuration'] = $request->sessionDuration;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->totalActiveUsers)) {
-            $query['TotalActiveUsers'] = $request->totalActiveUsers;
+
+        if (null !== $request->totalActiveUsers) {
+            @$query['TotalActiveUsers'] = $request->totalActiveUsers;
         }
-        if (!Utils::isUnset($request->waitingRoomEventId)) {
-            $query['WaitingRoomEventId'] = $request->waitingRoomEventId;
+
+        if (null !== $request->waitingRoomEventId) {
+            @$query['WaitingRoomEventId'] = $request->waitingRoomEventId;
         }
-        if (!Utils::isUnset($request->waitingRoomType)) {
-            $query['WaitingRoomType'] = $request->waitingRoomType;
+
+        if (null !== $request->waitingRoomType) {
+            @$query['WaitingRoomType'] = $request->waitingRoomType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateWaitingRoomEvent',
@@ -10758,16 +18287,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWaitingRoomEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWaitingRoomEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWaitingRoomEventResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a waiting room event.
-     *  *
-     * @param UpdateWaitingRoomEventRequest $request UpdateWaitingRoomEventRequest
+     * Modifies the configurations of a waiting room event.
      *
-     * @return UpdateWaitingRoomEventResponse UpdateWaitingRoomEventResponse
+     * @param request - UpdateWaitingRoomEventRequest
+     * @returns UpdateWaitingRoomEventResponse
+     *
+     * @param UpdateWaitingRoomEventRequest $request
+     *
+     * @return UpdateWaitingRoomEventResponse
      */
     public function updateWaitingRoomEvent($request)
     {
@@ -10777,36 +18312,46 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of a waiting room bypass rule for a website.
-     *  *
-     * @description You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
-     *  *
-     * @param UpdateWaitingRoomRuleRequest $request UpdateWaitingRoomRuleRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Updates the configurations of a waiting room bypass rule for a website.
      *
-     * @return UpdateWaitingRoomRuleResponse UpdateWaitingRoomRuleResponse
+     * @remarks
+     * You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
+     *
+     * @param request - UpdateWaitingRoomRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWaitingRoomRuleResponse
+     *
+     * @param UpdateWaitingRoomRuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateWaitingRoomRuleResponse
      */
     public function updateWaitingRoomRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->rule)) {
-            $query['Rule'] = $request->rule;
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
         }
-        if (!Utils::isUnset($request->ruleEnable)) {
-            $query['RuleEnable'] = $request->ruleEnable;
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->waitingRoomRuleId)) {
-            $query['WaitingRoomRuleId'] = $request->waitingRoomRuleId;
+
+        if (null !== $request->waitingRoomRuleId) {
+            @$query['WaitingRoomRuleId'] = $request->waitingRoomRuleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateWaitingRoomRule',
@@ -10819,18 +18364,25 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWaitingRoomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWaitingRoomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWaitingRoomRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the configurations of a waiting room bypass rule for a website.
-     *  *
-     * @description You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
-     *  *
-     * @param UpdateWaitingRoomRuleRequest $request UpdateWaitingRoomRuleRequest
+     * Updates the configurations of a waiting room bypass rule for a website.
      *
-     * @return UpdateWaitingRoomRuleResponse UpdateWaitingRoomRuleResponse
+     * @remarks
+     * You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
+     *
+     * @param request - UpdateWaitingRoomRuleRequest
+     * @returns UpdateWaitingRoomRuleResponse
+     *
+     * @param UpdateWaitingRoomRuleRequest $request
+     *
+     * @return UpdateWaitingRoomRuleResponse
      */
     public function updateWaitingRoomRule($request)
     {
@@ -10840,30 +18392,37 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 上传客户端CA证书
-     *  *
-     * @param UploadClientCaCertificateRequest $request UploadClientCaCertificateRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 上传客户端CA证书.
      *
-     * @return UploadClientCaCertificateResponse UploadClientCaCertificateResponse
+     * @param request - UploadClientCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UploadClientCaCertificateResponse
+     *
+     * @param UploadClientCaCertificateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UploadClientCaCertificateResponse
      */
     public function uploadClientCaCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->certificate)) {
-            $body['Certificate'] = $request->certificate;
+        if (null !== $request->certificate) {
+            @$body['Certificate'] = $request->certificate;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UploadClientCaCertificate',
@@ -10876,16 +18435,22 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UploadClientCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadClientCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadClientCaCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 上传客户端CA证书
-     *  *
-     * @param UploadClientCaCertificateRequest $request UploadClientCaCertificateRequest
+     * 上传客户端CA证书.
      *
-     * @return UploadClientCaCertificateResponse UploadClientCaCertificateResponse
+     * @param request - UploadClientCaCertificateRequest
+     * @returns UploadClientCaCertificateResponse
+     *
+     * @param UploadClientCaCertificateRequest $request
+     *
+     * @return UploadClientCaCertificateResponse
      */
     public function uploadClientCaCertificate($request)
     {
@@ -10895,34 +18460,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Uploads the file that contains resources to be purged or prefetched.
-     *  *
-     * @description >
-     * *   The file can be up to 10 MB in size.
-     *  *
-     * @param UploadFileRequest $request UploadFileRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Uploads the file that contains resources to be purged or prefetched.
      *
-     * @return UploadFileResponse UploadFileResponse
+     * @remarks
+     * >
+     * *   The file can be up to 10 MB in size.
+     *
+     * @param request - UploadFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UploadFileResponse
+     *
+     * @param UploadFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UploadFileResponse
      */
     public function uploadFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->uploadTaskName)) {
-            $query['UploadTaskName'] = $request->uploadTaskName;
+
+        if (null !== $request->uploadTaskName) {
+            @$query['UploadTaskName'] = $request->uploadTaskName;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UploadFile',
@@ -10935,19 +18509,26 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads the file that contains resources to be purged or prefetched.
-     *  *
-     * @description >
-     * *   The file can be up to 10 MB in size.
-     *  *
-     * @param UploadFileRequest $request UploadFileRequest
+     * Uploads the file that contains resources to be purged or prefetched.
      *
-     * @return UploadFileResponse UploadFileResponse
+     * @remarks
+     * >
+     * *   The file can be up to 10 MB in size.
+     *
+     * @param request - UploadFileRequest
+     * @returns UploadFileResponse
+     *
+     * @param UploadFileRequest $request
+     *
+     * @return UploadFileResponse
      */
     public function uploadFile($request)
     {
@@ -10970,12 +18551,14 @@ class ESA extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -11003,13 +18586,13 @@ class ESA extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $uploadFileReq = new UploadFileRequest([]);
-        OpenApiUtilClient::convert($request, $uploadFileReq);
-        if (!Utils::isUnset($request->urlObject)) {
+        Utils::convert($request, $uploadFileReq);
+        if (null !== $request->urlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -11036,25 +18619,31 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
-     *  *
-     * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
-     * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
-     *  *
-     * @param VerifySiteRequest $request VerifySiteRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
      *
-     * @return VerifySiteResponse VerifySiteResponse
+     * @remarks
+     * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
+     * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+     *
+     * @param request - VerifySiteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns VerifySiteResponse
+     *
+     * @param VerifySiteRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return VerifySiteResponse
      */
     public function verifySiteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'VerifySite',
@@ -11067,19 +18656,26 @@ class ESA extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return VerifySiteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifySiteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifySiteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
-     *  *
-     * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
-     * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
-     *  *
-     * @param VerifySiteRequest $request VerifySiteRequest
+     * Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
      *
-     * @return VerifySiteResponse VerifySiteResponse
+     * @remarks
+     * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
+     * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+     *
+     * @param request - VerifySiteRequest
+     * @returns VerifySiteResponse
+     *
+     * @param VerifySiteRequest $request
+     *
+     * @return VerifySiteResponse
      */
     public function verifySite($request)
     {

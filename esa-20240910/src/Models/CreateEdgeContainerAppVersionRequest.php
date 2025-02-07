@@ -4,45 +4,24 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionRequest\containers;
-use AlibabaCloud\Tea\Model;
 
 class CreateEdgeContainerAppVersionRequest extends Model
 {
     /**
-     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
-     *
-     * This parameter is required.
-     * @example app-88068867578379****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The container group to be deployed for this version, which contains information about images.\\
-     * This parameter is required.
-     * @example [
-     * ]
      * @var containers[]
      */
     public $containers;
-
     /**
-     * @description The version name, which must be 6 to 128 characters in length.
-     *
-     * This parameter is required.
-     * @example verson1
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The description of the version.
-     *
-     * @example test app
-     *
      * @var string
      */
     public $remarks;
@@ -55,26 +34,33 @@ class CreateEdgeContainerAppVersionRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->containers)) {
+            Model::validateArray($this->containers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->containers) {
-            $res['Containers'] = [];
-            if (null !== $this->containers && \is_array($this->containers)) {
-                $n = 0;
-                foreach ($this->containers as $item) {
-                    $res['Containers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->containers)) {
+                $res['Containers'] = [];
+                $n1                = 0;
+                foreach ($this->containers as $item1) {
+                    $res['Containers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->remarks) {
             $res['Remarks'] = $this->remarks;
         }
@@ -82,29 +68,32 @@ class CreateEdgeContainerAppVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEdgeContainerAppVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Containers'])) {
             if (!empty($map['Containers'])) {
                 $model->containers = [];
-                $n                 = 0;
-                foreach ($map['Containers'] as $item) {
-                    $model->containers[$n++] = null !== $item ? containers::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['Containers'] as $item1) {
+                    $model->containers[$n1++] = containers::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Remarks'])) {
             $model->remarks = $map['Remarks'];
         }

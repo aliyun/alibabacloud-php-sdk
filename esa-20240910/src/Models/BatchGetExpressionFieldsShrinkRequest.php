@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchGetExpressionFieldsShrinkRequest extends Model
 {
     /**
-     * @description The regular expressions.
-     *
-     * @example http_bot
-     *
      * @var string
      */
     public $expressionsShrink;
-
     /**
-     * @description The WAF rule category.
-     *
-     * @example http_bot
-     *
      * @var string
      */
     public $phase;
-
     /**
-     * @description The website ID.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $siteId;
@@ -42,17 +28,20 @@ class BatchGetExpressionFieldsShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expressionsShrink) {
             $res['Expressions'] = $this->expressionsShrink;
         }
+
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -60,20 +49,22 @@ class BatchGetExpressionFieldsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetExpressionFieldsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expressions'])) {
             $model->expressionsShrink = $map['Expressions'];
         }
+
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

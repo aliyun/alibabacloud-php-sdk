@@ -4,50 +4,31 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @description The cache tags that are used to purge the cache. This parameter is required if Type is set to cachetag.
-     *
      * @var string[]
      */
     public $cacheTags;
-
     /**
-     * @description The directories that are used to purge the cache. This parameter is required if Type is set to directory.
-     *
      * @var string[]
      */
     public $directories;
-
     /**
-     * @description The files to purge. This parameter is required if Type is set to file.
-     *
      * @var mixed[]
      */
     public $files;
-
     /**
-     * @description The hostnames that are used to purge the cache. This parameter is required if Type is set to hostname.
-     *
      * @var string[]
      */
     public $hostnames;
-
     /**
-     * @description The file URLs with parameters ignored that are used to purge the cache. This parameter is required if Type is set to ignoreParams.
-     *
      * @var string[]
      */
     public $ignoreParams;
-
     /**
-     * @description Specifies whether to purge all cache of the website. Default value: false. The value is true when Type is set to purgeall.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $purgeAll;
@@ -62,26 +43,77 @@ class content extends Model
 
     public function validate()
     {
+        if (\is_array($this->cacheTags)) {
+            Model::validateArray($this->cacheTags);
+        }
+        if (\is_array($this->directories)) {
+            Model::validateArray($this->directories);
+        }
+        if (\is_array($this->files)) {
+            Model::validateArray($this->files);
+        }
+        if (\is_array($this->hostnames)) {
+            Model::validateArray($this->hostnames);
+        }
+        if (\is_array($this->ignoreParams)) {
+            Model::validateArray($this->ignoreParams);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cacheTags) {
-            $res['CacheTags'] = $this->cacheTags;
+            if (\is_array($this->cacheTags)) {
+                $res['CacheTags'] = [];
+                $n1               = 0;
+                foreach ($this->cacheTags as $item1) {
+                    $res['CacheTags'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->directories) {
-            $res['Directories'] = $this->directories;
+            if (\is_array($this->directories)) {
+                $res['Directories'] = [];
+                $n1                 = 0;
+                foreach ($this->directories as $item1) {
+                    $res['Directories'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->files) {
-            $res['Files'] = $this->files;
+            if (\is_array($this->files)) {
+                $res['Files'] = [];
+                $n1           = 0;
+                foreach ($this->files as $item1) {
+                    $res['Files'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->hostnames) {
-            $res['Hostnames'] = $this->hostnames;
+            if (\is_array($this->hostnames)) {
+                $res['Hostnames'] = [];
+                $n1               = 0;
+                foreach ($this->hostnames as $item1) {
+                    $res['Hostnames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ignoreParams) {
-            $res['IgnoreParams'] = $this->ignoreParams;
+            if (\is_array($this->ignoreParams)) {
+                $res['IgnoreParams'] = [];
+                $n1                  = 0;
+                foreach ($this->ignoreParams as $item1) {
+                    $res['IgnoreParams'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->purgeAll) {
             $res['PurgeAll'] = $this->purgeAll;
         }
@@ -89,39 +121,64 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CacheTags'])) {
             if (!empty($map['CacheTags'])) {
-                $model->cacheTags = $map['CacheTags'];
+                $model->cacheTags = [];
+                $n1               = 0;
+                foreach ($map['CacheTags'] as $item1) {
+                    $model->cacheTags[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Directories'])) {
             if (!empty($map['Directories'])) {
-                $model->directories = $map['Directories'];
+                $model->directories = [];
+                $n1                 = 0;
+                foreach ($map['Directories'] as $item1) {
+                    $model->directories[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
-                $model->files = $map['Files'];
+                $model->files = [];
+                $n1           = 0;
+                foreach ($map['Files'] as $item1) {
+                    $model->files[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Hostnames'])) {
             if (!empty($map['Hostnames'])) {
-                $model->hostnames = $map['Hostnames'];
+                $model->hostnames = [];
+                $n1               = 0;
+                foreach ($map['Hostnames'] as $item1) {
+                    $model->hostnames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['IgnoreParams'])) {
             if (!empty($map['IgnoreParams'])) {
-                $model->ignoreParams = $map['IgnoreParams'];
+                $model->ignoreParams = [];
+                $n1                  = 0;
+                foreach ($map['IgnoreParams'] as $item1) {
+                    $model->ignoreParams[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PurgeAll'])) {
             $model->purgeAll = $map['PurgeAll'];
         }

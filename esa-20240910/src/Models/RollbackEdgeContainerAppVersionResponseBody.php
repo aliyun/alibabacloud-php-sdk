@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RollbackEdgeContainerAppVersionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example C370DAF1-C838-4288-A1A0-9A87633D248E
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RollbackEdgeContainerAppVersionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RollbackEdgeContainerAppVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RollbackEdgeContainerAppVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

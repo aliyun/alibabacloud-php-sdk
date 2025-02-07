@@ -4,58 +4,33 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter\fields\logics;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter\fields\selector;
-use AlibabaCloud\Tea\Model;
 
 class fields extends Model
 {
     /**
-     * @description The field for matched objects in the system.
-     *
-     * @example http.request.headers
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The label of the matched object.
-     *
-     * @example Header
-     *
      * @var string
      */
     public $label;
-
     /**
-     * @description The logical conditions.
-     *
      * @var logics[]
      */
     public $logics;
-
     /**
-     * @description The selector, which defines how to select a matched object.
-     *
      * @var selector
      */
     public $selector;
-
     /**
-     * @description Indicates whether the matched object contains a subfield.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $sub;
-
     /**
-     * @description The tip on how to enter a subfield.
-     *
-     * @example e.g. Content-Type
-     *
      * @var string
      */
     public $subTip;
@@ -70,32 +45,44 @@ class fields extends Model
 
     public function validate()
     {
+        if (\is_array($this->logics)) {
+            Model::validateArray($this->logics);
+        }
+        if (null !== $this->selector) {
+            $this->selector->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->logics) {
-            $res['Logics'] = [];
-            if (null !== $this->logics && \is_array($this->logics)) {
-                $n = 0;
-                foreach ($this->logics as $item) {
-                    $res['Logics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logics)) {
+                $res['Logics'] = [];
+                $n1            = 0;
+                foreach ($this->logics as $item1) {
+                    $res['Logics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->selector) {
-            $res['Selector'] = null !== $this->selector ? $this->selector->toMap() : null;
+            $res['Selector'] = null !== $this->selector ? $this->selector->toArray($noStream) : $this->selector;
         }
+
         if (null !== $this->sub) {
             $res['Sub'] = $this->sub;
         }
+
         if (null !== $this->subTip) {
             $res['SubTip'] = $this->subTip;
         }
@@ -103,35 +90,40 @@ class fields extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fields
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Logics'])) {
             if (!empty($map['Logics'])) {
                 $model->logics = [];
-                $n             = 0;
-                foreach ($map['Logics'] as $item) {
-                    $model->logics[$n++] = null !== $item ? logics::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Logics'] as $item1) {
+                    $model->logics[$n1++] = logics::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Selector'])) {
             $model->selector = selector::fromMap($map['Selector']);
         }
+
         if (isset($map['Sub'])) {
             $model->sub = $map['Sub'];
         }
+
         if (isset($map['SubTip'])) {
             $model->subTip = $map['SubTip'];
         }
