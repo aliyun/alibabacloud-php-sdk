@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeliveryAddressResponseBody\addresses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class province extends Model
 {
     /**
-     * @example 330000
-     *
      * @var int
      */
     public $provinceId;
-
     /**
      * @var string
      */
@@ -26,14 +23,16 @@ class province extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->provinceId) {
             $res['ProvinceId'] = $this->provinceId;
         }
+
         if (null !== $this->provinceName) {
             $res['ProvinceName'] = $this->provinceName;
         }
@@ -41,17 +40,18 @@ class province extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return province
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProvinceId'])) {
             $model->provinceId = $map['ProvinceId'];
         }
+
         if (isset($map['ProvinceName'])) {
             $model->provinceName = $map['ProvinceName'];
         }

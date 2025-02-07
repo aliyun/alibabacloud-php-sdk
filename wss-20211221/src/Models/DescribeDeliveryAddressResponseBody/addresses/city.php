@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeliveryAddressResponseBody\addresses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class city extends Model
 {
     /**
-     * @example 33****
-     *
      * @var int
      */
     public $cityId;
-
     /**
      * @var string
      */
@@ -26,14 +23,16 @@ class city extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cityId) {
             $res['CityId'] = $this->cityId;
         }
+
         if (null !== $this->cityName) {
             $res['CityName'] = $this->cityName;
         }
@@ -41,17 +40,18 @@ class city extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return city
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CityId'])) {
             $model->cityId = $map['CityId'];
         }
+
         if (isset($map['CityName'])) {
             $model->cityName = $map['CityName'];
         }

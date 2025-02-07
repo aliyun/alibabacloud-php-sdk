@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wss\V20211221\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeliveryAddressResponseBody\addresses;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDeliveryAddressResponseBody extends Model
 {
@@ -13,17 +13,11 @@ class DescribeDeliveryAddressResponseBody extends Model
      * @var addresses[]
      */
     public $addresses;
-
     /**
-     * @example 72481C12-69AB-5CE1-8A35-A8EFA921****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 6
-     *
      * @var int
      */
     public $totalCount;
@@ -35,23 +29,29 @@ class DescribeDeliveryAddressResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->addresses)) {
+            Model::validateArray($this->addresses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addresses) {
-            $res['Addresses'] = [];
-            if (null !== $this->addresses && \is_array($this->addresses)) {
-                $n = 0;
-                foreach ($this->addresses as $item) {
-                    $res['Addresses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->addresses)) {
+                $res['Addresses'] = [];
+                $n1               = 0;
+                foreach ($this->addresses as $item1) {
+                    $res['Addresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,26 +59,28 @@ class DescribeDeliveryAddressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDeliveryAddressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Addresses'])) {
             if (!empty($map['Addresses'])) {
                 $model->addresses = [];
-                $n                = 0;
-                foreach ($map['Addresses'] as $item) {
-                    $model->addresses[$n++] = null !== $item ? addresses::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Addresses'] as $item1) {
+                    $model->addresses[$n1++] = addresses::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

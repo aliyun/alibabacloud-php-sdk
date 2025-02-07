@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Wss\V20211221\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeDeliveryAddressResponse extends Model
+class ModifyInstancePropertiesResponse extends Model
 {
     /**
      * @var string[]
@@ -17,7 +17,7 @@ class DescribeDeliveryAddressResponse extends Model
      */
     public $statusCode;
     /**
-     * @var DescribeDeliveryAddressResponseBody
+     * @var ModifyInstancePropertiesResponseBody
      */
     public $body;
     protected $_name = [
@@ -82,7 +82,7 @@ class DescribeDeliveryAddressResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = DescribeDeliveryAddressResponseBody::fromMap($map['body']);
+            $model->body = ModifyInstancePropertiesResponseBody::fromMap($map['body']);
         }
 
         return $model;
