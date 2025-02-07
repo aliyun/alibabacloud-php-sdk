@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckModifyConfigNeedRestartResponseBody extends Model
 {
     /**
-     * @description Indicates whether the cluster was restarted after you modified the configuration parameters. Valid values:
-     *
-     *   **true**: The cluster was restarted.
-     *   **false**: The cluster was not restarted.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $needRestart;
-
     /**
-     * @description The request ID.
-     *
-     * @example 06798FEE-BEF2-5FAF-A30D-728973BBE97C
-     *
      * @var string
      */
     public $requestId;
@@ -35,14 +23,16 @@ class CheckModifyConfigNeedRestartResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->needRestart) {
             $res['NeedRestart'] = $this->needRestart;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +40,18 @@ class CheckModifyConfigNeedRestartResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckModifyConfigNeedRestartResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NeedRestart'])) {
             $model->needRestart = $map['NeedRestart'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

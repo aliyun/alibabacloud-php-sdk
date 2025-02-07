@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAccessWhiteListResponseBody\DBClusterAccessWhiteList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBClusterAccessWhiteListResponseBody extends Model
 {
     /**
-     * @description The details about the IP address whitelist.
-     *
      * @var DBClusterAccessWhiteList
      */
     public $DBClusterAccessWhiteList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 905F13A4-5097-4897-A84D-527EC75FFF4F
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeDBClusterAccessWhiteListResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->DBClusterAccessWhiteList) {
+            $this->DBClusterAccessWhiteList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterAccessWhiteList) {
-            $res['DBClusterAccessWhiteList'] = null !== $this->DBClusterAccessWhiteList ? $this->DBClusterAccessWhiteList->toMap() : null;
+            $res['DBClusterAccessWhiteList'] = null !== $this->DBClusterAccessWhiteList ? $this->DBClusterAccessWhiteList->toArray($noStream) : $this->DBClusterAccessWhiteList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeDBClusterAccessWhiteListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBClusterAccessWhiteListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterAccessWhiteList'])) {
             $model->DBClusterAccessWhiteList = DBClusterAccessWhiteList::fromMap($map['DBClusterAccessWhiteList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

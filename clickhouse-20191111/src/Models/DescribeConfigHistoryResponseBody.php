@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeConfigHistoryResponseBody\configHistoryItems;
-use AlibabaCloud\Tea\Model;
 
 class DescribeConfigHistoryResponseBody extends Model
 {
     /**
-     * @description The change records of the configuration parameters.
-     *
      * @var configHistoryItems[]
      */
     public $configHistoryItems;
-
     /**
-     * @description The request ID.
-     *
-     * @example D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeConfigHistoryResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->configHistoryItems)) {
+            Model::validateArray($this->configHistoryItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configHistoryItems) {
-            $res['ConfigHistoryItems'] = [];
-            if (null !== $this->configHistoryItems && \is_array($this->configHistoryItems)) {
-                $n = 0;
-                foreach ($this->configHistoryItems as $item) {
-                    $res['ConfigHistoryItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configHistoryItems)) {
+                $res['ConfigHistoryItems'] = [];
+                $n1                        = 0;
+                foreach ($this->configHistoryItems as $item1) {
+                    $res['ConfigHistoryItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeConfigHistoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeConfigHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigHistoryItems'])) {
             if (!empty($map['ConfigHistoryItems'])) {
                 $model->configHistoryItems = [];
-                $n                         = 0;
-                foreach ($map['ConfigHistoryItems'] as $item) {
-                    $model->configHistoryItems[$n++] = null !== $item ? configHistoryItems::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['ConfigHistoryItems'] as $item1) {
+                    $model->configHistoryItems[$n1++] = configHistoryItems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

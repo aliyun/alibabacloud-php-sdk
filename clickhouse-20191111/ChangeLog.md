@@ -1,3 +1,9 @@
+2025-02-07 Version: 4.0.8
+- Update API DescribeTransferHistory: update response param.
+- Update API TransferVersion: add param SourceClusterName.
+- Update API TransferVersion: add param SourceShards.
+
+
 2024-10-11 Version: 4.0.7
 - Update API DescribeDBClusters: update response param.
 - Update API ModifyDBCluster: add param DisableWriteWindows.

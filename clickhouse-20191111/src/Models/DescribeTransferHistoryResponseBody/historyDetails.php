@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeTransferHistoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeTransferHistoryResponseBody\historyDetails\historyDetail;
-use AlibabaCloud\Tea\Model;
 
 class historyDetails extends Model
 {
@@ -19,17 +19,21 @@ class historyDetails extends Model
 
     public function validate()
     {
+        if (\is_array($this->historyDetail)) {
+            Model::validateArray($this->historyDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->historyDetail) {
-            $res['HistoryDetail'] = [];
-            if (null !== $this->historyDetail && \is_array($this->historyDetail)) {
-                $n = 0;
-                foreach ($this->historyDetail as $item) {
-                    $res['HistoryDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->historyDetail)) {
+                $res['HistoryDetail'] = [];
+                $n1                   = 0;
+                foreach ($this->historyDetail as $item1) {
+                    $res['HistoryDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class historyDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return historyDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HistoryDetail'])) {
             if (!empty($map['HistoryDetail'])) {
                 $model->historyDetail = [];
-                $n                    = 0;
-                foreach ($map['HistoryDetail'] as $item) {
-                    $model->historyDetail[$n++] = null !== $item ? historyDetail::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['HistoryDetail'] as $item1) {
+                    $model->historyDetail[$n1++] = historyDetail::fromMap($item1);
                 }
             }
         }

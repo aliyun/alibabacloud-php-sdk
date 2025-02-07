@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAccountsResponseBody\accounts;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAccountsResponseBody extends Model
 {
@@ -13,31 +13,19 @@ class DescribeAccountsResponseBody extends Model
      * @var accounts
      */
     public $accounts;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example F5178C10-1407-4987-9133-DE4DC9119F75
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -51,23 +39,31 @@ class DescribeAccountsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->accounts) {
+            $this->accounts->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accounts) {
-            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
+            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toArray($noStream) : $this->accounts;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -75,26 +71,30 @@ class DescribeAccountsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccountsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accounts'])) {
             $model->accounts = accounts::fromMap($map['Accounts']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

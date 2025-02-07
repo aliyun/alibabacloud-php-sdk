@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeMinorVersionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example FE242962-6DA3-5FC8-9691-37B62A3210F7
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpgradeMinorVersionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpgradeMinorVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeMinorVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

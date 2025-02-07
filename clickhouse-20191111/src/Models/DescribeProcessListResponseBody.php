@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeProcessListResponseBody\processList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeProcessListResponseBody extends Model
 {
     /**
-     * @description The queries.
-     *
      * @var processList
      */
     public $processList;
-
     /**
-     * @description The request ID.
-     *
-     * @example FD61BB0D-788A-5185-A8E3-1B90BA8F6F04
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeProcessListResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->processList) {
+            $this->processList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->processList) {
-            $res['ProcessList'] = null !== $this->processList ? $this->processList->toMap() : null;
+            $res['ProcessList'] = null !== $this->processList ? $this->processList->toArray($noStream) : $this->processList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeProcessListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeProcessListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProcessList'])) {
             $model->processList = processList::fromMap($map['ProcessList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

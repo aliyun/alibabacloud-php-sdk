@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckClickhouseToRDSRequest;
@@ -132,11 +131,10 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\TransferVersionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\TransferVersionResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\UpgradeMinorVersionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\UpgradeMinorVersionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Clickhouse extends OpenApiClient
 {
@@ -207,48 +205,59 @@ class Clickhouse extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
      *
-     * @return AllocateClusterPublicConnectionResponse AllocateClusterPublicConnectionResponse
+     * @param request - AllocateClusterPublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AllocateClusterPublicConnectionResponse
+     *
+     * @param AllocateClusterPublicConnectionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return AllocateClusterPublicConnectionResponse
      */
     public function allocateClusterPublicConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionStringPrefix)) {
-            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (null !== $request->connectionStringPrefix) {
+            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AllocateClusterPublicConnection',
@@ -261,16 +270,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AllocateClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AllocateClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AllocateClusterPublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
+     * Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
      *
-     * @return AllocateClusterPublicConnectionResponse AllocateClusterPublicConnectionResponse
+     * @param request - AllocateClusterPublicConnectionRequest
+     * @returns AllocateClusterPublicConnectionResponse
+     *
+     * @param AllocateClusterPublicConnectionRequest $request
+     *
+     * @return AllocateClusterPublicConnectionResponse
      */
     public function allocateClusterPublicConnection($request)
     {
@@ -280,61 +295,79 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
-     *  *
-     * @param CheckClickhouseToRDSRequest $request CheckClickhouseToRDSRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
      *
-     * @return CheckClickhouseToRDSResponse CheckClickhouseToRDSResponse
+     * @param request - CheckClickhouseToRDSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckClickhouseToRDSResponse
+     *
+     * @param CheckClickhouseToRDSRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckClickhouseToRDSResponse
      */
     public function checkClickhouseToRDSWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ckPassword)) {
-            $query['CkPassword'] = $request->ckPassword;
+        if (null !== $request->ckPassword) {
+            @$query['CkPassword'] = $request->ckPassword;
         }
-        if (!Utils::isUnset($request->ckUserName)) {
-            $query['CkUserName'] = $request->ckUserName;
+
+        if (null !== $request->ckUserName) {
+            @$query['CkUserName'] = $request->ckUserName;
         }
-        if (!Utils::isUnset($request->clickhousePort)) {
-            $query['ClickhousePort'] = $request->clickhousePort;
+
+        if (null !== $request->clickhousePort) {
+            @$query['ClickhousePort'] = $request->clickhousePort;
         }
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
+
+        if (null !== $request->dbClusterId) {
+            @$query['DbClusterId'] = $request->dbClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->rdsId)) {
-            $query['RdsId'] = $request->rdsId;
+
+        if (null !== $request->rdsId) {
+            @$query['RdsId'] = $request->rdsId;
         }
-        if (!Utils::isUnset($request->rdsPassword)) {
-            $query['RdsPassword'] = $request->rdsPassword;
+
+        if (null !== $request->rdsPassword) {
+            @$query['RdsPassword'] = $request->rdsPassword;
         }
-        if (!Utils::isUnset($request->rdsPort)) {
-            $query['RdsPort'] = $request->rdsPort;
+
+        if (null !== $request->rdsPort) {
+            @$query['RdsPort'] = $request->rdsPort;
         }
-        if (!Utils::isUnset($request->rdsUserName)) {
-            $query['RdsUserName'] = $request->rdsUserName;
+
+        if (null !== $request->rdsUserName) {
+            @$query['RdsUserName'] = $request->rdsUserName;
         }
-        if (!Utils::isUnset($request->rdsVpcId)) {
-            $query['RdsVpcId'] = $request->rdsVpcId;
+
+        if (null !== $request->rdsVpcId) {
+            @$query['RdsVpcId'] = $request->rdsVpcId;
         }
-        if (!Utils::isUnset($request->rdsVpcUrl)) {
-            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
+
+        if (null !== $request->rdsVpcUrl) {
+            @$query['RdsVpcUrl'] = $request->rdsVpcUrl;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckClickhouseToRDS',
@@ -347,16 +380,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckClickhouseToRDSResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckClickhouseToRDSResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckClickhouseToRDSResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
-     *  *
-     * @param CheckClickhouseToRDSRequest $request CheckClickhouseToRDSRequest
+     * Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
      *
-     * @return CheckClickhouseToRDSResponse CheckClickhouseToRDSResponse
+     * @param request - CheckClickhouseToRDSRequest
+     * @returns CheckClickhouseToRDSResponse
+     *
+     * @param CheckClickhouseToRDSRequest $request
+     *
+     * @return CheckClickhouseToRDSResponse
      */
     public function checkClickhouseToRDS($request)
     {
@@ -366,27 +405,34 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param CheckModifyConfigNeedRestartRequest $request CheckModifyConfigNeedRestartRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
      *
-     * @return CheckModifyConfigNeedRestartResponse CheckModifyConfigNeedRestartResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - CheckModifyConfigNeedRestartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckModifyConfigNeedRestartResponse
+     *
+     * @param CheckModifyConfigNeedRestartRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CheckModifyConfigNeedRestartResponse
      */
     public function checkModifyConfigNeedRestartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckModifyConfigNeedRestart',
@@ -399,18 +445,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckModifyConfigNeedRestartResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckModifyConfigNeedRestartResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckModifyConfigNeedRestartResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param CheckModifyConfigNeedRestartRequest $request CheckModifyConfigNeedRestartRequest
+     * Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
      *
-     * @return CheckModifyConfigNeedRestartResponse CheckModifyConfigNeedRestartResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - CheckModifyConfigNeedRestartRequest
+     * @returns CheckModifyConfigNeedRestartResponse
+     *
+     * @param CheckModifyConfigNeedRestartRequest $request
+     *
+     * @return CheckModifyConfigNeedRestartResponse
      */
     public function checkModifyConfigNeedRestart($request)
     {
@@ -420,37 +473,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CheckMonitorAlertRequest $request CheckMonitorAlertRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CheckMonitorAlertResponse CheckMonitorAlertResponse
+     * @param request - CheckMonitorAlertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckMonitorAlertResponse
+     *
+     * @param CheckMonitorAlertRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CheckMonitorAlertResponse
      */
     public function checkMonitorAlertWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckMonitorAlert',
@@ -463,16 +526,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckMonitorAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckMonitorAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckMonitorAlertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CheckMonitorAlertRequest $request CheckMonitorAlertRequest
+     * Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CheckMonitorAlertResponse CheckMonitorAlertResponse
+     * @param request - CheckMonitorAlertRequest
+     * @returns CheckMonitorAlertResponse
+     *
+     * @param CheckMonitorAlertRequest $request
+     *
+     * @return CheckMonitorAlertResponse
      */
     public function checkMonitorAlert($request)
     {
@@ -482,43 +551,55 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CheckScaleOutBalancedRequest $request CheckScaleOutBalancedRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
      *
-     * @return CheckScaleOutBalancedResponse CheckScaleOutBalancedResponse
+     * @param request - CheckScaleOutBalancedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckScaleOutBalancedResponse
+     *
+     * @param CheckScaleOutBalancedRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckScaleOutBalancedResponse
      */
     public function checkScaleOutBalancedWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckScaleOutBalanced',
@@ -531,16 +612,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckScaleOutBalancedResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckScaleOutBalancedResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckScaleOutBalancedResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CheckScaleOutBalancedRequest $request CheckScaleOutBalancedRequest
+     * Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
      *
-     * @return CheckScaleOutBalancedResponse CheckScaleOutBalancedResponse
+     * @param request - CheckScaleOutBalancedRequest
+     * @returns CheckScaleOutBalancedResponse
+     *
+     * @param CheckScaleOutBalancedRequest $request
+     *
+     * @return CheckScaleOutBalancedResponse
      */
     public function checkScaleOutBalanced($request)
     {
@@ -550,31 +637,39 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the service-linked role of ApsaraDB for ClickHouse.
-     *  *
-     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the service-linked role of ApsaraDB for ClickHouse.
      *
-     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
+     * @param request - CheckServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckServiceLinkedRoleResponse
+     *
+     * @param CheckServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckServiceLinkedRole',
@@ -587,16 +682,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the service-linked role of ApsaraDB for ClickHouse.
-     *  *
-     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * Queries the service-linked role of ApsaraDB for ClickHouse.
      *
-     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
+     * @param request - CheckServiceLinkedRoleRequest
+     * @returns CheckServiceLinkedRoleResponse
+     *
+     * @param CheckServiceLinkedRoleRequest $request
+     *
+     * @return CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRole($request)
     {
@@ -606,43 +707,55 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Creates a database account for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CreateAccountRequest $request CreateAccountRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a database account for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateAccountResponse CreateAccountResponse
+     * @param request - CreateAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAccountResponse
+     *
+     * @param CreateAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountDescription)) {
-            $query['AccountDescription'] = $request->accountDescription;
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAccount',
@@ -655,16 +768,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a database account for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CreateAccountRequest $request CreateAccountRequest
+     * Creates a database account for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateAccountResponse CreateAccountResponse
+     * @param request - CreateAccountRequest
+     * @returns CreateAccountResponse
+     *
+     * @param CreateAccountRequest $request
+     *
+     * @return CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -674,64 +793,83 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary 创建账号及权限
-     *  *
-     * @param CreateAccountAndAuthorityRequest $request CreateAccountAndAuthorityRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Create an account and its permissions.
      *
-     * @return CreateAccountAndAuthorityResponse CreateAccountAndAuthorityResponse
+     * @param request - CreateAccountAndAuthorityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAccountAndAuthorityResponse
+     *
+     * @param CreateAccountAndAuthorityRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateAccountAndAuthorityResponse
      */
     public function createAccountAndAuthorityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountDescription)) {
-            $query['AccountDescription'] = $request->accountDescription;
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->allowDatabases)) {
-            $query['AllowDatabases'] = $request->allowDatabases;
+
+        if (null !== $request->allowDatabases) {
+            @$query['AllowDatabases'] = $request->allowDatabases;
         }
-        if (!Utils::isUnset($request->allowDictionaries)) {
-            $query['AllowDictionaries'] = $request->allowDictionaries;
+
+        if (null !== $request->allowDictionaries) {
+            @$query['AllowDictionaries'] = $request->allowDictionaries;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ddlAuthority)) {
-            $query['DdlAuthority'] = $request->ddlAuthority;
+
+        if (null !== $request->ddlAuthority) {
+            @$query['DdlAuthority'] = $request->ddlAuthority;
         }
-        if (!Utils::isUnset($request->dmlAuthority)) {
-            $query['DmlAuthority'] = $request->dmlAuthority;
+
+        if (null !== $request->dmlAuthority) {
+            @$query['DmlAuthority'] = $request->dmlAuthority;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->totalDatabases)) {
-            $query['TotalDatabases'] = $request->totalDatabases;
+
+        if (null !== $request->totalDatabases) {
+            @$query['TotalDatabases'] = $request->totalDatabases;
         }
-        if (!Utils::isUnset($request->totalDictionaries)) {
-            $query['TotalDictionaries'] = $request->totalDictionaries;
+
+        if (null !== $request->totalDictionaries) {
+            @$query['TotalDictionaries'] = $request->totalDictionaries;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAccountAndAuthority',
@@ -744,16 +882,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAccountAndAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAccountAndAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAccountAndAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建账号及权限
-     *  *
-     * @param CreateAccountAndAuthorityRequest $request CreateAccountAndAuthorityRequest
+     * Create an account and its permissions.
      *
-     * @return CreateAccountAndAuthorityResponse CreateAccountAndAuthorityResponse
+     * @param request - CreateAccountAndAuthorityRequest
+     * @returns CreateAccountAndAuthorityResponse
+     *
+     * @param CreateAccountAndAuthorityRequest $request
+     *
+     * @return CreateAccountAndAuthorityResponse
      */
     public function createAccountAndAuthority($request)
     {
@@ -763,48 +907,62 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Creates a backup policy.
-     *  *
-     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *  *
-     * @param CreateBackupPolicyRequest $request CreateBackupPolicyRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a backup policy.
      *
-     * @return CreateBackupPolicyResponse CreateBackupPolicyResponse
+     * @remarks
+     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *
+     * @param request - CreateBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateBackupPolicyResponse
+     *
+     * @param CreateBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateBackupPolicyResponse
      */
     public function createBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupRetentionPeriod)) {
-            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->preferredBackupPeriod)) {
-            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+
+        if (null !== $request->preferredBackupPeriod) {
+            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
         }
-        if (!Utils::isUnset($request->preferredBackupTime)) {
-            $query['PreferredBackupTime'] = $request->preferredBackupTime;
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateBackupPolicy',
@@ -817,18 +975,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a backup policy.
-     *  *
-     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *  *
-     * @param CreateBackupPolicyRequest $request CreateBackupPolicyRequest
+     * Creates a backup policy.
      *
-     * @return CreateBackupPolicyResponse CreateBackupPolicyResponse
+     * @remarks
+     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *
+     * @param request - CreateBackupPolicyRequest
+     * @returns CreateBackupPolicyResponse
+     *
+     * @param CreateBackupPolicyRequest $request
+     *
+     * @return CreateBackupPolicyResponse
      */
     public function createBackupPolicy($request)
     {
@@ -838,109 +1003,146 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Creates an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateDBInstanceResponse CreateDBInstanceResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+     *
+     * @param request - CreateDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDBInstanceResponse
+     *
+     * @param CreateDBInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDBInstanceResponse
      */
     public function createDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->backupSetID)) {
-            $query['BackupSetID'] = $request->backupSetID;
+
+        if (null !== $request->backupSetID) {
+            @$query['BackupSetID'] = $request->backupSetID;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->DBClusterCategory)) {
-            $query['DBClusterCategory'] = $request->DBClusterCategory;
+
+        if (null !== $request->DBClusterCategory) {
+            @$query['DBClusterCategory'] = $request->DBClusterCategory;
         }
-        if (!Utils::isUnset($request->DBClusterClass)) {
-            $query['DBClusterClass'] = $request->DBClusterClass;
+
+        if (null !== $request->DBClusterClass) {
+            @$query['DBClusterClass'] = $request->DBClusterClass;
         }
-        if (!Utils::isUnset($request->DBClusterDescription)) {
-            $query['DBClusterDescription'] = $request->DBClusterDescription;
+
+        if (null !== $request->DBClusterDescription) {
+            @$query['DBClusterDescription'] = $request->DBClusterDescription;
         }
-        if (!Utils::isUnset($request->DBClusterNetworkType)) {
-            $query['DBClusterNetworkType'] = $request->DBClusterNetworkType;
+
+        if (null !== $request->DBClusterNetworkType) {
+            @$query['DBClusterNetworkType'] = $request->DBClusterNetworkType;
         }
-        if (!Utils::isUnset($request->DBClusterVersion)) {
-            $query['DBClusterVersion'] = $request->DBClusterVersion;
+
+        if (null !== $request->DBClusterVersion) {
+            @$query['DBClusterVersion'] = $request->DBClusterVersion;
         }
-        if (!Utils::isUnset($request->DBNodeGroupCount)) {
-            $query['DBNodeGroupCount'] = $request->DBNodeGroupCount;
+
+        if (null !== $request->DBNodeGroupCount) {
+            @$query['DBNodeGroupCount'] = $request->DBNodeGroupCount;
         }
-        if (!Utils::isUnset($request->DBNodeStorage)) {
-            $query['DBNodeStorage'] = $request->DBNodeStorage;
+
+        if (null !== $request->DBNodeStorage) {
+            @$query['DBNodeStorage'] = $request->DBNodeStorage;
         }
-        if (!Utils::isUnset($request->dbNodeStorageType)) {
-            $query['DbNodeStorageType'] = $request->dbNodeStorageType;
+
+        if (null !== $request->dbNodeStorageType) {
+            @$query['DbNodeStorageType'] = $request->dbNodeStorageType;
         }
-        if (!Utils::isUnset($request->encryptionKey)) {
-            $query['EncryptionKey'] = $request->encryptionKey;
+
+        if (null !== $request->encryptionKey) {
+            @$query['EncryptionKey'] = $request->encryptionKey;
         }
-        if (!Utils::isUnset($request->encryptionType)) {
-            $query['EncryptionType'] = $request->encryptionType;
+
+        if (null !== $request->encryptionType) {
+            @$query['EncryptionType'] = $request->encryptionType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sourceDBClusterId)) {
-            $query['SourceDBClusterId'] = $request->sourceDBClusterId;
+
+        if (null !== $request->sourceDBClusterId) {
+            @$query['SourceDBClusterId'] = $request->sourceDBClusterId;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
-        if (!Utils::isUnset($request->VPCId)) {
-            $query['VPCId'] = $request->VPCId;
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
         }
-        if (!Utils::isUnset($request->vSwitchBak)) {
-            $query['VSwitchBak'] = $request->vSwitchBak;
+
+        if (null !== $request->vSwitchBak) {
+            @$query['VSwitchBak'] = $request->vSwitchBak;
         }
-        if (!Utils::isUnset($request->vSwitchBak2)) {
-            $query['VSwitchBak2'] = $request->vSwitchBak2;
+
+        if (null !== $request->vSwitchBak2) {
+            @$query['VSwitchBak2'] = $request->vSwitchBak2;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->zondIdBak2)) {
-            $query['ZondIdBak2'] = $request->zondIdBak2;
+
+        if (null !== $request->zondIdBak2) {
+            @$query['ZondIdBak2'] = $request->zondIdBak2;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
-        if (!Utils::isUnset($request->zoneIdBak)) {
-            $query['ZoneIdBak'] = $request->zoneIdBak;
+
+        if (null !== $request->zoneIdBak) {
+            @$query['ZoneIdBak'] = $request->zoneIdBak;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDBInstance',
@@ -953,16 +1155,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * Creates an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateDBInstanceResponse CreateDBInstanceResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+     *
+     * @param request - CreateDBInstanceRequest
+     * @returns CreateDBInstanceResponse
+     *
+     * @param CreateDBInstanceRequest $request
+     *
+     * @return CreateDBInstanceResponse
      */
     public function createDBInstance($request)
     {
@@ -972,37 +1183,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CreateMonitorDataReportRequest $request CreateMonitorDataReportRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateMonitorDataReportResponse CreateMonitorDataReportResponse
+     * @param request - CreateMonitorDataReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateMonitorDataReportResponse
+     *
+     * @param CreateMonitorDataReportRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateMonitorDataReportResponse
      */
     public function createMonitorDataReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateMonitorDataReport',
@@ -1015,16 +1236,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMonitorDataReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateMonitorDataReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMonitorDataReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param CreateMonitorDataReportRequest $request CreateMonitorDataReportRequest
+     * Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateMonitorDataReportResponse CreateMonitorDataReportResponse
+     * @param request - CreateMonitorDataReportRequest
+     * @returns CreateMonitorDataReportResponse
+     *
+     * @param CreateMonitorDataReportRequest $request
+     *
+     * @return CreateMonitorDataReportResponse
      */
     public function createMonitorDataReport($request)
     {
@@ -1034,39 +1261,50 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Creates a storage task for cold data.
-     *  *
-     * @description Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
-     *  *
-     * @param CreateOSSStorageRequest $request CreateOSSStorageRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a storage task for cold data.
      *
-     * @return CreateOSSStorageResponse CreateOSSStorageResponse
+     * @remarks
+     * Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
+     *
+     * @param request - CreateOSSStorageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOSSStorageResponse
+     *
+     * @param CreateOSSStorageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateOSSStorageResponse
      */
     public function createOSSStorageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateOSSStorage',
@@ -1079,18 +1317,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOSSStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOSSStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOSSStorageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a storage task for cold data.
-     *  *
-     * @description Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
-     *  *
-     * @param CreateOSSStorageRequest $request CreateOSSStorageRequest
+     * Creates a storage task for cold data.
      *
-     * @return CreateOSSStorageResponse CreateOSSStorageResponse
+     * @remarks
+     * Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
+     *
+     * @param request - CreateOSSStorageRequest
+     * @returns CreateOSSStorageResponse
+     *
+     * @param CreateOSSStorageRequest $request
+     *
+     * @return CreateOSSStorageResponse
      */
     public function createOSSStorage($request)
     {
@@ -1100,42 +1345,54 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
-     *  *
-     * @param CreatePortsForClickHouseRequest $request CreatePortsForClickHouseRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreatePortsForClickHouseResponse CreatePortsForClickHouseResponse
+     * @remarks
+     * >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+     *
+     * @param request - CreatePortsForClickHouseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePortsForClickHouseResponse
+     *
+     * @param CreatePortsForClickHouseRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreatePortsForClickHouseResponse
      */
     public function createPortsForClickHouseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->portType)) {
-            $query['PortType'] = $request->portType;
+
+        if (null !== $request->portType) {
+            @$query['PortType'] = $request->portType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePortsForClickHouse',
@@ -1148,18 +1405,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePortsForClickHouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePortsForClickHouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePortsForClickHouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
-     *  *
-     * @param CreatePortsForClickHouseRequest $request CreatePortsForClickHouseRequest
+     * Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreatePortsForClickHouseResponse CreatePortsForClickHouseResponse
+     * @remarks
+     * >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+     *
+     * @param request - CreatePortsForClickHouseRequest
+     * @returns CreatePortsForClickHouseResponse
+     *
+     * @param CreatePortsForClickHouseRequest $request
+     *
+     * @return CreatePortsForClickHouseResponse
      */
     public function createPortsForClickHouse($request)
     {
@@ -1169,72 +1433,94 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
-     *  *
-     * @param CreateRDSToClickhouseDbRequest $request CreateRDSToClickhouseDbRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateRDSToClickhouseDbResponse CreateRDSToClickhouseDbResponse
+     * @remarks
+     * >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - CreateRDSToClickhouseDbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRDSToClickhouseDbResponse
+     *
+     * @param CreateRDSToClickhouseDbRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateRDSToClickhouseDbResponse
      */
     public function createRDSToClickhouseDbWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ckPassword)) {
-            $query['CkPassword'] = $request->ckPassword;
+        if (null !== $request->ckPassword) {
+            @$query['CkPassword'] = $request->ckPassword;
         }
-        if (!Utils::isUnset($request->ckUserName)) {
-            $query['CkUserName'] = $request->ckUserName;
+
+        if (null !== $request->ckUserName) {
+            @$query['CkUserName'] = $request->ckUserName;
         }
-        if (!Utils::isUnset($request->clickhousePort)) {
-            $query['ClickhousePort'] = $request->clickhousePort;
+
+        if (null !== $request->clickhousePort) {
+            @$query['ClickhousePort'] = $request->clickhousePort;
         }
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
+
+        if (null !== $request->dbClusterId) {
+            @$query['DbClusterId'] = $request->dbClusterId;
         }
-        if (!Utils::isUnset($request->limitUpper)) {
-            $query['LimitUpper'] = $request->limitUpper;
+
+        if (null !== $request->limitUpper) {
+            @$query['LimitUpper'] = $request->limitUpper;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->rdsId)) {
-            $query['RdsId'] = $request->rdsId;
+
+        if (null !== $request->rdsId) {
+            @$query['RdsId'] = $request->rdsId;
         }
-        if (!Utils::isUnset($request->rdsPassword)) {
-            $query['RdsPassword'] = $request->rdsPassword;
+
+        if (null !== $request->rdsPassword) {
+            @$query['RdsPassword'] = $request->rdsPassword;
         }
-        if (!Utils::isUnset($request->rdsPort)) {
-            $query['RdsPort'] = $request->rdsPort;
+
+        if (null !== $request->rdsPort) {
+            @$query['RdsPort'] = $request->rdsPort;
         }
-        if (!Utils::isUnset($request->rdsUserName)) {
-            $query['RdsUserName'] = $request->rdsUserName;
+
+        if (null !== $request->rdsUserName) {
+            @$query['RdsUserName'] = $request->rdsUserName;
         }
-        if (!Utils::isUnset($request->rdsVpcId)) {
-            $query['RdsVpcId'] = $request->rdsVpcId;
+
+        if (null !== $request->rdsVpcId) {
+            @$query['RdsVpcId'] = $request->rdsVpcId;
         }
-        if (!Utils::isUnset($request->rdsVpcUrl)) {
-            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
+
+        if (null !== $request->rdsVpcUrl) {
+            @$query['RdsVpcUrl'] = $request->rdsVpcUrl;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->skipUnsupported)) {
-            $query['SkipUnsupported'] = $request->skipUnsupported;
+
+        if (null !== $request->skipUnsupported) {
+            @$query['SkipUnsupported'] = $request->skipUnsupported;
         }
-        if (!Utils::isUnset($request->synDbTables)) {
-            $query['SynDbTables'] = $request->synDbTables;
+
+        if (null !== $request->synDbTables) {
+            @$query['SynDbTables'] = $request->synDbTables;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRDSToClickhouseDb',
@@ -1247,18 +1533,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRDSToClickhouseDbResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRDSToClickhouseDbResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRDSToClickhouseDbResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
-     *  *
-     * @param CreateRDSToClickhouseDbRequest $request CreateRDSToClickhouseDbRequest
+     * Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateRDSToClickhouseDbResponse CreateRDSToClickhouseDbResponse
+     * @remarks
+     * >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - CreateRDSToClickhouseDbRequest
+     * @returns CreateRDSToClickhouseDbResponse
+     *
+     * @param CreateRDSToClickhouseDbRequest $request
+     *
+     * @return CreateRDSToClickhouseDbResponse
      */
     public function createRDSToClickhouseDb($request)
     {
@@ -1268,48 +1561,62 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
-     *  *
-     * @param CreateSQLAccountRequest $request CreateSQLAccountRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateSQLAccountResponse CreateSQLAccountResponse
+     * @remarks
+     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+     *
+     * @param request - CreateSQLAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSQLAccountResponse
+     *
+     * @param CreateSQLAccountRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSQLAccountResponse
      */
     public function createSQLAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountDescription)) {
-            $query['AccountDescription'] = $request->accountDescription;
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->accountType)) {
-            $query['AccountType'] = $request->accountType;
+
+        if (null !== $request->accountType) {
+            @$query['AccountType'] = $request->accountType;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSQLAccount',
@@ -1322,18 +1629,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSQLAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSQLAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSQLAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
-     *  *
-     * @param CreateSQLAccountRequest $request CreateSQLAccountRequest
+     * Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
      *
-     * @return CreateSQLAccountResponse CreateSQLAccountResponse
+     * @remarks
+     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+     *
+     * @param request - CreateSQLAccountRequest
+     * @returns CreateSQLAccountResponse
+     *
+     * @param CreateSQLAccountRequest $request
+     *
+     * @return CreateSQLAccountResponse
      */
     public function createSQLAccount($request)
     {
@@ -1343,31 +1657,39 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Creates a service-linked role.
-     *  *
-     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates a service-linked role.
      *
-     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     * @param request - CreateServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceLinkedRoleResponse
+     *
+     * @param CreateServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceLinkedRole',
@@ -1380,16 +1702,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a service-linked role.
-     *  *
-     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * Creates a service-linked role.
      *
-     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     * @param request - CreateServiceLinkedRoleRequest
+     * @returns CreateServiceLinkedRoleResponse
+     *
+     * @param CreateServiceLinkedRoleRequest $request
+     *
+     * @return CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -1399,39 +1727,50 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a database account of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
-     *  *
-     * @param DeleteAccountRequest $request DeleteAccountRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a database account of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DeleteAccountResponse DeleteAccountResponse
+     * @remarks
+     * >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+     *
+     * @param request - DeleteAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAccountResponse
+     *
+     * @param DeleteAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccount',
@@ -1444,18 +1783,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a database account of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
-     *  *
-     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * Deletes a database account of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DeleteAccountResponse DeleteAccountResponse
+     * @remarks
+     * >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+     *
+     * @param request - DeleteAccountRequest
+     * @returns DeleteAccountResponse
+     *
+     * @param DeleteAccountRequest $request
+     *
+     * @return DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -1465,36 +1811,46 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
-     *  *
-     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
      *
-     * @return DeleteDBClusterResponse DeleteDBClusterResponse
+     * @remarks
+     * *Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+     *
+     * @param request - DeleteDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDBClusterResponse
+     *
+     * @param DeleteDBClusterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteDBClusterResponse
      */
     public function deleteDBClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDBCluster',
@@ -1507,18 +1863,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
-     *  *
-     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
+     * Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
      *
-     * @return DeleteDBClusterResponse DeleteDBClusterResponse
+     * @remarks
+     * *Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+     *
+     * @param request - DeleteDBClusterRequest
+     * @returns DeleteDBClusterResponse
+     *
+     * @param DeleteDBClusterRequest $request
+     *
+     * @return DeleteDBClusterResponse
      */
     public function deleteDBCluster($request)
     {
@@ -1528,37 +1891,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a database used for data synchronization.
-     *  *
-     * @param DeleteSyndbRequest $request DeleteSyndbRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a database used for data synchronization.
      *
-     * @return DeleteSyndbResponse DeleteSyndbResponse
+     * @param request - DeleteSyndbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSyndbResponse
+     *
+     * @param DeleteSyndbRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteSyndbResponse
      */
     public function deleteSyndbWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
+        if (null !== $request->dbClusterId) {
+            @$query['DbClusterId'] = $request->dbClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->synDb)) {
-            $query['SynDb'] = $request->synDb;
+
+        if (null !== $request->synDb) {
+            @$query['SynDb'] = $request->synDb;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSyndb',
@@ -1571,16 +1944,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSyndbResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSyndbResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSyndbResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a database used for data synchronization.
-     *  *
-     * @param DeleteSyndbRequest $request DeleteSyndbRequest
+     * Deletes a database used for data synchronization.
      *
-     * @return DeleteSyndbResponse DeleteSyndbResponse
+     * @param request - DeleteSyndbRequest
+     * @returns DeleteSyndbResponse
+     *
+     * @param DeleteSyndbRequest $request
+     *
+     * @return DeleteSyndbResponse
      */
     public function deleteSyndb($request)
     {
@@ -1590,40 +1969,51 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the permissions of an account.
-     *  *
-     * @param DescribeAccountAuthorityRequest $request DescribeAccountAuthorityRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the permissions of an account.
      *
-     * @return DescribeAccountAuthorityResponse DescribeAccountAuthorityResponse
+     * @param request - DescribeAccountAuthorityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAccountAuthorityResponse
+     *
+     * @param DescribeAccountAuthorityRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAccountAuthorityResponse
      */
     public function describeAccountAuthorityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccountAuthority',
@@ -1636,16 +2026,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAccountAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the permissions of an account.
-     *  *
-     * @param DescribeAccountAuthorityRequest $request DescribeAccountAuthorityRequest
+     * Queries the permissions of an account.
      *
-     * @return DescribeAccountAuthorityResponse DescribeAccountAuthorityResponse
+     * @param request - DescribeAccountAuthorityRequest
+     * @returns DescribeAccountAuthorityResponse
+     *
+     * @param DescribeAccountAuthorityRequest $request
+     *
+     * @return DescribeAccountAuthorityResponse
      */
     public function describeAccountAuthority($request)
     {
@@ -1655,43 +2051,55 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary DescribeAccounts
-     *  *
-     * @param DescribeAccountsRequest $request DescribeAccountsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the database accounts of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeAccountsResponse DescribeAccountsResponse
+     * @param request - DescribeAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAccountsResponse
+     *
+     * @param DescribeAccountsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccounts',
@@ -1704,16 +2112,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary DescribeAccounts
-     *  *
-     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * Queries the information about the database accounts of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeAccountsResponse DescribeAccountsResponse
+     * @param request - DescribeAccountsRequest
+     * @returns DescribeAccountsResponse
+     *
+     * @param DescribeAccountsRequest $request
+     *
+     * @return DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -1723,40 +2137,51 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeAllDataSourceRequest $request DescribeAllDataSourceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeAllDataSourceResponse DescribeAllDataSourceResponse
+     * @param request - DescribeAllDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAllDataSourceResponse
+     *
+     * @param DescribeAllDataSourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAllDataSourceResponse
      */
     public function describeAllDataSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAllDataSource',
@@ -1769,16 +2194,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAllDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAllDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAllDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeAllDataSourceRequest $request DescribeAllDataSourceRequest
+     * Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeAllDataSourceResponse DescribeAllDataSourceResponse
+     * @param request - DescribeAllDataSourceRequest
+     * @returns DescribeAllDataSourceResponse
+     *
+     * @param DescribeAllDataSourceRequest $request
+     *
+     * @return DescribeAllDataSourceResponse
      */
     public function describeAllDataSource($request)
     {
@@ -1788,40 +2219,51 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the data sources of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeAllDataSourcesRequest $request DescribeAllDataSourcesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the data sources of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeAllDataSourcesResponse DescribeAllDataSourcesResponse
+     * @param request - DescribeAllDataSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAllDataSourcesResponse
+     *
+     * @param DescribeAllDataSourcesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeAllDataSourcesResponse
      */
     public function describeAllDataSourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAllDataSources',
@@ -1834,16 +2276,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAllDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAllDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAllDataSourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the data sources of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeAllDataSourcesRequest $request DescribeAllDataSourcesRequest
+     * Queries the data sources of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeAllDataSourcesResponse DescribeAllDataSourcesResponse
+     * @param request - DescribeAllDataSourcesRequest
+     * @returns DescribeAllDataSourcesResponse
+     *
+     * @param DescribeAllDataSourcesRequest $request
+     *
+     * @return DescribeAllDataSourcesResponse
      */
     public function describeAllDataSources($request)
     {
@@ -1853,36 +2301,46 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the backup settings of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *  *
-     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the backup settings of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
+     * @remarks
+     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *
+     * @param request - DescribeBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBackupPolicyResponse
+     *
+     * @param DescribeBackupPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackupPolicy',
@@ -1895,18 +2353,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the backup settings of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *  *
-     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * Queries the backup settings of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
+     * @remarks
+     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *
+     * @param request - DescribeBackupPolicyRequest
+     * @returns DescribeBackupPolicyResponse
+     *
+     * @param DescribeBackupPolicyRequest $request
+     *
+     * @return DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -1916,49 +2381,63 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary 查看备份集
-     *  *
-     * @param DescribeBackupsRequest $request DescribeBackupsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the backup sets of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeBackupsResponse DescribeBackupsResponse
+     * @param request - DescribeBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBackupsResponse
+     *
+     * @param DescribeBackupsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackups',
@@ -1971,16 +2450,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看备份集
-     *  *
-     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * Queries the backup sets of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeBackupsResponse DescribeBackupsResponse
+     * @param request - DescribeBackupsRequest
+     * @returns DescribeBackupsResponse
+     *
+     * @param DescribeBackupsRequest $request
+     *
+     * @return DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -1990,40 +2475,51 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about columns.
-     *  *
-     * @param DescribeColumnsRequest $request DescribeColumnsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries information about columns.
      *
-     * @return DescribeColumnsResponse DescribeColumnsResponse
+     * @param request - DescribeColumnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeColumnsResponse
+     *
+     * @param DescribeColumnsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeColumnsResponse
      */
     public function describeColumnsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeColumns',
@@ -2036,16 +2532,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeColumnsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about columns.
-     *  *
-     * @param DescribeColumnsRequest $request DescribeColumnsRequest
+     * Queries information about columns.
      *
-     * @return DescribeColumnsResponse DescribeColumnsResponse
+     * @param request - DescribeColumnsRequest
+     * @returns DescribeColumnsResponse
+     *
+     * @param DescribeColumnsRequest $request
+     *
+     * @return DescribeColumnsResponse
      */
     public function describeColumns($request)
     {
@@ -2055,21 +2557,26 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param DescribeConfigHistoryRequest $request DescribeConfigHistoryRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeConfigHistoryResponse DescribeConfigHistoryResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - DescribeConfigHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeConfigHistoryResponse
+     *
+     * @param DescribeConfigHistoryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeConfigHistoryResponse
      */
     public function describeConfigHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeConfigHistory',
@@ -2082,18 +2589,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeConfigHistoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param DescribeConfigHistoryRequest $request DescribeConfigHistoryRequest
+     * Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeConfigHistoryResponse DescribeConfigHistoryResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - DescribeConfigHistoryRequest
+     * @returns DescribeConfigHistoryResponse
+     *
+     * @param DescribeConfigHistoryRequest $request
+     *
+     * @return DescribeConfigHistoryResponse
      */
     public function describeConfigHistory($request)
     {
@@ -2103,21 +2617,26 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param DescribeConfigVersionDifferenceRequest $request DescribeConfigVersionDifferenceRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
      *
-     * @return DescribeConfigVersionDifferenceResponse DescribeConfigVersionDifferenceResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - DescribeConfigVersionDifferenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeConfigVersionDifferenceResponse
+     *
+     * @param DescribeConfigVersionDifferenceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeConfigVersionDifferenceResponse
      */
     public function describeConfigVersionDifferenceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeConfigVersionDifference',
@@ -2130,18 +2649,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeConfigVersionDifferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeConfigVersionDifferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeConfigVersionDifferenceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param DescribeConfigVersionDifferenceRequest $request DescribeConfigVersionDifferenceRequest
+     * Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
      *
-     * @return DescribeConfigVersionDifferenceResponse DescribeConfigVersionDifferenceResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - DescribeConfigVersionDifferenceRequest
+     * @returns DescribeConfigVersionDifferenceResponse
+     *
+     * @param DescribeConfigVersionDifferenceRequest $request
+     *
+     * @return DescribeConfigVersionDifferenceResponse
      */
     public function describeConfigVersionDifference($request)
     {
@@ -2151,34 +2677,43 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBClusterAccessWhiteListRequest $request DescribeDBClusterAccessWhiteListRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterAccessWhiteListResponse DescribeDBClusterAccessWhiteListResponse
+     * @param request - DescribeDBClusterAccessWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBClusterAccessWhiteListResponse
+     *
+     * @param DescribeDBClusterAccessWhiteListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDBClusterAccessWhiteListResponse
      */
     public function describeDBClusterAccessWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBClusterAccessWhiteList',
@@ -2191,16 +2726,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBClusterAccessWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBClusterAccessWhiteListRequest $request DescribeDBClusterAccessWhiteListRequest
+     * Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterAccessWhiteListResponse DescribeDBClusterAccessWhiteListResponse
+     * @param request - DescribeDBClusterAccessWhiteListRequest
+     * @returns DescribeDBClusterAccessWhiteListResponse
+     *
+     * @param DescribeDBClusterAccessWhiteListRequest $request
+     *
+     * @return DescribeDBClusterAccessWhiteListResponse
      */
     public function describeDBClusterAccessWhiteList($request)
     {
@@ -2210,34 +2751,43 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
+     * @param request - DescribeDBClusterAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBClusterAttributeResponse
+     *
+     * @param DescribeDBClusterAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBClusterAttribute',
@@ -2250,16 +2800,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBClusterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
+     * Queries the information about an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
+     * @param request - DescribeDBClusterAttributeRequest
+     * @returns DescribeDBClusterAttributeResponse
+     *
+     * @param DescribeDBClusterAttributeRequest $request
+     *
+     * @return DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttribute($request)
     {
@@ -2269,37 +2825,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterConfigResponse DescribeDBClusterConfigResponse
+     * @param request - DescribeDBClusterConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBClusterConfigResponse
+     *
+     * @param DescribeDBClusterConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDBClusterConfigResponse
      */
     public function describeDBClusterConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBClusterConfig',
@@ -2312,16 +2878,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBClusterConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
+     * Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterConfigResponse DescribeDBClusterConfigResponse
+     * @param request - DescribeDBClusterConfigRequest
+     * @returns DescribeDBClusterConfigResponse
+     *
+     * @param DescribeDBClusterConfigRequest $request
+     *
+     * @return DescribeDBClusterConfigResponse
      */
     public function describeDBClusterConfig($request)
     {
@@ -2331,27 +2903,34 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param DescribeDBClusterConfigInXMLRequest $request DescribeDBClusterConfigInXMLRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterConfigInXMLResponse DescribeDBClusterConfigInXMLResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - DescribeDBClusterConfigInXMLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBClusterConfigInXMLResponse
+     *
+     * @param DescribeDBClusterConfigInXMLRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDBClusterConfigInXMLResponse
      */
     public function describeDBClusterConfigInXMLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBClusterConfigInXML',
@@ -2364,18 +2943,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBClusterConfigInXMLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param DescribeDBClusterConfigInXMLRequest $request DescribeDBClusterConfigInXMLRequest
+     * Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterConfigInXMLResponse DescribeDBClusterConfigInXMLResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - DescribeDBClusterConfigInXMLRequest
+     * @returns DescribeDBClusterConfigInXMLResponse
+     *
+     * @param DescribeDBClusterConfigInXMLRequest $request
+     *
+     * @return DescribeDBClusterConfigInXMLResponse
      */
     public function describeDBClusterConfigInXML($request)
     {
@@ -2385,34 +2971,43 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the network information about an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBClusterNetInfoItemsRequest $request DescribeDBClusterNetInfoItemsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the network information about an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterNetInfoItemsResponse DescribeDBClusterNetInfoItemsResponse
+     * @param request - DescribeDBClusterNetInfoItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBClusterNetInfoItemsResponse
+     *
+     * @param DescribeDBClusterNetInfoItemsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDBClusterNetInfoItemsResponse
      */
     public function describeDBClusterNetInfoItemsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBClusterNetInfoItems',
@@ -2425,16 +3020,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBClusterNetInfoItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBClusterNetInfoItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBClusterNetInfoItemsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the network information about an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBClusterNetInfoItemsRequest $request DescribeDBClusterNetInfoItemsRequest
+     * Queries the network information about an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterNetInfoItemsResponse DescribeDBClusterNetInfoItemsResponse
+     * @param request - DescribeDBClusterNetInfoItemsRequest
+     * @returns DescribeDBClusterNetInfoItemsResponse
+     *
+     * @param DescribeDBClusterNetInfoItemsRequest $request
+     *
+     * @return DescribeDBClusterNetInfoItemsResponse
      */
     public function describeDBClusterNetInfoItems($request)
     {
@@ -2444,46 +3045,59 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries performance data about an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
-     *  *
-     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries performance data about an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
+     * @remarks
+     * You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+     *
+     * @param request - DescribeDBClusterPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBClusterPerformanceResponse
+     *
+     * @param DescribeDBClusterPerformanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBClusterPerformance',
@@ -2496,19 +3110,26 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBClusterPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBClusterPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBClusterPerformanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries performance data about an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
-     *  *
-     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
+     * Queries performance data about an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
+     * @remarks
+     * You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+     *
+     * @param request - DescribeDBClusterPerformanceRequest
+     * @returns DescribeDBClusterPerformanceResponse
+     *
+     * @param DescribeDBClusterPerformanceRequest $request
+     *
+     * @return DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformance($request)
     {
@@ -2518,55 +3139,71 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about ApsaraDB for ClickHouse clusters in a region.
-     *  *
-     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about ApsaraDB for ClickHouse clusters in a region.
      *
-     * @return DescribeDBClustersResponse DescribeDBClustersResponse
+     * @param request - DescribeDBClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBClustersResponse
+     *
+     * @param DescribeDBClustersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDBClustersResponse
      */
     public function describeDBClustersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterDescription)) {
-            $query['DBClusterDescription'] = $request->DBClusterDescription;
+        if (null !== $request->DBClusterDescription) {
+            @$query['DBClusterDescription'] = $request->DBClusterDescription;
         }
-        if (!Utils::isUnset($request->DBClusterIds)) {
-            $query['DBClusterIds'] = $request->DBClusterIds;
+
+        if (null !== $request->DBClusterIds) {
+            @$query['DBClusterIds'] = $request->DBClusterIds;
         }
-        if (!Utils::isUnset($request->DBClusterStatus)) {
-            $query['DBClusterStatus'] = $request->DBClusterStatus;
+
+        if (null !== $request->DBClusterStatus) {
+            @$query['DBClusterStatus'] = $request->DBClusterStatus;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBClusters',
@@ -2579,16 +3216,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBClustersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about ApsaraDB for ClickHouse clusters in a region.
-     *  *
-     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
+     * Queries the information about ApsaraDB for ClickHouse clusters in a region.
      *
-     * @return DescribeDBClustersResponse DescribeDBClustersResponse
+     * @param request - DescribeDBClustersRequest
+     * @returns DescribeDBClustersResponse
+     *
+     * @param DescribeDBClustersRequest $request
+     *
+     * @return DescribeDBClustersResponse
      */
     public function describeDBClusters($request)
     {
@@ -2598,37 +3241,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries configuration information about an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBConfigRequest $request DescribeDBConfigRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries configuration information about an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBConfigResponse DescribeDBConfigResponse
+     * @param request - DescribeDBConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBConfigResponse
+     *
+     * @param DescribeDBConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeDBConfigResponse
      */
     public function describeDBConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBConfig',
@@ -2641,16 +3294,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries configuration information about an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeDBConfigRequest $request DescribeDBConfigRequest
+     * Queries configuration information about an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeDBConfigResponse DescribeDBConfigResponse
+     * @param request - DescribeDBConfigRequest
+     * @returns DescribeDBConfigResponse
+     *
+     * @param DescribeDBConfigRequest $request
+     *
+     * @return DescribeDBConfigResponse
      */
     public function describeDBConfig($request)
     {
@@ -2660,37 +3319,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the storage of cold data.
-     *  *
-     * @param DescribeOSSStorageRequest $request DescribeOSSStorageRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the storage of cold data.
      *
-     * @return DescribeOSSStorageResponse DescribeOSSStorageResponse
+     * @param request - DescribeOSSStorageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeOSSStorageResponse
+     *
+     * @param DescribeOSSStorageRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeOSSStorageResponse
      */
     public function describeOSSStorageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeOSSStorage',
@@ -2703,16 +3372,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeOSSStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeOSSStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOSSStorageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the storage of cold data.
-     *  *
-     * @param DescribeOSSStorageRequest $request DescribeOSSStorageRequest
+     * Queries the storage of cold data.
      *
-     * @return DescribeOSSStorageResponse DescribeOSSStorageResponse
+     * @param request - DescribeOSSStorageRequest
+     * @returns DescribeOSSStorageResponse
+     *
+     * @param DescribeOSSStorageRequest $request
+     *
+     * @return DescribeOSSStorageResponse
      */
     public function describeOSSStorage($request)
     {
@@ -2722,58 +3397,75 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeProcessListRequest $request DescribeProcessListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeProcessListResponse DescribeProcessListResponse
+     * @param request - DescribeProcessListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProcessListResponse
+     *
+     * @param DescribeProcessListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeProcessListResponse
      */
     public function describeProcessListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->initialQueryId)) {
-            $query['InitialQueryId'] = $request->initialQueryId;
+
+        if (null !== $request->initialQueryId) {
+            @$query['InitialQueryId'] = $request->initialQueryId;
         }
-        if (!Utils::isUnset($request->initialUser)) {
-            $query['InitialUser'] = $request->initialUser;
+
+        if (null !== $request->initialUser) {
+            @$query['InitialUser'] = $request->initialUser;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryDurationMs)) {
-            $query['QueryDurationMs'] = $request->queryDurationMs;
+
+        if (null !== $request->queryDurationMs) {
+            @$query['QueryDurationMs'] = $request->queryDurationMs;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProcessList',
@@ -2786,16 +3478,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProcessListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeProcessListRequest $request DescribeProcessListRequest
+     * Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeProcessListResponse DescribeProcessListResponse
+     * @param request - DescribeProcessListRequest
+     * @returns DescribeProcessListResponse
+     *
+     * @param DescribeProcessListRequest $request
+     *
+     * @return DescribeProcessListResponse
      */
     public function describeProcessList($request)
     {
@@ -2805,31 +3503,39 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -2842,16 +3548,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2861,34 +3573,43 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeSchemasRequest $request DescribeSchemasRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeSchemasResponse DescribeSchemasResponse
+     * @param request - DescribeSchemasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSchemasResponse
+     *
+     * @param DescribeSchemasRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeSchemasResponse
      */
     public function describeSchemasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSchemas',
@@ -2901,16 +3622,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSchemasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeSchemasRequest $request DescribeSchemasRequest
+     * Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeSchemasResponse DescribeSchemasResponse
+     * @param request - DescribeSchemasRequest
+     * @returns DescribeSchemasResponse
+     *
+     * @param DescribeSchemasRequest $request
+     *
+     * @return DescribeSchemasResponse
      */
     public function describeSchemas($request)
     {
@@ -2920,52 +3647,67 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about slow query logs.
-     *  *
-     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the details about slow query logs.
      *
-     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
+     * @param request - DescribeSlowLogRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlowLogRecordsResponse
+     *
+     * @param DescribeSlowLogRecordsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryDurationMs)) {
-            $query['QueryDurationMs'] = $request->queryDurationMs;
+
+        if (null !== $request->queryDurationMs) {
+            @$query['QueryDurationMs'] = $request->queryDurationMs;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlowLogRecords',
@@ -2978,16 +3720,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlowLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about slow query logs.
-     *  *
-     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * Queries the details about slow query logs.
      *
-     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
+     * @param request - DescribeSlowLogRecordsRequest
+     * @returns DescribeSlowLogRecordsResponse
+     *
+     * @param DescribeSlowLogRecordsRequest $request
+     *
+     * @return DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -2997,37 +3745,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeSynDbTablesRequest $request DescribeSynDbTablesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeSynDbTablesResponse DescribeSynDbTablesResponse
+     * @param request - DescribeSynDbTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSynDbTablesResponse
+     *
+     * @param DescribeSynDbTablesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeSynDbTablesResponse
      */
     public function describeSynDbTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
+        if (null !== $request->dbClusterId) {
+            @$query['DbClusterId'] = $request->dbClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->synDb)) {
-            $query['SynDb'] = $request->synDb;
+
+        if (null !== $request->synDb) {
+            @$query['SynDb'] = $request->synDb;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSynDbTables',
@@ -3040,16 +3798,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSynDbTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSynDbTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSynDbTablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeSynDbTablesRequest $request DescribeSynDbTablesRequest
+     * Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeSynDbTablesResponse DescribeSynDbTablesResponse
+     * @param request - DescribeSynDbTablesRequest
+     * @returns DescribeSynDbTablesResponse
+     *
+     * @param DescribeSynDbTablesRequest $request
+     *
+     * @return DescribeSynDbTablesResponse
      */
     public function describeSynDbTables($request)
     {
@@ -3059,40 +3823,51 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
-     *  *
-     * @param DescribeSynDbsRequest $request DescribeSynDbsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
      *
-     * @return DescribeSynDbsResponse DescribeSynDbsResponse
+     * @param request - DescribeSynDbsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSynDbsResponse
+     *
+     * @param DescribeSynDbsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeSynDbsResponse
      */
     public function describeSynDbsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
+        if (null !== $request->dbClusterId) {
+            @$query['DbClusterId'] = $request->dbClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSynDbs',
@@ -3105,16 +3880,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSynDbsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSynDbsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSynDbsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
-     *  *
-     * @param DescribeSynDbsRequest $request DescribeSynDbsRequest
+     * Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
      *
-     * @return DescribeSynDbsResponse DescribeSynDbsResponse
+     * @param request - DescribeSynDbsRequest
+     * @returns DescribeSynDbsResponse
+     *
+     * @param DescribeSynDbsRequest $request
+     *
+     * @return DescribeSynDbsResponse
      */
     public function describeSynDbs($request)
     {
@@ -3124,37 +3905,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeTablesRequest $request DescribeTablesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeTablesResponse DescribeTablesResponse
+     * @param request - DescribeTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTablesResponse
+     *
+     * @param DescribeTablesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeTablesResponse
      */
     public function describeTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTables',
@@ -3167,16 +3958,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param DescribeTablesRequest $request DescribeTablesRequest
+     * Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
      *
-     * @return DescribeTablesResponse DescribeTablesResponse
+     * @param request - DescribeTablesRequest
+     * @returns DescribeTablesResponse
+     *
+     * @param DescribeTablesRequest $request
+     *
+     * @return DescribeTablesResponse
      */
     public function describeTables($request)
     {
@@ -3186,36 +3983,46 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version
-     *  *
-     * @description >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
-     *  *
-     * @param DescribeTransferHistoryRequest $request DescribeTransferHistoryRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
      *
-     * @return DescribeTransferHistoryResponse DescribeTransferHistoryResponse
+     * @remarks
+     * >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+     *
+     * @param request - DescribeTransferHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTransferHistoryResponse
+     *
+     * @param DescribeTransferHistoryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeTransferHistoryResponse
      */
     public function describeTransferHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTransferHistory',
@@ -3228,18 +4035,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTransferHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTransferHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTransferHistoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version
-     *  *
-     * @description >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
-     *  *
-     * @param DescribeTransferHistoryRequest $request DescribeTransferHistoryRequest
+     * Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
      *
-     * @return DescribeTransferHistoryResponse DescribeTransferHistoryResponse
+     * @remarks
+     * >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+     *
+     * @param request - DescribeTransferHistoryRequest
+     * @returns DescribeTransferHistoryResponse
+     *
+     * @param DescribeTransferHistoryRequest $request
+     *
+     * @return DescribeTransferHistoryResponse
      */
     public function describeTransferHistory($request)
     {
@@ -3249,40 +4063,51 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Terminates an ongoing task.
-     *  *
-     * @param KillProcessRequest $request KillProcessRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Terminates an ongoing task.
      *
-     * @return KillProcessResponse KillProcessResponse
+     * @param request - KillProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns KillProcessResponse
+     *
+     * @param KillProcessRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return KillProcessResponse
      */
     public function killProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->initialQueryId)) {
-            $query['InitialQueryId'] = $request->initialQueryId;
+
+        if (null !== $request->initialQueryId) {
+            @$query['InitialQueryId'] = $request->initialQueryId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'KillProcess',
@@ -3295,16 +4120,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return KillProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return KillProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return KillProcessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Terminates an ongoing task.
-     *  *
-     * @param KillProcessRequest $request KillProcessRequest
+     * Terminates an ongoing task.
      *
-     * @return KillProcessResponse KillProcessResponse
+     * @param request - KillProcessRequest
+     * @returns KillProcessResponse
+     *
+     * @param KillProcessRequest $request
+     *
+     * @return KillProcessResponse
      */
     public function killProcess($request)
     {
@@ -3314,58 +4145,75 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the permissions of an account.
-     *  *
-     * @param ModifyAccountAuthorityRequest $request ModifyAccountAuthorityRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies the permissions of an account.
      *
-     * @return ModifyAccountAuthorityResponse ModifyAccountAuthorityResponse
+     * @param request - ModifyAccountAuthorityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAccountAuthorityResponse
+     *
+     * @param ModifyAccountAuthorityRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAccountAuthorityResponse
      */
     public function modifyAccountAuthorityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->allowDatabases)) {
-            $query['AllowDatabases'] = $request->allowDatabases;
+
+        if (null !== $request->allowDatabases) {
+            @$query['AllowDatabases'] = $request->allowDatabases;
         }
-        if (!Utils::isUnset($request->allowDictionaries)) {
-            $query['AllowDictionaries'] = $request->allowDictionaries;
+
+        if (null !== $request->allowDictionaries) {
+            @$query['AllowDictionaries'] = $request->allowDictionaries;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ddlAuthority)) {
-            $query['DdlAuthority'] = $request->ddlAuthority;
+
+        if (null !== $request->ddlAuthority) {
+            @$query['DdlAuthority'] = $request->ddlAuthority;
         }
-        if (!Utils::isUnset($request->dmlAuthority)) {
-            $query['DmlAuthority'] = $request->dmlAuthority;
+
+        if (null !== $request->dmlAuthority) {
+            @$query['DmlAuthority'] = $request->dmlAuthority;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->totalDatabases)) {
-            $query['TotalDatabases'] = $request->totalDatabases;
+
+        if (null !== $request->totalDatabases) {
+            @$query['TotalDatabases'] = $request->totalDatabases;
         }
-        if (!Utils::isUnset($request->totalDictionaries)) {
-            $query['TotalDictionaries'] = $request->totalDictionaries;
+
+        if (null !== $request->totalDictionaries) {
+            @$query['TotalDictionaries'] = $request->totalDictionaries;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAccountAuthority',
@@ -3378,16 +4226,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAccountAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAccountAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the permissions of an account.
-     *  *
-     * @param ModifyAccountAuthorityRequest $request ModifyAccountAuthorityRequest
+     * Modifies the permissions of an account.
      *
-     * @return ModifyAccountAuthorityResponse ModifyAccountAuthorityResponse
+     * @param request - ModifyAccountAuthorityRequest
+     * @returns ModifyAccountAuthorityResponse
+     *
+     * @param ModifyAccountAuthorityRequest $request
+     *
+     * @return ModifyAccountAuthorityResponse
      */
     public function modifyAccountAuthority($request)
     {
@@ -3397,38 +4251,51 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of a database account of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
+     * @param request - ModifyAccountDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAccountDescriptionResponse
+     *
+     * @param ModifyAccountDescriptionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountDescription)) {
-            $query['AccountDescription'] = $request->accountDescription;
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAccountDescription',
@@ -3441,14 +4308,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * Modifies the description of a database account of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
+     * @param request - ModifyAccountDescriptionRequest
+     * @returns ModifyAccountDescriptionResponse
+     *
+     * @param ModifyAccountDescriptionRequest $request
+     *
+     * @return ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -3458,45 +4333,58 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *  *
-     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
+     * @remarks
+     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *
+     * @param request - ModifyBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyBackupPolicyResponse
+     *
+     * @param ModifyBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupRetentionPeriod)) {
-            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        if (null !== $request->backupRetentionPeriod) {
+            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->preferredBackupPeriod)) {
-            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+
+        if (null !== $request->preferredBackupPeriod) {
+            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
         }
-        if (!Utils::isUnset($request->preferredBackupTime)) {
-            $query['PreferredBackupTime'] = $request->preferredBackupTime;
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyBackupPolicy',
@@ -3509,18 +4397,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *  *
-     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
+     * @remarks
+     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *
+     * @param request - ModifyBackupPolicyRequest
+     * @returns ModifyBackupPolicyResponse
+     *
+     * @param ModifyBackupPolicyRequest $request
+     *
+     * @return ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -3530,52 +4425,67 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterResponse ModifyDBClusterResponse
+     * @param request - ModifyDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBClusterResponse
+     *
+     * @param ModifyDBClusterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyDBClusterResponse
      */
     public function modifyDBClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterClass)) {
-            $query['DBClusterClass'] = $request->DBClusterClass;
+        if (null !== $request->DBClusterClass) {
+            @$query['DBClusterClass'] = $request->DBClusterClass;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->DBNodeGroupCount)) {
-            $query['DBNodeGroupCount'] = $request->DBNodeGroupCount;
+
+        if (null !== $request->DBNodeGroupCount) {
+            @$query['DBNodeGroupCount'] = $request->DBNodeGroupCount;
         }
-        if (!Utils::isUnset($request->DBNodeStorage)) {
-            $query['DBNodeStorage'] = $request->DBNodeStorage;
+
+        if (null !== $request->DBNodeStorage) {
+            @$query['DBNodeStorage'] = $request->DBNodeStorage;
         }
-        if (!Utils::isUnset($request->dbNodeStorageType)) {
-            $query['DbNodeStorageType'] = $request->dbNodeStorageType;
+
+        if (null !== $request->dbNodeStorageType) {
+            @$query['DbNodeStorageType'] = $request->dbNodeStorageType;
         }
-        if (!Utils::isUnset($request->disableWriteWindows)) {
-            $query['DisableWriteWindows'] = $request->disableWriteWindows;
+
+        if (null !== $request->disableWriteWindows) {
+            @$query['DisableWriteWindows'] = $request->disableWriteWindows;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBCluster',
@@ -3588,16 +4498,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
+     * Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterResponse ModifyDBClusterResponse
+     * @param request - ModifyDBClusterRequest
+     * @returns ModifyDBClusterResponse
+     *
+     * @param ModifyDBClusterRequest $request
+     *
+     * @return ModifyDBClusterResponse
      */
     public function modifyDBCluster($request)
     {
@@ -3607,44 +4523,59 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAccessWhiteListRequest $request ModifyDBClusterAccessWhiteListRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Modifies the IP address whitelist of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterAccessWhiteListResponse ModifyDBClusterAccessWhiteListResponse
+     * @param request - ModifyDBClusterAccessWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBClusterAccessWhiteListResponse
+     *
+     * @param ModifyDBClusterAccessWhiteListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyDBClusterAccessWhiteListResponse
      */
     public function modifyDBClusterAccessWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterIPArrayAttribute)) {
-            $query['DBClusterIPArrayAttribute'] = $request->DBClusterIPArrayAttribute;
+        if (null !== $request->DBClusterIPArrayAttribute) {
+            @$query['DBClusterIPArrayAttribute'] = $request->DBClusterIPArrayAttribute;
         }
-        if (!Utils::isUnset($request->DBClusterIPArrayName)) {
-            $query['DBClusterIPArrayName'] = $request->DBClusterIPArrayName;
+
+        if (null !== $request->DBClusterIPArrayName) {
+            @$query['DBClusterIPArrayName'] = $request->DBClusterIPArrayName;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->modifyMode)) {
-            $query['ModifyMode'] = $request->modifyMode;
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityIps)) {
-            $query['SecurityIps'] = $request->securityIps;
+
+        if (null !== $request->securityIps) {
+            @$query['SecurityIps'] = $request->securityIps;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBClusterAccessWhiteList',
@@ -3657,14 +4588,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBClusterAccessWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDBClusterAccessWhiteListRequest $request ModifyDBClusterAccessWhiteListRequest
+     * Modifies the IP address whitelist of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterAccessWhiteListResponse ModifyDBClusterAccessWhiteListResponse
+     * @param request - ModifyDBClusterAccessWhiteListRequest
+     * @returns ModifyDBClusterAccessWhiteListResponse
+     *
+     * @param ModifyDBClusterAccessWhiteListRequest $request
+     *
+     * @return ModifyDBClusterAccessWhiteListResponse
      */
     public function modifyDBClusterAccessWhiteList($request)
     {
@@ -3674,43 +4613,55 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterConfigResponse ModifyDBClusterConfigResponse
+     * @param request - ModifyDBClusterConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBClusterConfigResponse
+     *
+     * @param ModifyDBClusterConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDBClusterConfigResponse
      */
     public function modifyDBClusterConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $query['Reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$query['Reason'] = $request->reason;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->userConfig)) {
-            $query['UserConfig'] = $request->userConfig;
+
+        if (null !== $request->userConfig) {
+            @$query['UserConfig'] = $request->userConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBClusterConfig',
@@ -3723,16 +4674,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBClusterConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
+     * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterConfigResponse ModifyDBClusterConfigResponse
+     * @param request - ModifyDBClusterConfigRequest
+     * @returns ModifyDBClusterConfigResponse
+     *
+     * @param ModifyDBClusterConfigRequest $request
+     *
+     * @return ModifyDBClusterConfigResponse
      */
     public function modifyDBClusterConfig($request)
     {
@@ -3742,33 +4699,42 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the settings of the configuration parameters for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param ModifyDBClusterConfigInXMLRequest $request ModifyDBClusterConfigInXMLRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Modifies the settings of the configuration parameters for an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterConfigInXMLResponse ModifyDBClusterConfigInXMLResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - ModifyDBClusterConfigInXMLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBClusterConfigInXMLResponse
+     *
+     * @param ModifyDBClusterConfigInXMLRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDBClusterConfigInXMLResponse
      */
     public function modifyDBClusterConfigInXMLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->reason)) {
-            $query['Reason'] = $request->reason;
+
+        if (null !== $request->reason) {
+            @$query['Reason'] = $request->reason;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBClusterConfigInXML',
@@ -3781,18 +4747,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBClusterConfigInXMLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the settings of the configuration parameters for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *  *
-     * @param ModifyDBClusterConfigInXMLRequest $request ModifyDBClusterConfigInXMLRequest
+     * Modifies the settings of the configuration parameters for an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterConfigInXMLResponse ModifyDBClusterConfigInXMLResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *
+     * @param request - ModifyDBClusterConfigInXMLRequest
+     * @returns ModifyDBClusterConfigInXMLResponse
+     *
+     * @param ModifyDBClusterConfigInXMLRequest $request
+     *
+     * @return ModifyDBClusterConfigInXMLResponse
      */
     public function modifyDBClusterConfigInXML($request)
     {
@@ -3802,37 +4775,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Changes the name of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Changes the name of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
+     * @param request - ModifyDBClusterDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBClusterDescriptionResponse
+     *
+     * @param ModifyDBClusterDescriptionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterDescription)) {
-            $query['DBClusterDescription'] = $request->DBClusterDescription;
+        if (null !== $request->DBClusterDescription) {
+            @$query['DBClusterDescription'] = $request->DBClusterDescription;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBClusterDescription',
@@ -3845,16 +4828,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBClusterDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBClusterDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBClusterDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the name of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
+     * Changes the name of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
+     * @param request - ModifyDBClusterDescriptionRequest
+     * @returns ModifyDBClusterDescriptionResponse
+     *
+     * @param ModifyDBClusterDescriptionRequest $request
+     *
+     * @return ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescription($request)
     {
@@ -3864,37 +4853,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
+     * @param request - ModifyDBClusterMaintainTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBClusterMaintainTimeResponse
+     *
+     * @param ModifyDBClusterMaintainTimeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTimeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->maintainTime)) {
-            $query['MaintainTime'] = $request->maintainTime;
+
+        if (null !== $request->maintainTime) {
+            @$query['MaintainTime'] = $request->maintainTime;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBClusterMaintainTime',
@@ -3907,16 +4906,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBClusterMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBClusterMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBClusterMaintainTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
+     * Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
+     * @param request - ModifyDBClusterMaintainTimeRequest
+     * @returns ModifyDBClusterMaintainTimeResponse
+     *
+     * @param ModifyDBClusterMaintainTimeRequest $request
+     *
+     * @return ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTime($request)
     {
@@ -3926,40 +4931,51 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBConfigRequest $request ModifyDBConfigRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBConfigResponse ModifyDBConfigResponse
+     * @param request - ModifyDBConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBConfigResponse
+     *
+     * @param ModifyDBConfigRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyDBConfigResponse
      */
     public function modifyDBConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBConfig',
@@ -3972,16 +4988,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ModifyDBConfigRequest $request ModifyDBConfigRequest
+     * Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyDBConfigResponse ModifyDBConfigResponse
+     * @param request - ModifyDBConfigRequest
+     * @returns ModifyDBConfigResponse
+     *
+     * @param ModifyDBConfigRequest $request
+     *
+     * @return ModifyDBConfigResponse
      */
     public function modifyDBConfig($request)
     {
@@ -3991,37 +5013,47 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the type of a minor version update in ApsaraDB for ClickHouse.
-     *  *
-     * @param ModifyMinorVersionGreadeTypeRequest $request ModifyMinorVersionGreadeTypeRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Modifies the type of a minor version update in ApsaraDB for ClickHouse.
      *
-     * @return ModifyMinorVersionGreadeTypeResponse ModifyMinorVersionGreadeTypeResponse
+     * @param request - ModifyMinorVersionGreadeTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyMinorVersionGreadeTypeResponse
+     *
+     * @param ModifyMinorVersionGreadeTypeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyMinorVersionGreadeTypeResponse
      */
     public function modifyMinorVersionGreadeTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->maintainAutoType)) {
-            $query['MaintainAutoType'] = $request->maintainAutoType;
+
+        if (null !== $request->maintainAutoType) {
+            @$query['MaintainAutoType'] = $request->maintainAutoType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyMinorVersionGreadeType',
@@ -4034,16 +5066,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyMinorVersionGreadeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyMinorVersionGreadeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyMinorVersionGreadeTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the type of a minor version update in ApsaraDB for ClickHouse.
-     *  *
-     * @param ModifyMinorVersionGreadeTypeRequest $request ModifyMinorVersionGreadeTypeRequest
+     * Modifies the type of a minor version update in ApsaraDB for ClickHouse.
      *
-     * @return ModifyMinorVersionGreadeTypeResponse ModifyMinorVersionGreadeTypeResponse
+     * @param request - ModifyMinorVersionGreadeTypeRequest
+     * @returns ModifyMinorVersionGreadeTypeResponse
+     *
+     * @param ModifyMinorVersionGreadeTypeRequest $request
+     *
+     * @return ModifyMinorVersionGreadeTypeResponse
      */
     public function modifyMinorVersionGreadeType($request)
     {
@@ -4053,72 +5091,94 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
-     *  *
-     * @param ModifyRDSToClickhouseDbRequest $request ModifyRDSToClickhouseDbRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyRDSToClickhouseDbResponse ModifyRDSToClickhouseDbResponse
+     * @remarks
+     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - ModifyRDSToClickhouseDbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyRDSToClickhouseDbResponse
+     *
+     * @param ModifyRDSToClickhouseDbRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyRDSToClickhouseDbResponse
      */
     public function modifyRDSToClickhouseDbWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ckPassword)) {
-            $query['CkPassword'] = $request->ckPassword;
+        if (null !== $request->ckPassword) {
+            @$query['CkPassword'] = $request->ckPassword;
         }
-        if (!Utils::isUnset($request->ckUserName)) {
-            $query['CkUserName'] = $request->ckUserName;
+
+        if (null !== $request->ckUserName) {
+            @$query['CkUserName'] = $request->ckUserName;
         }
-        if (!Utils::isUnset($request->clickhousePort)) {
-            $query['ClickhousePort'] = $request->clickhousePort;
+
+        if (null !== $request->clickhousePort) {
+            @$query['ClickhousePort'] = $request->clickhousePort;
         }
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
+
+        if (null !== $request->dbClusterId) {
+            @$query['DbClusterId'] = $request->dbClusterId;
         }
-        if (!Utils::isUnset($request->limitUpper)) {
-            $query['LimitUpper'] = $request->limitUpper;
+
+        if (null !== $request->limitUpper) {
+            @$query['LimitUpper'] = $request->limitUpper;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->rdsId)) {
-            $query['RdsId'] = $request->rdsId;
+
+        if (null !== $request->rdsId) {
+            @$query['RdsId'] = $request->rdsId;
         }
-        if (!Utils::isUnset($request->rdsPassword)) {
-            $query['RdsPassword'] = $request->rdsPassword;
+
+        if (null !== $request->rdsPassword) {
+            @$query['RdsPassword'] = $request->rdsPassword;
         }
-        if (!Utils::isUnset($request->rdsPort)) {
-            $query['RdsPort'] = $request->rdsPort;
+
+        if (null !== $request->rdsPort) {
+            @$query['RdsPort'] = $request->rdsPort;
         }
-        if (!Utils::isUnset($request->rdsSynDb)) {
-            $query['RdsSynDb'] = $request->rdsSynDb;
+
+        if (null !== $request->rdsSynDb) {
+            @$query['RdsSynDb'] = $request->rdsSynDb;
         }
-        if (!Utils::isUnset($request->rdsSynTables)) {
-            $query['RdsSynTables'] = $request->rdsSynTables;
+
+        if (null !== $request->rdsSynTables) {
+            @$query['RdsSynTables'] = $request->rdsSynTables;
         }
-        if (!Utils::isUnset($request->rdsUserName)) {
-            $query['RdsUserName'] = $request->rdsUserName;
+
+        if (null !== $request->rdsUserName) {
+            @$query['RdsUserName'] = $request->rdsUserName;
         }
-        if (!Utils::isUnset($request->rdsVpcId)) {
-            $query['RdsVpcId'] = $request->rdsVpcId;
+
+        if (null !== $request->rdsVpcId) {
+            @$query['RdsVpcId'] = $request->rdsVpcId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->skipUnsupported)) {
-            $query['SkipUnsupported'] = $request->skipUnsupported;
+
+        if (null !== $request->skipUnsupported) {
+            @$query['SkipUnsupported'] = $request->skipUnsupported;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyRDSToClickhouseDb',
@@ -4131,18 +5191,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyRDSToClickhouseDbResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyRDSToClickhouseDbResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyRDSToClickhouseDbResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
-     *  *
-     * @param ModifyRDSToClickhouseDbRequest $request ModifyRDSToClickhouseDbRequest
+     * Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ModifyRDSToClickhouseDbResponse ModifyRDSToClickhouseDbResponse
+     * @remarks
+     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+     *
+     * @param request - ModifyRDSToClickhouseDbRequest
+     * @returns ModifyRDSToClickhouseDbResponse
+     *
+     * @param ModifyRDSToClickhouseDbRequest $request
+     *
+     * @return ModifyRDSToClickhouseDbResponse
      */
     public function modifyRDSToClickhouseDb($request)
     {
@@ -4152,34 +5219,43 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ReleaseClusterPublicConnectionRequest $request ReleaseClusterPublicConnectionRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ReleaseClusterPublicConnectionResponse ReleaseClusterPublicConnectionResponse
+     * @param request - ReleaseClusterPublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReleaseClusterPublicConnectionResponse
+     *
+     * @param ReleaseClusterPublicConnectionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ReleaseClusterPublicConnectionResponse
      */
     public function releaseClusterPublicConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReleaseClusterPublicConnection',
@@ -4192,16 +5268,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReleaseClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleaseClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseClusterPublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ReleaseClusterPublicConnectionRequest $request ReleaseClusterPublicConnectionRequest
+     * Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
      *
-     * @return ReleaseClusterPublicConnectionResponse ReleaseClusterPublicConnectionResponse
+     * @param request - ReleaseClusterPublicConnectionRequest
+     * @returns ReleaseClusterPublicConnectionResponse
+     *
+     * @param ReleaseClusterPublicConnectionRequest $request
+     *
+     * @return ReleaseClusterPublicConnectionResponse
      */
     public function releaseClusterPublicConnection($request)
     {
@@ -4211,40 +5293,51 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
      *
-     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
+     * @param request - ResetAccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetAccountPasswordResponse
+     *
+     * @param ResetAccountPasswordRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetAccountPassword',
@@ -4257,16 +5350,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
      *
-     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
+     * @param request - ResetAccountPasswordRequest
+     * @returns ResetAccountPasswordResponse
+     *
+     * @param ResetAccountPasswordRequest $request
+     *
+     * @return ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -4276,46 +5375,59 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Restarts an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param RestartInstanceRequest $request RestartInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Restarts an ApsaraDB for ClickHouse cluster.
      *
-     * @return RestartInstanceResponse RestartInstanceResponse
+     * @param request - RestartInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestartInstanceResponse
+     *
+     * @param RestartInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestartInstanceResponse
      */
     public function restartInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->restartTime)) {
-            $query['RestartTime'] = $request->restartTime;
+
+        if (null !== $request->restartTime) {
+            @$query['RestartTime'] = $request->restartTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RestartInstance',
@@ -4328,16 +5440,22 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Restarts an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param RestartInstanceRequest $request RestartInstanceRequest
+     * Restarts an ApsaraDB for ClickHouse cluster.
      *
-     * @return RestartInstanceResponse RestartInstanceResponse
+     * @param request - RestartInstanceRequest
+     * @returns RestartInstanceResponse
+     *
+     * @param RestartInstanceRequest $request
+     *
+     * @return RestartInstanceResponse
      */
     public function restartInstance($request)
     {
@@ -4347,66 +5465,93 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description ## [](#)Prerequisites
+     * Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * ## [](#)Prerequisites
      * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
      * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
      * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param TransferVersionRequest $request TransferVersionRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransferVersionResponse TransferVersionResponse
+     * @param request - TransferVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TransferVersionResponse
+     *
+     * @param TransferVersionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return TransferVersionResponse
      */
     public function transferVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->disableWriteWindows)) {
-            $query['DisableWriteWindows'] = $request->disableWriteWindows;
+
+        if (null !== $request->disableWriteWindows) {
+            @$query['DisableWriteWindows'] = $request->disableWriteWindows;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sourceAccount)) {
-            $query['SourceAccount'] = $request->sourceAccount;
+
+        if (null !== $request->sourceAccount) {
+            @$query['SourceAccount'] = $request->sourceAccount;
         }
-        if (!Utils::isUnset($request->sourcePassword)) {
-            $query['SourcePassword'] = $request->sourcePassword;
+
+        if (null !== $request->sourceClusterName) {
+            @$query['SourceClusterName'] = $request->sourceClusterName;
         }
-        if (!Utils::isUnset($request->targetAccount)) {
-            $query['TargetAccount'] = $request->targetAccount;
+
+        if (null !== $request->sourcePassword) {
+            @$query['SourcePassword'] = $request->sourcePassword;
         }
-        if (!Utils::isUnset($request->targetDbClusterId)) {
-            $query['TargetDbClusterId'] = $request->targetDbClusterId;
+
+        if (null !== $request->sourceShards) {
+            @$query['SourceShards'] = $request->sourceShards;
         }
-        if (!Utils::isUnset($request->targetPassword)) {
-            $query['TargetPassword'] = $request->targetPassword;
+
+        if (null !== $request->targetAccount) {
+            @$query['TargetAccount'] = $request->targetAccount;
         }
+
+        if (null !== $request->targetDbClusterId) {
+            @$query['TargetDbClusterId'] = $request->targetDbClusterId;
+        }
+
+        if (null !== $request->targetPassword) {
+            @$query['TargetPassword'] = $request->targetPassword;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TransferVersion',
@@ -4419,21 +5564,28 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TransferVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TransferVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TransferVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description ## [](#)Prerequisites
+     * Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * ## [](#)Prerequisites
      * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
      * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
      * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @param TransferVersionRequest $request TransferVersionRequest
      *
-     * @return TransferVersionResponse TransferVersionResponse
+     * @param request - TransferVersionRequest
+     * @returns TransferVersionResponse
+     *
+     * @param TransferVersionRequest $request
+     *
+     * @return TransferVersionResponse
      */
     public function transferVersion($request)
     {
@@ -4443,45 +5595,58 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
-     *  *
-     * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
      *
-     * @return UpgradeMinorVersionResponse UpgradeMinorVersionResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+     *
+     * @param request - UpgradeMinorVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpgradeMinorVersionResponse
+     *
+     * @param UpgradeMinorVersionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpgradeMinorVersionResponse
      */
     public function upgradeMinorVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->upgradeImmediately)) {
-            $query['UpgradeImmediately'] = $request->upgradeImmediately;
+
+        if (null !== $request->upgradeImmediately) {
+            @$query['UpgradeImmediately'] = $request->upgradeImmediately;
         }
-        if (!Utils::isUnset($request->upgradeTime)) {
-            $query['UpgradeTime'] = $request->upgradeTime;
+
+        if (null !== $request->upgradeTime) {
+            @$query['UpgradeTime'] = $request->upgradeTime;
         }
-        if (!Utils::isUnset($request->upgradeVersion)) {
-            $query['UpgradeVersion'] = $request->upgradeVersion;
+
+        if (null !== $request->upgradeVersion) {
+            @$query['UpgradeVersion'] = $request->upgradeVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeMinorVersion',
@@ -4494,18 +5659,25 @@ class Clickhouse extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeMinorVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
-     *  *
-     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
-     *  *
-     * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
+     * Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
      *
-     * @return UpgradeMinorVersionResponse UpgradeMinorVersionResponse
+     * @remarks
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+     *
+     * @param request - UpgradeMinorVersionRequest
+     * @returns UpgradeMinorVersionResponse
+     *
+     * @param UpgradeMinorVersionRequest $request
+     *
+     * @return UpgradeMinorVersionResponse
      */
     public function upgradeMinorVersion($request)
     {

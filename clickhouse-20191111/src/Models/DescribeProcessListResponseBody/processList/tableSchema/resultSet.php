@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeProcessListResponseBody\processList\tableSchema;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultSet extends Model
 {
     /**
-     * @description The column name.
-     *
-     * @example InitialUser
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The column type.
-     *
-     * @example String
-     *
      * @var string
      */
     public $type;
@@ -32,14 +23,16 @@ class resultSet extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -47,17 +40,18 @@ class resultSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

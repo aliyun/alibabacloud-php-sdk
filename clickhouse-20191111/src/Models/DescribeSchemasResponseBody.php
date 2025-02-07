@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSchemasResponseBody\items;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSchemasResponseBody extends Model
 {
     /**
-     * @description The information about the databases of the cluster.
-     *
      * @var items
      */
     public $items;
-
     /**
-     * @description The request ID.
-     *
-     * @example 05321590-BB65-4720-8CB6-8218E041CDD0
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeSchemasResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->items) {
+            $this->items->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeSchemasResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSchemasResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

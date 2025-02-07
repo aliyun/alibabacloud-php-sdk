@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBCluster extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example cc-bp19lo45sy98x****
-     *
      * @var string
      */
     public $dbClusterId;
-
     /**
-     * @description The order ID.
-     *
-     * @example 21417210003****
-     *
      * @var string
      */
     public $orderId;
@@ -32,14 +23,16 @@ class DBCluster extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbClusterId) {
             $res['dbClusterId'] = $this->dbClusterId;
         }
+
         if (null !== $this->orderId) {
             $res['orderId'] = $this->orderId;
         }
@@ -47,17 +40,18 @@ class DBCluster extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBCluster
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dbClusterId'])) {
             $model->dbClusterId = $map['dbClusterId'];
         }
+
         if (isset($map['orderId'])) {
             $model->orderId = $map['orderId'];
         }

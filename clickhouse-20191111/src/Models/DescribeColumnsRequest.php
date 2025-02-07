@@ -4,56 +4,35 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeColumnsRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example cc-2zeux3ua25242****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The database name. You can call the [DescribeSchemas](https://help.aliyun.com/document_detail/350931.html) operation to query database names.
-     *
-     * This parameter is required.
-     * @example database
-     *
      * @var string
      */
     public $schemaName;
-
     /**
-     * @description The table name. You can call the [DescribeTables](https://help.aliyun.com/document_detail/350932.html) operation to query table names.
-     *
-     * This parameter is required.
-     * @example table
-     *
      * @var string
      */
     public $tableName;
@@ -69,29 +48,36 @@ class DescribeColumnsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -99,32 +85,38 @@ class DescribeColumnsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeColumnsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

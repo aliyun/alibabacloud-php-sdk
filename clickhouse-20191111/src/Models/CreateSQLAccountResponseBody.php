@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSQLAccountResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F5178C10-1407-4987-9133-DE4DC9119F76
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateSQLAccountResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateSQLAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSQLAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

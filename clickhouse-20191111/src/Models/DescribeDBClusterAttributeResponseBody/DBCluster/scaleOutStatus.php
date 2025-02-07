@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAttributeResponseBody\DBCluster;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scaleOutStatus extends Model
 {
     /**
-     * @description The progress of the data migration task in percentage.
-     *
-     * >  This parameter is returned only when the cluster is in the SCALING_OUT state.
-     * @example 0
-     *
      * @var string
      */
     public $progress;
-
     /**
-     * @description The progress of the data migration task. This value is displayed in the following format: Data volume that has been migrated/Total data volume.
-     *
-     * >  This parameter is returned only when the cluster is in the SCALING_OUT state.
-     * @example 0MB/60469MB
-     *
      * @var string
      */
     public $ratio;
@@ -34,14 +23,16 @@ class scaleOutStatus extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
+
         if (null !== $this->ratio) {
             $res['Ratio'] = $this->ratio;
         }
@@ -49,17 +40,18 @@ class scaleOutStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scaleOutStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
+
         if (isset($map['Ratio'])) {
             $model->ratio = $map['Ratio'];
         }

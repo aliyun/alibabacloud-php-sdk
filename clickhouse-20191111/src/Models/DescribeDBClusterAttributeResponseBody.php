@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAttributeResponseBody\DBCluster;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBClusterAttributeResponseBody extends Model
 {
     /**
-     * @description The information about the cluster.
-     *
      * @var DBCluster
      */
     public $DBCluster;
-
     /**
-     * @description The request ID.
-     *
-     * @example 05321590-BB65-4720-8CB6-8218E041CDD0
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->DBCluster) {
+            $this->DBCluster->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBCluster) {
-            $res['DBCluster'] = null !== $this->DBCluster ? $this->DBCluster->toMap() : null;
+            $res['DBCluster'] = null !== $this->DBCluster ? $this->DBCluster->toArray($noStream) : $this->DBCluster;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeDBClusterAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBClusterAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBCluster'])) {
             $model->DBCluster = DBCluster::fromMap($map['DBCluster']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

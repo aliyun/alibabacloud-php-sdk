@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBClusterConfigInXMLResponseBody extends Model
 {
     /**
-     * @description The values of the configuration parameters.
-     *
-     * @example <?xml version="1.0"?>
-     * </yandex>
      * @var string
      */
     public $config;
-
     /**
-     * @description The request ID.
-     *
-     * @example FE042911-2B00-134C-9F42-816871BBAFB8
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DescribeDBClusterConfigInXMLResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DescribeDBClusterConfigInXMLResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBClusterConfigInXMLResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

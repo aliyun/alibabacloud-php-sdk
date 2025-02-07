@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMonitorDataReportResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 94F92113-FF63-5E57-8401-6FE123AD11DD
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateMonitorDataReportResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateMonitorDataReportResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMonitorDataReportResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

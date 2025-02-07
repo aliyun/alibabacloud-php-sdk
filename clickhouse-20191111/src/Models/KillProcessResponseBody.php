@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class KillProcessResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 05321590-BB65-4720-8CB6-8218E041CDD0
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class KillProcessResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class KillProcessResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return KillProcessResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,105 +4,50 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBClusterRequest extends Model
 {
     /**
-     * @description The specifications of the cluster.
-     *
-     *   Valid values when the cluster is of Single-replica Edition:
-     *
-     *   **S4-NEW**
-     *   **S8**
-     *   **S16**
-     *   **S32**
-     *   **S64**
-     *   **S104**
-     *
-     *   Valid values when the cluster is of Double-replica Edition:
-     *
-     *   **C4-NEW**
-     *   **C8**
-     *   **C16**
-     *   **C32**
-     *   **C64**
-     *   **C104**
-     *
-     * This parameter is required.
-     * @example S4-NEW
-     *
      * @var string
      */
     public $DBClusterClass;
-
     /**
-     * @description The cluster ID.
-     *
-     * @example cc-bp19lo45sy98x****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The number of nodes in the cluster.
-     *
-     *   If the cluster is of Single-replica Edition, the value must be an integer that ranges from 1 to 48.
-     *   If the cluster is of Double-replica Edition, the value must be an integer that ranges from 1 to 24.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var string
      */
     public $DBNodeGroupCount;
-
     /**
-     * @description The storage capacity of a single node of the cluster. Unit: GB.
-     *
-     * This parameter is required.
-     * @example 100
-     *
      * @var string
      */
     public $DBNodeStorage;
-
     /**
      * @var string
      */
     public $dbNodeStorageType;
-
     /**
      * @var string
      */
     public $disableWriteWindows;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -123,41 +68,52 @@ class ModifyDBClusterRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterClass) {
             $res['DBClusterClass'] = $this->DBClusterClass;
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->DBNodeGroupCount) {
             $res['DBNodeGroupCount'] = $this->DBNodeGroupCount;
         }
+
         if (null !== $this->DBNodeStorage) {
             $res['DBNodeStorage'] = $this->DBNodeStorage;
         }
+
         if (null !== $this->dbNodeStorageType) {
             $res['DbNodeStorageType'] = $this->dbNodeStorageType;
         }
+
         if (null !== $this->disableWriteWindows) {
             $res['DisableWriteWindows'] = $this->disableWriteWindows;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -165,44 +121,54 @@ class ModifyDBClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterClass'])) {
             $model->DBClusterClass = $map['DBClusterClass'];
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['DBNodeGroupCount'])) {
             $model->DBNodeGroupCount = $map['DBNodeGroupCount'];
         }
+
         if (isset($map['DBNodeStorage'])) {
             $model->DBNodeStorage = $map['DBNodeStorage'];
         }
+
         if (isset($map['DbNodeStorageType'])) {
             $model->dbNodeStorageType = $map['DbNodeStorageType'];
         }
+
         if (isset($map['DisableWriteWindows'])) {
             $model->disableWriteWindows = $map['DisableWriteWindows'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

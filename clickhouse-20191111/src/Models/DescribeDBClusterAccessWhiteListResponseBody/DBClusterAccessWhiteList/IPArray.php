@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAccessWhiteListResponseBody\DBClusterAccessWhiteList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IPArray extends Model
 {
     /**
-     * @description The attribute of the IP address whitelist.
-     *
-     * @example default
-     *
      * @var string
      */
     public $DBClusterIPArrayAttribute;
-
     /**
-     * @description The name of the IP address whitelist.
-     *
-     * @example default
-     *
      * @var string
      */
     public $DBClusterIPArrayName;
-
     /**
-     * @description The IP addresses in the IP address whitelist.
-     *
-     * @example 192.168.xx.xx,192.168.xx.xx
-     *
      * @var string
      */
     public $securityIPList;
@@ -42,17 +28,20 @@ class IPArray extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterIPArrayAttribute) {
             $res['DBClusterIPArrayAttribute'] = $this->DBClusterIPArrayAttribute;
         }
+
         if (null !== $this->DBClusterIPArrayName) {
             $res['DBClusterIPArrayName'] = $this->DBClusterIPArrayName;
         }
+
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
@@ -60,20 +49,22 @@ class IPArray extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IPArray
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterIPArrayAttribute'])) {
             $model->DBClusterIPArrayAttribute = $map['DBClusterIPArrayAttribute'];
         }
+
         if (isset($map['DBClusterIPArrayName'])) {
             $model->DBClusterIPArrayName = $map['DBClusterIPArrayName'];
         }
+
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
         }

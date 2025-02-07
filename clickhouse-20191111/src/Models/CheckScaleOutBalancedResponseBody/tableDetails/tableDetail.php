@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckScaleOutBalancedResponseBody\tableDetails;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableDetail extends Model
 {
     /**
-     * @description The cluster. The value is fixed as **default**.
-     *
-     * @example default
-     *
      * @var string
      */
     public $cluster;
-
     /**
-     * @description The database name.
-     *
-     * @example db_name
-     *
      * @var string
      */
     public $database;
-
     /**
-     * @description The error details. Valid values:
-     *
-     *   **1**: The unique distributed table is missing.
-     *   **2**: More than one distributed table exists for the local table.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $detail;
-
     /**
-     * @description The name of the local table.
-     *
-     * @example test
-     *
      * @var string
      */
     public $tableName;
@@ -55,20 +33,24 @@ class tableDetail extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cluster) {
             $res['Cluster'] = $this->cluster;
         }
+
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
+
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -76,23 +58,26 @@ class tableDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cluster'])) {
             $model->cluster = $map['Cluster'];
         }
+
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
+
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

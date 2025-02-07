@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourceResponseBody\schemas;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schema extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example cc-bp108z124a8o7****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The database name.
-     *
-     * @example database
-     *
      * @var string
      */
     public $schemaName;
@@ -32,14 +23,16 @@ class schema extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
@@ -47,17 +40,18 @@ class schema extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schema
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }

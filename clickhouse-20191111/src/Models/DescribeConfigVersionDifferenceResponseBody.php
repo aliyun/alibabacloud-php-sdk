@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeConfigVersionDifferenceResponseBody extends Model
 {
     /**
-     * @description The values of the configuration parameters after the values of the configuration parameters are changed.
-     *
-     * @example "<?xml version="1.0"?>
-     * </yandex>"
      * @var string
      */
     public $newConfigXML;
-
     /**
-     * @description The values of the configuration parameters before the values of the configuration parameters are changed.
-     *
-     * @example "<?xml version="1.0"?>
-     * </yandex>"
      * @var string
      */
     public $oldConfigXML;
-
     /**
-     * @description The request ID.
-     *
-     * @example D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class DescribeConfigVersionDifferenceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->newConfigXML) {
             $res['NewConfigXML'] = $this->newConfigXML;
         }
+
         if (null !== $this->oldConfigXML) {
             $res['OldConfigXML'] = $this->oldConfigXML;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class DescribeConfigVersionDifferenceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeConfigVersionDifferenceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NewConfigXML'])) {
             $model->newConfigXML = $map['NewConfigXML'];
         }
+
         if (isset($map['OldConfigXML'])) {
             $model->oldConfigXML = $map['OldConfigXML'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckScaleOutBalancedResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckScaleOutBalancedResponseBody\tableDetails\tableDetail;
-use AlibabaCloud\Tea\Model;
 
 class tableDetails extends Model
 {
@@ -19,17 +19,21 @@ class tableDetails extends Model
 
     public function validate()
     {
+        if (\is_array($this->tableDetail)) {
+            Model::validateArray($this->tableDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tableDetail) {
-            $res['TableDetail'] = [];
-            if (null !== $this->tableDetail && \is_array($this->tableDetail)) {
-                $n = 0;
-                foreach ($this->tableDetail as $item) {
-                    $res['TableDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableDetail)) {
+                $res['TableDetail'] = [];
+                $n1                 = 0;
+                foreach ($this->tableDetail as $item1) {
+                    $res['TableDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class tableDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TableDetail'])) {
             if (!empty($map['TableDetail'])) {
                 $model->tableDetail = [];
-                $n                  = 0;
-                foreach ($map['TableDetail'] as $item) {
-                    $model->tableDetail[$n++] = null !== $item ? tableDetail::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['TableDetail'] as $item1) {
+                    $model->tableDetail[$n1++] = tableDetail::fromMap($item1);
                 }
             }
         }

@@ -4,48 +4,30 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeProcessListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeProcessListResponseBody\processList\data;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeProcessListResponseBody\processList\statistics;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeProcessListResponseBody\processList\tableSchema;
-use AlibabaCloud\Tea\Model;
 
 class processList extends Model
 {
     /**
-     * @description The details of the query.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The number of rows returned for the query.
-     *
-     * @example 1145700
-     *
      * @var string
      */
     public $rows;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $rowsBeforeLimitAtLeast;
-
     /**
-     * @description The statistics of the results.
-     *
      * @var statistics
      */
     public $statistics;
-
     /**
-     * @description Details of the columns.
-     *
      * @var tableSchema
      */
     public $tableSchema;
@@ -59,50 +41,68 @@ class processList extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        if (null !== $this->statistics) {
+            $this->statistics->validate();
+        }
+        if (null !== $this->tableSchema) {
+            $this->tableSchema->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->rows) {
             $res['Rows'] = $this->rows;
         }
+
         if (null !== $this->rowsBeforeLimitAtLeast) {
             $res['RowsBeforeLimitAtLeast'] = $this->rowsBeforeLimitAtLeast;
         }
+
         if (null !== $this->statistics) {
-            $res['Statistics'] = null !== $this->statistics ? $this->statistics->toMap() : null;
+            $res['Statistics'] = null !== $this->statistics ? $this->statistics->toArray($noStream) : $this->statistics;
         }
+
         if (null !== $this->tableSchema) {
-            $res['TableSchema'] = null !== $this->tableSchema ? $this->tableSchema->toMap() : null;
+            $res['TableSchema'] = null !== $this->tableSchema ? $this->tableSchema->toArray($noStream) : $this->tableSchema;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return processList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Rows'])) {
             $model->rows = $map['Rows'];
         }
+
         if (isset($map['RowsBeforeLimitAtLeast'])) {
             $model->rowsBeforeLimitAtLeast = $map['RowsBeforeLimitAtLeast'];
         }
+
         if (isset($map['Statistics'])) {
             $model->statistics = statistics::fromMap($map['Statistics']);
         }
+
         if (isset($map['TableSchema'])) {
             $model->tableSchema = tableSchema::fromMap($map['TableSchema']);
         }

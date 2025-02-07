@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20191111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeTransferHistoryResponseBody\historyDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTransferHistoryResponseBody extends Model
 {
     /**
-     * @description The migration information.
-     *
      * @var historyDetails
      */
     public $historyDetails;
-
     /**
-     * @description The request ID.
-     *
-     * @example 05321590-BB65-4720-8CB6-8218E041CDD0
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeTransferHistoryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->historyDetails) {
+            $this->historyDetails->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->historyDetails) {
-            $res['HistoryDetails'] = null !== $this->historyDetails ? $this->historyDetails->toMap() : null;
+            $res['HistoryDetails'] = null !== $this->historyDetails ? $this->historyDetails->toArray($noStream) : $this->historyDetails;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeTransferHistoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTransferHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HistoryDetails'])) {
             $model->historyDetails = historyDetails::fromMap($map['HistoryDetails']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
