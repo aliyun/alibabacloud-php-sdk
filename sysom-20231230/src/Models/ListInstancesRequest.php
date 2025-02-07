@@ -9,6 +9,10 @@ use AlibabaCloud\Dara\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterId;
+    /**
      * @var int
      */
     public $current;
@@ -29,11 +33,12 @@ class ListInstancesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'current'  => 'current',
-        'instance' => 'instance',
-        'pageSize' => 'pageSize',
-        'region'   => 'region',
-        'status'   => 'status',
+        'clusterId' => 'cluster_id',
+        'current'   => 'current',
+        'instance'  => 'instance',
+        'pageSize'  => 'pageSize',
+        'region'    => 'region',
+        'status'    => 'status',
     ];
 
     public function validate()
@@ -44,6 +49,10 @@ class ListInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['cluster_id'] = $this->clusterId;
+        }
+
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
@@ -75,6 +84,10 @@ class ListInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cluster_id'])) {
+            $model->clusterId = $map['cluster_id'];
+        }
+
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }

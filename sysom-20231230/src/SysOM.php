@@ -2720,6 +2720,10 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clusterId) {
+            @$query['cluster_id'] = $request->clusterId;
+        }
+
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
