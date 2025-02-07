@@ -4,18 +4,16 @@
 
 namespace AlibabaCloud\SDK\Opt\V20210730;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Opt\V20210730\Models\GetOpenStatusResponse;
 use AlibabaCloud\SDK\Opt\V20210730\Models\GetOrderInfoRequest;
 use AlibabaCloud\SDK\Opt\V20210730\Models\GetOrderInfoResponse;
 use AlibabaCloud\SDK\Opt\V20210730\Models\GetOrderUsageRequest;
 use AlibabaCloud\SDK\Opt\V20210730\Models\GetOrderUsageResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Opt extends OpenApiClient
 {
@@ -40,20 +38,25 @@ class Opt extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - GetOpenStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOpenStatusResponse
      *
-     * @return GetOpenStatusResponse GetOpenStatusResponse
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOpenStatusResponse
      */
     public function getOpenStatusWithOptions($runtime)
     {
@@ -69,12 +72,17 @@ class Opt extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOpenStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @return GetOpenStatusResponse GetOpenStatusResponse
+     * @returns GetOpenStatusResponse
+     *
+     * @return GetOpenStatusResponse
      */
     public function getOpenStatus()
     {
@@ -84,26 +92,35 @@ class Opt extends OpenApiClient
     }
 
     /**
-     * @param GetOrderInfoRequest $request GetOrderInfoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取在线license列表.
      *
-     * @return GetOrderInfoResponse GetOrderInfoResponse
+     * @param request - GetOrderInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOrderInfoResponse
+     *
+     * @param GetOrderInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetOrderInfoResponse
      */
     public function getOrderInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listReleased)) {
-            $query['ListReleased'] = $request->listReleased;
+        if (null !== $request->listReleased) {
+            @$query['ListReleased'] = $request->listReleased;
         }
-        if (!Utils::isUnset($request->relService)) {
-            $query['RelService'] = $request->relService;
+
+        if (null !== $request->relService) {
+            @$query['RelService'] = $request->relService;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOrderInfo',
@@ -116,14 +133,22 @@ class Opt extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOrderInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrderInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrderInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetOrderInfoRequest $request GetOrderInfoRequest
+     * 获取在线license列表.
      *
-     * @return GetOrderInfoResponse GetOrderInfoResponse
+     * @param request - GetOrderInfoRequest
+     * @returns GetOrderInfoResponse
+     *
+     * @param GetOrderInfoRequest $request
+     *
+     * @return GetOrderInfoResponse
      */
     public function getOrderInfo($request)
     {
@@ -133,29 +158,37 @@ class Opt extends OpenApiClient
     }
 
     /**
-     * @param GetOrderUsageRequest $request GetOrderUsageRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - GetOrderUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOrderUsageResponse
      *
-     * @return GetOrderUsageResponse GetOrderUsageResponse
+     * @param GetOrderUsageRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetOrderUsageResponse
      */
     public function getOrderUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->licenseKey)) {
-            $query['LicenseKey'] = $request->licenseKey;
+        if (null !== $request->licenseKey) {
+            @$query['LicenseKey'] = $request->licenseKey;
         }
-        if (!Utils::isUnset($request->relService)) {
-            $query['RelService'] = $request->relService;
+
+        if (null !== $request->relService) {
+            @$query['RelService'] = $request->relService;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->timeRange)) {
-            $query['TimeRange'] = $request->timeRange;
+
+        if (null !== $request->timeRange) {
+            @$query['TimeRange'] = $request->timeRange;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOrderUsage',
@@ -168,14 +201,20 @@ class Opt extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOrderUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrderUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrderUsageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetOrderUsageRequest $request GetOrderUsageRequest
+     * @param request - GetOrderUsageRequest
+     * @returns GetOrderUsageResponse
      *
-     * @return GetOrderUsageResponse GetOrderUsageResponse
+     * @param GetOrderUsageRequest $request
+     *
+     * @return GetOrderUsageResponse
      */
     public function getOrderUsage($request)
     {

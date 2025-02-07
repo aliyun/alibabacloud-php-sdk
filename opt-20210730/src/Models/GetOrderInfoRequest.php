@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Opt\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOrderInfoRequest extends Model
 {
@@ -12,21 +12,11 @@ class GetOrderInfoRequest extends Model
      * @var bool
      */
     public $listReleased;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example MP
-     *
      * @var string
      */
     public $relService;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $resourceType;
@@ -38,17 +28,20 @@ class GetOrderInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listReleased) {
             $res['ListReleased'] = $this->listReleased;
         }
+
         if (null !== $this->relService) {
             $res['RelService'] = $this->relService;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -56,20 +49,22 @@ class GetOrderInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOrderInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListReleased'])) {
             $model->listReleased = $map['ListReleased'];
         }
+
         if (isset($map['RelService'])) {
             $model->relService = $map['RelService'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
