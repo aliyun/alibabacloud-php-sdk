@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDefaultDomainResponseBody extends Model
 {
     /**
-     * @description The default domain name.
-     *
-     * @example examplecompany.onaliyun.com
-     *
      * @var string
      */
     public $defaultDomainName;
-
     /**
-     * @description The request ID.
-     *
-     * @example 66815255-7CCE-4759-AC37-9755794C3626
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class GetDefaultDomainResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultDomainName) {
             $res['DefaultDomainName'] = $this->defaultDomainName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class GetDefaultDomainResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDefaultDomainResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultDomainName'])) {
             $model->defaultDomainName = $map['DefaultDomainName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

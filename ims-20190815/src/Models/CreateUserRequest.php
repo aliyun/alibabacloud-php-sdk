@@ -4,65 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateUserRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateUserRequest extends Model
 {
     /**
-     * @description The description.
-     *
-     * The description must be 1 to 128 characters in length.
-     * @example This is a cloud computing engineer.
-     *
      * @var string
      */
     public $comments;
-
     /**
-     * @description The display name of the RAM user.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $displayName;
-
     /**
-     * @description The email address of the RAM user.
-     *
-     * > This parameter is valid only on the China site (aliyun.com).
-     * @example alice@example.com
-     *
      * @var string
      */
     public $email;
-
     /**
-     * @description The mobile number of the RAM user.
-     *
-     * > This parameter is valid only on the China site (aliyun.com).
-     * @example 86-1868888****
-     *
      * @var string
      */
     public $mobilePhone;
-
     /**
-     * @description The tag value.
-     *
-     * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
      * @var tag[]
      */
     public $tag;
-
     /**
-     * @description The logon name of the RAM user.
-     *
-     * This parameter is required.
-     * @example test@example.onaliyun.com
-     *
      * @var string
      */
     public $userPrincipalName;
@@ -77,32 +44,41 @@ class CreateUserRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
         if (null !== $this->mobilePhone) {
             $res['MobilePhone'] = $this->mobilePhone;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->userPrincipalName) {
             $res['UserPrincipalName'] = $this->userPrincipalName;
         }
@@ -110,35 +86,40 @@ class CreateUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
         if (isset($map['MobilePhone'])) {
             $model->mobilePhone = $map['MobilePhone'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UserPrincipalName'])) {
             $model->userPrincipalName = $map['UserPrincipalName'];
         }

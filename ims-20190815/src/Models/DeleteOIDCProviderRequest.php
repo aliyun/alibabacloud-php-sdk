@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteOIDCProviderRequest extends Model
 {
     /**
-     * @description The name of the OIDC IdP.
-     *
-     * @example TestOIDCProvider
-     *
      * @var string
      */
     public $OIDCProviderName;
@@ -22,9 +18,10 @@ class DeleteOIDCProviderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->OIDCProviderName) {
@@ -34,11 +31,11 @@ class DeleteOIDCProviderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteOIDCProviderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

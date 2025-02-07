@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindMFADeviceRequest extends Model
 {
     /**
-     * @description The first verification code.
-     *
-     * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
-     * @example 123456
-     *
      * @var string
      */
     public $authenticationCode1;
-
     /**
-     * @description The second verification code.
-     *
-     * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to create an MFA device and generate a key (value of `Base32StringSeed`). Then, use the key on the Alibaba Cloud app to manually add an MFA device, and obtain the two consecutive verification codes.
-     * @example 654321
-     *
      * @var string
      */
     public $authenticationCode2;
-
     /**
-     * @description The serial number of the MFA device.
-     *
-     * >  You can call the [CreateVirtualMFADevice](https://help.aliyun.com/document_detail/186179.html) operation to obtain the serial number of the MFA device.
-     * @example acs:ram::177242285274****:mfa/device001
-     *
      * @var string
      */
     public $serialNumber;
-
     /**
-     * @description The logon name of the RAM user.
-     *
-     * This parameter is required.
-     * @example test@example.onaliyun.com
-     *
      * @var string
      */
     public $userPrincipalName;
@@ -56,20 +33,24 @@ class BindMFADeviceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authenticationCode1) {
             $res['AuthenticationCode1'] = $this->authenticationCode1;
         }
+
         if (null !== $this->authenticationCode2) {
             $res['AuthenticationCode2'] = $this->authenticationCode2;
         }
+
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
+
         if (null !== $this->userPrincipalName) {
             $res['UserPrincipalName'] = $this->userPrincipalName;
         }
@@ -77,23 +58,26 @@ class BindMFADeviceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindMFADeviceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthenticationCode1'])) {
             $model->authenticationCode1 = $map['AuthenticationCode1'];
         }
+
         if (isset($map['AuthenticationCode2'])) {
             $model->authenticationCode2 = $map['AuthenticationCode2'];
         }
+
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }
+
         if (isset($map['UserPrincipalName'])) {
             $model->userPrincipalName = $map['UserPrincipalName'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateGroupResponseBody\group;
-use AlibabaCloud\Tea\Model;
 
 class CreateGroupResponseBody extends Model
 {
     /**
-     * @description The information of the RAM user group.
-     *
      * @var group
      */
     public $group;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 3C38192B-7BF8-45DA-8F0A-E670EA51426C
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class CreateGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->group) {
+            $this->group->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->group) {
-            $res['Group'] = null !== $this->group ? $this->group->toMap() : null;
+            $res['Group'] = null !== $this->group ? $this->group->toArray($noStream) : $this->group;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class CreateGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Group'])) {
             $model->group = group::fromMap($map['Group']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

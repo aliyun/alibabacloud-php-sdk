@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListGroupsResponseBody\groups\group;
-use AlibabaCloud\Tea\Model;
 
 class groups extends Model
 {
@@ -19,17 +19,21 @@ class groups extends Model
 
     public function validate()
     {
+        if (\is_array($this->group)) {
+            Model::validateArray($this->group);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->group) {
-            $res['Group'] = [];
-            if (null !== $this->group && \is_array($this->group)) {
-                $n = 0;
-                foreach ($this->group as $item) {
-                    $res['Group'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->group)) {
+                $res['Group'] = [];
+                $n1           = 0;
+                foreach ($this->group as $item1) {
+                    $res['Group'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class groups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Group'])) {
             if (!empty($map['Group'])) {
                 $model->group = [];
-                $n            = 0;
-                foreach ($map['Group'] as $item) {
-                    $model->group[$n++] = null !== $item ? group::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Group'] as $item1) {
+                    $model->group[$n1++] = group::fromMap($item1);
                 }
             }
         }

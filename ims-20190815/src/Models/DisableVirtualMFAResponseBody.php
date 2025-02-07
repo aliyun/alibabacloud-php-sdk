@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableVirtualMFAResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DisableVirtualMFAResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DisableVirtualMFAResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableVirtualMFAResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

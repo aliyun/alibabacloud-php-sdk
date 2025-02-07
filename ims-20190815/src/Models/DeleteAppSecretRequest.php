@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAppSecretRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * This parameter is required.
-     * @example 472457090344041****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The ID of the application secret.
-     *
-     * This parameter is required.
-     * @example 2efd5004-005c-4f05-83c6-5b1dd176****
-     *
      * @var string
      */
     public $appSecretId;
@@ -34,14 +23,16 @@ class DeleteAppSecretRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appSecretId) {
             $res['AppSecretId'] = $this->appSecretId;
         }
@@ -49,17 +40,18 @@ class DeleteAppSecretRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAppSecretRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppSecretId'])) {
             $model->appSecretId = $map['AppSecretId'];
         }

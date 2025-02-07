@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListPredefinedScopesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListPredefinedScopesResponseBody\predefinedScopes\predefinedScope;
-use AlibabaCloud\Tea\Model;
 
 class predefinedScopes extends Model
 {
@@ -19,17 +19,21 @@ class predefinedScopes extends Model
 
     public function validate()
     {
+        if (\is_array($this->predefinedScope)) {
+            Model::validateArray($this->predefinedScope);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->predefinedScope) {
-            $res['PredefinedScope'] = [];
-            if (null !== $this->predefinedScope && \is_array($this->predefinedScope)) {
-                $n = 0;
-                foreach ($this->predefinedScope as $item) {
-                    $res['PredefinedScope'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->predefinedScope)) {
+                $res['PredefinedScope'] = [];
+                $n1                     = 0;
+                foreach ($this->predefinedScope as $item1) {
+                    $res['PredefinedScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class predefinedScopes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return predefinedScopes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PredefinedScope'])) {
             if (!empty($map['PredefinedScope'])) {
                 $model->predefinedScope = [];
-                $n                      = 0;
-                foreach ($map['PredefinedScope'] as $item) {
-                    $model->predefinedScope[$n++] = null !== $item ? predefinedScope::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['PredefinedScope'] as $item1) {
+                    $model->predefinedScope[$n1++] = predefinedScope::fromMap($item1);
                 }
             }
         }

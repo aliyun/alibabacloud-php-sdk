@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListAppSecretIdsResponseBody\appSecrets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class appSecret extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example 472457090344041****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The ID of the application secret.
-     *
-     * @example 2efd5004-005c-4f05-83c6-5b1dd176****
-     *
      * @var string
      */
     public $appSecretId;
-
     /**
-     * @description The creation time.
-     *
-     * @example 2020-10-26T03:18:39Z
-     *
      * @var string
      */
     public $createDate;
@@ -42,17 +28,20 @@ class appSecret extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appSecretId) {
             $res['AppSecretId'] = $this->appSecretId;
         }
+
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
@@ -60,20 +49,22 @@ class appSecret extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appSecret
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppSecretId'])) {
             $model->appSecretId = $map['AppSecretId'];
         }
+
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }

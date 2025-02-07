@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateOIDCProviderResponseBody\OIDCProvider;
-use AlibabaCloud\Tea\Model;
 
 class CreateOIDCProviderResponseBody extends Model
 {
     /**
-     * @description The information about the OIDC IdP.
-     *
      * @var OIDCProvider
      */
     public $OIDCProvider;
-
     /**
-     * @description The request ID.
-     *
-     * @example 64B11B41-636D-51E3-A39B-C8703CD2218C
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class CreateOIDCProviderResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->OIDCProvider) {
+            $this->OIDCProvider->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->OIDCProvider) {
-            $res['OIDCProvider'] = null !== $this->OIDCProvider ? $this->OIDCProvider->toMap() : null;
+            $res['OIDCProvider'] = null !== $this->OIDCProvider ? $this->OIDCProvider->toArray($noStream) : $this->OIDCProvider;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class CreateOIDCProviderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOIDCProviderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OIDCProvider'])) {
             $model->OIDCProvider = OIDCProvider::fromMap($map['OIDCProvider']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

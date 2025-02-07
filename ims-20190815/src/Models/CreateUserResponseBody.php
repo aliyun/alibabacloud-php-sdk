@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateUserResponseBody\user;
-use AlibabaCloud\Tea\Model;
 
 class CreateUserResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 2BB8C44A-2862-4922-AD43-03924749173B
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the RAM user.
-     *
      * @var user
      */
     public $user;
@@ -31,32 +24,38 @@ class CreateUserResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->user) {
+            $this->user->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->user) {
-            $res['User'] = null !== $this->user ? $this->user->toMap() : null;
+            $res['User'] = null !== $this->user ? $this->user->toArray($noStream) : $this->user;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateUserResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['User'])) {
             $model->user = user::fromMap($map['User']);
         }

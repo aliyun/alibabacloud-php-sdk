@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountSummaryResponseBody\summaryMap;
-use AlibabaCloud\Tea\Model;
 
 class GetAccountSummaryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 81313F5E-3C85-478F-BCC9-E1B70E4556DB
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The overview information of the Alibaba Cloud account.
-     *
      * @var summaryMap
      */
     public $summaryMap;
@@ -31,32 +24,38 @@ class GetAccountSummaryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->summaryMap) {
+            $this->summaryMap->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->summaryMap) {
-            $res['SummaryMap'] = null !== $this->summaryMap ? $this->summaryMap->toMap() : null;
+            $res['SummaryMap'] = null !== $this->summaryMap ? $this->summaryMap->toArray($noStream) : $this->summaryMap;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountSummaryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SummaryMap'])) {
             $model->summaryMap = summaryMap::fromMap($map['SummaryMap']);
         }

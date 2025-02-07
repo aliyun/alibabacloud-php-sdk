@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetSecurityPreferenceResponseBody\securityPreference;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class maxIdleDays extends Model
 {
@@ -12,7 +12,6 @@ class maxIdleDays extends Model
      * @var int
      */
     public $maxIdleDaysForAccessKeys;
-
     /**
      * @var int
      */
@@ -24,14 +23,16 @@ class maxIdleDays extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxIdleDaysForAccessKeys) {
             $res['MaxIdleDaysForAccessKeys'] = $this->maxIdleDaysForAccessKeys;
         }
+
         if (null !== $this->maxIdleDaysForUsers) {
             $res['MaxIdleDaysForUsers'] = $this->maxIdleDaysForUsers;
         }
@@ -39,17 +40,18 @@ class maxIdleDays extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return maxIdleDays
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxIdleDaysForAccessKeys'])) {
             $model->maxIdleDaysForAccessKeys = $map['MaxIdleDaysForAccessKeys'];
         }
+
         if (isset($map['MaxIdleDaysForUsers'])) {
             $model->maxIdleDaysForUsers = $map['MaxIdleDaysForUsers'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListVirtualMFADevicesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListVirtualMFADevicesResponseBody\virtualMFADevices\virtualMFADevice;
-use AlibabaCloud\Tea\Model;
 
 class virtualMFADevices extends Model
 {
@@ -19,17 +19,21 @@ class virtualMFADevices extends Model
 
     public function validate()
     {
+        if (\is_array($this->virtualMFADevice)) {
+            Model::validateArray($this->virtualMFADevice);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->virtualMFADevice) {
-            $res['VirtualMFADevice'] = [];
-            if (null !== $this->virtualMFADevice && \is_array($this->virtualMFADevice)) {
-                $n = 0;
-                foreach ($this->virtualMFADevice as $item) {
-                    $res['VirtualMFADevice'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->virtualMFADevice)) {
+                $res['VirtualMFADevice'] = [];
+                $n1                      = 0;
+                foreach ($this->virtualMFADevice as $item1) {
+                    $res['VirtualMFADevice'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class virtualMFADevices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return virtualMFADevices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VirtualMFADevice'])) {
             if (!empty($map['VirtualMFADevice'])) {
                 $model->virtualMFADevice = [];
-                $n                       = 0;
-                foreach ($map['VirtualMFADevice'] as $item) {
-                    $model->virtualMFADevice[$n++] = null !== $item ? virtualMFADevice::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['VirtualMFADevice'] as $item1) {
+                    $model->virtualMFADevice[$n1++] = virtualMFADevice::fromMap($item1);
                 }
             }
         }

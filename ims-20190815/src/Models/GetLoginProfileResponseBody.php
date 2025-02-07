@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetLoginProfileResponseBody\loginProfile;
-use AlibabaCloud\Tea\Model;
 
 class GetLoginProfileResponseBody extends Model
 {
     /**
-     * @description The console logon configurations.
-     *
      * @var loginProfile
      */
     public $loginProfile;
-
     /**
-     * @description The request ID.
-     *
-     * @example E517F18B-632C-48FC-93F1-CDCBCC6F8444
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetLoginProfileResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->loginProfile) {
+            $this->loginProfile->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loginProfile) {
-            $res['LoginProfile'] = null !== $this->loginProfile ? $this->loginProfile->toMap() : null;
+            $res['LoginProfile'] = null !== $this->loginProfile ? $this->loginProfile->toArray($noStream) : $this->loginProfile;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetLoginProfileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLoginProfileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoginProfile'])) {
             $model->loginProfile = loginProfile::fromMap($map['LoginProfile']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

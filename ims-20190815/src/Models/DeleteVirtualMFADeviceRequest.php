@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVirtualMFADeviceRequest extends Model
 {
     /**
-     * @description The serial number of the MFA device.
-     *
-     * This parameter is required.
-     * @example acs:ram::123456789012****:mfa/device002
-     *
      * @var string
      */
     public $serialNumber;
@@ -23,9 +18,10 @@ class DeleteVirtualMFADeviceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serialNumber) {
@@ -35,11 +31,11 @@ class DeleteVirtualMFADeviceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVirtualMFADeviceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

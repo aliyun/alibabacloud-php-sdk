@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSAMLProviderRequest extends Model
 {
     /**
-     * @description The name of the IdP.
-     *
-     * This parameter is required.
-     * @example test-provider
-     *
      * @var string
      */
     public $SAMLProviderName;
@@ -23,9 +18,10 @@ class GetSAMLProviderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->SAMLProviderName) {
@@ -35,11 +31,11 @@ class GetSAMLProviderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSAMLProviderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

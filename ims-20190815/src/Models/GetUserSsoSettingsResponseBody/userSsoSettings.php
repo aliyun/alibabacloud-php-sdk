@@ -4,37 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetUserSsoSettingsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userSsoSettings extends Model
 {
     /**
-     * @description The auxiliary domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $auxiliaryDomain;
-
     /**
-     * @description The metadata file, which is Base64-encoded.
-     *
-     * @example PD94bWwgdmVy****
-     *
      * @var string
      */
     public $metadataDocument;
-
     /**
-     * @description Indicates whether user-based SSO is enabled.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $ssoEnabled;
-
     /**
      * @var bool
      */
@@ -48,20 +33,24 @@ class userSsoSettings extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auxiliaryDomain) {
             $res['AuxiliaryDomain'] = $this->auxiliaryDomain;
         }
+
         if (null !== $this->metadataDocument) {
             $res['MetadataDocument'] = $this->metadataDocument;
         }
+
         if (null !== $this->ssoEnabled) {
             $res['SsoEnabled'] = $this->ssoEnabled;
         }
+
         if (null !== $this->ssoLoginWithDomain) {
             $res['SsoLoginWithDomain'] = $this->ssoLoginWithDomain;
         }
@@ -69,23 +58,26 @@ class userSsoSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userSsoSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuxiliaryDomain'])) {
             $model->auxiliaryDomain = $map['AuxiliaryDomain'];
         }
+
         if (isset($map['MetadataDocument'])) {
             $model->metadataDocument = $map['MetadataDocument'];
         }
+
         if (isset($map['SsoEnabled'])) {
             $model->ssoEnabled = $map['SsoEnabled'];
         }
+
         if (isset($map['SsoLoginWithDomain'])) {
             $model->ssoLoginWithDomain = $map['SsoLoginWithDomain'];
         }
