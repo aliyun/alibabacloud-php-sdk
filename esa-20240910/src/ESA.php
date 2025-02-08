@@ -65,6 +65,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpsApplicationConfigurationReq
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpsApplicationConfigurationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpsBasicConfigurationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpsBasicConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateImageTransformRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateImageTransformResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListRequest;
@@ -73,6 +75,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateLoadBalancerRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateLoadBalancerResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateLoadBalancerShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateNetworkOptimizationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateNetworkOptimizationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginPoolRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginPoolShrinkRequest;
@@ -146,6 +150,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsApplicationConfigurationReq
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsApplicationConfigurationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsBasicConfigurationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsBasicConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteImageTransformRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteImageTransformResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvRequest;
@@ -154,6 +160,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteLoadBalancerRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteLoadBalancerResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteNetworkOptimizationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteNetworkOptimizationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginPoolRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginProtectionRequest;
@@ -261,6 +269,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpsApplicationConfigurationReques
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpsApplicationConfigurationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpsBasicConfigurationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpsBasicConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetImageTransformRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetImageTransformResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetIPv6Request;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetIPv6Response;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvAccountResponse;
@@ -274,6 +284,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetLoadBalancerRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetLoadBalancerResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetManagedTransformRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetManagedTransformResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetNetworkOptimizationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetNetworkOptimizationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionRequest;
@@ -312,6 +324,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteLogDeliveryQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteLogDeliveryQuotaResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteNameExclusiveRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteNameExclusiveResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSitePauseRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSitePauseResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteWafSettingsRequest;
@@ -362,6 +376,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpsApplicationConfigurationsRequ
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpsApplicationConfigurationsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpsBasicConfigurationsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpsBasicConfigurationsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListImageTransformsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListImageTransformsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageRequest;
@@ -379,6 +395,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancersRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancersResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListManagedRulesGroupsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListManagedRulesGroupsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListNetworkOptimizationsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListNetworkOptimizationsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginRulesRequest;
@@ -489,6 +507,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpsApplicationConfigurationReq
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpsApplicationConfigurationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpsBasicConfigurationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpsBasicConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateImageTransformRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateImageTransformResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateIPv6Request;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateIPv6Response;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceRequest;
@@ -501,6 +521,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateManagedTransformRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateManagedTransformResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateNetworkOptimizationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateNetworkOptimizationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginPoolRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginPoolShrinkRequest;
@@ -536,6 +558,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteNameExclusiveRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteNameExclusiveResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSitePauseRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSitePauseResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTieredCacheRequest;
@@ -2846,6 +2870,84 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 新增站点图片转换配置.
+     *
+     * @param request - CreateImageTransformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateImageTransformResponse
+     *
+     * @param CreateImageTransformRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateImageTransformResponse
+     */
+    public function createImageTransformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateImageTransform',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateImageTransformResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateImageTransformResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增站点图片转换配置.
+     *
+     * @param request - CreateImageTransformRequest
+     * @returns CreateImageTransformResponse
+     *
+     * @param CreateImageTransformRequest $request
+     *
+     * @return CreateImageTransformResponse
+     */
+    public function createImageTransform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImageTransformWithOptions($request, $runtime);
+    }
+
+    /**
      * Create a namespace in your Alibaba Cloud account.
      *
      * @param request - CreateKvNamespaceRequest
@@ -3121,6 +3223,100 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createLoadBalancerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增站点网络优化配置.
+     *
+     * @param request - CreateNetworkOptimizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateNetworkOptimizationResponse
+     *
+     * @param CreateNetworkOptimizationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateNetworkOptimizationResponse
+     */
+    public function createNetworkOptimizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->grpc) {
+            @$query['Grpc'] = $request->grpc;
+        }
+
+        if (null !== $request->http2Origin) {
+            @$query['Http2Origin'] = $request->http2Origin;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->smartRouting) {
+            @$query['SmartRouting'] = $request->smartRouting;
+        }
+
+        if (null !== $request->uploadMaxFilesize) {
+            @$query['UploadMaxFilesize'] = $request->uploadMaxFilesize;
+        }
+
+        if (null !== $request->websocket) {
+            @$query['Websocket'] = $request->websocket;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNetworkOptimization',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateNetworkOptimizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateNetworkOptimizationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增站点网络优化配置.
+     *
+     * @param request - CreateNetworkOptimizationRequest
+     * @returns CreateNetworkOptimizationResponse
+     *
+     * @param CreateNetworkOptimizationRequest $request
+     *
+     * @return CreateNetworkOptimizationResponse
+     */
+    public function createNetworkOptimization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNetworkOptimizationWithOptions($request, $runtime);
     }
 
     /**
@@ -5682,6 +5878,68 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Deletes the configuration of image transformations for a website.
+     *
+     * @param request - DeleteImageTransformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteImageTransformResponse
+     *
+     * @param DeleteImageTransformRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteImageTransformResponse
+     */
+    public function deleteImageTransformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteImageTransform',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteImageTransformResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteImageTransformResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the configuration of image transformations for a website.
+     *
+     * @param request - DeleteImageTransformRequest
+     * @returns DeleteImageTransformResponse
+     *
+     * @param DeleteImageTransformRequest $request
+     *
+     * @return DeleteImageTransformResponse
+     */
+    public function deleteImageTransform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteImageTransformWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a key-value pair from a namespace.
      *
      * @param request - DeleteKvRequest
@@ -5911,6 +6169,68 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteLoadBalancerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除网络优化配置.
+     *
+     * @param request - DeleteNetworkOptimizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteNetworkOptimizationResponse
+     *
+     * @param DeleteNetworkOptimizationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteNetworkOptimizationResponse
+     */
+    public function deleteNetworkOptimizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNetworkOptimization',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteNetworkOptimizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteNetworkOptimizationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网络优化配置.
+     *
+     * @param request - DeleteNetworkOptimizationRequest
+     * @returns DeleteNetworkOptimizationResponse
+     *
+     * @param DeleteNetworkOptimizationRequest $request
+     *
+     * @return DeleteNetworkOptimizationResponse
+     */
+    public function deleteNetworkOptimization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkOptimizationWithOptions($request, $runtime);
     }
 
     /**
@@ -9134,6 +9454,60 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries the configuration of image transformations for a website.
+     *
+     * @param request - GetImageTransformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetImageTransformResponse
+     *
+     * @param GetImageTransformRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetImageTransformResponse
+     */
+    public function getImageTransformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageTransform',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetImageTransformResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetImageTransformResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration of image transformations for a website.
+     *
+     * @param request - GetImageTransformRequest
+     * @returns GetImageTransformResponse
+     *
+     * @param GetImageTransformRequest $request
+     *
+     * @return GetImageTransformResponse
+     */
+    public function getImageTransform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageTransformWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the value of a key in a key-value pair.
      *
      * @param request - GetKvRequest
@@ -9451,6 +9825,60 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getManagedTransformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询单条网络优化配置.
+     *
+     * @param request - GetNetworkOptimizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetNetworkOptimizationResponse
+     *
+     * @param GetNetworkOptimizationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetNetworkOptimizationResponse
+     */
+    public function getNetworkOptimizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNetworkOptimization',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetNetworkOptimizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetNetworkOptimizationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单条网络优化配置.
+     *
+     * @param request - GetNetworkOptimizationRequest
+     * @returns GetNetworkOptimizationResponse
+     *
+     * @param GetNetworkOptimizationRequest $request
+     *
+     * @return GetNetworkOptimizationResponse
+     */
+    public function getNetworkOptimization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNetworkOptimizationWithOptions($request, $runtime);
     }
 
     /**
@@ -10619,6 +11047,60 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSiteNameExclusiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询站点暂停配置.
+     *
+     * @param request - GetSitePauseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSitePauseResponse
+     *
+     * @param GetSitePauseRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetSitePauseResponse
+     */
+    public function getSitePauseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSitePause',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSitePauseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSitePauseResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点暂停配置.
+     *
+     * @param request - GetSitePauseRequest
+     * @returns GetSitePauseResponse
+     *
+     * @param GetSitePauseRequest $request
+     *
+     * @return GetSitePauseResponse
+     */
+    public function getSitePause($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSitePauseWithOptions($request, $runtime);
     }
 
     /**
@@ -12034,6 +12516,60 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询多条站点图片转换配置.
+     *
+     * @param request - ListImageTransformsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListImageTransformsResponse
+     *
+     * @param ListImageTransformsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListImageTransformsResponse
+     */
+    public function listImageTransformsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListImageTransforms',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListImageTransformsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListImageTransformsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多条站点图片转换配置.
+     *
+     * @param request - ListImageTransformsRequest
+     * @returns ListImageTransformsResponse
+     *
+     * @param ListImageTransformsRequest $request
+     *
+     * @return ListImageTransformsResponse
+     */
+    public function listImageTransforms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImageTransformsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the quota details in a subscription plan.
      *
      * @param request - ListInstanceQuotasRequest
@@ -12495,6 +13031,60 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listManagedRulesGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询多条网络优化配置.
+     *
+     * @param request - ListNetworkOptimizationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNetworkOptimizationsResponse
+     *
+     * @param ListNetworkOptimizationsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListNetworkOptimizationsResponse
+     */
+    public function listNetworkOptimizationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNetworkOptimizations',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNetworkOptimizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListNetworkOptimizationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多条网络优化配置.
+     *
+     * @param request - ListNetworkOptimizationsRequest
+     * @returns ListNetworkOptimizationsResponse
+     *
+     * @param ListNetworkOptimizationsRequest $request
+     *
+     * @return ListNetworkOptimizationsResponse
+     */
+    public function listNetworkOptimizations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNetworkOptimizationsWithOptions($request, $runtime);
     }
 
     /**
@@ -16222,6 +16812,84 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 修改站点图片转换配置.
+     *
+     * @param request - UpdateImageTransformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateImageTransformResponse
+     *
+     * @param UpdateImageTransformRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateImageTransformResponse
+     */
+    public function updateImageTransformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateImageTransform',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateImageTransformResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateImageTransformResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点图片转换配置.
+     *
+     * @param request - UpdateImageTransformRequest
+     * @returns UpdateImageTransformResponse
+     *
+     * @param UpdateImageTransformRequest $request
+     *
+     * @return UpdateImageTransformResponse
+     */
+    public function updateImageTransform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateImageTransformWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the name of a namespace in Edge KV.
      *
      * @param request - UpdateKvNamespaceRequest
@@ -16567,6 +17235,100 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateManagedTransformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改网络优化配置.
+     *
+     * @param request - UpdateNetworkOptimizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateNetworkOptimizationResponse
+     *
+     * @param UpdateNetworkOptimizationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateNetworkOptimizationResponse
+     */
+    public function updateNetworkOptimizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->grpc) {
+            @$query['Grpc'] = $request->grpc;
+        }
+
+        if (null !== $request->http2Origin) {
+            @$query['Http2Origin'] = $request->http2Origin;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->smartRouting) {
+            @$query['SmartRouting'] = $request->smartRouting;
+        }
+
+        if (null !== $request->uploadMaxFilesize) {
+            @$query['UploadMaxFilesize'] = $request->uploadMaxFilesize;
+        }
+
+        if (null !== $request->websocket) {
+            @$query['Websocket'] = $request->websocket;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateNetworkOptimization',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateNetworkOptimizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateNetworkOptimizationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改网络优化配置.
+     *
+     * @param request - UpdateNetworkOptimizationRequest
+     * @returns UpdateNetworkOptimizationResponse
+     *
+     * @param UpdateNetworkOptimizationRequest $request
+     *
+     * @return UpdateNetworkOptimizationResponse
+     */
+    public function updateNetworkOptimization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNetworkOptimizationWithOptions($request, $runtime);
     }
 
     /**
@@ -17783,6 +18545,68 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSiteNameExclusiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改站点暂停配置.
+     *
+     * @param request - UpdateSitePauseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSitePauseResponse
+     *
+     * @param UpdateSitePauseRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateSitePauseResponse
+     */
+    public function updateSitePauseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->paused) {
+            @$query['Paused'] = $request->paused;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSitePause',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSitePauseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateSitePauseResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改站点暂停配置.
+     *
+     * @param request - UpdateSitePauseRequest
+     * @returns UpdateSitePauseResponse
+     *
+     * @param UpdateSitePauseRequest $request
+     *
+     * @return UpdateSitePauseResponse
+     */
+    public function updateSitePause($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSitePauseWithOptions($request, $runtime);
     }
 
     /**

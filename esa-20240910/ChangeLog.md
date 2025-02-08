@@ -1,3 +1,18 @@
+2025-02-08 Version: 2.12.0
+- Support API CreateImageTransform.
+- Support API CreateNetworkOptimization.
+- Support API DeleteImageTransform.
+- Support API DeleteNetworkOptimization.
+- Support API GetImageTransform.
+- Support API GetNetworkOptimization.
+- Support API GetSitePause.
+- Support API ListImageTransforms.
+- Support API ListNetworkOptimizations.
+- Support API UpdateImageTransform.
+- Support API UpdateNetworkOptimization.
+- Support API UpdateSitePause.
+
+
 2025-02-07 Version: 2.11.0
 - Support API ActivateVersionManagement.
 - Support API CreateHttpsApplicationConfiguration.
