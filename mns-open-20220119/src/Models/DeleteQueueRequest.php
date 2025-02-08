@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteQueueRequest extends Model
 {
     /**
-     * @description The name of the queue.
-     *
-     * This parameter is required.
-     * @example tf-testAccMNSQueue-525478433321945943
-     *
      * @var string
      */
     public $queueName;
@@ -23,9 +18,10 @@ class DeleteQueueRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queueName) {
@@ -35,11 +31,11 @@ class DeleteQueueRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteQueueRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

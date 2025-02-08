@@ -4,13 +4,13 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\AuthorizeEndpointAclRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\AuthorizeEndpointAclResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\AuthorizeEndpointAclShrinkRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueShrinkRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateTopicRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateTopicResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\DeleteQueueRequest;
@@ -40,19 +40,21 @@ use AlibabaCloud\SDK\Mnsopen\V20220119\Models\RevokeEndpointAclResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\RevokeEndpointAclShrinkRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesShrinkRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetSubscriptionAttributesRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetSubscriptionAttributesResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetSubscriptionAttributesShrinkRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetTopicAttributesRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetTopicAttributesResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SubscribeRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SubscribeResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SubscribeShrinkRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\UnsubscribeRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\UnsubscribeResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Mnsopen extends OpenApiClient
 {
@@ -77,44 +79,53 @@ class Mnsopen extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds one or more ACLrules for an endpoint of a specified type.
-     *  *
-     * @param AuthorizeEndpointAclRequest $tmpReq  AuthorizeEndpointAclRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Adds one or more ACLrules for an endpoint of a specified type.
      *
-     * @return AuthorizeEndpointAclResponse AuthorizeEndpointAclResponse
+     * @param tmpReq - AuthorizeEndpointAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AuthorizeEndpointAclResponse
+     *
+     * @param AuthorizeEndpointAclRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AuthorizeEndpointAclResponse
      */
     public function authorizeEndpointAclWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AuthorizeEndpointAclShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cidrList)) {
-            $request->cidrListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cidrList, 'CidrList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cidrList) {
+            $request->cidrListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cidrList, 'CidrList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aclStrategy)) {
-            $query['AclStrategy'] = $request->aclStrategy;
+        if (null !== $request->aclStrategy) {
+            @$query['AclStrategy'] = $request->aclStrategy;
         }
-        if (!Utils::isUnset($request->cidrListShrink)) {
-            $query['CidrList'] = $request->cidrListShrink;
+
+        if (null !== $request->cidrListShrink) {
+            @$query['CidrList'] = $request->cidrListShrink;
         }
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AuthorizeEndpointAcl',
@@ -127,16 +138,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AuthorizeEndpointAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AuthorizeEndpointAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AuthorizeEndpointAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds one or more ACLrules for an endpoint of a specified type.
-     *  *
-     * @param AuthorizeEndpointAclRequest $request AuthorizeEndpointAclRequest
+     * Adds one or more ACLrules for an endpoint of a specified type.
      *
-     * @return AuthorizeEndpointAclResponse AuthorizeEndpointAclResponse
+     * @param request - AuthorizeEndpointAclRequest
+     * @returns AuthorizeEndpointAclResponse
+     *
+     * @param AuthorizeEndpointAclRequest $request
+     *
+     * @return AuthorizeEndpointAclResponse
      */
     public function authorizeEndpointAcl($request)
     {
@@ -146,43 +163,65 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Creates a queue.
-     *  *
-     * @param CreateQueueRequest $request CreateQueueRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a queue.
      *
-     * @return CreateQueueResponse CreateQueueResponse
+     * @param tmpReq - CreateQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateQueueResponse
+     *
+     * @param CreateQueueRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateQueueResponse
      */
-    public function createQueueWithOptions($request, $runtime)
+    public function createQueueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new CreateQueueShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dlqPolicy) {
+            $request->dlqPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dlqPolicy, 'DlqPolicy', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->delaySeconds)) {
-            $query['DelaySeconds'] = $request->delaySeconds;
+        if (null !== $request->delaySeconds) {
+            @$query['DelaySeconds'] = $request->delaySeconds;
         }
-        if (!Utils::isUnset($request->enableLogging)) {
-            $query['EnableLogging'] = $request->enableLogging;
+
+        if (null !== $request->dlqPolicyShrink) {
+            @$query['DlqPolicy'] = $request->dlqPolicyShrink;
         }
-        if (!Utils::isUnset($request->maximumMessageSize)) {
-            $query['MaximumMessageSize'] = $request->maximumMessageSize;
+
+        if (null !== $request->enableLogging) {
+            @$query['EnableLogging'] = $request->enableLogging;
         }
-        if (!Utils::isUnset($request->messageRetentionPeriod)) {
-            $query['MessageRetentionPeriod'] = $request->messageRetentionPeriod;
+
+        if (null !== $request->maximumMessageSize) {
+            @$query['MaximumMessageSize'] = $request->maximumMessageSize;
         }
-        if (!Utils::isUnset($request->pollingWaitSeconds)) {
-            $query['PollingWaitSeconds'] = $request->pollingWaitSeconds;
+
+        if (null !== $request->messageRetentionPeriod) {
+            @$query['MessageRetentionPeriod'] = $request->messageRetentionPeriod;
         }
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
+
+        if (null !== $request->pollingWaitSeconds) {
+            @$query['PollingWaitSeconds'] = $request->pollingWaitSeconds;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
         }
-        if (!Utils::isUnset($request->visibilityTimeout)) {
-            $query['VisibilityTimeout'] = $request->visibilityTimeout;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
+        if (null !== $request->visibilityTimeout) {
+            @$query['VisibilityTimeout'] = $request->visibilityTimeout;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateQueue',
@@ -195,16 +234,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateQueueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a queue.
-     *  *
-     * @param CreateQueueRequest $request CreateQueueRequest
+     * Creates a queue.
      *
-     * @return CreateQueueResponse CreateQueueResponse
+     * @param request - CreateQueueRequest
+     * @returns CreateQueueResponse
+     *
+     * @param CreateQueueRequest $request
+     *
+     * @return CreateQueueResponse
      */
     public function createQueue($request)
     {
@@ -214,33 +259,41 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Creates a topic.
-     *  *
-     * @param CreateTopicRequest $request CreateTopicRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a topic.
      *
-     * @return CreateTopicResponse CreateTopicResponse
+     * @param request - CreateTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTopicResponse
+     *
+     * @param CreateTopicRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateTopicResponse
      */
     public function createTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->enableLogging)) {
-            $body['EnableLogging'] = $request->enableLogging;
+        if (null !== $request->enableLogging) {
+            @$body['EnableLogging'] = $request->enableLogging;
         }
-        if (!Utils::isUnset($request->maxMessageSize)) {
-            $body['MaxMessageSize'] = $request->maxMessageSize;
+
+        if (null !== $request->maxMessageSize) {
+            @$body['MaxMessageSize'] = $request->maxMessageSize;
         }
-        if (!Utils::isUnset($request->topicName)) {
-            $body['TopicName'] = $request->topicName;
+
+        if (null !== $request->topicName) {
+            @$body['TopicName'] = $request->topicName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTopic',
@@ -253,16 +306,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTopicResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a topic.
-     *  *
-     * @param CreateTopicRequest $request CreateTopicRequest
+     * Creates a topic.
      *
-     * @return CreateTopicResponse CreateTopicResponse
+     * @param request - CreateTopicRequest
+     * @returns CreateTopicResponse
+     *
+     * @param CreateTopicRequest $request
+     *
+     * @return CreateTopicResponse
      */
     public function createTopic($request)
     {
@@ -272,22 +331,27 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a queue.
-     *  *
-     * @param DeleteQueueRequest $request DeleteQueueRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a queue.
      *
-     * @return DeleteQueueResponse DeleteQueueResponse
+     * @param request - DeleteQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteQueueResponse
+     *
+     * @param DeleteQueueRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteQueueResponse
      */
     public function deleteQueueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteQueue',
@@ -300,16 +364,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteQueueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a queue.
-     *  *
-     * @param DeleteQueueRequest $request DeleteQueueRequest
+     * Deletes a queue.
      *
-     * @return DeleteQueueResponse DeleteQueueResponse
+     * @param request - DeleteQueueRequest
+     * @returns DeleteQueueResponse
+     *
+     * @param DeleteQueueRequest $request
+     *
+     * @return DeleteQueueResponse
      */
     public function deleteQueue($request)
     {
@@ -319,22 +389,27 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a topic.
-     *  *
-     * @param DeleteTopicRequest $request DeleteTopicRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a topic.
      *
-     * @return DeleteTopicResponse DeleteTopicResponse
+     * @param request - DeleteTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTopicResponse
+     *
+     * @param DeleteTopicRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteTopicResponse
      */
     public function deleteTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->topicName)) {
-            $query['TopicName'] = $request->topicName;
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTopic',
@@ -347,16 +422,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTopicResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a topic.
-     *  *
-     * @param DeleteTopicRequest $request DeleteTopicRequest
+     * Deletes a topic.
      *
-     * @return DeleteTopicResponse DeleteTopicResponse
+     * @param request - DeleteTopicRequest
+     * @returns DeleteTopicResponse
+     *
+     * @param DeleteTopicRequest $request
+     *
+     * @return DeleteTopicResponse
      */
     public function deleteTopic($request)
     {
@@ -366,22 +447,27 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
-     *  *
-     * @param DisableEndpointRequest $request DisableEndpointRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
      *
-     * @return DisableEndpointResponse DisableEndpointResponse
+     * @param request - DisableEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableEndpointResponse
+     *
+     * @param DisableEndpointRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DisableEndpointResponse
      */
     public function disableEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableEndpoint',
@@ -394,16 +480,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
-     *  *
-     * @param DisableEndpointRequest $request DisableEndpointRequest
+     * You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
      *
-     * @return DisableEndpointResponse DisableEndpointResponse
+     * @param request - DisableEndpointRequest
+     * @returns DisableEndpointResponse
+     *
+     * @param DisableEndpointRequest $request
+     *
+     * @return DisableEndpointResponse
      */
     public function disableEndpoint($request)
     {
@@ -413,22 +505,27 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
-     *  *
-     * @param EnableEndpointRequest $request EnableEndpointRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
      *
-     * @return EnableEndpointResponse EnableEndpointResponse
+     * @param request - EnableEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableEndpointResponse
+     *
+     * @param EnableEndpointRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return EnableEndpointResponse
      */
     public function enableEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableEndpoint',
@@ -441,16 +538,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
-     *  *
-     * @param EnableEndpointRequest $request EnableEndpointRequest
+     * You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
      *
-     * @return EnableEndpointResponse EnableEndpointResponse
+     * @param request - EnableEndpointRequest
+     * @returns EnableEndpointResponse
+     *
+     * @param EnableEndpointRequest $request
+     *
+     * @return EnableEndpointResponse
      */
     public function enableEndpoint($request)
     {
@@ -460,22 +563,27 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary GetEndpointAttribute
-     *  *
-     * @param GetEndpointAttributeRequest $request GetEndpointAttributeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * GetEndpointAttribute.
      *
-     * @return GetEndpointAttributeResponse GetEndpointAttributeResponse
+     * @param request - GetEndpointAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEndpointAttributeResponse
+     *
+     * @param GetEndpointAttributeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetEndpointAttributeResponse
      */
     public function getEndpointAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEndpointAttribute',
@@ -488,16 +596,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEndpointAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary GetEndpointAttribute
-     *  *
-     * @param GetEndpointAttributeRequest $request GetEndpointAttributeRequest
+     * GetEndpointAttribute.
      *
-     * @return GetEndpointAttributeResponse GetEndpointAttributeResponse
+     * @param request - GetEndpointAttributeRequest
+     * @returns GetEndpointAttributeResponse
+     *
+     * @param GetEndpointAttributeRequest $request
+     *
+     * @return GetEndpointAttributeResponse
      */
     public function getEndpointAttribute($request)
     {
@@ -507,25 +621,31 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of an existing queue.
-     *  *
-     * @param GetQueueAttributesRequest $request GetQueueAttributesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the attributes of an existing queue.
      *
-     * @return GetQueueAttributesResponse GetQueueAttributesResponse
+     * @param request - GetQueueAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQueueAttributesResponse
+     *
+     * @param GetQueueAttributesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetQueueAttributesResponse
      */
     public function getQueueAttributesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQueueAttributes',
@@ -538,16 +658,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQueueAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQueueAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQueueAttributesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attributes of an existing queue.
-     *  *
-     * @param GetQueueAttributesRequest $request GetQueueAttributesRequest
+     * Queries the attributes of an existing queue.
      *
-     * @return GetQueueAttributesResponse GetQueueAttributesResponse
+     * @param request - GetQueueAttributesRequest
+     * @returns GetQueueAttributesResponse
+     *
+     * @param GetQueueAttributesRequest $request
+     *
+     * @return GetQueueAttributesResponse
      */
     public function getQueueAttributes($request)
     {
@@ -557,25 +683,31 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of a subscription.
-     *  *
-     * @param GetSubscriptionAttributesRequest $request GetSubscriptionAttributesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the attributes of a subscription.
      *
-     * @return GetSubscriptionAttributesResponse GetSubscriptionAttributesResponse
+     * @param request - GetSubscriptionAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSubscriptionAttributesResponse
+     *
+     * @param GetSubscriptionAttributesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetSubscriptionAttributesResponse
      */
     public function getSubscriptionAttributesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subscriptionName)) {
-            $query['SubscriptionName'] = $request->subscriptionName;
+        if (null !== $request->subscriptionName) {
+            @$query['SubscriptionName'] = $request->subscriptionName;
         }
-        if (!Utils::isUnset($request->topicName)) {
-            $query['TopicName'] = $request->topicName;
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSubscriptionAttributes',
@@ -588,16 +720,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSubscriptionAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSubscriptionAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSubscriptionAttributesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attributes of a subscription.
-     *  *
-     * @param GetSubscriptionAttributesRequest $request GetSubscriptionAttributesRequest
+     * Queries the attributes of a subscription.
      *
-     * @return GetSubscriptionAttributesResponse GetSubscriptionAttributesResponse
+     * @param request - GetSubscriptionAttributesRequest
+     * @returns GetSubscriptionAttributesResponse
+     *
+     * @param GetSubscriptionAttributesRequest $request
+     *
+     * @return GetSubscriptionAttributesResponse
      */
     public function getSubscriptionAttributes($request)
     {
@@ -607,25 +745,31 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of a topic.
-     *  *
-     * @param GetTopicAttributesRequest $request GetTopicAttributesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the attributes of a topic.
      *
-     * @return GetTopicAttributesResponse GetTopicAttributesResponse
+     * @param request - GetTopicAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTopicAttributesResponse
+     *
+     * @param GetTopicAttributesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTopicAttributesResponse
      */
     public function getTopicAttributesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->topicName)) {
-            $query['TopicName'] = $request->topicName;
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTopicAttributes',
@@ -638,16 +782,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTopicAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTopicAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTopicAttributesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attributes of a topic.
-     *  *
-     * @param GetTopicAttributesRequest $request GetTopicAttributesRequest
+     * Queries the attributes of a topic.
      *
-     * @return GetTopicAttributesResponse GetTopicAttributesResponse
+     * @param request - GetTopicAttributesRequest
+     * @returns GetTopicAttributesResponse
+     *
+     * @param GetTopicAttributesRequest $request
+     *
+     * @return GetTopicAttributesResponse
      */
     public function getTopicAttributes($request)
     {
@@ -657,31 +807,39 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
-     *  *
-     * @param ListQueueRequest $request ListQueueRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
      *
-     * @return ListQueueResponse ListQueueResponse
+     * @param request - ListQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListQueueResponse
+     *
+     * @param ListQueueRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListQueueResponse
      */
     public function listQueueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
+
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListQueue',
@@ -694,16 +852,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListQueueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
-     *  *
-     * @param ListQueueRequest $request ListQueueRequest
+     * Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
      *
-     * @return ListQueueResponse ListQueueResponse
+     * @param request - ListQueueRequest
+     * @returns ListQueueResponse
+     *
+     * @param ListQueueRequest $request
+     *
+     * @return ListQueueResponse
      */
     public function listQueue($request)
     {
@@ -713,31 +877,39 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Queries all subscriptions to a topic. The subscriptions are displayed by page.
-     *  *
-     * @param ListSubscriptionByTopicRequest $request ListSubscriptionByTopicRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries all subscriptions to a topic. The subscriptions are displayed by page.
      *
-     * @return ListSubscriptionByTopicResponse ListSubscriptionByTopicResponse
+     * @param request - ListSubscriptionByTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSubscriptionByTopicResponse
+     *
+     * @param ListSubscriptionByTopicRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListSubscriptionByTopicResponse
      */
     public function listSubscriptionByTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->subscriptionName)) {
-            $query['SubscriptionName'] = $request->subscriptionName;
+
+        if (null !== $request->subscriptionName) {
+            @$query['SubscriptionName'] = $request->subscriptionName;
         }
-        if (!Utils::isUnset($request->topicName)) {
-            $query['TopicName'] = $request->topicName;
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSubscriptionByTopic',
@@ -750,16 +922,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSubscriptionByTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSubscriptionByTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSubscriptionByTopicResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all subscriptions to a topic. The subscriptions are displayed by page.
-     *  *
-     * @param ListSubscriptionByTopicRequest $request ListSubscriptionByTopicRequest
+     * Queries all subscriptions to a topic. The subscriptions are displayed by page.
      *
-     * @return ListSubscriptionByTopicResponse ListSubscriptionByTopicResponse
+     * @param request - ListSubscriptionByTopicRequest
+     * @returns ListSubscriptionByTopicResponse
+     *
+     * @param ListSubscriptionByTopicRequest $request
+     *
+     * @return ListSubscriptionByTopicResponse
      */
     public function listSubscriptionByTopic($request)
     {
@@ -769,31 +947,39 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
-     *  *
-     * @param ListTopicRequest $request ListTopicRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
      *
-     * @return ListTopicResponse ListTopicResponse
+     * @param request - ListTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTopicResponse
+     *
+     * @param ListTopicRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTopicResponse
      */
     public function listTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->topicName)) {
-            $query['TopicName'] = $request->topicName;
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTopic',
@@ -806,16 +992,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTopicResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
-     *  *
-     * @param ListTopicRequest $request ListTopicRequest
+     * Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
      *
-     * @return ListTopicResponse ListTopicResponse
+     * @param request - ListTopicRequest
+     * @returns ListTopicResponse
+     *
+     * @param ListTopicRequest $request
+     *
+     * @return ListTopicResponse
      */
     public function listTopic($request)
     {
@@ -825,33 +1017,41 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more ACLs from an endpoint of a specified type.
-     *  *
-     * @param RevokeEndpointAclRequest $tmpReq  RevokeEndpointAclRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more ACLs from an endpoint of a specified type.
      *
-     * @return RevokeEndpointAclResponse RevokeEndpointAclResponse
+     * @param tmpReq - RevokeEndpointAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevokeEndpointAclResponse
+     *
+     * @param RevokeEndpointAclRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RevokeEndpointAclResponse
      */
     public function revokeEndpointAclWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RevokeEndpointAclShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cidrList)) {
-            $request->cidrListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cidrList, 'CidrList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cidrList) {
+            $request->cidrListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cidrList, 'CidrList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aclStrategy)) {
-            $query['AclStrategy'] = $request->aclStrategy;
+        if (null !== $request->aclStrategy) {
+            @$query['AclStrategy'] = $request->aclStrategy;
         }
-        if (!Utils::isUnset($request->cidrListShrink)) {
-            $query['CidrList'] = $request->cidrListShrink;
+
+        if (null !== $request->cidrListShrink) {
+            @$query['CidrList'] = $request->cidrListShrink;
         }
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RevokeEndpointAcl',
@@ -864,16 +1064,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevokeEndpointAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeEndpointAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeEndpointAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more ACLs from an endpoint of a specified type.
-     *  *
-     * @param RevokeEndpointAclRequest $request RevokeEndpointAclRequest
+     * Deletes one or more ACLs from an endpoint of a specified type.
      *
-     * @return RevokeEndpointAclResponse RevokeEndpointAclResponse
+     * @param request - RevokeEndpointAclRequest
+     * @returns RevokeEndpointAclResponse
+     *
+     * @param RevokeEndpointAclRequest $request
+     *
+     * @return RevokeEndpointAclResponse
      */
     public function revokeEndpointAcl($request)
     {
@@ -883,40 +1089,61 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a queue.
-     *  *
-     * @param SetQueueAttributesRequest $request SetQueueAttributesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies a queue.
      *
-     * @return SetQueueAttributesResponse SetQueueAttributesResponse
+     * @param tmpReq - SetQueueAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetQueueAttributesResponse
+     *
+     * @param SetQueueAttributesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetQueueAttributesResponse
      */
-    public function setQueueAttributesWithOptions($request, $runtime)
+    public function setQueueAttributesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new SetQueueAttributesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dlqPolicy) {
+            $request->dlqPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dlqPolicy, 'DlqPolicy', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->delaySeconds)) {
-            $query['DelaySeconds'] = $request->delaySeconds;
+        if (null !== $request->delaySeconds) {
+            @$query['DelaySeconds'] = $request->delaySeconds;
         }
-        if (!Utils::isUnset($request->enableLogging)) {
-            $query['EnableLogging'] = $request->enableLogging;
+
+        if (null !== $request->dlqPolicyShrink) {
+            @$query['DlqPolicy'] = $request->dlqPolicyShrink;
         }
-        if (!Utils::isUnset($request->maximumMessageSize)) {
-            $query['MaximumMessageSize'] = $request->maximumMessageSize;
+
+        if (null !== $request->enableLogging) {
+            @$query['EnableLogging'] = $request->enableLogging;
         }
-        if (!Utils::isUnset($request->messageRetentionPeriod)) {
-            $query['MessageRetentionPeriod'] = $request->messageRetentionPeriod;
+
+        if (null !== $request->maximumMessageSize) {
+            @$query['MaximumMessageSize'] = $request->maximumMessageSize;
         }
-        if (!Utils::isUnset($request->pollingWaitSeconds)) {
-            $query['PollingWaitSeconds'] = $request->pollingWaitSeconds;
+
+        if (null !== $request->messageRetentionPeriod) {
+            @$query['MessageRetentionPeriod'] = $request->messageRetentionPeriod;
         }
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
+
+        if (null !== $request->pollingWaitSeconds) {
+            @$query['PollingWaitSeconds'] = $request->pollingWaitSeconds;
         }
-        if (!Utils::isUnset($request->visibilityTimeout)) {
-            $query['VisibilityTimeout'] = $request->visibilityTimeout;
+
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
         }
+
+        if (null !== $request->visibilityTimeout) {
+            @$query['VisibilityTimeout'] = $request->visibilityTimeout;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetQueueAttributes',
@@ -929,16 +1156,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetQueueAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetQueueAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetQueueAttributesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a queue.
-     *  *
-     * @param SetQueueAttributesRequest $request SetQueueAttributesRequest
+     * Modifies a queue.
      *
-     * @return SetQueueAttributesResponse SetQueueAttributesResponse
+     * @param request - SetQueueAttributesRequest
+     * @returns SetQueueAttributesResponse
+     *
+     * @param SetQueueAttributesRequest $request
+     *
+     * @return SetQueueAttributesResponse
      */
     public function setQueueAttributes($request)
     {
@@ -948,28 +1181,45 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of a subscription.
-     *  *
-     * @param SetSubscriptionAttributesRequest $request SetSubscriptionAttributesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Modifies the attributes of a subscription.
      *
-     * @return SetSubscriptionAttributesResponse SetSubscriptionAttributesResponse
+     * @param tmpReq - SetSubscriptionAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetSubscriptionAttributesResponse
+     *
+     * @param SetSubscriptionAttributesRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetSubscriptionAttributesResponse
      */
-    public function setSubscriptionAttributesWithOptions($request, $runtime)
+    public function setSubscriptionAttributesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new SetSubscriptionAttributesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dlqPolicy) {
+            $request->dlqPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dlqPolicy, 'DlqPolicy', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->notifyStrategy)) {
-            $query['NotifyStrategy'] = $request->notifyStrategy;
+        if (null !== $request->dlqPolicyShrink) {
+            @$query['DlqPolicy'] = $request->dlqPolicyShrink;
         }
-        if (!Utils::isUnset($request->subscriptionName)) {
-            $query['SubscriptionName'] = $request->subscriptionName;
+
+        if (null !== $request->notifyStrategy) {
+            @$query['NotifyStrategy'] = $request->notifyStrategy;
         }
-        if (!Utils::isUnset($request->topicName)) {
-            $query['TopicName'] = $request->topicName;
+
+        if (null !== $request->subscriptionName) {
+            @$query['SubscriptionName'] = $request->subscriptionName;
         }
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetSubscriptionAttributes',
@@ -982,16 +1232,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetSubscriptionAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetSubscriptionAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetSubscriptionAttributesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes of a subscription.
-     *  *
-     * @param SetSubscriptionAttributesRequest $request SetSubscriptionAttributesRequest
+     * Modifies the attributes of a subscription.
      *
-     * @return SetSubscriptionAttributesResponse SetSubscriptionAttributesResponse
+     * @param request - SetSubscriptionAttributesRequest
+     * @returns SetSubscriptionAttributesResponse
+     *
+     * @param SetSubscriptionAttributesRequest $request
+     *
+     * @return SetSubscriptionAttributesResponse
      */
     public function setSubscriptionAttributes($request)
     {
@@ -1001,28 +1257,35 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of a topic.
-     *  *
-     * @param SetTopicAttributesRequest $request SetTopicAttributesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the attributes of a topic.
      *
-     * @return SetTopicAttributesResponse SetTopicAttributesResponse
+     * @param request - SetTopicAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetTopicAttributesResponse
+     *
+     * @param SetTopicAttributesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetTopicAttributesResponse
      */
     public function setTopicAttributesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->enableLogging)) {
-            $query['EnableLogging'] = $request->enableLogging;
+        if (null !== $request->enableLogging) {
+            @$query['EnableLogging'] = $request->enableLogging;
         }
-        if (!Utils::isUnset($request->maxMessageSize)) {
-            $query['MaxMessageSize'] = $request->maxMessageSize;
+
+        if (null !== $request->maxMessageSize) {
+            @$query['MaxMessageSize'] = $request->maxMessageSize;
         }
-        if (!Utils::isUnset($request->topicName)) {
-            $query['TopicName'] = $request->topicName;
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetTopicAttributes',
@@ -1035,16 +1298,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetTopicAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetTopicAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetTopicAttributesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes of a topic.
-     *  *
-     * @param SetTopicAttributesRequest $request SetTopicAttributesRequest
+     * Modifies the attributes of a topic.
      *
-     * @return SetTopicAttributesResponse SetTopicAttributesResponse
+     * @param request - SetTopicAttributesRequest
+     * @returns SetTopicAttributesResponse
+     *
+     * @param SetTopicAttributesRequest $request
+     *
+     * @return SetTopicAttributesResponse
      */
     public function setTopicAttributes($request)
     {
@@ -1054,40 +1323,61 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Creates a subscription to a topic.
-     *  *
-     * @param SubscribeRequest $request SubscribeRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Creates a subscription to a topic.
      *
-     * @return SubscribeResponse SubscribeResponse
+     * @param tmpReq - SubscribeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubscribeResponse
+     *
+     * @param SubscribeRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return SubscribeResponse
      */
-    public function subscribeWithOptions($request, $runtime)
+    public function subscribeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new SubscribeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dlqPolicy) {
+            $request->dlqPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dlqPolicy, 'DlqPolicy', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->endpoint)) {
-            $query['Endpoint'] = $request->endpoint;
+        if (null !== $request->dlqPolicyShrink) {
+            @$query['DlqPolicy'] = $request->dlqPolicyShrink;
         }
-        if (!Utils::isUnset($request->messageTag)) {
-            $query['MessageTag'] = $request->messageTag;
+
+        if (null !== $request->endpoint) {
+            @$query['Endpoint'] = $request->endpoint;
         }
-        if (!Utils::isUnset($request->notifyContentFormat)) {
-            $query['NotifyContentFormat'] = $request->notifyContentFormat;
+
+        if (null !== $request->messageTag) {
+            @$query['MessageTag'] = $request->messageTag;
         }
-        if (!Utils::isUnset($request->notifyStrategy)) {
-            $query['NotifyStrategy'] = $request->notifyStrategy;
+
+        if (null !== $request->notifyContentFormat) {
+            @$query['NotifyContentFormat'] = $request->notifyContentFormat;
         }
-        if (!Utils::isUnset($request->pushType)) {
-            $query['PushType'] = $request->pushType;
+
+        if (null !== $request->notifyStrategy) {
+            @$query['NotifyStrategy'] = $request->notifyStrategy;
         }
-        if (!Utils::isUnset($request->subscriptionName)) {
-            $query['SubscriptionName'] = $request->subscriptionName;
+
+        if (null !== $request->pushType) {
+            @$query['PushType'] = $request->pushType;
         }
-        if (!Utils::isUnset($request->topicName)) {
-            $query['TopicName'] = $request->topicName;
+
+        if (null !== $request->subscriptionName) {
+            @$query['SubscriptionName'] = $request->subscriptionName;
         }
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'Subscribe',
@@ -1100,16 +1390,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubscribeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a subscription to a topic.
-     *  *
-     * @param SubscribeRequest $request SubscribeRequest
+     * Creates a subscription to a topic.
      *
-     * @return SubscribeResponse SubscribeResponse
+     * @param request - SubscribeRequest
+     * @returns SubscribeResponse
+     *
+     * @param SubscribeRequest $request
+     *
+     * @return SubscribeResponse
      */
     public function subscribe($request)
     {
@@ -1119,25 +1415,31 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a subscription.
-     *  *
-     * @param UnsubscribeRequest $request UnsubscribeRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a subscription.
      *
-     * @return UnsubscribeResponse UnsubscribeResponse
+     * @param request - UnsubscribeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnsubscribeResponse
+     *
+     * @param UnsubscribeRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UnsubscribeResponse
      */
     public function unsubscribeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->subscriptionName)) {
-            $query['SubscriptionName'] = $request->subscriptionName;
+        if (null !== $request->subscriptionName) {
+            @$query['SubscriptionName'] = $request->subscriptionName;
         }
-        if (!Utils::isUnset($request->topicName)) {
-            $query['TopicName'] = $request->topicName;
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'Unsubscribe',
@@ -1150,16 +1452,22 @@ class Mnsopen extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnsubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnsubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnsubscribeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a subscription.
-     *  *
-     * @param UnsubscribeRequest $request UnsubscribeRequest
+     * Deletes a subscription.
      *
-     * @return UnsubscribeResponse UnsubscribeResponse
+     * @param request - UnsubscribeRequest
+     * @returns UnsubscribeResponse
+     *
+     * @param UnsubscribeRequest $request
+     *
+     * @return UnsubscribeResponse
      */
     public function unsubscribe($request)
     {

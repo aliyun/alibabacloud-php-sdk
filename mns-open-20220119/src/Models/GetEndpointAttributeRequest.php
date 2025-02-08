@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetEndpointAttributeRequest extends Model
 {
     /**
-     * @description The type of the endpoint. Valid value:
-     *
-     *   **public**: indicates a public endpoint. (Only public endpoint is supported.)
-     *
-     * This parameter is required.
-     * @example public
-     *
      * @var string
      */
     public $endpointType;
@@ -25,9 +18,10 @@ class GetEndpointAttributeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointType) {
@@ -37,11 +31,11 @@ class GetEndpointAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEndpointAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

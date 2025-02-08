@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSubscriptionAttributesRequest extends Model
 {
     /**
-     * @description The name of the subscription.
-     *
-     * This parameter is required.
-     * @example MySubscription
-     *
      * @var string
      */
     public $subscriptionName;
-
     /**
-     * @description The name of the topic.
-     *
-     * This parameter is required.
-     * @example MyTopic
-     *
      * @var string
      */
     public $topicName;
@@ -34,14 +23,16 @@ class GetSubscriptionAttributesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subscriptionName) {
             $res['SubscriptionName'] = $this->subscriptionName;
         }
+
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
         }
@@ -49,17 +40,18 @@ class GetSubscriptionAttributesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSubscriptionAttributesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubscriptionName'])) {
             $model->subscriptionName = $map['SubscriptionName'];
         }
+
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
         }
