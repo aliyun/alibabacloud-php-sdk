@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceElasticVCUUpperLimitResponseBody extends Model
 {
     /**
-     * @description The request ID, which can be used to troubleshoot issues.
-     *
-     * @example B37BBA04-D827-55C8-B901-5264B904E8C6
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateInstanceElasticVCUUpperLimitResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateInstanceElasticVCUUpperLimitResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceElasticVCUUpperLimitResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

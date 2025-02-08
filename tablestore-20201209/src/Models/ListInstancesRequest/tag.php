@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceRequest;
+namespace AlibabaCloud\SDK\Tablestore\V20201209\Models\ListInstancesRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class tags extends Model
+class tag extends Model
 {
     /**
      * @var string
