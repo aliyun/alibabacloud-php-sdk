@@ -83,6 +83,10 @@ class CreateFileRequest extends Model
     /**
      * @var string
      */
+    public $imageId;
+    /**
+     * @var string
+     */
     public $inputList;
     /**
      * @var string
@@ -159,6 +163,7 @@ class CreateFileRequest extends Model
         'fileName'                        => 'FileName',
         'fileType'                        => 'FileType',
         'ignoreParentSkipRunningProperty' => 'IgnoreParentSkipRunningProperty',
+        'imageId'                         => 'ImageId',
         'inputList'                       => 'InputList',
         'inputParameters'                 => 'InputParameters',
         'outputParameters'                => 'OutputParameters',
@@ -254,6 +259,10 @@ class CreateFileRequest extends Model
 
         if (null !== $this->ignoreParentSkipRunningProperty) {
             $res['IgnoreParentSkipRunningProperty'] = $this->ignoreParentSkipRunningProperty;
+        }
+
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         if (null !== $this->inputList) {
@@ -397,6 +406,10 @@ class CreateFileRequest extends Model
 
         if (isset($map['IgnoreParentSkipRunningProperty'])) {
             $model->ignoreParentSkipRunningProperty = $map['IgnoreParentSkipRunningProperty'];
+        }
+
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         if (isset($map['InputList'])) {

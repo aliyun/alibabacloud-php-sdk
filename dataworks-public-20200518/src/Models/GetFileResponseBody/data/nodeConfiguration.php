@@ -49,6 +49,10 @@ class nodeConfiguration extends Model
      */
     public $ignoreParentSkipRunningProperty;
     /**
+     * @var string
+     */
+    public $imageId;
+    /**
      * @var inputList[]
      */
     public $inputList;
@@ -106,6 +110,7 @@ class nodeConfiguration extends Model
         'dependentType'                   => 'DependentType',
         'endEffectDate'                   => 'EndEffectDate',
         'ignoreParentSkipRunningProperty' => 'IgnoreParentSkipRunningProperty',
+        'imageId'                         => 'ImageId',
         'inputList'                       => 'InputList',
         'inputParameters'                 => 'InputParameters',
         'outputList'                      => 'OutputList',
@@ -174,6 +179,10 @@ class nodeConfiguration extends Model
 
         if (null !== $this->ignoreParentSkipRunningProperty) {
             $res['IgnoreParentSkipRunningProperty'] = $this->ignoreParentSkipRunningProperty;
+        }
+
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         if (null !== $this->inputList) {
@@ -293,6 +302,10 @@ class nodeConfiguration extends Model
 
         if (isset($map['IgnoreParentSkipRunningProperty'])) {
             $model->ignoreParentSkipRunningProperty = $map['IgnoreParentSkipRunningProperty'];
+        }
+
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         if (isset($map['InputList'])) {

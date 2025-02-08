@@ -79,6 +79,10 @@ class UpdateFileRequest extends Model
     /**
      * @var string
      */
+    public $imageId;
+    /**
+     * @var string
+     */
     public $inputList;
     /**
      * @var string
@@ -154,6 +158,7 @@ class UpdateFileRequest extends Model
         'fileId'                          => 'FileId',
         'fileName'                        => 'FileName',
         'ignoreParentSkipRunningProperty' => 'IgnoreParentSkipRunningProperty',
+        'imageId'                         => 'ImageId',
         'inputList'                       => 'InputList',
         'inputParameters'                 => 'InputParameters',
         'outputList'                      => 'OutputList',
@@ -245,6 +250,10 @@ class UpdateFileRequest extends Model
 
         if (null !== $this->ignoreParentSkipRunningProperty) {
             $res['IgnoreParentSkipRunningProperty'] = $this->ignoreParentSkipRunningProperty;
+        }
+
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         if (null !== $this->inputList) {
@@ -384,6 +393,10 @@ class UpdateFileRequest extends Model
 
         if (isset($map['IgnoreParentSkipRunningProperty'])) {
             $model->ignoreParentSkipRunningProperty = $map['IgnoreParentSkipRunningProperty'];
+        }
+
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         if (isset($map['InputList'])) {

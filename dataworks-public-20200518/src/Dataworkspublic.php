@@ -2887,6 +2887,10 @@ class Dataworkspublic extends OpenApiClient
             @$body['IgnoreParentSkipRunningProperty'] = $request->ignoreParentSkipRunningProperty;
         }
 
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
         if (null !== $request->inputList) {
             @$body['InputList'] = $request->inputList;
         }
@@ -11168,7 +11172,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Invoke the GetMetaTableFullInfo interface to obtain the complete information of a table (including field information).
+     * Queries the complete information about a table, including information about fields in the table.
+     *
+     * @remarks
+     * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
      *
      * @param request - GetMetaTableFullInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11205,7 +11212,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Invoke the GetMetaTableFullInfo interface to obtain the complete information of a table (including field information).
+     * Queries the complete information about a table, including information about fields in the table.
+     *
+     * @remarks
+     * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
      *
      * @param request - GetMetaTableFullInfoRequest
      * @returns GetMetaTableFullInfoResponse
@@ -12682,6 +12692,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the subscribers of a partition filter expression.
+     *
      * @param request - GetQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns GetQualityFollowerResponse
@@ -12729,6 +12741,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the subscribers of a partition filter expression.
+     *
      * @param request - GetQualityFollowerRequest
      * @returns GetQualityFollowerResponse
      *
@@ -13058,6 +13072,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries baseline instances affected by an event.
+     *
+     * @remarks
+     * ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetTopicInfluence\\&type=RPC\\&version=2020-05-18)
+     *
      * @param request - GetTopicInfluenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns GetTopicInfluenceResponse
@@ -13097,6 +13117,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries baseline instances affected by an event.
+     *
+     * @remarks
+     * ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetTopicInfluence\\&type=RPC\\&version=2020-05-18)
+     *
      * @param request - GetTopicInfluenceRequest
      * @returns GetTopicInfluenceResponse
      *
@@ -13692,7 +13718,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询扩展事件的检查列表.
+     * Queries the check results of extension point events.
      *
      * @param request - ListCheckProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13757,7 +13783,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询扩展事件的检查列表.
+     * Queries the check results of extension point events.
      *
      * @param request - ListCheckProcessesRequest
      * @returns ListCheckProcessesResponse
@@ -15324,6 +15350,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of file versions.
+     *
      * @param request - ListFileVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns ListFileVersionsResponse
@@ -15379,6 +15407,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of file versions.
+     *
      * @param request - ListFileVersionsRequest
      * @returns ListFileVersionsResponse
      *
@@ -15394,6 +15424,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of files.
+     *
      * @param request - ListFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns ListFilesResponse
@@ -15485,6 +15517,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of files.
+     *
      * @param request - ListFilesRequest
      * @returns ListFilesResponse
      *
@@ -15784,7 +15818,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The ID of the directed acyclic graph (DAG). You can set this parameter to the value of the DagId parameter returned by the [RunCycleDagNodes](https://help.aliyun.com/document_detail/212961.html), [RunSmokeTest](https://help.aliyun.com/document_detail/212949.html), or [RunManualDagNodes](https://help.aliyun.com/document_detail/212830.html) operation based on your business requirements. The RunManualDagNodes operation is used to backfill data, the RunSmokeTest operation is used to perform smoke testing, and the RunManualDagNodes operation is used to run nodes in a manually triggered workflow.
+     * Queries a list of instances.
      *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15881,7 +15915,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The ID of the directed acyclic graph (DAG). You can set this parameter to the value of the DagId parameter returned by the [RunCycleDagNodes](https://help.aliyun.com/document_detail/212961.html), [RunSmokeTest](https://help.aliyun.com/document_detail/212949.html), or [RunManualDagNodes](https://help.aliyun.com/document_detail/212830.html) operation based on your business requirements. The RunManualDagNodes operation is used to backfill data, the RunSmokeTest operation is used to perform smoke testing, and the RunManualDagNodes operation is used to run nodes in a manually triggered workflow.
+     * Queries a list of instances.
      *
      * @param request - ListInstancesRequest
      * @returns ListInstancesResponse
@@ -21452,7 +21486,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新集群的配置信息.
+     * Updates the configurations of submodules in a workspace. You can configure SPARK parameters.
      *
      * @param tmpReq - UpdateClusterConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21513,7 +21547,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新集群的配置信息.
+     * Updates the configurations of submodules in a workspace. You can configure SPARK parameters.
      *
      * @param request - UpdateClusterConfigsRequest
      * @returns UpdateClusterConfigsResponse
@@ -22220,6 +22254,10 @@ class Dataworkspublic extends OpenApiClient
 
         if (null !== $request->ignoreParentSkipRunningProperty) {
             @$body['IgnoreParentSkipRunningProperty'] = $request->ignoreParentSkipRunningProperty;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
 
         if (null !== $request->inputList) {
