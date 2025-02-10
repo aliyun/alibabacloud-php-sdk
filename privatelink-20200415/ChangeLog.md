@@ -1,3 +1,6 @@
+2025-02-10 Version: 4.0.3
+- Generated php 2020-04-15 for Privatelink.
+
 2024-12-19 Version: 4.0.2
 - Update API AddZoneToVpcEndpoint: add param Ipv6Address.
 - Update API CreateVpcEndpoint: add param AddressIpVersion.

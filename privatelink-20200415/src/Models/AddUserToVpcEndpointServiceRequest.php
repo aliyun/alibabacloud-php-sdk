@@ -4,66 +4,31 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddUserToVpcEndpointServiceRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-     *
-     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
-
     /**
-     * @description The region ID of the endpoint service. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example eu-west-1
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The endpoint service ID.
-     *
-     * This parameter is required.
-     * @example epsrv-hp3vpx8yqxblby3i****
-     *
      * @var string
      */
     public $serviceId;
-
     /**
-     * @description The whitelist in the format of Aliyun Resource Name (ARN).
-     *
-     * @example acs:ram:*:<account-id>:*
-     *
      * @var string
      */
     public $userARN;
-
     /**
-     * @description The account ID that you want to add to the whitelist.
-     *
-     * @example 132193271328****
-     *
      * @var int
      */
     public $userId;
@@ -78,26 +43,32 @@ class AddUserToVpcEndpointServiceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->userARN) {
             $res['UserARN'] = $this->userARN;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -105,29 +76,34 @@ class AddUserToVpcEndpointServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddUserToVpcEndpointServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['UserARN'])) {
             $model->userARN = $map['UserARN'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

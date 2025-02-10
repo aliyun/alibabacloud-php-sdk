@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenPrivateLinkServiceResponseBody extends Model
 {
     /**
-     * @description The order ID.
-     *
-     * @example 3245****
-     *
      * @var string
      */
     public $orderId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class OpenPrivateLinkServiceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class OpenPrivateLinkServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenPrivateLinkServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

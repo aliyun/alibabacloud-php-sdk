@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models\DescribeRegionsResponseBody\regions\region;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serviceResourceTypes extends Model
 {
@@ -18,29 +18,43 @@ class serviceResourceTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->serviceResourceType)) {
+            Model::validateArray($this->serviceResourceType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceResourceType) {
-            $res['ServiceResourceType'] = $this->serviceResourceType;
+            if (\is_array($this->serviceResourceType)) {
+                $res['ServiceResourceType'] = [];
+                $n1                         = 0;
+                foreach ($this->serviceResourceType as $item1) {
+                    $res['ServiceResourceType'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceResourceTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ServiceResourceType'])) {
             if (!empty($map['ServiceResourceType'])) {
-                $model->serviceResourceType = $map['ServiceResourceType'];
+                $model->serviceResourceType = [];
+                $n1                         = 0;
+                foreach ($map['ServiceResourceType'] as $item1) {
+                    $model->serviceResourceType[$n1++] = $item1;
+                }
             }
         }
 

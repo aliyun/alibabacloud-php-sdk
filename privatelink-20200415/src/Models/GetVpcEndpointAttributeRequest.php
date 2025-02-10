@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVpcEndpointAttributeRequest extends Model
 {
     /**
-     * @description The ID of the endpoint whose attributes you want to query.
-     *
-     * This parameter is required.
-     * @example ep-hp33b2e43fays7s8****
-     *
      * @var string
      */
     public $endpointId;
-
     /**
-     * @description The region ID of the endpoint whose attributes you want to query.
-     *
-     * This parameter is required.
-     * @example cn-huhehaote
-     *
      * @var string
      */
     public $regionId;
@@ -34,14 +23,16 @@ class GetVpcEndpointAttributeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,17 +40,18 @@ class GetVpcEndpointAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVpcEndpointAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

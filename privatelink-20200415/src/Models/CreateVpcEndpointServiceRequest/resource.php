@@ -4,38 +4,19 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models\CreateVpcEndpointServiceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resource extends Model
 {
     /**
-     * @description The ID of the service resource that is added to the endpoint service. You can specify up to 20 service resource IDs.
-     *
-     * @example lb-hp32z1wp5peaoox2q****
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The type of the service resource that is added to the endpoint service. You can add up to 20 service resources to the endpoint service. Valid values:
-     *
-     *   **slb**: CLB instance
-     *   **alb**: ALB instance
-     *   **nlb**: NLB instance
-     *
-     * >  In regions where PrivateLink is supported, CLB instances deployed in virtual private clouds (VPCs) can serve as the service resources of the endpoint service. You cannot access TCP/SSL listeners configured for NLB instances.
-     * @example slb
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description The ID of the zone.
-     *
-     * @example cn-huhehaote-a
-     *
      * @var string
      */
     public $zoneId;
@@ -47,17 +28,20 @@ class resource extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -65,20 +49,22 @@ class resource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

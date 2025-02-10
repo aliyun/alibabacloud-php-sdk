@@ -4,53 +4,28 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\ListVpcEndpointConnectionsResponseBody\connections;
-use AlibabaCloud\Tea\Model;
 
 class ListVpcEndpointConnectionsResponseBody extends Model
 {
     /**
-     * @description The endpoint connections.
-     *
      * @var connections[]
      */
     public $connections;
-
     /**
-     * @description The number of entries returned on each page.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-     *
-     *   If no value is returned for **NextToken**, no next requests are performed.
-     *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $totalCount;
@@ -64,29 +39,37 @@ class ListVpcEndpointConnectionsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->connections)) {
+            Model::validateArray($this->connections);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connections) {
-            $res['Connections'] = [];
-            if (null !== $this->connections && \is_array($this->connections)) {
-                $n = 0;
-                foreach ($this->connections as $item) {
-                    $res['Connections'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->connections)) {
+                $res['Connections'] = [];
+                $n1                 = 0;
+                foreach ($this->connections as $item1) {
+                    $res['Connections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -94,32 +77,36 @@ class ListVpcEndpointConnectionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVpcEndpointConnectionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Connections'])) {
             if (!empty($map['Connections'])) {
                 $model->connections = [];
-                $n                  = 0;
-                foreach ($map['Connections'] as $item) {
-                    $model->connections[$n++] = null !== $item ? connections::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['Connections'] as $item1) {
+                    $model->connections[$n1++] = connections::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

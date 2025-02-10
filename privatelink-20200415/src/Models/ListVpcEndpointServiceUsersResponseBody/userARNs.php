@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models\ListVpcEndpointServiceUsersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userARNs extends Model
 {
     /**
-     * @description The whitelist in the format of ARN.
-     *
-     * @example acs:ram:*::*
-     *
      * @var string
      */
     public $userARN;
@@ -22,9 +18,10 @@ class userARNs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userARN) {
@@ -34,11 +31,11 @@ class userARNs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userARNs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

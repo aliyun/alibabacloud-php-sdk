@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\DescribeZonesResponseBody\zones;
-use AlibabaCloud\Tea\Model;
 
 class DescribeZonesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The returned zones.
-     *
      * @var zones
      */
     public $zones;
@@ -31,32 +24,38 @@ class DescribeZonesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->zones) {
+            $this->zones->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->zones) {
-            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
+            $res['Zones'] = null !== $this->zones ? $this->zones->toArray($noStream) : $this->zones;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeZonesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Zones'])) {
             $model->zones = zones::fromMap($map['Zones']);
         }

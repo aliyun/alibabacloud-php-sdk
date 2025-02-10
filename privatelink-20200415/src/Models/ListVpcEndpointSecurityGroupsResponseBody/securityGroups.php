@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models\ListVpcEndpointSecurityGroupsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityGroups extends Model
 {
     /**
-     * @description The ID of the security group that is associated with the endpoint.
-     *
-     * @example sg-hp33bw6ynvm2yb0e****
-     *
      * @var string
      */
     public $securityGroupId;
-
     /**
-     * @description The associate status of the security group, valid values:
-     * - Detaching: The security group is being detached.
-     * @example Attached
-     *
      * @var string
      */
     public $securityGroupStatus;
@@ -32,14 +23,16 @@ class securityGroups extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->securityGroupStatus) {
             $res['SecurityGroupStatus'] = $this->securityGroupStatus;
         }
@@ -47,17 +40,18 @@ class securityGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['SecurityGroupStatus'])) {
             $model->securityGroupStatus = $map['SecurityGroupStatus'];
         }

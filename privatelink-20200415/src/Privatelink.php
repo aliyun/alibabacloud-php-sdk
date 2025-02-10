@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\AddUserToVpcEndpointServiceRequest;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\AddUserToVpcEndpointServiceResponse;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\AddZoneToVpcEndpointRequest;
@@ -83,12 +82,10 @@ use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointServiceResour
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointServiceResourceAttributeResponse;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointZoneConnectionResourceAttributeRequest;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\UpdateVpcEndpointZoneConnectionResourceAttributeResponse;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Privatelink extends OpenApiClient
 {
@@ -113,54 +110,67 @@ class Privatelink extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds an account ID to the whitelist of an endpoint service.
-     *  *
-     * @description *   Before you add an account ID to the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-     * *   You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to the whitelist of an endpoint service within a specified period of time.
-     *  *
-     * @param AddUserToVpcEndpointServiceRequest $request AddUserToVpcEndpointServiceRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Adds an account ID to the whitelist of an endpoint service.
      *
-     * @return AddUserToVpcEndpointServiceResponse AddUserToVpcEndpointServiceResponse
+     * @remarks
+     *   Before you add an account ID to the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+     * *   You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to the whitelist of an endpoint service within a specified period of time.
+     *
+     * @param request - AddUserToVpcEndpointServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddUserToVpcEndpointServiceResponse
+     *
+     * @param AddUserToVpcEndpointServiceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddUserToVpcEndpointServiceResponse
      */
     public function addUserToVpcEndpointServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->userARN)) {
-            $query['UserARN'] = $request->userARN;
+
+        if (null !== $request->userARN) {
+            @$query['UserARN'] = $request->userARN;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddUserToVpcEndpointService',
@@ -173,19 +183,26 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddUserToVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserToVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserToVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an account ID to the whitelist of an endpoint service.
-     *  *
-     * @description *   Before you add an account ID to the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-     * *   You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to the whitelist of an endpoint service within a specified period of time.
-     *  *
-     * @param AddUserToVpcEndpointServiceRequest $request AddUserToVpcEndpointServiceRequest
+     * Adds an account ID to the whitelist of an endpoint service.
      *
-     * @return AddUserToVpcEndpointServiceResponse AddUserToVpcEndpointServiceResponse
+     * @remarks
+     *   Before you add an account ID to the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+     * *   You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to the whitelist of an endpoint service within a specified period of time.
+     *
+     * @param request - AddUserToVpcEndpointServiceRequest
+     * @returns AddUserToVpcEndpointServiceResponse
+     *
+     * @param AddUserToVpcEndpointServiceRequest $request
+     *
+     * @return AddUserToVpcEndpointServiceResponse
      */
     public function addUserToVpcEndpointService($request)
     {
@@ -195,51 +212,65 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Adds a zone to an endpoint.
-     *  *
-     * @description *   **AddZoneToVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the state of the zone.
+     * Adds a zone to an endpoint.
+     *
+     * @remarks
+     *   **AddZoneToVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the state of the zone.
      *     *   If the zone is in the **Creating** state, the zone is being added.
      *     *   If the zone is in the Wait state, the zone is added.
      * *   You cannot repeatedly call the **AddZoneToVpcEndpoint** operation to add a zone to an endpoint within a specified period of time.
-     *  *
-     * @param AddZoneToVpcEndpointRequest $request AddZoneToVpcEndpointRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddZoneToVpcEndpointResponse AddZoneToVpcEndpointResponse
+     * @param request - AddZoneToVpcEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddZoneToVpcEndpointResponse
+     *
+     * @param AddZoneToVpcEndpointRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddZoneToVpcEndpointResponse
      */
     public function addZoneToVpcEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->ipv6Address)) {
-            $query['Ipv6Address'] = $request->ipv6Address;
+
+        if (null !== $request->ipv6Address) {
+            @$query['Ipv6Address'] = $request->ipv6Address;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['ip'] = $request->ip;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddZoneToVpcEndpoint',
@@ -252,21 +283,28 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddZoneToVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddZoneToVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddZoneToVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a zone to an endpoint.
-     *  *
-     * @description *   **AddZoneToVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the state of the zone.
+     * Adds a zone to an endpoint.
+     *
+     * @remarks
+     *   **AddZoneToVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the state of the zone.
      *     *   If the zone is in the **Creating** state, the zone is being added.
      *     *   If the zone is in the Wait state, the zone is added.
      * *   You cannot repeatedly call the **AddZoneToVpcEndpoint** operation to add a zone to an endpoint within a specified period of time.
-     *  *
-     * @param AddZoneToVpcEndpointRequest $request AddZoneToVpcEndpointRequest
      *
-     * @return AddZoneToVpcEndpointResponse AddZoneToVpcEndpointResponse
+     * @param request - AddZoneToVpcEndpointRequest
+     * @returns AddZoneToVpcEndpointResponse
+     *
+     * @param AddZoneToVpcEndpointRequest $request
+     *
+     * @return AddZoneToVpcEndpointResponse
      */
     public function addZoneToVpcEndpoint($request)
     {
@@ -276,46 +314,59 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Adds a service resource to an endpoint service.
-     *  *
-     * @description *   Before you add a service resource to an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-     * *   You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
-     *  *
-     * @param AttachResourceToVpcEndpointServiceRequest $request AttachResourceToVpcEndpointServiceRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Adds a service resource to an endpoint service.
      *
-     * @return AttachResourceToVpcEndpointServiceResponse AttachResourceToVpcEndpointServiceResponse
+     * @remarks
+     *   Before you add a service resource to an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+     * *   You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
+     *
+     * @param request - AttachResourceToVpcEndpointServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachResourceToVpcEndpointServiceResponse
+     *
+     * @param AttachResourceToVpcEndpointServiceRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return AttachResourceToVpcEndpointServiceResponse
      */
     public function attachResourceToVpcEndpointServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachResourceToVpcEndpointService',
@@ -328,19 +379,26 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachResourceToVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachResourceToVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachResourceToVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a service resource to an endpoint service.
-     *  *
-     * @description *   Before you add a service resource to an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-     * *   You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
-     *  *
-     * @param AttachResourceToVpcEndpointServiceRequest $request AttachResourceToVpcEndpointServiceRequest
+     * Adds a service resource to an endpoint service.
      *
-     * @return AttachResourceToVpcEndpointServiceResponse AttachResourceToVpcEndpointServiceResponse
+     * @remarks
+     *   Before you add a service resource to an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+     * *   You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
+     *
+     * @param request - AttachResourceToVpcEndpointServiceRequest
+     * @returns AttachResourceToVpcEndpointServiceResponse
+     *
+     * @param AttachResourceToVpcEndpointServiceRequest $request
+     *
+     * @return AttachResourceToVpcEndpointServiceResponse
      */
     public function attachResourceToVpcEndpointService($request)
     {
@@ -350,42 +408,53 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Associates an endpoint with a security group.
-     *  *
-     * @description *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) operation to query the state of the endpoint.
+     * Associates an endpoint with a security group.
+     *
+     * @remarks
+     *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) operation to query the state of the endpoint.
      *     *   If the endpoint is in the **Pending** state, the endpoint is being associated with the security group.
      *     *   If the endpoint is in the **Active** state, the endpoint is associated with the security group.
      * *   You cannot repeatedly call the **AttachSecurityGroupToVpcEndpoint** operation to associate an endpoint with a security group within a specified period of time.
-     *  *
-     * @param AttachSecurityGroupToVpcEndpointRequest $request AttachSecurityGroupToVpcEndpointRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachSecurityGroupToVpcEndpointResponse AttachSecurityGroupToVpcEndpointResponse
+     * @param request - AttachSecurityGroupToVpcEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachSecurityGroupToVpcEndpointResponse
+     *
+     * @param AttachSecurityGroupToVpcEndpointRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return AttachSecurityGroupToVpcEndpointResponse
      */
     public function attachSecurityGroupToVpcEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachSecurityGroupToVpcEndpoint',
@@ -398,21 +467,28 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachSecurityGroupToVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachSecurityGroupToVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachSecurityGroupToVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates an endpoint with a security group.
-     *  *
-     * @description *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) operation to query the state of the endpoint.
+     * Associates an endpoint with a security group.
+     *
+     * @remarks
+     *   **AttachSecurityGroupToVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) operation to query the state of the endpoint.
      *     *   If the endpoint is in the **Pending** state, the endpoint is being associated with the security group.
      *     *   If the endpoint is in the **Active** state, the endpoint is associated with the security group.
      * *   You cannot repeatedly call the **AttachSecurityGroupToVpcEndpoint** operation to associate an endpoint with a security group within a specified period of time.
-     *  *
-     * @param AttachSecurityGroupToVpcEndpointRequest $request AttachSecurityGroupToVpcEndpointRequest
      *
-     * @return AttachSecurityGroupToVpcEndpointResponse AttachSecurityGroupToVpcEndpointResponse
+     * @param request - AttachSecurityGroupToVpcEndpointRequest
+     * @returns AttachSecurityGroupToVpcEndpointResponse
+     *
+     * @param AttachSecurityGroupToVpcEndpointRequest $request
+     *
+     * @return AttachSecurityGroupToVpcEndpointResponse
      */
     public function attachSecurityGroupToVpcEndpoint($request)
     {
@@ -422,28 +498,35 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a resource group.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies a resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeResourceGroup',
@@ -456,16 +539,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a resource group.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Modifies a resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -475,11 +564,15 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether PrivateLink is activated.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries whether PrivateLink is activated.
      *
-     * @return CheckProductOpenResponse CheckProductOpenResponse
+     * @param request - CheckProductOpenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckProductOpenResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return CheckProductOpenResponse
      */
     public function checkProductOpenWithOptions($runtime)
     {
@@ -495,14 +588,19 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckProductOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckProductOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckProductOpenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether PrivateLink is activated.
-     *  *
-     * @return CheckProductOpenResponse CheckProductOpenResponse
+     * Queries whether PrivateLink is activated.
+     *
+     * @returns CheckProductOpenResponse
+     *
+     * @return CheckProductOpenResponse
      */
     public function checkProductOpen()
     {
@@ -512,77 +610,100 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Creates an endpoint.
-     *  *
-     * @description **CreateVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is created.
+     * Creates an endpoint.
+     *
+     * @remarks
+     * *CreateVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is created.
      * *   If the endpoint is in the **Creating** state, the endpoint is being created.
      * *   If the endpoint is in the **Active** state, the endpoint is created.
-     *  *
-     * @param CreateVpcEndpointRequest $request CreateVpcEndpointRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVpcEndpointResponse CreateVpcEndpointResponse
+     * @param request - CreateVpcEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVpcEndpointResponse
+     *
+     * @param CreateVpcEndpointRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateVpcEndpointResponse
      */
     public function createVpcEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $query['AddressIpVersion'] = $request->addressIpVersion;
+        if (null !== $request->addressIpVersion) {
+            @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointDescription)) {
-            $query['EndpointDescription'] = $request->endpointDescription;
+
+        if (null !== $request->endpointDescription) {
+            @$query['EndpointDescription'] = $request->endpointDescription;
         }
-        if (!Utils::isUnset($request->endpointName)) {
-            $query['EndpointName'] = $request->endpointName;
+
+        if (null !== $request->endpointName) {
+            @$query['EndpointName'] = $request->endpointName;
         }
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
-        if (!Utils::isUnset($request->policyDocument)) {
-            $query['PolicyDocument'] = $request->policyDocument;
+
+        if (null !== $request->policyDocument) {
+            @$query['PolicyDocument'] = $request->policyDocument;
         }
-        if (!Utils::isUnset($request->protectedEnabled)) {
-            $query['ProtectedEnabled'] = $request->protectedEnabled;
+
+        if (null !== $request->protectedEnabled) {
+            @$query['ProtectedEnabled'] = $request->protectedEnabled;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zone)) {
-            $query['Zone'] = $request->zone;
+
+        if (null !== $request->zone) {
+            @$query['Zone'] = $request->zone;
         }
-        if (!Utils::isUnset($request->zonePrivateIpAddressCount)) {
-            $query['ZonePrivateIpAddressCount'] = $request->zonePrivateIpAddressCount;
+
+        if (null !== $request->zonePrivateIpAddressCount) {
+            @$query['ZonePrivateIpAddressCount'] = $request->zonePrivateIpAddressCount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateVpcEndpoint',
@@ -595,20 +716,27 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an endpoint.
-     *  *
-     * @description **CreateVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is created.
+     * Creates an endpoint.
+     *
+     * @remarks
+     * *CreateVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is created.
      * *   If the endpoint is in the **Creating** state, the endpoint is being created.
      * *   If the endpoint is in the **Active** state, the endpoint is created.
-     *  *
-     * @param CreateVpcEndpointRequest $request CreateVpcEndpointRequest
      *
-     * @return CreateVpcEndpointResponse CreateVpcEndpointResponse
+     * @param request - CreateVpcEndpointRequest
+     * @returns CreateVpcEndpointResponse
+     *
+     * @param CreateVpcEndpointRequest $request
+     *
+     * @return CreateVpcEndpointResponse
      */
     public function createVpcEndpoint($request)
     {
@@ -618,66 +746,85 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Creates an endpoint service.
-     *  *
-     * @description *   Before you create an endpoint service, make sure that you have created a Server Load Balancer (SLB) instance that supports PrivateLink. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/174064.html).
+     * Creates an endpoint service.
+     *
+     * @remarks
+     *   Before you create an endpoint service, make sure that you have created a Server Load Balancer (SLB) instance that supports PrivateLink. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/174064.html).
      * *   **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) operation to query the status of the endpoint service.
      *     *   If the endpoint service is in the **Creating** state, the endpoint service is being created.
      *     *   If the endpoint service is in the **Active** state, the endpoint service is created.
-     *  *
-     * @param CreateVpcEndpointServiceRequest $request CreateVpcEndpointServiceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVpcEndpointServiceResponse CreateVpcEndpointServiceResponse
+     * @param request - CreateVpcEndpointServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVpcEndpointServiceResponse
+     *
+     * @param CreateVpcEndpointServiceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateVpcEndpointServiceResponse
      */
     public function createVpcEndpointServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $query['AddressIpVersion'] = $request->addressIpVersion;
+        if (null !== $request->addressIpVersion) {
+            @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->autoAcceptEnabled)) {
-            $query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
+
+        if (null !== $request->autoAcceptEnabled) {
+            @$query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->payer)) {
-            $query['Payer'] = $request->payer;
+
+        if (null !== $request->payer) {
+            @$query['Payer'] = $request->payer;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serviceDescription)) {
-            $query['ServiceDescription'] = $request->serviceDescription;
+
+        if (null !== $request->serviceDescription) {
+            @$query['ServiceDescription'] = $request->serviceDescription;
         }
-        if (!Utils::isUnset($request->serviceResourceType)) {
-            $query['ServiceResourceType'] = $request->serviceResourceType;
+
+        if (null !== $request->serviceResourceType) {
+            @$query['ServiceResourceType'] = $request->serviceResourceType;
         }
-        if (!Utils::isUnset($request->serviceSupportIPv6)) {
-            $query['ServiceSupportIPv6'] = $request->serviceSupportIPv6;
+
+        if (null !== $request->serviceSupportIPv6) {
+            @$query['ServiceSupportIPv6'] = $request->serviceSupportIPv6;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->zoneAffinityEnabled)) {
-            $query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
+
+        if (null !== $request->zoneAffinityEnabled) {
+            @$query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateVpcEndpointService',
@@ -690,21 +837,28 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an endpoint service.
-     *  *
-     * @description *   Before you create an endpoint service, make sure that you have created a Server Load Balancer (SLB) instance that supports PrivateLink. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/174064.html).
+     * Creates an endpoint service.
+     *
+     * @remarks
+     *   Before you create an endpoint service, make sure that you have created a Server Load Balancer (SLB) instance that supports PrivateLink. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/174064.html).
      * *   **CreateVpcEndpointService** is an asynchronous operation. After a request is sent, the system returns a request ID and an instance ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) operation to query the status of the endpoint service.
      *     *   If the endpoint service is in the **Creating** state, the endpoint service is being created.
      *     *   If the endpoint service is in the **Active** state, the endpoint service is created.
-     *  *
-     * @param CreateVpcEndpointServiceRequest $request CreateVpcEndpointServiceRequest
      *
-     * @return CreateVpcEndpointServiceResponse CreateVpcEndpointServiceResponse
+     * @param request - CreateVpcEndpointServiceRequest
+     * @returns CreateVpcEndpointServiceResponse
+     *
+     * @param CreateVpcEndpointServiceRequest $request
+     *
+     * @return CreateVpcEndpointServiceResponse
      */
     public function createVpcEndpointService($request)
     {
@@ -714,39 +868,49 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an endpoint.
-     *  *
-     * @description *   Before you delete an endpoint, you must delete the zones that are added to the endpoint.
+     * Deletes an endpoint.
+     *
+     * @remarks
+     *   Before you delete an endpoint, you must delete the zones that are added to the endpoint.
      * *   **DeleteVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is deleted.
      *     *   If the endpoint is in the **Deleting** state, the endpoint is being deleted.
      *     *   If the endpoint cannot be queried, the endpoint is deleted.
-     *  *
-     * @param DeleteVpcEndpointRequest $request DeleteVpcEndpointRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVpcEndpointResponse DeleteVpcEndpointResponse
+     * @param request - DeleteVpcEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVpcEndpointResponse
+     *
+     * @param DeleteVpcEndpointRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteVpcEndpointResponse
      */
     public function deleteVpcEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteVpcEndpoint',
@@ -759,21 +923,28 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an endpoint.
-     *  *
-     * @description *   Before you delete an endpoint, you must delete the zones that are added to the endpoint.
+     * Deletes an endpoint.
+     *
+     * @remarks
+     *   Before you delete an endpoint, you must delete the zones that are added to the endpoint.
      * *   **DeleteVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to check whether the endpoint is deleted.
      *     *   If the endpoint is in the **Deleting** state, the endpoint is being deleted.
      *     *   If the endpoint cannot be queried, the endpoint is deleted.
-     *  *
-     * @param DeleteVpcEndpointRequest $request DeleteVpcEndpointRequest
      *
-     * @return DeleteVpcEndpointResponse DeleteVpcEndpointResponse
+     * @param request - DeleteVpcEndpointRequest
+     * @returns DeleteVpcEndpointResponse
+     *
+     * @param DeleteVpcEndpointRequest $request
+     *
+     * @return DeleteVpcEndpointResponse
      */
     public function deleteVpcEndpoint($request)
     {
@@ -783,40 +954,50 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an endpoint service.
-     *  *
-     * @description *   Before you delete an endpoint service, you must disconnect the endpoint from the endpoint service and remove the service resources.
+     * Deletes an endpoint service.
+     *
+     * @remarks
+     *   Before you delete an endpoint service, you must disconnect the endpoint from the endpoint service and remove the service resources.
      * *   **DeleteVpcEndpointService** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) operation to check whether the endpoint service is deleted.
      *     *   If the endpoint service is in the **Deleting** state, the endpoint service is being deleted.
      *     *   If the endpoint service cannot be queried, the endpoint service is deleted.
      * *   You cannot repeatedly call the **DeleteVpcEndpointService** operation to delete an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
-     *  *
-     * @param DeleteVpcEndpointServiceRequest $request DeleteVpcEndpointServiceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVpcEndpointServiceResponse DeleteVpcEndpointServiceResponse
+     * @param request - DeleteVpcEndpointServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVpcEndpointServiceResponse
+     *
+     * @param DeleteVpcEndpointServiceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteVpcEndpointServiceResponse
      */
     public function deleteVpcEndpointServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteVpcEndpointService',
@@ -829,22 +1010,29 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an endpoint service.
-     *  *
-     * @description *   Before you delete an endpoint service, you must disconnect the endpoint from the endpoint service and remove the service resources.
+     * Deletes an endpoint service.
+     *
+     * @remarks
+     *   Before you delete an endpoint service, you must disconnect the endpoint from the endpoint service and remove the service resources.
      * *   **DeleteVpcEndpointService** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/183542.html) operation to check whether the endpoint service is deleted.
      *     *   If the endpoint service is in the **Deleting** state, the endpoint service is being deleted.
      *     *   If the endpoint service cannot be queried, the endpoint service is deleted.
      * *   You cannot repeatedly call the **DeleteVpcEndpointService** operation to delete an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
-     *  *
-     * @param DeleteVpcEndpointServiceRequest $request DeleteVpcEndpointServiceRequest
      *
-     * @return DeleteVpcEndpointServiceResponse DeleteVpcEndpointServiceResponse
+     * @param request - DeleteVpcEndpointServiceRequest
+     * @returns DeleteVpcEndpointServiceResponse
+     *
+     * @param DeleteVpcEndpointServiceRequest $request
+     *
+     * @return DeleteVpcEndpointServiceResponse
      */
     public function deleteVpcEndpointService($request)
     {
@@ -854,28 +1042,35 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries available regions and zones.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries available regions and zones.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceResourceType)) {
-            $query['ServiceResourceType'] = $request->serviceResourceType;
+
+        if (null !== $request->serviceResourceType) {
+            @$query['ServiceResourceType'] = $request->serviceResourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -888,16 +1083,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries available regions and zones.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries available regions and zones.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -907,28 +1108,35 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of zones in a specified region.
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of zones in a specified region.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceResourceType)) {
-            $query['ServiceResourceType'] = $request->serviceResourceType;
+
+        if (null !== $request->serviceResourceType) {
+            @$query['ServiceResourceType'] = $request->serviceResourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeZones',
@@ -941,16 +1149,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of zones in a specified region.
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * Queries a list of zones in a specified region.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -960,46 +1174,59 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Removes a service resource from an endpoint service.
-     *  *
-     * @description *   Before you remove a service resource from an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-     * *   You cannot repeatedly call the **DetachResourceFromVpcEndpointService** operation to remove a service resource from an endpoint service within a specified period of time.
-     *  *
-     * @param DetachResourceFromVpcEndpointServiceRequest $request DetachResourceFromVpcEndpointServiceRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Removes a service resource from an endpoint service.
      *
-     * @return DetachResourceFromVpcEndpointServiceResponse DetachResourceFromVpcEndpointServiceResponse
+     * @remarks
+     *   Before you remove a service resource from an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+     * *   You cannot repeatedly call the **DetachResourceFromVpcEndpointService** operation to remove a service resource from an endpoint service within a specified period of time.
+     *
+     * @param request - DetachResourceFromVpcEndpointServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachResourceFromVpcEndpointServiceResponse
+     *
+     * @param DetachResourceFromVpcEndpointServiceRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DetachResourceFromVpcEndpointServiceResponse
      */
     public function detachResourceFromVpcEndpointServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachResourceFromVpcEndpointService',
@@ -1012,19 +1239,26 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachResourceFromVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachResourceFromVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachResourceFromVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a service resource from an endpoint service.
-     *  *
-     * @description *   Before you remove a service resource from an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-     * *   You cannot repeatedly call the **DetachResourceFromVpcEndpointService** operation to remove a service resource from an endpoint service within a specified period of time.
-     *  *
-     * @param DetachResourceFromVpcEndpointServiceRequest $request DetachResourceFromVpcEndpointServiceRequest
+     * Removes a service resource from an endpoint service.
      *
-     * @return DetachResourceFromVpcEndpointServiceResponse DetachResourceFromVpcEndpointServiceResponse
+     * @remarks
+     *   Before you remove a service resource from an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+     * *   You cannot repeatedly call the **DetachResourceFromVpcEndpointService** operation to remove a service resource from an endpoint service within a specified period of time.
+     *
+     * @param request - DetachResourceFromVpcEndpointServiceRequest
+     * @returns DetachResourceFromVpcEndpointServiceResponse
+     *
+     * @param DetachResourceFromVpcEndpointServiceRequest $request
+     *
+     * @return DetachResourceFromVpcEndpointServiceResponse
      */
     public function detachResourceFromVpcEndpointService($request)
     {
@@ -1034,42 +1268,53 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates an endpoint from a security group.
-     *  *
-     * @description *   **DetachSecurityGroupFromVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) to check whether the endpoint is disassociated from the security group.
+     * Disassociates an endpoint from a security group.
+     *
+     * @remarks
+     *   **DetachSecurityGroupFromVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) to check whether the endpoint is disassociated from the security group.
      *     *   If the endpoint is in the **Pending** state, the endpoint is being disassociated from the security group.
      *     *   If you cannot query the endpoint in the security group, the endpoint is disassociated from the security group.
      * *   You cannot repeatedly call the **DetachSecurityGroupFromVpcEndpoint** operation to disassociate an endpoint from a security group within a specified period of time.
-     *  *
-     * @param DetachSecurityGroupFromVpcEndpointRequest $request DetachSecurityGroupFromVpcEndpointRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachSecurityGroupFromVpcEndpointResponse DetachSecurityGroupFromVpcEndpointResponse
+     * @param request - DetachSecurityGroupFromVpcEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachSecurityGroupFromVpcEndpointResponse
+     *
+     * @param DetachSecurityGroupFromVpcEndpointRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DetachSecurityGroupFromVpcEndpointResponse
      */
     public function detachSecurityGroupFromVpcEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachSecurityGroupFromVpcEndpoint',
@@ -1082,21 +1327,28 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachSecurityGroupFromVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachSecurityGroupFromVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachSecurityGroupFromVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates an endpoint from a security group.
-     *  *
-     * @description *   **DetachSecurityGroupFromVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) to check whether the endpoint is disassociated from the security group.
+     * Disassociates an endpoint from a security group.
+     *
+     * @remarks
+     *   **DetachSecurityGroupFromVpcEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpoints](https://help.aliyun.com/document_detail/183558.html) to check whether the endpoint is disassociated from the security group.
      *     *   If the endpoint is in the **Pending** state, the endpoint is being disassociated from the security group.
      *     *   If you cannot query the endpoint in the security group, the endpoint is disassociated from the security group.
      * *   You cannot repeatedly call the **DetachSecurityGroupFromVpcEndpoint** operation to disassociate an endpoint from a security group within a specified period of time.
-     *  *
-     * @param DetachSecurityGroupFromVpcEndpointRequest $request DetachSecurityGroupFromVpcEndpointRequest
      *
-     * @return DetachSecurityGroupFromVpcEndpointResponse DetachSecurityGroupFromVpcEndpointResponse
+     * @param request - DetachSecurityGroupFromVpcEndpointRequest
+     * @returns DetachSecurityGroupFromVpcEndpointResponse
+     *
+     * @param DetachSecurityGroupFromVpcEndpointRequest $request
+     *
+     * @return DetachSecurityGroupFromVpcEndpointResponse
      */
     public function detachSecurityGroupFromVpcEndpoint($request)
     {
@@ -1106,42 +1358,53 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Rejects a connection request from an endpoint.
-     *  *
-     * @description *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
+     * Rejects a connection request from an endpoint.
+     *
+     * @remarks
+     *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
      *     *   If the endpoint connection is in the **Disconnecting** state, the endpoint is being disconnected from the endpoint service.
      *     *   If the endpoint connection is in the **Disconnected** state, the endpoint is disconnected from the endpoint service.
      * *   You cannot repeatedly call the **DisableVpcEndpointConnection** operation to allow an endpoint service to reject a connection request from an endpoint within a specified period of time.
-     *  *
-     * @param DisableVpcEndpointConnectionRequest $request DisableVpcEndpointConnectionRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableVpcEndpointConnectionResponse DisableVpcEndpointConnectionResponse
+     * @param request - DisableVpcEndpointConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableVpcEndpointConnectionResponse
+     *
+     * @param DisableVpcEndpointConnectionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DisableVpcEndpointConnectionResponse
      */
     public function disableVpcEndpointConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableVpcEndpointConnection',
@@ -1154,21 +1417,28 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableVpcEndpointConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableVpcEndpointConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableVpcEndpointConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Rejects a connection request from an endpoint.
-     *  *
-     * @description *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
+     * Rejects a connection request from an endpoint.
+     *
+     * @remarks
+     *   **DisableVpcEndpointConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
      *     *   If the endpoint connection is in the **Disconnecting** state, the endpoint is being disconnected from the endpoint service.
      *     *   If the endpoint connection is in the **Disconnected** state, the endpoint is disconnected from the endpoint service.
      * *   You cannot repeatedly call the **DisableVpcEndpointConnection** operation to allow an endpoint service to reject a connection request from an endpoint within a specified period of time.
-     *  *
-     * @param DisableVpcEndpointConnectionRequest $request DisableVpcEndpointConnectionRequest
      *
-     * @return DisableVpcEndpointConnectionResponse DisableVpcEndpointConnectionResponse
+     * @param request - DisableVpcEndpointConnectionRequest
+     * @returns DisableVpcEndpointConnectionResponse
+     *
+     * @param DisableVpcEndpointConnectionRequest $request
+     *
+     * @return DisableVpcEndpointConnectionResponse
      */
     public function disableVpcEndpointConnection($request)
     {
@@ -1178,49 +1448,62 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Closes connections in an endpoint zone.
-     *  *
-     * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the zone associated with the endpoint is **Connected** or **Migrated**.
+     * Closes connections in an endpoint zone.
+     *
+     * @remarks
+     *   You can call this operation only when the state of the endpoint is **Connected** and the state of the zone associated with the endpoint is **Connected** or **Migrated**.
      * *   **DisableVpcEndpointZoneConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the status of the task.
      *     *   If the zone is in the **Disconnecting** state, the task is running.
      *     *   If the zone is in the **Disconnected** state, the task is successful.
      * *   You cannot repeatedly call the **DisableVpcEndpointZoneConnection** operation to allow an endpoint service to reject a connection request from the endpoint in the zone within a specified period of time.
-     *  *
-     * @param DisableVpcEndpointZoneConnectionRequest $request DisableVpcEndpointZoneConnectionRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableVpcEndpointZoneConnectionResponse DisableVpcEndpointZoneConnectionResponse
+     * @param request - DisableVpcEndpointZoneConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableVpcEndpointZoneConnectionResponse
+     *
+     * @param DisableVpcEndpointZoneConnectionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DisableVpcEndpointZoneConnectionResponse
      */
     public function disableVpcEndpointZoneConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replacedResource)) {
-            $query['ReplacedResource'] = $request->replacedResource;
+
+        if (null !== $request->replacedResource) {
+            @$query['ReplacedResource'] = $request->replacedResource;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableVpcEndpointZoneConnection',
@@ -1233,22 +1516,29 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableVpcEndpointZoneConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Closes connections in an endpoint zone.
-     *  *
-     * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the zone associated with the endpoint is **Connected** or **Migrated**.
+     * Closes connections in an endpoint zone.
+     *
+     * @remarks
+     *   You can call this operation only when the state of the endpoint is **Connected** and the state of the zone associated with the endpoint is **Connected** or **Migrated**.
      * *   **DisableVpcEndpointZoneConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the status of the task.
      *     *   If the zone is in the **Disconnecting** state, the task is running.
      *     *   If the zone is in the **Disconnected** state, the task is successful.
      * *   You cannot repeatedly call the **DisableVpcEndpointZoneConnection** operation to allow an endpoint service to reject a connection request from the endpoint in the zone within a specified period of time.
-     *  *
-     * @param DisableVpcEndpointZoneConnectionRequest $request DisableVpcEndpointZoneConnectionRequest
      *
-     * @return DisableVpcEndpointZoneConnectionResponse DisableVpcEndpointZoneConnectionResponse
+     * @param request - DisableVpcEndpointZoneConnectionRequest
+     * @returns DisableVpcEndpointZoneConnectionResponse
+     *
+     * @param DisableVpcEndpointZoneConnectionRequest $request
+     *
+     * @return DisableVpcEndpointZoneConnectionResponse
      */
     public function disableVpcEndpointZoneConnection($request)
     {
@@ -1258,45 +1548,57 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Accepts connection requests from an endpoint.
-     *  *
-     * @description *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
+     * Accepts connection requests from an endpoint.
+     *
+     * @remarks
+     *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
      *     *   If the state is **Connecting**, the endpoint connection is being established.
      *     *   If the state is **Connected**, the endpoint connection is established.
      * *   You cannot repeatedly call the **EnableVpcEndpointConnection** operation to allow an endpoint service of an Alibaba Cloud account to accept a connection request from an endpoint within a specified period of time.
-     *  *
-     * @param EnableVpcEndpointConnectionRequest $request EnableVpcEndpointConnectionRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableVpcEndpointConnectionResponse EnableVpcEndpointConnectionResponse
+     * @param request - EnableVpcEndpointConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableVpcEndpointConnectionResponse
+     *
+     * @param EnableVpcEndpointConnectionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return EnableVpcEndpointConnectionResponse
      */
     public function enableVpcEndpointConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableVpcEndpointConnection',
@@ -1309,21 +1611,28 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableVpcEndpointConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableVpcEndpointConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableVpcEndpointConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Accepts connection requests from an endpoint.
-     *  *
-     * @description *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
+     * Accepts connection requests from an endpoint.
+     *
+     * @remarks
+     *   **EnableVpcEndpointConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetVpcEndpointAttribute](https://help.aliyun.com/document_detail/183568.html) operation to query the state of the endpoint connection.
      *     *   If the state is **Connecting**, the endpoint connection is being established.
      *     *   If the state is **Connected**, the endpoint connection is established.
      * *   You cannot repeatedly call the **EnableVpcEndpointConnection** operation to allow an endpoint service of an Alibaba Cloud account to accept a connection request from an endpoint within a specified period of time.
-     *  *
-     * @param EnableVpcEndpointConnectionRequest $request EnableVpcEndpointConnectionRequest
      *
-     * @return EnableVpcEndpointConnectionResponse EnableVpcEndpointConnectionResponse
+     * @param request - EnableVpcEndpointConnectionRequest
+     * @returns EnableVpcEndpointConnectionResponse
+     *
+     * @param EnableVpcEndpointConnectionRequest $request
+     *
+     * @return EnableVpcEndpointConnectionResponse
      */
     public function enableVpcEndpointConnection($request)
     {
@@ -1333,46 +1642,58 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Allows connections to endpoint zones.
-     *  *
-     * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
+     * Allows connections to endpoint zones.
+     *
+     * @remarks
+     *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
      * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
      *     *   If the zone is in the **Connecting** state, the endpoint service is accepting the connection request from the endpoint.
      *     *   If the zone is in the **Connected** state, the endpoint service has accepted the connection request from the endpoint.
      * *   You cannot repeatedly call the **EnableVpcEndpointZoneConnection** operation to allow an endpoint service to accept a connection request from an endpoint in the associated zone within a specified period of time.
-     *  *
-     * @param EnableVpcEndpointZoneConnectionRequest $request EnableVpcEndpointZoneConnectionRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableVpcEndpointZoneConnectionResponse EnableVpcEndpointZoneConnectionResponse
+     * @param request - EnableVpcEndpointZoneConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableVpcEndpointZoneConnectionResponse
+     *
+     * @param EnableVpcEndpointZoneConnectionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return EnableVpcEndpointZoneConnectionResponse
      */
     public function enableVpcEndpointZoneConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableVpcEndpointZoneConnection',
@@ -1385,22 +1706,29 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableVpcEndpointZoneConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Allows connections to endpoint zones.
-     *  *
-     * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
+     * Allows connections to endpoint zones.
+     *
+     * @remarks
+     *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
      * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
      *     *   If the zone is in the **Connecting** state, the endpoint service is accepting the connection request from the endpoint.
      *     *   If the zone is in the **Connected** state, the endpoint service has accepted the connection request from the endpoint.
      * *   You cannot repeatedly call the **EnableVpcEndpointZoneConnection** operation to allow an endpoint service to accept a connection request from an endpoint in the associated zone within a specified period of time.
-     *  *
-     * @param EnableVpcEndpointZoneConnectionRequest $request EnableVpcEndpointZoneConnectionRequest
      *
-     * @return EnableVpcEndpointZoneConnectionResponse EnableVpcEndpointZoneConnectionResponse
+     * @param request - EnableVpcEndpointZoneConnectionRequest
+     * @returns EnableVpcEndpointZoneConnectionResponse
+     *
+     * @param EnableVpcEndpointZoneConnectionRequest $request
+     *
+     * @return EnableVpcEndpointZoneConnectionResponse
      */
     public function enableVpcEndpointZoneConnection($request)
     {
@@ -1410,28 +1738,35 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of an endpoint.
-     *  *
-     * @param GetVpcEndpointAttributeRequest $request GetVpcEndpointAttributeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the attributes of an endpoint.
      *
-     * @return GetVpcEndpointAttributeResponse GetVpcEndpointAttributeResponse
+     * @param request - GetVpcEndpointAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVpcEndpointAttributeResponse
+     *
+     * @param GetVpcEndpointAttributeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetVpcEndpointAttributeResponse
      */
     public function getVpcEndpointAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetVpcEndpointAttribute',
@@ -1444,16 +1779,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVpcEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVpcEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVpcEndpointAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attributes of an endpoint.
-     *  *
-     * @param GetVpcEndpointAttributeRequest $request GetVpcEndpointAttributeRequest
+     * Queries the attributes of an endpoint.
      *
-     * @return GetVpcEndpointAttributeResponse GetVpcEndpointAttributeResponse
+     * @param request - GetVpcEndpointAttributeRequest
+     * @returns GetVpcEndpointAttributeResponse
+     *
+     * @param GetVpcEndpointAttributeRequest $request
+     *
+     * @return GetVpcEndpointAttributeResponse
      */
     public function getVpcEndpointAttribute($request)
     {
@@ -1463,28 +1804,35 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of an endpoint service.
-     *  *
-     * @param GetVpcEndpointServiceAttributeRequest $request GetVpcEndpointServiceAttributeRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the attributes of an endpoint service.
      *
-     * @return GetVpcEndpointServiceAttributeResponse GetVpcEndpointServiceAttributeResponse
+     * @param request - GetVpcEndpointServiceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVpcEndpointServiceAttributeResponse
+     *
+     * @param GetVpcEndpointServiceAttributeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetVpcEndpointServiceAttributeResponse
      */
     public function getVpcEndpointServiceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetVpcEndpointServiceAttribute',
@@ -1497,16 +1845,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVpcEndpointServiceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVpcEndpointServiceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVpcEndpointServiceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attributes of an endpoint service.
-     *  *
-     * @param GetVpcEndpointServiceAttributeRequest $request GetVpcEndpointServiceAttributeRequest
+     * Queries the attributes of an endpoint service.
      *
-     * @return GetVpcEndpointServiceAttributeResponse GetVpcEndpointServiceAttributeResponse
+     * @param request - GetVpcEndpointServiceAttributeRequest
+     * @returns GetVpcEndpointServiceAttributeResponse
+     *
+     * @param GetVpcEndpointServiceAttributeRequest $request
+     *
+     * @return GetVpcEndpointServiceAttributeResponse
      */
     public function getVpcEndpointServiceAttribute($request)
     {
@@ -1516,42 +1870,53 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are added to resources.
-     *  *
-     * @description *   You must specify **ResourceId.N** or **Tag.N** in the request to specify the object that you want to query.
+     * Queries the tags that are added to resources.
+     *
+     * @remarks
+     *   You must specify **ResourceId.N** or **Tag.N** in the request to specify the object that you want to query.
      * *   **Tag.N** is a resource tag that consists of a key-value pair (Tag.N.Key and Tag.N.Value). If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
      * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -1564,21 +1929,28 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tags that are added to resources.
-     *  *
-     * @description *   You must specify **ResourceId.N** or **Tag.N** in the request to specify the object that you want to query.
+     * Queries the tags that are added to resources.
+     *
+     * @remarks
+     *   You must specify **ResourceId.N** or **Tag.N** in the request to specify the object that you want to query.
      * *   **Tag.N** is a resource tag that consists of a key-value pair (Tag.N.Key and Tag.N.Value). If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
      * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1588,55 +1960,71 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries endpoint connections.
-     *  *
-     * @param ListVpcEndpointConnectionsRequest $request ListVpcEndpointConnectionsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries endpoint connections.
      *
-     * @return ListVpcEndpointConnectionsResponse ListVpcEndpointConnectionsResponse
+     * @param request - ListVpcEndpointConnectionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcEndpointConnectionsResponse
+     *
+     * @param ListVpcEndpointConnectionsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListVpcEndpointConnectionsResponse
      */
     public function listVpcEndpointConnectionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionStatus)) {
-            $query['ConnectionStatus'] = $request->connectionStatus;
+        if (null !== $request->connectionStatus) {
+            @$query['ConnectionStatus'] = $request->connectionStatus;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->endpointOwnerId)) {
-            $query['EndpointOwnerId'] = $request->endpointOwnerId;
+
+        if (null !== $request->endpointOwnerId) {
+            @$query['EndpointOwnerId'] = $request->endpointOwnerId;
         }
-        if (!Utils::isUnset($request->eniId)) {
-            $query['EniId'] = $request->eniId;
+
+        if (null !== $request->eniId) {
+            @$query['EniId'] = $request->eniId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replacedResourceId)) {
-            $query['ReplacedResourceId'] = $request->replacedResourceId;
+
+        if (null !== $request->replacedResourceId) {
+            @$query['ReplacedResourceId'] = $request->replacedResourceId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpointConnections',
@@ -1649,16 +2037,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcEndpointConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcEndpointConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcEndpointConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries endpoint connections.
-     *  *
-     * @param ListVpcEndpointConnectionsRequest $request ListVpcEndpointConnectionsRequest
+     * Queries endpoint connections.
      *
-     * @return ListVpcEndpointConnectionsResponse ListVpcEndpointConnectionsResponse
+     * @param request - ListVpcEndpointConnectionsRequest
+     * @returns ListVpcEndpointConnectionsResponse
+     *
+     * @param ListVpcEndpointConnectionsRequest $request
+     *
+     * @return ListVpcEndpointConnectionsResponse
      */
     public function listVpcEndpointConnections($request)
     {
@@ -1668,34 +2062,43 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries the security groups that are associated with an endpoint.
-     *  *
-     * @param ListVpcEndpointSecurityGroupsRequest $request ListVpcEndpointSecurityGroupsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the security groups that are associated with an endpoint.
      *
-     * @return ListVpcEndpointSecurityGroupsResponse ListVpcEndpointSecurityGroupsResponse
+     * @param request - ListVpcEndpointSecurityGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcEndpointSecurityGroupsResponse
+     *
+     * @param ListVpcEndpointSecurityGroupsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListVpcEndpointSecurityGroupsResponse
      */
     public function listVpcEndpointSecurityGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpointSecurityGroups',
@@ -1708,16 +2111,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcEndpointSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcEndpointSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcEndpointSecurityGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the security groups that are associated with an endpoint.
-     *  *
-     * @param ListVpcEndpointSecurityGroupsRequest $request ListVpcEndpointSecurityGroupsRequest
+     * Queries the security groups that are associated with an endpoint.
      *
-     * @return ListVpcEndpointSecurityGroupsResponse ListVpcEndpointSecurityGroupsResponse
+     * @param request - ListVpcEndpointSecurityGroupsRequest
+     * @returns ListVpcEndpointSecurityGroupsResponse
+     *
+     * @param ListVpcEndpointSecurityGroupsRequest $request
+     *
+     * @return ListVpcEndpointSecurityGroupsResponse
      */
     public function listVpcEndpointSecurityGroups($request)
     {
@@ -1727,34 +2136,43 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries the service resources that are added to an endpoint service.
-     *  *
-     * @param ListVpcEndpointServiceResourcesRequest $request ListVpcEndpointServiceResourcesRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the service resources that are added to an endpoint service.
      *
-     * @return ListVpcEndpointServiceResourcesResponse ListVpcEndpointServiceResourcesResponse
+     * @param request - ListVpcEndpointServiceResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcEndpointServiceResourcesResponse
+     *
+     * @param ListVpcEndpointServiceResourcesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListVpcEndpointServiceResourcesResponse
      */
     public function listVpcEndpointServiceResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpointServiceResources',
@@ -1767,16 +2185,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcEndpointServiceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcEndpointServiceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcEndpointServiceResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the service resources that are added to an endpoint service.
-     *  *
-     * @param ListVpcEndpointServiceResourcesRequest $request ListVpcEndpointServiceResourcesRequest
+     * Queries the service resources that are added to an endpoint service.
      *
-     * @return ListVpcEndpointServiceResourcesResponse ListVpcEndpointServiceResourcesResponse
+     * @param request - ListVpcEndpointServiceResourcesRequest
+     * @returns ListVpcEndpointServiceResourcesResponse
+     *
+     * @param ListVpcEndpointServiceResourcesRequest $request
+     *
+     * @return ListVpcEndpointServiceResourcesResponse
      */
     public function listVpcEndpointServiceResources($request)
     {
@@ -1786,40 +2210,51 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries the whitelist of an endpoint service.
-     *  *
-     * @param ListVpcEndpointServiceUsersRequest $request ListVpcEndpointServiceUsersRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the whitelist of an endpoint service.
      *
-     * @return ListVpcEndpointServiceUsersResponse ListVpcEndpointServiceUsersResponse
+     * @param request - ListVpcEndpointServiceUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcEndpointServiceUsersResponse
+     *
+     * @param ListVpcEndpointServiceUsersRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListVpcEndpointServiceUsersResponse
      */
     public function listVpcEndpointServiceUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userListType)) {
-            $query['UserListType'] = $request->userListType;
+
+        if (null !== $request->userListType) {
+            @$query['UserListType'] = $request->userListType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpointServiceUsers',
@@ -1832,16 +2267,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcEndpointServiceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcEndpointServiceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcEndpointServiceUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the whitelist of an endpoint service.
-     *  *
-     * @param ListVpcEndpointServiceUsersRequest $request ListVpcEndpointServiceUsersRequest
+     * Queries the whitelist of an endpoint service.
      *
-     * @return ListVpcEndpointServiceUsersResponse ListVpcEndpointServiceUsersResponse
+     * @param request - ListVpcEndpointServiceUsersRequest
+     * @returns ListVpcEndpointServiceUsersResponse
+     *
+     * @param ListVpcEndpointServiceUsersRequest $request
+     *
+     * @return ListVpcEndpointServiceUsersResponse
      */
     public function listVpcEndpointServiceUsers($request)
     {
@@ -1851,64 +2292,83 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of endpoint services.
-     *  *
-     * @param ListVpcEndpointServicesRequest $request ListVpcEndpointServicesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries a list of endpoint services.
      *
-     * @return ListVpcEndpointServicesResponse ListVpcEndpointServicesResponse
+     * @param request - ListVpcEndpointServicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcEndpointServicesResponse
+     *
+     * @param ListVpcEndpointServicesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListVpcEndpointServicesResponse
      */
     public function listVpcEndpointServicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $query['AddressIpVersion'] = $request->addressIpVersion;
+        if (null !== $request->addressIpVersion) {
+            @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->autoAcceptEnabled)) {
-            $query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
+
+        if (null !== $request->autoAcceptEnabled) {
+            @$query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->serviceBusinessStatus)) {
-            $query['ServiceBusinessStatus'] = $request->serviceBusinessStatus;
+
+        if (null !== $request->serviceBusinessStatus) {
+            @$query['ServiceBusinessStatus'] = $request->serviceBusinessStatus;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->serviceResourceType)) {
-            $query['ServiceResourceType'] = $request->serviceResourceType;
+
+        if (null !== $request->serviceResourceType) {
+            @$query['ServiceResourceType'] = $request->serviceResourceType;
         }
-        if (!Utils::isUnset($request->serviceStatus)) {
-            $query['ServiceStatus'] = $request->serviceStatus;
+
+        if (null !== $request->serviceStatus) {
+            @$query['ServiceStatus'] = $request->serviceStatus;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->zoneAffinityEnabled)) {
-            $query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
+
+        if (null !== $request->zoneAffinityEnabled) {
+            @$query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpointServices',
@@ -1921,16 +2381,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcEndpointServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcEndpointServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcEndpointServicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of endpoint services.
-     *  *
-     * @param ListVpcEndpointServicesRequest $request ListVpcEndpointServicesRequest
+     * Queries a list of endpoint services.
      *
-     * @return ListVpcEndpointServicesResponse ListVpcEndpointServicesResponse
+     * @param request - ListVpcEndpointServicesRequest
+     * @returns ListVpcEndpointServicesResponse
+     *
+     * @param ListVpcEndpointServicesRequest $request
+     *
+     * @return ListVpcEndpointServicesResponse
      */
     public function listVpcEndpointServices($request)
     {
@@ -1940,46 +2406,59 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of endpoint services that can be associated with the endpoint created within the current account.
-     *  *
-     * @param ListVpcEndpointServicesByEndUserRequest $request ListVpcEndpointServicesByEndUserRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries a list of endpoint services that can be associated with the endpoint created within the current account.
      *
-     * @return ListVpcEndpointServicesByEndUserResponse ListVpcEndpointServicesByEndUserResponse
+     * @param request - ListVpcEndpointServicesByEndUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcEndpointServicesByEndUserResponse
+     *
+     * @param ListVpcEndpointServicesByEndUserRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListVpcEndpointServicesByEndUserResponse
      */
     public function listVpcEndpointServicesByEndUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->serviceType)) {
-            $query['ServiceType'] = $request->serviceType;
+
+        if (null !== $request->serviceType) {
+            @$query['ServiceType'] = $request->serviceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpointServicesByEndUser',
@@ -1992,16 +2471,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcEndpointServicesByEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcEndpointServicesByEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcEndpointServicesByEndUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of endpoint services that can be associated with the endpoint created within the current account.
-     *  *
-     * @param ListVpcEndpointServicesByEndUserRequest $request ListVpcEndpointServicesByEndUserRequest
+     * Queries a list of endpoint services that can be associated with the endpoint created within the current account.
      *
-     * @return ListVpcEndpointServicesByEndUserResponse ListVpcEndpointServicesByEndUserResponse
+     * @param request - ListVpcEndpointServicesByEndUserRequest
+     * @returns ListVpcEndpointServicesByEndUserResponse
+     *
+     * @param ListVpcEndpointServicesByEndUserRequest $request
+     *
+     * @return ListVpcEndpointServicesByEndUserResponse
      */
     public function listVpcEndpointServicesByEndUser($request)
     {
@@ -2011,34 +2496,43 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries the zones of an endpoint.
-     *  *
-     * @param ListVpcEndpointZonesRequest $request ListVpcEndpointZonesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the zones of an endpoint.
      *
-     * @return ListVpcEndpointZonesResponse ListVpcEndpointZonesResponse
+     * @param request - ListVpcEndpointZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcEndpointZonesResponse
+     *
+     * @param ListVpcEndpointZonesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListVpcEndpointZonesResponse
      */
     public function listVpcEndpointZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpointZones',
@@ -2051,16 +2545,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcEndpointZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcEndpointZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcEndpointZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the zones of an endpoint.
-     *  *
-     * @param ListVpcEndpointZonesRequest $request ListVpcEndpointZonesRequest
+     * Queries the zones of an endpoint.
      *
-     * @return ListVpcEndpointZonesResponse ListVpcEndpointZonesResponse
+     * @param request - ListVpcEndpointZonesRequest
+     * @returns ListVpcEndpointZonesResponse
+     *
+     * @param ListVpcEndpointZonesRequest $request
+     *
+     * @return ListVpcEndpointZonesResponse
      */
     public function listVpcEndpointZones($request)
     {
@@ -2070,61 +2570,79 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of endpoints.
-     *  *
-     * @param ListVpcEndpointsRequest $request ListVpcEndpointsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries a list of endpoints.
      *
-     * @return ListVpcEndpointsResponse ListVpcEndpointsResponse
+     * @param request - ListVpcEndpointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcEndpointsResponse
+     *
+     * @param ListVpcEndpointsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListVpcEndpointsResponse
      */
     public function listVpcEndpointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $query['AddressIpVersion'] = $request->addressIpVersion;
+        if (null !== $request->addressIpVersion) {
+            @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->connectionStatus)) {
-            $query['ConnectionStatus'] = $request->connectionStatus;
+
+        if (null !== $request->connectionStatus) {
+            @$query['ConnectionStatus'] = $request->connectionStatus;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->endpointName)) {
-            $query['EndpointName'] = $request->endpointName;
+
+        if (null !== $request->endpointName) {
+            @$query['EndpointName'] = $request->endpointName;
         }
-        if (!Utils::isUnset($request->endpointStatus)) {
-            $query['EndpointStatus'] = $request->endpointStatus;
+
+        if (null !== $request->endpointStatus) {
+            @$query['EndpointStatus'] = $request->endpointStatus;
         }
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpoints',
@@ -2137,16 +2655,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of endpoints.
-     *  *
-     * @param ListVpcEndpointsRequest $request ListVpcEndpointsRequest
+     * Queries a list of endpoints.
      *
-     * @return ListVpcEndpointsResponse ListVpcEndpointsResponse
+     * @param request - ListVpcEndpointsRequest
+     * @returns ListVpcEndpointsResponse
+     *
+     * @param ListVpcEndpointsRequest $request
+     *
+     * @return ListVpcEndpointsResponse
      */
     public function listVpcEndpoints($request)
     {
@@ -2156,22 +2680,27 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Activates PrivateLink.
-     *  *
-     * @param OpenPrivateLinkServiceRequest $request OpenPrivateLinkServiceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Activates PrivateLink.
      *
-     * @return OpenPrivateLinkServiceResponse OpenPrivateLinkServiceResponse
+     * @param request - OpenPrivateLinkServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OpenPrivateLinkServiceResponse
+     *
+     * @param OpenPrivateLinkServiceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return OpenPrivateLinkServiceResponse
      */
     public function openPrivateLinkServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OpenPrivateLinkService',
@@ -2184,16 +2713,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OpenPrivateLinkServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenPrivateLinkServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenPrivateLinkServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates PrivateLink.
-     *  *
-     * @param OpenPrivateLinkServiceRequest $request OpenPrivateLinkServiceRequest
+     * Activates PrivateLink.
      *
-     * @return OpenPrivateLinkServiceResponse OpenPrivateLinkServiceResponse
+     * @param request - OpenPrivateLinkServiceRequest
+     * @returns OpenPrivateLinkServiceResponse
+     *
+     * @param OpenPrivateLinkServiceRequest $request
+     *
+     * @return OpenPrivateLinkServiceResponse
      */
     public function openPrivateLinkService($request)
     {
@@ -2203,43 +2738,55 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Removes an account ID from the whitelist of an endpoint service.
-     *  *
-     * @description *   Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-     * *   You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
-     *  *
-     * @param RemoveUserFromVpcEndpointServiceRequest $request RemoveUserFromVpcEndpointServiceRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Removes an account ID from the whitelist of an endpoint service.
      *
-     * @return RemoveUserFromVpcEndpointServiceResponse RemoveUserFromVpcEndpointServiceResponse
+     * @remarks
+     *   Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+     * *   You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+     *
+     * @param request - RemoveUserFromVpcEndpointServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveUserFromVpcEndpointServiceResponse
+     *
+     * @param RemoveUserFromVpcEndpointServiceRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RemoveUserFromVpcEndpointServiceResponse
      */
     public function removeUserFromVpcEndpointServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->userARN)) {
-            $query['UserARN'] = $request->userARN;
+
+        if (null !== $request->userARN) {
+            @$query['UserARN'] = $request->userARN;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveUserFromVpcEndpointService',
@@ -2252,19 +2799,26 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveUserFromVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveUserFromVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveUserFromVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes an account ID from the whitelist of an endpoint service.
-     *  *
-     * @description *   Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
-     * *   You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
-     *  *
-     * @param RemoveUserFromVpcEndpointServiceRequest $request RemoveUserFromVpcEndpointServiceRequest
+     * Removes an account ID from the whitelist of an endpoint service.
      *
-     * @return RemoveUserFromVpcEndpointServiceResponse RemoveUserFromVpcEndpointServiceResponse
+     * @remarks
+     *   Before you remove an account ID from the whitelist of an endpoint service, make sure that the endpoint service is in the **Active** state. You can call the [GetVpcEndpointServiceAttribute](https://help.aliyun.com/document_detail/469330.html) operation to query the status of the endpoint service.
+     * *   You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
+     *
+     * @param request - RemoveUserFromVpcEndpointServiceRequest
+     * @returns RemoveUserFromVpcEndpointServiceResponse
+     *
+     * @param RemoveUserFromVpcEndpointServiceRequest $request
+     *
+     * @return RemoveUserFromVpcEndpointServiceResponse
      */
     public function removeUserFromVpcEndpointService($request)
     {
@@ -2274,42 +2828,53 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a zone of an endpoint.
-     *  *
-     * @description *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the zone of the endpoint is deleted.
+     * Deletes a zone of an endpoint.
+     *
+     * @remarks
+     *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the zone of the endpoint is deleted.
      *     *   If the zone of the endpoint is in the **Deleting** state, the zone is being deleted.
      *     *   If the zone cannot be queried, the zone is deleted.
      * *   You cannot repeatedly call the **RemoveZoneFromVpcEndpoint** operation to delete a zone of an endpoint within a specified period of time.
-     *  *
-     * @param RemoveZoneFromVpcEndpointRequest $request RemoveZoneFromVpcEndpointRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveZoneFromVpcEndpointResponse RemoveZoneFromVpcEndpointResponse
+     * @param request - RemoveZoneFromVpcEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveZoneFromVpcEndpointResponse
+     *
+     * @param RemoveZoneFromVpcEndpointRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RemoveZoneFromVpcEndpointResponse
      */
     public function removeZoneFromVpcEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveZoneFromVpcEndpoint',
@@ -2322,21 +2887,28 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveZoneFromVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveZoneFromVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveZoneFromVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a zone of an endpoint.
-     *  *
-     * @description *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the zone of the endpoint is deleted.
+     * Deletes a zone of an endpoint.
+     *
+     * @remarks
+     *   **RemoveZoneFromVpcEndpoint** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the zone of the endpoint is deleted.
      *     *   If the zone of the endpoint is in the **Deleting** state, the zone is being deleted.
      *     *   If the zone cannot be queried, the zone is deleted.
      * *   You cannot repeatedly call the **RemoveZoneFromVpcEndpoint** operation to delete a zone of an endpoint within a specified period of time.
-     *  *
-     * @param RemoveZoneFromVpcEndpointRequest $request RemoveZoneFromVpcEndpointRequest
      *
-     * @return RemoveZoneFromVpcEndpointResponse RemoveZoneFromVpcEndpointResponse
+     * @param request - RemoveZoneFromVpcEndpointRequest
+     * @returns RemoveZoneFromVpcEndpointResponse
+     *
+     * @param RemoveZoneFromVpcEndpointRequest $request
+     *
+     * @return RemoveZoneFromVpcEndpointResponse
      */
     public function removeZoneFromVpcEndpoint($request)
     {
@@ -2346,41 +2918,53 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to resources. You can call this API operation to add tags to one or more endpoints or endpoint services.
-     *  *
-     * @description > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to resources. You can call this API operation to add tags to one or more endpoints or endpoint services.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $bodyFlat['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$bodyFlat['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $bodyFlat['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$bodyFlat['Tag'] = $request->tag;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -2393,18 +2977,25 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to resources. You can call this API operation to add tags to one or more endpoints or endpoint services.
-     *  *
-     * @description > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to resources. You can call this API operation to add tags to one or more endpoints or endpoint services.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+     *
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2414,45 +3005,58 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from one or more endpoints or endpoint services at a time.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from one or more endpoints or endpoint services at a time.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->all)) {
-            $body['All'] = $request->all;
+        if (null !== $request->all) {
+            @$body['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $bodyFlat['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$bodyFlat['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $bodyFlat['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$bodyFlat['TagKey'] = $request->tagKey;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -2465,16 +3069,22 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from one or more endpoints or endpoint services at a time.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from one or more endpoints or endpoint services at a time.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2484,48 +3094,62 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of an endpoint.
-     *  *
-     * @description You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointAttributeRequest $request UpdateVpcEndpointAttributeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Modifies the attributes of an endpoint.
      *
-     * @return UpdateVpcEndpointAttributeResponse UpdateVpcEndpointAttributeResponse
+     * @remarks
+     * You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
+     *
+     * @param request - UpdateVpcEndpointAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVpcEndpointAttributeResponse
+     *
+     * @param UpdateVpcEndpointAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateVpcEndpointAttributeResponse
      */
     public function updateVpcEndpointAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $query['AddressIpVersion'] = $request->addressIpVersion;
+        if (null !== $request->addressIpVersion) {
+            @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointDescription)) {
-            $query['EndpointDescription'] = $request->endpointDescription;
+
+        if (null !== $request->endpointDescription) {
+            @$query['EndpointDescription'] = $request->endpointDescription;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->endpointName)) {
-            $query['EndpointName'] = $request->endpointName;
+
+        if (null !== $request->endpointName) {
+            @$query['EndpointName'] = $request->endpointName;
         }
-        if (!Utils::isUnset($request->policyDocument)) {
-            $query['PolicyDocument'] = $request->policyDocument;
+
+        if (null !== $request->policyDocument) {
+            @$query['PolicyDocument'] = $request->policyDocument;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateVpcEndpointAttribute',
@@ -2538,18 +3162,25 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVpcEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVpcEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVpcEndpointAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes of an endpoint.
-     *  *
-     * @description You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointAttributeRequest $request UpdateVpcEndpointAttributeRequest
+     * Modifies the attributes of an endpoint.
      *
-     * @return UpdateVpcEndpointAttributeResponse UpdateVpcEndpointAttributeResponse
+     * @remarks
+     * You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
+     *
+     * @param request - UpdateVpcEndpointAttributeRequest
+     * @returns UpdateVpcEndpointAttributeResponse
+     *
+     * @param UpdateVpcEndpointAttributeRequest $request
+     *
+     * @return UpdateVpcEndpointAttributeResponse
      */
     public function updateVpcEndpointAttribute($request)
     {
@@ -2559,42 +3190,54 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of an endpoint connection.
-     *  *
-     * @description You cannot repeatedly call the **UpdateVpcEndpointConnectionAttribute** operation to modify the bandwidth of an endpoint connection that belongs to an Alibaba Cloud account within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointConnectionAttributeRequest $request UpdateVpcEndpointConnectionAttributeRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Modifies the attributes of an endpoint connection.
      *
-     * @return UpdateVpcEndpointConnectionAttributeResponse UpdateVpcEndpointConnectionAttributeResponse
+     * @remarks
+     * You cannot repeatedly call the **UpdateVpcEndpointConnectionAttribute** operation to modify the bandwidth of an endpoint connection that belongs to an Alibaba Cloud account within a specified period of time.
+     *
+     * @param request - UpdateVpcEndpointConnectionAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVpcEndpointConnectionAttributeResponse
+     *
+     * @param UpdateVpcEndpointConnectionAttributeRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return UpdateVpcEndpointConnectionAttributeResponse
      */
     public function updateVpcEndpointConnectionAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateVpcEndpointConnectionAttribute',
@@ -2607,18 +3250,25 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVpcEndpointConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVpcEndpointConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVpcEndpointConnectionAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes of an endpoint connection.
-     *  *
-     * @description You cannot repeatedly call the **UpdateVpcEndpointConnectionAttribute** operation to modify the bandwidth of an endpoint connection that belongs to an Alibaba Cloud account within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointConnectionAttributeRequest $request UpdateVpcEndpointConnectionAttributeRequest
+     * Modifies the attributes of an endpoint connection.
      *
-     * @return UpdateVpcEndpointConnectionAttributeResponse UpdateVpcEndpointConnectionAttributeResponse
+     * @remarks
+     * You cannot repeatedly call the **UpdateVpcEndpointConnectionAttribute** operation to modify the bandwidth of an endpoint connection that belongs to an Alibaba Cloud account within a specified period of time.
+     *
+     * @param request - UpdateVpcEndpointConnectionAttributeRequest
+     * @returns UpdateVpcEndpointConnectionAttributeResponse
+     *
+     * @param UpdateVpcEndpointConnectionAttributeRequest $request
+     *
+     * @return UpdateVpcEndpointConnectionAttributeResponse
      */
     public function updateVpcEndpointConnectionAttribute($request)
     {
@@ -2628,54 +3278,70 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of an endpoint service.
-     *  *
-     * @description You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointServiceAttributeRequest $request UpdateVpcEndpointServiceAttributeRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Modifies the attributes of an endpoint service.
      *
-     * @return UpdateVpcEndpointServiceAttributeResponse UpdateVpcEndpointServiceAttributeResponse
+     * @remarks
+     * You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+     *
+     * @param request - UpdateVpcEndpointServiceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVpcEndpointServiceAttributeResponse
+     *
+     * @param UpdateVpcEndpointServiceAttributeRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateVpcEndpointServiceAttributeResponse
      */
     public function updateVpcEndpointServiceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $query['AddressIpVersion'] = $request->addressIpVersion;
+        if (null !== $request->addressIpVersion) {
+            @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->autoAcceptEnabled)) {
-            $query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
+
+        if (null !== $request->autoAcceptEnabled) {
+            @$query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectBandwidth)) {
-            $query['ConnectBandwidth'] = $request->connectBandwidth;
+
+        if (null !== $request->connectBandwidth) {
+            @$query['ConnectBandwidth'] = $request->connectBandwidth;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceDescription)) {
-            $query['ServiceDescription'] = $request->serviceDescription;
+
+        if (null !== $request->serviceDescription) {
+            @$query['ServiceDescription'] = $request->serviceDescription;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->serviceSupportIPv6)) {
-            $query['ServiceSupportIPv6'] = $request->serviceSupportIPv6;
+
+        if (null !== $request->serviceSupportIPv6) {
+            @$query['ServiceSupportIPv6'] = $request->serviceSupportIPv6;
         }
-        if (!Utils::isUnset($request->zoneAffinityEnabled)) {
-            $query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
+
+        if (null !== $request->zoneAffinityEnabled) {
+            @$query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateVpcEndpointServiceAttribute',
@@ -2688,18 +3354,25 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVpcEndpointServiceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVpcEndpointServiceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVpcEndpointServiceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes of an endpoint service.
-     *  *
-     * @description You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointServiceAttributeRequest $request UpdateVpcEndpointServiceAttributeRequest
+     * Modifies the attributes of an endpoint service.
      *
-     * @return UpdateVpcEndpointServiceAttributeResponse UpdateVpcEndpointServiceAttributeResponse
+     * @remarks
+     * You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
+     *
+     * @param request - UpdateVpcEndpointServiceAttributeRequest
+     * @returns UpdateVpcEndpointServiceAttributeResponse
+     *
+     * @param UpdateVpcEndpointServiceAttributeRequest $request
+     *
+     * @return UpdateVpcEndpointServiceAttributeResponse
      */
     public function updateVpcEndpointServiceAttribute($request)
     {
@@ -2709,45 +3382,58 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of a service resource that is added to an endpoint service.
-     *  *
-     * @description You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointServiceResourceAttributeRequest $request UpdateVpcEndpointServiceResourceAttributeRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     * Modifies the attributes of a service resource that is added to an endpoint service.
      *
-     * @return UpdateVpcEndpointServiceResourceAttributeResponse UpdateVpcEndpointServiceResourceAttributeResponse
+     * @remarks
+     * You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
+     *
+     * @param request - UpdateVpcEndpointServiceResourceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVpcEndpointServiceResourceAttributeResponse
+     *
+     * @param UpdateVpcEndpointServiceResourceAttributeRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return UpdateVpcEndpointServiceResourceAttributeResponse
      */
     public function updateVpcEndpointServiceResourceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoAllocatedEnabled)) {
-            $query['AutoAllocatedEnabled'] = $request->autoAllocatedEnabled;
+        if (null !== $request->autoAllocatedEnabled) {
+            @$query['AutoAllocatedEnabled'] = $request->autoAllocatedEnabled;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateVpcEndpointServiceResourceAttribute',
@@ -2760,18 +3446,25 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVpcEndpointServiceResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVpcEndpointServiceResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVpcEndpointServiceResourceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes of a service resource that is added to an endpoint service.
-     *  *
-     * @description You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointServiceResourceAttributeRequest $request UpdateVpcEndpointServiceResourceAttributeRequest
+     * Modifies the attributes of a service resource that is added to an endpoint service.
      *
-     * @return UpdateVpcEndpointServiceResourceAttributeResponse UpdateVpcEndpointServiceResourceAttributeResponse
+     * @remarks
+     * You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
+     *
+     * @param request - UpdateVpcEndpointServiceResourceAttributeRequest
+     * @returns UpdateVpcEndpointServiceResourceAttributeResponse
+     *
+     * @param UpdateVpcEndpointServiceResourceAttributeRequest $request
+     *
+     * @return UpdateVpcEndpointServiceResourceAttributeResponse
      */
     public function updateVpcEndpointServiceResourceAttribute($request)
     {
@@ -2781,9 +3474,10 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a service resource of a zone to which an endpoint connection belongs.
-     *  *
-     * @description ### Prerequisites
+     * Modifies a service resource of a zone to which an endpoint connection belongs.
+     *
+     * @remarks
+     * ### Prerequisites
      * By default, the feature of modifying a service resource of a zone to which an endpoint connection belongs is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas). Click Whitelist Quotas in the left-side navigation pane and click PrivateLink in the Networking section. On the page that appears, search for `privatelink_whitelist/svc_res_mgt_uat` and click Apply in the Actions column.
      * ### Usage notes
      * *   If the endpoint connection is in the **Disconnected** state, you can manually allocate the service resource in the zone.
@@ -2792,51 +3486,66 @@ class Privatelink extends OpenApiClient
      *     *   If the endpoint service is in the **Pending** state, the service resource is being modified.
      *     *   If the endpoint service is in the **Active** state, the service resource is modified.
      * *   You cannot repeatedly call the **UpdateVpcEndpointZoneConnectionResourceAttribute** operation to modify a service resource in the zone to which an endpoint connection belongs within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointZoneConnectionResourceAttributeRequest $request UpdateVpcEndpointZoneConnectionResourceAttributeRequest
-     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+     * @param request - UpdateVpcEndpointZoneConnectionResourceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+     *
+     * @param UpdateVpcEndpointZoneConnectionResourceAttributeRequest $request
+     * @param RuntimeOptions                                          $runtime
+     *
+     * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
      */
     public function updateVpcEndpointZoneConnectionResourceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->endpointId)) {
-            $query['EndpointId'] = $request->endpointId;
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceAllocateMode)) {
-            $query['ResourceAllocateMode'] = $request->resourceAllocateMode;
+
+        if (null !== $request->resourceAllocateMode) {
+            @$query['ResourceAllocateMode'] = $request->resourceAllocateMode;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceReplaceMode)) {
-            $query['ResourceReplaceMode'] = $request->resourceReplaceMode;
+
+        if (null !== $request->resourceReplaceMode) {
+            @$query['ResourceReplaceMode'] = $request->resourceReplaceMode;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->serviceId)) {
-            $query['ServiceId'] = $request->serviceId;
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateVpcEndpointZoneConnectionResourceAttribute',
@@ -2849,14 +3558,18 @@ class Privatelink extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVpcEndpointZoneConnectionResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVpcEndpointZoneConnectionResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVpcEndpointZoneConnectionResourceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a service resource of a zone to which an endpoint connection belongs.
-     *  *
-     * @description ### Prerequisites
+     * Modifies a service resource of a zone to which an endpoint connection belongs.
+     *
+     * @remarks
+     * ### Prerequisites
      * By default, the feature of modifying a service resource of a zone to which an endpoint connection belongs is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas). Click Whitelist Quotas in the left-side navigation pane and click PrivateLink in the Networking section. On the page that appears, search for `privatelink_whitelist/svc_res_mgt_uat` and click Apply in the Actions column.
      * ### Usage notes
      * *   If the endpoint connection is in the **Disconnected** state, you can manually allocate the service resource in the zone.
@@ -2865,10 +3578,13 @@ class Privatelink extends OpenApiClient
      *     *   If the endpoint service is in the **Pending** state, the service resource is being modified.
      *     *   If the endpoint service is in the **Active** state, the service resource is modified.
      * *   You cannot repeatedly call the **UpdateVpcEndpointZoneConnectionResourceAttribute** operation to modify a service resource in the zone to which an endpoint connection belongs within a specified period of time.
-     *  *
-     * @param UpdateVpcEndpointZoneConnectionResourceAttributeRequest $request UpdateVpcEndpointZoneConnectionResourceAttributeRequest
      *
-     * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+     * @param request - UpdateVpcEndpointZoneConnectionResourceAttributeRequest
+     * @returns UpdateVpcEndpointZoneConnectionResourceAttributeResponse
+     *
+     * @param UpdateVpcEndpointZoneConnectionResourceAttributeRequest $request
+     *
+     * @return UpdateVpcEndpointZoneConnectionResourceAttributeResponse
      */
     public function updateVpcEndpointZoneConnectionResourceAttribute($request)
     {

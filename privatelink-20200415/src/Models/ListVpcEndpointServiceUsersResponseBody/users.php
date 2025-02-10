@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models\ListVpcEndpointServiceUsersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class users extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account in the whitelist of the endpoint service.
-     *
-     * @example 12345678
-     *
      * @var int
      */
     public $userId;
@@ -22,9 +18,10 @@ class users extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -34,11 +31,11 @@ class users extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return users
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
