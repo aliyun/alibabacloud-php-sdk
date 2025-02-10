@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeShardingNetworkAddressResponseBody\compatibleConnections;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeShardingNetworkAddressResponseBody\networkAddresses;
-use AlibabaCloud\Tea\Model;
 
 class DescribeShardingNetworkAddressResponseBody extends Model
 {
     /**
-     * @description The endpoints of DynamoDB-compatible instances.
-     *
      * @var compatibleConnections
      */
     public $compatibleConnections;
-
     /**
-     * @description The endpoints of the ApsaraDB for MongoDB sharded cluster instance.
-     *
      * @var networkAddresses
      */
     public $networkAddresses;
-
     /**
-     * @description The request ID.
-     *
-     * @example 18D8AAFD-6BEB-420F-8164-810CB0C0AA39
-     *
      * @var string
      */
     public $requestId;
@@ -40,17 +30,26 @@ class DescribeShardingNetworkAddressResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->compatibleConnections) {
+            $this->compatibleConnections->validate();
+        }
+        if (null !== $this->networkAddresses) {
+            $this->networkAddresses->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compatibleConnections) {
-            $res['CompatibleConnections'] = null !== $this->compatibleConnections ? $this->compatibleConnections->toMap() : null;
+            $res['CompatibleConnections'] = null !== $this->compatibleConnections ? $this->compatibleConnections->toArray($noStream) : $this->compatibleConnections;
         }
+
         if (null !== $this->networkAddresses) {
-            $res['NetworkAddresses'] = null !== $this->networkAddresses ? $this->networkAddresses->toMap() : null;
+            $res['NetworkAddresses'] = null !== $this->networkAddresses ? $this->networkAddresses->toArray($noStream) : $this->networkAddresses;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,20 +57,22 @@ class DescribeShardingNetworkAddressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeShardingNetworkAddressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompatibleConnections'])) {
             $model->compatibleConnections = compatibleConnections::fromMap($map['CompatibleConnections']);
         }
+
         if (isset($map['NetworkAddresses'])) {
             $model->networkAddresses = networkAddresses::fromMap($map['NetworkAddresses']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

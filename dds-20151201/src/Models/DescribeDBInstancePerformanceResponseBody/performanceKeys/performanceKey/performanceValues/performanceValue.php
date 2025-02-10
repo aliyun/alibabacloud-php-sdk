@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancePerformanceResponseBody\performanceKeys\performanceKey\performanceValues;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class performanceValue extends Model
 {
     /**
-     * @description The date and time when the metric value was generated.
-     *
-     * @example 2022-06-13T10:58:00Z
-     *
      * @var string
      */
     public $date;
-
     /**
-     * @description The value of the performance metric.
-     *
-     * @example 0.23
-     *
      * @var string
      */
     public $value;
@@ -32,14 +23,16 @@ class performanceValue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +40,18 @@ class performanceValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return performanceValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBackupResponseBody extends Model
 {
     /**
-     * @description The ID of the backup set.
-     *
-     * @example 5664****
-     *
      * @var string
      */
     public $backupId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 7016B12F-7F64-40A4-BAFF-013F02AC82FC
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateBackupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateBackupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBackupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

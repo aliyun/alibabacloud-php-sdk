@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeSlowLogRecordsResponseBody\items;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
-     * @description The database engine.
-     *
-     * @example MongoDB
-     *
      * @var string
      */
     public $engine;
-
     /**
-     * @description An array that consists of the information about each slow query.
-     *
      * @var items
      */
     public $items;
-
     /**
-     * @description The page number of the returned page. The value is a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of slow query log entries returned on the page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageRecordCount;
-
     /**
-     * @description The request ID.
-     *
-     * @example 8076C4BA-DDBD-529C-BFF4-D8620C3F****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of returned entries.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalRecordCount;
@@ -71,26 +44,35 @@ class DescribeSlowLogRecordsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->items) {
+            $this->items->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
@@ -98,29 +80,34 @@ class DescribeSlowLogRecordsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSlowLogRecordsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }

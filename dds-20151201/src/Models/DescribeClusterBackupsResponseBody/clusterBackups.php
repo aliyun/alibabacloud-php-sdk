@@ -4,118 +4,57 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsResponseBody\clusterBackups\backups;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsResponseBody\clusterBackups\extraInfo;
-use AlibabaCloud\Tea\Model;
 
 class clusterBackups extends Model
 {
     /**
-     * @description The backup status. Valid values:
-     *
-     *   **init**: The backup is being initialized.
-     *   **No_Need**: Log backup is not performed.
-     *   **Running**: Log backup is being performed.
-     *   **Ready**: Log backup is complete.
-     *   **Failed**: Log backup failed.
-     *
-     * >  If the **ClusterBackupStatus** parameter is set to OK, full backup is successful. If you want to perform point-in-time-restoration on an instance for which log backup is enabled or to implement consistency restoration, make sure that log backup is complete.
-     * @example Ready
-     *
      * @var string
      */
     public $attachLogStatus;
-
     /**
-     * @description The collection of the backup sets of each child node in a cluster backup set.
-     *
      * @var backups[]
      */
     public $backups;
-
     /**
-     * @description The end of the time range within which the cluster backup is performed.
-     *
-     * @example 2023-10-16T19:33:20Z
-     *
      * @var string
      */
     public $clusterBackupEndTime;
-
     /**
-     * @description The backup set ID.
-     *
-     * @example cb-o8c2ugnxo26kx***
-     *
      * @var string
      */
     public $clusterBackupId;
-
     /**
-     * @description The cluster backup mode.
-     *
-     * @example Automated
-     *
      * @var string
      */
     public $clusterBackupMode;
-
     /**
-     * @description The size of the cluster backup set. Unit: bytes.
-     *
-     * @example 107374182400
-     *
      * @var string
      */
     public $clusterBackupSize;
-
     /**
-     * @description The beginning of the time range within which the cluster backup is performed.
-     *
-     * @example 2023-10-16T19:33:20Z
-     *
      * @var string
      */
     public $clusterBackupStartTime;
-
     /**
-     * @description The status of the cluster backup set.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $clusterBackupStatus;
-
     /**
      * @var string
      */
     public $engineVersion;
-
     /**
-     * @description The additional information in the JSON format.
-     *
      * @var extraInfo
      */
     public $extraInfo;
-
     /**
-     * @description Indicates whether the cluster backup sets take effect. Valid values:
-     *
-     *   **1**: The cluster backup sets take effect.
-     *   **0**: The backup sets of child nodes are incomplete or fail.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $isAvail;
-
     /**
-     * @description The progress of the backup task. Unit: %. The progress is returned only for running backup tasks.
-     *
-     * @example 50
-     *
      * @var string
      */
     public $progress;
@@ -136,50 +75,68 @@ class clusterBackups extends Model
 
     public function validate()
     {
+        if (\is_array($this->backups)) {
+            Model::validateArray($this->backups);
+        }
+        if (null !== $this->extraInfo) {
+            $this->extraInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attachLogStatus) {
             $res['AttachLogStatus'] = $this->attachLogStatus;
         }
+
         if (null !== $this->backups) {
-            $res['Backups'] = [];
-            if (null !== $this->backups && \is_array($this->backups)) {
-                $n = 0;
-                foreach ($this->backups as $item) {
-                    $res['Backups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backups)) {
+                $res['Backups'] = [];
+                $n1             = 0;
+                foreach ($this->backups as $item1) {
+                    $res['Backups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->clusterBackupEndTime) {
             $res['ClusterBackupEndTime'] = $this->clusterBackupEndTime;
         }
+
         if (null !== $this->clusterBackupId) {
             $res['ClusterBackupId'] = $this->clusterBackupId;
         }
+
         if (null !== $this->clusterBackupMode) {
             $res['ClusterBackupMode'] = $this->clusterBackupMode;
         }
+
         if (null !== $this->clusterBackupSize) {
             $res['ClusterBackupSize'] = $this->clusterBackupSize;
         }
+
         if (null !== $this->clusterBackupStartTime) {
             $res['ClusterBackupStartTime'] = $this->clusterBackupStartTime;
         }
+
         if (null !== $this->clusterBackupStatus) {
             $res['ClusterBackupStatus'] = $this->clusterBackupStatus;
         }
+
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
+
         if (null !== $this->extraInfo) {
-            $res['ExtraInfo'] = null !== $this->extraInfo ? $this->extraInfo->toMap() : null;
+            $res['ExtraInfo'] = null !== $this->extraInfo ? $this->extraInfo->toArray($noStream) : $this->extraInfo;
         }
+
         if (null !== $this->isAvail) {
             $res['IsAvail'] = $this->isAvail;
         }
+
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
@@ -187,53 +144,64 @@ class clusterBackups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusterBackups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachLogStatus'])) {
             $model->attachLogStatus = $map['AttachLogStatus'];
         }
+
         if (isset($map['Backups'])) {
             if (!empty($map['Backups'])) {
                 $model->backups = [];
-                $n              = 0;
-                foreach ($map['Backups'] as $item) {
-                    $model->backups[$n++] = null !== $item ? backups::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Backups'] as $item1) {
+                    $model->backups[$n1++] = backups::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ClusterBackupEndTime'])) {
             $model->clusterBackupEndTime = $map['ClusterBackupEndTime'];
         }
+
         if (isset($map['ClusterBackupId'])) {
             $model->clusterBackupId = $map['ClusterBackupId'];
         }
+
         if (isset($map['ClusterBackupMode'])) {
             $model->clusterBackupMode = $map['ClusterBackupMode'];
         }
+
         if (isset($map['ClusterBackupSize'])) {
             $model->clusterBackupSize = $map['ClusterBackupSize'];
         }
+
         if (isset($map['ClusterBackupStartTime'])) {
             $model->clusterBackupStartTime = $map['ClusterBackupStartTime'];
         }
+
         if (isset($map['ClusterBackupStatus'])) {
             $model->clusterBackupStatus = $map['ClusterBackupStatus'];
         }
+
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
+
         if (isset($map['ExtraInfo'])) {
             $model->extraInfo = extraInfo::fromMap($map['ExtraInfo']);
         }
+
         if (isset($map['IsAvail'])) {
             $model->isAvail = $map['IsAvail'];
         }
+
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }

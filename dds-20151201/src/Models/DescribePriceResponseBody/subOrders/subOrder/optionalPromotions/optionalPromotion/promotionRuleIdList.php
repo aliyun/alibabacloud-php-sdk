@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceResponseBody\subOrders\subOrder\optionalPromotions\optionalPromotion;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class promotionRuleIdList extends Model
 {
@@ -18,29 +18,43 @@ class promotionRuleIdList extends Model
 
     public function validate()
     {
+        if (\is_array($this->promotionRuleId)) {
+            Model::validateArray($this->promotionRuleId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->promotionRuleId) {
-            $res['promotionRuleId'] = $this->promotionRuleId;
+            if (\is_array($this->promotionRuleId)) {
+                $res['promotionRuleId'] = [];
+                $n1                     = 0;
+                foreach ($this->promotionRuleId as $item1) {
+                    $res['promotionRuleId'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return promotionRuleIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['promotionRuleId'])) {
             if (!empty($map['promotionRuleId'])) {
-                $model->promotionRuleId = $map['promotionRuleId'];
+                $model->promotionRuleId = [];
+                $n1                     = 0;
+                foreach ($map['promotionRuleId'] as $item1) {
+                    $model->promotionRuleId[$n1++] = $item1;
+                }
             }
         }
 

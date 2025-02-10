@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeParameterModificationHistoryResponseBody\historicalParameters;
-use AlibabaCloud\Tea\Model;
 
 class DescribeParameterModificationHistoryResponseBody extends Model
 {
     /**
-     * @description Details about the parameter modification records.
-     *
      * @var historicalParameters
      */
     public $historicalParameters;
-
     /**
-     * @description The request ID.
-     *
-     * @example B1BB6E0E-B4EF-4145-81FA-A07719860248
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeParameterModificationHistoryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->historicalParameters) {
+            $this->historicalParameters->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->historicalParameters) {
-            $res['HistoricalParameters'] = null !== $this->historicalParameters ? $this->historicalParameters->toMap() : null;
+            $res['HistoricalParameters'] = null !== $this->historicalParameters ? $this->historicalParameters->toArray($noStream) : $this->historicalParameters;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeParameterModificationHistoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeParameterModificationHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HistoricalParameters'])) {
             $model->historicalParameters = historicalParameters::fromMap($map['HistoricalParameters']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

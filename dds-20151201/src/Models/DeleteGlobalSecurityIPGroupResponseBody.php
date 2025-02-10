@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteGlobalSecurityIPGroupResponseBody extends Model
 {
     /**
-     * @description The unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
-     *
-     * @example 2F42BB4E-461F-5B55-A37C-53B1141C****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteGlobalSecurityIPGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteGlobalSecurityIPGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteGlobalSecurityIPGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

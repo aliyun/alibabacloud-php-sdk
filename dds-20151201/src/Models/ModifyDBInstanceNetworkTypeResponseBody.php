@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBInstanceNetworkTypeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example D0E605FD-6ECE-5FBE-84A4-99AAB1B8****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyDBInstanceNetworkTypeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyDBInstanceNetworkTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBInstanceNetworkTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBInstanceMonitorResponseBody extends Model
 {
     /**
-     * @description The collection frequency of monitoring data for the instance. Valid value: **5**. Unit: seconds.
-     *
-     * @example 5
-     *
      * @var string
      */
     public $granularity;
-
     /**
-     * @description The request ID.
-     *
-     * @example EFD65226-08CC-4C4D-B6A4-CB3C382F67B0
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DescribeDBInstanceMonitorResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->granularity) {
             $res['Granularity'] = $this->granularity;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DescribeDBInstanceMonitorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstanceMonitorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Granularity'])) {
             $model->granularity = $map['Granularity'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

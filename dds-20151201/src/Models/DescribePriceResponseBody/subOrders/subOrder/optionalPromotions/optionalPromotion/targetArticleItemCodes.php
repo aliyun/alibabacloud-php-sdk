@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceResponseBody\subOrders\subOrder\optionalPromotions\optionalPromotion;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetArticleItemCodes extends Model
 {
@@ -18,29 +18,43 @@ class targetArticleItemCodes extends Model
 
     public function validate()
     {
+        if (\is_array($this->targetArticleItemCode)) {
+            Model::validateArray($this->targetArticleItemCode);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetArticleItemCode) {
-            $res['targetArticleItemCode'] = $this->targetArticleItemCode;
+            if (\is_array($this->targetArticleItemCode)) {
+                $res['targetArticleItemCode'] = [];
+                $n1                           = 0;
+                foreach ($this->targetArticleItemCode as $item1) {
+                    $res['targetArticleItemCode'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetArticleItemCodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['targetArticleItemCode'])) {
             if (!empty($map['targetArticleItemCode'])) {
-                $model->targetArticleItemCode = $map['targetArticleItemCode'];
+                $model->targetArticleItemCode = [];
+                $n1                           = 0;
+                foreach ($map['targetArticleItemCode'] as $item1) {
+                    $model->targetArticleItemCode[$n1++] = $item1;
+                }
             }
         }
 

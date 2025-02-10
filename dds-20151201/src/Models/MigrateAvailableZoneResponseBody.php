@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MigrateAvailableZoneResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0FDDC511-7252-4A4A-ADDA-5CB1BF63****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class MigrateAvailableZoneResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class MigrateAvailableZoneResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MigrateAvailableZoneResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

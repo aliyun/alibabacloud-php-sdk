@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskTypeResponseBody\typeList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeActiveOperationTaskTypeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example C7EE83BF-7BA8-5087-BAC9-ED85ED54****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The O\\&M tasks.
-     *
      * @var typeList[]
      */
     public $typeList;
@@ -31,20 +24,25 @@ class DescribeActiveOperationTaskTypeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->typeList)) {
+            Model::validateArray($this->typeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->typeList) {
-            $res['TypeList'] = [];
-            if (null !== $this->typeList && \is_array($this->typeList)) {
-                $n = 0;
-                foreach ($this->typeList as $item) {
-                    $res['TypeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->typeList)) {
+                $res['TypeList'] = [];
+                $n1              = 0;
+                foreach ($this->typeList as $item1) {
+                    $res['TypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribeActiveOperationTaskTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeActiveOperationTaskTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TypeList'])) {
             if (!empty($map['TypeList'])) {
                 $model->typeList = [];
-                $n               = 0;
-                foreach ($map['TypeList'] as $item) {
-                    $model->typeList[$n++] = null !== $item ? typeList::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['TypeList'] as $item1) {
+                    $model->typeList[$n1++] = typeList::fromMap($item1);
                 }
             }
         }

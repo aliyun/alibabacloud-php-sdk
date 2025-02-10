@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRegionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRegionsResponseBody\regions\ddsRegion;
-use AlibabaCloud\Tea\Model;
 
 class regions extends Model
 {
@@ -19,17 +19,21 @@ class regions extends Model
 
     public function validate()
     {
+        if (\is_array($this->ddsRegion)) {
+            Model::validateArray($this->ddsRegion);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ddsRegion) {
-            $res['DdsRegion'] = [];
-            if (null !== $this->ddsRegion && \is_array($this->ddsRegion)) {
-                $n = 0;
-                foreach ($this->ddsRegion as $item) {
-                    $res['DdsRegion'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ddsRegion)) {
+                $res['DdsRegion'] = [];
+                $n1               = 0;
+                foreach ($this->ddsRegion as $item1) {
+                    $res['DdsRegion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class regions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DdsRegion'])) {
             if (!empty($map['DdsRegion'])) {
                 $model->ddsRegion = [];
-                $n                = 0;
-                foreach ($map['DdsRegion'] as $item) {
-                    $model->ddsRegion[$n++] = null !== $item ? ddsRegion::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['DdsRegion'] as $item1) {
+                    $model->ddsRegion[$n1++] = ddsRegion::fromMap($item1);
                 }
             }
         }

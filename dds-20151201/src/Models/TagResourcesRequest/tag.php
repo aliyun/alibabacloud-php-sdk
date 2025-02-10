@@ -4,36 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\TagResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The key of tag.
-     *
-     * N specifies the serial number of the tag. The following example shows how to calculate consumption intervals:
-     *
-     * - **Tag.1.Key** specifies the key of the first tag.
-     * - **Tag.2.Key** specifies the key of the second tag.
-     *
-     * This parameter is required.
-     * @example Development team
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The value of tag.
-     *
-     * N specifies the serial number of the tag. The following example shows how to calculate consumption intervals:
-     *
-     * - **Tag.1.Value** specifies the value of the first tag.
-     * - **Tag.2.Value** specifies the value of the second tag.
-     *
-     * This parameter is required.
-     * @example MongoDB 4.0 environment
-     *
      * @var string
      */
     public $value;
@@ -44,14 +23,16 @@ class tag extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -59,17 +40,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

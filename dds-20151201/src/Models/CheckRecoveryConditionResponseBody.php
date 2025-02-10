@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckRecoveryConditionResponseBody extends Model
 {
     /**
-     * @description The instance ID
-     *
-     * @example dds-bp1378****
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
-     * @description Indicates whether the data of the instance can be restored. Valid values:
-     *
-     *   **true**: The data of the instance can be restored.
-     *   **false**: The data of the instance cannot be restored.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isValid;
-
     /**
-     * @description The request ID.
-     *
-     * @example D563A3E7-6010-45FE-A0CD-9283414C9657
-     *
      * @var string
      */
     public $requestId;
@@ -45,17 +28,20 @@ class CheckRecoveryConditionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->isValid) {
             $res['IsValid'] = $this->isValid;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,20 +49,22 @@ class CheckRecoveryConditionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckRecoveryConditionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['IsValid'])) {
             $model->isValid = $map['IsValid'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

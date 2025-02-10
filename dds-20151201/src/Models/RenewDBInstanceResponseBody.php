@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RenewDBInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
-     *
-     * @example 203317xxxxxxxx
-     *
      * @var string
      */
     public $orderId;
-
     /**
-     * @description The request ID.
-     *
-     * @example B118EF45-9633-4EE3-8405-42ED4373721B
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class RenewDBInstanceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class RenewDBInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenewDBInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

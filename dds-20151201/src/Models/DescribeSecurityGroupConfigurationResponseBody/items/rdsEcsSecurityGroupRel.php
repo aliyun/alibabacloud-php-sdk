@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeSecurityGroupConfigurationResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rdsEcsSecurityGroupRel extends Model
 {
     /**
-     * @description The network type of the ECS security group. Valid values:
-     *
-     *   **vpc**
-     *   **classic**
-     *
-     * @example vpc
-     *
      * @var string
      */
     public $netType;
-
     /**
-     * @description The region ID of the ECS security group.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the ECS security group.
-     *
-     * @example sg-bpxxxxxxxx
-     *
      * @var string
      */
     public $securityGroupId;
@@ -45,17 +28,20 @@ class rdsEcsSecurityGroupRel extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
@@ -63,20 +49,22 @@ class rdsEcsSecurityGroupRel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rdsEcsSecurityGroupRel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }

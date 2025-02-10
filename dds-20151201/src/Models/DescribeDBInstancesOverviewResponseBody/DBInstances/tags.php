@@ -4,32 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesOverviewResponseBody\DBInstances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The tag key. Valid values of N: **1** to **20**.
-     *
-     *   The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-     *   It can be up to 64 characters in length.
-     *   It cannot be an empty string.
-     *
-     * @example testdatabase
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The tag value. Valid values of N: **1** to **20**.
-     *
-     *   The value cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-     *   The value can be up to 128 characters in length.
-     *   The value can be an empty string.
-     *
-     * @example apitest
-     *
      * @var string
      */
     public $value;
@@ -40,14 +23,16 @@ class tags extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -55,17 +40,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

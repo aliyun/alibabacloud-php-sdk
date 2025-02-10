@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySecurityGroupConfigurationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example E062C482-1A4B-469E-938C-96D28CFAE42E
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifySecurityGroupConfigurationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifySecurityGroupConfigurationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySecurityGroupConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

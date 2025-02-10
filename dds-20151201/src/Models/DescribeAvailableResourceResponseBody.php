@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAvailableResourceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 344EE51D-8850-4935-B68B-58A8F4DCE3BD
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The supported database types.
-     *
      * @var supportedDBTypes
      */
     public $supportedDBTypes;
@@ -31,32 +24,38 @@ class DescribeAvailableResourceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->supportedDBTypes) {
+            $this->supportedDBTypes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->supportedDBTypes) {
-            $res['SupportedDBTypes'] = null !== $this->supportedDBTypes ? $this->supportedDBTypes->toMap() : null;
+            $res['SupportedDBTypes'] = null !== $this->supportedDBTypes ? $this->supportedDBTypes->toArray($noStream) : $this->supportedDBTypes;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAvailableResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SupportedDBTypes'])) {
             $model->supportedDBTypes = supportedDBTypes::fromMap($map['SupportedDBTypes']);
         }
