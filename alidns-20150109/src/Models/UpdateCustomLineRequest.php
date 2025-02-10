@@ -4,40 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCustomLineRequest\ipSegment;
-use AlibabaCloud\Tea\Model;
 
 class UpdateCustomLineRequest extends Model
 {
     /**
-     * @description The CIDR blocks. Separate IP addresses with a hyphen (-). Enter a CIDR block in each row. You can enter 1 to 50 CIDR blocks at a time. If a CIDR block contains only one IP address, enter the IP address in the format of IP1-IP1. Different CIDR blocks cannot be overlapped.
-     *
      * @var ipSegment[]
      */
     public $ipSegment;
-
     /**
-     * @description The language.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The unique ID of the custom line.
-     *
-     * This parameter is required.
-     * @example 1234
-     *
      * @var int
      */
     public $lineId;
-
     /**
-     * @description The name of the custom line. The name must be 1 to 20 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
-     *
      * @var string
      */
     public $lineName;
@@ -50,26 +34,33 @@ class UpdateCustomLineRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipSegment)) {
+            Model::validateArray($this->ipSegment);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipSegment) {
-            $res['IpSegment'] = [];
-            if (null !== $this->ipSegment && \is_array($this->ipSegment)) {
-                $n = 0;
-                foreach ($this->ipSegment as $item) {
-                    $res['IpSegment'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipSegment)) {
+                $res['IpSegment'] = [];
+                $n1               = 0;
+                foreach ($this->ipSegment as $item1) {
+                    $res['IpSegment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->lineId) {
             $res['LineId'] = $this->lineId;
         }
+
         if (null !== $this->lineName) {
             $res['LineName'] = $this->lineName;
         }
@@ -77,29 +68,32 @@ class UpdateCustomLineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateCustomLineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpSegment'])) {
             if (!empty($map['IpSegment'])) {
                 $model->ipSegment = [];
-                $n                = 0;
-                foreach ($map['IpSegment'] as $item) {
-                    $model->ipSegment[$n++] = null !== $item ? ipSegment::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['IpSegment'] as $item1) {
+                    $model->ipSegment[$n1++] = ipSegment::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['LineId'])) {
             $model->lineId = $map['LineId'];
         }
+
         if (isset($map['LineName'])) {
             $model->lineName = $map['LineName'];
         }

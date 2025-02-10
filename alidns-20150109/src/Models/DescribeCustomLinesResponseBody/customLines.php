@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLinesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customLines extends Model
 {
     /**
-     * @description The code of the custom line.
-     *
-     * @example hra0yc-597
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The unique ID of the custom line.
-     *
-     * @example 597
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the custom line.
-     *
-     * @example hra0yd-597
-     *
      * @var string
      */
     public $name;
@@ -42,17 +28,20 @@ class customLines extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -60,20 +49,22 @@ class customLines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customLines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

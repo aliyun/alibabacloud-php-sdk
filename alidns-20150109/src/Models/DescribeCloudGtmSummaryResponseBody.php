@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCloudGtmSummaryResponseBody extends Model
 {
     /**
-     * @description The total number of instances within the current account.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $instanceTotalCount;
-
     /**
-     * @description The total number of configured health check tasks.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $monitorTaskTotalCount;
-
     /**
-     * @description The quota on the number of health check tasks.
-     *
-     * @example 101
-     *
      * @var int
      */
     public $monitorTaskTotalQuota;
-
     /**
-     * @description The request ID.
-     *
-     * @example 199C3699-9A7B-41A1-BB5A-F1E862D3CB38
-     *
      * @var string
      */
     public $requestId;
@@ -52,20 +33,24 @@ class DescribeCloudGtmSummaryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceTotalCount) {
             $res['InstanceTotalCount'] = $this->instanceTotalCount;
         }
+
         if (null !== $this->monitorTaskTotalCount) {
             $res['MonitorTaskTotalCount'] = $this->monitorTaskTotalCount;
         }
+
         if (null !== $this->monitorTaskTotalQuota) {
             $res['MonitorTaskTotalQuota'] = $this->monitorTaskTotalQuota;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -73,23 +58,26 @@ class DescribeCloudGtmSummaryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudGtmSummaryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceTotalCount'])) {
             $model->instanceTotalCount = $map['InstanceTotalCount'];
         }
+
         if (isset($map['MonitorTaskTotalCount'])) {
             $model->monitorTaskTotalCount = $map['MonitorTaskTotalCount'];
         }
+
         if (isset($map['MonitorTaskTotalQuota'])) {
             $model->monitorTaskTotalQuota = $map['MonitorTaskTotalQuota'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSupportLinesRequest extends Model
 {
     /**
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
-
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @example 1.1.*.*
-     *
      * @var string
      */
     public $userClientIp;
@@ -36,17 +28,20 @@ class DescribeSupportLinesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -54,20 +49,22 @@ class DescribeSupportLinesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSupportLinesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

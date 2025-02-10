@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\AddGtmAddressPoolRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ispCityNode extends Model
 {
     /**
-     * @description The code of the city where the monitored node is deployed. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
-     *
-     * @example 546
-     *
      * @var string
      */
     public $cityCode;
-
     /**
-     * @description *   The code of the Internet service provider (ISP) to which the monitored node belongs. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
-     *   If the value of the GroupType parameter is BGP or OVERSEAS, IspCode is optional. The default value is 465.
-     *   If the value of the GroupType parameter is not BGP or OVERSEAS, IspCode is required and is used together with CityCode.
-     *
-     * @example 465
-     *
      * @var string
      */
     public $ispCode;
@@ -34,14 +23,16 @@ class ispCityNode extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cityCode) {
             $res['CityCode'] = $this->cityCode;
         }
+
         if (null !== $this->ispCode) {
             $res['IspCode'] = $this->ispCode;
         }
@@ -49,17 +40,18 @@ class ispCityNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ispCityNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CityCode'])) {
             $model->cityCode = $map['CityCode'];
         }
+
         if (isset($map['IspCode'])) {
             $model->ispCode = $map['IspCode'];
         }

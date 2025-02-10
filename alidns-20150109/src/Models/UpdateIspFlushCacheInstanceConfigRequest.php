@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateIspFlushCacheInstanceConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceName;
-
     /**
      * @var string
      */
@@ -34,17 +28,20 @@ class UpdateIspFlushCacheInstanceConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -52,20 +49,22 @@ class UpdateIspFlushCacheInstanceConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateIspFlushCacheInstanceConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

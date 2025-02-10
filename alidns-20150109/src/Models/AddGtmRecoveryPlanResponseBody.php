@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddGtmRecoveryPlanResponseBody extends Model
 {
     /**
-     * @description The ID of the disaster recovery plan.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $recoveryPlanId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class AddGtmRecoveryPlanResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recoveryPlanId) {
             $res['RecoveryPlanId'] = $this->recoveryPlanId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class AddGtmRecoveryPlanResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddGtmRecoveryPlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecoveryPlanId'])) {
             $model->recoveryPlanId = $map['RecoveryPlanId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

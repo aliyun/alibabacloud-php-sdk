@@ -4,61 +4,38 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmMonitorTemplatesResponseBody\templates\template\ispCityNodes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ispCityNode extends Model
 {
     /**
-     * @example 503
-     *
      * @var string
      */
     public $cityCode;
-
     /**
      * @var string
      */
     public $cityName;
-
     /**
-     * @example 001
-     *
      * @var string
      */
     public $countryCode;
-
     /**
      * @var string
      */
     public $countryName;
-
     /**
-     * @example BGP
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @description The group type of health check nodes. Valid values:
-     *
-     *   BGP: BGP node
-     *   OVERSEAS: node outside the Chinese mainland
-     *   ISP: Internet service provider (ISP) node
-     *
-     * @example BGP
-     *
      * @var string
      */
     public $groupType;
-
     /**
-     * @example 465
-     *
      * @var string
      */
     public $ispCode;
-
     /**
      * @var string
      */
@@ -76,32 +53,40 @@ class ispCityNode extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cityCode) {
             $res['CityCode'] = $this->cityCode;
         }
+
         if (null !== $this->cityName) {
             $res['CityName'] = $this->cityName;
         }
+
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
         }
+
         if (null !== $this->countryName) {
             $res['CountryName'] = $this->countryName;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
         }
+
         if (null !== $this->ispCode) {
             $res['IspCode'] = $this->ispCode;
         }
+
         if (null !== $this->ispName) {
             $res['IspName'] = $this->ispName;
         }
@@ -109,35 +94,42 @@ class ispCityNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ispCityNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CityCode'])) {
             $model->cityCode = $map['CityCode'];
         }
+
         if (isset($map['CityName'])) {
             $model->cityName = $map['CityName'];
         }
+
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
         }
+
         if (isset($map['CountryName'])) {
             $model->countryName = $map['CountryName'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
         }
+
         if (isset($map['IspCode'])) {
             $model->ispCode = $map['IspCode'];
         }
+
         if (isset($map['IspName'])) {
             $model->ispName = $map['IspName'];
         }

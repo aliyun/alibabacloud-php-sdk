@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlanResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlanResponseBody\faultAddrPools\faultAddrPool;
-use AlibabaCloud\Tea\Model;
 
 class faultAddrPools extends Model
 {
@@ -19,17 +19,21 @@ class faultAddrPools extends Model
 
     public function validate()
     {
+        if (\is_array($this->faultAddrPool)) {
+            Model::validateArray($this->faultAddrPool);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faultAddrPool) {
-            $res['FaultAddrPool'] = [];
-            if (null !== $this->faultAddrPool && \is_array($this->faultAddrPool)) {
-                $n = 0;
-                foreach ($this->faultAddrPool as $item) {
-                    $res['FaultAddrPool'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->faultAddrPool)) {
+                $res['FaultAddrPool'] = [];
+                $n1                   = 0;
+                foreach ($this->faultAddrPool as $item1) {
+                    $res['FaultAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class faultAddrPools extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return faultAddrPools
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FaultAddrPool'])) {
             if (!empty($map['FaultAddrPool'])) {
                 $model->faultAddrPool = [];
-                $n                    = 0;
-                foreach ($map['FaultAddrPool'] as $item) {
-                    $model->faultAddrPool[$n++] = null !== $item ? faultAddrPool::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['FaultAddrPool'] as $item1) {
+                    $model->faultAddrPool[$n1++] = faultAddrPool::fromMap($item1);
                 }
             }
         }

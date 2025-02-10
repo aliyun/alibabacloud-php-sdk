@@ -4,65 +4,31 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddGtmAccessStrategyRequest extends Model
 {
     /**
-     * @description The line codes of access regions.
-     *
-     * This parameter is required.
-     * @example ["default", "drpeng"]
-     *
      * @var string
      */
     public $accessLines;
-
     /**
-     * @description The ID of the default address pool.
-     *
-     * This parameter is required.
-     * @example hrsix
-     *
      * @var string
      */
     public $defaultAddrPoolId;
-
     /**
-     * @description The ID of the failover address pool.
-     *
-     * If the failover address pool is not set, pass the **Empty** value.
-     *
-     * This parameter is required.
-     * @example hrsyw
-     *
      * @var string
      */
     public $failoverAddrPoolId;
-
     /**
-     * @description The ID of the GTM instance for which you want to create an access policy.
-     *
-     * This parameter is required.
-     * @example instance1
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The language used by the user.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The name of the access policy.
-     *
-     * This parameter is required.
      * @var string
      */
     public $strategyName;
@@ -77,26 +43,32 @@ class AddGtmAccessStrategyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessLines) {
             $res['AccessLines'] = $this->accessLines;
         }
+
         if (null !== $this->defaultAddrPoolId) {
             $res['DefaultAddrPoolId'] = $this->defaultAddrPoolId;
         }
+
         if (null !== $this->failoverAddrPoolId) {
             $res['FailoverAddrPoolId'] = $this->failoverAddrPoolId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->strategyName) {
             $res['StrategyName'] = $this->strategyName;
         }
@@ -104,29 +76,34 @@ class AddGtmAccessStrategyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddGtmAccessStrategyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessLines'])) {
             $model->accessLines = $map['AccessLines'];
         }
+
         if (isset($map['DefaultAddrPoolId'])) {
             $model->defaultAddrPoolId = $map['DefaultAddrPoolId'];
         }
+
         if (isset($map['FailoverAddrPoolId'])) {
             $model->failoverAddrPoolId = $map['FailoverAddrPoolId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['StrategyName'])) {
             $model->strategyName = $map['StrategyName'];
         }

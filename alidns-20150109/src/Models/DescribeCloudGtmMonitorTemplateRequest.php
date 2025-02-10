@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCloudGtmMonitorTemplateRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   **zh-CN**: Chinese
-     *   **en-US** (default): English
-     *
-     * @example en-US
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description The ID of the health check template that you want to query. This ID uniquely identifies the health check template.
-     *
-     * This parameter is required.
-     * @example mtp-89518052425100**80
-     *
      * @var string
      */
     public $templateId;
@@ -36,14 +23,16 @@ class DescribeCloudGtmMonitorTemplateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -51,17 +40,18 @@ class DescribeCloudGtmMonitorTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudGtmMonitorTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

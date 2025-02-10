@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlanAvailableConfigResponseBody\instances\instance\addrPools;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class addrPool extends Model
 {
     /**
-     * @description The address pool ID.
-     *
      * @var string
      */
     public $addrPoolId;
-
     /**
-     * @description The name of the address pool.
-     *
-     * @example hra0i9
-     *
      * @var string
      */
     public $name;
@@ -30,14 +23,16 @@ class addrPool extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addrPoolId) {
             $res['AddrPoolId'] = $this->addrPoolId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +40,18 @@ class addrPool extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addrPool
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddrPoolId'])) {
             $model->addrPoolId = $map['AddrPoolId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

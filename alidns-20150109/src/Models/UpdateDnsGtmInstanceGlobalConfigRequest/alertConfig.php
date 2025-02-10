@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsGtmInstanceGlobalConfigRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class alertConfig extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $dingtalkNotice;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $emailNotice;
-
     /**
-     * @example ADDR_ALERT
-     *
      * @var string
      */
     public $noticeType;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $smsNotice;
@@ -44,20 +33,24 @@ class alertConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dingtalkNotice) {
             $res['DingtalkNotice'] = $this->dingtalkNotice;
         }
+
         if (null !== $this->emailNotice) {
             $res['EmailNotice'] = $this->emailNotice;
         }
+
         if (null !== $this->noticeType) {
             $res['NoticeType'] = $this->noticeType;
         }
+
         if (null !== $this->smsNotice) {
             $res['SmsNotice'] = $this->smsNotice;
         }
@@ -65,23 +58,26 @@ class alertConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alertConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DingtalkNotice'])) {
             $model->dingtalkNotice = $map['DingtalkNotice'];
         }
+
         if (isset($map['EmailNotice'])) {
             $model->emailNotice = $map['EmailNotice'];
         }
+
         if (isset($map['NoticeType'])) {
             $model->noticeType = $map['NoticeType'];
         }
+
         if (isset($map['SmsNotice'])) {
             $model->smsNotice = $map['SmsNotice'];
         }

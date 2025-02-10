@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateCustomLineResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example B57C121B-A45F-44D8-A9B2-13E5A5044195
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateCustomLineResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateCustomLineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateCustomLineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

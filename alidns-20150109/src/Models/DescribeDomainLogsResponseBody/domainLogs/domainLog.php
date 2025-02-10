@@ -4,69 +4,35 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainLogsResponseBody\domainLogs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainLog extends Model
 {
     /**
-     * @description The operation.
-     *
-     * @example Add
-     *
      * @var string
      */
     public $action;
-
     /**
-     * @description The time when the operation is performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-     *
-     * @example 2015-12-12T09:23Z
-     *
      * @var string
      */
     public $actionTime;
-
     /**
-     * @description The time when the operation was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 143562300000
-     *
      * @var int
      */
     public $actionTimestamp;
-
     /**
-     * @description The IP address of the operator.
-     *
-     * @example 182.92.253.20
-     *
      * @var string
      */
     public $clientIp;
-
     /**
-     * @description The domain name.
-     *
-     * @example abc.com
-     *
      * @var string
      */
     public $domainName;
-
     /**
-     * @description The message for the operation.
-     *
-     * @example To the DNS record list
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The ID of the private zone.
-     *
-     * @example cxfd345sd234
-     *
      * @var string
      */
     public $zoneId;
@@ -82,29 +48,36 @@ class domainLog extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->actionTime) {
             $res['ActionTime'] = $this->actionTime;
         }
+
         if (null !== $this->actionTimestamp) {
             $res['ActionTimestamp'] = $this->actionTimestamp;
         }
+
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -112,32 +85,38 @@ class domainLog extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainLog
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['ActionTime'])) {
             $model->actionTime = $map['ActionTime'];
         }
+
         if (isset($map['ActionTimestamp'])) {
             $model->actionTimestamp = $map['ActionTimestamp'];
         }
+
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePdnsThreatStatisticsRequest extends Model
 {
@@ -12,62 +12,50 @@ class DescribePdnsThreatStatisticsRequest extends Model
      * @var string
      */
     public $direction;
-
     /**
      * @var string
      */
     public $domainName;
-
     /**
      * @var string
      */
     public $endDate;
-
     /**
      * @var string
      */
     public $lang;
-
     /**
      * @var string
      */
     public $orderBy;
-
     /**
      * @var int
      */
     public $pageNumber;
-
     /**
      * @var int
      */
     public $pageSize;
-
     /**
      * @var string
      */
     public $startDate;
-
     /**
      * @var string
      */
     public $subDomain;
-
     /**
      * @var string
      */
     public $threatLevel;
-
     /**
      * @var string
      */
     public $threatSourceIp;
-
     /**
      * @var string
      */
     public $threatType;
-
     /**
      * @var string
      */
@@ -90,47 +78,60 @@ class DescribePdnsThreatStatisticsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
+
         if (null !== $this->subDomain) {
             $res['SubDomain'] = $this->subDomain;
         }
+
         if (null !== $this->threatLevel) {
             $res['ThreatLevel'] = $this->threatLevel;
         }
+
         if (null !== $this->threatSourceIp) {
             $res['ThreatSourceIp'] = $this->threatSourceIp;
         }
+
         if (null !== $this->threatType) {
             $res['ThreatType'] = $this->threatType;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -138,50 +139,62 @@ class DescribePdnsThreatStatisticsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePdnsThreatStatisticsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
+
         if (isset($map['SubDomain'])) {
             $model->subDomain = $map['SubDomain'];
         }
+
         if (isset($map['ThreatLevel'])) {
             $model->threatLevel = $map['ThreatLevel'];
         }
+
         if (isset($map['ThreatSourceIp'])) {
             $model->threatSourceIp = $map['ThreatSourceIp'];
         }
+
         if (isset($map['ThreatType'])) {
             $model->threatType = $map['ThreatType'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGtmInstanceSystemCnameRequest extends Model
 {
     /**
-     * @description The ID of the Global Traffic Manager (GTM) instance.
-     *
-     * This parameter is required.
-     * @example instance1
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The language used by the user.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -33,14 +23,16 @@ class DescribeGtmInstanceSystemCnameRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -48,17 +40,18 @@ class DescribeGtmInstanceSystemCnameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGtmInstanceSystemCnameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmSystemLinesResponseBody\systemLines;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCloudGtmSystemLinesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The system lines.
-     *
      * @var systemLines
      */
     public $systemLines;
-
     /**
-     * @description The system lines, which are in a tree structure. Only a system line is listed in this example.
-     *
-     * @example [{\\"displayName\\":\\"Default\\",\\"id\\":\\"default\\",\\"isAvailable\\":true,\\"name\\":\\"Default\\",\\"parentId\\":\\"\\"}]
-     *
      * @var string
      */
     public $systemLinesTree;
@@ -41,17 +29,23 @@ class DescribeCloudGtmSystemLinesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->systemLines) {
+            $this->systemLines->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->systemLines) {
-            $res['SystemLines'] = null !== $this->systemLines ? $this->systemLines->toMap() : null;
+            $res['SystemLines'] = null !== $this->systemLines ? $this->systemLines->toArray($noStream) : $this->systemLines;
         }
+
         if (null !== $this->systemLinesTree) {
             $res['SystemLinesTree'] = $this->systemLinesTree;
         }
@@ -59,20 +53,22 @@ class DescribeCloudGtmSystemLinesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudGtmSystemLinesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SystemLines'])) {
             $model->systemLines = systemLines::fromMap($map['SystemLines']);
         }
+
         if (isset($map['SystemLinesTree'])) {
             $model->systemLinesTree = $map['SystemLinesTree'];
         }

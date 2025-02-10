@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MoveGtmResourceGroupRequest extends Model
 {
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example AgIDE1MA_XXX
-     *
      * @var string
      */
     public $newResourceGroupId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example rg-aekzzk7hx3*****
-     *
      * @var string
      */
     public $resourceId;
@@ -40,17 +28,20 @@ class MoveGtmResourceGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->newResourceGroupId) {
             $res['NewResourceGroupId'] = $this->newResourceGroupId;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -58,20 +49,22 @@ class MoveGtmResourceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MoveGtmResourceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['NewResourceGroupId'])) {
             $model->newResourceGroupId = $map['NewResourceGroupId'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }

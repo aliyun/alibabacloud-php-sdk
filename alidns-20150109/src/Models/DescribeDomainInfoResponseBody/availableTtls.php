@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableTtls extends Model
 {
@@ -18,29 +18,43 @@ class availableTtls extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableTtl)) {
+            Model::validateArray($this->availableTtl);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableTtl) {
-            $res['AvailableTtl'] = $this->availableTtl;
+            if (\is_array($this->availableTtl)) {
+                $res['AvailableTtl'] = [];
+                $n1                  = 0;
+                foreach ($this->availableTtl as $item1) {
+                    $res['AvailableTtl'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableTtls
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableTtl'])) {
             if (!empty($map['AvailableTtl'])) {
-                $model->availableTtl = $map['AvailableTtl'];
+                $model->availableTtl = [];
+                $n1                  = 0;
+                foreach ($map['AvailableTtl'] as $item1) {
+                    $model->availableTtl[$n1++] = $item1;
+                }
             }
         }
 

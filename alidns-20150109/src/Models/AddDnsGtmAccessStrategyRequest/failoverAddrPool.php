@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\AddDnsGtmAccessStrategyRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failoverAddrPool extends Model
 {
     /**
-     * @description The ID of the address pool in the secondary address pool set.
-     *
-     * @example pool1
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @description The weight of the address pool in the secondary address pool set.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $lbaWeight;
@@ -32,14 +23,16 @@ class failoverAddrPool extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->lbaWeight) {
             $res['LbaWeight'] = $this->lbaWeight;
         }
@@ -47,17 +40,18 @@ class failoverAddrPool extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failoverAddrPool
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['LbaWeight'])) {
             $model->lbaWeight = $map['LbaWeight'];
         }

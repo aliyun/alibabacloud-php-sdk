@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponseBody\previews\preview;
-use AlibabaCloud\Tea\Model;
 
 class previews extends Model
 {
@@ -19,17 +19,21 @@ class previews extends Model
 
     public function validate()
     {
+        if (\is_array($this->preview)) {
+            Model::validateArray($this->preview);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->preview) {
-            $res['Preview'] = [];
-            if (null !== $this->preview && \is_array($this->preview)) {
-                $n = 0;
-                foreach ($this->preview as $item) {
-                    $res['Preview'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->preview)) {
+                $res['Preview'] = [];
+                $n1             = 0;
+                foreach ($this->preview as $item1) {
+                    $res['Preview'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class previews extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return previews
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Preview'])) {
             if (!empty($map['Preview'])) {
                 $model->preview = [];
-                $n              = 0;
-                foreach ($map['Preview'] as $item) {
-                    $model->preview[$n++] = null !== $item ? preview::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Preview'] as $item1) {
+                    $model->preview[$n1++] = preview::fromMap($item1);
                 }
             }
         }

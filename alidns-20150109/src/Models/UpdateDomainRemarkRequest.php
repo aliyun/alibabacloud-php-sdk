@@ -4,37 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDomainRemarkRequest extends Model
 {
     /**
-     * @description The domain name that already exists in Alibaba Cloud DNS.
-     *
-     * This parameter is required.
-     * @example mydomain.com
-     *
      * @var string
      */
     public $domainName;
-
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * Default value: en
-     * @example cn
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The description of your domain name.
-     *
-     * It can be up to 50 characters in length and can contain digits, letters, and the following special characters: _ - , .
      * @var string
      */
     public $remark;
@@ -46,17 +28,20 @@ class UpdateDomainRemarkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -64,20 +49,22 @@ class UpdateDomainRemarkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDomainRemarkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

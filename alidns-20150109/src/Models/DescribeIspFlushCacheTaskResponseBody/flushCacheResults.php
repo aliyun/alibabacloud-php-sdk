@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheTaskResponseBody\flushCacheResults\dnsNodes;
-use AlibabaCloud\Tea\Model;
 
 class flushCacheResults extends Model
 {
@@ -13,7 +13,6 @@ class flushCacheResults extends Model
      * @var dnsNodes[]
      */
     public $dnsNodes;
-
     /**
      * @var string
      */
@@ -25,20 +24,25 @@ class flushCacheResults extends Model
 
     public function validate()
     {
+        if (\is_array($this->dnsNodes)) {
+            Model::validateArray($this->dnsNodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dnsNodes) {
-            $res['DnsNodes'] = [];
-            if (null !== $this->dnsNodes && \is_array($this->dnsNodes)) {
-                $n = 0;
-                foreach ($this->dnsNodes as $item) {
-                    $res['DnsNodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dnsNodes)) {
+                $res['DnsNodes'] = [];
+                $n1              = 0;
+                foreach ($this->dnsNodes as $item1) {
+                    $res['DnsNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
@@ -46,23 +50,24 @@ class flushCacheResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flushCacheResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnsNodes'])) {
             if (!empty($map['DnsNodes'])) {
                 $model->dnsNodes = [];
-                $n               = 0;
-                foreach ($map['DnsNodes'] as $item) {
-                    $model->dnsNodes[$n++] = null !== $item ? dnsNodes::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['DnsNodes'] as $item1) {
+                    $model->dnsNodes[$n1++] = dnsNodes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }

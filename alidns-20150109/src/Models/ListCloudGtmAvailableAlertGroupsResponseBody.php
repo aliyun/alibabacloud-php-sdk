@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAvailableAlertGroupsResponseBody\alertGroups;
-use AlibabaCloud\Tea\Model;
 
 class ListCloudGtmAvailableAlertGroupsResponseBody extends Model
 {
     /**
-     * @description The alert contact groups.
-     *
      * @var alertGroups
      */
     public $alertGroups;
-
     /**
-     * @description The request ID.
-     *
-     * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListCloudGtmAvailableAlertGroupsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->alertGroups) {
+            $this->alertGroups->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertGroups) {
-            $res['AlertGroups'] = null !== $this->alertGroups ? $this->alertGroups->toMap() : null;
+            $res['AlertGroups'] = null !== $this->alertGroups ? $this->alertGroups->toArray($noStream) : $this->alertGroups;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListCloudGtmAvailableAlertGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCloudGtmAvailableAlertGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertGroups'])) {
             $model->alertGroups = alertGroups::fromMap($map['AlertGroups']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

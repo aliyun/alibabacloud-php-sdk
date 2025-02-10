@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeysResponseBody\appKeys;
-use AlibabaCloud\Tea\Model;
 
 class DescribePdnsAppKeysResponseBody extends Model
 {
@@ -13,7 +13,6 @@ class DescribePdnsAppKeysResponseBody extends Model
      * @var appKeys[]
      */
     public $appKeys;
-
     /**
      * @var string
      */
@@ -25,20 +24,25 @@ class DescribePdnsAppKeysResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->appKeys)) {
+            Model::validateArray($this->appKeys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKeys) {
-            $res['AppKeys'] = [];
-            if (null !== $this->appKeys && \is_array($this->appKeys)) {
-                $n = 0;
-                foreach ($this->appKeys as $item) {
-                    $res['AppKeys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appKeys)) {
+                $res['AppKeys'] = [];
+                $n1             = 0;
+                foreach ($this->appKeys as $item1) {
+                    $res['AppKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +50,24 @@ class DescribePdnsAppKeysResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePdnsAppKeysResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKeys'])) {
             if (!empty($map['AppKeys'])) {
                 $model->appKeys = [];
-                $n              = 0;
-                foreach ($map['AppKeys'] as $item) {
-                    $model->appKeys[$n++] = null !== $item ? appKeys::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['AppKeys'] as $item1) {
+                    $model->appKeys[$n1++] = appKeys::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressesResponseBody\addresses\address;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressesResponseBody\addresses\address\healthTasks\healthTask;
-use AlibabaCloud\Tea\Model;
 
 class healthTasks extends Model
 {
@@ -19,17 +19,21 @@ class healthTasks extends Model
 
     public function validate()
     {
+        if (\is_array($this->healthTask)) {
+            Model::validateArray($this->healthTask);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->healthTask) {
-            $res['HealthTask'] = [];
-            if (null !== $this->healthTask && \is_array($this->healthTask)) {
-                $n = 0;
-                foreach ($this->healthTask as $item) {
-                    $res['HealthTask'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->healthTask)) {
+                $res['HealthTask'] = [];
+                $n1                = 0;
+                foreach ($this->healthTask as $item1) {
+                    $res['HealthTask'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class healthTasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return healthTasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HealthTask'])) {
             if (!empty($map['HealthTask'])) {
                 $model->healthTask = [];
-                $n                 = 0;
-                foreach ($map['HealthTask'] as $item) {
-                    $model->healthTask[$n++] = null !== $item ? healthTask::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['HealthTask'] as $item1) {
+                    $model->healthTask[$n1++] = healthTask::fromMap($item1);
                 }
             }
         }

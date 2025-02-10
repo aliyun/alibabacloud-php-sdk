@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponseBody\previews\preview;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponseBody\previews\preview\switchInfos\switchInfo;
-use AlibabaCloud\Tea\Model;
 
 class switchInfos extends Model
 {
@@ -19,17 +19,21 @@ class switchInfos extends Model
 
     public function validate()
     {
+        if (\is_array($this->switchInfo)) {
+            Model::validateArray($this->switchInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->switchInfo) {
-            $res['SwitchInfo'] = [];
-            if (null !== $this->switchInfo && \is_array($this->switchInfo)) {
-                $n = 0;
-                foreach ($this->switchInfo as $item) {
-                    $res['SwitchInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->switchInfo)) {
+                $res['SwitchInfo'] = [];
+                $n1                = 0;
+                foreach ($this->switchInfo as $item1) {
+                    $res['SwitchInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class switchInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return switchInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SwitchInfo'])) {
             if (!empty($map['SwitchInfo'])) {
                 $model->switchInfo = [];
-                $n                 = 0;
-                foreach ($map['SwitchInfo'] as $item) {
-                    $model->switchInfo[$n++] = null !== $item ? switchInfo::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['SwitchInfo'] as $item1) {
+                    $model->switchInfo[$n1++] = switchInfo::fromMap($item1);
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGtmMonitorAvailableConfigRequest extends Model
 {
     /**
-     * @description The language of the values of specific response parameters.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -22,9 +18,10 @@ class DescribeGtmMonitorAvailableConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
@@ -34,11 +31,11 @@ class DescribeGtmMonitorAvailableConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGtmMonitorAvailableConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

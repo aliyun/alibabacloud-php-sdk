@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCloudGtmAddressPoolRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh-CN: Chinese
-     *   en-US (default): English
-     *
-     * @example en-US
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description The ID of the address pool. This ID uniquely identifies the address pool.
-     *
-     * @example pool-89564674533755**96
-     *
      * @var string
      */
     public $addressPoolId;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * @example 1ae05db4-10e7-11ef-b126-00163e24**22
-     *
      * @var string
      */
     public $clientToken;
@@ -45,17 +28,20 @@ class DescribeCloudGtmAddressPoolRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->addressPoolId) {
             $res['AddressPoolId'] = $this->addressPoolId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -63,20 +49,22 @@ class DescribeCloudGtmAddressPoolRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudGtmAddressPoolRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['AddressPoolId'])) {
             $model->addressPoolId = $map['AddressPoolId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

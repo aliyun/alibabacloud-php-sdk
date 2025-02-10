@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlanAvailableConfigResponseBody\instances;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlanAvailableConfigResponseBody\instances\instance\addrPools;
-use AlibabaCloud\Tea\Model;
 
 class instance extends Model
 {
     /**
-     * @description The address pools.
-     *
      * @var addrPools
      */
     public $addrPools;
-
     /**
-     * @description The instance ID.
-     *
-     * @example instance-example
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The instance name.
-     *
-     * @example instance-name-example
-     *
      * @var string
      */
     public $instanceName;
@@ -41,17 +29,23 @@ class instance extends Model
 
     public function validate()
     {
+        if (null !== $this->addrPools) {
+            $this->addrPools->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addrPools) {
-            $res['AddrPools'] = null !== $this->addrPools ? $this->addrPools->toMap() : null;
+            $res['AddrPools'] = null !== $this->addrPools ? $this->addrPools->toArray($noStream) : $this->addrPools;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -59,20 +53,22 @@ class instance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddrPools'])) {
             $model->addrPools = addrPools::fromMap($map['AddrPools']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }

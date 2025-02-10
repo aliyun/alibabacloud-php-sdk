@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteGtmRecoveryPlanRequest extends Model
 {
     /**
-     * @description The language used by the user.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The ID of the disaster recovery plan that you want to delete.
-     *
-     * This parameter is required.
-     * @example 100
-     *
      * @var int
      */
     public $recoveryPlanId;
@@ -33,14 +23,16 @@ class DeleteGtmRecoveryPlanRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->recoveryPlanId) {
             $res['RecoveryPlanId'] = $this->recoveryPlanId;
         }
@@ -48,17 +40,18 @@ class DeleteGtmRecoveryPlanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteGtmRecoveryPlanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['RecoveryPlanId'])) {
             $model->recoveryPlanId = $map['RecoveryPlanId'];
         }

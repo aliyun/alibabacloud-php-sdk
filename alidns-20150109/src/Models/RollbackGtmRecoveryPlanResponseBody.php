@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RollbackGtmRecoveryPlanResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 853805EA-3D47-47D5-9A1A-A45C24313ABD
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RollbackGtmRecoveryPlanResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RollbackGtmRecoveryPlanResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RollbackGtmRecoveryPlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

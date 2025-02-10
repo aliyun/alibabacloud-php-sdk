@@ -4,38 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDnsProductInstanceRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the **DescribeDomainInfo** operation to obtain the instance ID.
-     *
-     * This parameter is required.
-     * @example i-8fxxxx
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * Default value: en
-     * @example en
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The IP address of the client.
-     *
-     * @example 192.0.2.0
-     *
      * @var string
      */
     public $userClientIp;
@@ -47,17 +28,20 @@ class DescribeDnsProductInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -65,20 +49,22 @@ class DescribeDnsProductInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDnsProductInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

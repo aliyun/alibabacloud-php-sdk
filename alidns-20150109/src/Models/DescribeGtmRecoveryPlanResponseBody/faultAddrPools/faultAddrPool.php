@@ -4,37 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlanResponseBody\faultAddrPools;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlanResponseBody\faultAddrPools\faultAddrPool\addrs;
-use AlibabaCloud\Tea\Model;
 
 class faultAddrPool extends Model
 {
     /**
-     * @description The address pool ID.
-     *
-     * @example hra0oq
-     *
      * @var string
      */
     public $addrPoolId;
-
     /**
-     * @description The address pool name.
-     *
      * @var string
      */
     public $addrPoolName;
-
     /**
      * @var addrs
      */
     public $addrs;
-
     /**
-     * @description The instance ID.
-     *
-     * @example instance-zwy-38
-     *
      * @var string
      */
     public $instanceId;
@@ -47,20 +34,27 @@ class faultAddrPool extends Model
 
     public function validate()
     {
+        if (null !== $this->addrs) {
+            $this->addrs->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addrPoolId) {
             $res['AddrPoolId'] = $this->addrPoolId;
         }
+
         if (null !== $this->addrPoolName) {
             $res['AddrPoolName'] = $this->addrPoolName;
         }
+
         if (null !== $this->addrs) {
-            $res['Addrs'] = null !== $this->addrs ? $this->addrs->toMap() : null;
+            $res['Addrs'] = null !== $this->addrs ? $this->addrs->toArray($noStream) : $this->addrs;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -68,23 +62,26 @@ class faultAddrPool extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return faultAddrPool
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddrPoolId'])) {
             $model->addrPoolId = $map['AddrPoolId'];
         }
+
         if (isset($map['AddrPoolName'])) {
             $model->addrPoolName = $map['AddrPoolName'];
         }
+
         if (isset($map['Addrs'])) {
             $model->addrs = addrs::fromMap($map['Addrs']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

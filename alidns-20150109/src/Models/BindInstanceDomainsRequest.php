@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindInstanceDomainsRequest extends Model
 {
     /**
-     * @description The domain names.
-     *
-     * This parameter is required.
-     * @example example.com,example.net
-     *
      * @var string
      */
     public $domainNames;
-
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example sdfasdf
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The language.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -44,17 +28,20 @@ class BindInstanceDomainsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -62,20 +49,22 @@ class BindInstanceDomainsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindInstanceDomainsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

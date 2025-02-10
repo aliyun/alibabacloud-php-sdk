@@ -4,53 +4,27 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags. Default value: false. This parameter is valid only when TagKey is left empty. Valid values: true and false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $all;
-
     /**
-     * @description The language.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The resource ID.
-     *
-     * This parameter is required.
-     * @example The type of the resource.
-     *
      * @var string[]
      */
     public $resourceId;
-
     /**
-     * @description The resource type.
-     *
-     * This parameter is required.
-     * @example DOMAIN
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description The tags added to the resource.
-     *
-     * @example The domain name.
-     *
      * @var string[]
      */
     public $tagKey;
@@ -64,55 +38,90 @@ class UntagResourcesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        if (\is_array($this->tagKey)) {
+            Model::validateArray($this->tagKey);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1                = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+            if (\is_array($this->tagKey)) {
+                $res['TagKey'] = [];
+                $n1            = 0;
+                foreach ($this->tagKey as $item1) {
+                    $res['TagKey'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
+                $model->resourceId = [];
+                $n1                = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
-                $model->tagKey = $map['TagKey'];
+                $model->tagKey = [];
+                $n1            = 0;
+                foreach ($map['TagKey'] as $item1) {
+                    $model->tagKey[$n1++] = $item1;
+                }
             }
         }
 

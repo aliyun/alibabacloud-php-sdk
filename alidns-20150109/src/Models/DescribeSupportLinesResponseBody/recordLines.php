@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeSupportLinesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeSupportLinesResponseBody\recordLines\recordLine;
-use AlibabaCloud\Tea\Model;
 
 class recordLines extends Model
 {
@@ -19,17 +19,21 @@ class recordLines extends Model
 
     public function validate()
     {
+        if (\is_array($this->recordLine)) {
+            Model::validateArray($this->recordLine);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordLine) {
-            $res['RecordLine'] = [];
-            if (null !== $this->recordLine && \is_array($this->recordLine)) {
-                $n = 0;
-                foreach ($this->recordLine as $item) {
-                    $res['RecordLine'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordLine)) {
+                $res['RecordLine'] = [];
+                $n1                = 0;
+                foreach ($this->recordLine as $item1) {
+                    $res['RecordLine'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class recordLines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordLines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordLine'])) {
             if (!empty($map['RecordLine'])) {
                 $model->recordLine = [];
-                $n                 = 0;
-                foreach ($map['RecordLine'] as $item) {
-                    $model->recordLine[$n++] = null !== $item ? recordLine::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['RecordLine'] as $item1) {
+                    $model->recordLine[$n1++] = recordLine::fromMap($item1);
                 }
             }
         }

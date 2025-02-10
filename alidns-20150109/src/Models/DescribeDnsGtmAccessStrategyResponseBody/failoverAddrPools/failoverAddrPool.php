@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyResponseBody\failoverAddrPools;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failoverAddrPool extends Model
 {
     /**
-     * @description The number of addresses in the address pool.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $addrCount;
-
     /**
-     * @description The ID of the address pool.
-     *
-     * @example pool1
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @description The weight of the address pool.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $lbaWeight;
-
     /**
-     * @description The name of the address pool.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -52,20 +33,24 @@ class failoverAddrPool extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addrCount) {
             $res['AddrCount'] = $this->addrCount;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->lbaWeight) {
             $res['LbaWeight'] = $this->lbaWeight;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -73,23 +58,26 @@ class failoverAddrPool extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failoverAddrPool
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddrCount'])) {
             $model->addrCount = $map['AddrCount'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['LbaWeight'])) {
             $model->lbaWeight = $map['LbaWeight'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
