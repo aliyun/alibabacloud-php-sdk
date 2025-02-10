@@ -1874,6 +1874,10 @@ class SysOM extends OpenApiClient
             @$body['cluster_id'] = $request->clusterId;
         }
 
+        if (null !== $request->grayscaleConfig) {
+            @$body['grayscale_config'] = $request->grayscaleConfig;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => Utils::parseToMap($body),

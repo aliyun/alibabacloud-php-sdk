@@ -20,10 +20,15 @@ class InstallAgentForClusterRequest extends Model
      * @var string
      */
     public $clusterId;
+    /**
+     * @var string
+     */
+    public $grayscaleConfig;
     protected $_name = [
-        'agentId'      => 'agent_id',
-        'agentVersion' => 'agent_version',
-        'clusterId'    => 'cluster_id',
+        'agentId'         => 'agent_id',
+        'agentVersion'    => 'agent_version',
+        'clusterId'       => 'cluster_id',
+        'grayscaleConfig' => 'grayscale_config',
     ];
 
     public function validate()
@@ -44,6 +49,10 @@ class InstallAgentForClusterRequest extends Model
 
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
+        }
+
+        if (null !== $this->grayscaleConfig) {
+            $res['grayscale_config'] = $this->grayscaleConfig;
         }
 
         return $res;
@@ -67,6 +76,10 @@ class InstallAgentForClusterRequest extends Model
 
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
+        }
+
+        if (isset($map['grayscale_config'])) {
+            $model->grayscaleConfig = $map['grayscale_config'];
         }
 
         return $model;
