@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Wss\V20211221;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderResponse;
+use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderShrinkRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeliveryAddressResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsResponse;
@@ -47,6 +50,74 @@ class Wss extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param tmpReq - CreateMultiOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateMultiOrderResponse
+     *
+     * @param CreateMultiOrderRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateMultiOrderResponse
+     */
+    public function createMultiOrderWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateMultiOrderShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->properties) {
+            $request->propertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->properties, 'Properties', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->orderItems) {
+            @$query['OrderItems'] = $request->orderItems;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->propertiesShrink) {
+            @$query['Properties'] = $request->propertiesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMultiOrder',
+            'version'     => '2021-12-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMultiOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateMultiOrderResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateMultiOrderRequest
+     * @returns CreateMultiOrderResponse
+     *
+     * @param CreateMultiOrderRequest $request
+     *
+     * @return CreateMultiOrderResponse
+     */
+    public function createMultiOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMultiOrderWithOptions($request, $runtime);
     }
 
     /**
