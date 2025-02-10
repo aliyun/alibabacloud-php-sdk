@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListGeographicSubRegionsResponseBody extends Model
 {
     /**
-     * @description The number of entries.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The region list.
-     *
      * @var string[]
      */
     public $geographicSubRegions;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
-     *
      * @var string
      */
     public $requestId;
@@ -40,17 +28,29 @@ class ListGeographicSubRegionsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->geographicSubRegions)) {
+            Model::validateArray($this->geographicSubRegions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->geographicSubRegions) {
-            $res['GeographicSubRegions'] = $this->geographicSubRegions;
+            if (\is_array($this->geographicSubRegions)) {
+                $res['GeographicSubRegions'] = [];
+                $n1                          = 0;
+                foreach ($this->geographicSubRegions as $item1) {
+                    $res['GeographicSubRegions'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,22 +58,28 @@ class ListGeographicSubRegionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListGeographicSubRegionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['GeographicSubRegions'])) {
             if (!empty($map['GeographicSubRegions'])) {
-                $model->geographicSubRegions = $map['GeographicSubRegions'];
+                $model->geographicSubRegions = [];
+                $n1                          = 0;
+                foreach ($map['GeographicSubRegions'] as $item1) {
+                    $model->geographicSubRegions[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

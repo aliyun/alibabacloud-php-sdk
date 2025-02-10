@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConvertBandwidthPackageResponseBody extends Model
 {
     /**
-     * @description The ID of the Internet Shared Bandwidth instance.
-     *
-     * @example bwp-s6lmotmkkf567b****
-     *
      * @var string
      */
     public $convertInstanceId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 455AC20C-7061-446A-BDBD-B3BEE0856304
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class ConvertBandwidthPackageResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->convertInstanceId) {
             $res['ConvertInstanceId'] = $this->convertInstanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class ConvertBandwidthPackageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConvertBandwidthPackageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConvertInstanceId'])) {
             $model->convertInstanceId = $map['ConvertInstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

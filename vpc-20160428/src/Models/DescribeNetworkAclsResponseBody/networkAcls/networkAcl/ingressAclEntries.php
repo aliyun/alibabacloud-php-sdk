@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclsResponseBody\networkAcls\networkAcl;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNetworkAclsResponseBody\networkAcls\networkAcl\ingressAclEntries\ingressAclEntry;
-use AlibabaCloud\Tea\Model;
 
 class ingressAclEntries extends Model
 {
@@ -19,17 +19,21 @@ class ingressAclEntries extends Model
 
     public function validate()
     {
+        if (\is_array($this->ingressAclEntry)) {
+            Model::validateArray($this->ingressAclEntry);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ingressAclEntry) {
-            $res['IngressAclEntry'] = [];
-            if (null !== $this->ingressAclEntry && \is_array($this->ingressAclEntry)) {
-                $n = 0;
-                foreach ($this->ingressAclEntry as $item) {
-                    $res['IngressAclEntry'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ingressAclEntry)) {
+                $res['IngressAclEntry'] = [];
+                $n1                     = 0;
+                foreach ($this->ingressAclEntry as $item1) {
+                    $res['IngressAclEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class ingressAclEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ingressAclEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IngressAclEntry'])) {
             if (!empty($map['IngressAclEntry'])) {
                 $model->ingressAclEntry = [];
-                $n                      = 0;
-                foreach ($map['IngressAclEntry'] as $item) {
-                    $model->ingressAclEntry[$n++] = null !== $item ? ingressAclEntry::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['IngressAclEntry'] as $item1) {
+                    $model->ingressAclEntry[$n1++] = ingressAclEntry::fromMap($item1);
                 }
             }
         }

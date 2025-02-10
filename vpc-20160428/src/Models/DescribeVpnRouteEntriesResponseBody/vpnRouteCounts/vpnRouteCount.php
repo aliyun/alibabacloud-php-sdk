@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnRouteEntriesResponseBody\vpnRouteCounts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vpnRouteCount extends Model
 {
@@ -12,12 +12,10 @@ class vpnRouteCount extends Model
      * @var int
      */
     public $routeCount;
-
     /**
      * @var string
      */
     public $routeEntryType;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class vpnRouteCount extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->routeCount) {
             $res['RouteCount'] = $this->routeCount;
         }
+
         if (null !== $this->routeEntryType) {
             $res['RouteEntryType'] = $this->routeEntryType;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -48,20 +49,22 @@ class vpnRouteCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpnRouteCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RouteCount'])) {
             $model->routeCount = $map['RouteCount'];
         }
+
         if (isset($map['RouteEntryType'])) {
             $model->routeEntryType = $map['RouteEntryType'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

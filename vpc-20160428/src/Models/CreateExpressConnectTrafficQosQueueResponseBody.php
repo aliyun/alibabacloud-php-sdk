@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateExpressConnectTrafficQosQueueResponseBody extends Model
 {
     /**
-     * @description The ID of the QoS policy.
-     *
-     * @example qos-2giu0a6vd5x0mv4700
-     *
      * @var string
      */
     public $qosId;
-
     /**
-     * @description The ID of the QoS queue.
-     *
-     * @example qos-queue-9nyx2u7n71s2rcy4n5
-     *
      * @var string
      */
     public $queueId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 4CF20CC7-D1FC-425B-A15B-DF7C8E2131A7
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class CreateExpressConnectTrafficQosQueueResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qosId) {
             $res['QosId'] = $this->qosId;
         }
+
         if (null !== $this->queueId) {
             $res['QueueId'] = $this->queueId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class CreateExpressConnectTrafficQosQueueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExpressConnectTrafficQosQueueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QosId'])) {
             $model->qosId = $map['QosId'];
         }
+
         if (isset($map['QueueId'])) {
             $model->queueId = $map['QueueId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

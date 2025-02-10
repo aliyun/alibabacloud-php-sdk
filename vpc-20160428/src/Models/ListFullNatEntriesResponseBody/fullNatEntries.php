@@ -4,133 +4,59 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListFullNatEntriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fullNatEntries extends Model
 {
     /**
-     * @description The backend IP address that is used for FULLNAT address translation in FULLNAT entries.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $accessIp;
-
     /**
-     * @description The backend port that is used for port mapping in FULLNAT entries. Valid values: **1** to **65535**.
-     *
-     * @example 80
-     *
      * @var string
      */
     public $accessPort;
-
     /**
-     * @description The time when the FULLNAT entry was created.
-     *
-     * @example 2021-10-27T02:44:40Z
-     *
      * @var string
      */
     public $creationTime;
-
     /**
-     * @description The description of the FULLNAT entry.
-     *
-     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
-     * @example abc
-     *
      * @var string
      */
     public $fullNatEntryDescription;
-
     /**
-     * @description The ID of the FULLNAT entry.
-     *
-     * @example fullnat-gw8fz23jezpbblf1j****
-     *
      * @var string
      */
     public $fullNatEntryId;
-
     /**
-     * @description The name of the FULLNAT entry.
-     *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
-     * @example test
-     *
      * @var string
      */
     public $fullNatEntryName;
-
     /**
-     * @description The status of the FULLNAT entry. Valid values:
-     *
-     *   **Pending**
-     *   **Available**
-     *   **Deleting**
-     *   **Deleted**
-     *
-     * @example Available
-     *
      * @var string
      */
     public $fullNatEntryStatus;
-
     /**
-     * @description The ID of the FULLNAT table to which the FULLNAT entry belongs.
-     *
-     * @example fulltb-gw88z7hhlv43rmb26****
-     *
      * @var string
      */
     public $fullNatTableId;
-
     /**
-     * @description The protocol of the packets that are forwarded. Valid values:
-     *
-     *   **TCP**
-     *   **UDP**
-     *
-     * @example TCP
-     *
      * @var string
      */
     public $ipProtocol;
-
     /**
-     * @description The NAT IP address that is used for address translation in FULLNAT entries.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $natIp;
-
     /**
-     * @description The frontend port that is used for port mapping in FULLNAT entries. Valid values: **1** to **65535**.
-     *
-     * @example 80
-     *
      * @var string
      */
     public $natIpPort;
-
     /**
-     * @description The ID of the elastic network interface (ENI).
-     *
-     * @example eni-gw80wedm8pq0tpr2****
-     *
      * @var string
      */
     public $networkInterfaceId;
-
     /**
-     * @description The type of the ENI. The value is set to **Endpoint**, which indicates a reverse endpoint.
-     *
-     * @example Endpoint
-     *
      * @var string
      */
     public $networkInterfaceType;
@@ -152,47 +78,60 @@ class fullNatEntries extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessIp) {
             $res['AccessIp'] = $this->accessIp;
         }
+
         if (null !== $this->accessPort) {
             $res['AccessPort'] = $this->accessPort;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->fullNatEntryDescription) {
             $res['FullNatEntryDescription'] = $this->fullNatEntryDescription;
         }
+
         if (null !== $this->fullNatEntryId) {
             $res['FullNatEntryId'] = $this->fullNatEntryId;
         }
+
         if (null !== $this->fullNatEntryName) {
             $res['FullNatEntryName'] = $this->fullNatEntryName;
         }
+
         if (null !== $this->fullNatEntryStatus) {
             $res['FullNatEntryStatus'] = $this->fullNatEntryStatus;
         }
+
         if (null !== $this->fullNatTableId) {
             $res['FullNatTableId'] = $this->fullNatTableId;
         }
+
         if (null !== $this->ipProtocol) {
             $res['IpProtocol'] = $this->ipProtocol;
         }
+
         if (null !== $this->natIp) {
             $res['NatIp'] = $this->natIp;
         }
+
         if (null !== $this->natIpPort) {
             $res['NatIpPort'] = $this->natIpPort;
         }
+
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
+
         if (null !== $this->networkInterfaceType) {
             $res['NetworkInterfaceType'] = $this->networkInterfaceType;
         }
@@ -200,50 +139,62 @@ class fullNatEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fullNatEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessIp'])) {
             $model->accessIp = $map['AccessIp'];
         }
+
         if (isset($map['AccessPort'])) {
             $model->accessPort = $map['AccessPort'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['FullNatEntryDescription'])) {
             $model->fullNatEntryDescription = $map['FullNatEntryDescription'];
         }
+
         if (isset($map['FullNatEntryId'])) {
             $model->fullNatEntryId = $map['FullNatEntryId'];
         }
+
         if (isset($map['FullNatEntryName'])) {
             $model->fullNatEntryName = $map['FullNatEntryName'];
         }
+
         if (isset($map['FullNatEntryStatus'])) {
             $model->fullNatEntryStatus = $map['FullNatEntryStatus'];
         }
+
         if (isset($map['FullNatTableId'])) {
             $model->fullNatTableId = $map['FullNatTableId'];
         }
+
         if (isset($map['IpProtocol'])) {
             $model->ipProtocol = $map['IpProtocol'];
         }
+
         if (isset($map['NatIp'])) {
             $model->natIp = $map['NatIp'];
         }
+
         if (isset($map['NatIpPort'])) {
             $model->natIpPort = $map['NatIpPort'];
         }
+
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
+
         if (isset($map['NetworkInterfaceType'])) {
             $model->networkInterfaceType = $map['NetworkInterfaceType'];
         }

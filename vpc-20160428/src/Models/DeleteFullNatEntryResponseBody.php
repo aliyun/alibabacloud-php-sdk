@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFullNatEntryResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 2BCC426F-A9F2-3F03-99D2-1E0D647236DB
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteFullNatEntryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteFullNatEntryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFullNatEntryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

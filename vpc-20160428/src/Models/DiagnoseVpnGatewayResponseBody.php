@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DiagnoseVpnGatewayResponseBody extends Model
 {
     /**
-     * @description The ID of the diagnostic.
-     *
-     * @example vpndgn-uf6kuxbe3iv028k3s****
-     *
      * @var string
      */
     public $diagnoseId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DiagnoseVpnGatewayResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diagnoseId) {
             $res['DiagnoseId'] = $this->diagnoseId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DiagnoseVpnGatewayResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DiagnoseVpnGatewayResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiagnoseId'])) {
             $model->diagnoseId = $map['DiagnoseId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

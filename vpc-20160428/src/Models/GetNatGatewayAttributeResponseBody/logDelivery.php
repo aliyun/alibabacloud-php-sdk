@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logDelivery extends Model
 {
@@ -12,17 +12,14 @@ class logDelivery extends Model
      * @var string
      */
     public $deliverLogsErrorMessage;
-
     /**
      * @var string
      */
     public $deliveryStatus;
-
     /**
      * @var string
      */
     public $logDeliveryType;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class logDelivery extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliverLogsErrorMessage) {
             $res['DeliverLogsErrorMessage'] = $this->deliverLogsErrorMessage;
         }
+
         if (null !== $this->deliveryStatus) {
             $res['DeliveryStatus'] = $this->deliveryStatus;
         }
+
         if (null !== $this->logDeliveryType) {
             $res['LogDeliveryType'] = $this->logDeliveryType;
         }
+
         if (null !== $this->logDestination) {
             $res['LogDestination'] = $this->logDestination;
         }
@@ -57,23 +58,26 @@ class logDelivery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logDelivery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeliverLogsErrorMessage'])) {
             $model->deliverLogsErrorMessage = $map['DeliverLogsErrorMessage'];
         }
+
         if (isset($map['DeliveryStatus'])) {
             $model->deliveryStatus = $map['DeliveryStatus'];
         }
+
         if (isset($map['LogDeliveryType'])) {
             $model->logDeliveryType = $map['LogDeliveryType'];
         }
+
         if (isset($map['LogDestination'])) {
             $model->logDestination = $map['LogDestination'];
         }

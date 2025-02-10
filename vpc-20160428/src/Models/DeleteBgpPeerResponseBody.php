@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteBgpPeerResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteBgpPeerResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteBgpPeerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBgpPeerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPhysicalConnectionAttributeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 013EE132-A109-4247-91B0-099A8FF49AD7
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyPhysicalConnectionAttributeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyPhysicalConnectionAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPhysicalConnectionAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

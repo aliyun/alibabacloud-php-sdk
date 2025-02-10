@@ -4,68 +4,39 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
 {
     /**
-     * @description The version of the private IP address. Valid values:
-     *
-     *   **ipv4** If you want to query an IPv4 address, this parameter is optional.
-     *   **ipv6** If you want to query an IPv6 address, this parameter is required.
-     *
-     * @example ipv4
-     *
      * @var string
      */
     public $ipVersion;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description To query whether a private IP address is available, the private IP address must belong to the vSwitch specified by the **VSwitchId** parameter.
-     *
-     * This parameter is required.
-     * @example 10.0.0.7
-     *
      * @var string
      */
     public $privateIpAddress;
-
     /**
-     * @description The region ID of the vSwitch to which the private IP address that you want to query belongs.
-     *
-     * This parameter is required.
-     * @example cn-qingdao
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The ID of the vSwitch to which the private IP address to be queried belongs.
-     *
-     * This parameter is required.
-     * @example vsw-m5ew3t46z2drmifnt****
-     *
      * @var string
      */
     public $vSwitchId;
@@ -82,32 +53,40 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -115,35 +94,42 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckCanAllocateVpcPrivateIpAddressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

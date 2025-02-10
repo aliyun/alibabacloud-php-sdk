@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRouteEntryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the custom route entry.
-     *
-     * @example rte-sn6vjkioxte1gz83z****
-     *
      * @var string
      */
     public $routeEntryId;
@@ -32,14 +23,16 @@ class CreateRouteEntryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->routeEntryId) {
             $res['RouteEntryId'] = $this->routeEntryId;
         }
@@ -47,17 +40,18 @@ class CreateRouteEntryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRouteEntryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RouteEntryId'])) {
             $model->routeEntryId = $map['RouteEntryId'];
         }

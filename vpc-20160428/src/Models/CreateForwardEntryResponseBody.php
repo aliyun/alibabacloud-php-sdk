@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateForwardEntryResponseBody extends Model
 {
     /**
-     * @description The ID of the DNAT entry.
-     *
-     * @example fwd-119smw5tkasdf****
-     *
      * @var string
      */
     public $forwardEntryId;
-
     /**
-     * @description The request ID.
-     *
-     * @example A4AEE536-A97A-40EB-9EBE-53A6948A6928
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateForwardEntryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forwardEntryId) {
             $res['ForwardEntryId'] = $this->forwardEntryId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateForwardEntryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateForwardEntryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForwardEntryId'])) {
             $model->forwardEntryId = $map['ForwardEntryId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

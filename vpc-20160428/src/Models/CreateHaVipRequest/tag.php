@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateHaVipRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
-     *
-     * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
-     * @example FinanceDept
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
-     *
-     * The tag value can be up to 128 characters in length, but cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
-     * @example FinanceJoshua
-     *
      * @var string
      */
     public $value;
@@ -34,14 +23,16 @@ class tag extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +40,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\associatedPropagationSources\associatedPropagationSources;
 
 class associatedPropagationSources extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\associatedPropagationSources\associatedPropagationSources[]
+     * @var associatedPropagationSources[]
      */
     public $associatedPropagationSources;
     protected $_name = [
@@ -18,17 +19,21 @@ class associatedPropagationSources extends Model
 
     public function validate()
     {
+        if (\is_array($this->associatedPropagationSources)) {
+            Model::validateArray($this->associatedPropagationSources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associatedPropagationSources) {
-            $res['AssociatedPropagationSources'] = [];
-            if (null !== $this->associatedPropagationSources && \is_array($this->associatedPropagationSources)) {
-                $n = 0;
-                foreach ($this->associatedPropagationSources as $item) {
-                    $res['AssociatedPropagationSources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->associatedPropagationSources)) {
+                $res['AssociatedPropagationSources'] = [];
+                $n1                                  = 0;
+                foreach ($this->associatedPropagationSources as $item1) {
+                    $res['AssociatedPropagationSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class associatedPropagationSources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedPropagationSources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociatedPropagationSources'])) {
             if (!empty($map['AssociatedPropagationSources'])) {
                 $model->associatedPropagationSources = [];
-                $n                                   = 0;
-                foreach ($map['AssociatedPropagationSources'] as $item) {
-                    $model->associatedPropagationSources[$n++] = null !== $item ? \AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponseBody\associatedPropagationSources\associatedPropagationSources::fromMap($item) : $item;
+                $n1                                  = 0;
+                foreach ($map['AssociatedPropagationSources'] as $item1) {
+                    $model->associatedPropagationSources[$n1++] = self::fromMap($item1);
                 }
             }
         }

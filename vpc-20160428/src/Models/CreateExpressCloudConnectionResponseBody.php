@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateExpressCloudConnectionResponseBody extends Model
 {
     /**
-     * @description The ID of the ECC instance.
-     *
-     * @example ecc-jg************
-     *
      * @var string
      */
     public $eccId;
-
     /**
-     * @description The request ID.
-     *
-     * @example C004F022-1CC2-4958-9937-675513A2CD7E
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateExpressCloudConnectionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eccId) {
             $res['EccId'] = $this->eccId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateExpressCloudConnectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExpressCloudConnectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EccId'])) {
             $model->eccId = $map['EccId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

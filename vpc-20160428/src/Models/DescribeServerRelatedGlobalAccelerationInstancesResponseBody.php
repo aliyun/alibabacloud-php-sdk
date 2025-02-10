@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeServerRelatedGlobalAccelerationInstancesResponseBody\globalAccelerationInstances;
-use AlibabaCloud\Tea\Model;
 
 class DescribeServerRelatedGlobalAccelerationInstancesResponseBody extends Model
 {
     /**
-     * @description The list of GA instances.
-     *
      * @var globalAccelerationInstances
      */
     public $globalAccelerationInstances;
-
     /**
-     * @description The request ID.
-     *
-     * @example A8252014-D8DE-4D85-AF35-AFEXXXXXXX
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeServerRelatedGlobalAccelerationInstancesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->globalAccelerationInstances) {
+            $this->globalAccelerationInstances->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->globalAccelerationInstances) {
-            $res['GlobalAccelerationInstances'] = null !== $this->globalAccelerationInstances ? $this->globalAccelerationInstances->toMap() : null;
+            $res['GlobalAccelerationInstances'] = null !== $this->globalAccelerationInstances ? $this->globalAccelerationInstances->toArray($noStream) : $this->globalAccelerationInstances;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeServerRelatedGlobalAccelerationInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServerRelatedGlobalAccelerationInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalAccelerationInstances'])) {
             $model->globalAccelerationInstances = globalAccelerationInstances::fromMap($map['GlobalAccelerationInstances']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

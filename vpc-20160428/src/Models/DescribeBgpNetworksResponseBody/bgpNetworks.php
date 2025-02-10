@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpNetworksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpNetworksResponseBody\bgpNetworks\bgpNetwork;
-use AlibabaCloud\Tea\Model;
 
 class bgpNetworks extends Model
 {
@@ -19,17 +19,21 @@ class bgpNetworks extends Model
 
     public function validate()
     {
+        if (\is_array($this->bgpNetwork)) {
+            Model::validateArray($this->bgpNetwork);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bgpNetwork) {
-            $res['BgpNetwork'] = [];
-            if (null !== $this->bgpNetwork && \is_array($this->bgpNetwork)) {
-                $n = 0;
-                foreach ($this->bgpNetwork as $item) {
-                    $res['BgpNetwork'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bgpNetwork)) {
+                $res['BgpNetwork'] = [];
+                $n1                = 0;
+                foreach ($this->bgpNetwork as $item1) {
+                    $res['BgpNetwork'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class bgpNetworks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bgpNetworks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BgpNetwork'])) {
             if (!empty($map['BgpNetwork'])) {
                 $model->bgpNetwork = [];
-                $n                 = 0;
-                foreach ($map['BgpNetwork'] as $item) {
-                    $model->bgpNetwork[$n++] = null !== $item ? bgpNetwork::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['BgpNetwork'] as $item1) {
+                    $model->bgpNetwork[$n1++] = bgpNetwork::fromMap($item1);
                 }
             }
         }

@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcPrefixListRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class prefixListEntries extends Model
 {
     /**
-     * @description The CIDR block specified in the prefix list.
-     *
-     * @example 192.168.0.0/16
-     *
      * @var string
      */
     public $cidr;
-
     /**
-     * @description The description of the CIDR block specified in the prefix list.
-     *
-     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
-     * @example CIDR
-     *
      * @var string
      */
     public $description;
@@ -33,14 +23,16 @@ class prefixListEntries extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidr) {
             $res['Cidr'] = $this->cidr;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -48,17 +40,18 @@ class prefixListEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return prefixListEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cidr'])) {
             $model->cidr = $map['Cidr'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

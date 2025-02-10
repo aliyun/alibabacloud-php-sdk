@@ -4,162 +4,72 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorSessionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorSessionsResponseBody\trafficMirrorSessions\tags;
-use AlibabaCloud\Tea\Model;
 
 class trafficMirrorSessions extends Model
 {
     /**
-     * @description The time when the session is created.
-     *
-     * @example 2023-09-05T15:26Z
-     *
      * @var string
      */
     public $creationTime;
-
     /**
-     * @description Indicates whether the traffic mirror session was enabled.
-     *
-     *   **false**
-     *   **true**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description The maximum transmission unit.
-     *
-     * @example 1500
-     *
      * @var int
      */
     public $packetLength;
-
     /**
-     * @description The priority of the traffic mirror session.
-     *
-     * A smaller value indicates a higher priority.
-     * @example 1
-     *
      * @var int
      */
     public $priority;
-
     /**
-     * @description The ID of the resource group to which the traffic mirror session belongs.
-     *
-     * @example rg-bp67acfmxazb4ph****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The tag list.
-     *
      * @var tags[]
      */
     public $tags;
-
     /**
-     * @description The ID of the filter.
-     *
-     * @example tmf-j6cmls82xnc86vtpe****
-     *
      * @var string
      */
     public $trafficMirrorFilterId;
-
     /**
-     * @description The status of the traffic mirror session.
-     *
-     *   **Normal**
-     *   **FinancialLocked**
-     *
-     * @example Normal
-     *
      * @var string
      */
     public $trafficMirrorSessionBusinessStatus;
-
     /**
-     * @description The description of the traffic mirror session.
-     *
-     * @example This is a session.
-     *
      * @var string
      */
     public $trafficMirrorSessionDescription;
-
     /**
-     * @description The ID of the traffic mirror session.
-     *
-     * @example tms-j6cla50buc44ap8tu****
-     *
      * @var string
      */
     public $trafficMirrorSessionId;
-
     /**
-     * @description The name of the traffic mirror session.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $trafficMirrorSessionName;
-
     /**
-     * @description The status of the traffic mirror session. Valid values:
-     *
-     *   **Creating**
-     *   **Created**
-     *   **Modifying**
-     *   **Deleting**
-     *
-     * @example Created
-     *
      * @var string
      */
     public $trafficMirrorSessionStatus;
-
     /**
-     * @description The ID of the traffic mirror source.
-     *
      * @var string[]
      */
     public $trafficMirrorSourceIds;
-
     /**
-     * @description The ID of the traffic mirror destination.
-     *
-     * @example eni-j6c2fp57q8rr47rp****
-     *
      * @var string
      */
     public $trafficMirrorTargetId;
-
     /**
-     * @description The type of the traffic mirror destination. Valid values:
-     *
-     *   **NetworkInterface**: an elastic network interface (ENI)
-     *   **SLB**: an internal-facing Server Load Balancer (SLB) instance
-     *
-     * @example NetworkInterface
-     *
      * @var string
      */
     public $trafficMirrorTargetType;
-
     /**
-     * @description You can specify VNIs to distinguish different mirrored traffic.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $virtualNetworkId;
@@ -184,62 +94,90 @@ class trafficMirrorSessions extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        if (\is_array($this->trafficMirrorSourceIds)) {
+            Model::validateArray($this->trafficMirrorSourceIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->packetLength) {
             $res['PacketLength'] = $this->packetLength;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->trafficMirrorFilterId) {
             $res['TrafficMirrorFilterId'] = $this->trafficMirrorFilterId;
         }
+
         if (null !== $this->trafficMirrorSessionBusinessStatus) {
             $res['TrafficMirrorSessionBusinessStatus'] = $this->trafficMirrorSessionBusinessStatus;
         }
+
         if (null !== $this->trafficMirrorSessionDescription) {
             $res['TrafficMirrorSessionDescription'] = $this->trafficMirrorSessionDescription;
         }
+
         if (null !== $this->trafficMirrorSessionId) {
             $res['TrafficMirrorSessionId'] = $this->trafficMirrorSessionId;
         }
+
         if (null !== $this->trafficMirrorSessionName) {
             $res['TrafficMirrorSessionName'] = $this->trafficMirrorSessionName;
         }
+
         if (null !== $this->trafficMirrorSessionStatus) {
             $res['TrafficMirrorSessionStatus'] = $this->trafficMirrorSessionStatus;
         }
+
         if (null !== $this->trafficMirrorSourceIds) {
-            $res['TrafficMirrorSourceIds'] = $this->trafficMirrorSourceIds;
+            if (\is_array($this->trafficMirrorSourceIds)) {
+                $res['TrafficMirrorSourceIds'] = [];
+                $n1                            = 0;
+                foreach ($this->trafficMirrorSourceIds as $item1) {
+                    $res['TrafficMirrorSourceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->trafficMirrorTargetId) {
             $res['TrafficMirrorTargetId'] = $this->trafficMirrorTargetId;
         }
+
         if (null !== $this->trafficMirrorTargetType) {
             $res['TrafficMirrorTargetType'] = $this->trafficMirrorTargetType;
         }
+
         if (null !== $this->virtualNetworkId) {
             $res['VirtualNetworkId'] = $this->virtualNetworkId;
         }
@@ -247,67 +185,86 @@ class trafficMirrorSessions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trafficMirrorSessions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['PacketLength'])) {
             $model->packetLength = $map['PacketLength'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TrafficMirrorFilterId'])) {
             $model->trafficMirrorFilterId = $map['TrafficMirrorFilterId'];
         }
+
         if (isset($map['TrafficMirrorSessionBusinessStatus'])) {
             $model->trafficMirrorSessionBusinessStatus = $map['TrafficMirrorSessionBusinessStatus'];
         }
+
         if (isset($map['TrafficMirrorSessionDescription'])) {
             $model->trafficMirrorSessionDescription = $map['TrafficMirrorSessionDescription'];
         }
+
         if (isset($map['TrafficMirrorSessionId'])) {
             $model->trafficMirrorSessionId = $map['TrafficMirrorSessionId'];
         }
+
         if (isset($map['TrafficMirrorSessionName'])) {
             $model->trafficMirrorSessionName = $map['TrafficMirrorSessionName'];
         }
+
         if (isset($map['TrafficMirrorSessionStatus'])) {
             $model->trafficMirrorSessionStatus = $map['TrafficMirrorSessionStatus'];
         }
+
         if (isset($map['TrafficMirrorSourceIds'])) {
             if (!empty($map['TrafficMirrorSourceIds'])) {
-                $model->trafficMirrorSourceIds = $map['TrafficMirrorSourceIds'];
+                $model->trafficMirrorSourceIds = [];
+                $n1                            = 0;
+                foreach ($map['TrafficMirrorSourceIds'] as $item1) {
+                    $model->trafficMirrorSourceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TrafficMirrorTargetId'])) {
             $model->trafficMirrorTargetId = $map['TrafficMirrorTargetId'];
         }
+
         if (isset($map['TrafficMirrorTargetType'])) {
             $model->trafficMirrorTargetType = $map['TrafficMirrorTargetType'];
         }
+
         if (isset($map['VirtualNetworkId'])) {
             $model->virtualNetworkId = $map['VirtualNetworkId'];
         }

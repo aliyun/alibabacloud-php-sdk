@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersResponseBody\virtualBorderRouterSet\virtualBorderRouterType;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersResponseBody\virtualBorderRouterSet\virtualBorderRouterType\associatedPhysicalConnections\associatedPhysicalConnection;
-use AlibabaCloud\Tea\Model;
 
 class associatedPhysicalConnections extends Model
 {
@@ -19,17 +19,21 @@ class associatedPhysicalConnections extends Model
 
     public function validate()
     {
+        if (\is_array($this->associatedPhysicalConnection)) {
+            Model::validateArray($this->associatedPhysicalConnection);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associatedPhysicalConnection) {
-            $res['AssociatedPhysicalConnection'] = [];
-            if (null !== $this->associatedPhysicalConnection && \is_array($this->associatedPhysicalConnection)) {
-                $n = 0;
-                foreach ($this->associatedPhysicalConnection as $item) {
-                    $res['AssociatedPhysicalConnection'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->associatedPhysicalConnection)) {
+                $res['AssociatedPhysicalConnection'] = [];
+                $n1                                  = 0;
+                foreach ($this->associatedPhysicalConnection as $item1) {
+                    $res['AssociatedPhysicalConnection'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class associatedPhysicalConnections extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedPhysicalConnections
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociatedPhysicalConnection'])) {
             if (!empty($map['AssociatedPhysicalConnection'])) {
                 $model->associatedPhysicalConnection = [];
-                $n                                   = 0;
-                foreach ($map['AssociatedPhysicalConnection'] as $item) {
-                    $model->associatedPhysicalConnection[$n++] = null !== $item ? associatedPhysicalConnection::fromMap($item) : $item;
+                $n1                                  = 0;
+                foreach ($map['AssociatedPhysicalConnection'] as $item1) {
+                    $model->associatedPhysicalConnection[$n1++] = associatedPhysicalConnection::fromMap($item1);
                 }
             }
         }

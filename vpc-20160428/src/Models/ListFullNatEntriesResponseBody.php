@@ -4,71 +4,36 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListFullNatEntriesResponseBody\fullNatEntries;
-use AlibabaCloud\Tea\Model;
 
 class ListFullNatEntriesResponseBody extends Model
 {
     /**
-     * @description The information about the FULLNAT entries that are queried.
-     *
      * @var fullNatEntries[]
      */
     public $fullNatEntries;
-
     /**
-     * @description The ID of the FULLNAT table to which the queried FULLNAT entries belong.
-     *
-     * @example fullnat-gw8fz23jezpbblf1j****
-     *
      * @var string
      */
     public $fullNatTableId;
-
     /**
-     * @description The maximum number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The ID of the VPC NAT gateway.
-     *
-     * @example ngw-gw8054kn57y3hq3bv****
-     *
      * @var string
      */
     public $natGatewayId;
-
     /**
-     * @description Indicates whether the token for the next query exists. Valid values:
-     *
-     *   If the value of **NextToken** is empty, no next queries are sent.
-     *   If the value of **NextToken** is returned, the value indicates the token that is used for the next query.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example F03E41F6-1A74-311F-8D98-124EEE9F37B8
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The number of FULLNAT entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -84,35 +49,45 @@ class ListFullNatEntriesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->fullNatEntries)) {
+            Model::validateArray($this->fullNatEntries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fullNatEntries) {
-            $res['FullNatEntries'] = [];
-            if (null !== $this->fullNatEntries && \is_array($this->fullNatEntries)) {
-                $n = 0;
-                foreach ($this->fullNatEntries as $item) {
-                    $res['FullNatEntries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fullNatEntries)) {
+                $res['FullNatEntries'] = [];
+                $n1                    = 0;
+                foreach ($this->fullNatEntries as $item1) {
+                    $res['FullNatEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->fullNatTableId) {
             $res['FullNatTableId'] = $this->fullNatTableId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -120,38 +95,44 @@ class ListFullNatEntriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFullNatEntriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FullNatEntries'])) {
             if (!empty($map['FullNatEntries'])) {
                 $model->fullNatEntries = [];
-                $n                     = 0;
-                foreach ($map['FullNatEntries'] as $item) {
-                    $model->fullNatEntries[$n++] = null !== $item ? fullNatEntries::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['FullNatEntries'] as $item1) {
+                    $model->fullNatEntries[$n1++] = fullNatEntries::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['FullNatTableId'])) {
             $model->fullNatTableId = $map['FullNatTableId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

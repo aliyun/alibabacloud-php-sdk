@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyIpv6InternetBandwidthResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example D560AF68-4CE8-4A5C-B3FE-469F558094D0
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyIpv6InternetBandwidthResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyIpv6InternetBandwidthResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyIpv6InternetBandwidthResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

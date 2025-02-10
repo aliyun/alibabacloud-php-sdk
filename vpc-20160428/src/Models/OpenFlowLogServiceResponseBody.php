@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenFlowLogServiceResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The information returned after the flow log feature is enabled.
-     *
-     * @example successful
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 28CF47AB-B6C0-5FA2-80C7-2B28826A92CB
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class OpenFlowLogServiceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class OpenFlowLogServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenFlowLogServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

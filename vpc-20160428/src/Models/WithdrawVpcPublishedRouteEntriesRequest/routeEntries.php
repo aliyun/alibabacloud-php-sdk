@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\WithdrawVpcPublishedRouteEntriesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routeEntries extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 10.0.0.0/24
-     *
      * @var string
      */
     public $destinationCidrBlock;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example vtb-bp145q7glnuzd****
-     *
      * @var string
      */
     public $routeTableId;
@@ -32,14 +23,16 @@ class routeEntries extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
+
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
@@ -47,17 +40,18 @@ class routeEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
+
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }

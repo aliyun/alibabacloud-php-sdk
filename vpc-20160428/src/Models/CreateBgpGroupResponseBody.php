@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBgpGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the BGP group.
-     *
-     * @example bgpg-bp1k25cyp26cllath****
-     *
      * @var string
      */
     public $bgpGroupId;
-
     /**
-     * @description The request ID.
-     *
-     * @example C1221A1F-2ACD-4592-8F27-474E02883159
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateBgpGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bgpGroupId) {
             $res['BgpGroupId'] = $this->bgpGroupId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateBgpGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBgpGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BgpGroupId'])) {
             $model->bgpGroupId = $map['BgpGroupId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

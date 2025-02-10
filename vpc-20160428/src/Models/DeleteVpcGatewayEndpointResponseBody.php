@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVpcGatewayEndpointResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example A1122D0F-7B3B-5445-BB19-17F27F97FE1C
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteVpcGatewayEndpointResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteVpcGatewayEndpointResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVpcGatewayEndpointResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

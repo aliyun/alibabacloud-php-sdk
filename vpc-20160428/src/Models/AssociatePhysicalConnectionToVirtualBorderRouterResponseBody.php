@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssociatePhysicalConnectionToVirtualBorderRouterResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 980960B0-2969-40BF-8542-EBB34FD358AB
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AssociatePhysicalConnectionToVirtualBorderRouterResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AssociatePhysicalConnectionToVirtualBorderRouterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssociatePhysicalConnectionToVirtualBorderRouterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

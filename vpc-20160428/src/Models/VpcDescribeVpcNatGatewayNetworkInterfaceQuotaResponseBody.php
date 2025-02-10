@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends Model
 {
     /**
-     * @description The number of endpoints that can be created.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $quota;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quota) {
             $res['Quota'] = $this->quota;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Quota'])) {
             $model->quota = $map['Quota'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

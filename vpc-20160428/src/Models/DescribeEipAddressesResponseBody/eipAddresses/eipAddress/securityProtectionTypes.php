@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityProtectionTypes extends Model
 {
@@ -18,29 +18,43 @@ class securityProtectionTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->securityProtectionType)) {
+            Model::validateArray($this->securityProtectionType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityProtectionType) {
-            $res['SecurityProtectionType'] = $this->securityProtectionType;
+            if (\is_array($this->securityProtectionType)) {
+                $res['SecurityProtectionType'] = [];
+                $n1                            = 0;
+                foreach ($this->securityProtectionType as $item1) {
+                    $res['SecurityProtectionType'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityProtectionTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityProtectionType'])) {
             if (!empty($map['SecurityProtectionType'])) {
-                $model->securityProtectionType = $map['SecurityProtectionType'];
+                $model->securityProtectionType = [];
+                $n1                            = 0;
+                foreach ($map['SecurityProtectionType'] as $item1) {
+                    $model->securityProtectionType[$n1++] = $item1;
+                }
             }
         }
 

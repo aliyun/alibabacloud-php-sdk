@@ -4,63 +4,38 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeExpressConnectTrafficQosQueueRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
-     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The ID of the QoS policy.
-     *
-     * @example qos-2giu0a6vd5x0mv4700
-     *
      * @var string
      */
     public $qosId;
-
     /**
-     * @description The IDs of the QoS queues.
-     *
      * @var string[]
      */
     public $queueIdList;
-
     /**
-     * @description The names of the QoS queues.
-     *
      * @var string[]
      */
     public $queueNameList;
-
     /**
-     * @description The region ID of the QoS policy.
-     *
-     * This parameter is required.
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
@@ -78,32 +53,58 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->queueIdList)) {
+            Model::validateArray($this->queueIdList);
+        }
+        if (\is_array($this->queueNameList)) {
+            Model::validateArray($this->queueNameList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->qosId) {
             $res['QosId'] = $this->qosId;
         }
+
         if (null !== $this->queueIdList) {
-            $res['QueueIdList'] = $this->queueIdList;
+            if (\is_array($this->queueIdList)) {
+                $res['QueueIdList'] = [];
+                $n1                 = 0;
+                foreach ($this->queueIdList as $item1) {
+                    $res['QueueIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->queueNameList) {
-            $res['QueueNameList'] = $this->queueNameList;
+            if (\is_array($this->queueNameList)) {
+                $res['QueueNameList'] = [];
+                $n1                   = 0;
+                foreach ($this->queueNameList as $item1) {
+                    $res['QueueNameList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -111,39 +112,54 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeExpressConnectTrafficQosQueueRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['QosId'])) {
             $model->qosId = $map['QosId'];
         }
+
         if (isset($map['QueueIdList'])) {
             if (!empty($map['QueueIdList'])) {
-                $model->queueIdList = $map['QueueIdList'];
+                $model->queueIdList = [];
+                $n1                 = 0;
+                foreach ($map['QueueIdList'] as $item1) {
+                    $model->queueIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['QueueNameList'])) {
             if (!empty($map['QueueNameList'])) {
-                $model->queueNameList = $map['QueueNameList'];
+                $model->queueNameList = [];
+                $n1                   = 0;
+                foreach ($map['QueueNameList'] as $item1) {
+                    $model->queueNameList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }

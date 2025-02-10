@@ -4,130 +4,60 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteEntryRequest\nextHopList;
-use AlibabaCloud\Tea\Model;
 
 class CreateRouteEntryRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters.
-     *
-     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
-     * @example 02fb3da4-130e-11e9-8e44-001****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The description of the custom route entry.
-     *
-     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
-     * @example test
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The destination CIDR block of the custom route entry. Both IPv4 and IPv6 CIDR blocks are supported. Make sure that the destination CIDR block meets the following requirements:
-     *
-     *   The destination CIDR block is not 100.64.0.0/10 or a subset of 100.64.0.0/10.
-     *   The destination CIDR block of the custom route entry is different from the destination CIDR blocks of other route entries in the same route table.
-     *
-     * This parameter is required.
-     * @example 192.168.0.0/24
-     *
      * @var string
      */
     public $destinationCidrBlock;
-
     /**
-     * @description The ID of the next hop.
-     *
-     * @example i-j6c2fp57q8rr4jlu****
-     *
      * @var string
      */
     public $nextHopId;
-
     /**
-     * @description The next hop list.
-     *
      * @var nextHopList[]
      */
     public $nextHopList;
-
     /**
-     * @description The type of next hop of the custom route entry. Valid values:
-     *
-     *   **Instance**: an Elastic Compute Service (ECS) instance. This is the default value.
-     *   **HaVip**: a high-availability virtual IP address (HAVIP).
-     *   **RouterInterface**: a router interface.
-     *   **NetworkInterface**: an elastic network interface (ENI).
-     *   **VpnGateway**: a VPN gateway.
-     *   **IPv6Gateway**: an IPv6 gateway.
-     *   **NatGateway**: a NAT gateway.
-     *   **Attachment**: a transit router.
-     *   **VpcPeer**: a VPC peering connection.
-     *   **Ipv4Gateway**: an IPv4 gateway.
-     *   **GatewayEndpoint**: a gateway endpoint.
-     *   **Ecr**: a Express Connect Router (ECR).
-     *
-     * @example RouterInterface
-     *
      * @var string
      */
     public $nextHopType;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The region ID of the route table.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The name of the custom route entry that you want to add.
-     *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
-     * @example test
-     *
      * @var string
      */
     public $routeEntryName;
-
     /**
-     * @description The ID of the route table to which you want to add a custom route entry.
-     *
-     * This parameter is required.
-     * @example vtb-bp145q7glnuzd****
-     *
      * @var string
      */
     public $routeTableId;
@@ -149,53 +79,69 @@ class CreateRouteEntryRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->nextHopList)) {
+            Model::validateArray($this->nextHopList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
+
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
         }
+
         if (null !== $this->nextHopList) {
-            $res['NextHopList'] = [];
-            if (null !== $this->nextHopList && \is_array($this->nextHopList)) {
-                $n = 0;
-                foreach ($this->nextHopList as $item) {
-                    $res['NextHopList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nextHopList)) {
+                $res['NextHopList'] = [];
+                $n1                 = 0;
+                foreach ($this->nextHopList as $item1) {
+                    $res['NextHopList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextHopType) {
             $res['NextHopType'] = $this->nextHopType;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->routeEntryName) {
             $res['RouteEntryName'] = $this->routeEntryName;
         }
+
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
@@ -203,56 +149,68 @@ class CreateRouteEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRouteEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
+
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
         }
+
         if (isset($map['NextHopList'])) {
             if (!empty($map['NextHopList'])) {
                 $model->nextHopList = [];
-                $n                  = 0;
-                foreach ($map['NextHopList'] as $item) {
-                    $model->nextHopList[$n++] = null !== $item ? nextHopList::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['NextHopList'] as $item1) {
+                    $model->nextHopList[$n1++] = nextHopList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextHopType'])) {
             $model->nextHopType = $map['NextHopType'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['RouteEntryName'])) {
             $model->routeEntryName = $map['RouteEntryName'];
         }
+
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }

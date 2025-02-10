@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateTrafficMirrorFilterRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class egressRules extends Model
 {
     /**
-     * @description The ID of the outbound rule.
-     *
-     * @example tmr-j6cok23ugp53eeib5****
-     *
      * @var string
      */
     public $instanceId;
@@ -22,9 +18,10 @@ class egressRules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -34,11 +31,11 @@ class egressRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return egressRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

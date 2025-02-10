@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateHighReliablePhysicalConnectionResponseBody\errorInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class errorInfoList extends Model
 {
     /**
-     * @description Error codes.
-     *
-     * @example pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description The returned error message.
-     *
-     * @example pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description The ID of the Express Connect circuit.
-     *
-     * @example pc-j5e5qqo616p81ncspbll1
-     *
      * @var string
      */
     public $instanceId;
@@ -42,17 +28,20 @@ class errorInfoList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -60,20 +49,22 @@ class errorInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return errorInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

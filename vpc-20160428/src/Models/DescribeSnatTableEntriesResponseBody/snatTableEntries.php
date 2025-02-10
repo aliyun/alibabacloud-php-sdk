@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeSnatTableEntriesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeSnatTableEntriesResponseBody\snatTableEntries\snatTableEntry;
-use AlibabaCloud\Tea\Model;
 
 class snatTableEntries extends Model
 {
@@ -19,17 +19,21 @@ class snatTableEntries extends Model
 
     public function validate()
     {
+        if (\is_array($this->snatTableEntry)) {
+            Model::validateArray($this->snatTableEntry);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->snatTableEntry) {
-            $res['SnatTableEntry'] = [];
-            if (null !== $this->snatTableEntry && \is_array($this->snatTableEntry)) {
-                $n = 0;
-                foreach ($this->snatTableEntry as $item) {
-                    $res['SnatTableEntry'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->snatTableEntry)) {
+                $res['SnatTableEntry'] = [];
+                $n1                    = 0;
+                foreach ($this->snatTableEntry as $item1) {
+                    $res['SnatTableEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class snatTableEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snatTableEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SnatTableEntry'])) {
             if (!empty($map['SnatTableEntry'])) {
                 $model->snatTableEntry = [];
-                $n                     = 0;
-                foreach ($map['SnatTableEntry'] as $item) {
-                    $model->snatTableEntry[$n++] = null !== $item ? snatTableEntry::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['SnatTableEntry'] as $item1) {
+                    $model->snatTableEntry[$n1++] = snatTableEntry::fromMap($item1);
                 }
             }
         }

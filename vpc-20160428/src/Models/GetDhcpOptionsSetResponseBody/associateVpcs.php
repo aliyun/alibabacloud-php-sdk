@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\GetDhcpOptionsSetResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class associateVpcs extends Model
 {
     /**
-     * @description The status of the VPC that is associated with the DHCP options set. Valid values:
-     *
-     *   **InUse**: in use
-     *   **Pending**: being configured
-     *
-     * @example InUse
-     *
      * @var string
      */
     public $associateStatus;
-
     /**
-     * @description The ID of the VPC that is associated with the DHCP options set.
-     *
-     * @example vpc-eb3b54r6otues4tjj****
-     *
      * @var string
      */
     public $vpcId;
@@ -35,14 +23,16 @@ class associateVpcs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associateStatus) {
             $res['AssociateStatus'] = $this->associateStatus;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -50,17 +40,18 @@ class associateVpcs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associateVpcs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociateStatus'])) {
             $model->associateStatus = $map['AssociateStatus'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

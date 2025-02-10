@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyCommonBandwidthPackageSpecResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 7F129000-F929-4AF5-BE8D-BAE434C795306
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyCommonBandwidthPackageSpecResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyCommonBandwidthPackageSpecResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCommonBandwidthPackageSpecResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

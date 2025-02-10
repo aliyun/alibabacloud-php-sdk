@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFullNatEntryResponseBody extends Model
 {
     /**
-     * @description The FULLNAT entry ID.
-     *
-     * @example fullnat-gw8fz23jezpbblf1j****
-     *
      * @var string
      */
     public $fullNatEntryId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 2315DEB7-5E92-423A-91F7-4C1EC9AD97C3
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateFullNatEntryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fullNatEntryId) {
             $res['FullNatEntryId'] = $this->fullNatEntryId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateFullNatEntryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFullNatEntryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FullNatEntryId'])) {
             $model->fullNatEntryId = $map['FullNatEntryId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

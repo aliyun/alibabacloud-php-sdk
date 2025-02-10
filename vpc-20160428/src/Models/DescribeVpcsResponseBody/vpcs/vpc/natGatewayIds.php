@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcsResponseBody\vpcs\vpc;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class natGatewayIds extends Model
 {
@@ -18,29 +18,43 @@ class natGatewayIds extends Model
 
     public function validate()
     {
+        if (\is_array($this->natGatewayIds)) {
+            Model::validateArray($this->natGatewayIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->natGatewayIds) {
-            $res['NatGatewayIds'] = $this->natGatewayIds;
+            if (\is_array($this->natGatewayIds)) {
+                $res['NatGatewayIds'] = [];
+                $n1                   = 0;
+                foreach ($this->natGatewayIds as $item1) {
+                    $res['NatGatewayIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return natGatewayIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NatGatewayIds'])) {
             if (!empty($map['NatGatewayIds'])) {
-                $model->natGatewayIds = $map['NatGatewayIds'];
+                $model->natGatewayIds = [];
+                $n1                   = 0;
+                foreach ($map['NatGatewayIds'] as $item1) {
+                    $model->natGatewayIds[$n1++] = $item1;
+                }
             }
         }
 

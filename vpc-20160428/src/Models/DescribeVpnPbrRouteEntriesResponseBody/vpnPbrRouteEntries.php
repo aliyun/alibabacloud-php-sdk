@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnPbrRouteEntriesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnPbrRouteEntriesResponseBody\vpnPbrRouteEntries\vpnPbrRouteEntry;
-use AlibabaCloud\Tea\Model;
 
 class vpnPbrRouteEntries extends Model
 {
@@ -19,17 +19,21 @@ class vpnPbrRouteEntries extends Model
 
     public function validate()
     {
+        if (\is_array($this->vpnPbrRouteEntry)) {
+            Model::validateArray($this->vpnPbrRouteEntry);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpnPbrRouteEntry) {
-            $res['VpnPbrRouteEntry'] = [];
-            if (null !== $this->vpnPbrRouteEntry && \is_array($this->vpnPbrRouteEntry)) {
-                $n = 0;
-                foreach ($this->vpnPbrRouteEntry as $item) {
-                    $res['VpnPbrRouteEntry'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vpnPbrRouteEntry)) {
+                $res['VpnPbrRouteEntry'] = [];
+                $n1                      = 0;
+                foreach ($this->vpnPbrRouteEntry as $item1) {
+                    $res['VpnPbrRouteEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class vpnPbrRouteEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpnPbrRouteEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpnPbrRouteEntry'])) {
             if (!empty($map['VpnPbrRouteEntry'])) {
                 $model->vpnPbrRouteEntry = [];
-                $n                       = 0;
-                foreach ($map['VpnPbrRouteEntry'] as $item) {
-                    $model->vpnPbrRouteEntry[$n++] = null !== $item ? vpnPbrRouteEntry::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['VpnPbrRouteEntry'] as $item1) {
+                    $model->vpnPbrRouteEntry[$n1++] = vpnPbrRouteEntry::fromMap($item1);
                 }
             }
         }

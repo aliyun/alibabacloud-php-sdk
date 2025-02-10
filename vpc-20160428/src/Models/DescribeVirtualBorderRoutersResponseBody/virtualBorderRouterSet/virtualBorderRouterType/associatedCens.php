@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersResponseBody\virtualBorderRouterSet\virtualBorderRouterType;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersResponseBody\virtualBorderRouterSet\virtualBorderRouterType\associatedCens\associatedCen;
-use AlibabaCloud\Tea\Model;
 
 class associatedCens extends Model
 {
@@ -19,17 +19,21 @@ class associatedCens extends Model
 
     public function validate()
     {
+        if (\is_array($this->associatedCen)) {
+            Model::validateArray($this->associatedCen);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associatedCen) {
-            $res['AssociatedCen'] = [];
-            if (null !== $this->associatedCen && \is_array($this->associatedCen)) {
-                $n = 0;
-                foreach ($this->associatedCen as $item) {
-                    $res['AssociatedCen'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->associatedCen)) {
+                $res['AssociatedCen'] = [];
+                $n1                   = 0;
+                foreach ($this->associatedCen as $item1) {
+                    $res['AssociatedCen'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class associatedCens extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedCens
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociatedCen'])) {
             if (!empty($map['AssociatedCen'])) {
                 $model->associatedCen = [];
-                $n                    = 0;
-                foreach ($map['AssociatedCen'] as $item) {
-                    $model->associatedCen[$n++] = null !== $item ? associatedCen::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['AssociatedCen'] as $item1) {
+                    $model->associatedCen[$n1++] = associatedCen::fromMap($item1);
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseEipSegmentAddressResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F7A6301A-64BA-41EC-8284-8F4838C15D1F
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ReleaseEipSegmentAddressResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ReleaseEipSegmentAddressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseEipSegmentAddressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

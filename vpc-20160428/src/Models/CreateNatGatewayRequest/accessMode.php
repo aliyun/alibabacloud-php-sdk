@@ -4,30 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessMode extends Model
 {
     /**
-     * @description Access mode. Valid values:
-     *
-     * - **route**: route mode
-     *
-     * - **tunnel**: tunnel mode
-     *
-     * > If this parameter is specified, you must set **PrivateLinkEnabled** to **true**.
-     * @example route
-     *
      * @var string
      */
     public $modeValue;
-
     /**
-     * @description Tunnel mode type:
-     *
-     * - **geneve**: Geneve type
-     *
-     * > This value takes effect if the access mode is the tunnel mode.
      * @var string
      */
     public $tunnelType;
@@ -38,14 +23,16 @@ class accessMode extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modeValue) {
             $res['ModeValue'] = $this->modeValue;
         }
+
         if (null !== $this->tunnelType) {
             $res['TunnelType'] = $this->tunnelType;
         }
@@ -53,17 +40,18 @@ class accessMode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessMode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModeValue'])) {
             $model->modeValue = $map['ModeValue'];
         }
+
         if (isset($map['TunnelType'])) {
             $model->tunnelType = $map['TunnelType'];
         }

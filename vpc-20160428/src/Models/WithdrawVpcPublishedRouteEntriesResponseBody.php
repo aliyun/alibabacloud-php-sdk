@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WithdrawVpcPublishedRouteEntriesResponseBody extends Model
 {
     /**
-     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class WithdrawVpcPublishedRouteEntriesResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class WithdrawVpcPublishedRouteEntriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WithdrawVpcPublishedRouteEntriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

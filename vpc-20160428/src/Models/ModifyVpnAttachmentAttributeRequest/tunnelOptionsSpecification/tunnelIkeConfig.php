@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeRequest\tunnelOptionsSpecification;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tunnelIkeConfig extends Model
 {
@@ -12,42 +12,34 @@ class tunnelIkeConfig extends Model
      * @var string
      */
     public $ikeAuthAlg;
-
     /**
      * @var string
      */
     public $ikeEncAlg;
-
     /**
      * @var int
      */
     public $ikeLifetime;
-
     /**
      * @var string
      */
     public $ikeMode;
-
     /**
      * @var string
      */
     public $ikePfs;
-
     /**
      * @var string
      */
     public $ikeVersion;
-
     /**
      * @var string
      */
     public $localId;
-
     /**
      * @var string
      */
     public $psk;
-
     /**
      * @var string
      */
@@ -66,35 +58,44 @@ class tunnelIkeConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ikeAuthAlg) {
             $res['IkeAuthAlg'] = $this->ikeAuthAlg;
         }
+
         if (null !== $this->ikeEncAlg) {
             $res['IkeEncAlg'] = $this->ikeEncAlg;
         }
+
         if (null !== $this->ikeLifetime) {
             $res['IkeLifetime'] = $this->ikeLifetime;
         }
+
         if (null !== $this->ikeMode) {
             $res['IkeMode'] = $this->ikeMode;
         }
+
         if (null !== $this->ikePfs) {
             $res['IkePfs'] = $this->ikePfs;
         }
+
         if (null !== $this->ikeVersion) {
             $res['IkeVersion'] = $this->ikeVersion;
         }
+
         if (null !== $this->localId) {
             $res['LocalId'] = $this->localId;
         }
+
         if (null !== $this->psk) {
             $res['Psk'] = $this->psk;
         }
+
         if (null !== $this->remoteId) {
             $res['RemoteId'] = $this->remoteId;
         }
@@ -102,38 +103,46 @@ class tunnelIkeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tunnelIkeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IkeAuthAlg'])) {
             $model->ikeAuthAlg = $map['IkeAuthAlg'];
         }
+
         if (isset($map['IkeEncAlg'])) {
             $model->ikeEncAlg = $map['IkeEncAlg'];
         }
+
         if (isset($map['IkeLifetime'])) {
             $model->ikeLifetime = $map['IkeLifetime'];
         }
+
         if (isset($map['IkeMode'])) {
             $model->ikeMode = $map['IkeMode'];
         }
+
         if (isset($map['IkePfs'])) {
             $model->ikePfs = $map['IkePfs'];
         }
+
         if (isset($map['IkeVersion'])) {
             $model->ikeVersion = $map['IkeVersion'];
         }
+
         if (isset($map['LocalId'])) {
             $model->localId = $map['LocalId'];
         }
+
         if (isset($map['Psk'])) {
             $model->psk = $map['Psk'];
         }
+
         if (isset($map['RemoteId'])) {
             $model->remoteId = $map['RemoteId'];
         }

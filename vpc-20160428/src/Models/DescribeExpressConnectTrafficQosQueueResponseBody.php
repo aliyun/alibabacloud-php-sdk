@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeExpressConnectTrafficQosQueueResponseBody\queueList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeExpressConnectTrafficQosQueueResponseBody extends Model
 {
     /**
-     * @description The information about the QoS queues.
-     *
      * @var queueList[]
      */
     public $queueList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 606998F0-B94D-48FE-8316-ACA81BB230DA
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeExpressConnectTrafficQosQueueResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->queueList)) {
+            Model::validateArray($this->queueList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queueList) {
-            $res['QueueList'] = [];
-            if (null !== $this->queueList && \is_array($this->queueList)) {
-                $n = 0;
-                foreach ($this->queueList as $item) {
-                    $res['QueueList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->queueList)) {
+                $res['QueueList'] = [];
+                $n1               = 0;
+                foreach ($this->queueList as $item1) {
+                    $res['QueueList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeExpressConnectTrafficQosQueueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeExpressConnectTrafficQosQueueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QueueList'])) {
             if (!empty($map['QueueList'])) {
                 $model->queueList = [];
-                $n                = 0;
-                foreach ($map['QueueList'] as $item) {
-                    $model->queueList[$n++] = null !== $item ? queueList::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['QueueList'] as $item1) {
+                    $model->queueList[$n1++] = queueList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

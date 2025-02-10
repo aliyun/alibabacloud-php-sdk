@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpGroupsResponseBody\bgpGroups\bgpGroup;
-use AlibabaCloud\Tea\Model;
 
 class bgpGroups extends Model
 {
@@ -19,17 +19,21 @@ class bgpGroups extends Model
 
     public function validate()
     {
+        if (\is_array($this->bgpGroup)) {
+            Model::validateArray($this->bgpGroup);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bgpGroup) {
-            $res['BgpGroup'] = [];
-            if (null !== $this->bgpGroup && \is_array($this->bgpGroup)) {
-                $n = 0;
-                foreach ($this->bgpGroup as $item) {
-                    $res['BgpGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bgpGroup)) {
+                $res['BgpGroup'] = [];
+                $n1              = 0;
+                foreach ($this->bgpGroup as $item1) {
+                    $res['BgpGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class bgpGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bgpGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BgpGroup'])) {
             if (!empty($map['BgpGroup'])) {
                 $model->bgpGroup = [];
-                $n               = 0;
-                foreach ($map['BgpGroup'] as $item) {
-                    $model->bgpGroup[$n++] = null !== $item ? bgpGroup::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['BgpGroup'] as $item1) {
+                    $model->bgpGroup[$n1++] = bgpGroup::fromMap($item1);
                 }
             }
         }

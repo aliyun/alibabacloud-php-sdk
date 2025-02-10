@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeTagsResponseBody\tagResources;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagResource extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example FinanceDept
-     *
      * @var string
      */
     public $tagKey;
-
     /**
-     * @description The tag value.
-     *
-     * @example FinanceJoshua
-     *
      * @var string
      */
     public $tagValue;
@@ -32,14 +23,16 @@ class tagResource extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -47,17 +40,18 @@ class tagResource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

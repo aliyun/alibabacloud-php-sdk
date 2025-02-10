@@ -4,142 +4,72 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcsRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVpcsRequest extends Model
 {
     /**
-     * @description The ID of the DHCP options set.
-     *
-     * @example dopt-o6w0df4epg9zo8isy****
-     *
      * @var string
      */
     public $dhcpOptionsSetId;
-
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-     *
-     *   **true**: performs only a dry run. The system prechecks whether your AccessKey pair is valid, whether the RAM user is authorized, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and VPCs are queried.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
-
     /**
-     * @description Query for VPCs in the specified region that have enabled IPv6 CIDR blocks. The value is empty by default, which means no filtering based on IPv6 availability is conducted. Valid values:
-     *
-     * - true: enabled
-     * @example false
-     *
      * @var bool
      */
     public $enableIpv6;
-
     /**
-     * @description Specifies whether to query the default VPC in the specified region. Valid values:
-     *
-     *   **true** (default)
-     *   **false**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isDefault;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The page number. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The region ID of the VPC.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the resource group to which the VPC to be queried belongs.
-     *
-     * @example rg-acfmxvfvazb4p****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The tags of the resource.
-     *
      * @var tag[]
      */
     public $tag;
-
     /**
-     * @description The VPC ID.
-     *
-     * You can specify up to 20 VPC IDs. Separate multiple IDs with commas (,).
-     * @example vpc-bp1b1xjllp3ve5yze****
-     *
      * @var string
      */
     public $vpcId;
-
     /**
-     * @description The name of the VPC.
-     *
-     * @example Vpc-1
-     *
      * @var string
      */
     public $vpcName;
-
     /**
-     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
-     *
-     * @example 253460731706911258
-     *
      * @var int
      */
     public $vpcOwnerId;
@@ -164,62 +94,81 @@ class DescribeVpcsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dhcpOptionsSetId) {
             $res['DhcpOptionsSetId'] = $this->dhcpOptionsSetId;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->enableIpv6) {
             $res['EnableIpv6'] = $this->enableIpv6;
         }
+
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
         }
+
         if (null !== $this->vpcOwnerId) {
             $res['VpcOwnerId'] = $this->vpcOwnerId;
         }
@@ -227,65 +176,80 @@ class DescribeVpcsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVpcsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DhcpOptionsSetId'])) {
             $model->dhcpOptionsSetId = $map['DhcpOptionsSetId'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['EnableIpv6'])) {
             $model->enableIpv6 = $map['EnableIpv6'];
         }
+
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
         }
+
         if (isset($map['VpcOwnerId'])) {
             $model->vpcOwnerId = $map['VpcOwnerId'];
         }

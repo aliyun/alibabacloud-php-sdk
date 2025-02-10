@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePhysicalConnectionOccupancyOrderResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class CreatePhysicalConnectionOccupancyOrderResponseBody extends Model
 {
     /**
-     * @description The details.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9B9300FE-11E2-4E3B-949C-BED3B44DD26D
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class CreatePhysicalConnectionOccupancyOrderResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class CreatePhysicalConnectionOccupancyOrderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePhysicalConnectionOccupancyOrderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

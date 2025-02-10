@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVSwitchAttributesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routeTable extends Model
 {
     /**
-     * @description The ID of the route table that is associated with the vSwitch.
-     *
-     * @example vtb-bp145q7glnuzdv****
-     *
      * @var string
      */
     public $routeTableId;
-
     /**
-     * @description The type of the route table. Valid values:
-     *
-     *   **System**
-     *   **Custom**
-     *
-     * @example System
-     *
      * @var string
      */
     public $routeTableType;
@@ -35,14 +23,16 @@ class routeTable extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
+
         if (null !== $this->routeTableType) {
             $res['RouteTableType'] = $this->routeTableType;
         }
@@ -50,17 +40,18 @@ class routeTable extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeTable
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }
+
         if (isset($map['RouteTableType'])) {
             $model->routeTableType = $map['RouteTableType'];
         }

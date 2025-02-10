@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeTagKeysForExpressConnectResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeTagKeysForExpressConnectResponseBody\tagKeys\tagKey;
-use AlibabaCloud\Tea\Model;
 
 class tagKeys extends Model
 {
@@ -19,17 +19,21 @@ class tagKeys extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagKey)) {
+            Model::validateArray($this->tagKey);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagKey) {
-            $res['TagKey'] = [];
-            if (null !== $this->tagKey && \is_array($this->tagKey)) {
-                $n = 0;
-                foreach ($this->tagKey as $item) {
-                    $res['TagKey'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagKey)) {
+                $res['TagKey'] = [];
+                $n1            = 0;
+                foreach ($this->tagKey as $item1) {
+                    $res['TagKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class tagKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
                 $model->tagKey = [];
-                $n             = 0;
-                foreach ($map['TagKey'] as $item) {
-                    $model->tagKey[$n++] = null !== $item ? tagKey::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['TagKey'] as $item1) {
+                    $model->tagKey[$n1++] = tagKey::fromMap($item1);
                 }
             }
         }

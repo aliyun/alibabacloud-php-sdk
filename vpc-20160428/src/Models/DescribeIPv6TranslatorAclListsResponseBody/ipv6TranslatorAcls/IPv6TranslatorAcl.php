@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorAclListsResponseBody\ipv6TranslatorAcls;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IPv6TranslatorAcl extends Model
 {
     /**
-     * @description The ACL ID.
-     *
-     * @example ipv6transacl-bp1de2****
-     *
      * @var string
      */
     public $aclId;
-
     /**
-     * @description The ACL name.
-     *
-     * @example acl1
-     *
      * @var string
      */
     public $aclName;
@@ -32,14 +23,16 @@ class IPv6TranslatorAcl extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
         }
@@ -47,17 +40,18 @@ class IPv6TranslatorAcl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IPv6TranslatorAcl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
         }

@@ -4,31 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeHaVipsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
     /**
-     * @description The filter keys. You can specify at most five filter keys. Valid values of **N**: **1 to 5**. The following filter keys are supported:
-     *
-     *   **VpcId**: virtual private cloud (VPC) ID
-     *   **VSwitchId**: vSwitch ID
-     *   **Status**: HAVIP status
-     *   **HaVipId**: HAVIP ID
-     *   **HaVipAddress**: HAVIP IP address
-     *
-     * The logical operator among multiple filter keys is AND. HAVIPs can be queried only if all filter keys are matched.
-     * @example HaVipId
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The value of the filter key. Valid values of **N**: **1 to 5**.
-     *
-     * @example havip-bp19o63nequs01i8d****
-     *
      * @var string[]
      */
     public $value;
@@ -39,35 +23,51 @@ class filter extends Model
 
     public function validate()
     {
+        if (\is_array($this->value)) {
+            Model::validateArray($this->value);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
-            $res['Value'] = $this->value;
+            if (\is_array($this->value)) {
+                $res['Value'] = [];
+                $n1           = 0;
+                foreach ($this->value as $item1) {
+                    $res['Value'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
-                $model->value = $map['Value'];
+                $model->value = [];
+                $n1           = 0;
+                foreach ($map['Value'] as $item1) {
+                    $model->value[$n1++] = $item1;
+                }
             }
         }
 

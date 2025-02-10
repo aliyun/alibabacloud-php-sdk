@@ -4,113 +4,50 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePhysicalConnectionSetupOrderRequest extends Model
 {
     /**
-     * @description The ID of the access point.
-     *
-     * This parameter is required.
-     * @example ap-cn-beijing-ft-A
-     *
      * @var string
      */
     public $accessPointId;
-
     /**
-     * @description Specifies whether to enable automatic payments. Valid values:
-     *
-     *   **false** (default): disables automatic payment.
-     *   **true**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $autoPay;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-     * @example 318BB676-0A2B-43A0-9AD8-F1D34E93750F
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The connectivity provider of the Express Connect circuit. Valid values:
-     *
-     *   **CT**: China Telecom
-     *   **CU**: China Unicom
-     *   **CM**: China Mobile
-     *   **CO**: other connectivity providers in the Chinese mainland
-     *   **Equinix**: Equinix
-     *   **Other**: other connectivity providers outside the Chinese mainland
-     *
-     * This parameter is required.
-     * @example CT
-     *
      * @var string
      */
     public $lineOperator;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The port type of the Express Connect circuit. Valid values:
-     *
-     *   **100Base-T**: 100 Mbit/s copper Ethernet port
-     *   **1000Base-T** (default): 1,000 Mbit/s copper Ethernet port
-     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
-     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
-     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
-     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
-     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
-     *
-     * >  Whether 40GBase-LR and 100GBase-LR ports can be created depends on resource supplies. For more information, contact your account manager.
-     * @example 100Base-T
-     *
      * @var string
      */
     public $portType;
-
     /**
-     * @description The ID of the redundant physical connection. The redundant physical connection must be in the **Allocated**, **Confirmed**, or **Enabled** state.
-     *
-     * @example pc-bp10zsv5ntp****
-     *
      * @var string
      */
     public $redundantPhysicalConnectionId;
-
     /**
-     * @description The region ID of the Express Connect circuit.
-     *
-     * This parameter is required.
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -131,41 +68,52 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessPointId) {
             $res['AccessPointId'] = $this->accessPointId;
         }
+
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->lineOperator) {
             $res['LineOperator'] = $this->lineOperator;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->portType) {
             $res['PortType'] = $this->portType;
         }
+
         if (null !== $this->redundantPhysicalConnectionId) {
             $res['RedundantPhysicalConnectionId'] = $this->redundantPhysicalConnectionId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -173,44 +121,54 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePhysicalConnectionSetupOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessPointId'])) {
             $model->accessPointId = $map['AccessPointId'];
         }
+
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['LineOperator'])) {
             $model->lineOperator = $map['LineOperator'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PortType'])) {
             $model->portType = $map['PortType'];
         }
+
         if (isset($map['RedundantPhysicalConnectionId'])) {
             $model->redundantPhysicalConnectionId = $map['RedundantPhysicalConnectionId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

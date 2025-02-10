@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
 {
     /**
-     * @description The CIDR block.
-     *
-     * @example 47.0.XX.XX/28
-     *
      * @var string
      */
     public $cidrBlock;
-
     /**
-     * @description The request ID.
-     *
-     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddPublicIpAddressPoolCidrBlockResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteExpressConnectTrafficQosQueueResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 9B9300FE-11E2-4E3B-949C-BED3B44DD26D
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteExpressConnectTrafficQosQueueResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteExpressConnectTrafficQosQueueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteExpressConnectTrafficQosQueueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
