@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\VpcPeer\V20220101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\VpcPeer\V20220101\Models\AcceptVpcPeerConnectionRequest;
 use AlibabaCloud\SDK\VpcPeer\V20220101\Models\AcceptVpcPeerConnectionResponse;
 use AlibabaCloud\SDK\VpcPeer\V20220101\Models\CreateVpcPeerConnectionRequest;
@@ -29,11 +28,10 @@ use AlibabaCloud\SDK\VpcPeer\V20220101\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\VpcPeer\V20220101\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\VpcPeer\V20220101\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\VpcPeer\V20220101\Models\UnTagResourcesResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class VpcPeer extends OpenApiClient
 {
@@ -58,51 +56,62 @@ class VpcPeer extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 接收VPC对等连接
-     *  *
-     * @description *   For a cross-account VPC peering connection, the connection is activated only after the accepter VPC accepts the connection request.
+     * 接收VPC对等连接.
+     *
+     * @remarks
+     *   For a cross-account VPC peering connection, the connection is activated only after the accepter VPC accepts the connection request.
      * *   **AcceptVpcPeerConnection** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the operation in the background. You can call the [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426100.html) operation to query the status of the task.
      *     *   If a VPC peering connection is in the **Updating** state, the VPC peering connection is being activated.
      *     *   If a VPC peering connection is in the **Activated** state, the VPC peering connection is activated.
      * *   You cannot repeatedly call the **AcceptVpcPeerConnection** operation within a specific period of time.
-     *  *
-     * @param AcceptVpcPeerConnectionRequest $request AcceptVpcPeerConnectionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AcceptVpcPeerConnectionResponse AcceptVpcPeerConnectionResponse
+     * @param request - AcceptVpcPeerConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AcceptVpcPeerConnectionResponse
+     *
+     * @param AcceptVpcPeerConnectionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AcceptVpcPeerConnectionResponse
      */
     public function acceptVpcPeerConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $body['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$body['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AcceptVpcPeerConnection',
@@ -115,22 +124,29 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AcceptVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AcceptVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AcceptVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 接收VPC对等连接
-     *  *
-     * @description *   For a cross-account VPC peering connection, the connection is activated only after the accepter VPC accepts the connection request.
+     * 接收VPC对等连接.
+     *
+     * @remarks
+     *   For a cross-account VPC peering connection, the connection is activated only after the accepter VPC accepts the connection request.
      * *   **AcceptVpcPeerConnection** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the operation in the background. You can call the [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426100.html) operation to query the status of the task.
      *     *   If a VPC peering connection is in the **Updating** state, the VPC peering connection is being activated.
      *     *   If a VPC peering connection is in the **Activated** state, the VPC peering connection is activated.
      * *   You cannot repeatedly call the **AcceptVpcPeerConnection** operation within a specific period of time.
-     *  *
-     * @param AcceptVpcPeerConnectionRequest $request AcceptVpcPeerConnectionRequest
      *
-     * @return AcceptVpcPeerConnectionResponse AcceptVpcPeerConnectionResponse
+     * @param request - AcceptVpcPeerConnectionRequest
+     * @returns AcceptVpcPeerConnectionResponse
+     *
+     * @param AcceptVpcPeerConnectionRequest $request
+     *
+     * @return AcceptVpcPeerConnectionResponse
      */
     public function acceptVpcPeerConnection($request)
     {
@@ -140,65 +156,82 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary Creates a VPC peering connection
-     *  *
-     * @description Before you create a VPC peering connection, take note of the following items:
+     * Creates a VPC peering connection.
+     *
+     * @remarks
+     * Before you create a VPC peering connection, take note of the following items:
      * *   **CreateVpcPeerConnection** is an asynchronous operation. After a request is sent, the system returns an **instance ID** and runs the task in the background. You can call [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426095.html) to query the status of the task.
      *     *   If the VPC peering connection is in the **Creating** state, the VPC peering connection is being created.
      *     *   If the VPC peering connection is in the **Activated** state, the VPC peering connection is created.
      *     *   If the VPC peering connection is in the **Accepting** state, it is a cross-account connection. The connection needs to be accepted on the accepter side.
      * *   You cannot repeatedly call **CreateVpcPeerConnection** within the specified period of time.
      * When you create a VPC peering connection, the system automatically activates Cloud Data Transfer (CDT) for you.
-     *  *
-     * @param CreateVpcPeerConnectionRequest $request CreateVpcPeerConnectionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVpcPeerConnectionResponse CreateVpcPeerConnectionResponse
+     * @param request - CreateVpcPeerConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVpcPeerConnectionResponse
+     *
+     * @param CreateVpcPeerConnectionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateVpcPeerConnectionResponse
      */
     public function createVpcPeerConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->linkType)) {
-            $query['LinkType'] = $request->linkType;
+        if (null !== $request->linkType) {
+            @$query['LinkType'] = $request->linkType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->acceptingAliUid)) {
-            $body['AcceptingAliUid'] = $request->acceptingAliUid;
+        if (null !== $request->acceptingAliUid) {
+            @$body['AcceptingAliUid'] = $request->acceptingAliUid;
         }
-        if (!Utils::isUnset($request->acceptingRegionId)) {
-            $body['AcceptingRegionId'] = $request->acceptingRegionId;
+
+        if (null !== $request->acceptingRegionId) {
+            @$body['AcceptingRegionId'] = $request->acceptingRegionId;
         }
-        if (!Utils::isUnset($request->acceptingVpcId)) {
-            $body['AcceptingVpcId'] = $request->acceptingVpcId;
+
+        if (null !== $request->acceptingVpcId) {
+            @$body['AcceptingVpcId'] = $request->acceptingVpcId;
         }
-        if (!Utils::isUnset($request->bandwidth)) {
-            $body['Bandwidth'] = $request->bandwidth;
+
+        if (null !== $request->bandwidth) {
+            @$body['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateVpcPeerConnection',
@@ -211,24 +244,31 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a VPC peering connection
-     *  *
-     * @description Before you create a VPC peering connection, take note of the following items:
+     * Creates a VPC peering connection.
+     *
+     * @remarks
+     * Before you create a VPC peering connection, take note of the following items:
      * *   **CreateVpcPeerConnection** is an asynchronous operation. After a request is sent, the system returns an **instance ID** and runs the task in the background. You can call [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426095.html) to query the status of the task.
      *     *   If the VPC peering connection is in the **Creating** state, the VPC peering connection is being created.
      *     *   If the VPC peering connection is in the **Activated** state, the VPC peering connection is created.
      *     *   If the VPC peering connection is in the **Accepting** state, it is a cross-account connection. The connection needs to be accepted on the accepter side.
      * *   You cannot repeatedly call **CreateVpcPeerConnection** within the specified period of time.
      * When you create a VPC peering connection, the system automatically activates Cloud Data Transfer (CDT) for you.
-     *  *
-     * @param CreateVpcPeerConnectionRequest $request CreateVpcPeerConnectionRequest
      *
-     * @return CreateVpcPeerConnectionResponse CreateVpcPeerConnectionResponse
+     * @param request - CreateVpcPeerConnectionRequest
+     * @returns CreateVpcPeerConnectionResponse
+     *
+     * @param CreateVpcPeerConnectionRequest $request
+     *
+     * @return CreateVpcPeerConnectionResponse
      */
     public function createVpcPeerConnection($request)
     {
@@ -238,39 +278,48 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary 删除VPC对等连接
-     *  *
-     * @description *   You can delete VPC peering connections. After you delete a VPC peering connection, your service is affected. Proceed with caution.
+     * 删除VPC对等连接.
+     *
+     * @remarks
+     *   You can delete VPC peering connections. After you delete a VPC peering connection, your service is affected. Proceed with caution.
      *     *   If you forcefully delete a VPC peering connection, the system deletes the routes that point to the VPC peering connection from the VPC route table.
      *     *   If you do not forcefully delete a VPC peering connection, the system does not delete these routes. You must manually delete them.
      * *   The **DeleteVpcPeerConnection** operation is asynchronous. After you send a request, the system returns **RequestId**, but the operation is still being performed in the background. You can call the [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426100.html) operation to query the status of a VPC peering connection.
      *     *   If a VPC peering connection is in the **Deleting** state, it is being deleted.
      *     *   If a VPC peering connection is in the **Deleted** state, it is deleted.
      * *   You cannot repeatedly call the **DeleteVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
-     *  *
-     * @param DeleteVpcPeerConnectionRequest $request DeleteVpcPeerConnectionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVpcPeerConnectionResponse DeleteVpcPeerConnectionResponse
+     * @param request - DeleteVpcPeerConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVpcPeerConnectionResponse
+     *
+     * @param DeleteVpcPeerConnectionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteVpcPeerConnectionResponse
      */
     public function deleteVpcPeerConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->force)) {
-            $body['Force'] = $request->force;
+
+        if (null !== $request->force) {
+            @$body['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteVpcPeerConnection',
@@ -283,24 +332,31 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除VPC对等连接
-     *  *
-     * @description *   You can delete VPC peering connections. After you delete a VPC peering connection, your service is affected. Proceed with caution.
+     * 删除VPC对等连接.
+     *
+     * @remarks
+     *   You can delete VPC peering connections. After you delete a VPC peering connection, your service is affected. Proceed with caution.
      *     *   If you forcefully delete a VPC peering connection, the system deletes the routes that point to the VPC peering connection from the VPC route table.
      *     *   If you do not forcefully delete a VPC peering connection, the system does not delete these routes. You must manually delete them.
      * *   The **DeleteVpcPeerConnection** operation is asynchronous. After you send a request, the system returns **RequestId**, but the operation is still being performed in the background. You can call the [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426100.html) operation to query the status of a VPC peering connection.
      *     *   If a VPC peering connection is in the **Deleting** state, it is being deleted.
      *     *   If a VPC peering connection is in the **Deleted** state, it is deleted.
      * *   You cannot repeatedly call the **DeleteVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
-     *  *
-     * @param DeleteVpcPeerConnectionRequest $request DeleteVpcPeerConnectionRequest
      *
-     * @return DeleteVpcPeerConnectionResponse DeleteVpcPeerConnectionResponse
+     * @param request - DeleteVpcPeerConnectionRequest
+     * @returns DeleteVpcPeerConnectionResponse
+     *
+     * @param DeleteVpcPeerConnectionRequest $request
+     *
+     * @return DeleteVpcPeerConnectionResponse
      */
     public function deleteVpcPeerConnection($request)
     {
@@ -310,25 +366,31 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a virtual private cloud (VPC) peering connection.
-     *  *
-     * @param GetVpcPeerConnectionAttributeRequest $request GetVpcPeerConnectionAttributeRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a virtual private cloud (VPC) peering connection.
      *
-     * @return GetVpcPeerConnectionAttributeResponse GetVpcPeerConnectionAttributeResponse
+     * @param request - GetVpcPeerConnectionAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVpcPeerConnectionAttributeResponse
+     *
+     * @param GetVpcPeerConnectionAttributeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetVpcPeerConnectionAttributeResponse
      */
     public function getVpcPeerConnectionAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $body['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$body['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVpcPeerConnectionAttribute',
@@ -341,16 +403,22 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVpcPeerConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVpcPeerConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVpcPeerConnectionAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a virtual private cloud (VPC) peering connection.
-     *  *
-     * @param GetVpcPeerConnectionAttributeRequest $request GetVpcPeerConnectionAttributeRequest
+     * Queries the details of a virtual private cloud (VPC) peering connection.
      *
-     * @return GetVpcPeerConnectionAttributeResponse GetVpcPeerConnectionAttributeResponse
+     * @param request - GetVpcPeerConnectionAttributeRequest
+     * @returns GetVpcPeerConnectionAttributeResponse
+     *
+     * @param GetVpcPeerConnectionAttributeRequest $request
+     *
+     * @return GetVpcPeerConnectionAttributeResponse
      */
     public function getVpcPeerConnectionAttribute($request)
     {
@@ -360,42 +428,53 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags that are added to Virtual Private Cloud (VPC) peering connections.
-     *  *
-     * @description *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+     * Queries tags that are added to Virtual Private Cloud (VPC) peering connections.
+     *
+     * @remarks
+     *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
      * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you set only **Tag.N.Value**, an error message is returned.
      * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -408,21 +487,28 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tags that are added to Virtual Private Cloud (VPC) peering connections.
-     *  *
-     * @description *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+     * Queries tags that are added to Virtual Private Cloud (VPC) peering connections.
+     *
+     * @remarks
+     *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
      * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you set only **Tag.N.Value**, an error message is returned.
      * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -432,50 +518,63 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary 查询VPC对等连接列表
-     *  *
-     * @param ListVpcPeerConnectionsRequest $tmpReq  ListVpcPeerConnectionsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries virtual private cloud (VPC) peering connections.
      *
-     * @return ListVpcPeerConnectionsResponse ListVpcPeerConnectionsResponse
+     * @param tmpReq - ListVpcPeerConnectionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcPeerConnectionsResponse
+     *
+     * @param ListVpcPeerConnectionsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListVpcPeerConnectionsResponse
      */
     public function listVpcPeerConnectionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListVpcPeerConnectionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->vpcId)) {
-            $request->vpcIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vpcId, 'VpcId', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->vpcId) {
+            $request->vpcIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vpcId, 'VpcId', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpcIdShrink)) {
-            $body['VpcId'] = $request->vpcIdShrink;
+
+        if (null !== $request->vpcIdShrink) {
+            @$body['VpcId'] = $request->vpcIdShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListVpcPeerConnections',
@@ -488,16 +587,22 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcPeerConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcPeerConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcPeerConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询VPC对等连接列表
-     *  *
-     * @param ListVpcPeerConnectionsRequest $request ListVpcPeerConnectionsRequest
+     * Queries virtual private cloud (VPC) peering connections.
      *
-     * @return ListVpcPeerConnectionsResponse ListVpcPeerConnectionsResponse
+     * @param request - ListVpcPeerConnectionsRequest
+     * @returns ListVpcPeerConnectionsResponse
+     *
+     * @param ListVpcPeerConnectionsRequest $request
+     *
+     * @return ListVpcPeerConnectionsResponse
      */
     public function listVpcPeerConnections($request)
     {
@@ -507,47 +612,59 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary 修改VPC对等连接
-     *  *
-     * @description *   The **ModifyVpcPeerConnection** operation is asynchronous. After you send a request, the system returns **RequestId**, but the operation is still being performed in the background. You can call the [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426100.html) operation to query the status of a VPC peering connection.
+     * Modifies the description or name of a virtual private cloud (VPC) peering connection.
+     *
+     * @remarks
+     *   The **ModifyVpcPeerConnection** operation is asynchronous. After you send a request, the system returns **RequestId**, but the operation is still being performed in the background. You can call the [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426100.html) operation to query the status of a VPC peering connection.
      *     *   If a VPC peering connection is in the **Updating** state, the VPC peering connection is being modified.
      *     *   If a VPC peering connection is in the **Activated** state, the VPC peering connection is modified.
      * *   You cannot repeatedly call the **ModifyVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
-     *  *
-     * @param ModifyVpcPeerConnectionRequest $request ModifyVpcPeerConnectionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyVpcPeerConnectionResponse ModifyVpcPeerConnectionResponse
+     * @param request - ModifyVpcPeerConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyVpcPeerConnectionResponse
+     *
+     * @param ModifyVpcPeerConnectionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyVpcPeerConnectionResponse
      */
     public function modifyVpcPeerConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->linkType)) {
-            $query['LinkType'] = $request->linkType;
+        if (null !== $request->linkType) {
+            @$query['LinkType'] = $request->linkType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $body['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$body['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyVpcPeerConnection',
@@ -560,21 +677,28 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改VPC对等连接
-     *  *
-     * @description *   The **ModifyVpcPeerConnection** operation is asynchronous. After you send a request, the system returns **RequestId**, but the operation is still being performed in the background. You can call the [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426100.html) operation to query the status of a VPC peering connection.
+     * Modifies the description or name of a virtual private cloud (VPC) peering connection.
+     *
+     * @remarks
+     *   The **ModifyVpcPeerConnection** operation is asynchronous. After you send a request, the system returns **RequestId**, but the operation is still being performed in the background. You can call the [GetVpcPeerConnectionAttribute](https://help.aliyun.com/document_detail/426100.html) operation to query the status of a VPC peering connection.
      *     *   If a VPC peering connection is in the **Updating** state, the VPC peering connection is being modified.
      *     *   If a VPC peering connection is in the **Activated** state, the VPC peering connection is modified.
      * *   You cannot repeatedly call the **ModifyVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
-     *  *
-     * @param ModifyVpcPeerConnectionRequest $request ModifyVpcPeerConnectionRequest
      *
-     * @return ModifyVpcPeerConnectionResponse ModifyVpcPeerConnectionResponse
+     * @param request - ModifyVpcPeerConnectionRequest
+     * @returns ModifyVpcPeerConnectionResponse
+     *
+     * @param ModifyVpcPeerConnectionRequest $request
+     *
+     * @return ModifyVpcPeerConnectionResponse
      */
     public function modifyVpcPeerConnection($request)
     {
@@ -584,31 +708,39 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary Moves a Virtual Private Cloud (VPC) peering connection from one resource group to another.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Moves a Virtual Private Cloud (VPC) peering connection from one resource group to another.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MoveResourceGroup',
@@ -621,16 +753,22 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Moves a Virtual Private Cloud (VPC) peering connection from one resource group to another.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * Moves a Virtual Private Cloud (VPC) peering connection from one resource group to another.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -640,34 +778,43 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary 拒绝VPC对等连接
-     *  *
-     * @description *   An acceptor VPC can reject a connection request from the requester VPC of a cross-account VPC peering connection. After the connection request is rejected, the VPC peering connection enters the **Rejected** state.
-     * *   You cannot repeatedly call the **RejectVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
-     *  *
-     * @param RejectVpcPeerConnectionRequest $request RejectVpcPeerConnectionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 拒绝VPC对等连接.
      *
-     * @return RejectVpcPeerConnectionResponse RejectVpcPeerConnectionResponse
+     * @remarks
+     *   An acceptor VPC can reject a connection request from the requester VPC of a cross-account VPC peering connection. After the connection request is rejected, the VPC peering connection enters the **Rejected** state.
+     * *   You cannot repeatedly call the **RejectVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
+     *
+     * @param request - RejectVpcPeerConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RejectVpcPeerConnectionResponse
+     *
+     * @param RejectVpcPeerConnectionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RejectVpcPeerConnectionResponse
      */
     public function rejectVpcPeerConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $body['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$body['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RejectVpcPeerConnection',
@@ -680,19 +827,26 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RejectVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RejectVpcPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RejectVpcPeerConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 拒绝VPC对等连接
-     *  *
-     * @description *   An acceptor VPC can reject a connection request from the requester VPC of a cross-account VPC peering connection. After the connection request is rejected, the VPC peering connection enters the **Rejected** state.
-     * *   You cannot repeatedly call the **RejectVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
-     *  *
-     * @param RejectVpcPeerConnectionRequest $request RejectVpcPeerConnectionRequest
+     * 拒绝VPC对等连接.
      *
-     * @return RejectVpcPeerConnectionResponse RejectVpcPeerConnectionResponse
+     * @remarks
+     *   An acceptor VPC can reject a connection request from the requester VPC of a cross-account VPC peering connection. After the connection request is rejected, the VPC peering connection enters the **Rejected** state.
+     * *   You cannot repeatedly call the **RejectVpcPeerConnection** operation for the same VPC peering connection within the specified period of time.
+     *
+     * @param request - RejectVpcPeerConnectionRequest
+     * @returns RejectVpcPeerConnectionResponse
+     *
+     * @param RejectVpcPeerConnectionRequest $request
+     *
+     * @return RejectVpcPeerConnectionResponse
      */
     public function rejectVpcPeerConnection($request)
     {
@@ -702,9 +856,10 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary Creates tags and adds them to a virtual private cloud (VPC) peering connection.
-     *  *
-     * @description Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
+     * Creates tags and adds them to a virtual private cloud (VPC) peering connection.
+     *
+     * @remarks
+     * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
      * *   The keys of tags that are added to the same instance must be unique.
      * *   You cannot create tags without adding them to instances. All tags must be added to instances.
      * *   Tag information is not shared across regions.
@@ -712,33 +867,42 @@ class VpcPeer extends OpenApiClient
      * *   For the same account and region, tags added to different VPC peering connections are shared.
      *     For example, if a tag is added to a VPC peering connection, the tag can also be added to other VPC peering connections within the same account and region. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
      * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -751,14 +915,18 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates tags and adds them to a virtual private cloud (VPC) peering connection.
-     *  *
-     * @description Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
+     * Creates tags and adds them to a virtual private cloud (VPC) peering connection.
+     *
+     * @remarks
+     * Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
      * *   The keys of tags that are added to the same instance must be unique.
      * *   You cannot create tags without adding them to instances. All tags must be added to instances.
      * *   Tag information is not shared across regions.
@@ -766,10 +934,13 @@ class VpcPeer extends OpenApiClient
      * *   For the same account and region, tags added to different VPC peering connections are shared.
      *     For example, if a tag is added to a VPC peering connection, the tag can also be added to other VPC peering connections within the same account and region. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
      * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -779,37 +950,47 @@ class VpcPeer extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from specified Virtual Private Cloud (VPC) peering connections.
-     *  *
-     * @param UnTagResourcesRequest $request UnTagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from specified Virtual Private Cloud (VPC) peering connections.
      *
-     * @return UnTagResourcesResponse UnTagResourcesResponse
+     * @param request - UnTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnTagResourcesResponse
      */
     public function unTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnTagResources',
@@ -822,16 +1003,22 @@ class VpcPeer extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from specified Virtual Private Cloud (VPC) peering connections.
-     *  *
-     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * Removes tags from specified Virtual Private Cloud (VPC) peering connections.
      *
-     * @return UnTagResourcesResponse UnTagResourcesResponse
+     * @param request - UnTagResourcesRequest
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $request
+     *
+     * @return UnTagResourcesResponse
      */
     public function unTagResources($request)
     {

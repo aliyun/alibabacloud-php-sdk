@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\VpcPeer\V20220101\Models\GetVpcPeerConnectionAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vpc extends Model
 {
     /**
-     * @description The CIDR block of the requester VPC.
-     *
      * @var string[]
      */
     public $ipv4Cidrs;
-
     /**
-     * @description The IPv6 CIDR block of the requester VPC.
-     *
      * @var string[]
      */
     public $ipv6Cidrs;
-
     /**
-     * @description The ID of the requester VPC.
-     *
-     * @example vpc-bp1gsk7h12ew7oegk****
-     *
      * @var string
      */
     public $vpcId;
@@ -38,17 +28,38 @@ class vpc extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipv4Cidrs)) {
+            Model::validateArray($this->ipv4Cidrs);
+        }
+        if (\is_array($this->ipv6Cidrs)) {
+            Model::validateArray($this->ipv6Cidrs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv4Cidrs) {
-            $res['Ipv4Cidrs'] = $this->ipv4Cidrs;
+            if (\is_array($this->ipv4Cidrs)) {
+                $res['Ipv4Cidrs'] = [];
+                $n1               = 0;
+                foreach ($this->ipv4Cidrs as $item1) {
+                    $res['Ipv4Cidrs'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ipv6Cidrs) {
-            $res['Ipv6Cidrs'] = $this->ipv6Cidrs;
+            if (\is_array($this->ipv6Cidrs)) {
+                $res['Ipv6Cidrs'] = [];
+                $n1               = 0;
+                foreach ($this->ipv6Cidrs as $item1) {
+                    $res['Ipv6Cidrs'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -56,24 +67,34 @@ class vpc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv4Cidrs'])) {
             if (!empty($map['Ipv4Cidrs'])) {
-                $model->ipv4Cidrs = $map['Ipv4Cidrs'];
+                $model->ipv4Cidrs = [];
+                $n1               = 0;
+                foreach ($map['Ipv4Cidrs'] as $item1) {
+                    $model->ipv4Cidrs[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Ipv6Cidrs'])) {
             if (!empty($map['Ipv6Cidrs'])) {
-                $model->ipv6Cidrs = $map['Ipv6Cidrs'];
+                $model->ipv6Cidrs = [];
+                $n1               = 0;
+                foreach ($map['Ipv6Cidrs'] as $item1) {
+                    $model->ipv6Cidrs[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

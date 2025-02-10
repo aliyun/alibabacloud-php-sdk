@@ -4,80 +4,40 @@
 
 namespace AlibabaCloud\SDK\VpcPeer\V20220101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\VpcPeer\V20220101\Models\ListVpcPeerConnectionsRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class ListVpcPeerConnectionsRequest extends Model
 {
     /**
-     * @description The ID of the VPC peering connection that you want to query.
-     *
-     * @example pcc-lnk0m24khwvtkm****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The name of the VPC peering connection that you want to query.
-     *
-     * @example vpcpeer
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The token that is used for the next query. Valid values:
-     *
-     *   You do not need to specify this parameter for the first request.
-     *   You must specify the token that is obtained from the previous query as the value of NextToken.
-     *
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The ID of the region where you want to query VPC peering connections.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the resource group.
-     *
-     * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
-     * @example rg-acfm2ggeub5uf3y
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The tag list.
-     *
      * @var tags[]
      */
     public $tags;
-
     /**
-     * @description The ID of the requester VPC or accepter VPC of the VPC peering connection that you want to query.
-     *
      * @var string[]
      */
     public $vpcId;
@@ -94,83 +54,114 @@ class ListVpcPeerConnectionsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        if (\is_array($this->vpcId)) {
+            Model::validateArray($this->vpcId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+            if (\is_array($this->vpcId)) {
+                $res['VpcId'] = [];
+                $n1           = 0;
+                foreach ($this->vpcId as $item1) {
+                    $res['VpcId'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVpcPeerConnectionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['VpcId'])) {
             if (!empty($map['VpcId'])) {
-                $model->vpcId = $map['VpcId'];
+                $model->vpcId = [];
+                $n1           = 0;
+                foreach ($map['VpcId'] as $item1) {
+                    $model->vpcId[$n1++] = $item1;
+                }
             }
         }
 

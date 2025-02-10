@@ -4,44 +4,24 @@
 
 namespace AlibabaCloud\SDK\VpcPeer\V20220101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\VpcPeer\V20220101\Models\ListTagResourcesResponseBody\tagResources;
-use AlibabaCloud\Tea\Model;
 
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The token that is used for the next query. Valid values:
-     *
-     *   If **NextToken** is empty, it indicates that no next query is to be sent.
-     *   If **NextToken** is returned, the value indicates the token that is used for the next query.
-     *
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example DE65F6B7-7566-4802-9007-96F2494AC512
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The resources to which the tags are added.
-     *
      * @var tagResources[]
      */
     public $tagResources;
@@ -54,26 +34,33 @@ class ListTagResourcesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagResources)) {
+            Model::validateArray($this->tagResources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tagResources) {
-            $res['TagResources'] = [];
-            if (null !== $this->tagResources && \is_array($this->tagResources)) {
-                $n = 0;
-                foreach ($this->tagResources as $item) {
-                    $res['TagResources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagResources)) {
+                $res['TagResources'] = [];
+                $n1                  = 0;
+                foreach ($this->tagResources as $item1) {
+                    $res['TagResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -81,29 +68,32 @@ class ListTagResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TagResources'])) {
             if (!empty($map['TagResources'])) {
                 $model->tagResources = [];
-                $n                   = 0;
-                foreach ($map['TagResources'] as $item) {
-                    $model->tagResources[$n++] = null !== $item ? tagResources::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['TagResources'] as $item1) {
+                    $model->tagResources[$n1++] = tagResources::fromMap($item1);
                 }
             }
         }
