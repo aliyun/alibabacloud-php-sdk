@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckCreatedByEnabledResponseBody extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $openStatus;
-
     /**
-     * @example 682DD9E1-F530-5D14-A839-A6787FA82B74
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class CheckCreatedByEnabledResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->openStatus) {
             $res['OpenStatus'] = $this->openStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class CheckCreatedByEnabledResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckCreatedByEnabledResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpenStatus'])) {
             $model->openStatus = $map['OpenStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

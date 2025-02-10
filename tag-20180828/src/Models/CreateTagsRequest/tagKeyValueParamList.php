@@ -4,34 +4,20 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsRequest\tagKeyValueParamList\tagValueParamList;
-use AlibabaCloud\Tea\Model;
 
 class tagKeyValueParamList extends Model
 {
     /**
-     * @description The description of the key for tag N.
-     *
-     * Valid values of N: 1 to 10.
-     * @example Business environment
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The key of tag N.
-     *
-     * This parameter is required.
-     * @example Environment
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The information about the tag value.
-     *
      * @var tagValueParamList[]
      */
     public $tagValueParamList;
@@ -43,23 +29,29 @@ class tagKeyValueParamList extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagValueParamList)) {
+            Model::validateArray($this->tagValueParamList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->tagValueParamList) {
-            $res['TagValueParamList'] = [];
-            if (null !== $this->tagValueParamList && \is_array($this->tagValueParamList)) {
-                $n = 0;
-                foreach ($this->tagValueParamList as $item) {
-                    $res['TagValueParamList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagValueParamList)) {
+                $res['TagValueParamList'] = [];
+                $n1                       = 0;
+                foreach ($this->tagValueParamList as $item1) {
+                    $res['TagValueParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -67,26 +59,28 @@ class tagKeyValueParamList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagKeyValueParamList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['TagValueParamList'])) {
             if (!empty($map['TagValueParamList'])) {
                 $model->tagValueParamList = [];
-                $n                        = 0;
-                foreach ($map['TagValueParamList'] as $item) {
-                    $model->tagValueParamList[$n++] = null !== $item ? tagValueParamList::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['TagValueParamList'] as $item1) {
+                    $model->tagValueParamList[$n1++] = tagValueParamList::fromMap($item1);
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisablePolicyTypeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 6E27F22C-EDA3-132E-A53F-77DE3BC2343D
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DisablePolicyTypeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DisablePolicyTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisablePolicyTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

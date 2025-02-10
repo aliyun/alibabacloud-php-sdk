@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloseCreatedByResponseBody extends Model
 {
     /**
-     * @example AECFE0F2-CEC3-5D16-BE4C-E2F95083D063
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class CloseCreatedByResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class CloseCreatedByResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseCreatedByResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetEffectivePolicyRequest extends Model
 {
@@ -12,47 +12,27 @@ class GetEffectivePolicyRequest extends Model
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The region ID. Set the value to cn-shanghai.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
-     * @description The ID of the object.
-     *
-     * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required.
-     * @example 154950938137****
-     *
+     * @var string[]
+     */
+    public $tagKeys;
+    /**
      * @var string
      */
     public $targetId;
-
     /**
-     * @description The type of the object. Valid values:
-     *
-     *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-     *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-     *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-     *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-     *
-     * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required. The value of this parameter is not case-sensitive.
-     * @example ACCOUNT
-     *
      * @var string
      */
     public $targetType;
@@ -61,32 +41,52 @@ class GetEffectivePolicyRequest extends Model
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'tagKeys'              => 'TagKeys',
         'targetId'             => 'TargetId',
         'targetType'           => 'TargetType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tagKeys)) {
+            Model::validateArray($this->tagKeys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
+        if (null !== $this->tagKeys) {
+            if (\is_array($this->tagKeys)) {
+                $res['TagKeys'] = [];
+                $n1             = 0;
+                foreach ($this->tagKeys as $item1) {
+                    $res['TagKeys'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -94,29 +94,44 @@ class GetEffectivePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEffectivePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
+        if (isset($map['TagKeys'])) {
+            if (!empty($map['TagKeys'])) {
+                $model->tagKeys = [];
+                $n1             = 0;
+                foreach ($map['TagKeys'] as $item1) {
+                    $model->tagKeys[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

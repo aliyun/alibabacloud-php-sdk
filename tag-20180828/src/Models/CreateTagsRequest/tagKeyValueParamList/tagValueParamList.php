@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsRequest\tagKeyValueParamList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagValueParamList extends Model
 {
     /**
-     * @description The description of the value for tag N.
-     *
-     * Valid values of N: 1 to 10.
-     * @example Test environment
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The value of tag N.
-     *
-     * Valid values of N: 1 to 10.
-     * @example test
-     *
      * @var string
      */
     public $value;
@@ -34,14 +23,16 @@ class tagValueParamList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +40,18 @@ class tagValueParamList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagValueParamList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

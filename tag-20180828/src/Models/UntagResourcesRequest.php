@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UntagResourcesRequest extends Model
 {
@@ -12,46 +12,23 @@ class UntagResourcesRequest extends Model
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The region ID.
-     *
-     *   If the resources belong to a service that is centrally deployed, set the value to `cn-hangzhou` or to the region ID of the resources by referring to [Regions supported by tag-related operations on resources of centrally deployed Alibaba Cloud services](https://help.aliyun.com/document_detail/2579691.html).
-     *   If the resources belong to a service that is not centrally deployed, set the value to the region ID of the resources.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of a resource.
-     *
-     * This parameter is required.
-     * @example arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
-     *
      * @var string[]
      */
     public $resourceARN;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
-     * @description A tag key.
-     *
-     * This parameter is required.
-     * @example k1
-     *
      * @var string[]
      */
     public $tagKey;
@@ -66,61 +43,98 @@ class UntagResourcesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceARN)) {
+            Model::validateArray($this->resourceARN);
+        }
+        if (\is_array($this->tagKey)) {
+            Model::validateArray($this->tagKey);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceARN) {
-            $res['ResourceARN'] = $this->resourceARN;
+            if (\is_array($this->resourceARN)) {
+                $res['ResourceARN'] = [];
+                $n1                 = 0;
+                foreach ($this->resourceARN as $item1) {
+                    $res['ResourceARN'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+            if (\is_array($this->tagKey)) {
+                $res['TagKey'] = [];
+                $n1            = 0;
+                foreach ($this->tagKey as $item1) {
+                    $res['TagKey'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceARN'])) {
             if (!empty($map['ResourceARN'])) {
-                $model->resourceARN = $map['ResourceARN'];
+                $model->resourceARN = [];
+                $n1                 = 0;
+                foreach ($map['ResourceARN'] as $item1) {
+                    $model->resourceARN[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
-                $model->tagKey = $map['TagKey'];
+                $model->tagKey = [];
+                $n1            = 0;
+                foreach ($map['TagKey'] as $item1) {
+                    $model->tagKey[$n1++] = $item1;
+                }
             }
         }
 

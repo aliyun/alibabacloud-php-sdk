@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models\ListSupportResourceTypesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ListSupportResourceTypesResponseBody\supportResourceTypes\supportItems;
-use AlibabaCloud\Tea\Model;
 
 class supportResourceTypes extends Model
 {
@@ -13,29 +13,15 @@ class supportResourceTypes extends Model
      * @var string
      */
     public $arnTemplate;
-
     /**
-     * @description The service code.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $productCode;
-
     /**
-     * @description The resource type.
-     *
-     * @example instance
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description The supported tag-related capability items.
-     *
-     * >  This parameter is returned only if the `ShowItems` parameter is set to `true`.
      * @var supportItems[]
      */
     public $supportItems;
@@ -48,26 +34,33 @@ class supportResourceTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportItems)) {
+            Model::validateArray($this->supportItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arnTemplate) {
             $res['ArnTemplate'] = $this->arnTemplate;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->supportItems) {
-            $res['SupportItems'] = [];
-            if (null !== $this->supportItems && \is_array($this->supportItems)) {
-                $n = 0;
-                foreach ($this->supportItems as $item) {
-                    $res['SupportItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportItems)) {
+                $res['SupportItems'] = [];
+                $n1                  = 0;
+                foreach ($this->supportItems as $item1) {
+                    $res['SupportItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -75,29 +68,32 @@ class supportResourceTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportResourceTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArnTemplate'])) {
             $model->arnTemplate = $map['ArnTemplate'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['SupportItems'])) {
             if (!empty($map['SupportItems'])) {
                 $model->supportItems = [];
-                $n                   = 0;
-                foreach ($map['SupportItems'] as $item) {
-                    $model->supportItems[$n++] = null !== $item ? supportItems::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['SupportItems'] as $item1) {
+                    $model->supportItems[$n1++] = supportItems::fromMap($item1);
                 }
             }
         }

@@ -2,17 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Tag\V20180828\Models;
+namespace AlibabaCloud\SDK\Tag\V20180828\Models\GetEffectivePolicyResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Tag\V20180828\Models\ListPoliciesResponseBody\policyList;
+use AlibabaCloud\SDK\Tag\V20180828\Models\GetEffectivePolicyResponseBody\policyAttachments\policyList;
 
-class ListPoliciesResponseBody extends Model
+class policyAttachments extends Model
 {
-    /**
-     * @var string
-     */
-    public $nextToken;
     /**
      * @var policyList[]
      */
@@ -20,11 +16,15 @@ class ListPoliciesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $policyType;
+    /**
+     * @var string
+     */
+    public $tagKey;
     protected $_name = [
-        'nextToken'  => 'NextToken',
         'policyList' => 'PolicyList',
-        'requestId'  => 'RequestId',
+        'policyType' => 'PolicyType',
+        'tagKey'     => 'TagKey',
     ];
 
     public function validate()
@@ -38,10 +38,6 @@ class ListPoliciesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-
         if (null !== $this->policyList) {
             if (\is_array($this->policyList)) {
                 $res['PolicyList'] = [];
@@ -52,8 +48,12 @@ class ListPoliciesResponseBody extends Model
             }
         }
 
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
+        }
+
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
         }
 
         return $res;
@@ -67,10 +67,6 @@ class ListPoliciesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-
         if (isset($map['PolicyList'])) {
             if (!empty($map['PolicyList'])) {
                 $model->policyList = [];
@@ -81,8 +77,12 @@ class ListPoliciesResponseBody extends Model
             }
         }
 
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
+        }
+
+        if (isset($map['TagKey'])) {
+            $model->tagKey = $map['TagKey'];
         }
 
         return $model;

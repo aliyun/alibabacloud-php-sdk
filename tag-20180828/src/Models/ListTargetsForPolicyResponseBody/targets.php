@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models\ListTargetsForPolicyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targets extends Model
 {
     /**
-     * @description The ID of the object.
-     *
-     * @example 195320939469****
-     *
      * @var string
      */
     public $targetId;
-
     /**
-     * @description The type of the object. Valid values:
-     *
-     *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-     *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-     *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-     *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-     *
-     * @example ACCOUNT
-     *
      * @var int
      */
     public $targetType;
@@ -37,14 +23,16 @@ class targets extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -52,17 +40,18 @@ class targets extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

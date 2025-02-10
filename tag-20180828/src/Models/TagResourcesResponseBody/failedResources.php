@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models\TagResourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Tag\V20180828\Models\TagResourcesResponseBody\failedResources\failedResource;
-use AlibabaCloud\Tea\Model;
 
 class failedResources extends Model
 {
@@ -19,17 +19,21 @@ class failedResources extends Model
 
     public function validate()
     {
+        if (\is_array($this->failedResource)) {
+            Model::validateArray($this->failedResource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedResource) {
-            $res['FailedResource'] = [];
-            if (null !== $this->failedResource && \is_array($this->failedResource)) {
-                $n = 0;
-                foreach ($this->failedResource as $item) {
-                    $res['FailedResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failedResource)) {
+                $res['FailedResource'] = [];
+                $n1                    = 0;
+                foreach ($this->failedResource as $item1) {
+                    $res['FailedResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class failedResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failedResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedResource'])) {
             if (!empty($map['FailedResource'])) {
                 $model->failedResource = [];
-                $n                     = 0;
-                foreach ($map['FailedResource'] as $item) {
-                    $model->failedResource[$n++] = null !== $item ? failedResource::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['FailedResource'] as $item1) {
+                    $model->failedResource[$n1++] = failedResource::fromMap($item1);
                 }
             }
         }

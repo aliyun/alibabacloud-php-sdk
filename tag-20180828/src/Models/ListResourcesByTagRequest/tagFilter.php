@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models\ListResourcesByTagRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagFilter extends Model
 {
     /**
-     * @description The tag key. This parameter specifies a filter condition for the query.
-     *
-     * This parameter is required.
-     * @example k1
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The tag value. This parameter specifies a filter condition for the query.
-     *
-     * The tag value can be a maximum of 128 characters in length. It cannot contain `http://` or `https://`.
-     * @example v1
-     *
      * @var string
      */
     public $value;
@@ -34,14 +23,16 @@ class tagFilter extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +40,18 @@ class tagFilter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagFilter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

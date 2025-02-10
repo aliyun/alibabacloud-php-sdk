@@ -4,42 +4,54 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Tag\V20180828\Models\GetEffectivePolicyResponseBody\policyAttachments;
 
 class GetEffectivePolicyResponseBody extends Model
 {
     /**
-     * @description The effective tag policy.
-     *
-     * @example {\\"tags\\":{\\"costcenter\\":{\\"tag_value\\":[\\"Beijing\\",\\"Shanghai\\"],\\"tag_key\\":\\"CostCenter\\"}}}
-     *
      * @var string
      */
     public $effectivePolicy;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example BB532282-94F5-5F56-877F-32D5E2A04F3F
-     *
+     * @var policyAttachments[]
+     */
+    public $policyAttachments;
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'effectivePolicy' => 'EffectivePolicy',
-        'requestId'       => 'RequestId',
+        'effectivePolicy'   => 'EffectivePolicy',
+        'policyAttachments' => 'PolicyAttachments',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->policyAttachments)) {
+            Model::validateArray($this->policyAttachments);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effectivePolicy) {
             $res['EffectivePolicy'] = $this->effectivePolicy;
         }
+
+        if (null !== $this->policyAttachments) {
+            if (\is_array($this->policyAttachments)) {
+                $res['PolicyAttachments'] = [];
+                $n1                       = 0;
+                foreach ($this->policyAttachments as $item1) {
+                    $res['PolicyAttachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +59,28 @@ class GetEffectivePolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEffectivePolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EffectivePolicy'])) {
             $model->effectivePolicy = $map['EffectivePolicy'];
         }
+
+        if (isset($map['PolicyAttachments'])) {
+            if (!empty($map['PolicyAttachments'])) {
+                $model->policyAttachments = [];
+                $n1                       = 0;
+                foreach ($map['PolicyAttachments'] as $item1) {
+                    $model->policyAttachments[$n1++] = policyAttachments::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

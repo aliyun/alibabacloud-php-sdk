@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePolicyRequest extends Model
 {
@@ -12,31 +12,18 @@ class DeletePolicyRequest extends Model
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The ID of the tag policy.
-     *
-     * This parameter is required.
-     * @example p-557cb141331f41c7****
-     *
      * @var string
      */
     public $policyId;
-
     /**
-     * @description The region ID. Set the value to cn-shanghai.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
@@ -51,23 +38,28 @@ class DeletePolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -75,26 +67,30 @@ class DeletePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }

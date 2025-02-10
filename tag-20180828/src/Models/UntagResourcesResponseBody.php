@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Tag\V20180828\Models\UntagResourcesResponseBody\failedResources;
-use AlibabaCloud\Tea\Model;
 
 class UntagResourcesResponseBody extends Model
 {
     /**
-     * @description The information about the resources from which tags fail to be removed.
-     *
-     * >
-     *
-     *   If tags are removed from all resources, the value of FailedResources is empty.
-     *
-     *   If tags fail to be removed from some or all resources, the value of FailedResources contains the detailed information about the resources.
-     *
      * @var failedResources
      */
     public $failedResources;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 43D12436-B10F-4469-8136-FD1C5D2B2083
-     *
      * @var string
      */
     public $requestId;
@@ -37,14 +24,19 @@ class UntagResourcesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->failedResources) {
+            $this->failedResources->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedResources) {
-            $res['FailedResources'] = null !== $this->failedResources ? $this->failedResources->toMap() : null;
+            $res['FailedResources'] = null !== $this->failedResources ? $this->failedResources->toArray($noStream) : $this->failedResources;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,17 +44,18 @@ class UntagResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedResources'])) {
             $model->failedResources = failedResources::fromMap($map['FailedResources']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

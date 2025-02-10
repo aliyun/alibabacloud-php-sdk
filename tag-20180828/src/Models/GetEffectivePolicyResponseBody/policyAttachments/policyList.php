@@ -2,20 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Tag\V20180828\Models;
+namespace AlibabaCloud\SDK\Tag\V20180828\Models\GetEffectivePolicyResponseBody\policyAttachments;
 
 use AlibabaCloud\Dara\Model;
 
-class AttachPolicyRequest extends Model
+class policyList extends Model
 {
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     /**
      * @var int
      */
-    public $ownerId;
+    public $attachSeq;
+    /**
+     * @var string
+     */
+    public $attachTime;
     /**
      * @var string
      */
@@ -23,11 +23,7 @@ class AttachPolicyRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
+    public $policyName;
     /**
      * @var string
      */
@@ -37,13 +33,12 @@ class AttachPolicyRequest extends Model
      */
     public $targetType;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'policyId'             => 'PolicyId',
-        'regionId'             => 'RegionId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'targetId'             => 'TargetId',
-        'targetType'           => 'TargetType',
+        'attachSeq'  => 'AttachSeq',
+        'attachTime' => 'AttachTime',
+        'policyId'   => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'targetId'   => 'TargetId',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()
@@ -54,24 +49,20 @@ class AttachPolicyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->attachSeq) {
+            $res['AttachSeq'] = $this->attachSeq;
         }
 
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->attachTime) {
+            $res['AttachTime'] = $this->attachTime;
         }
 
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
 
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
         }
 
         if (null !== $this->targetId) {
@@ -93,24 +84,20 @@ class AttachPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['AttachSeq'])) {
+            $model->attachSeq = $map['AttachSeq'];
         }
 
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AttachTime'])) {
+            $model->attachTime = $map['AttachTime'];
         }
 
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
 
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
         }
 
         if (isset($map['TargetId'])) {

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models\TagResourcesResponseBody\failedResources\failedResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example InvalidResourceId.NotFound
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The error message.
-     *
-     * @example The specified ResourceIds are not found in our records.
-     *
      * @var string
      */
     public $message;
@@ -32,14 +23,16 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -47,17 +40,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

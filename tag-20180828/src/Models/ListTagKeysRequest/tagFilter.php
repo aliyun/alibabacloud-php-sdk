@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models\ListTagKeysRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagFilter extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * >  This parameter is available only in the China (Shenzhen) and China (Hong Kong) regions.
-     * @example team
-     *
      * @var string
      */
     public $key;
@@ -23,9 +18,10 @@ class tagFilter extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
@@ -35,11 +31,11 @@ class tagFilter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagFilter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

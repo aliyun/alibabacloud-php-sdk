@@ -4,50 +4,31 @@
 
 namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTagRequest extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * This parameter is required.
-     * @example Environment
-     *
      * @var string
      */
     public $key;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
-     * @description The tag value.
-     *
-     * @example test
-     *
      * @var string
      */
     public $value;
@@ -62,26 +43,32 @@ class DeleteTagRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -89,29 +76,34 @@ class DeleteTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
