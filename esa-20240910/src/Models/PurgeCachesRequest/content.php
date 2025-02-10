@@ -5,9 +5,14 @@
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesRequest\content\cacheKeys;
 
 class content extends Model
 {
+    /**
+     * @var cacheKeys[]
+     */
+    public $cacheKeys;
     /**
      * @var string[]
      */
@@ -33,6 +38,7 @@ class content extends Model
      */
     public $purgeAll;
     protected $_name = [
+        'cacheKeys'    => 'CacheKeys',
         'cacheTags'    => 'CacheTags',
         'directories'  => 'Directories',
         'files'        => 'Files',
@@ -43,6 +49,9 @@ class content extends Model
 
     public function validate()
     {
+        if (\is_array($this->cacheKeys)) {
+            Model::validateArray($this->cacheKeys);
+        }
         if (\is_array($this->cacheTags)) {
             Model::validateArray($this->cacheTags);
         }
@@ -64,6 +73,16 @@ class content extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cacheKeys) {
+            if (\is_array($this->cacheKeys)) {
+                $res['CacheKeys'] = [];
+                $n1               = 0;
+                foreach ($this->cacheKeys as $item1) {
+                    $res['CacheKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->cacheTags) {
             if (\is_array($this->cacheTags)) {
                 $res['CacheTags'] = [];
@@ -129,6 +148,16 @@ class content extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CacheKeys'])) {
+            if (!empty($map['CacheKeys'])) {
+                $model->cacheKeys = [];
+                $n1               = 0;
+                foreach ($map['CacheKeys'] as $item1) {
+                    $model->cacheKeys[$n1++] = cacheKeys::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['CacheTags'])) {
             if (!empty($map['CacheTags'])) {
                 $model->cacheTags = [];

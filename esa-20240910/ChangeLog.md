@@ -1,3 +1,13 @@
+2025-02-10 Version: 2.12.1
+- Update API CreateLoadBalancer: update param DefaultPools.
+- Update API CreateLoadBalancer: update param FallbackPool.
+- Update API CreateLoadBalancer: update param Monitor.
+- Update API CreateLoadBalancer: update param SteeringPolicy.
+- Update API DescribePurgeTasks: update param Type.
+- Update API GetPurgeQuota: update param Type.
+- Update API PurgeCaches: update param Content.
+
+
 2025-02-08 Version: 2.12.0
 - Support API CreateImageTransform.
 - Support API CreateNetworkOptimization.
